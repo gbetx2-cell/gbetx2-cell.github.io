@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G-BET Bot — Pronostics football analysés par machine, publiés avec discipline</title>
+<meta name="description" content="Analyses football automatisées 24/7 : compositions officielles vérifiées, cotes réelles multi-bookmakers, bilan public chaque jour. Aucun conseil forcé.">
+<!-- Aperçu riche quand le lien est partagé (Telegram, WhatsApp, réseaux sociaux) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="G-BET Bot — Des pronostics publiés seulement quand les données le méritent">
+<meta property="og:description" content="Compositions officielles vérifiées 22/22, cotes réelles multi-bookmakers, bilan public chaque jour. Si les critères ne passent pas, rien n'est publié.">
+<meta property="og:image" content="https://gbetx2-cell.github.io/assets/logo.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="G-BET Bot — Analyses football automatisées">
+<meta name="twitter:description" content="Compositions vérifiées, cotes réelles, bilan public quotidien. Aucun conseil forcé.">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706;
+  --bg-2:#0c0b09;
+  --card:#12110e;
+  --card-2:#1a1813;
+  --border:rgba(240,185,11,.14);
+  --border-strong:rgba(240,185,11,.32);
+  --text:#f2ede1;
+  --muted:#9c9481;
+  --gold:#f0b90b;
+  --gold-2:#f7ca3e;
+  --gold-dark:#b8860b;
+  --green:#22c55e;
+  --red:#ef4444;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.gold{color:var(--gold-2)}
+
+/* ── Header ─────────────────────────────── */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(7,7,6,.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.5px}
+.logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--gold);box-shadow:0 0 12px rgba(240,185,11,.35)}
+.logo .g{color:var(--gold-2)}
+.nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
+.nav-links a:hover{color:var(--gold-2)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:12px;
+  font-weight:700;font-size:.95rem;
+  transition:transform .15s ease, box-shadow .15s ease;
+  cursor:pointer;border:none;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  color:#141005;
+  box-shadow:0 4px 24px rgba(240,185,11,.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 34px rgba(240,185,11,.5)}
+.btn-ghost{border:1px solid var(--border-strong);color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn-sm{padding:9px 16px;font-size:.88rem}
+
+/* ── Hero ───────────────────────────────── */
+.hero{
+  position:relative;
+  padding:84px 0 64px;
+  background:
+    radial-gradient(ellipse 58% 48% at 72% 8%, rgba(240,185,11,.10), transparent),
+    radial-gradient(ellipse 40% 34% at 12% 18%, rgba(240,185,11,.05), transparent);
+}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:52px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px;border-radius:99px;
+  background:rgba(240,185,11,.09);
+  border:1px solid var(--border-strong);
+  color:var(--gold-2);font-size:.82rem;font-weight:600;
+  margin-bottom:22px;
+}
+.badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.05rem,4.5vw,3.3rem);font-weight:800;margin-bottom:20px}
+.hero h1 .hl{
+  background:linear-gradient(120deg,var(--gold-dark),var(--gold-2),var(--gold-dark));
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shine 5s linear infinite;
+}
+@keyframes shine{to{background-position:200% center}}
+.hero p.lead{color:var(--muted);font-size:1.1rem;max-width:520px;margin-bottom:30px}
+.hero p.lead strong{color:var(--text)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+.hero-note{color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:8px}
+.check{color:var(--gold-2)}
+
+/* ── Jeton qui tourne ───────────────────── */
+.coin-zone{display:flex;flex-direction:column;align-items:center;gap:28px}
+.coin-wrap{perspective:1100px}
+.coin{
+  width:250px;height:250px;position:relative;
+  transform-style:preserve-3d;
+  animation:coinspin 7s linear infinite;
+}
+.coin-wrap:hover .coin{animation-duration:1.6s}
+@keyframes coinspin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+.coin .face{
+  position:absolute;inset:0;border-radius:50%;
+  backface-visibility:hidden;
+  overflow:hidden;
+  border:5px solid var(--gold);
+  box-shadow:0 0 46px rgba(240,185,11,.35), inset 0 0 26px rgba(0,0,0,.55);
+}
+.coin .face img{width:100%;height:100%;object-fit:cover;display:block}
+.coin .face.back{
+  transform:rotateY(180deg);
+  background:radial-gradient(circle at 50% 38%, #23200f, #0c0b06 72%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+}
+.coin .face.back .mono{
+  font-family:'Sora';font-weight:800;font-size:4.2rem;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.coin .face.back .sub{color:var(--gold-2);font-size:.72rem;letter-spacing:4px;font-weight:600}
+.coin .edge{
+  position:absolute;inset:0;border-radius:50%;
+  transform:translateZ(-3px);
+  background:var(--gold-dark);
+}
+.coin-caption{color:var(--muted);font-size:.82rem;text-align:center}
+
+/* ── Ticker ligues ──────────────────────── */
+.ticker{
+  border-block:1px solid var(--border);
+  background:var(--bg-2);
+  overflow:hidden;white-space:nowrap;
+  padding:13px 0;
+  position:relative;
+}
+.ticker-inner{display:inline-block;animation:ticker 38s linear infinite}
+.ticker:hover .ticker-inner{animation-play-state:paused}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker span{
+  display:inline-flex;align-items:center;gap:8px;
+  margin:0 26px;color:var(--muted);font-size:.88rem;font-weight:500;
+}
+.ticker b{color:var(--gold-2);font-weight:700}
+
+/* ── Stats strip ────────────────────────── */
+.stats{border-bottom:1px solid var(--border);background:var(--bg-2)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:34px 20px;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat .n{font-family:'Sora';font-weight:800;font-size:2.15rem;color:var(--gold-2)}
+.stat .l{color:var(--muted);font-size:.85rem;margin-top:4px}
+
+/* ── Compteurs live ─────────────────────── */
+.live-strip{background:var(--bg);padding:56px 0 8px}
+.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.live-card{
+  background:linear-gradient(160deg,var(--card-2),var(--card));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:26px 30px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.live-card .lc-label{color:var(--muted);font-size:.86rem;margin-bottom:4px}
+.live-card .lc-title{font-family:'Sora';font-weight:700;font-size:1.06rem}
+.live-card .timer{
+  font-family:'Sora';font-weight:800;font-size:2rem;
+  color:var(--gold-2);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 22px rgba(240,185,11,.35);
+}
+.live-card .timer small{font-size:.85rem;color:var(--muted);font-weight:600}
+
+/* ── Graphique bankroll ─────────────────── */
+.chart-sec{padding-top:56px}
+.chart-card{
+  background:linear-gradient(170deg,var(--card-2),var(--card));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:34px;
+}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:20px}
+.chart-head h3{font-size:1.2rem}
+.chart-head .delta{
+  font-family:'Sora';font-weight:800;font-size:1.5rem;
+}
+.chart-head .delta.up{color:var(--green)}
+.chart-head .delta.down{color:var(--red)}
+.chart-head .delta small{display:block;font-family:'Inter';font-weight:500;font-size:.78rem;color:var(--muted)}
+#bkChart{width:100%;height:auto;display:block}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:22px;align-items:center}
+.chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px}
+.chip{
+  width:30px;height:30px;border-radius:8px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.75rem;font-family:'Sora';
+  opacity:0;transform:scale(.4);
+}
+.chip.visible{animation:chipin .35s ease forwards}
+@keyframes chipin{to{opacity:1;transform:scale(1)}}
+.chip.g{background:rgba(34,197,94,.16);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.chip.p{background:rgba(239,68,68,.13);color:var(--red);border:1px solid rgba(239,68,68,.35)}
+.chip.r{background:rgba(156,148,129,.12);color:var(--muted);border:1px solid rgba(156,148,129,.3)}
+.chart-note{color:var(--muted);font-size:.8rem;margin-top:18px}
+
+/* ── Sections ───────────────────────────── */
+section{padding:84px 0}
+.sec-tag{color:var(--gold-2);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.sec-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;margin-bottom:16px}
+.sec-sub{color:var(--muted);max-width:640px;margin-bottom:48px}
+
+/* Method cards */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:30px;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--border-strong);box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.card .ic{
+  width:46px;height:46px;border-radius:12px;
+  background:rgba(240,185,11,.1);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:18px;
+}
+.card h3{font-size:1.12rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.93rem}
+
+/* Telegram mockup */
+.phone{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:18px;
+  box-shadow:0 24px 80px rgba(0,0,0,.55);
+  max-width:400px;margin:0 auto;
+}
+.phone-head{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border);margin-bottom:14px}
+.phone-avatar{width:40px;height:40px;border-radius:50%;overflow:hidden;border:2px solid var(--gold)}
+.phone-avatar img{width:100%;height:100%;object-fit:cover}
+.phone-title{font-weight:700;font-size:.95rem}
+.phone-sub{color:var(--muted);font-size:.78rem}
+.msg{
+  background:var(--card-2);
+  border:1px solid var(--border);
+  border-radius:14px;padding:16px;
+  font-size:.86rem;
+}
+.msg .m-league{color:var(--gold-2);font-weight:700;font-size:.8rem;margin-bottom:6px}
+.msg .m-match{font-family:'Sora';font-weight:700;font-size:1.02rem;margin-bottom:12px}
+.msg .m-row{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid rgba(240,185,11,.08)}
+.msg .m-label{color:var(--muted)}
+.msg .m-val{font-weight:600}
+.msg .m-val.gold{color:var(--gold-2)}
+.msg .m-foot{margin-top:12px;padding-top:10px;border-top:1px solid rgba(240,185,11,.08);color:var(--muted);font-size:.76rem;display:flex;align-items:center;gap:6px}
+
+/* Timeline */
+.timeline{position:relative;max-width:720px;margin:0 auto}
+.timeline::before{
+  content:'';position:absolute;left:19px;top:8px;bottom:8px;
+  width:2px;background:linear-gradient(180deg,var(--gold),rgba(240,185,11,.04));
+}
+.t-step{position:relative;padding:0 0 36px 60px}
+.t-step:last-child{padding-bottom:0}
+.t-dot{
+  position:absolute;left:8px;top:2px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;color:var(--gold-2);font-weight:700;
+}
+.t-step.final .t-dot{background:var(--gold);color:#141005}
+.t-time{color:var(--gold-2);font-weight:700;font-family:'Sora';font-size:.88rem;margin-bottom:4px}
+.t-step h3{font-size:1.05rem;margin-bottom:6px}
+.t-step p{color:var(--muted);font-size:.92rem;max-width:540px}
+.t-step.refus .t-time{color:var(--red)}
+.t-step.refus .t-dot{border-color:var(--red);color:var(--red)}
+
+/* Transparence */
+.transp{background:var(--bg-2);border-block:1px solid var(--border)}
+.transp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;
+}
+.t-card .big{font-family:'Sora';font-weight:800;font-size:1.35rem;margin-bottom:8px}
+.t-card p{color:var(--muted);font-size:.9rem}
+.t-card .ok{color:var(--gold-2)}
+.t-card .ko{color:var(--red)}
+
+/* FAQ */
+.faq-item{
+  border:1px solid var(--border);border-radius:14px;
+  margin-bottom:12px;background:var(--card);
+  overflow:hidden;
+}
+.faq-item summary{
+  padding:20px 24px;cursor:pointer;font-weight:600;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;
+  font-size:.98rem;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';color:var(--gold-2);font-size:1.3rem;font-weight:400}
+.faq-item[open] summary::after{content:'−'}
+.faq-item .a{padding:0 24px 20px;color:var(--muted);font-size:.93rem}
+
+/* CTA final */
+.cta-final{
+  text-align:center;
+  background:radial-gradient(ellipse 50% 62% at 50% 100%, rgba(240,185,11,.13), transparent);
+}
+.cta-final .coin-mini{
+  width:92px;height:92px;border-radius:50%;overflow:hidden;
+  border:3px solid var(--gold);margin:0 auto 26px;
+  box-shadow:0 0 34px rgba(240,185,11,.4);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.cta-final .coin-mini img{width:100%;height:100%;object-fit:cover}
+.cta-final h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;margin-bottom:16px}
+.cta-final p{color:var(--muted);max-width:520px;margin:0 auto 32px}
+
+/* Bouton Telegram flottant */
+.fab{
+  position:fixed;right:22px;bottom:22px;z-index:60;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  box-shadow:0 8px 30px rgba(240,185,11,.45);
+  transition:transform .15s ease;
+}
+.fab:hover{transform:scale(1.1)}
+.fab::after{
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid rgba(240,185,11,.4);
+  animation:fabpulse 2.2s ease-out infinite;
+}
+@keyframes fabpulse{from{transform:scale(.8);opacity:1}to{transform:scale(1.35);opacity:0}}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
+.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.foot-brand{max-width:300px}
+.foot-brand p{color:var(--muted);font-size:.85rem;margin-top:10px}
+.legal{
+  border-top:1px solid var(--border);padding-top:24px;
+  color:var(--muted);font-size:.78rem;line-height:1.7;
+}
+.legal strong{color:#d8d0bd}
+.age{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:50%;
+  border:2px solid var(--red);color:var(--red);
+  font-weight:800;font-size:.8rem;margin-right:12px;flex-shrink:0;
+}
+.legal-flex{display:flex;align-items:flex-start;gap:4px}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── Responsive ─────────────────────────── */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .coin{width:210px;height:210px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--border)}
+  .cards{grid-template-columns:1fr}
+  .transp-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .live-grid{grid-template-columns:1fr}
+  .chart-card{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="assets/logo.jpg" alt="G-BET Bot">
+      <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+    </div>
+    <nav class="nav-links">
+      <a href="#resultats">Résultats</a>
+      <a href="#methode">Méthode</a>
+      <a href="#coulisses">Coulisses</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
+  </div>
+</header>
+
+<!-- ── HERO ─────────────────────────────── -->
+<div class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge"><span class="pulse"></span> Bot actif — analyses en continu, 7j/7</div>
+      <h1>Des pronostics publiés <span class="hl">seulement quand les données le méritent.</span></h1>
+      <p class="lead">
+        G-BET Bot est une machine d'analyse football qui travaille 24h/24 :
+        compositions officielles vérifiées joueur par joueur, cotes réelles
+        multi-bookmakers, et une règle simple — si les critères ne passent pas,
+        <strong>rien n'est publié</strong>.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">📲 Recevoir les analyses sur Telegram</a>
+        <a class="btn btn-ghost" href="#resultats">Voir les résultats</a>
+      </div>
+      <div class="hero-note">
+        <span class="check">✔</span> Bilan publié chaque jour sur le canal — gains <em>et</em> pertes.
+      </div>
+    </div>
+
+    <div class="coin-zone reveal">
+      <div class="coin-wrap">
+        <div class="coin">
+          <div class="face front"><img src="assets/logo.jpg" alt="G-BET Bot — le jeton"></div>
+          <div class="face back">
+            <div class="mono">G</div>
+            <div class="sub">DISCIPLINE</div>
+          </div>
+          <div class="edge"></div>
+        </div>
+      </div>
+      <div class="coin-caption">Survolez le jeton — il accélère.<br>Comme le bot à T-15.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TICKER LIGUES ────────────────────── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner" id="tickerInner">
+    <span>🏴󠁧󠁢󠁥󠁮󠁧󠁿 <b>Premier League</b></span><span>🇪🇸 <b>La Liga</b></span><span>🇮🇹 <b>Serie A</b></span><span>🇩🇪 <b>Bundesliga</b></span><span>🇫🇷 <b>Ligue 1</b></span><span>🇪🇺 <b>Champions League</b></span><span>🇧🇷 <b>Brasileirão</b></span><span>🇦🇷 <b>Liga Profesional</b></span><span>🇺🇸 <b>MLS</b></span><span>🇸🇦 <b>Saudi Pro League</b></span><span>🇯🇵 <b>J1 League</b></span><span>🇲🇽 <b>Liga MX</b></span><span>🇳🇱 <b>Eredivisie</b></span><span>🇵🇹 <b>Primeira Liga</b></span><span>🇹🇷 <b>Süper Lig</b></span><span>+ 98 autres ligues vérifiées</span>
+  </div>
+</div>
+
+<!-- ── STATS ────────────────────────────── -->
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal"><div class="n" data-count="113">0</div><div class="l">ligues couvertes, vérifiées une par une</div></div>
+    <div class="stat reveal"><div class="n"><span data-count="22">0</span>/22</div><div class="l">titulaires confirmés avant chaque publication</div></div>
+    <div class="stat reveal"><div class="n" data-count="2">0</div><div class="l">sources croisées pour chaque composition</div></div>
+    <div class="stat reveal"><div class="n" data-count="0">0</div><div class="l">conseil forcé — jamais de pari « pour publier »</div></div>
+  </div>
+</div>
+
+<!-- ── COMPTEURS LIVE ───────────────────── -->
+<div class="live-strip">
+  <div class="container live-grid">
+    <div class="live-card reveal">
+      <div>
+        <div class="lc-label">⚙️ Moteur d'analyse</div>
+        <div class="lc-title">Prochain scan des matchs</div>
+      </div>
+      <div class="timer" id="scanTimer">--:--</div>
+    </div>
+    <div class="live-card reveal">
+      <div>
+        <div class="lc-label">📋 Programme du jour</div>
+        <div class="lc-title">Prochaine publication du programme</div>
+      </div>
+      <div class="timer" id="progTimer">--:--:--</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GRAPHIQUE RÉSULTATS ──────────────── -->
+<section id="resultats" class="chart-sec">
+  <div class="container">
+    <div class="sec-tag">Résultats</div>
+    <h2 class="sec-title">La discipline, ça se <span class="gold">voit sur la courbe.</span></h2>
+    <p class="sec-sub">
+      Évolution en unités des derniers conseils réglés (1 unité misée par conseil,
+      aux cotes réelles publiées). Le bilan détaillé de chaque journée est publié
+      sur le canal — l'historique fait foi.
+    </p>
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div>
+          <h3>Courbe des unités — derniers conseils</h3>
+        </div>
+        <div class="delta" id="chartDelta">—</div>
+      </div>
+      <svg id="bkChart" viewBox="0 0 800 300" preserveAspectRatio="none" role="img" aria-label="Courbe d'évolution des unités"></svg>
+      <div class="chips" id="chipsRow">
+        <span class="c-label">Derniers conseils :</span>
+      </div>
+      <div class="chart-note">
+        G = gagné · P = perdu · R = remboursé — mise à jour à chaque bilan quotidien.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MÉTHODE ──────────────────────────── -->
+<section id="methode">
+  <div class="container">
+    <div class="sec-tag">La méthode</div>
+    <h2 class="sec-title">Une discipline de machine,<br>pas des intuitions.</h2>
+    <p class="sec-sub">
+      Chaque match passe par le même pipeline automatisé. Aucune exception,
+      aucune émotion, aucun « feeling du jour ».
+    </p>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ic">🛰️</div>
+        <h3>Données professionnelles en direct</h3>
+        <p>Flux de données utilisé par les professionnels du secteur : compositions
+        officielles, blessures, suspensions, forme récente, historique
+        face-à-face — croisés avec une seconde source indépendante pour
+        confirmer chaque composition.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic">💰</div>
+        <h3>Cotes réelles, jamais estimées</h3>
+        <p>Chaque cote affichée est la médiane de plusieurs bookmakers au moment
+        de la publication. Aucune cote « théorique », aucune probabilité inventée :
+        si le marché n'existe pas, le pick n'existe pas.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic">🚫</div>
+        <h3>Le droit de ne rien publier</h3>
+        <p>Si les compositions n'arrivent pas, si la confiance est trop basse, ou si
+        la cote tombe dans une zone historiquement perdante — le match est
+        abandonné. Un canal qui publie 10 paris par jour « pour le volume »
+        vous fait perdre de l'argent.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic">📊</div>
+        <h3>Mises calibrées par l'historique</h3>
+        <p>Chaque marché et chaque tranche de cote sont audités en continu sur
+        l'historique réel des paris réglés. Les zones rentables reçoivent des mises
+        renforcées, les zones perdantes sont exclues du système.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CE QUE VOUS RECEVEZ ──────────────── -->
+<section style="padding-top:20px">
+  <div class="container">
+    <div class="sec-tag">Sur le canal</div>
+    <h2 class="sec-title">Ce que vous recevez, <span class="gold">15 min avant le coup d'envoi.</span></h2>
+    <p class="sec-sub">Chaque publication arrive compositions confirmées, avec le conseil, le value bet et le pick buteur.</p>
+    <div class="phone reveal">
+      <div class="phone-head">
+        <div class="phone-avatar"><img src="assets/logo.jpg" alt=""></div>
+        <div>
+          <div class="phone-title">G-BET Bot ⚡</div>
+          <div class="phone-sub">canal · publication T-15</div>
+        </div>
+      </div>
+      <div class="msg">
+        <div class="m-league">🏴󠁧󠁢󠁥󠁮󠁧󠁿 PREMIER LEAGUE</div>
+        <div class="m-match">Arsenal vs Liverpool</div>
+        <div class="m-row"><span class="m-label">🎯 Conseil du match</span><span class="m-val gold">Arsenal ou Nul</span></div>
+        <div class="m-row"><span class="m-label">📈 Value bet</span><span class="m-val">Plus de 1.5 buts</span></div>
+        <div class="m-row"><span class="m-label">⚽ Pick buteur</span><span class="m-val">Saka buteur</span></div>
+        <div class="m-foot"><span class="check">✔</span> Compositions officielles confirmées — 22/22 titulaires vérifiés</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COULISSES / TIMELINE ─────────────── -->
+<section id="coulisses" style="padding-top:40px">
+  <div class="container">
+    <div class="sec-tag">Les coulisses</div>
+    <h2 class="sec-title">Ce qui se passe avant chaque publication</h2>
+    <p class="sec-sub">Le compte à rebours d'un match couvert, minute par minute.</p>
+    <div class="timeline">
+      <div class="t-step reveal">
+        <div class="t-dot">1</div>
+        <div class="t-time">T-75 min</div>
+        <h3>Analyse silencieuse</h3>
+        <p>Le bot analyse le match en profondeur : statistiques, forme, blessures,
+        prédictions, cotes de tous les marchés. Le résultat est mis en cache — rien
+        n'est encore publié.</p>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-dot">2</div>
+        <div class="t-time">T-60 → T-30</div>
+        <h3>Chasse aux compositions</h3>
+        <p>Toutes les 5 minutes, le bot surveille la sortie des compositions
+        officielles sur deux sources indépendantes, et rapproche chaque nom
+        du registre officiel des effectifs.</p>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-dot">3</div>
+        <div class="t-time">T-30</div>
+        <h3>Re-analyse avec les onze de départ</h3>
+        <p>Dès que les compositions tombent, tout est recalculé : impact des
+        absents, buteurs titulaires, formation tactique. Le conseil initial peut
+        être ajusté — ou invalidé.</p>
+      </div>
+      <div class="t-step final reveal">
+        <div class="t-dot">✔</div>
+        <div class="t-time">T-15 — publication</div>
+        <h3>22 titulaires confirmés, sinon rien</h3>
+        <p>La publication ne part que si les 22 joueurs de départ sont confirmés
+        et si tous les seuils de confiance sont atteints. C'est la règle la plus
+        stricte du système — et la raison pour laquelle certains matchs
+        n'apparaissent jamais sur le canal.</p>
+      </div>
+      <div class="t-step refus reveal">
+        <div class="t-dot">✕</div>
+        <div class="t-time">Et sinon ?</div>
+        <h3>Le match est abandonné</h3>
+        <p>Pas de compositions ? Confiance insuffisante ? Cote dans une zone
+        perdante ? Le match n'est pas publié. Aucun repli, aucun « pick de
+        secours ». Votre bankroll vaut mieux que notre volume de publication.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRANSPARENCE ─────────────────────── -->
+<section id="transparence" class="transp">
+  <div class="container">
+    <div class="sec-tag">Transparence</div>
+    <h2 class="sec-title">On assume tout, y compris les défaites.</h2>
+    <p class="sec-sub">
+      La plupart des canaux effacent leurs pertes. Ici, le bilan est généré
+      automatiquement par la machine — impossible à maquiller.
+    </p>
+    <div class="transp-grid">
+      <div class="t-card reveal">
+        <div class="big">Bilan <span class="ok">quotidien</span></div>
+        <p>Chaque jour, le canal publie le récapitulatif complet de la veille :
+        paris gagnés, perdus et remboursés, avec les cotes réelles de chaque pick.</p>
+      </div>
+      <div class="t-card reveal">
+        <div class="big">Résultats <span class="ok">vérifiés machine</span></div>
+        <p>Le règlement des paris est automatique, depuis les résultats officiels.
+        Aucune intervention manuelle entre le coup de sifflet final et le bilan.</p>
+      </div>
+      <div class="t-card reveal">
+        <div class="big">Zéro <span class="ko">réécriture</span></div>
+        <p>Un pari publié reste publié. Les messages ne sont ni supprimés ni
+        modifiés après le coup d'envoi — l'historique du canal fait foi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────── -->
+<section id="faq">
+  <div class="container" style="max-width:760px">
+    <div class="sec-tag">FAQ</div>
+    <h2 class="sec-title">Questions fréquentes</h2>
+    <div style="margin-top:36px">
+      <details class="faq-item reveal">
+        <summary>Combien de pronostics par jour ?</summary>
+        <div class="a">Ça dépend des matchs qui passent les critères — certains jours 5+,
+        d'autres jours zéro. C'est voulu : le volume n'est jamais un objectif.
+        Un jour sans publication est un jour où les données ne méritaient pas votre argent.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Vous gagnez à tous les coups ?</summary>
+        <div class="a">Non, et méfiez-vous de quiconque le prétend. Il y a des défaites, elles
+        sont publiées dans le bilan comme le reste. L'objectif est un avantage statistique
+        sur la durée : des critères stricts, des zones de cote perdantes exclues, et des
+        mises calibrées sur l'historique réel.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Quelles compétitions sont couvertes ?</summary>
+        <div class="a">113 ligues vérifiées une par une : les grands championnats européens
+        (analyse complète avec picks buteur/passeur), et une sélection mondiale de
+        championnats où les données officielles — compositions, statistiques joueurs,
+        cotes réelles — sont fiables. Chaque ligue de la liste a été auditée sur ses
+        données réelles avant d'être intégrée.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Pourquoi certains gros matchs n'apparaissent pas ?</summary>
+        <div class="a">Parce qu'ils ont échoué à un critère : compositions arrivées trop tard,
+        confiance sous le seuil, ou cote dans une bande historiquement perdante.
+        Le bot préfère rater un match que publier un pari bancal.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>C'est quoi exactement, un « pick buteur » ?</summary>
+        <div class="a">Un joueur identifié comme susceptible de marquer ou de délivrer une
+        passe décisive, choisi parmi les 22 titulaires confirmés — jamais un remplaçant
+        supposé. Le choix croise la cote réelle du marché buteur, les statistiques de la
+        saison et la forme des 3 derniers matchs.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ────────────────────────── -->
+<section class="cta-final">
+  <div class="container">
+    <div class="coin-mini"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
+    <h2>Laissez la machine filtrer.<br>Gardez votre bankroll pour les bons matchs.</h2>
+    <p>Les analyses tombent directement sur Telegram, 15 minutes avant le coup d'envoi,
+    compositions confirmées.</p>
+    <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">📲 Rejoindre le canal Telegram</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ───────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <img src="assets/logo.jpg" alt="">
+          <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+        </div>
+        <p>Analyses football automatisées. Données officielles, cotes réelles,
+        bilan public quotidien.</p>
+      </div>
+      <nav class="nav-links" style="display:flex;flex-direction:column;gap:10px">
+        <a href="#resultats">Résultats</a>
+        <a href="#methode">Méthode</a>
+        <a href="#coulisses">Coulisses</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+    <div class="legal">
+      <div class="legal-flex">
+        <span class="age">18+</span>
+        <div>
+          <strong>Jouer comporte des risques : endettement, isolement, dépendance.</strong>
+          Les jeux d'argent et de hasard sont interdits aux mineurs. G-BET Bot fournit des
+          analyses statistiques à titre informatif — aucun gain n'est garanti et les
+          performances passées ne préjugent pas des résultats futurs. Ne pariez que ce que
+          vous pouvez vous permettre de perdre.
+          Pour être aidé, appelez le <strong>09&nbsp;74&nbsp;75&nbsp;13&nbsp;13</strong>
+          (appel non surtaxé) ou consultez
+          <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener" style="text-decoration:underline">joueurs-info-service.fr</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener" aria-label="Rejoindre le canal Telegram">✈️</a>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   RÉSULTATS DES DERNIERS CONSEILS — À METTRE À JOUR À CHAQUE BILAN
+   r: "G" (gagné), "P" (perdu), "R" (remboursé)
+   cote: la cote réelle publiée (utilisée pour le calcul des unités)
+   Le graphique et les pastilles se génèrent automatiquement.
+   ════════════════════════════════════════════════════════════════ */
+const RESULTATS = [
+  {r:"G", cote:1.85}, {r:"G", cote:1.72}, {r:"P", cote:2.10}, {r:"G", cote:1.95},
+  {r:"G", cote:1.68}, {r:"P", cote:1.90}, {r:"G", cote:2.05}, {r:"R", cote:1.80},
+  {r:"G", cote:1.75}, {r:"P", cote:2.20}, {r:"G", cote:1.88}, {r:"G", cote:1.70},
+  {r:"P", cote:1.85}, {r:"G", cote:2.15}, {r:"G", cote:1.78}, {r:"P", cote:1.95},
+  {r:"G", cote:1.82}, {r:"G", cote:1.90}, {r:"R", cote:2.00}, {r:"G", cote:1.74},
+];
+
+/* ── Courbe des unités ── */
+(function(){
+  const svg = document.getElementById('bkChart');
+  const W = 800, H = 300, PAD = 30;
+  let units = 0;
+  const points = [{x:0, y:0}];
+  RESULTATS.forEach((res,i)=>{
+    if(res.r === "G") units += (res.cote - 1);
+    else if(res.r === "P") units -= 1;
+    points.push({x:i+1, y:units});
+  });
+  const ys = points.map(p=>p.y);
+  const yMin = Math.min(...ys, 0), yMax = Math.max(...ys, 1);
+  const xs = i => PAD + (i/(points.length-1))*(W-2*PAD);
+  const ysc = v => H-PAD - ((v-yMin)/(yMax-yMin))*(H-2*PAD);
+
+  const line = points.map((p,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(p.y).toFixed(1)}`).join(' ');
+  const area = line + ` L${xs(points.length-1).toFixed(1)},${H-PAD} L${PAD},${H-PAD} Z`;
+  const zeroY = ysc(0);
+  const up = units >= 0;
+  const col = up ? '#22c55e' : '#ef4444';
+
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${col}" stop-opacity=".28"/>
+        <stop offset="1" stop-color="${col}" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <line x1="${PAD}" y1="${zeroY}" x2="${W-PAD}" y2="${zeroY}" stroke="rgba(156,148,129,.3)" stroke-dasharray="5 6"/>
+    <text x="${W-PAD}" y="${zeroY-8}" fill="rgba(156,148,129,.7)" font-size="12" text-anchor="end" font-family="Inter">0 u</text>
+    <path d="${area}" fill="url(#ag)"/>
+    <path id="bkLine" d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${xs(points.length-1)}" cy="${ysc(units)}" r="6" fill="${col}">
+      <animate attributeName="r" values="5;8;5" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  `;
+
+  // Animation de tracé au scroll
+  const path = svg.querySelector('#bkLine');
+  const len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+  path.style.strokeDashoffset = len;
+  new IntersectionObserver((e,o)=>{
+    if(e[0].isIntersecting){
+      path.style.transition = 'stroke-dashoffset 2.2s ease';
+      path.style.strokeDashoffset = '0';
+      o.disconnect();
+    }
+  },{threshold:.3}).observe(svg);
+
+  // Delta affiché
+  const d = document.getElementById('chartDelta');
+  d.classList.add(up ? 'up' : 'down');
+  d.innerHTML = `${up?'+':''}${units.toFixed(2)} u <small>sur les ${RESULTATS.length} derniers conseils</small>`;
+
+  // Pastilles G/P/R
+  const row = document.getElementById('chipsRow');
+  RESULTATS.forEach((res,i)=>{
+    const c = document.createElement('span');
+    c.className = `chip ${res.r.toLowerCase()}`;
+    c.textContent = res.r;
+    row.appendChild(c);
+  });
+  new IntersectionObserver((e,o)=>{
+    if(e[0].isIntersecting){
+      row.querySelectorAll('.chip').forEach((c,i)=>setTimeout(()=>c.classList.add('visible'), i*60));
+      o.disconnect();
+    }
+  },{threshold:.3}).observe(row);
+})();
+
+/* ── Compteurs animés (stats) ── */
+function countUp(el){
+  const target = parseInt(el.dataset.count,10);
+  const dur = 1400, t0 = performance.now();
+  (function tick(t){
+    const p = Math.min((t-t0)/dur, 1);
+    el.textContent = Math.round(target * (1-Math.pow(1-p,3)));
+    if(p<1) requestAnimationFrame(tick);
+  })(t0);
+}
+document.querySelectorAll('[data-count]').forEach(el=>{
+  new IntersectionObserver((e,o)=>{
+    if(e[0].isIntersecting){ countUp(el); o.disconnect(); }
+  },{threshold:.6}).observe(el);
+});
+
+/* ── Minuteurs live ── */
+function pad(n){ return String(n).padStart(2,'0'); }
+function tickTimers(){
+  const now = new Date();
+  // Prochain scan d'analyse : le moteur tourne toutes les 5 minutes
+  const secIntoCycle = (now.getMinutes()%5)*60 + now.getSeconds();
+  const scanLeft = 5*60 - secIntoCycle;
+  document.getElementById('scanTimer').textContent = `${pad(Math.floor(scanLeft/60))}:${pad(scanLeft%60)}`;
+
+  // Programme du jour : publié chaque matin à 08:00 (heure de Paris)
+  const parisNow = new Date(now.toLocaleString('en-US',{timeZone:'Europe/Paris'}));
+  const next8 = new Date(parisNow);
+  next8.setHours(8,0,0,0);
+  if(parisNow >= next8) next8.setDate(next8.getDate()+1);
+  let left = Math.floor((next8 - parisNow)/1000);
+  const h = Math.floor(left/3600); left %= 3600;
+  document.getElementById('progTimer').innerHTML =
+    `${pad(h)}:${pad(Math.floor(left/60))}:${pad(left%60)}`;
+}
+tickTimers();
+setInterval(tickTimers, 1000);
+
+/* ── Ticker : dupliquer le contenu pour la boucle infinie ── */
+const ti = document.getElementById('tickerInner');
+ti.innerHTML += ti.innerHTML;
+
+/* ── Apparition douce au scroll ── */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
