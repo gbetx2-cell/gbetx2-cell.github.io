@@ -49,7 +49,7 @@ a{color:inherit;text-decoration:none}
 .container{max-width:1120px;margin:0 auto;padding:0 24px}
 .gold{color:var(--gold-2)}
 
-/* ── Header ─────────────────────────────── */
+/* ── Header (avec le jeton qui tourne, en haut à gauche) ── */
 header{
   position:sticky;top:0;z-index:50;
   background:rgba(7,7,6,.85);
@@ -57,9 +57,32 @@ header{
   border-bottom:1px solid var(--border);
 }
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:11px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.5px}
-.logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--gold);box-shadow:0 0 12px rgba(240,185,11,.35)}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.5px}
 .logo .g{color:var(--gold-2)}
+.coin-sm-wrap{perspective:400px}
+.coin-sm{
+  width:42px;height:42px;position:relative;
+  transform-style:preserve-3d;
+  animation:coinspin 5s linear infinite;
+}
+.coin-sm .face{
+  position:absolute;inset:0;border-radius:50%;
+  backface-visibility:hidden;overflow:hidden;
+  border:2px solid var(--gold);
+  box-shadow:0 0 12px rgba(240,185,11,.4);
+}
+.coin-sm .face img{width:100%;height:100%;object-fit:cover;display:block}
+.coin-sm .face.back{
+  transform:rotateY(180deg);
+  background:radial-gradient(circle at 50% 38%, #23200f, #0c0b06 72%);
+  display:flex;align-items:center;justify-content:center;
+}
+.coin-sm .face.back span{
+  font-family:'Sora';font-weight:800;font-size:1.2rem;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+@keyframes coinspin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
 .nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
 .nav-links a:hover{color:var(--gold-2)}
 .btn{
@@ -108,45 +131,8 @@ header{
 @keyframes shine{to{background-position:200% center}}
 .hero p.lead{color:var(--muted);font-size:1.1rem;max-width:520px;margin-bottom:30px}
 .hero p.lead strong{color:var(--text)}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
-.hero-note{color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:8px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
 .check{color:var(--gold-2)}
-
-/* ── Jeton qui tourne ───────────────────── */
-.coin-zone{display:flex;flex-direction:column;align-items:center;gap:28px}
-.coin-wrap{perspective:1100px}
-.coin{
-  width:250px;height:250px;position:relative;
-  transform-style:preserve-3d;
-  animation:coinspin 7s linear infinite;
-}
-.coin-wrap:hover .coin{animation-duration:1.6s}
-@keyframes coinspin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
-.coin .face{
-  position:absolute;inset:0;border-radius:50%;
-  backface-visibility:hidden;
-  overflow:hidden;
-  border:5px solid var(--gold);
-  box-shadow:0 0 46px rgba(240,185,11,.35), inset 0 0 26px rgba(0,0,0,.55);
-}
-.coin .face img{width:100%;height:100%;object-fit:cover;display:block}
-.coin .face.back{
-  transform:rotateY(180deg);
-  background:radial-gradient(circle at 50% 38%, #23200f, #0c0b06 72%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
-}
-.coin .face.back .mono{
-  font-family:'Sora';font-weight:800;font-size:4.2rem;
-  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.coin .face.back .sub{color:var(--gold-2);font-size:.72rem;letter-spacing:4px;font-weight:600}
-.coin .edge{
-  position:absolute;inset:0;border-radius:50%;
-  transform:translateZ(-3px);
-  background:var(--gold-dark);
-}
-.coin-caption{color:var(--muted);font-size:.82rem;text-align:center}
 
 /* ── Ticker ligues ──────────────────────── */
 .ticker{
@@ -154,7 +140,6 @@ header{
   background:var(--bg-2);
   overflow:hidden;white-space:nowrap;
   padding:13px 0;
-  position:relative;
 }
 .ticker-inner{display:inline-block;animation:ticker 38s linear infinite}
 .ticker:hover .ticker-inner{animation-play-state:paused}
@@ -189,8 +174,8 @@ header{
   font-family:'Sora';font-weight:800;font-size:2rem;
   color:var(--gold-2);font-variant-numeric:tabular-nums;
   text-shadow:0 0 22px rgba(240,185,11,.35);
+  white-space:nowrap;
 }
-.live-card .timer small{font-size:.85rem;color:var(--muted);font-weight:600}
 
 /* ── Graphique bankroll ─────────────────── */
 .chart-sec{padding-top:56px}
@@ -202,26 +187,56 @@ header{
 }
 .chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:20px}
 .chart-head h3{font-size:1.2rem}
-.chart-head .delta{
-  font-family:'Sora';font-weight:800;font-size:1.5rem;
+.chart-toggle{display:inline-flex;border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;margin-top:8px}
+.chart-toggle button{
+  background:transparent;border:none;color:var(--muted);
+  padding:8px 18px;font-family:'Sora';font-weight:700;font-size:.85rem;
+  cursor:pointer;transition:all .15s;
 }
+.chart-toggle button.active{
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  color:#141005;
+}
+.chart-head .delta{font-family:'Sora';font-weight:800;font-size:1.5rem;text-align:right}
 .chart-head .delta.up{color:var(--green)}
 .chart-head .delta.down{color:var(--red)}
 .chart-head .delta small{display:block;font-family:'Inter';font-weight:500;font-size:.78rem;color:var(--muted)}
 #bkChart{width:100%;height:auto;display:block}
-.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:22px;align-items:center}
-.chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;align-items:center}
+.chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px;width:100%}
 .chip{
-  width:30px;height:30px;border-radius:8px;
-  display:inline-flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:.75rem;font-family:'Sora';
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 10px;border-radius:9px;
+  font-weight:800;font-size:.78rem;font-family:'Sora';
+  cursor:default;position:relative;
   opacity:0;transform:scale(.4);
 }
 .chip.visible{animation:chipin .35s ease forwards}
 @keyframes chipin{to{opacity:1;transform:scale(1)}}
-.chip.g{background:rgba(34,197,94,.16);color:var(--green);border:1px solid rgba(34,197,94,.4)}
-.chip.p{background:rgba(239,68,68,.13);color:var(--red);border:1px solid rgba(239,68,68,.35)}
+.chip.g{background:rgba(34,197,94,.14);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.chip.p{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.35)}
 .chip.r{background:rgba(156,148,129,.12);color:var(--muted);border:1px solid rgba(156,148,129,.3)}
+.chip .flag{font-size:1rem}
+/* Tooltip du chip : le pronostic donné */
+.chip .tip{
+  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) scale(.92);
+  background:#1e1b12;border:1px solid var(--border-strong);
+  border-radius:10px;padding:10px 14px;
+  font-family:'Inter';font-weight:500;font-size:.8rem;color:var(--text);
+  white-space:nowrap;pointer-events:none;
+  opacity:0;transition:opacity .15s ease,transform .15s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  z-index:10;
+}
+.chip .tip b{color:var(--gold-2);font-weight:700}
+.chip .tip .res-g{color:var(--green);font-weight:700}
+.chip .tip .res-p{color:var(--red);font-weight:700}
+.chip .tip .res-r{color:var(--muted);font-weight:700}
+.chip .tip::after{
+  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:var(--border-strong);
+}
+.chip:hover .tip{opacity:1;transform:translateX(-50%) scale(1)}
 .chart-note{color:var(--muted);font-size:.8rem;margin-top:18px}
 
 /* ── Sections ───────────────────────────── */
@@ -250,17 +265,19 @@ section{padding:84px 0}
 .card h3{font-size:1.12rem;margin-bottom:10px}
 .card p{color:var(--muted);font-size:.93rem}
 
-/* Telegram mockup */
+/* ── Publications (mockups Telegram) ────── */
 .phone{
   background:var(--card);
   border:1px solid var(--border);
   border-radius:26px;
   padding:18px;
   box-shadow:0 24px 80px rgba(0,0,0,.55);
-  max-width:400px;margin:0 auto;
+  max-width:400px;
+  position:relative;
 }
+.hero .phone{margin-left:auto}
 .phone-head{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border);margin-bottom:14px}
-.phone-avatar{width:40px;height:40px;border-radius:50%;overflow:hidden;border:2px solid var(--gold)}
+.phone-avatar{width:40px;height:40px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);flex-shrink:0}
 .phone-avatar img{width:100%;height:100%;object-fit:cover}
 .phone-title{font-weight:700;font-size:.95rem}
 .phone-sub{color:var(--muted);font-size:.78rem}
@@ -272,33 +289,50 @@ section{padding:84px 0}
 }
 .msg .m-league{color:var(--gold-2);font-weight:700;font-size:.8rem;margin-bottom:6px}
 .msg .m-match{font-family:'Sora';font-weight:700;font-size:1.02rem;margin-bottom:12px}
-.msg .m-row{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid rgba(240,185,11,.08)}
-.msg .m-label{color:var(--muted)}
-.msg .m-val{font-weight:600}
+.msg .m-row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid rgba(240,185,11,.08)}
+.msg .m-label{color:var(--muted);white-space:nowrap}
+.msg .m-val{font-weight:600;text-align:right}
 .msg .m-val.gold{color:var(--gold-2)}
+.msg .m-val .cote{color:var(--muted);font-weight:500;font-size:.8rem}
 .msg .m-foot{margin-top:12px;padding-top:10px;border-top:1px solid rgba(240,185,11,.08);color:var(--muted);font-size:.76rem;display:flex;align-items:center;gap:6px}
 
-/* Timeline */
-.timeline{position:relative;max-width:720px;margin:0 auto}
-.timeline::before{
-  content:'';position:absolute;left:19px;top:8px;bottom:8px;
-  width:2px;background:linear-gradient(180deg,var(--gold),rgba(240,185,11,.04));
+/* Fil des publications passées, avec tampon résultat */
+.pubs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pub-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:20px;
+  position:relative;
+  transition:transform .2s ease,border-color .2s ease;
 }
-.t-step{position:relative;padding:0 0 36px 60px}
-.t-step:last-child{padding-bottom:0}
-.t-dot{
-  position:absolute;left:8px;top:2px;
-  width:24px;height:24px;border-radius:50%;
-  background:var(--bg);border:2px solid var(--gold);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.65rem;color:var(--gold-2);font-weight:700;
+.pub-card:hover{transform:translateY(-5px);border-color:var(--border-strong)}
+.pub-card .msg{background:var(--card-2)}
+.stamp{
+  position:absolute;top:14px;right:14px;
+  transform:rotate(8deg);
+  font-family:'Sora';font-weight:800;font-size:.78rem;
+  letter-spacing:1.5px;
+  padding:7px 13px;border-radius:9px;
+  z-index:5;
 }
-.t-step.final .t-dot{background:var(--gold);color:#141005}
-.t-time{color:var(--gold-2);font-weight:700;font-family:'Sora';font-size:.88rem;margin-bottom:4px}
-.t-step h3{font-size:1.05rem;margin-bottom:6px}
-.t-step p{color:var(--muted);font-size:.92rem;max-width:540px}
-.t-step.refus .t-time{color:var(--red)}
-.t-step.refus .t-dot{border-color:var(--red);color:var(--red)}
+.stamp.win{
+  color:var(--green);border:2px solid var(--green);
+  background:rgba(34,197,94,.1);
+  box-shadow:0 0 18px rgba(34,197,94,.25);
+}
+.stamp.loss{
+  color:var(--red);border:2px solid var(--red);
+  background:rgba(239,68,68,.09);
+}
+.pub-result{
+  margin-top:12px;padding-top:11px;border-top:1px solid rgba(240,185,11,.1);
+  font-size:.82rem;font-weight:600;
+  display:flex;justify-content:space-between;
+}
+.pub-result .gain{color:var(--green)}
+.pub-result .perte{color:var(--red)}
+.pub-result .lab{color:var(--muted);font-weight:500}
 
 /* Transparence */
 .transp{background:var(--bg-2);border-block:1px solid var(--border)}
@@ -366,6 +400,7 @@ section{padding:84px 0}
 footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
 .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
 .foot-brand{max-width:300px}
+.foot-brand .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--gold)}
 .foot-brand p{color:var(--muted);font-size:.85rem;margin-top:10px}
 .legal{
   border-top:1px solid var(--border);padding-top:24px;
@@ -387,15 +422,17 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
 /* ── Responsive ─────────────────────────── */
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:44px}
-  .coin{width:210px;height:210px}
+  .hero .phone{margin:0 auto}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(2){border-right:none}
   .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--border)}
   .cards{grid-template-columns:1fr}
   .transp-grid{grid-template-columns:1fr}
+  .pubs-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   .live-grid{grid-template-columns:1fr}
   .chart-card{padding:22px}
+  .chip .tip{white-space:normal;width:220px}
 }
 </style>
 </head>
@@ -404,13 +441,18 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
 <header>
   <div class="container nav">
     <div class="logo">
-      <img src="assets/logo.jpg" alt="G-BET Bot">
+      <div class="coin-sm-wrap">
+        <div class="coin-sm">
+          <div class="face front"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
+          <div class="face back"><span>G</span></div>
+        </div>
+      </div>
       <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
     </div>
     <nav class="nav-links">
       <a href="#resultats">Résultats</a>
+      <a href="#publications">Publications</a>
       <a href="#methode">Méthode</a>
-      <a href="#coulisses">Coulisses</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-primary btn-sm" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
@@ -433,23 +475,24 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
         <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">📲 Recevoir les analyses sur Telegram</a>
         <a class="btn btn-ghost" href="#resultats">Voir les résultats</a>
       </div>
-      <div class="hero-note">
-        <span class="check">✔</span> Bilan publié chaque jour sur le canal — gains <em>et</em> pertes.
-      </div>
     </div>
 
-    <div class="coin-zone reveal">
-      <div class="coin-wrap">
-        <div class="coin">
-          <div class="face front"><img src="assets/logo.jpg" alt="G-BET Bot — le jeton"></div>
-          <div class="face back">
-            <div class="mono">G</div>
-            <div class="sub">DISCIPLINE</div>
-          </div>
-          <div class="edge"></div>
+    <div class="phone reveal">
+      <div class="phone-head">
+        <div class="phone-avatar"><img src="assets/logo.jpg" alt=""></div>
+        <div>
+          <div class="phone-title">G-BET Bot ⚡</div>
+          <div class="phone-sub">canal · publication T-30</div>
         </div>
       </div>
-      <div class="coin-caption">Survolez le jeton — il accélère.<br>Comme le bot à T-15.</div>
+      <div class="msg">
+        <div class="m-league">🏴󠁧󠁢󠁥󠁮󠁧󠁿 PREMIER LEAGUE</div>
+        <div class="m-match">Arsenal vs Liverpool</div>
+        <div class="m-row"><span class="m-label">🎯 Conseil du match</span><span class="m-val gold">Arsenal ou Nul</span></div>
+        <div class="m-row"><span class="m-label">📈 Value bet</span><span class="m-val">Plus de 1.5 buts</span></div>
+        <div class="m-row"><span class="m-label">⚽ Pick buteur</span><span class="m-val">Saka buteur</span></div>
+        <div class="m-foot"><span class="check">✔</span> Compositions officielles confirmées — 22/22 titulaires vérifiés</div>
+      </div>
     </div>
   </div>
 </div>
@@ -497,25 +540,80 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     <div class="sec-tag">Résultats</div>
     <h2 class="sec-title">La discipline, ça se <span class="gold">voit sur la courbe.</span></h2>
     <p class="sec-sub">
-      Évolution en unités des derniers conseils réglés (1 unité misée par conseil,
-      aux cotes réelles publiées). Le bilan détaillé de chaque journée est publié
-      sur le canal — l'historique fait foi.
+      Évolution des derniers conseils réglés, aux cotes réelles publiées.
+      Survolez chaque pastille pour revoir le pronostic exact qui avait été donné.
+      Le bilan détaillé de chaque journée est publié sur le canal — l'historique fait foi.
     </p>
     <div class="chart-card reveal">
       <div class="chart-head">
         <div>
-          <h3>Courbe des unités — derniers conseils</h3>
+          <h3>Courbe des derniers conseils</h3>
+          <div class="chart-toggle">
+            <button id="btnUnits" class="active">En unités</button>
+            <button id="btnEuros">En €</button>
+          </div>
         </div>
         <div class="delta" id="chartDelta">—</div>
       </div>
-      <svg id="bkChart" viewBox="0 0 800 300" preserveAspectRatio="none" role="img" aria-label="Courbe d'évolution des unités"></svg>
+      <svg id="bkChart" viewBox="0 0 800 300" preserveAspectRatio="none" role="img" aria-label="Courbe d'évolution des gains"></svg>
       <div class="chips" id="chipsRow">
-        <span class="c-label">Derniers conseils :</span>
+        <span class="c-label">Derniers conseils — survolez pour voir le pronostic donné :</span>
       </div>
       <div class="chart-note">
         G = gagné · P = perdu · R = remboursé — mise à jour à chaque bilan quotidien.
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── PUBLICATIONS ─────────────────────── -->
+<section id="publications" style="padding-top:40px">
+  <div class="container">
+    <div class="sec-tag">Publications</div>
+    <h2 class="sec-title">Chaque publication, <span class="gold">30 min avant le coup d'envoi.</span></h2>
+    <p class="sec-sub">
+      Le conseil, le value bet et le pick buteur arrivent compositions confirmées —
+      avec le temps qu'il faut pour placer sereinement. Et le résultat est assumé
+      publiquement, dans les deux sens.
+    </p>
+    <div class="pubs-grid">
+      <div class="pub-card reveal">
+        <div class="stamp win">✓ GAGNÉ</div>
+        <div class="msg">
+          <div class="m-league">🇮🇪 PREMIER DIVISION</div>
+          <div class="m-match">Shelbourne vs Dundalk</div>
+          <div class="m-row"><span class="m-label">🎯 Conseil</span><span class="m-val gold">Shelbourne ou Nul <span class="cote">@1.36</span></span></div>
+          <div class="m-row"><span class="m-label">📈 Value</span><span class="m-val">+1.5 buts <span class="cote">@1.44</span></span></div>
+          <div class="m-row"><span class="m-label">⚽ Buteur</span><span class="m-val">Boyd buteur <span class="cote">@3.10</span></span></div>
+        </div>
+        <div class="pub-result"><span class="lab">Résultat 2-0</span><span class="gain">+1.90 u</span></div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="stamp win">✓ GAGNÉ</div>
+        <div class="msg">
+          <div class="m-league">🇸🇪 ALLSVENSKAN</div>
+          <div class="m-match">Malmö FF vs Häcken</div>
+          <div class="m-row"><span class="m-label">🎯 Conseil</span><span class="m-val gold">Malmö gagne <span class="cote">@1.85</span></span></div>
+          <div class="m-row"><span class="m-label">📈 Value</span><span class="m-val">+2.5 buts <span class="cote">@1.92</span></span></div>
+          <div class="m-row"><span class="m-label">⚽ Buteur</span><span class="m-val">Christiansen buteur <span class="cote">@2.60</span></span></div>
+        </div>
+        <div class="pub-result"><span class="lab">Résultat 3-1</span><span class="gain">+2.37 u</span></div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="stamp loss">✗ PERDU</div>
+        <div class="msg">
+          <div class="m-league">🇳🇴 ELITESERIEN</div>
+          <div class="m-match">Bodø/Glimt vs Molde</div>
+          <div class="m-row"><span class="m-label">🎯 Conseil</span><span class="m-val gold">Bodø/Glimt gagne <span class="cote">@1.70</span></span></div>
+          <div class="m-row"><span class="m-label">📈 Value</span><span class="m-val">+2.5 buts <span class="cote">@1.65</span></span></div>
+          <div class="m-row"><span class="m-label">⚽ Buteur</span><span class="m-val">Høgh buteur <span class="cote">@2.85</span></span></div>
+        </div>
+        <div class="pub-result"><span class="lab">Résultat 1-1</span><span class="perte">−1.00 u</span></div>
+      </div>
+    </div>
+    <p class="chart-note" style="margin-top:20px">
+      Publications récentes du canal, résultat inclus — parce qu'un pronostic sans son résultat ne vaut rien.
+    </p>
   </div>
 </section>
 
@@ -558,84 +656,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
         <p>Chaque marché et chaque tranche de cote sont audités en continu sur
         l'historique réel des paris réglés. Les zones rentables reçoivent des mises
         renforcées, les zones perdantes sont exclues du système.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CE QUE VOUS RECEVEZ ──────────────── -->
-<section style="padding-top:20px">
-  <div class="container">
-    <div class="sec-tag">Sur le canal</div>
-    <h2 class="sec-title">Ce que vous recevez, <span class="gold">15 min avant le coup d'envoi.</span></h2>
-    <p class="sec-sub">Chaque publication arrive compositions confirmées, avec le conseil, le value bet et le pick buteur.</p>
-    <div class="phone reveal">
-      <div class="phone-head">
-        <div class="phone-avatar"><img src="assets/logo.jpg" alt=""></div>
-        <div>
-          <div class="phone-title">G-BET Bot ⚡</div>
-          <div class="phone-sub">canal · publication T-15</div>
-        </div>
-      </div>
-      <div class="msg">
-        <div class="m-league">🏴󠁧󠁢󠁥󠁮󠁧󠁿 PREMIER LEAGUE</div>
-        <div class="m-match">Arsenal vs Liverpool</div>
-        <div class="m-row"><span class="m-label">🎯 Conseil du match</span><span class="m-val gold">Arsenal ou Nul</span></div>
-        <div class="m-row"><span class="m-label">📈 Value bet</span><span class="m-val">Plus de 1.5 buts</span></div>
-        <div class="m-row"><span class="m-label">⚽ Pick buteur</span><span class="m-val">Saka buteur</span></div>
-        <div class="m-foot"><span class="check">✔</span> Compositions officielles confirmées — 22/22 titulaires vérifiés</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── COULISSES / TIMELINE ─────────────── -->
-<section id="coulisses" style="padding-top:40px">
-  <div class="container">
-    <div class="sec-tag">Les coulisses</div>
-    <h2 class="sec-title">Ce qui se passe avant chaque publication</h2>
-    <p class="sec-sub">Le compte à rebours d'un match couvert, minute par minute.</p>
-    <div class="timeline">
-      <div class="t-step reveal">
-        <div class="t-dot">1</div>
-        <div class="t-time">T-75 min</div>
-        <h3>Analyse silencieuse</h3>
-        <p>Le bot analyse le match en profondeur : statistiques, forme, blessures,
-        prédictions, cotes de tous les marchés. Le résultat est mis en cache — rien
-        n'est encore publié.</p>
-      </div>
-      <div class="t-step reveal">
-        <div class="t-dot">2</div>
-        <div class="t-time">T-60 → T-30</div>
-        <h3>Chasse aux compositions</h3>
-        <p>Toutes les 5 minutes, le bot surveille la sortie des compositions
-        officielles sur deux sources indépendantes, et rapproche chaque nom
-        du registre officiel des effectifs.</p>
-      </div>
-      <div class="t-step reveal">
-        <div class="t-dot">3</div>
-        <div class="t-time">T-30</div>
-        <h3>Re-analyse avec les onze de départ</h3>
-        <p>Dès que les compositions tombent, tout est recalculé : impact des
-        absents, buteurs titulaires, formation tactique. Le conseil initial peut
-        être ajusté — ou invalidé.</p>
-      </div>
-      <div class="t-step final reveal">
-        <div class="t-dot">✔</div>
-        <div class="t-time">T-15 — publication</div>
-        <h3>22 titulaires confirmés, sinon rien</h3>
-        <p>La publication ne part que si les 22 joueurs de départ sont confirmés
-        et si tous les seuils de confiance sont atteints. C'est la règle la plus
-        stricte du système — et la raison pour laquelle certains matchs
-        n'apparaissent jamais sur le canal.</p>
-      </div>
-      <div class="t-step refus reveal">
-        <div class="t-dot">✕</div>
-        <div class="t-time">Et sinon ?</div>
-        <h3>Le match est abandonné</h3>
-        <p>Pas de compositions ? Confiance insuffisante ? Cote dans une zone
-        perdante ? Le match n'est pas publié. Aucun repli, aucun « pick de
-        secours ». Votre bankroll vaut mieux que notre volume de publication.</p>
       </div>
     </div>
   </div>
@@ -719,7 +739,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   <div class="container">
     <div class="coin-mini"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
     <h2>Laissez la machine filtrer.<br>Gardez votre bankroll pour les bons matchs.</h2>
-    <p>Les analyses tombent directement sur Telegram, 15 minutes avant le coup d'envoi,
+    <p>Les analyses tombent directement sur Telegram, 30 minutes avant le coup d'envoi,
     compositions confirmées.</p>
     <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">📲 Rejoindre le canal Telegram</a>
   </div>
@@ -739,8 +759,8 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       </div>
       <nav class="nav-links" style="display:flex;flex-direction:column;gap:10px">
         <a href="#resultats">Résultats</a>
+        <a href="#publications">Publications</a>
         <a href="#methode">Méthode</a>
-        <a href="#coulisses">Coulisses</a>
         <a href="#faq">FAQ</a>
       </nav>
     </div>
@@ -767,39 +787,68 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
 <script>
 /* ════════════════════════════════════════════════════════════════
    RÉSULTATS DES DERNIERS CONSEILS — À METTRE À JOUR À CHAQUE BILAN
-   r: "G" (gagné), "P" (perdu), "R" (remboursé)
-   cote: la cote réelle publiée (utilisée pour le calcul des unités)
-   Le graphique et les pastilles se génèrent automatiquement.
+   flag  : drapeau de la ligue
+   match : les deux équipes
+   pick  : le pronostic exact qui avait été publié
+   cote  : la cote réelle publiée
+   r     : "G" (gagné), "P" (perdu), "R" (remboursé)
+   La courbe, le delta et les pastilles se régénèrent automatiquement.
    ════════════════════════════════════════════════════════════════ */
+const MISE_PAR_UNITE = 100; // 1 unité = 100 €
 const RESULTATS = [
-  {r:"G", cote:1.85}, {r:"G", cote:1.72}, {r:"P", cote:2.10}, {r:"G", cote:1.95},
-  {r:"G", cote:1.68}, {r:"P", cote:1.90}, {r:"G", cote:2.05}, {r:"R", cote:1.80},
-  {r:"G", cote:1.75}, {r:"P", cote:2.20}, {r:"G", cote:1.88}, {r:"G", cote:1.70},
-  {r:"P", cote:1.85}, {r:"G", cote:2.15}, {r:"G", cote:1.78}, {r:"P", cote:1.95},
-  {r:"G", cote:1.82}, {r:"G", cote:1.90}, {r:"R", cote:2.00}, {r:"G", cote:1.74},
+  {flag:"🇮🇪", match:"Shelbourne – Dundalk",        pick:"Shelbourne ou Nul",      cote:1.36, r:"G"},
+  {flag:"🇸🇪", match:"Malmö FF – Häcken",           pick:"Malmö gagne",            cote:1.85, r:"G"},
+  {flag:"🇳🇴", match:"Bodø/Glimt – Molde",          pick:"Bodø/Glimt gagne",       cote:1.70, r:"P"},
+  {flag:"🇫🇮", match:"HJK – KuPS",                  pick:"Moins de 3.5 buts",      cote:1.44, r:"G"},
+  {flag:"🇧🇷", match:"Flamengo – Palmeiras",        pick:"Double chance Flamengo", cote:1.52, r:"G"},
+  {flag:"🇺🇸", match:"Inter Miami – LA Galaxy",     pick:"Plus de 2.5 buts",       cote:1.78, r:"P"},
+  {flag:"🇪🇪", match:"Flora – Levadia",             pick:"Flora ou Nul",           cote:1.40, r:"G"},
+  {flag:"🇨🇳", match:"Shanghai Port – Chengdu",     pick:"Plus de 1.5 buts",       cote:1.30, r:"G"},
+  {flag:"🇦🇷", match:"River Plate – Boca Juniors",  pick:"Moins de 3.5 buts",      cote:1.38, r:"R"},
+  {flag:"🇲🇽", match:"Club América – Tigres",       pick:"América ou Nul",         cote:1.45, r:"G"},
+  {flag:"🇮🇸", match:"Víkingur – KR",               pick:"Víkingur gagne",         cote:1.90, r:"P"},
+  {flag:"🇧🇷", match:"Santos – Corinthians",        pick:"Moins de 2.5 buts",      cote:1.82, r:"G"},
+  {flag:"🇰🇷", match:"Ulsan – Jeonbuk",             pick:"Plus de 1.5 buts",       cote:1.35, r:"G"},
+  {flag:"🇯🇵", match:"Kawasaki – Urawa",            pick:"Double chance Kawasaki", cote:1.48, r:"G"},
+  {flag:"🇸🇦", match:"Al Hilal – Al Nassr",         pick:"Plus de 2.5 buts",       cote:1.66, r:"P"},
+  {flag:"🇮🇪", match:"Derry City – Waterford",      pick:"Derry City gagne",       cote:1.75, r:"G"},
+  {flag:"🇫🇮", match:"VPS – SJK",                   pick:"Plus de 2.5 buts",       cote:1.85, r:"G"},
+  {flag:"🇱🇹", match:"Žalgiris – Kauno Žalgiris",   pick:"Žalgiris ou Nul",        cote:1.33, r:"R"},
+  {flag:"🇬🇪", match:"Dinamo Tbilisi – Iberia",     pick:"Moins de 3.5 buts",      cote:1.42, r:"G"},
+  {flag:"🇺🇸", match:"LAFC – Seattle",              pick:"LAFC ou Nul",            cote:1.41, r:"G"},
 ];
 
-/* ── Courbe des unités ── */
-(function(){
-  const svg = document.getElementById('bkChart');
-  const W = 800, H = 300, PAD = 30;
+/* ── Courbe unités / € ── */
+const RES_LABEL = {G:"Gagné", P:"Perdu", R:"Remboursé"};
+let currentMode = "u"; // "u" = unités, "e" = euros
+
+function computeSeries(){
   let units = 0;
-  const points = [{x:0, y:0}];
-  RESULTATS.forEach((res,i)=>{
+  const pts = [{y:0}];
+  RESULTATS.forEach(res=>{
     if(res.r === "G") units += (res.cote - 1);
     else if(res.r === "P") units -= 1;
-    points.push({x:i+1, y:units});
+    pts.push({y:units});
   });
-  const ys = points.map(p=>p.y);
-  const yMin = Math.min(...ys, 0), yMax = Math.max(...ys, 1);
-  const xs = i => PAD + (i/(points.length-1))*(W-2*PAD);
-  const ysc = v => H-PAD - ((v-yMin)/(yMax-yMin))*(H-2*PAD);
+  return {pts, total: units};
+}
 
-  const line = points.map((p,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(p.y).toFixed(1)}`).join(' ');
-  const area = line + ` L${xs(points.length-1).toFixed(1)},${H-PAD} L${PAD},${H-PAD} Z`;
+function drawChart(){
+  const svg = document.getElementById('bkChart');
+  const W = 800, H = 300, PAD = 34;
+  const {pts, total} = computeSeries();
+  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
+  const ys = pts.map(p=>p.y*factor);
+  const yMin = Math.min(...ys, 0), yMax = Math.max(...ys, factor*0.5);
+  const xs = i => PAD + (i/(pts.length-1))*(W-2*PAD);
+  const ysc = v => H-PAD - ((v-yMin)/(yMax-yMin || 1))*(H-2*PAD);
+
+  const line = ys.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
+  const area = line + ` L${xs(ys.length-1).toFixed(1)},${H-PAD} L${PAD},${H-PAD} Z`;
   const zeroY = ysc(0);
-  const up = units >= 0;
+  const up = total >= 0;
   const col = up ? '#22c55e' : '#ef4444';
+  const unit = currentMode === "e" ? "€" : "u";
 
   svg.innerHTML = `
     <defs>
@@ -809,43 +858,73 @@ const RESULTATS = [
       </linearGradient>
     </defs>
     <line x1="${PAD}" y1="${zeroY}" x2="${W-PAD}" y2="${zeroY}" stroke="rgba(156,148,129,.3)" stroke-dasharray="5 6"/>
-    <text x="${W-PAD}" y="${zeroY-8}" fill="rgba(156,148,129,.7)" font-size="12" text-anchor="end" font-family="Inter">0 u</text>
+    <text x="${W-PAD}" y="${zeroY-8}" fill="rgba(156,148,129,.7)" font-size="12" text-anchor="end" font-family="Inter">0 ${unit}</text>
     <path d="${area}" fill="url(#ag)"/>
     <path id="bkLine" d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="${xs(points.length-1)}" cy="${ysc(units)}" r="6" fill="${col}">
+    <circle cx="${xs(ys.length-1)}" cy="${ysc(ys[ys.length-1])}" r="6" fill="${col}">
       <animate attributeName="r" values="5;8;5" dur="1.8s" repeatCount="indefinite"/>
     </circle>
   `;
 
-  // Animation de tracé au scroll
-  const path = svg.querySelector('#bkLine');
+  const d = document.getElementById('chartDelta');
+  d.classList.remove('up','down');
+  d.classList.add(up ? 'up' : 'down');
+  const totalDisplay = currentMode === "e"
+    ? `${up?'+':''}${(total*MISE_PAR_UNITE).toFixed(0)} €`
+    : `${up?'+':''}${total.toFixed(2)} u`;
+  d.innerHTML = `${totalDisplay} <small>sur les ${RESULTATS.length} derniers conseils · 1 u = ${MISE_PAR_UNITE} €</small>`;
+}
+
+function animateChartLine(){
+  const path = document.querySelector('#bkLine');
+  if(!path) return;
   const len = path.getTotalLength();
   path.style.strokeDasharray = len;
   path.style.strokeDashoffset = len;
-  new IntersectionObserver((e,o)=>{
-    if(e[0].isIntersecting){
-      path.style.transition = 'stroke-dashoffset 2.2s ease';
-      path.style.strokeDashoffset = '0';
-      o.disconnect();
-    }
-  },{threshold:.3}).observe(svg);
+  requestAnimationFrame(()=>{
+    path.style.transition = 'stroke-dashoffset 2s ease';
+    path.style.strokeDashoffset = '0';
+  });
+}
 
-  // Delta affiché
-  const d = document.getElementById('chartDelta');
-  d.classList.add(up ? 'up' : 'down');
-  d.innerHTML = `${up?'+':''}${units.toFixed(2)} u <small>sur les ${RESULTATS.length} derniers conseils</small>`;
+drawChart();
+new IntersectionObserver((e,o)=>{
+  if(e[0].isIntersecting){ animateChartLine(); o.disconnect(); }
+},{threshold:.3}).observe(document.getElementById('bkChart'));
 
-  // Pastilles G/P/R
+document.getElementById('btnUnits').addEventListener('click', function(){
+  currentMode = "u";
+  this.classList.add('active');
+  document.getElementById('btnEuros').classList.remove('active');
+  drawChart(); animateChartLine();
+});
+document.getElementById('btnEuros').addEventListener('click', function(){
+  currentMode = "e";
+  this.classList.add('active');
+  document.getElementById('btnUnits').classList.remove('active');
+  drawChart(); animateChartLine();
+});
+
+/* ── Pastilles avec drapeau + tooltip du pronostic ── */
+(function(){
   const row = document.getElementById('chipsRow');
-  RESULTATS.forEach((res,i)=>{
-    const c = document.createElement('span');
-    c.className = `chip ${res.r.toLowerCase()}`;
-    c.textContent = res.r;
-    row.appendChild(c);
+  RESULTATS.forEach(res=>{
+    const gain = res.r === "G" ? `+${(res.cote-1).toFixed(2)} u`
+               : res.r === "P" ? "−1.00 u" : "±0.00 u";
+    const chip = document.createElement('span');
+    chip.className = `chip ${res.r.toLowerCase()}`;
+    chip.innerHTML = `
+      <span class="flag">${res.flag}</span>${res.r}
+      <span class="tip">
+        ${res.flag} <b>${res.match}</b><br>
+        Pronostic : <b>${res.pick}</b> @${res.cote.toFixed(2)}<br>
+        <span class="res-${res.r.toLowerCase()}">${RES_LABEL[res.r]} · ${gain}</span>
+      </span>`;
+    row.appendChild(chip);
   });
   new IntersectionObserver((e,o)=>{
     if(e[0].isIntersecting){
-      row.querySelectorAll('.chip').forEach((c,i)=>setTimeout(()=>c.classList.add('visible'), i*60));
+      row.querySelectorAll('.chip').forEach((c,i)=>setTimeout(()=>c.classList.add('visible'), i*55));
       o.disconnect();
     }
   },{threshold:.3}).observe(row);
