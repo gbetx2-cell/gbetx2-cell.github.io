@@ -14,18 +14,37 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # Sans le secret DATABASE_URL, on sort proprement (pas d'echec nocturne).
+    # Le jour ou le secret est ajoute dans Settings > Secrets > Actions,
+    # le rafraichissement demarre tout seul, rien d'autre a faire.
     steps:
+      - name: Check secret
+        id: gate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "Secret DATABASE_URL absent : rafraichissement desactive (aucune erreur)."
+          else
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/checkout@v4
+        if: steps.gate.outputs.present == 'true'
       - uses: actions/setup-python@v5
+        if: steps.gate.outputs.present == 'true'
         with:
           python-version: "3.12"
       - name: Install psycopg2
+        if: steps.gate.outputs.present == 'true'
         run: pip install psycopg2-binary
       - name: Regenerate results block
+        if: steps.gate.outputs.present == 'true'
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: python scripts/update_results.py index.html
       - name: Commit and push if changed
+        if: steps.gate.outputs.present == 'true'
         run: |
           git config user.name "gbet-results-bot"
           git config user.email "actions@users.noreply.github.com"
