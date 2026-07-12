@@ -321,6 +321,7 @@ section{padding:84px 0}
   letter-spacing:1.5px;
   padding:7px 13px;border-radius:9px;
   z-index:5;
+  display:inline-flex;align-items:center;gap:5px;
 }
 .stamp.win{
   color:var(--green);border:2px solid var(--green);
@@ -440,9 +441,90 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   .chart-card{padding:22px}
   .chip .tip{white-space:normal;width:220px}
 }
+
+/* ── Accessibilité : focus clavier visible ─ */
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+:focus:not(:focus-visible){outline:none}
+
+/* ── Skip link ──────────────────────────── */
+.skip-link{
+  position:fixed;top:-60px;left:12px;z-index:200;
+  background:var(--gold-2);color:#141005;font-weight:700;font-size:.9rem;
+  padding:12px 20px;border-radius:10px;transition:top .2s ease;
+}
+.skip-link:focus{top:12px}
+
+/* ── Icônes SVG (remplacent les émojis fonctionnels) ── */
+.icon{width:1.15em;height:1.15em;display:inline-block;vertical-align:-0.2em;flex-shrink:0;
+  stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ic .icon{width:22px;height:22px;color:var(--gold-2)}
+
+/* ── Réduction de mouvement ────────────────── */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* ── Menu mobile ────────────────────────── */
+.icon-btn{
+  background:transparent;border:1px solid var(--border-strong);border-radius:10px;
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  color:var(--text);cursor:pointer;flex-shrink:0;
+}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold-2)}
+.menu-toggle{display:none}
+.header-right{display:flex;align-items:center;gap:10px}
+.mobile-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:64;
+}
+.mobile-backdrop.open{opacity:1;pointer-events:auto}
+.mobile-nav{
+  position:fixed;top:0;right:0;height:100vh;width:min(320px,82vw);
+  background:var(--bg-2);border-left:1px solid var(--border);
+  transform:translateX(100%);transition:transform .25s ease;
+  z-index:70;padding:20px 22px;display:flex;flex-direction:column;gap:4px;
+  overflow-y:auto;
+}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav-head{display:flex;justify-content:flex-end;margin-bottom:14px}
+.mobile-nav a{padding:15px 4px;font-size:1.05rem;color:var(--text);font-weight:600;
+  border-bottom:1px solid var(--border);}
+.mobile-nav a.active{color:var(--gold-2)}
+.mobile-nav .btn{margin-top:18px;justify-content:center}
+@media(max-width:900px){
+  .menu-toggle{display:flex}
+}
 </style>
 </head>
 <body>
+
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7 2.5 2.5 7L21 3Z"/><path d="M12.5 13.5 21 3"/></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5.5"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-trend-up" viewBox="0 0 24 24"><path d="M3 17 10 10l4 4 7-7"/><path d="M15 6h6v6"/></symbol>
+<symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5 15.5 10l-1.3 4H9.8L8.5 10Z"/><path d="M12 7.5V4M15.5 10l3-1.4M14.2 14l2 2.8M9.8 14l-2 2.8M8.5 10l-3-1.4"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18 6l-1.7 1.7M7.7 16.3 6 18M18 18l-1.7-1.7M7.7 7.7 6 6"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M8 11h8M8 15h5"/></symbol>
+<symbol id="i-satellite" viewBox="0 0 24 24"><path d="M4 13a9 9 0 0 1 9-9"/><path d="M4 13a5 5 0 0 1 5-5"/><rect x="12.5" y="12.5" width="6" height="6" rx="1" transform="rotate(45 15.5 15.5)"/><path d="M17.5 17.5 21 21"/></symbol>
+<symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="8" rx="6" ry="3.2"/><path d="M3 8v4c0 1.8 2.7 3.2 6 3.2s6-1.4 6-3.2V8"/><ellipse cx="15" cy="14.5" rx="6" ry="3.2"/><path d="M9 14.5v2c0 1.8 2.7 3.2 6 3.2s6-1.4 6-3.2v-2"/></symbol>
+<symbol id="i-prohibit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.5 5.5 13 13"/></symbol>
+<symbol id="i-chart-bar" viewBox="0 0 24 24"><path d="M4 20V10M11 20V4M18 20v-7"/><path d="M2 20h20"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12.5 5.5 5.5L20 6"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10Z"/><path d="M10 19a2 2 0 0 0 4 0"/></symbol>
+<symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12"/><path d="M7 3c0 4.5 3 5.5 5 7.2C10 12 7 13 7 17.5M17 3c0 4.5-3 5.5-5 7.2 2 1.8 5 2.8 5 7.5"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+</defs>
+</svg>
 
 <header>
   <div class="container nav">
@@ -462,12 +544,32 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <a href="#methode">Méthode</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
+    <div class="header-right">
+      <a class="btn btn-primary btn-sm" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="icon" style="width:20px;height:20px"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
   </div>
 </header>
 
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Menu principal">
+  <div class="mobile-nav-head">
+    <button class="icon-btn" id="menuClose" aria-label="Fermer le menu">
+      <svg class="icon" style="width:18px;height:18px"><use href="#i-x"></use></svg>
+    </button>
+  </div>
+  <a href="programme.html">Programme du jour</a>
+  <a href="#resultats">Résultats</a>
+  <a href="#publications">Publications</a>
+  <a href="#methode">Méthode</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
+</nav>
+
 <!-- ── HERO ─────────────────────────────── -->
-<div class="hero">
+<div class="hero" id="main">
   <div class="container hero-grid">
     <div>
       <div class="badge"><span class="pulse"></span> Bot actif — analyses en continu, 7j/7</div>
@@ -479,7 +581,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
         <strong>rien n'est publié</strong>.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">📲 Recevoir les analyses sur Telegram</a>
+        <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener"><svg class="icon"><use href="#i-plane"></use></svg> Recevoir les analyses sur Telegram</a>
         <a class="btn btn-ghost" href="#resultats">Voir les résultats</a>
       </div>
     </div>
@@ -488,17 +590,17 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <div class="phone-head">
         <div class="phone-avatar"><img src="assets/logo.jpg" alt=""></div>
         <div>
-          <div class="phone-title">G-BET Bot ⚡</div>
+          <div class="phone-title">G-BET Bot</div>
           <div class="phone-sub">canal · publication T-30</div>
         </div>
       </div>
       <div class="msg">
         <div class="m-league">🏴󠁧󠁢󠁥󠁮󠁧󠁿 PREMIER LEAGUE</div>
         <div class="m-match">Arsenal vs Liverpool</div>
-        <div class="m-row"><span class="m-label">🎯 Conseil du match</span><span class="m-val gold">Arsenal ou Nul</span></div>
-        <div class="m-row"><span class="m-label">📈 Value bet</span><span class="m-val">Plus de 1.5 buts</span></div>
-        <div class="m-row"><span class="m-label">⚽ Pick buteur</span><span class="m-val">Saka buteur</span></div>
-        <div class="m-foot"><span class="check">✔</span> Compositions officielles confirmées — 22/22 titulaires vérifiés</div>
+        <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-target"></use></svg> Conseil du match</span><span class="m-val gold">Arsenal ou Nul</span></div>
+        <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-trend-up"></use></svg> Value bet</span><span class="m-val">Plus de 1.5 buts</span></div>
+        <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-ball"></use></svg> Pick buteur</span><span class="m-val">Saka buteur</span></div>
+        <div class="m-foot"><svg class="icon check"><use href="#i-check-circle"></use></svg> Compositions officielles confirmées — 22/22 titulaires vérifiés</div>
       </div>
     </div>
   </div>
@@ -526,14 +628,14 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   <div class="container live-grid">
     <div class="live-card reveal">
       <div>
-        <div class="lc-label">⚙️ Moteur d'analyse</div>
+        <div class="lc-label"><svg class="icon"><use href="#i-gear"></use></svg> Moteur d'analyse</div>
         <div class="lc-title">Prochain scan des matchs</div>
       </div>
       <div class="timer" id="scanTimer">--:--</div>
     </div>
     <div class="live-card reveal">
       <div>
-        <div class="lc-label">📋 Programme du jour</div>
+        <div class="lc-label"><svg class="icon"><use href="#i-clipboard"></use></svg> Programme du jour</div>
         <div class="lc-title">Prochaine publication du programme</div>
       </div>
       <div class="timer" id="progTimer">--:--:--</div>
@@ -585,35 +687,35 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     </p>
     <div class="pubs-grid">
       <div class="pub-card reveal">
-        <div class="stamp win">✓ GAGNÉ</div>
+        <div class="stamp win"><svg class="icon"><use href="#i-check"></use></svg> GAGNÉ</div>
         <div class="msg">
           <div class="m-league">🇮🇪 PREMIER DIVISION</div>
           <div class="m-match">Shelbourne vs Dundalk</div>
-          <div class="m-row"><span class="m-label">🎯 Conseil</span><span class="m-val gold">Shelbourne ou Nul <span class="cote">@1.36</span></span></div>
-          <div class="m-row"><span class="m-label">📈 Value</span><span class="m-val">+1.5 buts <span class="cote">@1.44</span></span></div>
-          <div class="m-row"><span class="m-label">⚽ Buteur</span><span class="m-val">Boyd buteur <span class="cote">@3.10</span></span></div>
+          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-target"></use></svg> Conseil</span><span class="m-val gold">Shelbourne ou Nul <span class="cote">@1.36</span></span></div>
+          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-trend-up"></use></svg> Value</span><span class="m-val">+1.5 buts <span class="cote">@1.44</span></span></div>
+          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-ball"></use></svg> Buteur</span><span class="m-val">Boyd buteur <span class="cote">@3.10</span></span></div>
         </div>
         <div class="pub-result"><span class="lab">Résultat 2-0</span><span class="gain">+1.90 u</span></div>
       </div>
       <div class="pub-card reveal">
-        <div class="stamp win">✓ GAGNÉ</div>
+        <div class="stamp win"><svg class="icon"><use href="#i-check"></use></svg> GAGNÉ</div>
         <div class="msg">
           <div class="m-league">🇸🇪 ALLSVENSKAN</div>
           <div class="m-match">Malmö FF vs Häcken</div>
-          <div class="m-row"><span class="m-label">🎯 Conseil</span><span class="m-val gold">Malmö gagne <span class="cote">@1.85</span></span></div>
-          <div class="m-row"><span class="m-label">📈 Value</span><span class="m-val">+2.5 buts <span class="cote">@1.92</span></span></div>
-          <div class="m-row"><span class="m-label">⚽ Buteur</span><span class="m-val">Christiansen buteur <span class="cote">@2.60</span></span></div>
+          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-target"></use></svg> Conseil</span><span class="m-val gold">Malmö gagne <span class="cote">@1.85</span></span></div>
+          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-trend-up"></use></svg> Value</span><span class="m-val">+2.5 buts <span class="cote">@1.92</span></span></div>
+          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-ball"></use></svg> Buteur</span><span class="m-val">Christiansen buteur <span class="cote">@2.60</span></span></div>
         </div>
         <div class="pub-result"><span class="lab">Résultat 3-1</span><span class="gain">+2.37 u</span></div>
       </div>
       <div class="pub-card reveal">
-        <div class="stamp loss">✗ PERDU</div>
+        <div class="stamp loss"><svg class="icon"><use href="#i-x"></use></svg> PERDU</div>
         <div class="msg">
           <div class="m-league">🇳🇴 ELITESERIEN</div>
           <div class="m-match">Bodø/Glimt vs Molde</div>
-          <div class="m-row"><span class="m-label">🎯 Conseil</span><span class="m-val gold">Bodø/Glimt gagne <span class="cote">@1.70</span></span></div>
-          <div class="m-row"><span class="m-label">📈 Value</span><span class="m-val">+2.5 buts <span class="cote">@1.65</span></span></div>
-          <div class="m-row"><span class="m-label">⚽ Buteur</span><span class="m-val">Høgh buteur <span class="cote">@2.85</span></span></div>
+          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-target"></use></svg> Conseil</span><span class="m-val gold">Bodø/Glimt gagne <span class="cote">@1.70</span></span></div>
+          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-trend-up"></use></svg> Value</span><span class="m-val">+2.5 buts <span class="cote">@1.65</span></span></div>
+          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-ball"></use></svg> Buteur</span><span class="m-val">Høgh buteur <span class="cote">@2.85</span></span></div>
         </div>
         <div class="pub-result"><span class="lab">Résultat 1-1</span><span class="perte">−1.00 u</span></div>
       </div>
@@ -635,7 +737,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     </p>
     <div class="cards">
       <div class="card reveal">
-        <div class="ic">🛰️</div>
+        <div class="ic"><svg class="icon"><use href="#i-satellite"></use></svg></div>
         <h3>Données professionnelles en direct</h3>
         <p>Flux de données utilisé par les professionnels du secteur : compositions
         officielles, blessures, suspensions, forme récente, historique
@@ -643,14 +745,14 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
         confirmer chaque composition.</p>
       </div>
       <div class="card reveal">
-        <div class="ic">💰</div>
+        <div class="ic"><svg class="icon"><use href="#i-coins"></use></svg></div>
         <h3>Cotes réelles, jamais estimées</h3>
         <p>Chaque cote affichée est la médiane de plusieurs bookmakers au moment
         de la publication. Aucune cote « théorique », aucune probabilité inventée :
         si le marché n'existe pas, le pick n'existe pas.</p>
       </div>
       <div class="card reveal">
-        <div class="ic">🚫</div>
+        <div class="ic"><svg class="icon"><use href="#i-prohibit"></use></svg></div>
         <h3>Le droit de ne rien publier</h3>
         <p>Si les compositions n'arrivent pas, si la confiance est trop basse, ou si
         la cote tombe dans une zone historiquement perdante — le match est
@@ -658,7 +760,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
         vous fait perdre de l'argent.</p>
       </div>
       <div class="card reveal">
-        <div class="ic">📊</div>
+        <div class="ic"><svg class="icon"><use href="#i-chart-bar"></use></svg></div>
         <h3>Mises calibrées par l'historique</h3>
         <p>Chaque marché et chaque tranche de cote sont audités en continu sur
         l'historique réel des paris réglés. Les zones rentables reçoivent des mises
@@ -748,7 +850,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     <h2>Laissez la machine filtrer.<br>Gardez votre bankroll pour les bons matchs.</h2>
     <p>Les analyses tombent directement sur Telegram, 30 minutes avant le coup d'envoi,
     compositions confirmées.</p>
-    <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">📲 Rejoindre le canal Telegram</a>
+    <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener"><svg class="icon"><use href="#i-plane"></use></svg> Rejoindre le canal Telegram</a>
   </div>
 </section>
 
@@ -790,7 +892,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   </div>
 </footer>
 
-<a class="fab" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener" aria-label="Rejoindre le canal Telegram">✈️</a>
+<a class="fab" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener" aria-label="Rejoindre le canal Telegram"><svg class="icon" style="width:24px;height:24px;color:#141005"><use href="#i-plane"></use></svg></a>
 
 <script>
 /* ════════════════════════════════════════════════════════════════
@@ -987,9 +1089,10 @@ const io = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* ── Etat actif du menu : surligne la section visible (scroll-spy) ── */
-const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
-const navSections = Array.from(navAnchors)
-  .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"], .mobile-nav a[href^="#"]');
+const navSections = Array.from(new Set(Array.from(navAnchors)
+  .map(a => a.getAttribute('href').slice(1))))
+  .map(id => document.getElementById(id))
   .filter(Boolean);
 function setActiveNav(id){
   navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
@@ -1000,6 +1103,29 @@ const navSpy = new IntersectionObserver((entries)=>{
   if (visible) setActiveNav(visible.target.id);
 },{threshold:[.2,.5], rootMargin:'-15% 0px -50% 0px'});
 navSections.forEach(s => navSpy.observe(s));
+
+/* ── Menu mobile (drawer) ── */
+(function(){
+  const toggle = document.getElementById('menuToggle');
+  const close = document.getElementById('menuClose');
+  const nav = document.getElementById('mobileNav');
+  const backdrop = document.getElementById('mobileBackdrop');
+  function openMenu(){
+    nav.classList.add('open'); backdrop.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    nav.classList.remove('open'); backdrop.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', () => nav.classList.contains('open') ? closeMenu() : openMenu());
+  close.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
 </script>
 </body>
 </html>

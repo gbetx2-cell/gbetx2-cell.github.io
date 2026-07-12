@@ -43,6 +43,62 @@ header{
   background:linear-gradient(90deg,var(--gold-dark),var(--gold-2));border-radius:2px;
 }
 @media(max-width:640px){.nav-links{display:none}}
+
+/* ── Accessibilité : focus clavier visible ─ */
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+:focus:not(:focus-visible){outline:none}
+
+/* ── Skip link ──────────────────────────── */
+.skip-link{
+  position:fixed;top:-60px;left:12px;z-index:200;
+  background:var(--gold-2);color:#141005;font-weight:700;font-size:.9rem;
+  padding:12px 20px;border-radius:10px;transition:top .2s ease;
+}
+.skip-link:focus{top:12px}
+
+/* ── Icônes SVG ─────────────────────────── */
+.icon{width:1.05em;height:1.05em;display:inline-block;vertical-align:-0.15em;flex-shrink:0;
+  stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── Réduction de mouvement ────────────────── */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* ── Menu mobile ────────────────────────── */
+.icon-btn{
+  background:transparent;border:1px solid var(--border-strong);border-radius:10px;
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  color:var(--text);cursor:pointer;flex-shrink:0;
+}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold-2)}
+.menu-toggle{display:none}
+.header-right{display:flex;align-items:center;gap:10px}
+.mobile-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:64;
+}
+.mobile-backdrop.open{opacity:1;pointer-events:auto}
+.mobile-nav{
+  position:fixed;top:0;right:0;height:100vh;width:min(320px,82vw);
+  background:var(--bg-2);border-left:1px solid var(--border);
+  transform:translateX(100%);transition:transform .25s ease;
+  z-index:70;padding:20px 22px;display:flex;flex-direction:column;gap:4px;
+  overflow-y:auto;
+}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav-head{display:flex;justify-content:flex-end;margin-bottom:14px}
+.mobile-nav a{padding:15px 4px;font-size:1.05rem;color:var(--text);font-weight:600;
+  border-bottom:1px solid var(--border);text-decoration:none;}
+.mobile-nav a.active{color:var(--gold-2)}
+@media(max-width:640px){
+  .menu-toggle{display:flex}
+}
 h1{
   font-family:'Sora',sans-serif; font-size:1.8rem; font-weight:800;
   margin:36px 0 6px;
@@ -65,6 +121,8 @@ h1{
 }
 .card.live{border-color:var(--border-strong)}
 .card.done{border-color:rgba(34,197,94,.35)}
+.card.lost{border-color:rgba(239,68,68,.35)}
+.card.refund{border-color:rgba(156,148,129,.4)}
 .row1{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .match-info{display:flex;align-items:center;gap:10px;min-width:0}
 .flag{font-size:1.3rem;flex-shrink:0}
@@ -75,8 +133,12 @@ h1{
   font-family:'Sora',sans-serif; font-weight:700; font-size:1rem;
   color:var(--gold-2); flex-shrink:0; min-width:150px; text-align:right;
 }
-.countdown.waiting{color:var(--gold);animation:pulse 1.5s infinite}
-.countdown.done{color:var(--green)}
+.countdown.waiting{color:var(--gold);animation:pulse 1.5s infinite;display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+.countdown.done{color:var(--green);display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+.countdown.lost{color:var(--red);display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+.countdown.refund{color:var(--muted);display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+.countdown.stale{color:var(--muted);font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+.dot.live{background:var(--gold)}
 .pub{
   margin-top:14px; padding-top:14px; border-top:1px solid var(--border);
   display:grid; gap:8px;
@@ -99,6 +161,22 @@ footer a{color:var(--gold-2);text-decoration:none}
 </head>
 <body>
 
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-gem" viewBox="0 0 24 24"><path d="M4 9 8 3h8l4 6-9.5 12L4 9Z"/><path d="M4 9h16M8 3l3 6-2.5 12M16 3l-3 6 2.5 12"/></symbol>
+<symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5 15.5 10l-1.3 4H9.8L8.5 10Z"/><path d="M12 7.5V4M15.5 10l3-1.4M14.2 14l2 2.8M9.8 14l-2 2.8M8.5 10l-3-1.4"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10Z"/><path d="M10 19a2 2 0 0 0 4 0"/></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5.5"/></symbol>
+<symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12"/><path d="M7 3c0 4.5 3 5.5 5 7.2C10 12 7 13 7 17.5M17 3c0 4.5-3 5.5-5 7.2 2 1.8 5 2.8 5 7.5"/></symbol>
+<symbol id="i-refund" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 2.6 5.9"/><path d="M4 8v4h4"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+</defs>
+</svg>
+
 <header>
   <div class="container nav">
     <a class="logo" href="index.html" style="text-decoration:none;color:inherit">
@@ -112,13 +190,33 @@ footer a{color:var(--gold-2);text-decoration:none}
       <a href="index.html#methode">Méthode</a>
       <a href="index.html#faq">FAQ</a>
     </nav>
-    <a class="back-link" href="index.html">← Retour au site</a>
+    <div class="header-right">
+      <a class="back-link" href="index.html">← Retour au site</a>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="icon" style="width:20px;height:20px"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
   </div>
 </header>
 
-<div class="container">
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Menu principal">
+  <div class="mobile-nav-head">
+    <button class="icon-btn" id="menuClose" aria-label="Fermer le menu">
+      <svg class="icon" style="width:18px;height:18px"><use href="#i-x"></use></svg>
+    </button>
+  </div>
+  <a href="programme.html" class="active">Programme du jour</a>
+  <a href="index.html#resultats">Résultats</a>
+  <a href="index.html#publications">Publications</a>
+  <a href="index.html#methode">Méthode</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="index.html">← Retour au site</a>
+</nav>
+
+<div class="container" id="main">
   <h1>Programme du jour</h1>
-  <p class="sub">Chaque match affiche un compte à rebours jusqu'à <b>T-30</b> (30 minutes avant le coup d'envoi) — l'instant où le bot publie. Dès que c'est fait, la publication réelle s'affiche ici.</p>
+  <p class="sub">La liste du jour, figée à 08h00. Chaque match affiche un compte à rebours jusqu'à <b>T-30</b> (30 minutes avant le coup d'envoi) — l'instant où le bot publie. Le match passe ensuite en <b>« En cours »</b>, puis affiche le résultat final (gagné / perdu / remboursé) dès qu'il est réglé.</p>
   <div id="status"><span class="dot"></span><span id="status-text">Chargement…</span></div>
   <div id="list"></div>
 </div>
@@ -157,39 +255,55 @@ function dayLabel(iso){
   }catch(e){ return ''; }
 }
 
+const RESULT_META = {
+  GAGNE:     {cls:'done',   icon:'check-circle', label:'Gagné'},
+  PERDU:     {cls:'lost',   icon:'x',            label:'Perdu'},
+  REMBOURSE: {cls:'refund', icon:'refund',       label:'Remboursé'},
+};
+// Au-dela de ce delai apres le coup d'envoi sans resultat regle, on arrete
+// d'afficher "En cours" en boucle (match sans pronostic, ou reglement en retard).
+const STALE_AFTER_KICKOFF_MS = 4*60*60*1000;
+
 function renderCard(f){
   const kickoff = new Date(f.kickoff_at);
   const publishAt = new Date(kickoff.getTime() - T_MINUS_MINUTES*60000);
   const now = new Date();
   const toPublish = publishAt - now;
-  const toKickoff = kickoff - now;
+  const sinceKickoff = now - kickoff;
 
   let stateClass = '';
   let countdownHtml = '';
 
-  if (f.published) {
-    stateClass = 'done';
-    countdownHtml = `<span class="countdown done">✅ Publié</span>`;
-  } else if (toPublish <= 0) {
+  const ICON = (name) => `<svg class="icon"><use href="#i-${name}"></use></svg>`;
+
+  if (f.result && RESULT_META[f.result]) {
+    const r = RESULT_META[f.result];
+    stateClass = r.cls;
+    countdownHtml = `<span class="countdown ${r.cls}">${ICON(r.icon)} ${r.label}${f.score ? ' · '+f.score : ''}</span>`;
+  } else if (toPublish > 0) {
+    countdownHtml = `<span class="countdown" data-publish-at="${publishAt.toISOString()}">${ICON('hourglass')} ${fmtCountdown(toPublish)}</span>`;
+  } else if (sinceKickoff < STALE_AFTER_KICKOFF_MS) {
     stateClass = 'live';
-    countdownHtml = `<span class="countdown waiting">🔔 Publication imminente…</span>`;
+    countdownHtml = `<span class="countdown waiting"><span class="dot live"></span> En cours</span>`;
+  } else if (f.published) {
+    countdownHtml = `<span class="countdown stale">${ICON('hourglass')} Résultat en attente…</span>`;
   } else {
-    countdownHtml = `<span class="countdown" data-publish-at="${publishAt.toISOString()}">⏳ ${fmtCountdown(toPublish)}</span>`;
+    countdownHtml = `<span class="countdown stale">Terminé — aucun pronostic publié</span>`;
   }
 
   let pubHtml = '';
   if (f.published) {
     const lines = [];
-    if (f.conseil) lines.push(`<div class="pub-line"><span class="pub-label">🎯 Conseil</span><span class="pub-value">${f.conseil}${f.conseil_cote ? ' · cote '+f.conseil_cote.toFixed(2) : ''}</span></div>`);
-    if (f.value_bet) lines.push(`<div class="pub-line"><span class="pub-label">💎 Value bet</span><span class="pub-value">${f.value_bet}${f.value_cote ? ' · cote '+f.value_cote.toFixed(2) : ''}</span></div>`);
-    if (f.pick_buteur) lines.push(`<div class="pub-line"><span class="pub-label">⚽ Buteur</span><span class="pub-value">${f.pick_buteur}</span></div>`);
-    if (f.pick_passeur) lines.push(`<div class="pub-line"><span class="pub-label">🎯 Passeur</span><span class="pub-value">${f.pick_passeur}</span></div>`);
-    if (!lines.length) lines.push(`<div class="pub-line"><span class="pub-label">Publié</span><span class="pub-value">aucune section retenue (zones sous seuil)</span></div>`);
+    if (f.conseil) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('target')} Conseil</span><span class="pub-value">${f.conseil}${f.conseil_cote ? ' · cote '+f.conseil_cote.toFixed(2) : ''}</span></div>`);
+    if (f.value_bet) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('gem')} Value bet</span><span class="pub-value">${f.value_bet}${f.value_cote ? ' · cote '+f.value_cote.toFixed(2) : ''}</span></div>`);
+    if (f.pick_buteur) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('ball')} Buteur</span><span class="pub-value">${f.pick_buteur}</span></div>`);
+    if (f.pick_passeur) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('target')} Passeur</span><span class="pub-value">${f.pick_passeur}</span></div>`);
+    if (!lines.length) lines.push(`<div class="pub-line"><span class="pub-label">Publié</span><span class="pub-value" style="color:var(--muted)">No bet — aucun critère validé</span></div>`);
     pubHtml = `<div class="pub">${lines.join('')}</div>`;
   }
 
   return `
-    <div class="card ${stateClass}" data-kickoff="${f.kickoff_at}" data-published="${f.published}">
+    <div class="card ${stateClass}" data-kickoff="${f.kickoff_at}" data-published="${f.published}" data-result="${f.result || ''}">
       <div class="row1">
         <div class="match-info">
           <span class="flag">${f.flag}</span>
@@ -231,7 +345,7 @@ function tickCountdowns(){
       render(); // repasse en mode "imminente" / re-fetch au prochain cycle
       return;
     }
-    el.textContent = '⏳ ' + fmtCountdown(diff);
+    el.innerHTML = '<svg class="icon"><use href="#i-hourglass"></use></svg> ' + fmtCountdown(diff);
   });
 }
 
@@ -256,6 +370,29 @@ async function loadProgramme(){
 loadProgramme();
 setInterval(tickCountdowns, 1000);
 setInterval(loadProgramme, 60000); // re-synchronise avec la vraie publication chaque minute
+
+/* ── Menu mobile (drawer) ── */
+(function(){
+  const toggle = document.getElementById('menuToggle');
+  const close = document.getElementById('menuClose');
+  const nav = document.getElementById('mobileNav');
+  const backdrop = document.getElementById('mobileBackdrop');
+  function openMenu(){
+    nav.classList.add('open'); backdrop.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    nav.classList.remove('open'); backdrop.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', () => nav.classList.contains('open') ? closeMenu() : openMenu());
+  close.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
 </script>
 </body>
 </html>
