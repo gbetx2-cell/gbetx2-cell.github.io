@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programme du jour — G-BET Bot</title>
+<meta name="description" content="Programme du jour en direct : compte à rebours jusqu'à T-30 avant chaque match, publication affichée dès sa sortie.">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706; --bg-2:#0c0b09; --card:#12110e; --card-2:#1a1813;
+  --border:rgba(240,185,11,.14); --border-strong:rgba(240,185,11,.32);
+  --text:#f2ede1; --muted:#9c9481;
+  --gold:#f0b90b; --gold-2:#f7ca3e; --gold-dark:#b8860b;
+  --green:#22c55e; --red:#ef4444; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif; line-height:1.5;
+}
+.container{max-width:920px;margin:0 auto;padding:0 20px}
+header{
+  border-bottom:1px solid var(--border);
+  padding:18px 0; position:sticky; top:0; background:rgba(7,7,6,.92);
+  backdrop-filter:blur(8px); z-index:10;
+}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.1rem}
+.logo img{width:32px;height:32px;border-radius:50%;border:2px solid var(--gold)}
+.logo .g{color:var(--gold-2)}
+.back-link{color:var(--muted);font-size:.9rem;text-decoration:none}
+.back-link:hover{color:var(--gold-2)}
+h1{
+  font-family:'Sora',sans-serif; font-size:1.8rem; font-weight:800;
+  margin:36px 0 6px;
+}
+.sub{color:var(--muted);font-size:.95rem;margin-bottom:28px}
+.sub b{color:var(--gold-2)}
+#status{
+  font-size:.82rem;color:var(--muted);margin-bottom:20px;
+  display:flex;align-items:center;gap:8px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.day-sep{
+  font-size:.78rem;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.08em;margin:28px 0 10px;padding-left:2px;
+}
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:18px 20px; margin-bottom:12px; transition:border-color .2s;
+}
+.card.live{border-color:var(--border-strong)}
+.card.done{border-color:rgba(34,197,94,.35)}
+.row1{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.match-info{display:flex;align-items:center;gap:10px;min-width:0}
+.flag{font-size:1.3rem;flex-shrink:0}
+.match-name{font-weight:600;font-size:1rem}
+.league{color:var(--muted);font-size:.78rem}
+.kickoff{color:var(--muted);font-size:.82rem;flex-shrink:0}
+.countdown{
+  font-family:'Sora',sans-serif; font-weight:700; font-size:1rem;
+  color:var(--gold-2); flex-shrink:0; min-width:150px; text-align:right;
+}
+.countdown.waiting{color:var(--gold);animation:pulse 1.5s infinite}
+.countdown.done{color:var(--green)}
+.pub{
+  margin-top:14px; padding-top:14px; border-top:1px solid var(--border);
+  display:grid; gap:8px;
+}
+.pub-line{display:flex;justify-content:space-between;font-size:.88rem;gap:12px}
+.pub-label{color:var(--muted);flex-shrink:0}
+.pub-value{text-align:right;font-weight:600}
+.badge{
+  display:inline-block;font-size:.7rem;font-weight:700;padding:2px 8px;
+  border-radius:20px;background:rgba(34,197,94,.15);color:var(--green);
+  border:1px solid rgba(34,197,94,.35);
+}
+.empty{color:var(--muted);text-align:center;padding:60px 20px;font-size:.95rem}
+footer{
+  border-top:1px solid var(--border); padding:30px 0; margin-top:50px;
+  text-align:center; color:var(--muted); font-size:.85rem;
+}
+footer a{color:var(--gold-2);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html" style="text-decoration:none;color:inherit">
+      <img src="assets/logo.jpg" alt="G-BET Bot">
+      <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+    </a>
+    <a class="back-link" href="index.html">← Retour au site</a>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Programme du jour</h1>
+  <p class="sub">Chaque match affiche un compte à rebours jusqu'à <b>T-30</b> (30 minutes avant le coup d'envoi) — l'instant où le bot publie. Dès que c'est fait, la publication réelle s'affiche ici.</p>
+  <div id="status"><span class="dot"></span><span id="status-text">Chargement…</span></div>
+  <div id="list"></div>
+</div>
+
+<footer>
+  <p>G-BET Bot — <a href="index.html">Retour à l'accueil</a> · <a href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a></p>
+</footer>
+
+<script>
+const T_MINUS_MINUTES = 30;
+let fixtures = [];
+let lastFetch = 0;
+
+function fmtCountdown(ms){
+  if (ms <= 0) return "00:00:00";
+  const s = Math.floor(ms/1000);
+  const h = String(Math.floor(s/3600)).padStart(2,'0');
+  const m = String(Math.floor((s%3600)/60)).padStart(2,'0');
+  const sec = String(s%60).padStart(2,'0');
+  return `${h}:${m}:${sec}`;
+}
+
+function fmtKickoff(iso){
+  try{
+    return new Date(iso).toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Paris'}) + ' (heure de Paris)';
+  }catch(e){ return iso; }
+}
+
+function dayLabel(iso){
+  try{
+    const d = new Date(iso);
+    const today = new Date();
+    const isToday = d.toDateString() === today.toDateString();
+    if (isToday) return "Aujourd'hui";
+    return d.toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', timeZone:'Europe/Paris'});
+  }catch(e){ return ''; }
+}
+
+function renderCard(f){
+  const kickoff = new Date(f.kickoff_at);
+  const publishAt = new Date(kickoff.getTime() - T_MINUS_MINUTES*60000);
+  const now = new Date();
+  const toPublish = publishAt - now;
+  const toKickoff = kickoff - now;
+
+  let stateClass = '';
+  let countdownHtml = '';
+
+  if (f.published) {
+    stateClass = 'done';
+    countdownHtml = `<span class="countdown done">✅ Publié</span>`;
+  } else if (toPublish <= 0) {
+    stateClass = 'live';
+    countdownHtml = `<span class="countdown waiting">🔔 Publication imminente…</span>`;
+  } else {
+    countdownHtml = `<span class="countdown" data-publish-at="${publishAt.toISOString()}">⏳ ${fmtCountdown(toPublish)}</span>`;
+  }
+
+  let pubHtml = '';
+  if (f.published) {
+    const lines = [];
+    if (f.conseil) lines.push(`<div class="pub-line"><span class="pub-label">🎯 Conseil</span><span class="pub-value">${f.conseil}${f.conseil_cote ? ' · cote '+f.conseil_cote.toFixed(2) : ''}</span></div>`);
+    if (f.value_bet) lines.push(`<div class="pub-line"><span class="pub-label">💎 Value bet</span><span class="pub-value">${f.value_bet}${f.value_cote ? ' · cote '+f.value_cote.toFixed(2) : ''}</span></div>`);
+    if (f.pick_buteur) lines.push(`<div class="pub-line"><span class="pub-label">⚽ Buteur</span><span class="pub-value">${f.pick_buteur}</span></div>`);
+    if (f.pick_passeur) lines.push(`<div class="pub-line"><span class="pub-label">🎯 Passeur</span><span class="pub-value">${f.pick_passeur}</span></div>`);
+    if (!lines.length) lines.push(`<div class="pub-line"><span class="pub-label">Publié</span><span class="pub-value">aucune section retenue (zones sous seuil)</span></div>`);
+    pubHtml = `<div class="pub">${lines.join('')}</div>`;
+  }
+
+  return `
+    <div class="card ${stateClass}" data-kickoff="${f.kickoff_at}" data-published="${f.published}">
+      <div class="row1">
+        <div class="match-info">
+          <span class="flag">${f.flag}</span>
+          <div>
+            <div class="match-name">${f.match}</div>
+            <div class="league">${f.league} · ${fmtKickoff(f.kickoff_at)}</div>
+          </div>
+        </div>
+        ${countdownHtml}
+      </div>
+      ${pubHtml}
+    </div>`;
+}
+
+function render(){
+  const list = document.getElementById('list');
+  if (!fixtures.length){
+    list.innerHTML = "<div class=\"empty\">Aucun match dans la fenêtre actuelle. Revenez un peu avant le prochain coup d'envoi.</div>";
+    return;
+  }
+  let html = '';
+  let lastDay = '';
+  fixtures.forEach(f => {
+    const d = dayLabel(f.kickoff_at);
+    if (d !== lastDay){
+      html += `<div class="day-sep">${d}</div>`;
+      lastDay = d;
+    }
+    html += renderCard(f);
+  });
+  list.innerHTML = html;
+}
+
+function tickCountdowns(){
+  document.querySelectorAll('.countdown[data-publish-at]').forEach(el => {
+    const target = new Date(el.getAttribute('data-publish-at'));
+    const diff = target - new Date();
+    if (diff <= 0){
+      render(); // repasse en mode "imminente" / re-fetch au prochain cycle
+      return;
+    }
+    el.textContent = '⏳ ' + fmtCountdown(diff);
+  });
+}
+
+async function loadProgramme(){
+  try{
+    const res = await fetch('programme.json?t=' + Date.now(), {cache:'no-store'});
+    if (!res.ok) throw new Error('http ' + res.status);
+    const data = await res.json();
+    fixtures = (data.fixtures || []).sort((a,b) => new Date(a.kickoff_at) - new Date(b.kickoff_at));
+    lastFetch = Date.now();
+    const genAt = new Date(data.generated_at);
+    document.getElementById('status-text').textContent =
+      'Mis à jour à ' + genAt.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Paris'}) + ' (heure de Paris)';
+    render();
+  }catch(e){
+    document.getElementById('status-text').textContent =
+      'Programme indisponible pour le moment (' + e.message + ')';
+    document.getElementById('list').innerHTML = '<div class="empty">Impossible de charger le programme du jour.</div>';
+  }
+}
+
+loadProgramme();
+setInterval(tickCountdowns, 1000);
+setInterval(loadProgramme, 60000); // re-synchronise avec la vraie publication chaque minute
+</script>
+</body>
+</html>

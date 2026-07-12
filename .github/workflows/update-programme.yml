@@ -1,0 +1,56 @@
+# Rafraichit le programme du jour (programme.json) toutes les 10 minutes,
+# pour que la page programme.html affiche les publications reelles des
+# qu'elles sortent (au lieu du seul decompte cote client). Sortie propre si
+# le secret DATABASE_URL est absent (meme garde que update-results.yml).
+name: update-programme
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check secret
+        id: gate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "Secret DATABASE_URL absent : programme.json non rafraichi (aucune erreur)."
+          else
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.present == 'true'
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.present == 'true'
+        with:
+          python-version: "3.12"
+      - name: Install psycopg2
+        if: steps.gate.outputs.present == 'true'
+        run: pip install psycopg2-binary
+      - name: Regenerate programme.json
+        if: steps.gate.outputs.present == 'true'
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python scripts/export_programme.py
+      - name: Commit and push if changed
+        if: steps.gate.outputs.present == 'true'
+        run: |
+          git config user.name "gbet-programme-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet programme.json; then
+            git add programme.json
+            git commit -m "Programme du jour (auto)"
+            git push
+          else
+            echo "Aucun changement"
+          fi
