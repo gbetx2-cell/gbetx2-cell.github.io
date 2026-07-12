@@ -34,6 +34,15 @@ header{
 .logo .g{color:var(--gold-2)}
 .back-link{color:var(--muted);font-size:.9rem;text-decoration:none}
 .back-link:hover{color:var(--gold-2)}
+.nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
+.nav-links a{position:relative;padding-bottom:4px;transition:color .15s;text-decoration:none;color:inherit}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-links a.active{color:var(--gold-2);font-weight:600}
+.nav-links a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold-2));border-radius:2px;
+}
+@media(max-width:640px){.nav-links{display:none}}
 h1{
   font-family:'Sora',sans-serif; font-size:1.8rem; font-weight:800;
   margin:36px 0 6px;
@@ -96,6 +105,13 @@ footer a{color:var(--gold-2);text-decoration:none}
       <img src="assets/logo.jpg" alt="G-BET Bot">
       <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
     </a>
+    <nav class="nav-links">
+      <a href="programme.html" class="active">Programme du jour</a>
+      <a href="index.html#resultats">Résultats</a>
+      <a href="index.html#publications">Publications</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
     <a class="back-link" href="index.html">← Retour au site</a>
   </div>
 </header>
