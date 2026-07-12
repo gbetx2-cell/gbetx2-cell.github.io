@@ -1,0 +1,38 @@
+# Rafraichit chaque nuit le bloc RESULTATS de index.html depuis la base de
+# production (secret DATABASE_URL). Ne commit que s'il y a un changement.
+name: update-results
+
+on:
+  schedule:
+    - cron: "15 4 * * *"   # 04h15 UTC = 06h15 Paris, apres le bilan de minuit
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install psycopg2
+        run: pip install psycopg2-binary
+      - name: Regenerate results block
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python scripts/update_results.py index.html
+      - name: Commit and push if changed
+        run: |
+          git config user.name "gbet-results-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet index.html; then
+            git add index.html
+            git commit -m "Resultats du jour (auto)"
+            git push
+          else
+            echo "Aucun changement"
+          fi
