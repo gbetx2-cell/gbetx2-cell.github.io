@@ -183,6 +183,19 @@ header{
   white-space:nowrap;
 }
 
+/* ── Bilan jour / semaine / mois ────────── */
+.period-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.period-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:22px 24px;
+}
+.period-label{color:var(--muted);font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.period-pnl{font-family:'Sora';font-weight:800;font-size:1.7rem;margin-bottom:6px}
+.period-pnl.up{color:var(--green)}
+.period-pnl.down{color:var(--red)}
+.period-pnl.flat{color:var(--muted)}
+.period-sub{color:var(--muted);font-size:.84rem}
+
 /* ── Graphique bankroll ─────────────────── */
 .chart-sec{padding-top:56px}
 .chart-card{
@@ -440,6 +453,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   .live-grid{grid-template-columns:1fr}
   .chart-card{padding:22px}
   .chip .tip{white-space:normal;width:220px}
+  .period-grid{grid-template-columns:1fr}
 }
 
 /* ── Accessibilité : focus clavier visible ─ */
@@ -653,6 +667,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       Survolez chaque pastille pour revoir le pronostic exact qui avait été donné.
       Le bilan détaillé de chaque journée est publié sur le canal — l'historique fait foi.
     </p>
+    <div class="period-grid reveal" id="periodGrid"></div>
     <div class="chart-card reveal">
       <div class="chart-head">
         <div>
@@ -933,6 +948,10 @@ const RESULTATS = [
   {flag:"🇳🇴", match:"Sarpsborg 08 FF – Viking", pick:"Viking ou Nul", cote:1.24, r:"P", mise:1.00, pnl:-1.00},
 ];
 
+/* Bilan EN COURS jour / semaine / mois (date de reglement, pas de
+   publication) -- regenere par scripts/export_site_results.py. */
+const PERIOD_STATS = {jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00}, semaine:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00}, mois:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00}};
+
 /* ── Courbe unités / € ── */
 const RES_LABEL = {G:"Gagné", P:"Perdu", R:"Remboursé"};
 let currentMode = "u"; // "u" = unités, "e" = euros
@@ -1011,7 +1030,34 @@ function animateChartLine(){
   });
 }
 
+/* ── Bilan jour / semaine / mois ── */
+const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci"};
+
+function renderPeriodStats(){
+  const grid = document.getElementById('periodGrid');
+  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
+  const unit = currentMode === "e" ? "€" : "u";
+  grid.innerHTML = Object.keys(PERIOD_LABELS).map(key=>{
+    const s = PERIOD_STATS[key] || {n:0,g:0,p:0,r:0,winrate:0,pnl:0};
+    const val = s.pnl * factor;
+    const cls = s.n === 0 ? 'flat' : (val > 0 ? 'up' : val < 0 ? 'down' : 'flat');
+    const pnlDisplay = s.n === 0
+      ? '—'
+      : `${val > 0 ? '+' : ''}${currentMode === "e" ? val.toFixed(0) : val.toFixed(2)} ${unit}`;
+    const sub = s.n === 0
+      ? 'Aucun conseil réglé pour l’instant'
+      : `${s.n} réglés · ${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''} · ${s.winrate}% de réussite`;
+    return `
+      <div class="period-card">
+        <div class="period-label">${PERIOD_LABELS[key]}</div>
+        <div class="period-pnl ${cls}">${pnlDisplay}</div>
+        <div class="period-sub">${sub}</div>
+      </div>`;
+  }).join('');
+}
+
 drawChart();
+renderPeriodStats();
 new IntersectionObserver((e,o)=>{
   if(e[0].isIntersecting){ animateChartLine(); o.disconnect(); }
 },{threshold:.3}).observe(document.getElementById('bkChart'));
@@ -1020,13 +1066,13 @@ document.getElementById('btnUnits').addEventListener('click', function(){
   currentMode = "u";
   this.classList.add('active');
   document.getElementById('btnEuros').classList.remove('active');
-  drawChart(); animateChartLine();
+  drawChart(); animateChartLine(); renderPeriodStats();
 });
 document.getElementById('btnEuros').addEventListener('click', function(){
   currentMode = "e";
   this.classList.add('active');
   document.getElementById('btnUnits').classList.remove('active');
-  drawChart(); animateChartLine();
+  drawChart(); animateChartLine(); renderPeriodStats();
 });
 
 /* ── Pastilles avec drapeau + tooltip du pronostic ── */
