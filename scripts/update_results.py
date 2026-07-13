@@ -9,9 +9,12 @@ Aucun secret dans ce fichier : la connexion vient de l'environnement.
 import os
 import re
 import sys
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 N_RESULTS = 20
 BASE_UNIT_EUR = 200  # doit rester synchro avec ai/staking.py BASE_UNIT_EUR
+PARIS_TZ = ZoneInfo("Europe/Paris")
 
 COMPETITION_FLAGS = {
     "coupe du monde": "🏆",
@@ -78,6 +81,85 @@ def _short_pick(conseil: str) -> str:
     return s
 
 
+def _paris_calendar_date(value):
+    """Meme logique que database.py::_paris_calendar_date : convertit un
+    timestamp (avec ou sans fuseau) en date calendaire Paris. C'est la
+    date de REGLEMENT (result_updated_at) qui fait foi pour le bilan
+    jour/semaine/mois, pas la date de publication (cf daily_bilan.py)."""
+    if not value:
+        return None
+    try:
+        dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=PARIS_TZ)
+    return dt.astimezone(PARIS_TZ).date()
+
+
+def fetch_period_stats() -> dict:
+    """Bilan EN COURS (pas la periode passee complete comme daily_bilan.py)
+    pour jour / semaine (lundi->aujourd'hui) / mois (1er->aujourd'hui),
+    au sens ou le bot les regle deja (result_updated_at), pas au sens
+    "publie ce jour-la" -- coherent avec send_daily/weekly/monthly_bilan."""
+    import psycopg2
+
+    db = os.environ.get("DATABASE_URL")
+    if not db:
+        raise SystemExit("DATABASE_URL manquant")
+    conn = psycopg2.connect(db, connect_timeout=10)
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT resultat, pnl, result_updated_at
+        FROM paris
+        WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
+          AND result_updated_at IS NOT NULL AND result_updated_at <> ''
+        ORDER BY result_updated_at DESC
+        LIMIT 1000
+        """,
+    )
+    rows = cur.fetchall()
+    conn.close()
+
+    today = datetime.now(PARIS_TZ).date()
+    week_start = today - timedelta(days=today.weekday())  # lundi
+    month_start = today.replace(day=1)
+    boundaries = {"jour": today, "semaine": week_start, "mois": month_start}
+    buckets = {k: {"n": 0, "g": 0, "p": 0, "r": 0, "pnl_eur": 0.0} for k in boundaries}
+
+    for resultat, pnl, result_updated_at in rows:
+        d = _paris_calendar_date(result_updated_at)
+        if d is None or d > today:
+            continue
+        pnl_val = float(pnl or 0)
+        for key, start in boundaries.items():
+            if d < start:
+                continue
+            b = buckets[key]
+            b["n"] += 1
+            b["pnl_eur"] += pnl_val
+            if resultat == "GAGNE":
+                b["g"] += 1
+            elif resultat == "PERDU":
+                b["p"] += 1
+            elif resultat == "REMBOURSE":
+                b["r"] += 1
+
+    out = {}
+    for key, b in buckets.items():
+        decides = b["g"] + b["p"]
+        out[key] = {
+            "n": b["n"],
+            "g": b["g"],
+            "p": b["p"],
+            "r": b["r"],
+            "winrate": round(b["g"] / decides * 100) if decides else 0,
+            "pnl": round(b["pnl_eur"] / BASE_UNIT_EUR, 2),
+        }
+    return out
+
+
 def fetch_results() -> list[dict]:
     import psycopg2
 
@@ -134,20 +216,31 @@ def render_block(results: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def update_html(path: str, results: list[dict]) -> None:
+def render_period_block(stats: dict) -> str:
+    parts = [
+        f'{key}:{{n:{s["n"]}, g:{s["g"]}, p:{s["p"]}, r:{s["r"]}, '
+        f'winrate:{s["winrate"]}, pnl:{s["pnl"]:.2f}}}'
+        for key, s in stats.items()
+    ]
+    return "const PERIOD_STATS = {" + ", ".join(parts) + "};"
+
+
+def update_html(path: str, results: list[dict], period_stats: dict) -> None:
     with open(path, encoding="utf-8") as f:
         html = f.read()
-    block = render_block(results)
-    new_html, n = re.subn(r"const RESULTATS = \[.*?\];", block, html, count=1, flags=re.DOTALL)
-    if n != 1:
+    html, n1 = re.subn(r"const RESULTATS = \[.*?\];", render_block(results), html, count=1, flags=re.DOTALL)
+    if n1 != 1:
         raise SystemExit(f"bloc RESULTATS introuvable dans {path}")
+    html, n2 = re.subn(r"const PERIOD_STATS = \{.*?\};", render_period_block(period_stats), html, count=1, flags=re.DOTALL)
+    if n2 != 1:
+        raise SystemExit(f"bloc PERIOD_STATS introuvable dans {path}")
     with open(path, "w", encoding="utf-8", newline="\n") as f:
-        f.write(new_html)
-    print(f"[Site] {len(results)} resultats reels ecrits dans {path}")
+        f.write(html)
+    print(f"[Site] {len(results)} resultats + stats jour/semaine/mois ecrits dans {path}")
 
 
 if __name__ == "__main__":
     target = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "index.html",
     )
-    update_html(target, fetch_results())
+    update_html(target, fetch_results(), fetch_period_stats())
