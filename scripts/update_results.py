@@ -89,7 +89,8 @@ def fetch_results() -> list[dict]:
         """
         SELECT p.home, p.away, p.conseil,
                COALESCE(NULLIF(p.cote_reelle,0), p.cote_interne),
-               p.resultat, COALESCE(NULLIF(p.competition,''), pf.league, '')
+               p.resultat, COALESCE(NULLIF(p.competition,''), pf.league, ''),
+               COALESCE(p.mise, 1), COALESCE(p.pnl, 0)
         FROM paris p
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
         WHERE p.resultat IN ('GAGNE','PERDU','REMBOURSE')
@@ -102,13 +103,19 @@ def fetch_results() -> list[dict]:
     rows = cur.fetchall()
     conn.close()
     out = []
-    for home, away, conseil, cote, resultat, competition in reversed(rows):
+    for home, away, conseil, cote, resultat, competition, mise, pnl in reversed(rows):
         out.append({
             "flag": _flag(competition),
             "match": f"{home} – {away}",
             "pick": _short_pick(conseil),
             "cote": round(float(cote or 0), 2),
             "r": {"GAGNE": "G", "PERDU": "P"}.get(resultat, "R"),
+            # Mise reelle en unites (ai/staking.py : 1 unite = BASE_UNIT_EUR,
+            # variable par palier d'edge -- jamais 1u fixe) et PnL reel deja
+            # calcule en prod (database.py update_resultat), pas recalcule
+            # a partir de la cote pour eviter toute divergence.
+            "mise": round(float(mise or 1), 2),
+            "pnl": round(float(pnl or 0), 2),
         })
     return out
 
@@ -120,7 +127,7 @@ def render_block(results: list[dict]) -> str:
         pick = r["pick"].replace('"', "'")
         lines.append(
             f'  {{flag:"{r["flag"]}", match:"{match}", pick:"{pick}", '
-            f'cote:{r["cote"]:.2f}, r:"{r["r"]}"}},'
+            f'cote:{r["cote"]:.2f}, r:"{r["r"]}", mise:{r["mise"]:.2f}, pnl:{r["pnl"]:.2f}}},'
         )
     lines.append("];")
     return "\n".join(lines)
