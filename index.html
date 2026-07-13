@@ -663,8 +663,10 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     <div class="sec-tag">Résultats</div>
     <h2 class="sec-title">La discipline, ça se <span class="gold">voit sur la courbe.</span></h2>
     <p class="sec-sub">
-      Évolution des derniers conseils réglés, aux cotes réelles publiées.
-      Survolez chaque pastille pour revoir le pronostic exact qui avait été donné.
+      Évolution des 20 derniers matchs réglés, aux cotes réelles publiées.
+      Conseil, value bet et player pick coté comptent chacun pour leur propre résultat —
+      jamais un badge unique qui masquerait une des trois. Survolez chaque pastille pour
+      revoir le pronostic exact qui avait été donné.
       Le bilan détaillé de chaque journée est publié sur le canal — l'historique fait foi.
     </p>
     <div class="period-grid reveal" id="periodGrid"></div>
@@ -1187,19 +1189,25 @@ document.getElementById('btnEuros').addEventListener('click', function(){
 });
 
 /* ── Pastilles avec drapeau + tooltip du pronostic ── */
+const TYPE_META = {
+  conseil: {icon:'target',    label:'Conseil'},
+  value:   {icon:'trend-up',  label:'Value bet'},
+  player:  {icon:'ball',      label:'Player pick'},
+};
 (function(){
   const row = document.getElementById('chipsRow');
   RESULTATS.forEach(res=>{
     const g = realGain(res);
     const gain = `${g > 0 ? '+' : g < 0 ? '−' : '±'}${Math.abs(g).toFixed(2)} u`;
     const mise = typeof res.mise === 'number' ? res.mise : 1;
+    const meta = TYPE_META[res.type] || TYPE_META.conseil;
     const chip = document.createElement('span');
     chip.className = `chip ${res.r.toLowerCase()}`;
     chip.innerHTML = `
       <span class="flag">${res.flag}</span>${res.r}
       <span class="tip">
         ${res.flag} <b>${res.match}</b><br>
-        Pronostic : <b>${res.pick}</b> @${res.cote.toFixed(2)} · mise ${mise.toFixed(2)} u<br>
+        <svg class="icon"><use href="#i-${meta.icon}"></use></svg> ${meta.label} : <b>${res.pick}</b> @${res.cote.toFixed(2)} · mise ${mise.toFixed(2)} u<br>
         <span class="res-${res.r.toLowerCase()}">${RES_LABEL[res.r]} · ${gain}</span>
       </span>`;
     row.appendChild(chip);
