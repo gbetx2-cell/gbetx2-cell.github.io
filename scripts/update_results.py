@@ -12,7 +12,7 @@ import sys
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-N_RESULTS = 20
+N_MATCHES = 20  # matchs regles (chacun peut donner jusqu'a 3 entrees : conseil/value/player pick cote)
 BASE_UNIT_EUR = 200  # doit rester synchro avec ai/staking.py BASE_UNIT_EUR
 PARIS_TZ = ZoneInfo("Europe/Paris")
 
@@ -239,7 +239,33 @@ def fetch_period_series() -> dict:
     }
 
 
+def _cat(selection: str) -> str:
+    """Meme classifieur que daily_bilan.py::_cat -- il n'existe pas de FK
+    entre offensive_player_picks (categorie) et player_pick_settlements
+    (juste un pick_key = hash(joueur|selection)) : on retrouve la categorie
+    d'un settlement par mots-cles sur son texte de selection."""
+    s = (selection or "").lower()
+    if "passe" in s:
+        return "passeur"
+    if "decisif" in s or "décisif" in s:
+        return "decisif"
+    return "buteur"
+
+
+def _pnl_fixed(result: str, cote, stake) -> float:
+    if result == "GAGNE":
+        return (float(cote or 0) - 1) * float(stake or 0)
+    if result == "PERDU":
+        return -float(stake or 0)
+    return 0.0
+
+
 def fetch_results() -> list[dict]:
+    """Jusqu'a 3 entrees independantes par match regle (conseil / value bet /
+    player pick COTE uniquement -- jamais le mode pourcentage, qui n'a pas de
+    prix de marche a encaisser) : chacune a son propre resultat et son propre
+    PnL, jamais un badge global unique (un value bet peut perdre alors que le
+    conseil du meme match gagne)."""
     import psycopg2
 
     db = os.environ.get("DATABASE_URL")
@@ -249,36 +275,105 @@ def fetch_results() -> list[dict]:
     cur = conn.cursor()
     cur.execute(
         """
-        SELECT p.home, p.away, p.conseil,
-               COALESCE(NULLIF(p.cote_reelle,0), p.cote_interne),
-               p.resultat, COALESCE(NULLIF(p.competition,''), pf.league, ''),
-               COALESCE(p.mise, 1), COALESCE(p.pnl, 0)
+        SELECT p.fixture_id, p.home, p.away,
+               p.conseil, COALESCE(NULLIF(p.cote_reelle,0), p.cote_interne),
+               p.resultat, COALESCE(p.mise,1), COALESCE(p.pnl,0),
+               p.value_bet, p.value_cote, p.value_result, COALESCE(p.value_stake_eur,0),
+               COALESCE(NULLIF(p.competition,''), pf.league, '')
         FROM paris p
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
-        WHERE p.resultat IN ('GAGNE','PERDU','REMBOURSE')
-          AND p.conseil IS NOT NULL AND p.conseil <> ''
-        ORDER BY COALESCE(NULLIF(p.result_updated_at,''), p.created_at) DESC
+        WHERE p.result_updated_at IS NOT NULL AND p.result_updated_at <> ''
+          AND (
+            p.resultat IN ('GAGNE','PERDU','REMBOURSE')
+            OR p.value_result IN ('GAGNE','PERDU')
+            OR EXISTS (
+              SELECT 1 FROM offensive_player_picks o
+              WHERE o.fixture_id = p.fixture_id AND o.display_mode = 'cote' AND o.market_odd > 1.01
+            )
+          )
+        ORDER BY p.result_updated_at DESC
         LIMIT %s
         """,
-        (N_RESULTS,),
+        (N_MATCHES,),
     )
-    rows = cur.fetchall()
+    fixtures = cur.fetchall()
+    fixture_ids = [str(r[0]) for r in fixtures]
+
+    player_by_fixture: dict = {}
+    settlements_by_fixture: dict = {}
+    if fixture_ids:
+        placeholders = ",".join(["%s"] * len(fixture_ids))
+        cur.execute(
+            f"""SELECT fixture_id, category, selection_label, market_odd, stake_eur, combined_score
+                FROM offensive_player_picks
+                WHERE fixture_id IN ({placeholders}) AND display_mode = 'cote' AND market_odd > 1.01
+                ORDER BY combined_score DESC""",
+            tuple(fixture_ids),
+        )
+        for fid, category, label, odd, stake, _score in cur.fetchall():
+            fid = str(fid)
+            if fid not in player_by_fixture:  # 1er vu = meilleur combined_score
+                player_by_fixture[fid] = {
+                    "category": category, "label": label,
+                    "cote": float(odd or 0), "stake": float(stake or 0),
+                }
+        cur.execute(
+            f"""SELECT fixture_id, selection, result FROM player_pick_settlements
+                WHERE fixture_id IN ({placeholders})""",
+            tuple(fixture_ids),
+        )
+        for fid, selection, result in cur.fetchall():
+            settlements_by_fixture.setdefault(str(fid), []).append((selection, result))
     conn.close()
+
     out = []
-    for home, away, conseil, cote, resultat, competition, mise, pnl in reversed(rows):
-        out.append({
-            "flag": _flag(competition),
-            "match": f"{home} – {away}",
-            "pick": _short_pick(conseil),
-            "cote": round(float(cote or 0), 2),
-            "r": {"GAGNE": "G", "PERDU": "P"}.get(resultat, "R"),
+    for fixture_id, home, away, conseil, cote, resultat, mise, pnl, \
+            value_bet, value_cote, value_result, value_stake, competition in reversed(fixtures):
+        fixture_id = str(fixture_id)
+        flag = _flag(competition)
+        match = f"{home} – {away}"
+
+        if conseil and resultat in ("GAGNE", "PERDU", "REMBOURSE"):
             # paris.mise/paris.pnl sont stockes en EUROS en base (mise =
-            # advice_stake.stake_eur, cf football/predictions.py) -- on
-            # convertit en unites (1u = BASE_UNIT_EUR, ai/staking.py) pour
-            # rester coherent avec l'affichage "u" du site.
-            "mise": round(float(mise or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
-            "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 2),
-        })
+            # advice_stake.stake_eur, cf football/predictions.py).
+            out.append({
+                "flag": flag, "match": match, "pick": _short_pick(conseil),
+                "cote": round(float(cote or 0), 2),
+                "r": {"GAGNE": "G", "PERDU": "P"}.get(resultat, "R"),
+                "mise": round(float(mise or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
+                "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 2),
+                "type": "conseil",
+            })
+
+        if value_bet and value_result in ("GAGNE", "PERDU"):
+            v_pnl = _pnl_fixed(value_result, value_cote, value_stake)
+            out.append({
+                "flag": flag, "match": match, "pick": _short_pick(value_bet),
+                "cote": round(float(value_cote or 0), 2),
+                "r": {"GAGNE": "G", "PERDU": "P"}.get(value_result, "R"),
+                "mise": round(float(value_stake or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
+                "pnl": round(v_pnl / BASE_UNIT_EUR, 2),
+                "type": "value",
+            })
+
+        pick_info = player_by_fixture.get(fixture_id)
+        if pick_info:
+            result = next(
+                (r for selection, r in settlements_by_fixture.get(fixture_id, [])
+                 if _cat(selection) == pick_info["category"]),
+                None,
+            )
+            if result in ("GAGNE", "PERDU", "REMBOURSE"):
+                p_pnl = _pnl_fixed(result, pick_info["cote"], pick_info["stake"])
+                out.append({
+                    "flag": flag, "match": match, "pick": pick_info["label"],
+                    "cote": round(pick_info["cote"], 2),
+                    "r": {"GAGNE": "G", "PERDU": "P"}.get(result, "R"),
+                    "mise": round(pick_info["stake"] / BASE_UNIT_EUR, 2),
+                    "pnl": round(p_pnl / BASE_UNIT_EUR, 2),
+                    "type": "player",
+                })
+
     return out
 
 
@@ -289,7 +384,7 @@ def render_block(results: list[dict]) -> str:
         pick = r["pick"].replace('"', "'")
         lines.append(
             f'  {{flag:"{r["flag"]}", match:"{match}", pick:"{pick}", '
-            f'cote:{r["cote"]:.2f}, r:"{r["r"]}", mise:{r["mise"]:.2f}, pnl:{r["pnl"]:.2f}}},'
+            f'cote:{r["cote"]:.2f}, r:"{r["r"]}", mise:{r["mise"]:.2f}, pnl:{r["pnl"]:.2f}, type:"{r["type"]}"}},'
         )
     lines.append("];")
     return "\n".join(lines)
