@@ -690,7 +690,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     <div class="chart-card reveal">
       <div class="chart-head">
         <div>
-          <h3>Courbe des derniers conseils</h3>
+          <h3>Courbe des derniers picks</h3>
           <div class="chart-toggle">
             <button id="btnUnits" class="active">En unités</button>
             <button id="btnEuros">En €</button>
@@ -700,7 +700,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       </div>
       <svg id="bkChart" viewBox="0 0 800 300" preserveAspectRatio="none" role="img" aria-label="Courbe d'évolution des gains"></svg>
       <div class="chips" id="chipsRow">
-        <span class="c-label">Derniers conseils — survolez pour voir le pronostic donné :</span>
+        <span class="c-label">Derniers picks — survolez pour voir le pronostic exact et son type :</span>
       </div>
       <div class="chart-note">
         G = gagné · P = perdu · R = remboursé — mise à jour à chaque bilan quotidien.
@@ -1055,7 +1055,7 @@ function drawChart(){
   const totalDisplay = currentMode === "e"
     ? `${up?'+':''}${(total*MISE_PAR_UNITE).toFixed(0)} €`
     : `${up?'+':''}${total.toFixed(2)} u`;
-  d.innerHTML = `${totalDisplay} <small>sur les ${RESULTATS.length} derniers conseils · 1 u = ${MISE_PAR_UNITE} €</small>`;
+  d.innerHTML = `${totalDisplay} <small>sur les ${RESULTATS.length} derniers picks (conseil/value/player pick) · 1 u = ${MISE_PAR_UNITE} €</small>`;
 }
 
 function animateChartLine(){
