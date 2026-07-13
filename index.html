@@ -184,7 +184,7 @@ header{
 }
 
 /* ── Bilan jour / semaine / mois ────────── */
-.period-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.period-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
 .period-card{
   background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
   padding:22px 24px;
@@ -453,7 +453,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   .live-grid{grid-template-columns:1fr}
   .chart-card{padding:22px}
   .chip .tip{white-space:normal;width:220px}
-  .period-grid{grid-template-columns:1fr}
+  .period-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 /* ── Accessibilité : focus clavier visible ─ */
@@ -668,6 +668,23 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       Le bilan détaillé de chaque journée est publié sur le canal — l'historique fait foi.
     </p>
     <div class="period-grid reveal" id="periodGrid"></div>
+
+    <div class="chart-card reveal" style="margin-bottom:22px">
+      <div class="chart-head">
+        <div>
+          <h3>Évolution du bilan</h3>
+          <div class="chart-toggle" id="periodTabs">
+            <button data-period="jour" class="active">Jour</button>
+            <button data-period="semaine">Semaine</button>
+            <button data-period="mois">Mois</button>
+            <button data-period="annee">Année</button>
+          </div>
+        </div>
+        <div class="delta" id="periodChartDelta">—</div>
+      </div>
+      <svg id="periodChart" viewBox="0 0 800 260" preserveAspectRatio="none" role="img" aria-label="Évolution du bilan par période"></svg>
+    </div>
+
     <div class="chart-card reveal">
       <div class="chart-head">
         <div>
@@ -952,6 +969,10 @@ const RESULTATS = [
    publication) -- regenere par scripts/export_site_results.py. */
 const PERIOD_STATS = {jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00}, semaine:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00}, mois:{n:178, g:98, p:80, r:0, winrate:55, pnl:-27.96}};
 
+/* Courbe cumulee par periode (jour=heures, semaine=jours, mois=jours du
+   mois, annee=mois) -- regenere par scripts/export_site_results.py. */
+const PERIOD_SERIES = {jour:[], semaine:[], mois:[], annee:[]};
+
 /* ── Courbe unités / € ── */
 const RES_LABEL = {G:"Gagné", P:"Perdu", R:"Remboursé"};
 let currentMode = "u"; // "u" = unités, "e" = euros
@@ -1031,7 +1052,7 @@ function animateChartLine(){
 }
 
 /* ── Bilan jour / semaine / mois ── */
-const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci"};
+const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci", annee:"Cette année"};
 
 function renderPeriodStats(){
   const grid = document.getElementById('periodGrid');
@@ -1056,23 +1077,113 @@ function renderPeriodStats(){
   }).join('');
 }
 
+/* ── Graphique jour / semaine / mois / année ── */
+let currentPeriod = "jour";
+
+function drawPeriodChart(){
+  const svg = document.getElementById('periodChart');
+  const series = PERIOD_SERIES[currentPeriod] || [];
+  const d = document.getElementById('periodChartDelta');
+  if (!series.length){
+    svg.innerHTML = '';
+    d.textContent = '—';
+    return;
+  }
+  const W = 800, H = 260, PAD_L = 56, PAD_R = 16, PAD_T = 16, PAD_B = 32;
+  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
+  const unit = currentMode === "e" ? "€" : "u";
+  const vals = series.map(p => p.pnl * factor);
+  const n = vals.length;
+  const yMin = Math.min(...vals, 0), yMax = Math.max(...vals, factor*0.5);
+  const xs = i => n <= 1 ? PAD_L : PAD_L + (i/(n-1))*(W-PAD_L-PAD_R);
+  const ysc = v => H-PAD_B - ((v-yMin)/(yMax-yMin || 1))*(H-PAD_T-PAD_B);
+
+  const line = vals.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
+  const area = line + ` L${xs(n-1).toFixed(1)},${H-PAD_B} L${xs(0).toFixed(1)},${H-PAD_B} Z`;
+  const last = vals[n-1];
+  const up = last >= 0;
+  const col = up ? '#22c55e' : '#ef4444';
+
+  const steps = 4;
+  let gridSvg = '';
+  for(let s=0; s<=steps; s++){
+    const v = yMin + (yMax-yMin)*s/steps;
+    const y = ysc(v);
+    const label = `${v>=0?'+':''}${currentMode==="e"?Math.round(v):v.toFixed(1)} ${unit}`;
+    gridSvg += `<line x1="${PAD_L}" y1="${y.toFixed(1)}" x2="${W-PAD_R}" y2="${y.toFixed(1)}" stroke="rgba(156,148,129,.15)" stroke-dasharray="4 5"/>
+      <text x="${PAD_L-8}" y="${(y+4).toFixed(1)}" fill="rgba(156,148,129,.75)" font-size="11" text-anchor="end" font-family="Inter">${label}</text>`;
+  }
+
+  const maxLabels = 12;
+  const strideX = Math.max(1, Math.ceil(n/maxLabels));
+  let xLabelsSvg = '';
+  series.forEach((p,i)=>{
+    if(i % strideX !== 0 && i !== n-1) return;
+    xLabelsSvg += `<text x="${xs(i).toFixed(1)}" y="${H-8}" fill="rgba(156,148,129,.75)" font-size="11" text-anchor="middle" font-family="Inter">${p.label}</text>`;
+  });
+
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${col}" stop-opacity=".28"/>
+        <stop offset="1" stop-color="${col}" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    ${gridSvg}
+    <path d="${area}" fill="url(#pg)"/>
+    <path id="periodLine" d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${xs(n-1).toFixed(1)}" cy="${ysc(last).toFixed(1)}" r="5" fill="${col}"/>
+    ${xLabelsSvg}
+  `;
+
+  d.classList.remove('up','down');
+  d.classList.add(up ? 'up' : 'down');
+  const lastDisplay = currentMode === "e" ? `${up?'+':''}${last.toFixed(0)} €` : `${up?'+':''}${last.toFixed(2)} u`;
+  d.innerHTML = `${lastDisplay} <small>${PERIOD_LABELS[currentPeriod] || ''}</small>`;
+}
+
+function animatePeriodLine(){
+  const path = document.querySelector('#periodLine');
+  if(!path) return;
+  const len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+  path.style.strokeDashoffset = len;
+  requestAnimationFrame(()=>{
+    path.style.transition = 'stroke-dashoffset 1.4s ease';
+    path.style.strokeDashoffset = '0';
+  });
+}
+
+document.querySelectorAll('#periodTabs button').forEach(btn=>{
+  btn.addEventListener('click', function(){
+    currentPeriod = this.dataset.period;
+    document.querySelectorAll('#periodTabs button').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    drawPeriodChart(); animatePeriodLine();
+  });
+});
+
 drawChart();
 renderPeriodStats();
+drawPeriodChart();
 new IntersectionObserver((e,o)=>{
   if(e[0].isIntersecting){ animateChartLine(); o.disconnect(); }
 },{threshold:.3}).observe(document.getElementById('bkChart'));
+new IntersectionObserver((e,o)=>{
+  if(e[0].isIntersecting){ animatePeriodLine(); o.disconnect(); }
+},{threshold:.3}).observe(document.getElementById('periodChart'));
 
 document.getElementById('btnUnits').addEventListener('click', function(){
   currentMode = "u";
   this.classList.add('active');
   document.getElementById('btnEuros').classList.remove('active');
-  drawChart(); animateChartLine(); renderPeriodStats();
+  drawChart(); animateChartLine(); renderPeriodStats(); drawPeriodChart();
 });
 document.getElementById('btnEuros').addEventListener('click', function(){
   currentMode = "e";
   this.classList.add('active');
   document.getElementById('btnUnits').classList.remove('active');
-  drawChart(); animateChartLine(); renderPeriodStats();
+  drawChart(); animateChartLine(); renderPeriodStats(); drawPeriodChart();
 });
 
 /* ── Pastilles avec drapeau + tooltip du pronostic ── */
