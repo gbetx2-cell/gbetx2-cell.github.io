@@ -11,6 +11,7 @@ import re
 import sys
 
 N_RESULTS = 20
+BASE_UNIT_EUR = 200  # doit rester synchro avec ai/staking.py BASE_UNIT_EUR
 
 COMPETITION_FLAGS = {
     "coupe du monde": "🏆",
@@ -110,12 +111,12 @@ def fetch_results() -> list[dict]:
             "pick": _short_pick(conseil),
             "cote": round(float(cote or 0), 2),
             "r": {"GAGNE": "G", "PERDU": "P"}.get(resultat, "R"),
-            # Mise reelle en unites (ai/staking.py : 1 unite = BASE_UNIT_EUR,
-            # variable par palier d'edge -- jamais 1u fixe) et PnL reel deja
-            # calcule en prod (database.py update_resultat), pas recalcule
-            # a partir de la cote pour eviter toute divergence.
-            "mise": round(float(mise or 1), 2),
-            "pnl": round(float(pnl or 0), 2),
+            # paris.mise/paris.pnl sont stockes en EUROS en base (mise =
+            # advice_stake.stake_eur, cf football/predictions.py) -- on
+            # convertit en unites (1u = BASE_UNIT_EUR, ai/staking.py) pour
+            # rester coherent avec l'affichage "u" du site.
+            "mise": round(float(mise or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
+            "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 2),
         })
     return out
 
