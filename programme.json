@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-14T23:30:58.186157+00:00",
+ "generated_at": "2026-07-15T00:58:45.278829+00:00",
  "fixtures": [
   {
    "flag": "⚽",
@@ -25,13 +25,6 @@
   {
    "flag": "⚽",
    "league": "Ligue des Champions",
-   "match": "Gyori ETO FC – Vikingur Reykjavik",
-   "kickoff_at": "2026-07-14T19:00:00+02:00",
-   "published": false
-  },
-  {
-   "flag": "⚽",
-   "league": "Ligue des Champions",
    "match": "Riga – Ararat-Armenia",
    "kickoff_at": "2026-07-14T19:00:00+02:00",
    "published": false
@@ -39,8 +32,8 @@
   {
    "flag": "⚽",
    "league": "Ligue des Champions",
-   "match": "Levski Sofia – Borac Banja Luka",
-   "kickoff_at": "2026-07-14T19:30:00+02:00",
+   "match": "Gyori ETO FC – Vikingur Reykjavik",
+   "kickoff_at": "2026-07-14T19:00:00+02:00",
    "published": false
   },
   {
@@ -53,15 +46,15 @@
   {
    "flag": "⚽",
    "league": "Ligue des Champions",
-   "match": "Drita – Kauno Žalgiris",
-   "kickoff_at": "2026-07-14T20:00:00+02:00",
+   "match": "Levski Sofia – Borac Banja Luka",
+   "kickoff_at": "2026-07-14T19:30:00+02:00",
    "published": false
   },
   {
    "flag": "⚽",
    "league": "Ligue des Champions",
-   "match": "Shamrock Rovers – Floriana",
-   "kickoff_at": "2026-07-14T21:00:00+02:00",
+   "match": "Drita – Kauno Žalgiris",
+   "kickoff_at": "2026-07-14T20:00:00+02:00",
    "published": false
   },
   {
@@ -71,12 +64,21 @@
    "kickoff_at": "2026-07-14T21:00:00+02:00",
    "published": true,
    "conseil": "Espagne ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.22
+   "conseil_cote": 2.22,
+   "result": "GAGNE",
+   "score": "0 - 2"
   },
   {
    "flag": "🏆",
    "league": "Conference League",
    "match": "La Fiorita – UNA Strassen",
+   "kickoff_at": "2026-07-14T21:00:00+02:00",
+   "published": false
+  },
+  {
+   "flag": "⚽",
+   "league": "Ligue des Champions",
+   "match": "Shamrock Rovers – Floriana",
    "kickoff_at": "2026-07-14T21:00:00+02:00",
    "published": false
   },
@@ -113,7 +115,9 @@
    "league": "Primera División",
    "match": "Blooming – Gualberto Villarroel SJ",
    "kickoff_at": "2026-07-15T02:30:00+02:00",
-   "published": false
+   "published": true,
+   "conseil": "Blooming ou Nul",
+   "conseil_cote": 1.11
   }
  ]
 }
