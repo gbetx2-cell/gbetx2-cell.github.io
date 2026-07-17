@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Regenere le bloc `const RESULTATS = [...]` de index.html depuis les vrais
-conseils regles en production. Lance chaque nuit par GitHub Actions
-(.github/workflows/update-results.yml) avec DATABASE_URL en secret.
+Regenere les blocs de donnees live de index.html (RESULTATS, PERIOD_STATS,
+PERIOD_SERIES, PERF_STATS) depuis les vrais paris regles en production.
+Lance chaque nuit par GitHub Actions (.github/workflows/update-results.yml)
+avec DATABASE_URL en secret.
 
 Aucun secret dans ce fichier : la connexion vient de l'environnement.
 """
@@ -16,6 +17,7 @@ N_MATCHES = 20  # matchs regles (chacun peut donner jusqu'a 3 entrees : conseil/
 BASE_UNIT_EUR = 200  # doit rester synchro avec ai/staking.py BASE_UNIT_EUR
 PARIS_TZ = ZoneInfo("Europe/Paris")
 
+# Drapeau par competition (fallback ⚽ si inconnue)
 COMPETITION_FLAGS = {
     "coupe du monde": "🏆",
     "k league": "🇰🇷",
@@ -33,7 +35,6 @@ COMPETITION_FLAGS = {
     "premier division": "🇮🇪",
     "first division": "🇮🇪",
     "a lyga": "🇱🇹",
-    "1 lyga": "🇱🇹",
     "meistriliiga": "🇪🇪",
     "esiliiga": "🇪🇪",
     "virsliga": "🇱🇻",
@@ -64,6 +65,8 @@ COMPETITION_FLAGS = {
     "copa chile": "🇨🇱",
     "copa venezuela": "🇻🇪",
     "division intermedia": "🇵🇾",
+    "1 lyga": "🇱🇹",
+    "erovnuli": "🇬🇪",
 }
 
 
@@ -377,6 +380,218 @@ def fetch_results() -> list[dict]:
     return out
 
 
+# Copie de football/predictions.py::COTE_AVOID_BANDS -- doit rester synchro.
+# hi=None : pas de borne haute. Sert a marquer les "zones bloquees" dans le
+# tableau public de performance par marche.
+COTE_AVOID_BANDS = {
+    "double_chance": [(1.50, 2.00), (2.50, None)],
+    "winner": [(4.00, None)],
+    "total_goals": [(3.00, None)],
+    "both_teams_to_score": [(1.50, 3.00)],
+}
+
+# Bandes de cote du tableau public -- memes bornes que jobs/weekly_roi_report.py
+ODDS_BANDS = [
+    (0.0, 1.50, "< 1.50"),
+    (1.50, 1.70, "1.50-1.70"),
+    (1.70, 2.00, "1.70-2.00"),
+    (2.00, 2.50, "2.00-2.50"),
+    (2.50, 3.00, "2.50-3.00"),
+    (3.00, 4.00, "3.00-4.00"),
+    (4.00, 99.0, "4.00+"),
+]
+
+MARKET_FR = {
+    "double_chance": "Double chance",
+    "winner": "Vainqueur",
+    "total_goals": "Buts (over/under)",
+    "both_teams_to_score": "Les deux marquent",
+    "handicap": "Handicap",
+    "scorer": "Buteur",
+    "assist": "Passeur",
+}
+
+
+def _is_blocked(market_type: str, odd: float) -> bool:
+    for lo, hi in COTE_AVOID_BANDS.get(market_type, []):
+        if odd >= lo and (hi is None or odd < hi):
+            return True
+    return False
+
+
+def fetch_perf_stats() -> dict:
+    """Stats de performance publiques : ROI global depuis le lancement,
+    classement par sport, tableau marche x bande de cote (avec zones
+    bloquees), meilleur/pire pick + top ligue du mois, taux de reussite des
+    player picks mode pourcentage. Tout depuis les paris regles reels."""
+    import psycopg2
+
+    db = os.environ.get("DATABASE_URL")
+    if not db:
+        raise SystemExit("DATABASE_URL manquant")
+    conn = psycopg2.connect(db, connect_timeout=10)
+    cur = conn.cursor()
+
+    # ── Global + par sport + marche x bande (tous les conseils regles) ──
+    cur.execute(
+        """
+        SELECT sport, market_type,
+               COALESCE(NULLIF(cote_reelle,0), cote_interne),
+               resultat, COALESCE(mise,0), COALESCE(pnl,0), result_updated_at
+        FROM paris
+        WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
+          AND result_updated_at IS NOT NULL AND result_updated_at <> ''
+        """,
+    )
+    rows = cur.fetchall()
+
+    today = datetime.now(PARIS_TZ).date()
+    month_start = today.replace(day=1)
+
+    g = {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0, "since": None}
+    sports: dict = {}
+    markets: dict = {}
+    for sport, market_type, cote, resultat, mise, pnl, rud in rows:
+        d = _paris_calendar_date(rud)
+        if d is None:
+            continue
+        won = resultat == "GAGNE"
+        lost = resultat == "PERDU"
+        g["n"] += 1
+        g["w"] += won
+        g["l"] += lost
+        g["stake"] += float(mise or 0)
+        g["pnl"] += float(pnl or 0)
+        if g["since"] is None or d < g["since"]:
+            g["since"] = d
+
+        sp = (sport or "football").lower()
+        s = sports.setdefault(sp, {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0})
+        s["n"] += 1
+        s["w"] += won
+        s["l"] += lost
+        s["stake"] += float(mise or 0)
+        s["pnl"] += float(pnl or 0)
+
+        mt = market_type or "winner"
+        odd = float(cote or 0)
+        for lo, hi, label in ODDS_BANDS:
+            if lo <= odd < hi:
+                key = (mt, label)
+                m = markets.setdefault(key, {"n": 0, "w": 0, "l": 0, "pnl": 0.0,
+                                             "blocked": _is_blocked(mt, (lo + min(hi, 9.0)) / 2)})
+                m["n"] += 1
+                m["w"] += won
+                m["l"] += lost
+                m["pnl"] += float(pnl or 0)
+                break
+
+    # ── Highlights du mois (meilleur/pire pick, top ligue) ──
+    cur.execute(
+        """
+        SELECT p.home, p.away, p.conseil,
+               COALESCE(NULLIF(p.cote_reelle,0), p.cote_interne),
+               COALESCE(p.pnl,0), COALESCE(NULLIF(p.competition,''), pf.league, ''),
+               p.result_updated_at
+        FROM paris p
+        LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
+        WHERE p.resultat IN ('GAGNE','PERDU')
+          AND p.conseil IS NOT NULL AND p.conseil <> ''
+          AND p.result_updated_at IS NOT NULL AND p.result_updated_at <> ''
+        """,
+    )
+    best = worst = None
+    leagues: dict = {}
+    for home, away, conseil, cote, pnl, competition, rud in cur.fetchall():
+        d = _paris_calendar_date(rud)
+        if d is None or not (month_start <= d <= today):
+            continue
+        pnl = float(pnl or 0)
+        entry = {
+            "match": f"{home} – {away}", "pick": _short_pick(conseil),
+            "cote": round(float(cote or 0), 2), "pnl": round(pnl / BASE_UNIT_EUR, 2),
+            "flag": _flag(competition), "league": competition or "",
+        }
+        if pnl > 0 and (best is None or pnl > best["_raw"]):
+            best = {**entry, "_raw": pnl}
+        if pnl < 0 and (worst is None or pnl < worst["_raw"]):
+            worst = {**entry, "_raw": pnl}
+        if competition:
+            lg = leagues.setdefault(competition, {"pnl": 0.0, "n": 0})
+            lg["pnl"] += pnl
+            lg["n"] += 1
+    top_league = None
+    if leagues:
+        name, lg = max(leagues.items(), key=lambda kv: kv[1]["pnl"])
+        if lg["pnl"] > 0:
+            top_league = {"league": name, "flag": _flag(name),
+                          "pnl": round(lg["pnl"] / BASE_UNIT_EUR, 2), "n": lg["n"]}
+
+    # ── Player picks mode pourcentage (taux de reussite, pas de PnL) ──
+    cur.execute(
+        """
+        SELECT o.category, s.selection, s.result
+        FROM player_pick_settlements s
+        JOIN offensive_player_picks o ON o.fixture_id = s.fixture_id
+        WHERE o.display_mode = 'percent' AND s.result IN ('GAGNE','PERDU')
+        """,
+    )
+    pp = {"n": 0, "w": 0}
+    for category, selection, result in cur.fetchall():
+        if _cat(selection) != category:
+            continue
+        pp["n"] += 1
+        pp["w"] += result == "GAGNE"
+    conn.close()
+
+    def pack(d):
+        decides = d["w"] + d["l"]
+        return {
+            "n": d["n"], "w": d["w"], "l": d["l"],
+            "winrate": round(d["w"] / decides * 100) if decides else 0,
+            "roi": round(d["pnl"] / d["stake"] * 100, 1) if d["stake"] else 0,
+            "pnl": round(d["pnl"] / BASE_UNIT_EUR, 2),
+        }
+
+    market_rows = []
+    for (mt, band), m in sorted(markets.items(), key=lambda kv: (-kv[1]["n"],)):
+        decides = m["w"] + m["l"]
+        market_rows.append({
+            "market": MARKET_FR.get(mt, mt), "band": band, "n": m["n"],
+            "winrate": round(m["w"] / decides * 100) if decides else 0,
+            "pnl": round(m["pnl"] / BASE_UNIT_EUR, 2),
+            "blocked": m["blocked"],
+        })
+
+    blocked_bands = []
+    for mt, bands in COTE_AVOID_BANDS.items():
+        for lo, hi in bands:
+            blocked_bands.append({
+                "market": MARKET_FR.get(mt, mt),
+                "band": f"{lo:.2f}+" if hi is None else f"{lo:.2f}-{hi:.2f}",
+            })
+
+    for entry in (best, worst):
+        if entry:
+            entry.pop("_raw", None)
+
+    return {
+        "global": {**pack(g), "since": g["since"].isoformat() if g["since"] else ""},
+        "sports": [{"sport": sp, **pack(s)} for sp, s in
+                   sorted(sports.items(), key=lambda kv: -kv[1]["n"])],
+        "markets": market_rows,
+        "blocked_bands": blocked_bands,
+        "highlights": {"best": best, "worst": worst, "top_league": top_league},
+        "percent_picks": {"n": pp["n"],
+                          "winrate": round(pp["w"] / pp["n"] * 100) if pp["n"] else 0},
+    }
+
+
+def render_perf_block(perf: dict) -> str:
+    import json
+    return "const PERF_STATS = " + json.dumps(perf, ensure_ascii=False) + ";"
+
+
 def render_block(results: list[dict]) -> str:
     lines = ["const RESULTATS = ["]
     for r in results:
@@ -408,7 +623,8 @@ def render_series_block(series: dict) -> str:
     return "const PERIOD_SERIES = {" + ", ".join(parts) + "};"
 
 
-def update_html(path: str, results: list[dict], period_stats: dict, period_series: dict) -> None:
+def update_html(path: str, results: list[dict], period_stats: dict,
+                period_series: dict, perf_stats: dict) -> None:
     with open(path, encoding="utf-8") as f:
         html = f.read()
     html, n1 = re.subn(r"const RESULTATS = \[.*?\];", render_block(results), html, count=1, flags=re.DOTALL)
@@ -420,13 +636,17 @@ def update_html(path: str, results: list[dict], period_stats: dict, period_serie
     html, n3 = re.subn(r"const PERIOD_SERIES = \{.*?\};", render_series_block(period_series), html, count=1, flags=re.DOTALL)
     if n3 != 1:
         raise SystemExit(f"bloc PERIOD_SERIES introuvable dans {path}")
+    html, n4 = re.subn(r"const PERF_STATS = \{.*?\};", lambda _: render_perf_block(perf_stats), html, count=1, flags=re.DOTALL)
+    if n4 != 1:
+        raise SystemExit(f"bloc PERF_STATS introuvable dans {path}")
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write(html)
-    print(f"[Site] {len(results)} resultats + stats/courbes jour/semaine/mois/annee ecrits dans {path}")
+    print(f"[Site] {len(results)} resultats + stats/courbes/performance ecrits dans {path}")
 
 
 if __name__ == "__main__":
     target = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "index.html",
     )
-    update_html(target, fetch_results(), fetch_period_stats(), fetch_period_series())
+    update_html(target, fetch_results(), fetch_period_stats(),
+                fetch_period_series(), fetch_perf_stats())
