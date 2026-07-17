@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ligues couvertes — G-BET Bot</title>
+<meta name="description" content="113 ligues auditées une par une : 50 en couverture complète (compositions vérifiées, picks buteur/passeur/décisif) et 63 en couverture standard.">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706; --bg-2:#0c0b09; --card:#12110e; --card-2:#1a1813;
+  --border:rgba(240,185,11,.14); --border-strong:rgba(240,185,11,.32);
+  --text:#f2ede1; --muted:#9c9481;
+  --gold:#f0b90b; --gold-2:#f7ca3e; --gold-dark:#b8860b;
+  --green:#22c55e; --red:#ef4444; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5}
+.container{max-width:920px;margin:0 auto;padding:0 20px}
+header{
+  border-bottom:1px solid var(--border);
+  padding:18px 0; position:sticky; top:0; background:rgba(7,7,6,.92);
+  backdrop-filter:blur(8px); z-index:10;
+}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.1rem}
+.logo img{width:32px;height:32px;border-radius:50%;border:2px solid var(--gold)}
+.logo .g{color:var(--gold-2)}
+.back-link{color:var(--muted);font-size:.9rem;text-decoration:none}
+.back-link:hover{color:var(--gold-2)}
+.nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
+.nav-links a{position:relative;padding-bottom:4px;transition:color .15s;text-decoration:none;color:inherit}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-links a.active{color:var(--gold-2);font-weight:600}
+.nav-links a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold-2));border-radius:2px;
+}
+@media(max-width:640px){.nav-links{display:none}}
+
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+:focus:not(:focus-visible){outline:none}
+.skip-link{
+  position:fixed;top:-60px;left:12px;z-index:200;
+  background:var(--gold-2);color:#141005;font-weight:700;font-size:.9rem;
+  padding:12px 20px;border-radius:10px;transition:top .2s ease;
+}
+.skip-link:focus{top:12px}
+.icon{width:1.05em;height:1.05em;display:inline-block;vertical-align:-0.15em;flex-shrink:0;
+  stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+.icon-btn{
+  background:transparent;border:1px solid var(--border-strong);border-radius:10px;
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  color:var(--text);cursor:pointer;flex-shrink:0;
+}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold-2)}
+.menu-toggle{display:none}
+.header-right{display:flex;align-items:center;gap:10px}
+.mobile-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:64;
+}
+.mobile-backdrop.open{opacity:1;pointer-events:auto}
+.mobile-nav{
+  position:fixed;top:0;right:0;height:100vh;width:min(320px,82vw);
+  background:var(--bg-2);border-left:1px solid var(--border);
+  transform:translateX(100%);transition:transform .25s ease;
+  z-index:70;padding:20px 22px;display:flex;flex-direction:column;gap:4px;
+  overflow-y:auto;
+}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav-head{display:flex;justify-content:flex-end;margin-bottom:14px}
+.mobile-nav a{padding:15px 4px;font-size:1.05rem;color:var(--text);font-weight:600;
+  border-bottom:1px solid var(--border);text-decoration:none;}
+.mobile-nav a.active{color:var(--gold-2)}
+@media(max-width:640px){.menu-toggle{display:flex}}
+
+h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 6px}
+.sub{color:var(--muted);font-size:.95rem;margin-bottom:34px;max-width:640px}
+.sub b{color:var(--gold-2)}
+.tier{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:26px 28px;margin-bottom:22px;
+}
+.tier h2{font-family:'Sora',sans-serif;font-size:1.15rem;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tier-count{
+  font-size:.72rem;font-weight:800;letter-spacing:.05em;
+  padding:3px 10px;border-radius:99px;color:#141005;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+}
+.tier p{color:var(--muted);font-size:.9rem;margin-bottom:18px;max-width:640px}
+.tier h3{
+  font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;
+  margin:18px 0 10px;font-weight:600;
+}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.lg{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 12px;border-radius:9px;font-size:.84rem;font-weight:500;
+  background:var(--card-2);border:1px solid var(--border);
+}
+footer{border-top:1px solid var(--border);padding:30px 0;margin-top:50px;
+  color:var(--muted);font-size:.82rem;text-align:center}
+footer a{color:var(--gold-2);text-decoration:none}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+</defs>
+</svg>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html" style="text-decoration:none;color:inherit">
+      <img src="assets/logo.jpg" alt="G-BET Bot">
+      <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="programme.html">Programme du jour</a>
+      <a href="index.html#resultats">Résultats</a>
+      <a href="index.html#performance">Performance</a>
+      <a href="ligues.html" class="active">Ligues</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="header-right">
+      <a class="back-link" href="index.html">← Retour au site</a>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="icon" style="width:20px;height:20px"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Menu principal">
+  <div class="mobile-nav-head">
+    <button class="icon-btn" id="menuClose" aria-label="Fermer le menu">
+      <svg class="icon" style="width:18px;height:18px"><use href="#i-x"></use></svg>
+    </button>
+  </div>
+  <a href="programme.html">Programme du jour</a>
+  <a href="index.html#resultats">Résultats</a>
+  <a href="index.html#performance">Performance</a>
+  <a href="ligues.html" class="active">Ligues</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="index.html">← Retour au site</a>
+</nav>
+
+<div class="container" id="main">
+  <h1>Ligues couvertes</h1>
+  <p class="sub">
+    <b>113 compétitions</b>, auditées une par une sur leurs données réelles avant
+    d'être intégrées : fiabilité des compositions, disponibilité des cotes réelles,
+    statistiques joueurs. Une ligue qui ne passe pas l'audit n'entre pas — peu
+    importe sa popularité.
+  </p>
+
+  <div class="tier">
+    <h2>Couverture complète <span class="tier-count">50 compétitions</span></h2>
+    <p>Le package entier : conseil du match, value bet, picks buteur / passeur /
+    décisif — avec compositions officielles vérifiées 22/22 avant chaque publication.</p>
+
+    <h3>Compétitions internationales</h3>
+    <div class="chips">
+      <span class="lg">🏆 Coupe du Monde</span>
+      <span class="lg">🏆 Coupe du Monde des Clubs</span>
+      <span class="lg">🇪🇺 Ligue des Champions</span>
+      <span class="lg">🇪🇺 Ligue Europa</span>
+      <span class="lg">🇪🇺 Conference League</span>
+      <span class="lg">🇪🇺 Euro</span>
+      <span class="lg">🇪🇺 Ligue des Nations</span>
+      <span class="lg">🇪🇺 Supercoupe UEFA</span>
+      <span class="lg">🌍 CAN</span>
+      <span class="lg">🌎 Copa América</span>
+      <span class="lg">🌎 Copa Libertadores</span>
+    </div>
+
+    <h3>Grands championnats &amp; coupes</h3>
+    <div class="chips">
+      <span class="lg">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</span>
+      <span class="lg">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Championship</span>
+      <span class="lg">🏴󠁧󠁢󠁥󠁮󠁧󠁿 FA Cup</span>
+      <span class="lg">🏴󠁧󠁢󠁥󠁮󠁧󠁿 EFL Cup</span>
+      <span class="lg">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Community Shield</span>
+      <span class="lg">🇫🇷 Ligue 1</span>
+      <span class="lg">🇫🇷 Ligue 2</span>
+      <span class="lg">🇫🇷 Coupe de France</span>
+      <span class="lg">🇩🇪 Bundesliga</span>
+      <span class="lg">🇩🇪 2. Bundesliga</span>
+      <span class="lg">🇩🇪 DFB Pokal</span>
+      <span class="lg">🇪🇸 La Liga</span>
+      <span class="lg">🇪🇸 Segunda División</span>
+      <span class="lg">🇪🇸 Copa del Rey</span>
+      <span class="lg">🇮🇹 Serie A</span>
+      <span class="lg">🇮🇹 Serie B</span>
+      <span class="lg">🇮🇹 Coppa Italia</span>
+      <span class="lg">🇵🇹 Primeira Liga</span>
+      <span class="lg">🇵🇹 Taça de Portugal</span>
+      <span class="lg">🇳🇱 Eredivisie</span>
+      <span class="lg">🇧🇪 Pro League</span>
+      <span class="lg">🇹🇷 Süper Lig</span>
+    </div>
+
+    <h3>Europe &amp; monde</h3>
+    <div class="chips">
+      <span class="lg">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scottish Premiership</span>
+      <span class="lg">🇬🇷 Super League 1</span>
+      <span class="lg">🇦🇹 Bundesliga autrichienne</span>
+      <span class="lg">🇨🇭 Super League suisse</span>
+      <span class="lg">🇩🇰 Superliga</span>
+      <span class="lg">🇸🇪 Allsvenskan</span>
+      <span class="lg">🇳🇴 Eliteserien</span>
+      <span class="lg">🇵🇱 Ekstraklasa</span>
+      <span class="lg">🇷🇺 Premier League russe</span>
+      <span class="lg">🇧🇷 Brasileirão Série A</span>
+      <span class="lg">🇦🇷 Liga Profesional</span>
+      <span class="lg">🇺🇸 MLS</span>
+      <span class="lg">🇲🇽 Liga MX</span>
+      <span class="lg">🇸🇦 Saudi Pro League</span>
+      <span class="lg">🇰🇷 K League 1</span>
+      <span class="lg">🇯🇵 J1 League</span>
+    </div>
+  </div>
+
+  <div class="tier">
+    <h2>Couverture standard <span class="tier-count">63 compétitions</span></h2>
+    <p>Conseils et value bets aux cotes réelles, pick buteur quand le marché existe
+    chez les bookmakers. Mêmes critères d'audit, périmètre de picks plus resserré.</p>
+
+    <h3>Compétitions internationales &amp; féminines</h3>
+    <div class="chips">
+      <span class="lg">🏆 Coupe du Monde féminine</span>
+      <span class="lg">🌎 Copa Sudamericana</span>
+      <span class="lg">🌍 Ligue des Champions CAF</span>
+      <span class="lg">🌍 Coupe de la Confédération CAF</span>
+      <span class="lg">🌎 Ligue des Champions CONCACAF</span>
+      <span class="lg">🌎 Gold Cup</span>
+      <span class="lg">🌏 Ligue des Champions AFC</span>
+      <span class="lg">🏴󠁧󠁢󠁥󠁮󠁧󠁿 FA WSL</span>
+      <span class="lg">🇫🇷 D1 Féminine</span>
+      <span class="lg">🇩🇪 Frauen Bundesliga</span>
+      <span class="lg">🇪🇸 Liga F</span>
+    </div>
+
+    <h3>Europe</h3>
+    <div class="chips">
+      <span class="lg">🏴󠁧󠁢󠁥󠁮󠁧󠁿 League One</span>
+      <span class="lg">🏴󠁧󠁢󠁥󠁮󠁧󠁿 League Two</span>
+      <span class="lg">🇩🇪 3. Liga</span>
+      <span class="lg">🇵🇹 Segunda Liga</span>
+      <span class="lg">🇵🇹 Taça da Liga</span>
+      <span class="lg">🇳🇱 Eerste Divisie</span>
+      <span class="lg">🇳🇱 KNVB Beker</span>
+      <span class="lg">🇧🇪 Coupe de Belgique</span>
+      <span class="lg">🇹🇷 1. Lig</span>
+      <span class="lg">🇹🇷 Coupe de Turquie</span>
+      <span class="lg">🇭🇷 HNL</span>
+      <span class="lg">🇷🇴 Liga I</span>
+      <span class="lg">🇷🇸 SuperLiga</span>
+      <span class="lg">🇺🇦 Premier League ukrainienne</span>
+      <span class="lg">🇨🇿 Chance Liga</span>
+      <span class="lg">🇮🇪 Premier Division</span>
+      <span class="lg">🇸🇪 Superettan</span>
+      <span class="lg">🇫🇮 Veikkausliiga</span>
+      <span class="lg">🇮🇸 Úrvalsdeild</span>
+      <span class="lg">🇬🇪 Erovnuli Liga</span>
+      <span class="lg">🇪🇪 Meistriliiga</span>
+      <span class="lg">🇱🇹 A Lyga</span>
+      <span class="lg">🇱🇻 Virsliga</span>
+      <span class="lg">🇫🇴 Meistaradeildin</span>
+    </div>
+
+    <h3>Amériques</h3>
+    <div class="chips">
+      <span class="lg">🇧🇷 Brasileirão Série B</span>
+      <span class="lg">🇧🇷 Série C</span>
+      <span class="lg">🇧🇷 Copa do Brasil</span>
+      <span class="lg">🇧🇷 Paulista A1</span>
+      <span class="lg">🇧🇷 Carioca</span>
+      <span class="lg">🇦🇷 Copa Argentina</span>
+      <span class="lg">🇦🇷 Copa de la Liga</span>
+      <span class="lg">🇨🇴 Primera A</span>
+      <span class="lg">🇪🇨 Liga Pro</span>
+      <span class="lg">🇧🇴 División Profesional</span>
+      <span class="lg">🇵🇾 División Profesional</span>
+      <span class="lg">🇻🇪 Primera División</span>
+      <span class="lg">🇨🇱 Primera División</span>
+      <span class="lg">🇺🇾 Primera División</span>
+      <span class="lg">🇵🇪 Liga 1</span>
+      <span class="lg">🇨🇦 Canadian Premier League</span>
+    </div>
+
+    <h3>Afrique, Asie &amp; Océanie</h3>
+    <div class="chips">
+      <span class="lg">🇨🇳 Super League chinoise</span>
+      <span class="lg">🇮🇷 Persian Gulf Pro League</span>
+      <span class="lg">🇹🇭 Thai League 1</span>
+      <span class="lg">🇶🇦 Pro League</span>
+      <span class="lg">🇮🇳 Indian Super League</span>
+      <span class="lg">🇬🇭 Premier League ghanéenne</span>
+      <span class="lg">🇲🇦 Botola Pro</span>
+      <span class="lg">🇹🇳 Ligue 1 tunisienne</span>
+      <span class="lg">🇪🇬 Premier League égyptienne</span>
+      <span class="lg">🇿🇦 Premier Soccer League</span>
+      <span class="lg">🇩🇿 Ligue 1 algérienne</span>
+      <span class="lg">🇸🇳 Ligue 1 sénégalaise</span>
+      <span class="lg">🇦🇺 A-League</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>G-BET Bot — <a href="index.html">Retour à l'accueil</a> · <a href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a></p>
+</footer>
+
+<script>
+/* ── Menu mobile (drawer) ── */
+(function(){
+  const toggle = document.getElementById('menuToggle');
+  const close = document.getElementById('menuClose');
+  const nav = document.getElementById('mobileNav');
+  const backdrop = document.getElementById('mobileBackdrop');
+  function openMenu(){
+    nav.classList.add('open'); backdrop.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    nav.classList.remove('open'); backdrop.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', () => nav.classList.contains('open') ? closeMenu() : openMenu());
+  close.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+</body>
+</html>

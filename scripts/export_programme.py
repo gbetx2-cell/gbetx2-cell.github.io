@@ -56,6 +56,30 @@ def _programme_date_today() -> str:
     return day_start.strftime("%Y-%m-%d")
 
 
+# Codes raison "no bet" affichables publiquement, en francais. Les autres
+# codes (quota API, doublons, filtres internes...) tombent sur le libelle
+# generique : la transparence porte sur la decision sportive, pas sur la
+# plomberie interne. NB: no_bet_logs.is_public_eligible existe mais n'est
+# jamais renseigne a 1 en pratique -- cette liste blanche fait foi.
+NO_BET_REASONS_FR = {
+    "REASON_NO_VALID_PICK": "Aucun pick n'a passé les critères",
+    "REASON_AFTER_T20_BLOCKED": "Compositions arrivées trop tard",
+    "REASON_LINEUP_SOURCE_UNAVAILABLE": "Compositions officielles indisponibles",
+    "REASON_NO_ODDS": "Pas de cote réelle disponible",
+    "REASON_ODDS_TOO_LOW": "Cote dans une zone évitée",
+    "REASON_NEGATIVE_EDGE": "Pas d'avantage statistique détecté",
+    "REASON_VALUE_NOT_CONFIRMED": "Value non confirmée",
+    "REASON_TOO_RISKY": "Profil de risque trop élevé",
+    "REASON_PLAYER_STATS_UNAVAILABLE": "Statistiques joueurs indisponibles",
+    "REASON_COVERAGE_STRICT_BLOCK": "Hors couverture vérifiée",
+    "REASON_QUALIFYING_ROUND_EXCLUDED": "Tour de qualification exclu",
+    "REASON_MARKET_UNAVAILABLE": "Marché indisponible chez les bookmakers",
+    "REASON_DATA_TOO_OLD": "Données trop anciennes",
+    "REASON_ANALYSIS_FAILED": "Analyse non aboutie",
+}
+NO_BET_GENERIC_FR = "Critères de publication non atteints"
+
+
 def fetch_programme() -> list[dict]:
     import psycopg2
 
@@ -65,6 +89,7 @@ def fetch_programme() -> list[dict]:
     conn = psycopg2.connect(db, connect_timeout=10)
     cur = conn.cursor()
 
+    programme_date = _programme_date_today()
     cur.execute(
         """
         SELECT fixture_id, home, away, league, kickoff_at, publish_status
@@ -73,9 +98,32 @@ def fetch_programme() -> list[dict]:
         ORDER BY kickoff_at ASC
         LIMIT 300
         """,
-        (_programme_date_today(),),
+        (programme_date,),
     )
     rows = cur.fetchall()
+
+    # Coup du Jour : 1 pick/jour flague par le bot quand la confiance >= 85
+    # (ai/coup_du_jour.py -> daily_flags, value = fixture_id).
+    cur.execute(
+        "SELECT value FROM daily_flags WHERE flag_date = %s AND flag_key = 'coup_du_jour'",
+        (programme_date,),
+    )
+    coup_row = cur.fetchone()
+    coup_fixture_id = str(coup_row[0]) if coup_row and coup_row[0] else None
+
+    # Derniere raison no-bet par fixture du jour (la plus recente fait foi).
+    no_bet_by_fixture: dict = {}
+    fixture_ids = [str(r[0]) for r in rows]
+    if fixture_ids:
+        placeholders = ",".join(["%s"] * len(fixture_ids))
+        cur.execute(
+            f"""SELECT fixture_id, reason_code FROM no_bet_logs
+                WHERE fixture_id IN ({placeholders})
+                ORDER BY created_at ASC""",
+            tuple(fixture_ids),
+        )
+        for fid, reason_code in cur.fetchall():
+            no_bet_by_fixture[str(fid)] = reason_code  # dernier vu = plus recent
 
     out = []
     for fixture_id, home, away, league, kickoff_at, publish_status in rows:
@@ -86,6 +134,11 @@ def fetch_programme() -> list[dict]:
             "kickoff_at": kickoff_at,
             "published": publish_status == "published",
         }
+        if coup_fixture_id and str(fixture_id) == coup_fixture_id:
+            item["coup"] = True
+        if publish_status != "published" and str(fixture_id) in no_bet_by_fixture:
+            code = no_bet_by_fixture[str(fixture_id)]
+            item["no_bet_reason"] = NO_BET_REASONS_FR.get(code, NO_BET_GENERIC_FR)
         if publish_status == "published":
             cur.execute(
                 """SELECT conseil, COALESCE(NULLIF(cote_reelle,0), cote_interne),
