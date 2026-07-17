@@ -264,25 +264,6 @@ section{padding:84px 0}
 .sec-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;margin-bottom:16px}
 .sec-sub{color:var(--muted);max-width:640px;margin-bottom:48px}
 
-/* Method cards */
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:30px;
-  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
-}
-.card:hover{transform:translateY(-4px);border-color:var(--border-strong);box-shadow:0 14px 40px rgba(0,0,0,.4)}
-.card .ic{
-  width:46px;height:46px;border-radius:12px;
-  background:rgba(240,185,11,.1);
-  border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;margin-bottom:18px;
-}
-.card h3{font-size:1.12rem;margin-bottom:10px}
-.card p{color:var(--muted);font-size:.93rem}
 
 /* ── Publications (mockups Telegram) ────── */
 .phone{
@@ -315,44 +296,6 @@ section{padding:84px 0}
 .msg .m-val .cote{color:var(--muted);font-weight:500;font-size:.8rem}
 .msg .m-foot{margin-top:12px;padding-top:10px;border-top:1px solid rgba(240,185,11,.08);color:var(--muted);font-size:.76rem;display:flex;align-items:center;gap:6px}
 
-/* Fil des publications passées, avec tampon résultat */
-.pubs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.pub-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:20px;
-  position:relative;
-  transition:transform .2s ease,border-color .2s ease;
-}
-.pub-card:hover{transform:translateY(-5px);border-color:var(--border-strong)}
-.pub-card .msg{background:var(--card-2)}
-.stamp{
-  position:absolute;top:14px;right:14px;
-  transform:rotate(8deg);
-  font-family:'Sora';font-weight:800;font-size:.78rem;
-  letter-spacing:1.5px;
-  padding:7px 13px;border-radius:9px;
-  z-index:5;
-  display:inline-flex;align-items:center;gap:5px;
-}
-.stamp.win{
-  color:var(--green);border:2px solid var(--green);
-  background:rgba(34,197,94,.1);
-  box-shadow:0 0 18px rgba(34,197,94,.25);
-}
-.stamp.loss{
-  color:var(--red);border:2px solid var(--red);
-  background:rgba(239,68,68,.09);
-}
-.pub-result{
-  margin-top:12px;padding-top:11px;border-top:1px solid rgba(240,185,11,.1);
-  font-size:.82rem;font-weight:600;
-  display:flex;justify-content:space-between;
-}
-.pub-result .gain{color:var(--green)}
-.pub-result .perte{color:var(--red)}
-.pub-result .lab{color:var(--muted);font-weight:500}
 
 /* Transparence */
 .transp{background:var(--bg-2);border-block:1px solid var(--border)}
@@ -446,9 +389,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(2){border-right:none}
   .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--border)}
-  .cards{grid-template-columns:1fr}
   .transp-grid{grid-template-columns:1fr}
-  .pubs-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   .live-grid{grid-template-columns:1fr}
   .chart-card{padding:22px}
@@ -528,11 +469,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
 <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5 15.5 10l-1.3 4H9.8L8.5 10Z"/><path d="M12 7.5V4M15.5 10l3-1.4M14.2 14l2 2.8M9.8 14l-2 2.8M8.5 10l-3-1.4"/></symbol>
 <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18 6l-1.7 1.7M7.7 16.3 6 18M18 18l-1.7-1.7M7.7 7.7 6 6"/></symbol>
 <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M8 11h8M8 15h5"/></symbol>
-<symbol id="i-satellite" viewBox="0 0 24 24"><path d="M4 13a9 9 0 0 1 9-9"/><path d="M4 13a5 5 0 0 1 5-5"/><rect x="12.5" y="12.5" width="6" height="6" rx="1" transform="rotate(45 15.5 15.5)"/><path d="M17.5 17.5 21 21"/></symbol>
-<symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="8" rx="6" ry="3.2"/><path d="M3 8v4c0 1.8 2.7 3.2 6 3.2s6-1.4 6-3.2V8"/><ellipse cx="15" cy="14.5" rx="6" ry="3.2"/><path d="M9 14.5v2c0 1.8 2.7 3.2 6 3.2s6-1.4 6-3.2v-2"/></symbol>
-<symbol id="i-prohibit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.5 5.5 13 13"/></symbol>
-<symbol id="i-chart-bar" viewBox="0 0 24 24"><path d="M4 20V10M11 20V4M18 20v-7"/><path d="M2 20h20"/></symbol>
-<symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12.5 5.5 5.5L20 6"/></symbol>
 <symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
 <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10Z"/><path d="M10 19a2 2 0 0 0 4 0"/></symbol>
 <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12"/><path d="M7 3c0 4.5 3 5.5 5 7.2C10 12 7 13 7 17.5M17 3c0 4.5-3 5.5-5 7.2 2 1.8 5 2.8 5 7.5"/></symbol>
@@ -554,8 +490,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     <nav class="nav-links">
       <a href="programme.html">Programme du jour</a>
       <a href="#resultats">Résultats</a>
-      <a href="#publications">Publications</a>
-      <a href="#methode">Méthode</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="header-right">
@@ -576,8 +510,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   </div>
   <a href="programme.html">Programme du jour</a>
   <a href="#resultats">Résultats</a>
-  <a href="#publications">Publications</a>
-  <a href="#methode">Méthode</a>
   <a href="#faq">FAQ</a>
   <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
 </nav>
@@ -681,6 +613,10 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
             <button data-period="mois">Mois</button>
             <button data-period="annee">Année</button>
           </div>
+          <div class="chart-toggle mode-toggle" style="margin-left:10px">
+            <button data-mode="u" class="active">En unités</button>
+            <button data-mode="e">En €</button>
+          </div>
         </div>
         <div class="delta" id="periodChartDelta">—</div>
       </div>
@@ -691,9 +627,9 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <div class="chart-head">
         <div>
           <h3>Courbe des derniers picks</h3>
-          <div class="chart-toggle">
-            <button id="btnUnits" class="active">En unités</button>
-            <button id="btnEuros">En €</button>
+          <div class="chart-toggle mode-toggle">
+            <button data-mode="u" class="active">En unités</button>
+            <button data-mode="e">En €</button>
           </div>
         </div>
         <div class="delta" id="chartDelta">—</div>
@@ -704,101 +640,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       </div>
       <div class="chart-note">
         G = gagné · P = perdu · R = remboursé — mise à jour à chaque bilan quotidien.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PUBLICATIONS ─────────────────────── -->
-<section id="publications" style="padding-top:40px">
-  <div class="container">
-    <div class="sec-tag">Publications</div>
-    <h2 class="sec-title">Chaque publication, <span class="gold">30 min avant le coup d'envoi.</span></h2>
-    <p class="sec-sub">
-      Le conseil, le value bet et le pick buteur arrivent compositions confirmées —
-      avec le temps qu'il faut pour placer sereinement. Et le résultat est assumé
-      publiquement, dans les deux sens.
-    </p>
-    <div class="pubs-grid">
-      <div class="pub-card reveal">
-        <div class="stamp win"><svg class="icon"><use href="#i-check"></use></svg> GAGNÉ</div>
-        <div class="msg">
-          <div class="m-league">🇮🇪 PREMIER DIVISION</div>
-          <div class="m-match">Shelbourne vs Dundalk</div>
-          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-target"></use></svg> Conseil</span><span class="m-val gold">Shelbourne ou Nul <span class="cote">@1.36</span></span></div>
-          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-trend-up"></use></svg> Value</span><span class="m-val">+1.5 buts <span class="cote">@1.44</span></span></div>
-          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-ball"></use></svg> Buteur</span><span class="m-val">Boyd buteur <span class="cote">@3.10</span></span></div>
-        </div>
-        <div class="pub-result"><span class="lab">Résultat 2-0</span><span class="gain">+1.90 u</span></div>
-      </div>
-      <div class="pub-card reveal">
-        <div class="stamp win"><svg class="icon"><use href="#i-check"></use></svg> GAGNÉ</div>
-        <div class="msg">
-          <div class="m-league">🇸🇪 ALLSVENSKAN</div>
-          <div class="m-match">Malmö FF vs Häcken</div>
-          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-target"></use></svg> Conseil</span><span class="m-val gold">Malmö gagne <span class="cote">@1.85</span></span></div>
-          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-trend-up"></use></svg> Value</span><span class="m-val">+2.5 buts <span class="cote">@1.92</span></span></div>
-          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-ball"></use></svg> Buteur</span><span class="m-val">Christiansen buteur <span class="cote">@2.60</span></span></div>
-        </div>
-        <div class="pub-result"><span class="lab">Résultat 3-1</span><span class="gain">+2.37 u</span></div>
-      </div>
-      <div class="pub-card reveal">
-        <div class="stamp loss"><svg class="icon"><use href="#i-x"></use></svg> PERDU</div>
-        <div class="msg">
-          <div class="m-league">🇳🇴 ELITESERIEN</div>
-          <div class="m-match">Bodø/Glimt vs Molde</div>
-          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-target"></use></svg> Conseil</span><span class="m-val gold">Bodø/Glimt gagne <span class="cote">@1.70</span></span></div>
-          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-trend-up"></use></svg> Value</span><span class="m-val">+2.5 buts <span class="cote">@1.65</span></span></div>
-          <div class="m-row"><span class="m-label"><svg class="icon"><use href="#i-ball"></use></svg> Buteur</span><span class="m-val">Høgh buteur <span class="cote">@2.85</span></span></div>
-        </div>
-        <div class="pub-result"><span class="lab">Résultat 1-1</span><span class="perte">−1.00 u</span></div>
-      </div>
-    </div>
-    <p class="chart-note" style="margin-top:20px">
-      Publications récentes du canal, résultat inclus — parce qu'un pronostic sans son résultat ne vaut rien.
-    </p>
-  </div>
-</section>
-
-<!-- ── MÉTHODE ──────────────────────────── -->
-<section id="methode">
-  <div class="container">
-    <div class="sec-tag">La méthode</div>
-    <h2 class="sec-title">Une discipline de machine,<br>pas des intuitions.</h2>
-    <p class="sec-sub">
-      Chaque match passe par le même pipeline automatisé. Aucune exception,
-      aucune émotion, aucun « feeling du jour ».
-    </p>
-    <div class="cards">
-      <div class="card reveal">
-        <div class="ic"><svg class="icon"><use href="#i-satellite"></use></svg></div>
-        <h3>Données professionnelles en direct</h3>
-        <p>Flux de données utilisé par les professionnels du secteur : compositions
-        officielles, blessures, suspensions, forme récente, historique
-        face-à-face — croisés avec une seconde source indépendante pour
-        confirmer chaque composition.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ic"><svg class="icon"><use href="#i-coins"></use></svg></div>
-        <h3>Cotes réelles, jamais estimées</h3>
-        <p>Chaque cote affichée est la médiane de plusieurs bookmakers au moment
-        de la publication. Aucune cote « théorique », aucune probabilité inventée :
-        si le marché n'existe pas, le pick n'existe pas.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ic"><svg class="icon"><use href="#i-prohibit"></use></svg></div>
-        <h3>Le droit de ne rien publier</h3>
-        <p>Si les compositions n'arrivent pas, si la confiance est trop basse, ou si
-        la cote tombe dans une zone historiquement perdante — le match est
-        abandonné. Un canal qui publie 10 paris par jour « pour le volume »
-        vous fait perdre de l'argent.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ic"><svg class="icon"><use href="#i-chart-bar"></use></svg></div>
-        <h3>Mises calibrées par l'historique</h3>
-        <p>Chaque marché et chaque tranche de cote sont audités en continu sur
-        l'historique réel des paris réglés. Les zones rentables reçoivent des mises
-        renforcées, les zones perdantes sont exclues du système.</p>
       </div>
     </div>
   </div>
@@ -903,8 +744,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <nav class="nav-links" style="display:flex;flex-direction:column;gap:10px">
         <a href="programme.html">Programme du jour</a>
         <a href="#resultats">Résultats</a>
-        <a href="#publications">Publications</a>
-        <a href="#methode">Méthode</a>
         <a href="#faq">FAQ</a>
       </nav>
     </div>
@@ -1189,17 +1028,17 @@ new IntersectionObserver((e,o)=>{
   if(e[0].isIntersecting){ animatePeriodLine(); o.disconnect(); }
 },{threshold:.3}).observe(document.getElementById('periodChart'));
 
-document.getElementById('btnUnits').addEventListener('click', function(){
-  currentMode = "u";
-  this.classList.add('active');
-  document.getElementById('btnEuros').classList.remove('active');
+/* Toggle unités/€ partagé : chaque graphique a le sien, tous restent
+   synchronisés (changer l'un change l'autre + les cartes de bilan). */
+function setMode(mode){
+  currentMode = mode;
+  document.querySelectorAll('.mode-toggle button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.mode === mode);
+  });
   drawChart(); animateChartLine(); renderPeriodStats(); drawPeriodChart();
-});
-document.getElementById('btnEuros').addEventListener('click', function(){
-  currentMode = "e";
-  this.classList.add('active');
-  document.getElementById('btnUnits').classList.remove('active');
-  drawChart(); animateChartLine(); renderPeriodStats(); drawPeriodChart();
+}
+document.querySelectorAll('.mode-toggle button').forEach(btn=>{
+  btn.addEventListener('click', ()=>setMode(btn.dataset.mode));
 });
 
 /* ── Pastilles avec drapeau + tooltip du pronostic ── */
