@@ -1074,7 +1074,10 @@ document.querySelectorAll('#periodTabs button').forEach(btn=>{
 });
 
 /* ── Section Performance ── */
-const SPORT_FR = {football:"Football", baseball:"Baseball (MLB)", tennis:"Tennis"};
+const SPORT_FR = {football:"Football", baseball:"Baseball (MLB)", tennis:"Tennis", nhl:"Hockey (NHL)", basketball:"Basketball", nba:"Basketball (NBA)"};
+function sportLabel(sport){
+  return SPORT_FR[sport] || (sport ? sport.charAt(0).toUpperCase() + sport.slice(1) : sport);
+}
 
 function fmtPnl(u){
   const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
@@ -1091,7 +1094,7 @@ function renderPerfStats(){
   const g = P.global;
   const sinceTxt = g.since ? new Date(g.since).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'}) : '';
   const sportRows = (P.sports || []).map(s =>
-    `${SPORT_FR[s.sport] || s.sport} : ${fmtPnl(s.pnl)} · ${s.winrate}%`).join('<br>');
+    `${sportLabel(s.sport)} : ${fmtPnl(s.pnl)} · ${s.winrate}%`).join('<br>');
   const pp = P.percent_picks || {n:0, winrate:0};
   grid.innerHTML = `
     <div class="period-card">
