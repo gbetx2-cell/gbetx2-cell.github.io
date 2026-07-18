@@ -64,24 +64,21 @@ header{
   width:42px;height:42px;position:relative;
   transform-style:preserve-3d;
   animation:coinspin 5s linear infinite;
+  /* Force sa propre couche de composition : evite le gel de l'animation 3D
+     observe sur Safari/WebKit mobile quand l'ancetre est en position:sticky
+     (le header l'est) -- bug WebKit connu, pas un souci de nos donnees. */
+  will-change:transform;
+  transform:translateZ(0);
+  -webkit-transform:translateZ(0);
 }
 .coin-sm .face{
   position:absolute;inset:0;border-radius:50%;
-  backface-visibility:hidden;overflow:hidden;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;
   border:2px solid var(--gold);
   box-shadow:0 0 12px rgba(240,185,11,.4);
 }
 .coin-sm .face img{width:100%;height:100%;object-fit:cover;display:block}
-.coin-sm .face.back{
-  transform:rotateY(180deg);
-  background:radial-gradient(circle at 50% 38%, #23200f, #0c0b06 72%);
-  display:flex;align-items:center;justify-content:center;
-}
-.coin-sm .face.back span{
-  font-family:'Sora';font-weight:800;font-size:1.2rem;
-  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
+.coin-sm .face.back{transform:rotateY(180deg)}
 @keyframes coinspin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
 .nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
 .nav-links a{position:relative;padding-bottom:4px;transition:color .15s}
@@ -502,7 +499,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <div class="coin-sm-wrap">
         <div class="coin-sm">
           <div class="face front"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
-          <div class="face back"><span>G</span></div>
+          <div class="face back"><img src="assets/logo.jpg" alt=""></div>
         </div>
       </div>
       <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
