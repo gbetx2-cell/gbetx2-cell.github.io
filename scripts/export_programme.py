@@ -35,20 +35,24 @@ COMPETITION_FLAGS = {
 
 # Sports actifs en prod (config.ACTIVE_SPORTS, valeurs "sport" exactes
 # utilisees par daily_summary._save_programmed) qui alimentent
-# programme_fixtures -- tennis/wnba sont picks-only, jamais dans cette
-# table (cf daily_summary.py, pas de _get_tennis/_get_wnba). Le "football"
-# garde son drapeau par ligue ; les autres ont une icone fixe par sport.
-PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "nfl")
+# programme_fixtures. tennis/wnba ont rejoint cette liste le 20/07/2026 --
+# daily_summary.py::_get_tennis()/_get_wnba() alimentent desormais
+# programme_fixtures comme les autres sports (avant cela, rien n'etait
+# jamais persiste pour eux, cf ancien commentaire EXTRA_SPORTS ci-dessous).
+# Le "football" garde son drapeau par ligue ; les autres ont une icone
+# fixe par sport.
+PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "nfl", "tennis", "wnba")
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀"}
 SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
                "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)",
                "tennis": "Tennis", "wnba": "Basketball (WNBA)"}
 
-# Tennis/wnba : aucune liste de matchs "a venir" n'existe cote bot (scan ESPN
-# a la volee a chaque cycle, rien de persiste avant publication -- cf
-# tennis/predictions.py::run_tennis_predictions, wnba/predictions.py). On ne
-# peut donc afficher que les picks DEJA publies aujourd'hui, sans compte a
-# rebours ni etat "a venir" (contrairement aux autres sports).
+# Historique (avant le 20/07/2026) : tennis/wnba etaient absents de
+# PROGRAMME_SPORTS, donc fetch_tennis_wnba() etait le seul moyen de les
+# afficher (picks deja publies aujourd'hui, sans compte a rebours). Ils sont
+# maintenant dans PROGRAMME_SPORTS et beneficient du meme traitement "a
+# venir" que les autres sports -- cette fonction reste en supplement
+# (cle JSON "tennis_wnba" deja consommee par le front-end).
 EXTRA_SPORTS = ("tennis", "wnba")
 
 # Libelle FR par categorie de player pick, tous sports confondus (football:
@@ -232,6 +236,22 @@ def fetch_programme() -> list[dict]:
                 })
                 if len(player_picks) == 2:
                     break
+            if not player_picks:
+                # MLB/NBA/NHL/NFL/WNBA/Tennis (sport_player_picks) : offensive_
+                # player_picks ne couvre que le football (buteur/passeur/decisif).
+                # Ajoute le 20/07/2026 -- ces sports n'affichaient jamais leurs
+                # player picks sur le site cote "a venir/publie".
+                cur.execute(
+                    """SELECT player_name, market_label, odd FROM sport_player_picks
+                       WHERE fixture_id = %s ORDER BY created_at ASC LIMIT 2""",
+                    (fixture_id,),
+                )
+                for player_name, label, odd in cur.fetchall():
+                    player_picks.append({
+                        "category": "Player pick",
+                        "label": f"{player_name} — {label}" if player_name else label,
+                        "detail": f"cote {float(odd):.2f}" if odd else "",
+                    })
             if player_picks:
                 item["player_picks"] = player_picks
         out.append(item)
