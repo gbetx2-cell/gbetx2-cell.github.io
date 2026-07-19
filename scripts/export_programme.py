@@ -33,12 +33,38 @@ COMPETITION_FLAGS = {
 }
 
 
+# Sports actifs en prod (config.ACTIVE_SPORTS, valeurs "sport" exactes
+# utilisees par daily_summary._save_programmed) qui alimentent
+# programme_fixtures -- tennis/wnba sont picks-only, jamais dans cette
+# table (cf daily_summary.py, pas de _get_tennis/_get_wnba). Le "football"
+# garde son drapeau par ligue ; les autres ont une icone fixe par sport.
+PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "nfl")
+SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈"}
+SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
+               "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)"}
+
+# Libelle FR par categorie de player pick, tous sports confondus (football:
+# buteur/passeur/decisif : baseball/basket/hockey/NFL ont leurs propres
+# categories, cf baseball/basketball/hockey/nfl/predictions.py).
+CATEGORY_LABEL_FR = {
+    "buteur": "Buteur", "passeur": "Passeur", "decisif": "Décisif",
+    "home_run": "Home run", "runs": "Points marqués",
+    "points": "Points", "rebounds": "Rebonds", "assists": "Passes décisives",
+    "goal": "But", "assist": "Passe décisive", "point": "Point",
+    "touchdown": "Touchdown",
+}
+
+
 def _flag(league: str) -> str:
     c = (league or "").lower()
     for key, flag in COMPETITION_FLAGS.items():
         if key in c:
             return flag
     return "⚽"
+
+
+def _sport_icon(sport: str, league: str) -> str:
+    return _flag(league) if sport == "football" else SPORT_ICON.get(sport, "🏅")
 
 
 def _short_pick(conseil: str) -> str:
@@ -90,15 +116,16 @@ def fetch_programme() -> list[dict]:
     cur = conn.cursor()
 
     programme_date = _programme_date_today()
+    placeholders_sport = ",".join(["%s"] * len(PROGRAMME_SPORTS))
     cur.execute(
-        """
-        SELECT fixture_id, home, away, league, kickoff_at, publish_status
+        f"""
+        SELECT fixture_id, home, away, league, kickoff_at, publish_status, sport
         FROM programme_fixtures
-        WHERE programme_date = %s AND sport = 'football'
+        WHERE programme_date = %s AND sport IN ({placeholders_sport})
         ORDER BY kickoff_at ASC
         LIMIT 300
         """,
-        (programme_date,),
+        (programme_date, *PROGRAMME_SPORTS),
     )
     rows = cur.fetchall()
 
@@ -126,10 +153,12 @@ def fetch_programme() -> list[dict]:
             no_bet_by_fixture[str(fid)] = reason_code  # dernier vu = plus recent
 
     out = []
-    for fixture_id, home, away, league, kickoff_at, publish_status in rows:
+    for fixture_id, home, away, league, kickoff_at, publish_status, sport in rows:
         item = {
-            "flag": _flag(league),
+            "flag": _sport_icon(sport, league),
             "league": league or "",
+            "sport": sport or "football",
+            "sport_label": SPORT_LABEL.get(sport, sport or "Football"),
             "match": f"{home} – {away}",
             "kickoff_at": kickoff_at,
             "published": publish_status == "published",
@@ -166,16 +195,22 @@ def fetch_programme() -> list[dict]:
                    ORDER BY created_at DESC""",
                 (fixture_id,),
             )
+            player_picks = []
+            seen_categories = set()
             for category, label, mode, odd, prob in cur.fetchall():
-                if category not in ("buteur", "passeur"):
+                if category in seen_categories:
                     continue
-                key = f"pick_{category}"
-                if key in item:
-                    continue
-                if mode == "cote" and odd:
-                    item[key] = f"{label} (cote {float(odd):.2f})"
-                else:
-                    item[key] = f"{label} ({int(prob or 0)}%)"
+                seen_categories.add(category)
+                detail = f"cote {float(odd):.2f}" if mode == "cote" and odd else f"{int(prob or 0)}%"
+                player_picks.append({
+                    "category": CATEGORY_LABEL_FR.get(category, (category or "Pick").replace("_", " ").capitalize()),
+                    "label": label,
+                    "detail": detail,
+                })
+                if len(player_picks) == 2:
+                    break
+            if player_picks:
+                item["player_picks"] = player_picks
         out.append(item)
 
     conn.close()

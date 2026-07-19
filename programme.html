@@ -307,8 +307,9 @@ function renderCard(f){
     const lines = [];
     if (f.conseil) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('target')} Conseil</span><span class="pub-value">${f.conseil}${f.conseil_cote ? ' · cote '+f.conseil_cote.toFixed(2) : ''}</span></div>`);
     if (f.value_bet) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('gem')} Value bet</span><span class="pub-value">${f.value_bet}${f.value_cote ? ' · cote '+f.value_cote.toFixed(2) : ''}</span></div>`);
-    if (f.pick_buteur) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('ball')} Buteur</span><span class="pub-value">${f.pick_buteur}</span></div>`);
-    if (f.pick_passeur) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('target')} Passeur</span><span class="pub-value">${f.pick_passeur}</span></div>`);
+    (f.player_picks || []).forEach(p => {
+      lines.push(`<div class="pub-line"><span class="pub-label">${ICON('ball')} ${p.category}</span><span class="pub-value">${p.label} (${p.detail})</span></div>`);
+    });
     if (!lines.length) lines.push(`<div class="pub-line"><span class="pub-label">Publié</span><span class="pub-value" style="color:var(--muted)">No bet — ${f.no_bet_reason || 'aucun critère validé'}</span></div>`);
     pubHtml = `<div class="pub">${lines.join('')}</div>`;
   }
@@ -323,7 +324,7 @@ function renderCard(f){
           <span class="flag">${f.flag}</span>
           <div>
             <div class="match-name">${f.match} ${coupBadge}</div>
-            <div class="league">${f.league} · ${fmtKickoff(f.kickoff_at)}</div>
+            <div class="league">${f.sport && f.sport !== 'football' ? f.sport_label + ' · ' : ''}${f.league} · ${fmtKickoff(f.kickoff_at)}</div>
           </div>
         </div>
         ${countdownHtml}
