@@ -39,9 +39,17 @@ COMPETITION_FLAGS = {
 # table (cf daily_summary.py, pas de _get_tennis/_get_wnba). Le "football"
 # garde son drapeau par ligue ; les autres ont une icone fixe par sport.
 PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "nfl")
-SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈"}
+SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀"}
 SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
-               "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)"}
+               "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)",
+               "tennis": "Tennis", "wnba": "Basketball (WNBA)"}
+
+# Tennis/wnba : aucune liste de matchs "a venir" n'existe cote bot (scan ESPN
+# a la volee a chaque cycle, rien de persiste avant publication -- cf
+# tennis/predictions.py::run_tennis_predictions, wnba/predictions.py). On ne
+# peut donc afficher que les picks DEJA publies aujourd'hui, sans compte a
+# rebours ni etat "a venir" (contrairement aux autres sports).
+EXTRA_SPORTS = ("tennis", "wnba")
 
 # Libelle FR par categorie de player pick, tous sports confondus (football:
 # buteur/passeur/decisif : baseball/basket/hockey/NFL ont leurs propres
@@ -80,6 +88,21 @@ def _programme_date_today() -> str:
     if now < day_start and (day_start - now).total_seconds() > 300:
         day_start -= timedelta(days=1)
     return day_start.strftime("%Y-%m-%d")
+
+
+def _paris_date_of(value) -> str:
+    """Date calendaire Paris (YYYY-MM-DD) d'un timestamp ISO quelconque,
+    pour filtrer les picks tennis/wnba "publies aujourd'hui" (pas de fenetre
+    8h pour ces sports, juste le jour civil de created_at)."""
+    if not value:
+        return ""
+    try:
+        dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return ""
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=PARIS_TZ)
+    return dt.astimezone(PARIS_TZ).strftime("%Y-%m-%d")
 
 
 # Codes raison "no bet" affichables publiquement, en francais. Les autres
@@ -217,17 +240,85 @@ def fetch_programme() -> list[dict]:
     return out
 
 
+def fetch_tennis_wnba() -> list[dict]:
+    """Picks tennis/wnba publies aujourd'hui (date civile Paris de
+    created_at) : pas de compte a rebours possible, juste le pick + son
+    resultat des qu'il est regle (cf commentaire EXTRA_SPORTS)."""
+    import psycopg2
+
+    db = os.environ.get("DATABASE_URL")
+    if not db:
+        raise SystemExit("DATABASE_URL manquant")
+    conn = psycopg2.connect(db, connect_timeout=10)
+    cur = conn.cursor()
+
+    cur.execute(
+        """
+        SELECT fixture_id, home, away, sport, conseil,
+               COALESCE(NULLIF(cote_reelle,0), cote_interne),
+               resultat, score, created_at
+        FROM paris
+        WHERE sport IN ('tennis','wnba')
+        ORDER BY created_at DESC
+        LIMIT 60
+        """,
+    )
+    today_civil = datetime.now(PARIS_TZ).strftime("%Y-%m-%d")
+    rows = [r for r in cur.fetchall() if _paris_date_of(r[8]) == today_civil]
+    fixture_ids = [r[0] for r in rows]
+
+    picks_by_fixture: dict = {}
+    if fixture_ids:
+        placeholders = ",".join(["%s"] * len(fixture_ids))
+        cur.execute(
+            f"""SELECT fixture_id, player_name, market_label FROM sport_player_picks
+                WHERE fixture_id IN ({placeholders})
+                ORDER BY created_at ASC""",
+            tuple(fixture_ids),
+        )
+        for fid, player_name, market_label in cur.fetchall():
+            text = f"{player_name} — {market_label}" if player_name else market_label
+            picks_by_fixture.setdefault(fid, []).append(text)
+    conn.close()
+
+    out = []
+    for fixture_id, home, away, sport, conseil, cote, resultat, score, created_at in rows:
+        item = {
+            "flag": SPORT_ICON.get(sport, "🏅"),
+            "sport": sport,
+            "sport_label": SPORT_LABEL.get(sport, (sport or "Sport").capitalize()),
+            "match": f"{home} – {away}",
+            "published_at": created_at,
+        }
+        if conseil:
+            item["conseil"] = _short_pick(conseil)
+            item["conseil_cote"] = round(float(cote or 0), 2)
+        picks = picks_by_fixture.get(fixture_id)
+        if picks:
+            item["player_pick_text"] = " · ".join(picks[:2])
+        if (resultat or "").upper() in ("GAGNE", "PERDU", "REMBOURSE"):
+            item["result"] = resultat.upper()
+            if score:
+                item["score"] = score
+        out.append(item)
+
+    out.reverse()  # chronologique (plus ancien -> plus recent)
+    return out
+
+
 def main() -> None:
     target = os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "programme.json",
     )
+    tennis_wnba = fetch_tennis_wnba()
     data = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "fixtures": fetch_programme(),
+        "tennis_wnba": tennis_wnba,
     }
     with open(target, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
-    print(f"[Programme] {len(data['fixtures'])} match(s) ecrit(s) dans {target}")
+    print(f"[Programme] {len(data['fixtures'])} match(s) + {len(tennis_wnba)} pick(s) tennis/wnba ecrits dans {target}")
 
 
 if __name__ == "__main__":
