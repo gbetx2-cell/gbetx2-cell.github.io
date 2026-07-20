@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-20T22:37:18.128051+00:00",
+ "generated_at": "2026-07-20T23:39:36.289885+00:00",
  "fixtures": [
   {
    "flag": "🎾",
@@ -63,15 +63,6 @@
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Jennifer Ruggeri – Amarissa Toth",
-   "kickoff_at": "2026-07-20T16:30Z",
-   "published": false
-  },
-  {
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
    "match": "Ane Mintegi Del Olmo – Ekaterine Gorgodze",
    "kickoff_at": "2026-07-20T16:30Z",
    "published": false
@@ -81,8 +72,8 @@
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Elizara Yaneva – Federica Urgesi",
-   "kickoff_at": "2026-07-20T18:00Z",
+   "match": "Jennifer Ruggeri – Amarissa Toth",
+   "kickoff_at": "2026-07-20T16:30Z",
    "published": false
   },
   {
@@ -91,6 +82,15 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Ren Yufei – Fiona Ferro",
+   "kickoff_at": "2026-07-20T18:00Z",
+   "published": false
+  },
+  {
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elizara Yaneva – Federica Urgesi",
    "kickoff_at": "2026-07-20T18:00Z",
    "published": false
   },
@@ -138,7 +138,7 @@
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Boston Red Sox – Baltimore Orioles",
+   "match": "Philadelphia Phillies – Los Angeles Dodgers",
    "kickoff_at": "2026-07-20T23:10:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -148,7 +148,7 @@
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Philadelphia Phillies – Los Angeles Dodgers",
+   "match": "Boston Red Sox – Baltimore Orioles",
    "kickoff_at": "2026-07-20T23:10:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -168,18 +168,20 @@
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Kansas City Royals – San Francisco Giants",
+   "match": "Milwaukee Brewers – New York Mets",
    "kickoff_at": "2026-07-20T23:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Milwaukee Brewers – New York Mets",
+   "match": "Kansas City Royals – San Francisco Giants",
    "kickoff_at": "2026-07-20T23:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "🏀",
@@ -188,7 +190,16 @@
    "sport_label": "Basketball (WNBA)",
    "match": "Toronto Tempo – Las Vegas Aces",
    "kickoff_at": "2026-07-21T00:00Z",
-   "published": false
+   "published": true,
+   "conseil": "Jackie Young — Rebonds Plus de 3.5 @ 1.79",
+   "conseil_cote": 2.21,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Jackie Young — Rebonds Plus de 3.5",
+     "detail": "cote 1.79"
+    }
+   ]
   },
   {
    "flag": "🏀",
@@ -204,18 +215,20 @@
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Texas Rangers – Chicago White Sox",
+   "match": "Chicago Cubs – Detroit Tigers",
    "kickoff_at": "2026-07-21T00:05:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Detroit Tigers",
+   "match": "Texas Rangers – Chicago White Sox",
    "kickoff_at": "2026-07-21T00:05:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
@@ -224,7 +237,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Houston Astros – Miami Marlins",
    "kickoff_at": "2026-07-21T00:10:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
@@ -240,7 +254,7 @@
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
-   "match": "Golden State Valkyries – Washington Mystics",
+   "match": "Seattle Storm – Minnesota Lynx",
    "kickoff_at": "2026-07-21T02:00Z",
    "published": false
   },
@@ -249,7 +263,7 @@
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
-   "match": "Seattle Storm – Minnesota Lynx",
+   "match": "Golden State Valkyries – Washington Mystics",
    "kickoff_at": "2026-07-21T02:00Z",
    "published": false
   },
@@ -263,5 +277,16 @@
    "published": false
   }
  ],
- "tennis_wnba": []
+ "tennis_wnba": [
+  {
+   "flag": "🏀",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Toronto Tempo – Las Vegas Aces",
+   "published_at": "2026-07-21T01:30:59.260618+02:00",
+   "conseil": "Jackie Young — Rebonds Plus de 3.5 @ 1.79",
+   "conseil_cote": 2.21,
+   "player_pick_text": "Jackie Young — Rebonds Plus de 3.5"
+  }
+ ]
 }
