@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-20T21:36:19.128233+00:00",
+ "generated_at": "2026-07-20T22:37:18.128051+00:00",
  "fixtures": [
   {
    "flag": "🎾",
@@ -63,15 +63,6 @@
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Ane Mintegi Del Olmo – Ekaterine Gorgodze",
-   "kickoff_at": "2026-07-20T16:30Z",
-   "published": false
-  },
-  {
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
    "match": "Jennifer Ruggeri – Amarissa Toth",
    "kickoff_at": "2026-07-20T16:30Z",
    "published": false
@@ -81,8 +72,8 @@
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Ren Yufei – Fiona Ferro",
-   "kickoff_at": "2026-07-20T18:00Z",
+   "match": "Ane Mintegi Del Olmo – Ekaterine Gorgodze",
+   "kickoff_at": "2026-07-20T16:30Z",
    "published": false
   },
   {
@@ -91,6 +82,15 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Elizara Yaneva – Federica Urgesi",
+   "kickoff_at": "2026-07-20T18:00Z",
+   "published": false
+  },
+  {
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Ren Yufei – Fiona Ferro",
    "kickoff_at": "2026-07-20T18:00Z",
    "published": false
   },
@@ -110,7 +110,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Cleveland Guardians – Minnesota Twins",
    "kickoff_at": "2026-07-20T22:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
@@ -119,7 +120,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "New York Yankees – Pittsburgh Pirates",
    "kickoff_at": "2026-07-20T23:05:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
@@ -128,7 +130,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Toronto Blue Jays – Tampa Bay Rays",
    "kickoff_at": "2026-07-20T23:07:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
@@ -137,7 +140,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Boston Red Sox – Baltimore Orioles",
    "kickoff_at": "2026-07-20T23:10:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
@@ -146,7 +150,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Philadelphia Phillies – Los Angeles Dodgers",
    "kickoff_at": "2026-07-20T23:10:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
@@ -155,7 +160,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Atlanta Braves – San Diego Padres",
    "kickoff_at": "2026-07-20T23:15:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "⚾",
@@ -180,7 +186,7 @@
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
-   "match": "Dallas Wings – New York Liberty",
+   "match": "Toronto Tempo – Las Vegas Aces",
    "kickoff_at": "2026-07-21T00:00Z",
    "published": false
   },
@@ -189,7 +195,7 @@
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – Las Vegas Aces",
+   "match": "Dallas Wings – New York Liberty",
    "kickoff_at": "2026-07-21T00:00Z",
    "published": false
   },
@@ -257,112 +263,5 @@
    "published": false
   }
  ],
- "tennis_wnba": [
-  {
-   "flag": "🏀",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Phoenix Mercury – Connecticut Sun",
-   "published_at": "2026-07-20T00:30:26.157516+02:00",
-   "conseil": "Monique Akoa Makani — Passes décisives Plus de 3.5 @ 2.42",
-   "conseil_cote": 3.53,
-   "player_pick_text": "Monique Akoa Makani — Passes décisives Plus de 3.5",
-   "result": "GAGNE",
-   "score": "72 - 63"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elina Avanesyan – Varvara Lepchenko",
-   "published_at": "2026-07-20T09:30:16.392879+02:00",
-   "conseil": "Victoire Varvara Lepchenko",
-   "conseil_cote": 1.54,
-   "result": "PERDU",
-   "score": "4.0 7.0 6.0 - 6.0 6.0 3.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maria Lourdes Carle – Jessica Pieri",
-   "published_at": "2026-07-20T09:30:18.585740+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 3.2",
-   "conseil_cote": 2.56,
-   "player_pick_text": "Maria Lourdes Carle vs Jessica Pieri — Total sets Plus de 2.5",
-   "result": "PERDU",
-   "score": "0.0 6.0 6.0 - 6.0 1.0 1.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Daria Snigur – Ella Seidel",
-   "published_at": "2026-07-20T10:30:13.904395+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.92",
-   "conseil_cote": 2.56,
-   "player_pick_text": "Daria Snigur vs Ella Seidel — Total sets Plus de 2.5",
-   "result": "PERDU",
-   "score": "7.0 3.0 6.0 - 5.0 6.0 3.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mona Barthel – Eva Vedder",
-   "published_at": "2026-07-20T11:00:16.428175+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.41",
-   "conseil_cote": 2.56,
-   "player_pick_text": "Mona Barthel vs Eva Vedder — Total sets Plus de 2.5",
-   "result": "PERDU",
-   "score": "4.0 6.0 6.0 - 6.0 3.0 0.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Yannick Hanfmann – Lukas Neumayer",
-   "published_at": "2026-07-20T12:00:08.739974+02:00",
-   "conseil": "Victoire Yannick Hanfmann",
-   "conseil_cote": 1.23,
-   "player_pick_text": "Yannick Hanfmann vs Lukas Neumayer — Total sets Moins de 2.5",
-   "result": "GAGNE",
-   "score": "7.0 6.0 - 6.0 4.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jessica Bouzas Maneiro – Marie Bouzkova",
-   "published_at": "2026-07-20T12:00:16.514338+02:00",
-   "conseil": "Victoire Marie Bouzkova",
-   "conseil_cote": 1.36,
-   "result": "GAGNE",
-   "score": "5.0 5.0 - 7.0 7.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Carol Young Suh Lee – Veronika Podrez",
-   "published_at": "2026-07-20T12:00:21.786215+02:00",
-   "conseil": "Victoire Veronika Podrez",
-   "conseil_cote": 1.54,
-   "player_pick_text": "Carol Young Suh Lee vs Veronika Podrez — Total sets Plus de 2.5",
-   "result": "PERDU",
-   "score": "6.0 5.0 6.0 - 1.0 7.0 2.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Nikoloz Basilashvili – Tiago Torres",
-   "published_at": "2026-07-20T12:30:09.813575+02:00",
-   "conseil": "Victoire Nikoloz Basilashvili",
-   "conseil_cote": 1.36,
-   "player_pick_text": "Nikoloz Basilashvili vs Tiago Torres — Total sets Moins de 2.5",
-   "result": "PERDU",
-   "score": "4.0 2.0 - 6.0 6.0"
-  }
- ]
+ "tennis_wnba": []
 }
