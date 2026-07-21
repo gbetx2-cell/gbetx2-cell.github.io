@@ -237,7 +237,7 @@ header{
 .chart-head .delta.up{color:var(--green)}
 .chart-head .delta.down{color:var(--red)}
 .chart-head .delta small{display:block;font-family:'Inter';font-weight:500;font-size:.78rem;color:var(--muted)}
-#bkChart{width:100%;height:auto;display:block}
+#bkChart,#periodChart,#bankrollChart{width:100%;height:auto;display:block}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;align-items:center}
 .chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px;width:100%}
 .chip{
@@ -508,7 +508,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <a href="programme.html">Programme du jour</a>
       <a href="#resultats">Résultats</a>
       <a href="#performance">Performance</a>
-      <a href="ligues.html">Ligues</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="header-right">
@@ -530,7 +529,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   <a href="programme.html">Programme du jour</a>
   <a href="#resultats">Résultats</a>
   <a href="#performance">Performance</a>
-  <a href="ligues.html">Ligues</a>
   <a href="#faq">FAQ</a>
   <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
 </nav>
@@ -680,6 +678,14 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     <div class="period-grid reveal" id="perfHighlights" style="grid-template-columns:repeat(3,1fr)"></div>
     <div class="chart-card reveal">
       <div class="chart-head">
+        <div><h3>Évolution de la bankroll</h3></div>
+        <div class="delta" id="bankrollDelta">—</div>
+      </div>
+      <svg id="bankrollChart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg>
+      <div class="chart-note" id="bankrollNote"></div>
+    </div>
+    <div class="chart-card reveal">
+      <div class="chart-head">
         <div><h3>Performance par marché et tranche de cote</h3></div>
       </div>
       <div class="perf-table-wrap">
@@ -793,7 +799,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
         <a href="programme.html">Programme du jour</a>
         <a href="#resultats">Résultats</a>
         <a href="#performance">Performance</a>
-        <a href="ligues.html">Ligues</a>
         <a href="#faq">FAQ</a>
       </nav>
     </div>
@@ -1145,6 +1150,53 @@ function renderPerfStats(){
   document.getElementById('perfBlockedNote').textContent = blocked
     ? `Zones actuellement bloquées (le bot n'y publie plus) : ${blocked}.`
     : '';
+
+  renderBankroll(P.bankroll);
+}
+
+/* ── Bankroll (points F/G) : valeur de départ + somme cumulée des PnL réels
+   réglés (paris.pnl), même principe de courbe que drawPeriodChart. ── */
+function renderBankroll(b){
+  const svg = document.getElementById('bankrollChart');
+  const note = document.getElementById('bankrollNote');
+  const delta = document.getElementById('bankrollDelta');
+  if (!b || !b.series || !b.series.length){
+    svg.innerHTML = '';
+    delta.textContent = '—';
+    note.textContent = '';
+    return;
+  }
+  const series = [{date: '', value: b.initial}, ...b.series];
+  const W = 800, H = 260, PAD_L = 64, PAD_R = 16, PAD_T = 16, PAD_B = 32;
+  const vals = series.map(p => p.value);
+  const n = vals.length;
+  const yMin = Math.min(...vals), yMax = Math.max(...vals, b.initial + 1);
+  const xs = i => n <= 1 ? PAD_L : PAD_L + (i/(n-1))*(W-PAD_L-PAD_R);
+  const ysc = v => H-PAD_B - ((v-yMin)/(yMax-yMin || 1))*(H-PAD_T-PAD_B);
+
+  const line = vals.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
+  const area = line + ` L${xs(n-1).toFixed(1)},${H-PAD_B} L${PAD_L},${H-PAD_B} Z`;
+  const initY = ysc(b.initial);
+  const up = b.pnl >= 0;
+  const col = up ? '#22c55e' : '#ef4444';
+
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${col}" stop-opacity=".28"/>
+        <stop offset="1" stop-color="${col}" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <line x1="${PAD_L}" y1="${initY}" x2="${W-PAD_R}" y2="${initY}" stroke="rgba(156,148,129,.3)" stroke-dasharray="5 6"/>
+    <text x="${W-PAD_R}" y="${initY-8}" fill="rgba(156,148,129,.7)" font-size="12" text-anchor="end" font-family="Inter">${b.initial.toFixed(0)} € (départ)</text>
+    <path d="${area}" fill="url(#bg)"/>
+    <path d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${xs(n-1)}" cy="${ysc(vals[n-1])}" r="6" fill="${col}"/>
+  `;
+
+  delta.className = 'delta ' + (up ? 'up' : 'down');
+  delta.textContent = `${b.current.toFixed(0)} € (${up?'+':''}${b.pct}%)`;
+  note.textContent = `Départ : ${b.initial.toFixed(0)} € · PnL cumulé : ${up?'+':''}${b.pnl.toFixed(0)} €.`;
 }
 
 drawChart();
