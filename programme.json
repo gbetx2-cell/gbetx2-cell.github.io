@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-21T01:09:51.385653+00:00",
+ "generated_at": "2026-07-21T04:32:47.313493+00:00",
  "fixtures": [
   {
    "flag": "🎾",
@@ -63,7 +63,7 @@
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Ane Mintegi Del Olmo – Ekaterine Gorgodze",
+   "match": "Jennifer Ruggeri – Amarissa Toth",
    "kickoff_at": "2026-07-20T16:30Z",
    "published": false
   },
@@ -72,7 +72,7 @@
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Jennifer Ruggeri – Amarissa Toth",
+   "match": "Ane Mintegi Del Olmo – Ekaterine Gorgodze",
    "kickoff_at": "2026-07-20T16:30Z",
    "published": false
   },
@@ -188,16 +188,6 @@
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
-   "match": "Dallas Wings – New York Liberty",
-   "kickoff_at": "2026-07-21T00:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
    "match": "Toronto Tempo – Las Vegas Aces",
    "kickoff_at": "2026-07-21T00:00Z",
    "published": true,
@@ -214,11 +204,21 @@
    ]
   },
   {
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Dallas Wings – New York Liberty",
+   "kickoff_at": "2026-07-21T00:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Detroit Tigers",
+   "match": "Texas Rangers – Chicago White Sox",
    "kickoff_at": "2026-07-21T00:05:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -228,7 +228,7 @@
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Texas Rangers – Chicago White Sox",
+   "match": "Chicago Cubs – Detroit Tigers",
    "kickoff_at": "2026-07-21T00:05:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -258,18 +258,40 @@
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
-   "match": "Seattle Storm – Minnesota Lynx",
+   "match": "Golden State Valkyries – Washington Mystics",
    "kickoff_at": "2026-07-21T02:00Z",
-   "published": false
+   "published": true,
+   "conseil": "Shakira Austin — Passes décisives Plus de 2.5 @ 2.1",
+   "conseil_cote": 3.53,
+   "result": "GAGNE",
+   "score": "82 - 90",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Shakira Austin — Passes décisives Plus de 2.5",
+     "detail": "cote 2.10"
+    }
+   ]
   },
   {
    "flag": "🏀",
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
-   "match": "Golden State Valkyries – Washington Mystics",
+   "match": "Seattle Storm – Minnesota Lynx",
    "kickoff_at": "2026-07-21T02:00Z",
-   "published": false
+   "published": true,
+   "conseil": "Natasha Howard — Passes décisives Plus de 3.5 @ 2.67",
+   "conseil_cote": 3.53,
+   "result": "GAGNE",
+   "score": "23 - 27",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Howard — Passes décisives Plus de 3.5",
+     "detail": "cote 2.67"
+    }
+   ]
   },
   {
    "flag": "🎾",
@@ -293,6 +315,30 @@
    "player_pick_text": "Jackie Young — Rebonds Plus de 3.5",
    "result": "GAGNE",
    "score": "24 - 30"
+  },
+  {
+   "flag": "🏀",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Golden State Valkyries – Washington Mystics",
+   "published_at": "2026-07-21T03:30:58.495214+02:00",
+   "conseil": "Shakira Austin — Passes décisives Plus de 2.5 @ 2.1",
+   "conseil_cote": 3.53,
+   "player_pick_text": "Shakira Austin — Passes décisives Plus de 2.5",
+   "result": "GAGNE",
+   "score": "82 - 90"
+  },
+  {
+   "flag": "🏀",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Seattle Storm – Minnesota Lynx",
+   "published_at": "2026-07-21T03:31:00.937960+02:00",
+   "conseil": "Natasha Howard — Passes décisives Plus de 3.5 @ 2.67",
+   "conseil_cote": 3.53,
+   "player_pick_text": "Natasha Howard — Passes décisives Plus de 3.5",
+   "result": "GAGNE",
+   "score": "23 - 27"
   }
  ]
 }
