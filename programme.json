@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-21T16:49:59.141525+00:00",
+ "generated_at": "2026-07-21T18:08:07.549081+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178882",
@@ -78,16 +78,6 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179494",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Clara Burel – Anastasia Abbagnato",
-   "kickoff_at": "2026-07-21T18:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179497",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
@@ -95,7 +85,8 @@
    "sport_label": "Tennis",
    "match": "Caijsa Hennemann – Miriam Bulgaru",
    "kickoff_at": "2026-07-21T18:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179518",
@@ -105,7 +96,19 @@
    "sport_label": "Tennis",
    "match": "? – ?",
    "kickoff_at": "2026-07-21T18:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179494",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Clara Burel – Anastasia Abbagnato",
+   "kickoff_at": "2026-07-21T18:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "mlb_824409",
@@ -381,7 +384,9 @@
    "published_at": "2026-07-21T15:13:53.489823+02:00",
    "conseil": "Victoire Barbora Krejcikova",
    "conseil_cote": 1.23,
-   "player_pick_text": "Barbora Krejcikova vs Linda Fruhvirtova — Total sets Moins de 2.5"
+   "player_pick_text": "Barbora Krejcikova vs Linda Fruhvirtova — Total sets Moins de 2.5",
+   "result": "GAGNE",
+   "score": "6.0 6.0 - 2.0 4.0"
   },
   {
    "flag": "🎾",
@@ -391,7 +396,9 @@
    "published_at": "2026-07-21T15:30:50.117110+02:00",
    "conseil": "Total sets — Plus de 2.5 @ 2.51",
    "conseil_cote": 2.56,
-   "player_pick_text": "Roman Andres Burruchaga vs Stan Wawrinka — Total sets Plus de 2.5"
+   "player_pick_text": "Roman Andres Burruchaga vs Stan Wawrinka — Total sets Plus de 2.5",
+   "result": "GAGNE",
+   "score": "6.0 4.0 6.0 - 4.0 6.0 3.0"
   },
   {
    "flag": "🎾",
