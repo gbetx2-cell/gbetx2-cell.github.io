@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-21T13:03:49.622591+00:00",
+ "generated_at": "2026-07-21T15:16:04.944574+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178882",
@@ -9,6 +9,17 @@
    "sport_label": "Tennis",
    "match": "Aleksandr Shevchenko – Jan-Lennard Struff",
    "kickoff_at": "2026-07-21T09:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178884",
+   "flag": "🎾",
+   "league": "Generali Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Miomir Kecmanovic – Sebastian Baez",
+   "kickoff_at": "2026-07-21T10:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -23,6 +34,8 @@
    "published": true,
    "conseil": "Victoire Quentin Halys",
    "conseil_cote": 1.36,
+   "result": "GAGNE",
+   "score": "7.0 6.0 - 6.0 4.0",
    "player_picks": [
     {
      "category": "Player pick",
@@ -30,17 +43,6 @@
      "detail": "cote 1.68"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178884",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Miomir Kecmanovic – Sebastian Baez",
-   "kickoff_at": "2026-07-21T10:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179485",
@@ -352,7 +354,9 @@
    "published_at": "2026-07-21T12:00:49.050900+02:00",
    "conseil": "Victoire Quentin Halys",
    "conseil_cote": 1.36,
-   "player_pick_text": "Quentin Halys vs Laslo Djere — Total sets Moins de 2.5"
+   "player_pick_text": "Quentin Halys vs Laslo Djere — Total sets Moins de 2.5",
+   "result": "GAGNE",
+   "score": "7.0 6.0 - 6.0 4.0"
   },
   {
    "flag": "🎾",
@@ -365,6 +369,55 @@
    "player_pick_text": "Maya Joint vs Laura Samson — Total sets Plus de 2.5",
    "result": "GAGNE",
    "score": "6.0 3.0 6.0 - 4.0 6.0 2.0"
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Barbora Krejcikova – Linda Fruhvirtova",
+   "published_at": "2026-07-21T15:13:53.489823+02:00",
+   "conseil": "Victoire Barbora Krejcikova",
+   "conseil_cote": 1.23,
+   "player_pick_text": "Barbora Krejcikova vs Linda Fruhvirtova — Total sets Moins de 2.5"
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Roman Andres Burruchaga – Stan Wawrinka",
+   "published_at": "2026-07-21T15:30:50.117110+02:00",
+   "conseil": "Total sets — Plus de 2.5 @ 2.51",
+   "conseil_cote": 2.56,
+   "player_pick_text": "Roman Andres Burruchaga vs Stan Wawrinka — Total sets Plus de 2.5"
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mina Hodzic – Caroline Werner",
+   "published_at": "2026-07-21T16:30:51.417559+02:00",
+   "conseil": "Total sets — Plus de 2.5 @ 2.57",
+   "conseil_cote": 2.56,
+   "player_pick_text": "Mina Hodzic vs Caroline Werner — Total sets Plus de 2.5"
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tyra Caterina Grant – Noemi Basiletti",
+   "published_at": "2026-07-21T16:30:53.500675+02:00",
+   "conseil": "Victoire Tyra Caterina Grant",
+   "conseil_cote": 1.23,
+   "player_pick_text": "Tyra Caterina Grant vs Noemi Basiletti — Total sets Moins de 2.5"
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jaime Faria – Botic Van De Zandschulp",
+   "published_at": "2026-07-21T17:00:49.545493+02:00",
+   "conseil": "Victoire Botic Van De Zandschulp",
+   "conseil_cote": 1.54
   }
  ]
 }
