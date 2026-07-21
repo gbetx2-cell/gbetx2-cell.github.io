@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-20T23:39:36.289885+00:00",
+ "generated_at": "2026-07-21T01:09:51.385653+00:00",
  "fixtures": [
   {
    "flag": "🎾",
@@ -168,7 +168,7 @@
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Milwaukee Brewers – New York Mets",
+   "match": "Kansas City Royals – San Francisco Giants",
    "kickoff_at": "2026-07-20T23:40:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -178,10 +178,20 @@
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Kansas City Royals – San Francisco Giants",
+   "match": "Milwaukee Brewers – New York Mets",
    "kickoff_at": "2026-07-20T23:40:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Dallas Wings – New York Liberty",
+   "kickoff_at": "2026-07-21T00:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "flag": "🏀",
@@ -193,6 +203,8 @@
    "published": true,
    "conseil": "Jackie Young — Rebonds Plus de 3.5 @ 1.79",
    "conseil_cote": 2.21,
+   "result": "GAGNE",
+   "score": "24 - 30",
    "player_picks": [
     {
      "category": "Player pick",
@@ -200,15 +212,6 @@
      "detail": "cote 1.79"
     }
    ]
-  },
-  {
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Dallas Wings – New York Liberty",
-   "kickoff_at": "2026-07-21T00:00Z",
-   "published": false
   },
   {
    "flag": "⚾",
@@ -247,7 +250,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Colorado Rockies – Washington Nationals",
    "kickoff_at": "2026-07-21T00:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "flag": "🏀",
@@ -286,7 +290,9 @@
    "published_at": "2026-07-21T01:30:59.260618+02:00",
    "conseil": "Jackie Young — Rebonds Plus de 3.5 @ 1.79",
    "conseil_cote": 2.21,
-   "player_pick_text": "Jackie Young — Rebonds Plus de 3.5"
+   "player_pick_text": "Jackie Young — Rebonds Plus de 3.5",
+   "result": "GAGNE",
+   "score": "24 - 30"
   }
  ]
 }
