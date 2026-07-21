@@ -182,6 +182,10 @@ def fetch_programme() -> list[dict]:
     out = []
     for fixture_id, home, away, league, kickoff_at, publish_status, sport in rows:
         item = {
+            # fixture_id (21/07/2026) : necessaire cote client pour deriver
+            # l'ID ESPN et interroger le score en direct pendant le match
+            # (remplace "En cours" -- voir programme.html::espnEventInfo).
+            "fixture_id": str(fixture_id),
             "flag": _sport_icon(sport, league),
             "league": league or "",
             "sport": sport or "football",

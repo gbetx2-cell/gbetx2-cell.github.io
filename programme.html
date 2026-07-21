@@ -147,6 +147,19 @@ h1{
 .countdown.refund{color:var(--muted);display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
 .countdown.stale{color:var(--muted);font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
 .dot.live{background:var(--gold)}
+/* Sablier "match a venir" : oscillation pendule (va-et-vient), pas une
+   rotation continue -- point E du backlog (21/07/2026). */
+@keyframes swing{
+  0%,100%{transform:rotate(-12deg)}
+  50%{transform:rotate(12deg)}
+}
+.countdown[data-publish-at] .icon{
+  animation:swing 1.4s ease-in-out infinite;
+  transform-origin:50% 15%;
+}
+@media (prefers-reduced-motion: reduce){
+  .countdown[data-publish-at] .icon{animation:none}
+}
 .pub{
   margin-top:14px; padding-top:14px; border-top:1px solid var(--border);
   display:grid; gap:8px;
@@ -225,7 +238,7 @@ footer a{color:var(--gold-2);text-decoration:none}
 
 <div class="container" id="main">
   <h1>Programme du jour</h1>
-  <p class="sub">La liste du jour, figée à 08h00. Chaque match affiche un compte à rebours jusqu'à <b>T-30</b> (30 minutes avant le coup d'envoi) — l'instant où le bot publie. Le match passe ensuite en <b>« En cours »</b>, puis affiche le résultat final (gagné / perdu / remboursé) dès qu'il est réglé.</p>
+  <p class="sub">Programme du jour, figé à 08h00 — tous les matchs suivis, triés par heure.</p>
   <div id="status"><span class="dot"></span><span id="status-text">Chargement…</span></div>
   <div id="list"></div>
 </div>
@@ -271,8 +284,65 @@ const RESULT_META = {
   REMBOURSE: {cls:'refund', icon:'refund',       label:'Remboursé'},
 };
 // Au-dela de ce delai apres le coup d'envoi sans resultat regle, on arrete
-// d'afficher "En cours" en boucle (match sans pronostic, ou reglement en retard).
+// d'afficher le score live en boucle (match sans pronostic, ou reglement en retard).
 const STALE_AFTER_KICKOFF_MS = 4*60*60*1000;
+
+/* Score live (21/07/2026) : remplace "En cours" pendant le match, pour les
+   sports dont le fixture_id embarque un ID ESPN (baseball/NBA/WNBA/NHL/NFL/
+   tennis) -- appel direct navigateur -> ESPN (public, sans cle), sonde
+   toutes les 60s. Football exclu : fixture_id est un ID API-Football,
+   qui necessite une cle secrete -- impossible a interroger cote client
+   sans exposer la cle publiquement. "En cours" reste affiche pour le foot. */
+const ESPN_SPORT_PATH = {
+  baseball: 'baseball/mlb', nba: 'basketball/nba', wnba: 'basketball/wnba',
+  nhl: 'hockey/nhl', nfl: 'football/nfl',
+};
+let liveScores = {}; // fixture_id -> {home, away} | null si pas (encore) dispo
+
+function espnEventInfo(f){
+  const fid = f.fixture_id || '';
+  if (f.sport === 'tennis'){
+    const m = fid.match(/^tennis_espn_(atp|wta)_(\d+)$/);
+    return m ? {path: `tennis/${m[1]}`, eventId: m[2]} : null;
+  }
+  const path = ESPN_SPORT_PATH[f.sport];
+  if (!path) return null;
+  const m = fid.match(/_(\d+)$/);
+  return m ? {path, eventId: m[1]} : null;
+}
+
+async function fetchLiveScore(f){
+  const info = espnEventInfo(f);
+  if (!info) return null;
+  try{
+    const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${info.path}/summary?event=${info.eventId}`, {cache:'no-store'});
+    if (!res.ok) return null;
+    const data = await res.json();
+    const comps = data?.header?.competitions?.[0]?.competitors || [];
+    const home = comps.find(c => c.homeAway === 'home');
+    const away = comps.find(c => c.homeAway === 'away');
+    if (!home || !away) return null;
+    return {home: home.score, away: away.score};
+  }catch(e){ return null; }
+}
+
+function isLiveWindow(f, now){
+  if (!f.published || f.no_bet_reason) return false;
+  if (f.result && RESULT_META[f.result]) return false;
+  const sinceKickoff = now - new Date(f.kickoff_at);
+  return sinceKickoff >= 0 && sinceKickoff < STALE_AFTER_KICKOFF_MS;
+}
+
+async function refreshLiveScores(){
+  const now = new Date();
+  const candidates = fixtures.filter(f => isLiveWindow(f, now) && espnEventInfo(f));
+  if (!candidates.length) return;
+  await Promise.all(candidates.map(async f => {
+    const score = await fetchLiveScore(f);
+    if (score) liveScores[f.fixture_id] = score;
+  }));
+  render();
+}
 
 function renderCard(f){
   const kickoff = new Date(f.kickoff_at);
@@ -286,19 +356,31 @@ function renderCard(f){
 
   const ICON = (name) => `<svg class="icon"><use href="#i-${name}"></use></svg>`;
 
+  // Ordre de priorite revu le 21/07/2026 (demande explicite) :
+  //   1. Resultat regle (inchange)
+  //   2. No Bet : affiche DES QUE DECIDE, plus d'attente de 4h post-coup
+  //      d'envoi (l'ancien ordre laissait "En cours" masquer le no_bet_reason).
+  //   3. Compte a rebours avant T-30 (inchange)
+  //   4. Match en cours : score live (ESPN, sondee cote client) a la place
+  //      de "En cours" -- uniquement pour les sports dont le fixture_id
+  //      embarque un ID ESPN (pas le foot, cf ESPN_SPORT_PATH plus haut).
+  //   5/6. Inchanges.
   if (f.result && RESULT_META[f.result]) {
     const r = RESULT_META[f.result];
     stateClass = r.cls;
     countdownHtml = `<span class="countdown ${r.cls}">${ICON(r.icon)} ${r.label}${f.score ? ' · '+f.score : ''}</span>`;
+  } else if (f.no_bet_reason) {
+    countdownHtml = `<span class="countdown stale">No Bet — ${f.no_bet_reason}</span>`;
   } else if (toPublish > 0) {
     countdownHtml = `<span class="countdown" data-publish-at="${publishAt.toISOString()}">${ICON('hourglass')} ${fmtCountdown(toPublish)}</span>`;
   } else if (sinceKickoff < STALE_AFTER_KICKOFF_MS) {
     stateClass = 'live';
-    countdownHtml = `<span class="countdown waiting"><span class="dot live"></span> En cours</span>`;
+    const live = liveScores[f.fixture_id];
+    countdownHtml = live
+      ? `<span class="countdown waiting"><span class="dot live"></span> ${live.home} - ${live.away}</span>`
+      : `<span class="countdown waiting"><span class="dot live"></span> En cours</span>`;
   } else if (f.published) {
     countdownHtml = `<span class="countdown stale">${ICON('hourglass')} Résultat en attente…</span>`;
-  } else if (f.no_bet_reason) {
-    countdownHtml = `<span class="countdown stale">Pas de pick — ${f.no_bet_reason}</span>`;
   } else {
     countdownHtml = `<span class="countdown stale">Terminé — aucun pronostic publié</span>`;
   }
@@ -429,6 +511,7 @@ async function loadProgramme(){
 loadProgramme();
 setInterval(tickCountdowns, 1000);
 setInterval(loadProgramme, 60000); // re-synchronise avec la vraie publication chaque minute
+setInterval(refreshLiveScores, 60000); // score live ESPN pendant le match (21/07/2026)
 
 /* ── Menu mobile (drawer) ── */
 (function(){
