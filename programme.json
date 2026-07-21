@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-21T21:13:46.435726+00:00",
+ "generated_at": "2026-07-21T22:14:18.746092+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178882",
@@ -45,17 +45,6 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179489",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alevtina Ibragimova – Tamara Zidansek",
-   "kickoff_at": "2026-07-21T16:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "tennis_espn_wta_179508",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
@@ -78,23 +67,23 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_179489",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alevtina Ibragimova – Tamara Zidansek",
+   "kickoff_at": "2026-07-21T16:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_wta_179497",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Caijsa Hennemann – Miriam Bulgaru",
-   "kickoff_at": "2026-07-21T18:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179518",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
    "kickoff_at": "2026-07-21T18:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -111,6 +100,17 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_179518",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-21T18:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "mlb_824409",
    "flag": "⚾",
    "league": "MLB",
@@ -118,7 +118,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Cleveland Guardians – Minnesota Twins",
    "kickoff_at": "2026-07-21T22:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_823437",
@@ -128,7 +129,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Philadelphia Phillies – Los Angeles Dodgers",
    "kickoff_at": "2026-07-21T22:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_823519",
@@ -191,22 +193,22 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_824652",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Detroit Tigers",
-   "kickoff_at": "2026-07-22T00:05:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_822871",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Texas Rangers – Chicago White Sox",
+   "kickoff_at": "2026-07-22T00:05:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "mlb_824652",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Detroit Tigers",
    "kickoff_at": "2026-07-22T00:05:00Z",
    "published": false
   },
@@ -231,218 +233,5 @@
    "published": false
   }
  ],
- "tennis_wnba": [
-  {
-   "flag": "🏀",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – Las Vegas Aces",
-   "published_at": "2026-07-21T01:30:59.260618+02:00",
-   "conseil": "Jackie Young — Rebonds Plus de 3.5 @ 1.79",
-   "conseil_cote": 1.79,
-   "player_pick_text": "Jackie Young — Rebonds Plus de 3.5",
-   "result": "GAGNE",
-   "score": "24 - 30"
-  },
-  {
-   "flag": "🏀",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Golden State Valkyries – Washington Mystics",
-   "published_at": "2026-07-21T03:30:58.495214+02:00",
-   "conseil": "Shakira Austin — Passes décisives Plus de 2.5 @ 2.1",
-   "conseil_cote": 2.1,
-   "player_pick_text": "Shakira Austin — Passes décisives Plus de 2.5",
-   "result": "PERDU",
-   "score": "82 - 90"
-  },
-  {
-   "flag": "🏀",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Seattle Storm – Minnesota Lynx",
-   "published_at": "2026-07-21T03:31:00.937960+02:00",
-   "conseil": "Natasha Howard — Passes décisives Plus de 3.5 @ 2.67",
-   "conseil_cote": 2.67,
-   "player_pick_text": "Natasha Howard — Passes décisives Plus de 3.5",
-   "result": "PERDU",
-   "score": "23 - 27"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Panna Udvardy – Elena Pridankina",
-   "published_at": "2026-07-21T09:31:02.064877+02:00",
-   "conseil": "Victoire Panna Udvardy",
-   "conseil_cote": 1.23,
-   "player_pick_text": "Panna Udvardy vs Elena Pridankina — Total sets Moins de 2.5",
-   "result": "GAGNE",
-   "score": "6.0 6.0 - 4.0 2.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Marco Trungelliti – Juan Manuel Cerundolo",
-   "published_at": "2026-07-21T10:30:36.286175+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.38",
-   "conseil_cote": 2.38,
-   "player_pick_text": "Marco Trungelliti vs Juan Manuel Cerundolo — Total sets Plus de 2.5",
-   "result": "PERDU",
-   "score": "6.0 6.0 - 2.0 1.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mai Hontama – Diane Parry",
-   "published_at": "2026-07-21T10:30:44.688293+02:00",
-   "conseil": "Victoire Diane Parry",
-   "conseil_cote": 1.23,
-   "player_pick_text": "Mai Hontama vs Diane Parry — Total sets Moins de 2.5",
-   "result": "PERDU",
-   "score": "6.0 6.0 - 4.0 0.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aliaksandra Sasnovich – Maria Timofeeva",
-   "published_at": "2026-07-21T10:30:47.938175+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.42",
-   "conseil_cote": 2.42,
-   "player_pick_text": "Aliaksandra Sasnovich vs Maria Timofeeva — Total sets Plus de 2.5",
-   "result": "PERDU",
-   "score": "3.0 4.0 - 6.0 6.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sinja Kraus – Darja Semenistaja",
-   "published_at": "2026-07-21T10:30:51.680049+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.51",
-   "conseil_cote": 2.51,
-   "player_pick_text": "Sinja Kraus vs Darja Semenistaja — Total sets Plus de 2.5",
-   "result": "GAGNE",
-   "score": "3.0 6.0 6.0 - 6.0 3.0 2.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Yulia Putintseva – Mona Barthel",
-   "published_at": "2026-07-21T11:00:51.926283+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 3.52",
-   "conseil_cote": 3.52,
-   "player_pick_text": "Yulia Putintseva vs Mona Barthel — Total sets Plus de 2.5",
-   "result": "PERDU",
-   "score": "6.0 7.0 - 2.0 6.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Veronika Erjavec – Leyre Romero Gormaz",
-   "published_at": "2026-07-21T11:00:54.226157+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.34",
-   "conseil_cote": 2.34,
-   "player_pick_text": "Veronika Erjavec vs Leyre Romero Gormaz — Total sets Plus de 2.5",
-   "result": "PERDU",
-   "score": "2.0 2.0 - 6.0 6.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Quentin Halys – Laslo Djere",
-   "published_at": "2026-07-21T12:00:49.050900+02:00",
-   "conseil": "Victoire Quentin Halys",
-   "conseil_cote": 1.36,
-   "player_pick_text": "Quentin Halys vs Laslo Djere — Total sets Moins de 2.5",
-   "result": "GAGNE",
-   "score": "7.0 6.0 - 6.0 4.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maya Joint – Laura Samson",
-   "published_at": "2026-07-21T12:00:52.960583+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.51",
-   "conseil_cote": 2.51,
-   "player_pick_text": "Maya Joint vs Laura Samson — Total sets Plus de 2.5",
-   "result": "GAGNE",
-   "score": "6.0 3.0 6.0 - 4.0 6.0 2.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Barbora Krejcikova – Linda Fruhvirtova",
-   "published_at": "2026-07-21T15:13:53.489823+02:00",
-   "conseil": "Victoire Barbora Krejcikova",
-   "conseil_cote": 1.23,
-   "player_pick_text": "Barbora Krejcikova vs Linda Fruhvirtova — Total sets Moins de 2.5",
-   "result": "GAGNE",
-   "score": "6.0 6.0 - 2.0 4.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Roman Andres Burruchaga – Stan Wawrinka",
-   "published_at": "2026-07-21T15:30:50.117110+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.51",
-   "conseil_cote": 2.56,
-   "player_pick_text": "Roman Andres Burruchaga vs Stan Wawrinka — Total sets Plus de 2.5",
-   "result": "GAGNE",
-   "score": "6.0 4.0 6.0 - 4.0 6.0 3.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mina Hodzic – Caroline Werner",
-   "published_at": "2026-07-21T16:30:51.417559+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.57",
-   "conseil_cote": 2.56,
-   "player_pick_text": "Mina Hodzic vs Caroline Werner — Total sets Plus de 2.5",
-   "result": "GAGNE",
-   "score": "6.0 4.0 6.0 - 4.0 6.0 2.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tyra Caterina Grant – Noemi Basiletti",
-   "published_at": "2026-07-21T16:30:53.500675+02:00",
-   "conseil": "Victoire Tyra Caterina Grant",
-   "conseil_cote": 1.23,
-   "player_pick_text": "Tyra Caterina Grant vs Noemi Basiletti — Total sets Moins de 2.5",
-   "result": "PERDU",
-   "score": "4.0 1.0 - 6.0 6.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jaime Faria – Botic Van De Zandschulp",
-   "published_at": "2026-07-21T17:00:49.545493+02:00",
-   "conseil": "Victoire Botic Van De Zandschulp",
-   "conseil_cote": 1.54,
-   "result": "PERDU",
-   "score": "6.0 6.0 - 3.0 4.0"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elsa Jacquemot – Tessa Johanna Brockmann",
-   "published_at": "2026-07-21T17:30:51.936229+02:00",
-   "conseil": "Victoire Elsa Jacquemot",
-   "conseil_cote": 1.36
-  }
- ]
+ "tennis_wnba": []
 }
