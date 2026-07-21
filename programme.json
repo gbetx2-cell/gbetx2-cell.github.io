@@ -1,7 +1,8 @@
 {
- "generated_at": "2026-07-21T09:45:52.768833+00:00",
+ "generated_at": "2026-07-21T11:32:27.924966+00:00",
  "fixtures": [
   {
+   "fixture_id": "tennis_espn_atp_178882",
    "flag": "🎾",
    "league": "Generali Open",
    "sport": "tennis",
@@ -12,24 +13,37 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_atp_178866",
    "flag": "🎾",
    "league": "Generali Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Quentin Halys – Laslo Djere",
    "kickoff_at": "2026-07-21T10:30Z",
-   "published": false
+   "published": true,
+   "conseil": "Victoire Quentin Halys",
+   "conseil_cote": 1.36,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Quentin Halys vs Laslo Djere — Total sets Moins de 2.5",
+     "detail": "cote 1.68"
+    }
+   ]
   },
   {
+   "fixture_id": "tennis_espn_atp_178884",
    "flag": "🎾",
    "league": "Generali Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Miomir Kecmanovic – Sebastian Baez",
    "kickoff_at": "2026-07-21T10:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_179485",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
@@ -39,6 +53,7 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179489",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
@@ -48,6 +63,7 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179508",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
@@ -57,6 +73,7 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179494",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
@@ -66,6 +83,7 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179518",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
@@ -75,6 +93,7 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179497",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
@@ -84,6 +103,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_824409",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -93,6 +113,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_823437",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -102,6 +123,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_823519",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -111,6 +133,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_822787",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -120,6 +143,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_824735",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -129,6 +153,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_824895",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -138,6 +163,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_823760",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -147,6 +173,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_824085",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -156,6 +183,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_824652",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -165,6 +193,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_822871",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -174,6 +203,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_824165",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -183,6 +213,7 @@
    "published": false
   },
   {
+   "fixture_id": "mlb_824329",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
@@ -237,7 +268,9 @@
    "published_at": "2026-07-21T09:31:02.064877+02:00",
    "conseil": "Victoire Panna Udvardy",
    "conseil_cote": 1.23,
-   "player_pick_text": "Panna Udvardy vs Elena Pridankina — Total sets Moins de 2.5"
+   "player_pick_text": "Panna Udvardy vs Elena Pridankina — Total sets Moins de 2.5",
+   "result": "GAGNE",
+   "score": "6.0 6.0 - 4.0 2.0"
   },
   {
    "flag": "🎾",
@@ -247,7 +280,9 @@
    "published_at": "2026-07-21T10:30:36.286175+02:00",
    "conseil": "Total sets — Plus de 2.5 @ 2.38",
    "conseil_cote": 2.56,
-   "player_pick_text": "Marco Trungelliti vs Juan Manuel Cerundolo — Total sets Plus de 2.5"
+   "player_pick_text": "Marco Trungelliti vs Juan Manuel Cerundolo — Total sets Plus de 2.5",
+   "result": "PERDU",
+   "score": "6.0 6.0 - 2.0 1.0"
   },
   {
    "flag": "🎾",
@@ -257,7 +292,9 @@
    "published_at": "2026-07-21T10:30:44.688293+02:00",
    "conseil": "Victoire Diane Parry",
    "conseil_cote": 1.23,
-   "player_pick_text": "Mai Hontama vs Diane Parry — Total sets Moins de 2.5"
+   "player_pick_text": "Mai Hontama vs Diane Parry — Total sets Moins de 2.5",
+   "result": "PERDU",
+   "score": "6.0 6.0 - 4.0 0.0"
   },
   {
    "flag": "🎾",
@@ -267,7 +304,9 @@
    "published_at": "2026-07-21T10:30:47.938175+02:00",
    "conseil": "Total sets — Plus de 2.5 @ 2.42",
    "conseil_cote": 2.56,
-   "player_pick_text": "Aliaksandra Sasnovich vs Maria Timofeeva — Total sets Plus de 2.5"
+   "player_pick_text": "Aliaksandra Sasnovich vs Maria Timofeeva — Total sets Plus de 2.5",
+   "result": "PERDU",
+   "score": "3.0 4.0 - 6.0 6.0"
   },
   {
    "flag": "🎾",
@@ -277,7 +316,9 @@
    "published_at": "2026-07-21T10:30:51.680049+02:00",
    "conseil": "Total sets — Plus de 2.5 @ 2.51",
    "conseil_cote": 2.56,
-   "player_pick_text": "Sinja Kraus vs Darja Semenistaja — Total sets Plus de 2.5"
+   "player_pick_text": "Sinja Kraus vs Darja Semenistaja — Total sets Plus de 2.5",
+   "result": "GAGNE",
+   "score": "3.0 6.0 6.0 - 6.0 3.0 2.0"
   },
   {
    "flag": "🎾",
@@ -297,7 +338,29 @@
    "published_at": "2026-07-21T11:00:54.226157+02:00",
    "conseil": "Total sets — Plus de 2.5 @ 2.34",
    "conseil_cote": 2.56,
-   "player_pick_text": "Veronika Erjavec vs Leyre Romero Gormaz — Total sets Plus de 2.5"
+   "player_pick_text": "Veronika Erjavec vs Leyre Romero Gormaz — Total sets Plus de 2.5",
+   "result": "PERDU",
+   "score": "2.0 2.0 - 6.0 6.0"
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Quentin Halys – Laslo Djere",
+   "published_at": "2026-07-21T12:00:49.050900+02:00",
+   "conseil": "Victoire Quentin Halys",
+   "conseil_cote": 1.36,
+   "player_pick_text": "Quentin Halys vs Laslo Djere — Total sets Moins de 2.5"
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maya Joint – Laura Samson",
+   "published_at": "2026-07-21T12:00:52.960583+02:00",
+   "conseil": "Total sets — Plus de 2.5 @ 2.51",
+   "conseil_cote": 2.56,
+   "player_pick_text": "Maya Joint vs Laura Samson — Total sets Plus de 2.5"
   }
  ]
 }
