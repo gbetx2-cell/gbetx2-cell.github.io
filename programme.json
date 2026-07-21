@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-21T15:16:04.944574+00:00",
+ "generated_at": "2026-07-21T16:49:59.141525+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178882",
@@ -9,17 +9,6 @@
    "sport_label": "Tennis",
    "match": "Aleksandr Shevchenko – Jan-Lennard Struff",
    "kickoff_at": "2026-07-21T09:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178884",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Miomir Kecmanovic – Sebastian Baez",
-   "kickoff_at": "2026-07-21T10:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -45,14 +34,15 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_179485",
+   "fixture_id": "tennis_espn_atp_178884",
    "flag": "🎾",
-   "league": "Palermo Ladies Open",
+   "league": "Generali Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Anastasia Tikhonova – Alice Rame",
-   "kickoff_at": "2026-07-21T16:30Z",
-   "published": false
+   "match": "Miomir Kecmanovic – Sebastian Baez",
+   "kickoff_at": "2026-07-21T10:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179489",
@@ -62,7 +52,8 @@
    "sport_label": "Tennis",
    "match": "Alevtina Ibragimova – Tamara Zidansek",
    "kickoff_at": "2026-07-21T16:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179508",
@@ -72,7 +63,19 @@
    "sport_label": "Tennis",
    "match": "Lucia Bronzetti – Ilary Pistola",
    "kickoff_at": "2026-07-21T16:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179485",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasia Tikhonova – Alice Rame",
+   "kickoff_at": "2026-07-21T16:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179494",
@@ -85,22 +88,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179518",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-21T18:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179497",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Caijsa Hennemann – Miriam Bulgaru",
+   "kickoff_at": "2026-07-21T18:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179518",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
    "kickoff_at": "2026-07-21T18:00Z",
    "published": false
   },
@@ -233,7 +236,7 @@
    "match": "Toronto Tempo – Las Vegas Aces",
    "published_at": "2026-07-21T01:30:59.260618+02:00",
    "conseil": "Jackie Young — Rebonds Plus de 3.5 @ 1.79",
-   "conseil_cote": 2.21,
+   "conseil_cote": 1.79,
    "player_pick_text": "Jackie Young — Rebonds Plus de 3.5",
    "result": "GAGNE",
    "score": "24 - 30"
@@ -245,7 +248,7 @@
    "match": "Golden State Valkyries – Washington Mystics",
    "published_at": "2026-07-21T03:30:58.495214+02:00",
    "conseil": "Shakira Austin — Passes décisives Plus de 2.5 @ 2.1",
-   "conseil_cote": 3.53,
+   "conseil_cote": 2.1,
    "player_pick_text": "Shakira Austin — Passes décisives Plus de 2.5",
    "result": "GAGNE",
    "score": "82 - 90"
@@ -257,7 +260,7 @@
    "match": "Seattle Storm – Minnesota Lynx",
    "published_at": "2026-07-21T03:31:00.937960+02:00",
    "conseil": "Natasha Howard — Passes décisives Plus de 3.5 @ 2.67",
-   "conseil_cote": 3.53,
+   "conseil_cote": 2.67,
    "player_pick_text": "Natasha Howard — Passes décisives Plus de 3.5",
    "result": "GAGNE",
    "score": "23 - 27"
@@ -418,6 +421,15 @@
    "published_at": "2026-07-21T17:00:49.545493+02:00",
    "conseil": "Victoire Botic Van De Zandschulp",
    "conseil_cote": 1.54
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elsa Jacquemot – Tessa Johanna Brockmann",
+   "published_at": "2026-07-21T17:30:51.936229+02:00",
+   "conseil": "Victoire Elsa Jacquemot",
+   "conseil_cote": 1.36
   }
  ]
 }
