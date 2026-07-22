@@ -15,6 +15,7 @@ from zoneinfo import ZoneInfo
 
 N_MATCHES = 20  # matchs regles (chacun peut donner jusqu'a 3 entrees : conseil/value/player pick cote)
 BASE_UNIT_EUR = 200  # doit rester synchro avec ai/staking.py BASE_UNIT_EUR
+BANKROLL_INITIAL_EUR = 10000  # doit rester synchro avec scripts/export_site_results.py (repo prive)
 PARIS_TZ = ZoneInfo("Europe/Paris")
 
 # Drapeau par competition (fallback ⚽ si inconnue)
@@ -405,6 +406,7 @@ MARKET_FR = {
     "double_chance": "Double chance",
     "winner": "Vainqueur",
     "total_goals": "Buts (over/under)",
+    "total_points": "Buts (over/under)",
     "both_teams_to_score": "Les deux marquent",
     "handicap": "Handicap",
     "scorer": "Buteur",
@@ -584,6 +586,56 @@ def fetch_perf_stats() -> dict:
         "highlights": {"best": best, "worst": worst, "top_league": top_league},
         "percent_picks": {"n": pp["n"],
                           "winrate": round(pp["w"] / pp["n"] * 100) if pp["n"] else 0},
+        "bankroll": fetch_bankroll(),
+    }
+
+
+def fetch_bankroll() -> dict:
+    """Bankroll = BANKROLL_INITIAL_EUR + somme cumulee des pnl reels regles
+    (paris.pnl, en EUR), du plus ancien pari regle au plus recent -- pas de
+    table dediee, on derive tout de la meme source que fetch_perf_stats.
+    Portee depuis scripts/export_site_results.py (repo prive, meme logique)."""
+    import psycopg2
+
+    db = os.environ.get("DATABASE_URL")
+    if not db:
+        raise SystemExit("DATABASE_URL manquant")
+    conn = psycopg2.connect(db, connect_timeout=10)
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT pnl, result_updated_at
+        FROM paris
+        WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
+          AND result_updated_at IS NOT NULL AND result_updated_at <> ''
+        ORDER BY result_updated_at ASC
+        """,
+    )
+    rows = cur.fetchall()
+    conn.close()
+
+    daily: dict = {}
+    for pnl, rud in rows:
+        d = _paris_calendar_date(rud)
+        if d is None:
+            continue
+        daily[d] = daily.get(d, 0.0) + float(pnl or 0)
+
+    series = []
+    running = float(BANKROLL_INITIAL_EUR)
+    for d in sorted(daily):
+        running += daily[d]
+        series.append({"date": d.isoformat(), "value": round(running, 2)})
+
+    current = round(running, 2)
+    pnl_total = round(current - BANKROLL_INITIAL_EUR, 2)
+    pct = round(pnl_total / BANKROLL_INITIAL_EUR * 100, 2) if BANKROLL_INITIAL_EUR else 0
+    return {
+        "initial": BANKROLL_INITIAL_EUR,
+        "current": current,
+        "pnl": pnl_total,
+        "pct": pct,
+        "series": series,
     }
 
 
