@@ -43,6 +43,16 @@ COMPETITION_FLAGS = {
 # fixe par sport.
 PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "nfl", "tennis", "wnba")
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀"}
+
+# Sports ou paris.conseil n'est jamais une info independante : c'est soit un
+# mirroir du value bet ("Victoire X"), soit un mirroir du player pick ("Total
+# sets..."), jamais un 3e pari distinct (cf daily_bilan.py::
+# SPORTS_VALUE_BET_IS_CONSEIL, meme diagnostic 22/07/2026). Afficher item
+# "conseil" en plus de value_bet/player_picks pour ces sports produisait un
+# doublon (meme info sous 2 etiquettes) ou pire, un player pick affiche a
+# tort sous le libelle "Conseil" quand aucun value bet n'avait passe les
+# criteres -- signale par l'utilisateur comme peu clair cote client.
+SPORTS_CONSEIL_IS_MIRROR = {"tennis", "nba", "nhl", "baseball"}
 SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
                "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)",
                "tennis": "Tennis", "wnba": "Basketball (WNBA)"}
@@ -210,7 +220,7 @@ def fetch_programme() -> list[dict]:
             row = cur.fetchone()
             if row:
                 conseil, cote, value_bet, value_cote, resultat, score = row
-                if conseil:
+                if conseil and sport not in SPORTS_CONSEIL_IS_MIRROR:
                     item["conseil"] = _short_pick(conseil)
                     item["conseil_cote"] = round(float(cote or 0), 2)
                 if value_bet:

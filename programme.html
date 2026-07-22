@@ -109,6 +109,16 @@ h1{
   font-size:.82rem;color:var(--muted);margin-bottom:20px;
   display:flex;align-items:center;gap:8px;
 }
+#sport-summary{
+  display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;
+}
+#sport-summary .sport-badge{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:6px 12px; border-radius:99px;
+  background:var(--card); border:1px solid var(--border);
+  font-size:.85rem; color:var(--text);
+}
+#sport-summary .sport-badge .n{color:var(--gold-2); font-weight:700}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .day-sep{
@@ -237,6 +247,7 @@ footer a{color:var(--gold-2);text-decoration:none}
 <div class="container" id="main">
   <h1>Programme du jour</h1>
   <p class="sub">Programme du jour, figé à 08h00 — tous les matchs suivis, triés par heure.</p>
+  <div id="sport-summary"></div>
   <div id="status"><span class="dot"></span><span id="status-text">Chargement…</span></div>
   <div id="list"></div>
 </div>
@@ -452,8 +463,38 @@ function renderExtraCard(item){
     </div>`;
 }
 
+/* Resume par sport (22/07/2026) : meme donnee que la liste principale
+   (fixtures, deja chargee depuis programme.json), aucun nouveau calcul
+   serveur -- juste un comptage cote client, comme le fait deja le
+   recap Telegram admin de 8h (daily_summary.py::_send_admin_programme_summary,
+   sur programme_fixtures, meme source que fixtures ici). extraPicks
+   (tennis/wnba deja publies) volontairement exclu : il peut recouper des
+   matchs deja comptes dans fixtures (meme fixture_id une fois publie),
+   fixtures seul reste la source fiable et non ambigue pour ce compte. */
+const SPORT_META = {
+  football: {icon:'⚽', label:'Football'}, tennis: {icon:'🎾', label:'Tennis'},
+  baseball: {icon:'⚾', label:'Baseball'}, nba: {icon:'🏀', label:'NBA'},
+  nhl: {icon:'🏒', label:'NHL'}, nfl: {icon:'🏈', label:'NFL'},
+  wnba: {icon:'🏀', label:'WNBA'},
+};
+function renderSportSummary(){
+  const el = document.getElementById('sport-summary');
+  if (!fixtures.length){ el.innerHTML = ''; return; }
+  const counts = fixtures.reduce((acc, f) => {
+    acc[f.sport] = (acc[f.sport] || 0) + 1;
+    return acc;
+  }, {});
+  const order = ['football','tennis','baseball','nba','nhl','nfl','wnba'];
+  const sports = Object.keys(counts).sort((a,b) => order.indexOf(a) - order.indexOf(b));
+  el.innerHTML = sports.map(s => {
+    const meta = SPORT_META[s] || {icon:'🏅', label:s};
+    return `<span class="sport-badge">${meta.icon} ${meta.label} <span class="n">${counts[s]}</span></span>`;
+  }).join('');
+}
+
 function render(){
   const list = document.getElementById('list');
+  renderSportSummary();
   if (!fixtures.length && !extraPicks.length){
     list.innerHTML = "<div class=\"empty\">Aucun match dans la fenêtre actuelle. Revenez un peu avant le prochain coup d'envoi.</div>";
     return;
