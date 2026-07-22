@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-21T23:15:29.882758+00:00",
+ "generated_at": "2026-07-22T00:11:33.894394+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178882",
@@ -45,12 +45,12 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179508",
+   "fixture_id": "tennis_espn_wta_179485",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Lucia Bronzetti – Ilary Pistola",
+   "match": "Anastasia Tikhonova – Alice Rame",
    "kickoff_at": "2026-07-21T16:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -67,24 +67,13 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179485",
+   "fixture_id": "tennis_espn_wta_179508",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Anastasia Tikhonova – Alice Rame",
+   "match": "Lucia Bronzetti – Ilary Pistola",
    "kickoff_at": "2026-07-21T16:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179497",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Caijsa Hennemann – Miriam Bulgaru",
-   "kickoff_at": "2026-07-21T18:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -95,6 +84,17 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Clara Burel – Anastasia Abbagnato",
+   "kickoff_at": "2026-07-21T18:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179497",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Caijsa Hennemann – Miriam Bulgaru",
    "kickoff_at": "2026-07-21T18:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -199,16 +199,6 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "mlb_824652",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Detroit Tigers",
-   "kickoff_at": "2026-07-22T00:05:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_822871",
    "flag": "⚾",
    "league": "MLB",
@@ -216,7 +206,19 @@
    "sport_label": "Baseball (MLB)",
    "match": "Texas Rangers – Chicago White Sox",
    "kickoff_at": "2026-07-22T00:05:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "mlb_824652",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Detroit Tigers",
+   "kickoff_at": "2026-07-22T00:05:00Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_824165",
@@ -226,7 +228,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Houston Astros – Miami Marlins",
    "kickoff_at": "2026-07-22T00:10:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_824329",
@@ -236,7 +239,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Colorado Rockies – Washington Nationals",
    "kickoff_at": "2026-07-22T00:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   }
  ],
  "tennis_wnba": []
