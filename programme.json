@@ -1,6 +1,17 @@
 {
- "generated_at": "2026-07-22T19:43:55.894921+00:00",
+ "generated_at": "2026-07-22T20:49:19.541120+00:00",
  "fixtures": [
+  {
+   "fixture_id": "tennis_espn_wta_179383",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-22T08:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
   {
    "fixture_id": "tennis_espn_wta_179358",
    "flag": "🎾",
@@ -13,15 +24,25 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179383",
+   "fixture_id": "tennis_espn_atp_178871",
    "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
+   "league": "Generali Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-22T08:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "match": "Arthur Rinderknech – Sebastian Baez",
+   "kickoff_at": "2026-07-22T09:00Z",
+   "published": true,
+   "value_bet": "Victoire Arthur Rinderknech",
+   "value_cote": 1.36,
+   "result": "PERDU",
+   "score": "6-7, 6-2, 4-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Arthur Rinderknech vs Sebastian Baez — Total sets Moins de 2.5",
+     "detail": "cote 1.74"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_179353",
@@ -55,6 +76,20 @@
    "kickoff_at": "2026-07-22T09:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179374",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elsa Jacquemot – Tessa Johanna Brockmann",
+   "kickoff_at": "2026-07-22T09:00Z",
+   "published": true,
+   "value_bet": "Victoire Elsa Jacquemot",
+   "value_cote": 1.36,
+   "result": "GAGNE",
+   "score": "7-5, 6-1"
   },
   {
    "fixture_id": "tennis_espn_atp_178867",
@@ -97,41 +132,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_179374",
-   "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elsa Jacquemot – Tessa Johanna Brockmann",
-   "kickoff_at": "2026-07-22T09:00Z",
-   "published": true,
-   "value_bet": "Victoire Elsa Jacquemot",
-   "value_cote": 1.36,
-   "result": "GAGNE",
-   "score": "7-5, 6-1"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178871",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Arthur Rinderknech – Sebastian Baez",
-   "kickoff_at": "2026-07-22T09:00Z",
-   "published": true,
-   "value_bet": "Victoire Arthur Rinderknech",
-   "value_cote": 1.36,
-   "result": "PERDU",
-   "score": "6-7, 6-2, 4-6",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Arthur Rinderknech vs Sebastian Baez — Total sets Moins de 2.5",
-     "detail": "cote 1.74"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_179387",
    "flag": "🎾",
    "league": "MSC Hamburg Ladies Open",
@@ -139,17 +139,6 @@
    "sport_label": "Tennis",
    "match": "? – ?",
    "kickoff_at": "2026-07-22T09:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179399",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Carol Young Suh Lee – Marie Bouzkova",
-   "kickoff_at": "2026-07-22T10:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -231,6 +220,17 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_179399",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carol Young Suh Lee – Marie Bouzkova",
+   "kickoff_at": "2026-07-22T10:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_atp_178831",
    "flag": "🎾",
    "league": "Millennium Estoril Open",
@@ -238,17 +238,6 @@
    "sport_label": "Tennis",
    "match": "Titouan Droguet – Hugo Gaston",
    "kickoff_at": "2026-07-22T11:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179438",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-22T12:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -275,23 +264,12 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179359",
+   "fixture_id": "tennis_espn_atp_178844",
    "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
+   "league": "Millennium Estoril Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Julia Stusek – Tamara Korpatsch",
-   "kickoff_at": "2026-07-22T12:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178875",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Daniel Altmaier – Alex Molcan",
+   "match": "? – ?",
    "kickoff_at": "2026-07-22T12:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -308,6 +286,17 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_179359",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Julia Stusek – Tamara Korpatsch",
+   "kickoff_at": "2026-07-22T12:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_atp_178899",
    "flag": "🎾",
    "league": "Generali Open",
@@ -319,12 +308,23 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_178844",
+   "fixture_id": "tennis_espn_wta_179438",
    "flag": "🎾",
-   "league": "Millennium Estoril Open",
+   "league": "Livesport Prague Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
+   "kickoff_at": "2026-07-22T12:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178875",
+   "flag": "🎾",
+   "league": "Generali Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Daniel Altmaier – Alex Molcan",
    "kickoff_at": "2026-07-22T12:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -428,17 +428,6 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179364",
-   "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Noma Noha Akugue – Anna Bondar",
-   "kickoff_at": "2026-07-22T15:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "tennis_espn_wta_179517",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
@@ -480,6 +469,28 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_179364",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Noma Noha Akugue – Anna Bondar",
+   "kickoff_at": "2026-07-22T15:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179516",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-22T16:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_atp_178833",
    "flag": "🎾",
    "league": "Millennium Estoril Open",
@@ -497,17 +508,6 @@
      "detail": "cote 1.36"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179516",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-22T16:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179503",
@@ -575,6 +575,8 @@
    "published": true,
    "value_bet": "Victoire Alexander Blockx",
    "value_cote": 1.23,
+   "result": "GAGNE",
+   "score": "3-6, 6-4, 7-6",
    "player_picks": [
     {
      "category": "Player pick",
@@ -584,23 +586,23 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_179520",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-22T18:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "tennis_espn_wta_179505",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Erika Andreeva – Fiona Ferro",
+   "kickoff_at": "2026-07-22T18:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179520",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
    "kickoff_at": "2026-07-22T18:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -1178,6 +1180,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_178818",
+   "flag": "🎾",
+   "league": "Millennium Estoril Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_atp_178896",
    "flag": "🎾",
    "league": "Generali Open",
@@ -1191,16 +1203,6 @@
    "fixture_id": "tennis_espn_wta_179500",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178818",
-   "flag": "🎾",
-   "league": "Millennium Estoril Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -1734,7 +1736,9 @@
    "published_at": "2026-07-22T19:00:52.774692+02:00",
    "conseil": "Victoire Alexander Blockx",
    "conseil_cote": 1.23,
-   "player_pick_text": "Alexander Blockx vs Kyrian Jacquet — Total sets Moins de 2.5"
+   "player_pick_text": "Alexander Blockx vs Kyrian Jacquet — Total sets Moins de 2.5",
+   "result": "GAGNE",
+   "score": "3-6, 6-4, 7-6"
   },
   {
    "flag": "🏀",
