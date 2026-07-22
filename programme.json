@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-22T12:59:58.409877+00:00",
+ "generated_at": "2026-07-22T15:10:45.821664+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_wta_179383",
@@ -22,58 +22,6 @@
    "kickoff_at": "2026-07-22T08:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178867",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Valentin Vacherot – Quentin Halys",
-   "kickoff_at": "2026-07-22T09:00Z",
-   "published": true,
-   "conseil": "Victoire Valentin Vacherot",
-   "conseil_cote": 1.36,
-   "result": "PERDU",
-   "score": "3-6, 4-6",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Valentin Vacherot vs Quentin Halys — Total sets Moins de 2.5",
-     "detail": "cote 1.67"
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179374",
-   "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elsa Jacquemot – Tessa Johanna Brockmann",
-   "kickoff_at": "2026-07-22T09:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179410",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Daria Snigur – Ayla Aksu",
-   "kickoff_at": "2026-07-22T09:00Z",
-   "published": true,
-   "conseil": "Total sets — Plus de 2.5 @ 3.78",
-   "conseil_cote": 2.56,
-   "result": "PERDU",
-   "score": "6-3, 6-2",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Daria Snigur vs Ayla Aksu — Total sets Plus de 2.5",
-     "detail": "cote 3.78"
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_wta_179353",
@@ -108,6 +56,41 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_wta_179410",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Daria Snigur – Ayla Aksu",
+   "kickoff_at": "2026-07-22T09:00Z",
+   "published": true,
+   "conseil": "Total sets — Plus de 2.5 @ 3.78",
+   "conseil_cote": 2.56,
+   "result": "PERDU",
+   "score": "6-3, 6-2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Daria Snigur vs Ayla Aksu — Total sets Plus de 2.5",
+     "detail": "cote 3.78"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179374",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elsa Jacquemot – Tessa Johanna Brockmann",
+   "kickoff_at": "2026-07-22T09:00Z",
+   "published": true,
+   "conseil": "Victoire Elsa Jacquemot",
+   "conseil_cote": 1.36,
+   "result": "GAGNE",
+   "score": "7-5, 6-1"
+  },
+  {
    "fixture_id": "tennis_espn_atp_178900",
    "flag": "🎾",
    "league": "Generali Open",
@@ -117,6 +100,27 @@
    "kickoff_at": "2026-07-22T09:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178867",
+   "flag": "🎾",
+   "league": "Generali Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Valentin Vacherot – Quentin Halys",
+   "kickoff_at": "2026-07-22T09:00Z",
+   "published": true,
+   "conseil": "Victoire Valentin Vacherot",
+   "conseil_cote": 1.36,
+   "result": "PERDU",
+   "score": "3-6, 4-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Valentin Vacherot vs Quentin Halys — Total sets Moins de 2.5",
+     "detail": "cote 1.67"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_179429",
@@ -141,12 +145,67 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_179373",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Paula Badosa – Katarzyna Kawa",
+   "kickoff_at": "2026-07-22T10:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178870",
+   "flag": "🎾",
+   "league": "Generali Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mariano Navone – Jan-Lennard Struff",
+   "kickoff_at": "2026-07-22T10:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178873",
+   "flag": "🎾",
+   "league": "Generali Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Ignacio Buse – Kilian Feldbausch",
+   "kickoff_at": "2026-07-22T10:30Z",
+   "published": true,
+   "coup": true,
+   "conseil": "Victoire Ignacio Buse",
+   "conseil_cote": 1.23,
+   "result": "GAGNE",
+   "score": "2-6, 6-2, 6-2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Ignacio Buse vs Kilian Feldbausch — Total sets Moins de 2.5",
+     "detail": "cote 1.58"
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_wta_179433",
    "flag": "🎾",
    "league": "Livesport Prague Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
+   "kickoff_at": "2026-07-22T10:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178872",
+   "flag": "🎾",
+   "league": "Generali Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Yannick Hanfmann – Marco Trungelliti",
    "kickoff_at": "2026-07-22T10:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -174,59 +233,6 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_178873",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Ignacio Buse – Kilian Feldbausch",
-   "kickoff_at": "2026-07-22T10:30Z",
-   "published": true,
-   "coup": true,
-   "conseil": "Victoire Ignacio Buse",
-   "conseil_cote": 1.23,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Ignacio Buse vs Kilian Feldbausch — Total sets Moins de 2.5",
-     "detail": "cote 1.58"
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179373",
-   "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Paula Badosa – Katarzyna Kawa",
-   "kickoff_at": "2026-07-22T10:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178872",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Yannick Hanfmann – Marco Trungelliti",
-   "kickoff_at": "2026-07-22T10:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178870",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mariano Navone – Jan-Lennard Struff",
-   "kickoff_at": "2026-07-22T10:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "tennis_espn_atp_178831",
    "flag": "🎾",
    "league": "Millennium Estoril Open",
@@ -234,17 +240,6 @@
    "sport_label": "Tennis",
    "match": "Titouan Droguet – Hugo Gaston",
    "kickoff_at": "2026-07-22T11:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178849",
-   "flag": "🎾",
-   "league": "Millennium Estoril Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-22T12:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -271,9 +266,53 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_atp_178844",
+   "flag": "🎾",
+   "league": "Millennium Estoril Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-22T12:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_wta_179438",
    "flag": "🎾",
    "league": "Livesport Prague Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-22T12:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178849",
+   "flag": "🎾",
+   "league": "Millennium Estoril Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-22T12:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179359",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Julia Stusek – Tamara Korpatsch",
+   "kickoff_at": "2026-07-22T12:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178899",
+   "flag": "🎾",
+   "league": "Generali Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
@@ -293,37 +332,34 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179359",
-   "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Julia Stusek – Tamara Korpatsch",
-   "kickoff_at": "2026-07-22T12:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178844",
+   "fixture_id": "tennis_espn_atp_178830",
    "flag": "🎾",
    "league": "Millennium Estoril Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-22T12:00Z",
+   "match": "Roman Andres Burruchaga – Nuno Borges",
+   "kickoff_at": "2026-07-22T13:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_178899",
+   "fixture_id": "tennis_espn_atp_178862",
    "flag": "🎾",
    "league": "Generali Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-22T12:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "match": "Facundo Diaz Acosta – Alexander Bublik",
+   "kickoff_at": "2026-07-22T13:30Z",
+   "published": true,
+   "conseil": "Victoire Alexander Bublik",
+   "conseil_cote": 1.36,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Facundo Diaz Acosta vs Alexander Bublik — Total sets Moins de 2.5",
+     "detail": "cote 1.66"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_178848",
@@ -334,40 +370,7 @@
    "match": "? – ?",
    "kickoff_at": "2026-07-22T13:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179409",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Oceane Dodin – Dominika Salkova",
-   "kickoff_at": "2026-07-22T13:30Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179437",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-22T13:30Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178862",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Facundo Diaz Acosta – Alexander Bublik",
-   "kickoff_at": "2026-07-22T13:30Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_178888",
@@ -378,7 +381,18 @@
    "match": "? – ?",
    "kickoff_at": "2026-07-22T13:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179409",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Oceane Dodin – Dominika Salkova",
+   "kickoff_at": "2026-07-22T13:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_178846",
@@ -389,18 +403,18 @@
    "match": "? – ?",
    "kickoff_at": "2026-07-22T13:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_178830",
+   "fixture_id": "tennis_espn_wta_179437",
    "flag": "🎾",
-   "league": "Millennium Estoril Open",
+   "league": "Livesport Prague Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Roman Andres Burruchaga – Nuno Borges",
+   "match": "? – ?",
    "kickoff_at": "2026-07-22T13:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179388",
@@ -410,7 +424,8 @@
    "sport_label": "Tennis",
    "match": "? – ?",
    "kickoff_at": "2026-07-22T14:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179384",
@@ -420,27 +435,8 @@
    "sport_label": "Tennis",
    "match": "? – ?",
    "kickoff_at": "2026-07-22T15:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179509",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lola Radivojevic – Jennifer Ruggeri",
-   "kickoff_at": "2026-07-22T15:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179517",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-22T15:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179364",
@@ -450,6 +446,47 @@
    "sport_label": "Tennis",
    "match": "Noma Noha Akugue – Anna Bondar",
    "kickoff_at": "2026-07-22T15:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179517",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-22T15:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179509",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lola Radivojevic – Jennifer Ruggeri",
+   "kickoff_at": "2026-07-22T15:00Z",
+   "published": true,
+   "conseil": "Total sets — Plus de 2.5 @ 2.59",
+   "conseil_cote": 2.56,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Lola Radivojevic vs Jennifer Ruggeri — Total sets Plus de 2.5",
+     "detail": "cote 2.59"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178833",
+   "flag": "🎾",
+   "league": "Millennium Estoril Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tiago Torres – Alejandro Tabilo",
+   "kickoff_at": "2026-07-22T16:00Z",
    "published": false
   },
   {
@@ -459,16 +496,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
-   "kickoff_at": "2026-07-22T16:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178833",
-   "flag": "🎾",
-   "league": "Millennium Estoril Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tiago Torres – Alejandro Tabilo",
    "kickoff_at": "2026-07-22T16:00Z",
    "published": false
   },
@@ -523,22 +550,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179505",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Erika Andreeva – Fiona Ferro",
-   "kickoff_at": "2026-07-22T18:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179520",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
+   "kickoff_at": "2026-07-22T18:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179505",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Erika Andreeva – Fiona Ferro",
    "kickoff_at": "2026-07-22T18:00Z",
    "published": false
   },
@@ -563,22 +590,22 @@
    "published": false
   },
   {
-   "fixture_id": "wnba_401857086",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Los Angeles Sparks – Phoenix Mercury",
-   "kickoff_at": "2026-07-22T19:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "wnba_401857087",
    "flag": "🏀",
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
    "match": "Seattle Storm – Minnesota Lynx",
+   "kickoff_at": "2026-07-22T19:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "wnba_401857086",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Los Angeles Sparks – Phoenix Mercury",
    "kickoff_at": "2026-07-22T19:00Z",
    "published": false
   },
@@ -663,22 +690,22 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_824650",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Detroit Tigers",
-   "kickoff_at": "2026-07-23T00:10:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_824166",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Houston Astros – Miami Marlins",
+   "kickoff_at": "2026-07-23T00:10:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "mlb_824650",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Detroit Tigers",
    "kickoff_at": "2026-07-23T00:10:00Z",
    "published": false
   },
@@ -693,12 +720,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178880",
+   "fixture_id": "tennis_espn_wta_179511",
    "flag": "🎾",
-   "league": "Generali Open",
+   "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "TBD – TBD",
+   "match": "Miriam Bulgaru – Francesca Jones",
    "kickoff_at": "2026-07-23T04:00Z",
    "published": false
   },
@@ -923,12 +950,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179511",
+   "fixture_id": "tennis_espn_atp_178880",
    "flag": "🎾",
-   "league": "Palermo Ladies Open",
+   "league": "Generali Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Miriam Bulgaru – Francesca Jones",
+   "match": "TBD – TBD",
    "kickoff_at": "2026-07-23T04:00Z",
    "published": false
   },
@@ -1073,99 +1100,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178886",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179405",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178818",
-   "flag": "🎾",
-   "league": "Millennium Estoril Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179406",
    "flag": "🎾",
    "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178820",
-   "flag": "🎾",
-   "league": "Millennium Estoril Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178822",
-   "flag": "🎾",
-   "league": "Millennium Estoril Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178896",
-   "flag": "🎾",
-   "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178851",
-   "flag": "🎾",
-   "league": "Millennium Estoril Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179389",
-   "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178852",
-   "flag": "🎾",
-   "league": "Millennium Estoril Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -1183,9 +1120,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178893",
+   "fixture_id": "tennis_espn_wta_179386",
    "flag": "🎾",
-   "league": "Generali Open",
+   "league": "MSC Hamburg Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -1203,19 +1140,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179355",
+   "fixture_id": "tennis_espn_wta_179389",
    "flag": "🎾",
    "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179486",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -1224,56 +1151,6 @@
   },
   {
    "fixture_id": "tennis_espn_wta_179357",
-   "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179434",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179436",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179500",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179400",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-24T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179386",
    "flag": "🎾",
    "league": "MSC Hamburg Ladies Open",
    "sport": "tennis",
@@ -1303,6 +1180,26 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179355",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179400",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_179495",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
@@ -1313,7 +1210,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179523",
+   "fixture_id": "tennis_espn_wta_179521",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
@@ -1333,6 +1230,26 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_178886",
+   "flag": "🎾",
+   "league": "Generali Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179500",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_179404",
    "flag": "🎾",
    "league": "Livesport Prague Open",
@@ -1343,7 +1260,17 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179521",
+   "fixture_id": "tennis_espn_wta_179405",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179486",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
@@ -1353,19 +1280,109 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179375",
+   "fixture_id": "tennis_espn_atp_178893",
    "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
+   "league": "Generali Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
-   "kickoff_at": "2026-07-25T04:00Z",
+   "kickoff_at": "2026-07-24T04:00Z",
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178814",
+   "fixture_id": "tennis_espn_wta_179523",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179436",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178818",
    "flag": "🎾",
    "league": "Millennium Estoril Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178851",
+   "flag": "🎾",
+   "league": "Millennium Estoril Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178820",
+   "flag": "🎾",
+   "league": "Millennium Estoril Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178822",
+   "flag": "🎾",
+   "league": "Millennium Estoril Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178852",
+   "flag": "🎾",
+   "league": "Millennium Estoril Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178896",
+   "flag": "🎾",
+   "league": "Generali Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179434",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-24T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179417",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -1376,26 +1393,6 @@
    "fixture_id": "tennis_espn_atp_178902",
    "flag": "🎾",
    "league": "Generali Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-25T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179376",
-   "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-25T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179415",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -1433,9 +1430,19 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179417",
+   "fixture_id": "tennis_espn_wta_179376",
    "flag": "🎾",
-   "league": "Livesport Prague Open",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-25T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179375",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -1453,13 +1460,23 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178841",
+   "fixture_id": "tennis_espn_atp_178814",
    "flag": "🎾",
    "league": "Millennium Estoril Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T04:00Z",
+   "kickoff_at": "2026-07-25T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179415",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-25T04:00Z",
    "published": false
   },
   {
@@ -1473,29 +1490,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179385",
+   "fixture_id": "tennis_espn_atp_178841",
    "flag": "🎾",
-   "league": "MSC Hamburg Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179513",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179414",
-   "flag": "🎾",
-   "league": "Livesport Prague Open",
+   "league": "Millennium Estoril Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -1513,7 +1510,27 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179432",
+   "fixture_id": "tennis_espn_wta_179513",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-26T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179385",
+   "flag": "🎾",
+   "league": "MSC Hamburg Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-26T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179414",
    "flag": "🎾",
    "league": "Livesport Prague Open",
    "sport": "tennis",
@@ -1526,6 +1543,16 @@
    "fixture_id": "tennis_espn_wta_179519",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-26T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179432",
+   "flag": "🎾",
+   "league": "Livesport Prague Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -1578,7 +1605,29 @@
    "published_at": "2026-07-22T12:00:53.894162+02:00",
    "conseil": "Victoire Ignacio Buse",
    "conseil_cote": 1.23,
-   "player_pick_text": "Ignacio Buse vs Kilian Feldbausch — Total sets Moins de 2.5"
+   "player_pick_text": "Ignacio Buse vs Kilian Feldbausch — Total sets Moins de 2.5",
+   "result": "GAGNE",
+   "score": "2-6, 6-2, 6-2"
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Facundo Diaz Acosta – Alexander Bublik",
+   "published_at": "2026-07-22T15:13:55.609400+02:00",
+   "conseil": "Victoire Alexander Bublik",
+   "conseil_cote": 1.36,
+   "player_pick_text": "Facundo Diaz Acosta vs Alexander Bublik — Total sets Moins de 2.5"
+  },
+  {
+   "flag": "🎾",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lola Radivojevic – Jennifer Ruggeri",
+   "published_at": "2026-07-22T16:30:54.481639+02:00",
+   "conseil": "Total sets — Plus de 2.5 @ 2.59",
+   "conseil_cote": 2.56,
+   "player_pick_text": "Lola Radivojevic vs Jennifer Ruggeri — Total sets Plus de 2.5"
   }
  ]
 }
