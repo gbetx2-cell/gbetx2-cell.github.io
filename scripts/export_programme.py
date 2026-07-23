@@ -290,7 +290,7 @@ def fetch_tennis_wnba() -> list[dict]:
         """
         SELECT fixture_id, home, away, sport, conseil,
                COALESCE(NULLIF(cote_reelle,0), cote_interne),
-               resultat, score, created_at
+               resultat, score, created_at, value_bet, value_cote
         FROM paris
         WHERE sport IN ('tennis','wnba')
         ORDER BY created_at DESC
@@ -316,7 +316,7 @@ def fetch_tennis_wnba() -> list[dict]:
     conn.close()
 
     out = []
-    for fixture_id, home, away, sport, conseil, cote, resultat, score, created_at in rows:
+    for fixture_id, home, away, sport, conseil, cote, resultat, score, created_at, value_bet, value_cote in rows:
         item = {
             "flag": SPORT_ICON.get(sport, "🏅"),
             "sport": sport,
@@ -324,7 +324,18 @@ def fetch_tennis_wnba() -> list[dict]:
             "match": f"{home} – {away}",
             "published_at": created_at,
         }
-        if conseil:
+        # sport not in SPORTS_CONSEIL_IS_MIRROR (23/07/2026) : meme fix que
+        # la liste principale plus haut dans ce fichier -- pour tennis/wnba,
+        # "conseil" n'est jamais une info independante (mirroir du value bet
+        # ou du player pick), l'afficher ici doublait le player pick ou le
+        # value bet juste en dessous (bug confirme en direct : "Total sets
+        # — Plus de 2.5" affiche a la fois sous Conseil et sous Pick joueur).
+        # value_bet ajoute ici (absent avant, la vraie info du match n'etait
+        # jamais montree pour un value bet tennis/wnba dans cette section).
+        if value_bet and sport in SPORTS_CONSEIL_IS_MIRROR:
+            item["value_bet"] = _short_pick(value_bet)
+            item["value_cote"] = round(float(value_cote or 0), 2)
+        elif conseil and sport not in SPORTS_CONSEIL_IS_MIRROR:
             item["conseil"] = _short_pick(conseil)
             item["conseil_cote"] = round(float(cote or 0), 2)
         picks = picks_by_fixture.get(fixture_id)

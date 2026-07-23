@@ -441,6 +441,7 @@ function renderExtraCard(item){
   }
   const lines = [];
   if (item.conseil) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('target')} Conseil</span><span class="pub-value">${item.conseil}${item.conseil_cote ? ' · cote '+item.conseil_cote.toFixed(2) : ''}</span></div>`);
+  if (item.value_bet) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('gem')} Value bet</span><span class="pub-value">${item.value_bet}${item.value_cote ? ' · cote '+item.value_cote.toFixed(2) : ''}</span></div>`);
   if (item.player_pick_text) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('ball')} Pick joueur</span><span class="pub-value">${item.player_pick_text}</span></div>`);
   const pubHtml = lines.length ? `<div class="pub">${lines.join('')}</div>` : '';
   const publishedTime = item.published_at
