@@ -71,7 +71,14 @@ COMPETITION_FLAGS = {
 }
 
 
-def _flag(competition: str) -> str:
+SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈",
+              "tennis": "🎾", "wnba": "🏀"}
+SPORTS_VALUE_BET_IS_CONSEIL = {"tennis", "nba", "nhl", "baseball", "wnba", "nfl"}
+
+def _flag(competition: str, sport: str = "") -> str:
+    icon = SPORT_ICON.get((sport or "").lower())
+    if icon:
+        return icon
     c = (competition or "").lower()
     for key, flag in COMPETITION_FLAGS.items():
         if key in c:
@@ -284,7 +291,7 @@ def fetch_results() -> list[dict]:
                p.resultat, COALESCE(p.mise,1), COALESCE(p.pnl,0),
                p.value_bet, p.value_cote, p.value_result, COALESCE(p.value_stake_eur,0),
                COALESCE(NULLIF(p.competition,''), pf.league, ''),
-               p.market_type
+               p.market_type, p.sport
         FROM paris p
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
         WHERE p.result_updated_at IS NOT NULL AND p.result_updated_at <> ''
@@ -353,10 +360,12 @@ def fetch_results() -> list[dict]:
 
     out = []
     for fixture_id, home, away, conseil, cote, resultat, mise, pnl, \
-            value_bet, value_cote, value_result, value_stake, competition, market_type in reversed(fixtures):
+            value_bet, value_cote, value_result, value_stake, competition, market_type, sport \
+            in reversed(fixtures):
         fixture_id = str(fixture_id)
-        flag = _flag(competition)
+        flag = _flag(competition, sport)
         match = f"{home} – {away}"
+        sport_l = (sport or "").lower()
 
         # market_type IN (total_points, player_pick_only) (23/07/2026) :
         # ce "conseil" est en realite le mirroir d'un player pick (aucun
@@ -364,7 +373,9 @@ def fetch_results() -> list[dict]:
         # via sport_picks_by_fixture -- l'inclure ici aussi doublait
         # l'affichage du MEME pari (meme diagnostic que daily_bilan.py::
         # _is_pure_value_row, applique ici au mirroir player pick).
-        if conseil and resultat in ("GAGNE", "PERDU", "REMBOURSE") and market_type not in ("total_points", "player_pick_only"):
+        if (conseil and resultat in ("GAGNE", "PERDU", "REMBOURSE")
+                and market_type not in ("total_points", "player_pick_only")
+                and not (sport_l in SPORTS_VALUE_BET_IS_CONSEIL and value_bet)):
             # paris.mise/paris.pnl sont stockes en EUROS en base (mise =
             # advice_stake.stake_eur, cf football/predictions.py).
             out.append({
@@ -453,6 +464,7 @@ MARKET_FR = {
     "handicap": "Handicap",
     "scorer": "Buteur",
     "assist": "Passeur",
+    "player_pick_only": "Pronostic joueur",
 }
 
 
@@ -540,14 +552,18 @@ def fetch_perf_stats() -> dict:
     # lignes baseball exclues ci-dessus par les picks reellement bundles
     # (jusqu'a 3 par ligne paris, tous visibles ici au lieu du seul meilleur
     # edge). Jamais les deux sources a la fois pour le meme pick.
+    SPORT_LABEL_MAP = {"mlb": "baseball"}
+    MARKET_TYPE_FOR_SPORT = {"baseball": "total_points", "wnba": "total_points"}
     cur.execute(
         """
-        SELECT market_label, odd, COALESCE(stake_eur,0), settlement_status
+        SELECT sport, market_label, odd, COALESCE(stake_eur,0), settlement_status
         FROM sport_player_picks
-        WHERE sport = 'mlb' AND settlement_status IN ('GAGNE','PERDU')
+        WHERE settlement_status IN ('GAGNE','PERDU')
         """,
     )
-    for market_label, odd, stake_eur, status in cur.fetchall():
+    for sp_raw, market_label, odd, stake_eur, status in cur.fetchall():
+        sp = SPORT_LABEL_MAP.get(sp_raw, sp_raw)
+        mt = MARKET_TYPE_FOR_SPORT.get(sp, "player_pick_only")
         won = status == "GAGNE"
         lost = status == "PERDU"
         odd = float(odd or 0)
@@ -560,7 +576,7 @@ def fetch_perf_stats() -> dict:
         g["stake"] += stake_eur
         g["pnl"] += pnl_pick
 
-        s = sports.setdefault("baseball", {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0})
+        s = sports.setdefault(sp, {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0})
         s["n"] += 1
         s["w"] += won
         s["l"] += lost
@@ -569,7 +585,7 @@ def fetch_perf_stats() -> dict:
 
         for lo, hi, label in ODDS_BANDS:
             if lo <= odd < hi:
-                key = ("total_points", label)
+                key = (mt, label)
                 m = markets.setdefault(key, {"n": 0, "w": 0, "l": 0, "pnl": 0.0,
                                              "blocked": _is_blocked("total_points", (lo + min(hi, 9.0)) / 2)})
                 m["n"] += 1
@@ -682,8 +698,7 @@ def fetch_perf_stats() -> dict:
 
 def fetch_bankroll() -> dict:
     """Bankroll = BANKROLL_INITIAL_EUR + somme cumulee des pnl reels regles
-    (paris.pnl, en EUR), du plus ancien pari regle au plus recent -- pas de
-    table dediee, on derive tout de la meme source que fetch_perf_stats."""
+    (paris.pnl + sport_player_picks, en EUR)."""
     import psycopg2
 
     db = os.environ.get("DATABASE_URL")
@@ -697,10 +712,19 @@ def fetch_bankroll() -> dict:
         FROM paris
         WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
-        ORDER BY result_updated_at ASC
+          AND NOT (market_type IN ('total_points', 'player_pick_only'))
         """,
     )
     rows = cur.fetchall()
+    cur.execute(
+        """
+        SELECT odd, COALESCE(stake_eur,0), settlement_status,
+               COALESCE(NULLIF(settled_at,''), created_at)
+        FROM sport_player_picks
+        WHERE settlement_status IN ('GAGNE','PERDU')
+        """,
+    )
+    pick_rows = cur.fetchall()
     conn.close()
 
     daily: dict = {}
@@ -709,6 +733,13 @@ def fetch_bankroll() -> dict:
         if d is None:
             continue
         daily[d] = daily.get(d, 0.0) + float(pnl or 0)
+
+    for odd, stake_eur, status, settled_or_created in pick_rows:
+        d = _paris_calendar_date(settled_or_created)
+        if d is None:
+            continue
+        pnl_pick = _pnl_fixed(status, float(odd or 0), float(stake_eur or 0))
+        daily[d] = daily.get(d, 0.0) + pnl_pick
 
     series = []
     running = float(BANKROLL_INITIAL_EUR)
@@ -726,7 +757,6 @@ def fetch_bankroll() -> dict:
         "pct": pct,
         "series": series,
     }
-
 
 def render_perf_block(perf: dict) -> str:
     import json
