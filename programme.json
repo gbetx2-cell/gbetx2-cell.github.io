@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-23T15:10:59.440057+00:00",
+ "generated_at": "2026-07-23T16:50:24.085639+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178877",
@@ -64,6 +64,8 @@
    "published": true,
    "value_bet": "Vainqueur — Alexander Bublik @ 1.556",
    "value_cote": 1.56,
+   "result": "GAGNE",
+   "score": "3-6, 2-6",
    "player_picks": [
     {
      "category": "Player pick",
@@ -108,7 +110,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Atlanta Braves – San Diego Padres",
    "kickoff_at": "2026-07-23T16:15:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179511",
@@ -140,7 +143,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Cleveland Guardians – Minnesota Twins",
    "kickoff_at": "2026-07-23T17:10:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_atp_178824",
@@ -151,7 +155,7 @@
    "match": "Luciano Darderi – Pedro Martinez",
    "kickoff_at": "2026-07-23T17:30Z",
    "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179527",
@@ -254,8 +258,6 @@
    "sport_label": "Basketball (WNBA)",
    "match": "Indiana Fever – Connecticut Sun",
    "published_at": "2026-07-23T01:30:29.772252+02:00",
-   "conseil": "Charlisse Leger-Walker — Points Plus de 8.5 @ 2.12",
-   "conseil_cote": 2.12,
    "player_pick_text": "Charlisse Leger-Walker — Points Plus de 8.5"
   },
   {
@@ -264,8 +266,6 @@
    "sport_label": "Tennis",
    "match": "Quentin Halys – Mariano Navone",
    "published_at": "2026-07-23T05:30:16.424739+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.37",
-   "conseil_cote": 2.56,
    "player_pick_text": "Quentin Halys vs Mariano Navone — Total sets Plus de 2.5",
    "result": "PERDU",
    "score": "7-5, 6-3"
@@ -276,9 +276,11 @@
    "sport_label": "Tennis",
    "match": "Alex Molcan – Alexander Bublik",
    "published_at": "2026-07-23T05:30:18.477656+02:00",
-   "conseil": "Victoire Alexander Bublik",
-   "conseil_cote": 1.36,
-   "player_pick_text": "Alex Molcan vs Alexander Bublik — Total sets Moins de 2.5"
+   "value_bet": "Vainqueur — Alexander Bublik @ 1.556",
+   "value_cote": 1.56,
+   "player_pick_text": "Alex Molcan vs Alexander Bublik — Total sets Moins de 2.5",
+   "result": "GAGNE",
+   "score": "3-6, 2-6"
   },
   {
    "flag": "🎾",
@@ -286,8 +288,6 @@
    "sport_label": "Tennis",
    "match": "Gonzalo Bueno – Jaime Faria",
    "published_at": "2026-07-23T05:30:20.615301+02:00",
-   "conseil": "Total sets — Moins de 2.5 @ 1.448",
-   "conseil_cote": 2.36,
    "player_pick_text": "Gonzalo Bueno vs Jaime Faria — Total sets Moins de 2.5",
    "result": "GAGNE",
    "score": "2-6, 4-6"
@@ -298,8 +298,6 @@
    "sport_label": "Tennis",
    "match": "Timofey Skatov – Andrey Rublev",
    "published_at": "2026-07-23T05:30:22.538279+02:00",
-   "conseil": "Total sets — Moins de 2.5 @ 1.431",
-   "conseil_cote": 2.36,
    "player_pick_text": "Timofey Skatov vs Andrey Rublev — Total sets Moins de 2.5"
   },
   {
@@ -308,8 +306,6 @@
    "sport_label": "Tennis",
    "match": "Lanlana Tararudee – Nikola Bartunkova",
    "published_at": "2026-07-23T05:30:25.490221+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.42",
-   "conseil_cote": 2.56,
    "player_pick_text": "Lanlana Tararudee vs Nikola Bartunkova — Total sets Plus de 2.5",
    "result": "GAGNE",
    "score": "7-6, 3-6, 7-6"
@@ -320,8 +316,8 @@
    "sport_label": "Tennis",
    "match": "Lilli Tagger – Mai Hontama",
    "published_at": "2026-07-23T05:30:27.270109+02:00",
-   "conseil": "Victoire Lilli Tagger",
-   "conseil_cote": 1.36,
+   "value_bet": "Vainqueur — Lilli Tagger @ 1.394",
+   "value_cote": 1.39,
    "result": "GAGNE",
    "score": "6-4, 6-4"
   },
@@ -331,8 +327,10 @@
    "sport_label": "Tennis",
    "match": "Sara Bejlek – Maria Timofeeva",
    "published_at": "2026-07-23T05:30:29.163117+02:00",
-   "conseil": "Victoire Sara Bejlek",
-   "conseil_cote": 1.54
+   "value_bet": "Vainqueur — Sara Bejlek @ 1.671",
+   "value_cote": 1.67,
+   "result": "GAGNE",
+   "score": "6-1, 6-1"
   },
   {
    "flag": "🎾",
@@ -340,8 +338,6 @@
    "sport_label": "Tennis",
    "match": "Barbora Krejcikova – Lucie Havlickova",
    "published_at": "2026-07-23T05:30:31.049800+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 4.56",
-   "conseil_cote": 2.26,
    "player_pick_text": "Barbora Krejcikova vs Lucie Havlickova — Total sets Plus de 2.5"
   },
   {
@@ -350,8 +346,6 @@
    "sport_label": "Tennis",
    "match": "Leyre Romero Gormaz – Oleksandra Oliynykova",
    "published_at": "2026-07-23T05:30:33.728812+02:00",
-   "conseil": "Total sets — Plus de 2.5 @ 2.37",
-   "conseil_cote": 2.56,
    "player_pick_text": "Leyre Romero Gormaz vs Oleksandra Oliynykova — Total sets Plus de 2.5",
    "result": "GAGNE",
    "score": "6-7, 6-3, 2-6"
@@ -362,8 +356,8 @@
    "sport_label": "Tennis",
    "match": "Yulia Putintseva – Elina Avanesyan",
    "published_at": "2026-07-23T05:30:35.686545+02:00",
-   "conseil": "Victoire Yulia Putintseva",
-   "conseil_cote": 1.36,
+   "value_bet": "Vainqueur — Yulia Putintseva @ 1.442",
+   "value_cote": 1.44,
    "player_pick_text": "Yulia Putintseva vs Elina Avanesyan — Total sets Moins de 2.5"
   }
  ]
