@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-23T16:50:24.085639+00:00",
+ "generated_at": "2026-07-23T18:15:27.057611+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178877",
@@ -94,6 +94,8 @@
    "match": "Timofey Skatov – Andrey Rublev",
    "kickoff_at": "2026-07-23T16:00Z",
    "published": true,
+   "result": "GAGNE",
+   "score": "1-6, 1-6",
    "player_picks": [
     {
      "category": "Player pick",
@@ -155,21 +157,10 @@
    "match": "Luciano Darderi – Pedro Martinez",
    "kickoff_at": "2026-07-23T17:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179527",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-23T18:00Z",
-   "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179526",
+   "fixture_id": "tennis_espn_wta_179527",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
    "sport": "tennis",
@@ -186,6 +177,17 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Lucia Bronzetti – Dalila Spiteri",
+   "kickoff_at": "2026-07-23T18:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179526",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
    "kickoff_at": "2026-07-23T18:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -298,7 +300,9 @@
    "sport_label": "Tennis",
    "match": "Timofey Skatov – Andrey Rublev",
    "published_at": "2026-07-23T05:30:22.538279+02:00",
-   "player_pick_text": "Timofey Skatov vs Andrey Rublev — Total sets Moins de 2.5"
+   "player_pick_text": "Timofey Skatov vs Andrey Rublev — Total sets Moins de 2.5",
+   "result": "GAGNE",
+   "score": "1-6, 1-6"
   },
   {
    "flag": "🎾",
@@ -338,7 +342,9 @@
    "sport_label": "Tennis",
    "match": "Barbora Krejcikova – Lucie Havlickova",
    "published_at": "2026-07-23T05:30:31.049800+02:00",
-   "player_pick_text": "Barbora Krejcikova vs Lucie Havlickova — Total sets Plus de 2.5"
+   "player_pick_text": "Barbora Krejcikova vs Lucie Havlickova — Total sets Plus de 2.5",
+   "result": "PERDU",
+   "score": "6-4, 6-2"
   },
   {
    "flag": "🎾",
@@ -358,7 +364,9 @@
    "published_at": "2026-07-23T05:30:35.686545+02:00",
    "value_bet": "Vainqueur — Yulia Putintseva @ 1.442",
    "value_cote": 1.44,
-   "player_pick_text": "Yulia Putintseva vs Elina Avanesyan — Total sets Moins de 2.5"
+   "player_pick_text": "Yulia Putintseva vs Elina Avanesyan — Total sets Moins de 2.5",
+   "result": "PERDU",
+   "score": "3-6, 6-2, 2-6"
   }
  ]
 }
