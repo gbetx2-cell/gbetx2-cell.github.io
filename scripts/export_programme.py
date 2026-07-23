@@ -52,7 +52,7 @@ SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈", "t
 # doublon (meme info sous 2 etiquettes) ou pire, un player pick affiche a
 # tort sous le libelle "Conseil" quand aucun value bet n'avait passe les
 # criteres -- signale par l'utilisateur comme peu clair cote client.
-SPORTS_CONSEIL_IS_MIRROR = {"tennis", "nba", "nhl", "baseball"}
+SPORTS_CONSEIL_IS_MIRROR = {"tennis", "nba", "nhl", "baseball", "wnba", "nfl"}
 SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
                "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)",
                "tennis": "Tennis", "wnba": "Basketball (WNBA)"}

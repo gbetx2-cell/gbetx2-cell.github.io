@@ -684,18 +684,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <svg id="bankrollChart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg>
       <div class="chart-note" id="bankrollNote"></div>
     </div>
-    <div class="chart-card reveal">
-      <div class="chart-head">
-        <div><h3>Performance par marché et tranche de cote</h3></div>
-      </div>
-      <div class="perf-table-wrap">
-        <table class="perf-table" id="perfTable">
-          <thead><tr><th>Marché</th><th>Cote</th><th>Picks</th><th>Réussite</th><th>Bilan</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div class="chart-note" id="perfBlockedNote"></div>
-    </div>
   </div>
 </section>
 
@@ -1129,21 +1117,6 @@ function renderPerfStats(){
       <div class="period-sub">${hl.top_league.flag} ${hl.top_league.league} · ${hl.top_league.n} picks</div>
     </div>`);
   document.getElementById('perfHighlights').innerHTML = hlCards.join('');
-
-  const tbody = document.querySelector('#perfTable tbody');
-  tbody.innerHTML = (P.markets || []).map(m => `
-    <tr>
-      <td>${m.market}${m.blocked ? '<span class="badge-blocked">zone bloquée</span>' : ''}</td>
-      <td>${m.band}</td>
-      <td class="num">${m.n}</td>
-      <td class="num">${m.winrate}%</td>
-      <td class="num ${m.pnl > 0 ? 'up' : m.pnl < 0 ? 'down' : ''}">${fmtPnl(m.pnl)}</td>
-    </tr>`).join('');
-
-  const blocked = (P.blocked_bands || []).map(b => `${b.market} ${b.band}`).join(' · ');
-  document.getElementById('perfBlockedNote').textContent = blocked
-    ? `Zones actuellement bloquées (le bot n'y publie plus) : ${blocked}.`
-    : '';
 
   renderBankroll(P.bankroll);
 }

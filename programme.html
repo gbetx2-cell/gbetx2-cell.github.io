@@ -492,16 +492,27 @@ function renderSportSummary(){
   }).join('');
 }
 
+/* Compositions/tirages pas encore connus cote source (TBD - TBD, ? - ?) :
+   toujours comptes dans le resume par sport en haut (meme total que
+   l'admin, cf renderSportSummary qui lit fixtures au complet), mais
+   masques de la liste -- une carte sans aucun nom de joueur n'apporte rien
+   au client, juste du bruit visuel (demande explicite 23/07/2026). */
+function isUnconfirmedMatch(f){
+  const m = (f.match || '').split('–').map(s => s.trim());
+  return m.length === 2 && m.every(s => s === 'TBD' || s === '?' || s === '');
+}
+
 function render(){
   const list = document.getElementById('list');
   renderSportSummary();
-  if (!fixtures.length && !extraPicks.length){
+  const visibleFixtures = fixtures.filter(f => !isUnconfirmedMatch(f));
+  if (!visibleFixtures.length && !extraPicks.length){
     list.innerHTML = "<div class=\"empty\">Aucun match dans la fenêtre actuelle. Revenez un peu avant le prochain coup d'envoi.</div>";
     return;
   }
   let html = '';
   let lastDay = '';
-  fixtures.forEach(f => {
+  visibleFixtures.forEach(f => {
     const d = dayLabel(f.kickoff_at);
     if (d !== lastDay){
       html += `<div class="day-sep">${d}</div>`;
