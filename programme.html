@@ -259,7 +259,6 @@ footer a{color:var(--gold-2);text-decoration:none}
 <script>
 const T_MINUS_MINUTES = 30;
 let fixtures = [];
-let extraPicks = []; // tennis/wnba : publies aujourd'hui, pas de liste "a venir" (cf renderExtraCard)
 let lastFetch = 0;
 
 function fmtCountdown(ms){
@@ -425,53 +424,11 @@ function renderCard(f){
     </div>`;
 }
 
-/* Tennis/WNBA n'ont pas de liste "matchs a venir" (pas de programme_fixtures
-   pour ces sports, cf export_programme.py) -- seulement les picks deja
-   publies aujourd'hui, sans compte a rebours puisqu'on ne connait pas les
-   matchs avant leur publication. Carte simplifiee : pick + resultat des
-   qu'il est regle, jamais d'etat "a venir"/"en cours". */
-function renderExtraCard(item){
-  const ICON = (name) => `<svg class="icon"><use href="#i-${name}"></use></svg>`;
-  let stateHtml;
-  if (item.result && RESULT_META[item.result]) {
-    const r = RESULT_META[item.result];
-    stateHtml = `<span class="countdown ${r.cls}">${ICON(r.icon)} ${r.label}${item.score ? ' · '+item.score : ''}</span>`;
-  } else {
-    stateHtml = `<span class="countdown stale">${ICON('hourglass')} Résultat en attente…</span>`;
-  }
-  const lines = [];
-  if (item.conseil) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('target')} Conseil</span><span class="pub-value">${item.conseil}${item.conseil_cote ? ' · cote '+item.conseil_cote.toFixed(2) : ''}</span></div>`);
-  if (item.value_bet) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('gem')} Value bet</span><span class="pub-value">${item.value_bet}${item.value_cote ? ' · cote '+item.value_cote.toFixed(2) : ''}</span></div>`);
-  if (item.player_pick_text) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('ball')} Pick joueur</span><span class="pub-value">${item.player_pick_text}</span></div>`);
-  const pubHtml = lines.length ? `<div class="pub">${lines.join('')}</div>` : '';
-  const publishedTime = item.published_at
-    ? new Date(item.published_at).toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Paris'})
-    : '';
-  const resultClass = item.result && RESULT_META[item.result] ? RESULT_META[item.result].cls : '';
-  return `
-    <div class="card ${resultClass}">
-      <div class="row1">
-        <div class="match-info">
-          <span class="flag">${item.flag}</span>
-          <div>
-            <div class="match-name">${item.match}</div>
-            <div class="league">${item.sport_label}${publishedTime ? ' · publié à ' + publishedTime : ''}</div>
-          </div>
-        </div>
-        ${stateHtml}
-      </div>
-      ${pubHtml}
-    </div>`;
-}
-
 /* Resume par sport (22/07/2026) : meme donnee que la liste principale
    (fixtures, deja chargee depuis programme.json), aucun nouveau calcul
    serveur -- juste un comptage cote client, comme le fait deja le
    recap Telegram admin de 8h (daily_summary.py::_send_admin_programme_summary,
-   sur programme_fixtures, meme source que fixtures ici). extraPicks
-   (tennis/wnba deja publies) volontairement exclu : il peut recouper des
-   matchs deja comptes dans fixtures (meme fixture_id une fois publie),
-   fixtures seul reste la source fiable et non ambigue pour ce compte. */
+   sur programme_fixtures, meme source que fixtures ici). */
 const SPORT_META = {
   football: {icon:'⚽', label:'Football'}, tennis: {icon:'🎾', label:'Tennis'},
   baseball: {icon:'⚾', label:'Baseball'}, nba: {icon:'🏀', label:'NBA'},
@@ -507,7 +464,7 @@ function render(){
   const list = document.getElementById('list');
   renderSportSummary();
   const visibleFixtures = fixtures.filter(f => !isUnconfirmedMatch(f));
-  if (!visibleFixtures.length && !extraPicks.length){
+  if (!visibleFixtures.length){
     list.innerHTML = "<div class=\"empty\">Aucun match dans la fenêtre actuelle. Revenez un peu avant le prochain coup d'envoi.</div>";
     return;
   }
@@ -521,10 +478,6 @@ function render(){
     }
     html += renderCard(f);
   });
-  if (extraPicks.length){
-    html += `<div class="day-sep">Tennis &amp; WNBA — publiés aujourd'hui</div>`;
-    extraPicks.forEach(item => { html += renderExtraCard(item); });
-  }
   list.innerHTML = html;
 }
 
@@ -546,7 +499,6 @@ async function loadProgramme(){
     if (!res.ok) throw new Error('http ' + res.status);
     const data = await res.json();
     fixtures = (data.fixtures || []).sort((a,b) => new Date(a.kickoff_at) - new Date(b.kickoff_at));
-    extraPicks = data.tennis_wnba || [];
     lastFetch = Date.now();
     const genAt = new Date(data.generated_at);
     document.getElementById('status-text').textContent =

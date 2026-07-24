@@ -37,8 +37,7 @@ COMPETITION_FLAGS = {
 # utilisees par daily_summary._save_programmed) qui alimentent
 # programme_fixtures. tennis/wnba ont rejoint cette liste le 20/07/2026 --
 # daily_summary.py::_get_tennis()/_get_wnba() alimentent desormais
-# programme_fixtures comme les autres sports (avant cela, rien n'etait
-# jamais persiste pour eux, cf ancien commentaire EXTRA_SPORTS ci-dessous).
+# programme_fixtures comme les autres sports.
 # Le "football" garde son drapeau par ligue ; les autres ont une icone
 # fixe par sport.
 PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "nfl", "tennis", "wnba")
@@ -56,14 +55,6 @@ SPORTS_CONSEIL_IS_MIRROR = {"tennis", "nba", "nhl", "baseball", "wnba", "nfl"}
 SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
                "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)",
                "tennis": "Tennis", "wnba": "Basketball (WNBA)"}
-
-# Historique (avant le 20/07/2026) : tennis/wnba etaient absents de
-# PROGRAMME_SPORTS, donc fetch_tennis_wnba() etait le seul moyen de les
-# afficher (picks deja publies aujourd'hui, sans compte a rebours). Ils sont
-# maintenant dans PROGRAMME_SPORTS et beneficient du meme traitement "a
-# venir" que les autres sports -- cette fonction reste en supplement
-# (cle JSON "tennis_wnba" deja consommee par le front-end).
-EXTRA_SPORTS = ("tennis", "wnba")
 
 # Libelle FR par categorie de player pick, tous sports confondus (football:
 # buteur/passeur/decisif : baseball/basket/hockey/NFL ont leurs propres
@@ -274,96 +265,17 @@ def fetch_programme() -> list[dict]:
     return out
 
 
-def fetch_tennis_wnba() -> list[dict]:
-    """Picks tennis/wnba publies aujourd'hui (date civile Paris de
-    created_at) : pas de compte a rebours possible, juste le pick + son
-    resultat des qu'il est regle (cf commentaire EXTRA_SPORTS)."""
-    import psycopg2
-
-    db = os.environ.get("DATABASE_URL")
-    if not db:
-        raise SystemExit("DATABASE_URL manquant")
-    conn = psycopg2.connect(db, connect_timeout=10)
-    cur = conn.cursor()
-
-    cur.execute(
-        """
-        SELECT fixture_id, home, away, sport, conseil,
-               COALESCE(NULLIF(cote_reelle,0), cote_interne),
-               resultat, score, created_at, value_bet, value_cote
-        FROM paris
-        WHERE sport IN ('tennis','wnba')
-        ORDER BY created_at DESC
-        LIMIT 60
-        """,
-    )
-    today_civil = datetime.now(PARIS_TZ).strftime("%Y-%m-%d")
-    rows = [r for r in cur.fetchall() if _paris_date_of(r[8]) == today_civil]
-    fixture_ids = [r[0] for r in rows]
-
-    picks_by_fixture: dict = {}
-    if fixture_ids:
-        placeholders = ",".join(["%s"] * len(fixture_ids))
-        cur.execute(
-            f"""SELECT fixture_id, player_name, market_label FROM sport_player_picks
-                WHERE fixture_id IN ({placeholders})
-                ORDER BY created_at ASC""",
-            tuple(fixture_ids),
-        )
-        for fid, player_name, market_label in cur.fetchall():
-            text = f"{player_name} — {market_label}" if player_name else market_label
-            picks_by_fixture.setdefault(fid, []).append(text)
-    conn.close()
-
-    out = []
-    for fixture_id, home, away, sport, conseil, cote, resultat, score, created_at, value_bet, value_cote in rows:
-        item = {
-            "flag": SPORT_ICON.get(sport, "🏅"),
-            "sport": sport,
-            "sport_label": SPORT_LABEL.get(sport, (sport or "Sport").capitalize()),
-            "match": f"{home} – {away}",
-            "published_at": created_at,
-        }
-        # sport not in SPORTS_CONSEIL_IS_MIRROR (23/07/2026) : meme fix que
-        # la liste principale plus haut dans ce fichier -- pour tennis/wnba,
-        # "conseil" n'est jamais une info independante (mirroir du value bet
-        # ou du player pick), l'afficher ici doublait le player pick ou le
-        # value bet juste en dessous (bug confirme en direct : "Total sets
-        # — Plus de 2.5" affiche a la fois sous Conseil et sous Pick joueur).
-        # value_bet ajoute ici (absent avant, la vraie info du match n'etait
-        # jamais montree pour un value bet tennis/wnba dans cette section).
-        if value_bet and sport in SPORTS_CONSEIL_IS_MIRROR:
-            item["value_bet"] = _short_pick(value_bet)
-            item["value_cote"] = round(float(value_cote or 0), 2)
-        elif conseil and sport not in SPORTS_CONSEIL_IS_MIRROR:
-            item["conseil"] = _short_pick(conseil)
-            item["conseil_cote"] = round(float(cote or 0), 2)
-        picks = picks_by_fixture.get(fixture_id)
-        if picks:
-            item["player_pick_text"] = " · ".join(picks[:2])
-        if (resultat or "").upper() in ("GAGNE", "PERDU", "REMBOURSE"):
-            item["result"] = resultat.upper()
-            if score:
-                item["score"] = score
-        out.append(item)
-
-    out.reverse()  # chronologique (plus ancien -> plus recent)
-    return out
-
-
 def main() -> None:
     target = os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "programme.json",
     )
-    tennis_wnba = fetch_tennis_wnba()
     data = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "fixtures": fetch_programme(),
-        "tennis_wnba": tennis_wnba,
     }
     with open(target, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
-    print(f"[Programme] {len(data['fixtures'])} match(s) + {len(tennis_wnba)} pick(s) tennis/wnba ecrits dans {target}")
+    print(f"[Programme] {len(data['fixtures'])} match(s) ecrits dans {target}")
 
 
 if __name__ == "__main__":
