@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-24T17:45:42.217795+00:00",
+ "generated_at": "2026-07-24T19:05:30.584809+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178896",
@@ -94,7 +94,10 @@
    "kickoff_at": "2026-07-24T16:00Z",
    "published": true,
    "value_bet": "Vainqueur — Alexander Blockx @ 1.676",
-   "value_cote": 1.68
+   "value_cote": 1.68,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 5-7, 6-4"
   },
   {
    "fixture_id": "tennis_espn_wta_179498",
@@ -133,16 +136,15 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_178816",
+   "fixture_id": "tennis_espn_wta_179521",
    "flag": "🎾",
-   "league": "Millennium Estoril Open",
+   "league": "Palermo Ladies Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Luciano Darderi – Jaime Faria",
-   "kickoff_at": "2026-07-24T17:30Z",
-   "published": true,
-   "value_bet": "Vainqueur — Luciano Darderi @ 1.568",
-   "value_cote": 1.57
+   "match": "? – ?",
+   "kickoff_at": "2026-07-24T18:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179486",
@@ -156,15 +158,16 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179521",
+   "fixture_id": "tennis_espn_atp_178816",
    "flag": "🎾",
-   "league": "Palermo Ladies Open",
+   "league": "Millennium Estoril Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-24T18:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "match": "Luciano Darderi – Jaime Faria",
+   "kickoff_at": "2026-07-24T18:40Z",
+   "published": true,
+   "value_bet": "Vainqueur — Luciano Darderi @ 1.568",
+   "value_cote": 1.57
   },
   {
    "fixture_id": "mlb_823759",
