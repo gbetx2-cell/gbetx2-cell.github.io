@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-24T06:16:35.574293+00:00",
+ "generated_at": "2026-07-24T09:00:23.385711+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178896",
@@ -90,23 +90,6 @@
    "value_cote": 1.68
   },
   {
-   "fixture_id": "tennis_espn_wta_179495",
-   "flag": "🎾",
-   "league": "Palermo Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lucia Bronzetti – Yasmine Kabbaj",
-   "kickoff_at": "2026-07-24T17:00Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Lucia Bronzetti vs Yasmine Kabbaj — Total sets Plus de 2.5",
-     "detail": "cote 2.77"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_179498",
    "flag": "🎾",
    "league": "Palermo Ladies Open",
@@ -122,6 +105,23 @@
      "category": "Player pick",
      "label": "Clara Burel vs Alevtina Ibragimova — Total sets Moins de 2.5",
      "detail": "cote 1.61"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179495",
+   "flag": "🎾",
+   "league": "Palermo Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lucia Bronzetti – Yasmine Kabbaj",
+   "kickoff_at": "2026-07-24T17:00Z",
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Lucia Bronzetti vs Yasmine Kabbaj — Total sets Plus de 2.5",
+     "detail": "cote 2.77"
     }
    ]
   },
@@ -170,22 +170,22 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_823352",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Pittsburgh Pirates – Chicago Cubs",
-   "kickoff_at": "2026-07-24T22:40:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_824248",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Detroit Tigers – Kansas City Royals",
+   "kickoff_at": "2026-07-24T22:40:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "mlb_823352",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Pittsburgh Pirates – Chicago Cubs",
    "kickoff_at": "2026-07-24T22:40:00Z",
    "published": false
   },
@@ -290,9 +290,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178814",
+   "fixture_id": "tennis_espn_atp_178885",
    "flag": "🎾",
-   "league": "Millennium Estoril Open",
+   "league": "Generali Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -300,9 +300,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178885",
+   "fixture_id": "tennis_espn_atp_178814",
    "flag": "🎾",
-   "league": "Generali Open",
+   "league": "Millennium Estoril Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -318,123 +318,6 @@
    "match": "TBD – TBD",
    "kickoff_at": "2026-07-25T04:00Z",
    "published": false
-  }
- ],
- "tennis_wnba": [
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tomas Martin Etcheverry – Alexander Bublik",
-   "published_at": "2026-07-24T05:30:23.552820+02:00",
-   "value_bet": "Vainqueur — Alexander Bublik @ 1.676",
-   "value_cote": 1.68
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Luca Van Assche – Andrey Rublev",
-   "published_at": "2026-07-24T05:30:25.700706+02:00",
-   "value_bet": "Vainqueur — Andrey Rublev @ 1.286",
-   "value_cote": 1.29,
-   "player_pick_text": "Luca Van Assche vs Andrey Rublev — Total sets Moins de 2.5"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alexander Blockx – Roman Andres Burruchaga",
-   "published_at": "2026-07-24T05:30:27.619365+02:00",
-   "value_bet": "Vainqueur — Alexander Blockx @ 1.676",
-   "value_cote": 1.68
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Luciano Darderi – Jaime Faria",
-   "published_at": "2026-07-24T05:30:29.548294+02:00",
-   "value_bet": "Vainqueur — Luciano Darderi @ 1.568",
-   "value_cote": 1.57
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Daria Snigur – Lanlana Tararudee",
-   "published_at": "2026-07-24T05:30:31.900226+02:00",
-   "player_pick_text": "Daria Snigur vs Lanlana Tararudee — Total sets Plus de 2.5"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tereza Valentova – Marie Bouzkova",
-   "published_at": "2026-07-24T05:30:33.782947+02:00",
-   "value_bet": "Vainqueur — Marie Bouzkova @ 1.602",
-   "value_cote": 1.6
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sara Bejlek – Lilli Tagger",
-   "published_at": "2026-07-24T05:30:35.552242+02:00",
-   "player_pick_text": "Sara Bejlek vs Lilli Tagger — Total sets Plus de 2.5"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Barbora Krejcikova – Dominika Salkova",
-   "published_at": "2026-07-24T05:30:37.402720+02:00",
-   "player_pick_text": "Barbora Krejcikova vs Dominika Salkova — Total sets Moins de 2.5"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jennifer Ruggeri – Francesca Jones",
-   "published_at": "2026-07-24T05:30:39.465395+02:00",
-   "player_pick_text": "Jennifer Ruggeri vs Francesca Jones — Total sets Plus de 2.5"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Clara Burel – Alevtina Ibragimova",
-   "published_at": "2026-07-24T05:30:41.390325+02:00",
-   "value_bet": "Vainqueur — Alevtina Ibragimova @ 2.78",
-   "value_cote": 2.78,
-   "player_pick_text": "Clara Burel vs Alevtina Ibragimova — Total sets Moins de 2.5"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lucia Bronzetti – Yasmine Kabbaj",
-   "published_at": "2026-07-24T05:30:43.429581+02:00",
-   "player_pick_text": "Lucia Bronzetti vs Yasmine Kabbaj — Total sets Plus de 2.5"
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alina Charaeva – Anna Bondar",
-   "published_at": "2026-07-24T05:30:45.483666+02:00",
-   "value_bet": "Vainqueur — Anna Bondar @ 1.735",
-   "value_cote": 1.74
-  },
-  {
-   "flag": "🎾",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elina Avanesyan – Oleksandra Oliynykova",
-   "published_at": "2026-07-24T05:30:47.423150+02:00",
-   "value_bet": "Vainqueur — Oleksandra Oliynykova @ 1.926",
-   "value_cote": 1.93,
-   "player_pick_text": "Elina Avanesyan vs Oleksandra Oliynykova — Total sets Moins de 2.5"
   }
  ]
 }
