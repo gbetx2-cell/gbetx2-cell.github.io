@@ -133,6 +133,7 @@ h1{
 .card.done{border-color:rgba(34,197,94,.35)}
 .card.lost{border-color:rgba(239,68,68,.35)}
 .card.refund{border-color:rgba(156,148,129,.4)}
+.card.settled{border-color:rgba(156,148,129,.4)}
 .card.coup{border-color:var(--gold);box-shadow:0 0 18px rgba(240,185,11,.18)}
 .coup-badge{
   display:inline-flex;align-items:center;gap:4px;vertical-align:middle;
@@ -155,7 +156,17 @@ h1{
 .countdown.done{color:var(--green);display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
 .countdown.lost{color:var(--red);display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
 .countdown.refund{color:var(--muted);display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+.countdown.settled{color:var(--muted);font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
 .countdown.stale{color:var(--muted);font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+/* Statut par ligne (24/07/2026) : un match peut avoir un value bet ET un
+   player pick sur un marche different, avec des issues opposees -- chaque
+   ligne affiche desormais son propre resultat au lieu d'un badge global
+   ambigu en haut de carte (cf renderCard). */
+.pick-result{display:inline-flex;align-items:center;gap:3px;margin-left:8px;font-weight:700;font-size:.82rem}
+.pick-result.done{color:var(--green)}
+.pick-result.lost{color:var(--red)}
+.pick-result.refund{color:var(--muted)}
+.pick-result .icon{width:.85em;height:.85em}
 .dot.live{background:var(--gold)}
 /* Sablier "match a venir" : oscillation pendule (va-et-vient), pas une
    rotation continue -- point E du backlog (21/07/2026). */
@@ -374,9 +385,14 @@ function renderCard(f){
   //      embarque un ID ESPN (pas le foot, cf ESPN_SPORT_PATH plus haut).
   //   5/6. Inchanges.
   if (f.result && RESULT_META[f.result]) {
-    const r = RESULT_META[f.result];
-    stateClass = r.cls;
-    countdownHtml = `<span class="countdown ${r.cls}">${ICON(r.icon)} ${r.label}${f.score ? ' · '+f.score : ''}</span>`;
+    // Badge neutre (24/07/2026, demande explicite) : ce champ ne represente
+    // QUE le "conseil" (mirroir du value bet ou d'un player pick selon les
+    // sports) -- un match peut avoir un value bet ET un player pick sur un
+    // AUTRE marche avec une issue opposee. Le vert/rouge global etait donc
+    // parfois faux. Chaque pari affiche desormais son propre statut plus
+    // bas (cf pubHtml) ; ce badge reste informatif ("Terminé" + score).
+    stateClass = 'settled';
+    countdownHtml = `<span class="countdown settled">${ICON('check-circle')} Terminé${f.score ? ' · '+f.score : ''}</span>`;
   } else if (f.no_bet_reason) {
     countdownHtml = `<span class="countdown stale">No Bet — ${f.no_bet_reason}</span>`;
   } else if (toPublish > 0) {
@@ -393,13 +409,22 @@ function renderCard(f){
     countdownHtml = `<span class="countdown stale">Terminé — aucun pronostic publié</span>`;
   }
 
+  // Badge de resultat par ligne (24/07/2026) : cf commentaire sur le badge
+  // du haut plus haut -- chaque pari (conseil/value bet/player pick) a son
+  // propre statut, potentiellement different des autres lignes du meme match.
+  const pickResultBadge = (result) => {
+    if (!result || !RESULT_META[result]) return '';
+    const r = RESULT_META[result];
+    return `<span class="pick-result ${r.cls}">${ICON(r.icon)} ${r.label}</span>`;
+  };
+
   let pubHtml = '';
   if (f.published) {
     const lines = [];
-    if (f.conseil) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('target')} Conseil</span><span class="pub-value">${f.conseil}${f.conseil_cote ? ' · cote '+f.conseil_cote.toFixed(2) : ''}</span></div>`);
-    if (f.value_bet) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('gem')} Value bet</span><span class="pub-value">${f.value_bet}${f.value_cote ? ' · cote '+f.value_cote.toFixed(2) : ''}</span></div>`);
+    if (f.conseil) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('target')} Conseil</span><span class="pub-value">${f.conseil}${f.conseil_cote ? ' · cote '+f.conseil_cote.toFixed(2) : ''}${pickResultBadge(f.result)}</span></div>`);
+    if (f.value_bet) lines.push(`<div class="pub-line"><span class="pub-label">${ICON('gem')} Value bet</span><span class="pub-value">${f.value_bet}${f.value_cote ? ' · cote '+f.value_cote.toFixed(2) : ''}${pickResultBadge(f.value_result)}</span></div>`);
     (f.player_picks || []).forEach(p => {
-      lines.push(`<div class="pub-line"><span class="pub-label">${ICON('ball')} ${p.category}</span><span class="pub-value">${p.label} (${p.detail})</span></div>`);
+      lines.push(`<div class="pub-line"><span class="pub-label">${ICON('ball')} ${p.category}</span><span class="pub-value">${p.label} (${p.detail})${pickResultBadge(p.result)}</span></div>`);
     });
     if (!lines.length) lines.push(`<div class="pub-line"><span class="pub-label">Publié</span><span class="pub-value" style="color:var(--muted)">No bet — ${f.no_bet_reason || 'aucun critère validé'}</span></div>`);
     pubHtml = `<div class="pub">${lines.join('')}</div>`;

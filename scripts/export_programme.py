@@ -84,6 +84,19 @@ def _short_pick(conseil: str) -> str:
     return re.sub(r"^Double chance\s+", "", (conseil or "").strip(), flags=re.IGNORECASE)
 
 
+def _cat(selection: str) -> str:
+    """Meme classifieur que daily_bilan.py::_cat / scripts/export_site_results.py::_cat
+    -- pas de FK entre offensive_player_picks (categorie) et
+    player_pick_settlements (juste un pick_key = hash(joueur|selection)) : on
+    retrouve la categorie d'un settlement par mots-cles sur son texte."""
+    s = (selection or "").lower()
+    if "passe" in s:
+        return "passeur"
+    if "decisif" in s or "décisif" in s:
+        return "decisif"
+    return "buteur"
+
+
 def _programme_date_today() -> str:
     """Meme fenetre '8h' que l'admin (daily_summary._programme_window) :
     jour Paris qui commence a 08h00, avec garde de 5 min si le script tourne
@@ -203,20 +216,37 @@ def fetch_programme() -> list[dict]:
         if publish_status == "published":
             cur.execute(
                 """SELECT conseil, COALESCE(NULLIF(cote_reelle,0), cote_interne),
-                          value_bet, value_cote, resultat, score
+                          value_bet, value_cote, resultat, score, value_result
                    FROM paris WHERE fixture_id = %s
                    ORDER BY created_at DESC LIMIT 1""",
                 (fixture_id,),
             )
             row = cur.fetchone()
             if row:
-                conseil, cote, value_bet, value_cote, resultat, score = row
+                conseil, cote, value_bet, value_cote, resultat, score, value_result = row
                 if conseil and sport not in SPORTS_CONSEIL_IS_MIRROR:
                     item["conseil"] = _short_pick(conseil)
                     item["conseil_cote"] = round(float(cote or 0), 2)
                 if value_bet:
                     item["value_bet"] = _short_pick(value_bet)
                     item["value_cote"] = round(float(value_cote or 0), 2)
+                    # Statut propre au value bet (24/07/2026, demande explicite,
+                    # confirme en direct : badge global du haut affichait le
+                    # resultat du "conseil" -- mirroir du value bet OU d'un
+                    # player pick selon le match -- alors qu'un match peut avoir
+                    # un value bet ET un player pick sur un AUTRE marche, avec
+                    # des issues opposees. Chaque ligne affiche desormais son
+                    # propre statut au lieu d'un badge unique ambigu.
+                    if (value_result or "").upper() in ("GAGNE", "PERDU"):
+                        item["value_result"] = value_result.upper()
+                    elif sport in SPORTS_CONSEIL_IS_MIRROR and (resultat or "").upper() in ("GAGNE", "PERDU", "REMBOURSE"):
+                        # sport a mirroir : value_result n'est pas toujours
+                        # rempli (cf resultat_tracker.py::_send_result_msg),
+                        # mais resultat represente ce meme pari quand le
+                        # conseil mirrore le value bet (aucun player pick
+                        # "Total sets" mirrore a la place).
+                        if not (conseil or "").lower().startswith("total sets"):
+                            item["value_result"] = resultat.upper()
                 if (resultat or "").upper() in ("GAGNE", "PERDU", "REMBOURSE"):
                     item["result"] = resultat.upper()
                     if score:
@@ -238,25 +268,50 @@ def fetch_programme() -> list[dict]:
                     "category": CATEGORY_LABEL_FR.get(category, (category or "Pick").replace("_", " ").capitalize()),
                     "label": label,
                     "detail": detail,
+                    "_cat_key": category,
                 })
                 if len(player_picks) == 2:
                     break
-            if not player_picks:
+            if player_picks:
+                # Statut par player pick football (24/07/2026, meme demande que
+                # value_result plus haut) : player_pick_settlements n'a pas de
+                # FK directe vers offensive_player_picks, on retrouve le
+                # settlement d'une categorie via _cat() sur le texte de
+                # selection (meme classifieur que daily_bilan.py::_cat).
+                cur.execute(
+                    """SELECT selection, result FROM player_pick_settlements
+                       WHERE fixture_id = %s""",
+                    (fixture_id,),
+                )
+                settlements_by_cat: dict = {}
+                for selection, result in cur.fetchall():
+                    if (result or "").upper() in ("GAGNE", "PERDU", "REMBOURSE"):
+                        settlements_by_cat[_cat(selection)] = result.upper()
+                for pick in player_picks:
+                    cat_key = pick.pop("_cat_key", None)
+                    result = settlements_by_cat.get(cat_key)
+                    if result:
+                        pick["result"] = result
+            else:
                 # MLB/NBA/NHL/NFL/WNBA/Tennis (sport_player_picks) : offensive_
                 # player_picks ne couvre que le football (buteur/passeur/decisif).
                 # Ajoute le 20/07/2026 -- ces sports n'affichaient jamais leurs
                 # player picks sur le site cote "a venir/publie".
                 cur.execute(
-                    """SELECT player_name, market_label, odd FROM sport_player_picks
+                    """SELECT player_name, market_label, odd, settlement_status
+                       FROM sport_player_picks
                        WHERE fixture_id = %s ORDER BY created_at ASC LIMIT 2""",
                     (fixture_id,),
                 )
-                for player_name, label, odd in cur.fetchall():
-                    player_picks.append({
+                for player_name, label, odd, settlement_status in cur.fetchall():
+                    pick = {
                         "category": "Player pick",
                         "label": f"{player_name} — {label}" if player_name else label,
                         "detail": f"cote {float(odd):.2f}" if odd else "",
-                    })
+                    }
+                    if (settlement_status or "").upper() in ("GAGNE", "PERDU"):
+                        pick["result"] = settlement_status.upper()
+                    player_picks.append(pick)
             if player_picks:
                 item["player_picks"] = player_picks
         out.append(item)
