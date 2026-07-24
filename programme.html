@@ -424,21 +424,22 @@ function renderCard(f){
     </div>`;
 }
 
-/* Resume par sport (22/07/2026) : meme donnee que la liste principale
-   (fixtures, deja chargee depuis programme.json), aucun nouveau calcul
-   serveur -- juste un comptage cote client, comme le fait deja le
-   recap Telegram admin de 8h (daily_summary.py::_send_admin_programme_summary,
-   sur programme_fixtures, meme source que fixtures ici). */
+/* Resume par sport (22/07/2026, corrige le 24/07/2026 -- demande explicite :
+   le badge comptait fixtures au complet (TBD inclus), pas la liste
+   reellement affichee, ecart signale confus par l'utilisateur, ex. "16
+   Tennis" affiche alors que 7 matchs TBD etaient masques). Compte
+   desormais visibleFixtures (apres filtre isUnconfirmedMatch), passe en
+   parametre depuis render() -- badge et liste toujours coherents. */
 const SPORT_META = {
   football: {icon:'⚽', label:'Football'}, tennis: {icon:'🎾', label:'Tennis'},
   baseball: {icon:'⚾', label:'Baseball'}, nba: {icon:'🏀', label:'NBA'},
   nhl: {icon:'🏒', label:'NHL'}, nfl: {icon:'🏈', label:'NFL'},
   wnba: {icon:'🏀', label:'WNBA'},
 };
-function renderSportSummary(){
+function renderSportSummary(visibleFixtures){
   const el = document.getElementById('sport-summary');
-  if (!fixtures.length){ el.innerHTML = ''; return; }
-  const counts = fixtures.reduce((acc, f) => {
+  if (!visibleFixtures.length){ el.innerHTML = ''; return; }
+  const counts = visibleFixtures.reduce((acc, f) => {
     acc[f.sport] = (acc[f.sport] || 0) + 1;
     return acc;
   }, {});
@@ -451,10 +452,10 @@ function renderSportSummary(){
 }
 
 /* Compositions/tirages pas encore connus cote source (TBD - TBD, ? - ?) :
-   toujours comptes dans le resume par sport en haut (meme total que
-   l'admin, cf renderSportSummary qui lit fixtures au complet), mais
-   masques de la liste -- une carte sans aucun nom de joueur n'apporte rien
-   au client, juste du bruit visuel (demande explicite 23/07/2026). */
+   masques de la liste ET du resume par sport (24/07/2026) -- une carte
+   sans aucun nom de joueur n'apporte rien au client, juste du bruit
+   visuel (demande explicite 23/07/2026), et un badge qui les compte quand
+   meme n'est plus coherent avec ce qui est reellement affiche. */
 function isUnconfirmedMatch(f){
   const m = (f.match || '').split('–').map(s => s.trim());
   return m.length === 2 && m.every(s => s === 'TBD' || s === '?' || s === '');
@@ -462,8 +463,8 @@ function isUnconfirmedMatch(f){
 
 function render(){
   const list = document.getElementById('list');
-  renderSportSummary();
   const visibleFixtures = fixtures.filter(f => !isUnconfirmedMatch(f));
+  renderSportSummary(visibleFixtures);
   if (!visibleFixtures.length){
     list.innerHTML = "<div class=\"empty\">Aucun match dans la fenêtre actuelle. Revenez un peu avant le prochain coup d'envoi.</div>";
     return;
