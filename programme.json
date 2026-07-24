@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-24T14:28:10.089355+00:00",
+ "generated_at": "2026-07-24T15:58:28.029104+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178896",
@@ -45,6 +45,7 @@
    "published": true,
    "value_bet": "Vainqueur — Alexander Bublik @ 1.676",
    "value_cote": 1.68,
+   "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "3-6, 4-6"
   },
@@ -60,11 +61,15 @@
    "coup": true,
    "value_bet": "Vainqueur — Andrey Rublev @ 1.286",
    "value_cote": 1.29,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3-6, 6-3, 6-4",
    "player_picks": [
     {
      "category": "Player pick",
      "label": "Luca Van Assche vs Andrey Rublev — Total sets Moins de 2.5",
-     "detail": "cote 1.59"
+     "detail": "cote 1.59",
+     "result": "PERDU"
     }
    ]
   },
