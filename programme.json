@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-07-25T23:40:26.763611+00:00",
+ "generated_at": "2026-07-26T01:17:37.061681+00:00",
  "fixtures": [
   {
-   "fixture_id": "tennis_espn_atp_183089",
+   "fixture_id": "tennis_espn_atp_183094",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Aziz Dougaz – Aleksandar Vukic",
+   "match": "Alex Bolt – James McCabe",
    "kickoff_at": "2026-07-25T14:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -24,18 +24,7 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_183094",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alex Bolt – James McCabe",
-   "kickoff_at": "2026-07-25T14:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183093",
+   "fixture_id": "tennis_espn_wta_183093",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -46,15 +35,19 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_183094",
+   "fixture_id": "tennis_espn_wta_183057",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Alex Bolt – James McCabe",
+   "match": "Polina Iatcenko – Julieta Pareja",
    "kickoff_at": "2026-07-25T14:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "published": true,
+   "value_bet": "Vainqueur — Polina Iatcenko @ 2.23",
+   "value_cote": 2.23,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4-6, 2-6"
   },
   {
    "fixture_id": "tennis_espn_wta_183089",
@@ -68,12 +61,23 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_183093",
+   "fixture_id": "tennis_espn_atp_183089",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Kimmer Coppejans – Martin Damm",
+   "match": "Aziz Dougaz – Aleksandar Vukic",
+   "kickoff_at": "2026-07-25T14:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183094",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alex Bolt – James McCabe",
    "kickoff_at": "2026-07-25T14:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -102,27 +106,23 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183057",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Polina Iatcenko – Julieta Pareja",
-   "kickoff_at": "2026-07-25T14:00Z",
-   "published": true,
-   "value_bet": "Vainqueur — Polina Iatcenko @ 2.23",
-   "value_cote": 2.23,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "4-6, 2-6"
-  },
-  {
    "fixture_id": "tennis_espn_atp_183059",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Heather Watson – Kamilla Rakhimova",
+   "kickoff_at": "2026-07-25T14:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183093",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Kimmer Coppejans – Martin Damm",
    "kickoff_at": "2026-07-25T14:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -150,39 +150,6 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_183055",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Varvara Lepchenko – Clervie Ngounoue",
-   "kickoff_at": "2026-07-25T15:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183088",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Stefan Kozlov – Zachary Svajda",
-   "kickoff_at": "2026-07-25T15:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183095",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Billy Harris – Abdullah Shelbayh",
-   "kickoff_at": "2026-07-25T15:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183055",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
@@ -196,17 +163,6 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-1, 4-6, 6-4"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183088",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Stefan Kozlov – Zachary Svajda",
-   "kickoff_at": "2026-07-25T15:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_183095",
@@ -237,6 +193,50 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Remy Bertola – Andre Ilagan",
+   "kickoff_at": "2026-07-25T15:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183088",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Stefan Kozlov – Zachary Svajda",
+   "kickoff_at": "2026-07-25T15:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183055",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Varvara Lepchenko – Clervie Ngounoue",
+   "kickoff_at": "2026-07-25T15:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183088",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Stefan Kozlov – Zachary Svajda",
+   "kickoff_at": "2026-07-25T15:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183095",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Billy Harris – Abdullah Shelbayh",
    "kickoff_at": "2026-07-25T15:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -273,6 +273,17 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_atp_183056",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mei Yamaguchi – Polina Kudermetova",
+   "kickoff_at": "2026-07-25T16:35Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183056",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
@@ -293,34 +304,23 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_183056",
+   "fixture_id": "tennis_espn_atp_183098",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Mei Yamaguchi – Polina Kudermetova",
-   "kickoff_at": "2026-07-25T16:35Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183091",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aryan Shah – Marcos Giron",
+   "match": "Moez Echargui – Jordan Lee",
    "kickoff_at": "2026-07-25T17:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_183092",
+   "fixture_id": "tennis_espn_wta_183107",
    "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
+   "league": "Odlum Brown VanOpen",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Dusan Lajovic – Cruz Hewitt",
+   "match": "Sabastiani Leon – Katrina Scott",
    "kickoff_at": "2026-07-25T17:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -337,23 +337,12 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_183108",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Havana Kadi – Wei Sijia",
-   "kickoff_at": "2026-07-25T17:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183098",
+   "fixture_id": "tennis_espn_wta_183091",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Moez Echargui – Jordan Lee",
+   "match": "Aryan Shah – Marcos Giron",
    "kickoff_at": "2026-07-25T17:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -381,23 +370,34 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_183108",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Havana Kadi – Wei Sijia",
+   "kickoff_at": "2026-07-25T17:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183092",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Dusan Lajovic – Cruz Hewitt",
+   "kickoff_at": "2026-07-25T17:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183110",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Ana Grubor – Ellie Schoppe",
-   "kickoff_at": "2026-07-25T17:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183107",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sabastiani Leon – Katrina Scott",
    "kickoff_at": "2026-07-25T17:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -412,17 +412,6 @@
    "kickoff_at": "2026-07-25T17:10:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183112",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Emma Si Yu Dong – Ena Shibahara",
-   "kickoff_at": "2026-07-25T18:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_178812",
@@ -445,13 +434,13 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183109",
+   "fixture_id": "tennis_espn_wta_183112",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Martina Okalova – Avery Alexander",
-   "kickoff_at": "2026-07-25T18:30Z",
+   "match": "Emma Si Yu Dong – Ena Shibahara",
+   "kickoff_at": "2026-07-25T18:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -462,17 +451,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Rebecca Sramkova – Carolyn Ansari",
-   "kickoff_at": "2026-07-25T18:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183097",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Edas Butvilas – Mackenzie McDonald",
    "kickoff_at": "2026-07-25T18:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -496,6 +474,17 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183097",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Edas Butvilas – Mackenzie McDonald",
+   "kickoff_at": "2026-07-25T18:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_183096",
@@ -544,6 +533,17 @@
    "score": "0-6, 6-7"
   },
   {
+   "fixture_id": "tennis_espn_wta_183109",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Martina Okalova – Avery Alexander",
+   "kickoff_at": "2026-07-25T18:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_atp_183061",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
@@ -578,7 +578,7 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_183099",
+   "fixture_id": "tennis_espn_wta_183099",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -600,23 +600,23 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_atp_183099",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Andres Martin – Christopher O'Connell",
+   "kickoff_at": "2026-07-25T19:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183067",
    "flag": "🎾",
    "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Sofia Johnson – Karman Thandi",
-   "kickoff_at": "2026-07-25T19:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183099",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Andres Martin – Christopher O'Connell",
    "kickoff_at": "2026-07-25T19:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -644,7 +644,7 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_183085",
+   "fixture_id": "tennis_espn_atp_183085",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -655,7 +655,7 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_183085",
+   "fixture_id": "tennis_espn_wta_183085",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -688,17 +688,6 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "mlb_824734",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Boston Red Sox – Toronto Blue Jays",
-   "kickoff_at": "2026-07-25T20:10:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
    "fixture_id": "mlb_823841",
    "flag": "⚾",
    "league": "MLB",
@@ -710,15 +699,15 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "tennis_espn_atp_183086",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-25T21:00Z",
+   "fixture_id": "mlb_824734",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Boston Red Sox – Toronto Blue Jays",
+   "kickoff_at": "2026-07-25T20:10:00Z",
    "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_183086",
@@ -727,6 +716,17 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
+   "kickoff_at": "2026-07-25T21:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183086",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
    "kickoff_at": "2026-07-25T21:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -743,7 +743,7 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_183060",
+   "fixture_id": "tennis_espn_wta_183060",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -754,7 +754,7 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_183060",
+   "fixture_id": "tennis_espn_atp_183060",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -785,17 +785,6 @@
    "kickoff_at": "2026-07-25T22:10:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183113",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hong Yi Cody Wong – Dasha Plekhanova",
-   "kickoff_at": "2026-07-25T22:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "mlb_823355",
@@ -853,15 +842,26 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
+   "fixture_id": "tennis_espn_wta_183113",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hong Yi Cody Wong – Dasha Plekhanova",
+   "kickoff_at": "2026-07-26T00:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183071",
    "flag": "🎾",
    "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Ekaterina Ovcharenko – Ankita Raina",
-   "kickoff_at": "2026-07-25T23:30Z",
+   "kickoff_at": "2026-07-26T00:35Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_183106",
@@ -870,9 +870,9 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Hiroko Kuwata – Miho Kuramochi",
-   "kickoff_at": "2026-07-25T23:30Z",
+   "kickoff_at": "2026-07-26T00:55Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_183111",
@@ -881,7 +881,18 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Valeria Savinykh – Mia Kupres",
-   "kickoff_at": "2026-07-25T23:30Z",
+   "kickoff_at": "2026-07-26T01:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183120",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Edward Winter – Luis Carlos Alvarez",
+   "kickoff_at": "2026-07-26T01:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -893,17 +904,8 @@
    "sport_label": "Tennis",
    "match": "Garrett Johns – Alan Magadan",
    "kickoff_at": "2026-07-26T01:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183120",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Edward Winter – Luis Carlos Alvarez",
-   "kickoff_at": "2026-07-26T01:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_183125",
@@ -913,6 +915,17 @@
    "sport_label": "Tennis",
    "match": "Bernard Tomic – Miguel Tobon",
    "kickoff_at": "2026-07-26T01:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183123",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alex Hernandez – Nicolas Mejia",
+   "kickoff_at": "2026-07-26T02:30Z",
    "published": false
   },
   {
@@ -932,16 +945,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Lorenzo Claverie – Tristan Boyer",
-   "kickoff_at": "2026-07-26T02:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183123",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alex Hernandez – Nicolas Mejia",
    "kickoff_at": "2026-07-26T02:30Z",
    "published": false
   },
@@ -1246,22 +1249,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_183185",
-   "flag": "🎾",
-   "league": "Axeria Open 2026 powered by Intaro Sport",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Ekaterina Kazionova – Elena Malygina",
-   "kickoff_at": "2026-07-26T08:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_183186",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Alessandra Mazzola – Yelyzaveta Kotliar",
+   "kickoff_at": "2026-07-26T08:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183185",
+   "flag": "🎾",
+   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Ekaterina Kazionova – Elena Malygina",
    "kickoff_at": "2026-07-26T08:00Z",
    "published": false
   },
@@ -1276,12 +1279,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_183183",
+   "fixture_id": "tennis_espn_wta_183182",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Miriana Tona – Isabella Shinikova",
+   "match": "Lucija Ciric Bagaric – Amandine Monnot",
    "kickoff_at": "2026-07-26T09:30Z",
    "published": false
   },
@@ -1296,12 +1299,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_183182",
+   "fixture_id": "tennis_espn_wta_183183",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Lucija Ciric Bagaric – Amandine Monnot",
+   "match": "Miriana Tona – Isabella Shinikova",
    "kickoff_at": "2026-07-26T09:30Z",
    "published": false
   },
@@ -1326,47 +1329,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_183065",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T14:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183065",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T14:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183066",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T14:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183103",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T14:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183104",
+   "fixture_id": "tennis_espn_atp_183066",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -1386,7 +1349,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_183066",
+   "fixture_id": "tennis_espn_atp_183104",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -1406,13 +1369,43 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_183100",
+   "fixture_id": "tennis_espn_wta_183065",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T15:30Z",
+   "kickoff_at": "2026-07-26T14:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183103",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-26T14:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183065",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-26T14:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183066",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-26T14:00Z",
    "published": false
   },
   {
@@ -1426,7 +1419,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_183100",
+   "fixture_id": "tennis_espn_wta_183100",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -1446,23 +1439,13 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_183079",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – Ma YeXin",
-   "kickoff_at": "2026-07-26T16:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183101",
+   "fixture_id": "tennis_espn_atp_183100",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T16:00Z",
+   "kickoff_at": "2026-07-26T15:30Z",
    "published": false
   },
   {
@@ -1472,26 +1455,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T16:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183063",
-   "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T16:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183081",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – Storm Hunter",
    "kickoff_at": "2026-07-26T16:00Z",
    "published": false
   },
@@ -1506,17 +1469,47 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_183102",
+   "fixture_id": "tennis_espn_wta_183079",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – Ma YeXin",
+   "kickoff_at": "2026-07-26T16:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183081",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – Storm Hunter",
+   "kickoff_at": "2026-07-26T16:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183063",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T17:00Z",
+   "kickoff_at": "2026-07-26T16:00Z",
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_183102",
+   "fixture_id": "tennis_espn_atp_183101",
+   "flag": "🎾",
+   "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-26T16:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183102",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
@@ -1546,13 +1539,13 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_183064",
+   "fixture_id": "tennis_espn_wta_183102",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
-   "kickoff_at": "2026-07-26T17:30Z",
+   "kickoff_at": "2026-07-26T17:00Z",
    "published": false
   },
   {
@@ -1562,6 +1555,16 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
+   "kickoff_at": "2026-07-26T17:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183082",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – Kristina Liutova",
    "kickoff_at": "2026-07-26T17:30Z",
    "published": false
   },
@@ -1576,12 +1579,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_183082",
+   "fixture_id": "tennis_espn_atp_183064",
    "flag": "🎾",
-   "league": "The Memphis Classic",
+   "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "TBD – Kristina Liutova",
+   "match": "TBD – TBD",
    "kickoff_at": "2026-07-26T17:30Z",
    "published": false
   },
@@ -1606,7 +1609,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179593",
+   "fixture_id": "tennis_espn_wta_179589",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
@@ -3116,9 +3119,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179012",
+   "fixture_id": "tennis_espn_wta_179593",
    "flag": "🎾",
-   "league": "Mubadala Citi DC Open",
+   "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -3136,9 +3139,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179589",
+   "fixture_id": "tennis_espn_wta_179012",
    "flag": "🎾",
-   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "league": "Mubadala Citi DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
