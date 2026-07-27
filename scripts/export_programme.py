@@ -15,7 +15,9 @@ facon tres irreguliere en pratique sur ce repo (ecarts constates de 80 a
 100+ min) -- limitation connue de la plateforme sur les workflows planifies
 a faible activite, pas un bug de ce script. sync-site-public.yml redeclenche
 desormais ce workflow immediatement apres chaque sync (cf ce fichier cote
-prive) pour limiter l'impact.
+prive) pour limiter l'impact. Un echec ponctuel de connexion DB (transitoire,
+confirme non-reproductible en test direct le 27/07/2026) reste possible --
+le prochain declenchement (auto ou cron naturel) reessaie normalement.
 """
 import json
 import os
