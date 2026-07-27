@@ -12,7 +12,9 @@ relancer sur le clone du repo public gbetx2-cell.github.io puis push.
 
 Auto-synchronise vers scripts/update_results.py sur le repo public a chaque
 push touchant ce fichier (cf .github/workflows/sync-site-public.yml,
-26/07/2026) -- plus besoin de relancer manuellement sur un clone.
+26/07/2026) -- plus besoin de relancer manuellement sur un clone. Les crons
+publics update-results.yml/update-programme.yml sont eux-memes redeclenches
+automatiquement juste apres, sequentiellement (fix collision 26/07/2026).
 """
 import os
 import re
