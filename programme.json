@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-27T18:06:28.494181+00:00",
+ "generated_at": "2026-07-27T19:53:11.711590+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_wta_179456",
@@ -14,17 +14,6 @@
    "value_cote": 2.25
   },
   {
-   "fixture_id": "tennis_espn_atp_178981",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-27T16:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "tennis_espn_atp_179013",
    "flag": "🎾",
    "league": "Mubadala DC Open",
@@ -36,13 +25,13 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_178977",
+   "fixture_id": "tennis_espn_atp_178981",
    "flag": "🎾",
    "league": "Mubadala DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Lorenzo Musetti – Matteo Arnaldi",
-   "kickoff_at": "2026-07-27T17:45Z",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-27T16:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -56,7 +45,21 @@
    "kickoff_at": "2026-07-27T17:45Z",
    "published": true,
    "value_bet": "Vainqueur — Lorenzo Musetti @ 1.543",
-   "value_cote": 1.54
+   "value_cote": 1.54,
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "STATUS_RETIRED"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_178977",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lorenzo Musetti – Matteo Arnaldi",
+   "kickoff_at": "2026-07-27T17:45Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_178993",
@@ -70,61 +73,6 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_178988",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-27T18:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_179026",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-27T18:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178992",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-27T18:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183115",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Valeria Savinykh – Emma Si Yu Dong",
-   "kickoff_at": "2026-07-27T18:30Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183114",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Ellie Schoppe – Katrina Scott",
-   "kickoff_at": "2026-07-27T18:30Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
    "fixture_id": "mlb_822868",
    "flag": "⚾",
    "league": "MLB",
@@ -136,16 +84,6 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "tennis_espn_atp_178959",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Zizou Bergs – Taylor Fritz",
-   "kickoff_at": "2026-07-27T19:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_178959",
    "flag": "🎾",
    "league": "Mubadala DC Open",
@@ -153,7 +91,41 @@
    "sport_label": "Tennis",
    "match": "Zizou Bergs – Taylor Fritz",
    "kickoff_at": "2026-07-27T19:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178959",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Zizou Bergs – Taylor Fritz",
+   "kickoff_at": "2026-07-27T19:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_179026",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-27T19:05Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178988",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-27T19:10Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_179035",
@@ -163,7 +135,19 @@
    "sport_label": "Tennis",
    "match": "? – ?",
    "kickoff_at": "2026-07-27T19:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178992",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-27T19:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_178978",
@@ -173,7 +157,31 @@
    "sport_label": "Tennis",
    "match": "Zachary Svajda – Aleksandar Vukic",
    "kickoff_at": "2026-07-27T19:30Z",
-   "published": false
+   "published": true,
+   "value_bet": "Vainqueur — Zachary Svajda @ 1.645",
+   "value_cote": 1.65
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183114",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Ellie Schoppe – Katrina Scott",
+   "kickoff_at": "2026-07-27T20:30Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183115",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Valeria Savinykh – Emma Si Yu Dong",
+   "kickoff_at": "2026-07-27T20:30Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_183117",
@@ -182,7 +190,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Avery Alexander – Miho Kuramochi",
-   "kickoff_at": "2026-07-27T20:00Z",
+   "kickoff_at": "2026-07-27T22:00Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
   },
@@ -207,22 +215,22 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_823353",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Pittsburgh Pirates – Arizona Diamondbacks",
-   "kickoff_at": "2026-07-27T22:40:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_823839",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Miami Marlins – Philadelphia Phillies",
+   "kickoff_at": "2026-07-27T22:40:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "mlb_823353",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Pittsburgh Pirates – Arizona Diamondbacks",
    "kickoff_at": "2026-07-27T22:40:00Z",
    "published": false
   },
@@ -307,22 +315,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178929",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tristan Boyer – Gabriel Diallo",
-   "kickoff_at": "2026-07-28T01:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_178907",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Bernard Tomic – Alex Hernandez",
+   "kickoff_at": "2026-07-28T01:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178929",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tristan Boyer – Gabriel Diallo",
    "kickoff_at": "2026-07-28T01:00Z",
    "published": false
   },
@@ -377,22 +385,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_183177",
-   "flag": "🎾",
-   "league": "Axeria Open 2026 powered by Intaro Sport",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lola Radivojevic – Margaux Rouvroy",
-   "kickoff_at": "2026-07-28T10:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179591",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Rachel Gailis – Lucija Ciric Bagaric",
+   "kickoff_at": "2026-07-28T10:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183177",
+   "flag": "🎾",
+   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lola Radivojevic – Margaux Rouvroy",
    "kickoff_at": "2026-07-28T10:00Z",
    "published": false
   },
@@ -437,12 +445,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179583",
+   "fixture_id": "tennis_espn_wta_178996",
    "flag": "🎾",
-   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "league": "Mubadala DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Irene Burillo – Kaitlin Quevedo",
+   "match": "Elisabetta Cocciaretto – Emma Navarro",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178996",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elisabetta Cocciaretto – Emma Navarro",
    "kickoff_at": "2026-07-29T04:00Z",
    "published": false
   },
@@ -453,6 +471,16 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Caijsa Hennemann – Sara Sorribes Tormo",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179583",
+   "flag": "🎾",
+   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Irene Burillo – Kaitlin Quevedo",
    "kickoff_at": "2026-07-29T04:00Z",
    "published": false
   }
