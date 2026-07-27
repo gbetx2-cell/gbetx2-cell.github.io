@@ -9,6 +9,10 @@ Usage :
 
 Par defaut, met a jour site/index.html du repo courant. Pour publier :
 relancer sur le clone du repo public gbetx2-cell.github.io puis push.
+
+Auto-synchronise vers scripts/update_results.py sur le repo public a chaque
+push touchant ce fichier (cf .github/workflows/sync-site-public.yml,
+26/07/2026) -- plus besoin de relancer manuellement sur un clone.
 """
 import os
 import re
