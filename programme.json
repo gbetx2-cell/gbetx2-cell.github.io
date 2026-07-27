@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-27T22:29:55.296303+00:00",
+ "generated_at": "2026-07-27T23:39:37.977676+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_wta_179456",
@@ -11,7 +11,10 @@
    "kickoff_at": "2026-07-27T15:00Z",
    "published": true,
    "value_bet": "Vainqueur — Viktorija Golubic @ 2.25",
-   "value_cote": 2.25
+   "value_cote": 2.25,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "5-7, 6-2, 6-7"
   },
   {
    "fixture_id": "tennis_espn_atp_179013",
@@ -137,7 +140,10 @@
    "kickoff_at": "2026-07-27T21:30Z",
    "published": true,
    "value_bet": "Vainqueur — Zachary Svajda @ 1.645",
-   "value_cote": 1.65
+   "value_cote": 1.65,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3-6, 1-6"
   },
   {
    "fixture_id": "tennis_espn_wta_179458",
@@ -152,23 +158,15 @@
    "value_cote": 1.64
   },
   {
-   "fixture_id": "tennis_espn_wta_179448",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tatiana Prozorova – Solana Sierra",
-   "kickoff_at": "2026-07-27T22:00Z",
-   "published": true,
-   "value_bet": "Vainqueur — Solana Sierra @ 2.17",
-   "value_cote": 2.17,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Tatiana Prozorova vs Solana Sierra — Total sets Plus de 2.5",
-     "detail": "cote 2.71"
-    }
-   ]
+   "fixture_id": "mlb_824245",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Detroit Tigers – Baltimore Orioles",
+   "kickoff_at": "2026-07-27T22:40:00Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_823353",
@@ -193,17 +191,6 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "mlb_824245",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Detroit Tigers – Baltimore Orioles",
-   "kickoff_at": "2026-07-27T22:40:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
    "fixture_id": "mlb_822705",
    "flag": "⚾",
    "league": "MLB",
@@ -211,17 +198,6 @@
    "sport_label": "Baseball (MLB)",
    "match": "Washington Nationals – Toronto Blue Jays",
    "kickoff_at": "2026-07-27T22:45:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "mlb_823597",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – Atlanta Braves",
-   "kickoff_at": "2026-07-27T23:10:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
@@ -237,6 +213,36 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
+   "fixture_id": "mlb_823597",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – Atlanta Braves",
+   "kickoff_at": "2026-07-27T23:10:00Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179448",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tatiana Prozorova – Solana Sierra",
+   "kickoff_at": "2026-07-27T23:15Z",
+   "published": true,
+   "value_bet": "Vainqueur — Solana Sierra @ 2.17",
+   "value_cote": 2.17,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Tatiana Prozorova vs Solana Sierra — Total sets Plus de 2.5",
+     "detail": "cote 2.71"
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_wta_179442",
    "flag": "🎾",
    "league": "The Memphis Classic",
@@ -244,7 +250,8 @@
    "sport_label": "Tennis",
    "match": "Storm Hunter – Camila Osorio",
    "kickoff_at": "2026-07-27T23:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179449",
@@ -254,7 +261,8 @@
    "sport_label": "Tennis",
    "match": "Elvina Kalieva – Katherine Sebov",
    "kickoff_at": "2026-07-27T23:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_824570",
@@ -264,7 +272,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Chicago White Sox – New York Yankees",
    "kickoff_at": "2026-07-27T23:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_823025",
@@ -274,7 +283,19 @@
    "sport_label": "Baseball (MLB)",
    "match": "St. Louis Cardinals – Chicago Cubs",
    "kickoff_at": "2026-07-27T23:45:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183115",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Valeria Savinykh – Emma Si Yu Dong",
+   "kickoff_at": "2026-07-27T23:45Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_183114",
@@ -288,15 +309,14 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "tennis_espn_wta_183115",
+   "fixture_id": "tennis_espn_atp_178907",
    "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
+   "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Valeria Savinykh – Emma Si Yu Dong",
-   "kickoff_at": "2026-07-27T23:45Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "match": "Bernard Tomic – Alex Hernandez",
+   "kickoff_at": "2026-07-28T01:00Z",
+   "published": false
   },
   {
    "fixture_id": "tennis_espn_atp_178929",
@@ -305,16 +325,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Tristan Boyer – Gabriel Diallo",
-   "kickoff_at": "2026-07-28T01:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178907",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Bernard Tomic – Alex Hernandez",
    "kickoff_at": "2026-07-28T01:00Z",
    "published": false
   },
