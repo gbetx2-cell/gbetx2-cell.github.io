@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-27T21:30:07.914232+00:00",
+ "generated_at": "2026-07-27T21:36:08.080023+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_wta_179456",
@@ -14,23 +14,23 @@
    "value_cote": 2.25
   },
   {
-   "fixture_id": "tennis_espn_atp_179013",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sofia Kenin – Emma Navarro",
-   "kickoff_at": "2026-07-27T16:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "tennis_espn_atp_178981",
    "flag": "🎾",
    "league": "Mubadala DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
+   "kickoff_at": "2026-07-27T16:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_179013",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Sofia Kenin – Emma Navarro",
    "kickoff_at": "2026-07-27T16:30Z",
    "published": false,
    "no_bet_reason": "Compositions arrivées trop tard"
@@ -173,16 +173,6 @@
    "value_cote": 1.65
   },
   {
-   "fixture_id": "tennis_espn_wta_179448",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tatiana Prozorova – Solana Sierra",
-   "kickoff_at": "2026-07-27T22:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179458",
    "flag": "🎾",
    "league": "The Memphis Classic",
@@ -190,8 +180,9 @@
    "sport_label": "Tennis",
    "match": "Reese Brantmeier – Iryna Shymanovich",
    "kickoff_at": "2026-07-27T22:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "published": true,
+   "value_bet": "Vainqueur — Iryna Shymanovich @ 1.641",
+   "value_cote": 1.64
   },
   {
    "fixture_id": "tennis_espn_wta_183117",
@@ -205,6 +196,25 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
+   "fixture_id": "tennis_espn_wta_179448",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tatiana Prozorova – Solana Sierra",
+   "kickoff_at": "2026-07-27T22:00Z",
+   "published": true,
+   "value_bet": "Vainqueur — Solana Sierra @ 2.17",
+   "value_cote": 2.17,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Tatiana Prozorova vs Solana Sierra — Total sets Plus de 2.5",
+     "detail": "cote 2.71"
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_wta_183114",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
@@ -214,6 +224,16 @@
    "kickoff_at": "2026-07-27T22:30Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "mlb_823839",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Miami Marlins – Philadelphia Phillies",
+   "kickoff_at": "2026-07-27T22:40:00Z",
+   "published": false
   },
   {
    "fixture_id": "mlb_824245",
@@ -232,16 +252,6 @@
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Pittsburgh Pirates – Arizona Diamondbacks",
-   "kickoff_at": "2026-07-27T22:40:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "mlb_823839",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Miami Marlins – Philadelphia Phillies",
    "kickoff_at": "2026-07-27T22:40:00Z",
    "published": false
   },
@@ -316,22 +326,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178929",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tristan Boyer – Gabriel Diallo",
-   "kickoff_at": "2026-07-28T01:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_178907",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Bernard Tomic – Alex Hernandez",
+   "kickoff_at": "2026-07-28T01:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178929",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tristan Boyer – Gabriel Diallo",
    "kickoff_at": "2026-07-28T01:00Z",
    "published": false
   },
@@ -386,22 +396,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_183177",
-   "flag": "🎾",
-   "league": "Axeria Open 2026 powered by Intaro Sport",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lola Radivojevic – Margaux Rouvroy",
-   "kickoff_at": "2026-07-28T10:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179591",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Rachel Gailis – Lucija Ciric Bagaric",
+   "kickoff_at": "2026-07-28T10:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183177",
+   "flag": "🎾",
+   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lola Radivojevic – Margaux Rouvroy",
    "kickoff_at": "2026-07-28T10:00Z",
    "published": false
   },
@@ -426,6 +436,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_178908",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "James Duckworth – Aidan Mayo",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_atp_178928",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
@@ -446,16 +466,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178908",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "James Duckworth – Aidan Mayo",
-   "kickoff_at": "2026-07-29T04:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_178996",
    "flag": "🎾",
    "league": "Mubadala DC Open",
@@ -466,22 +476,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179583",
-   "flag": "🎾",
-   "league": "Axeria Open 2026 powered by Intaro Sport",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Irene Burillo – Kaitlin Quevedo",
-   "kickoff_at": "2026-07-29T04:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179602",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Caijsa Hennemann – Sara Sorribes Tormo",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179583",
+   "flag": "🎾",
+   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Irene Burillo – Kaitlin Quevedo",
    "kickoff_at": "2026-07-29T04:00Z",
    "published": false
   }
