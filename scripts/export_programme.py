@@ -9,6 +9,13 @@ une fois le match regle. Lance par .github/workflows/update-programme.yml
 
 Contrairement a update_results.py (historique, une fois par nuit), ce script
 tourne frequemment pour rafraichir l'etat (publication, resultat) en direct.
+
+Note (27/07/2026) : le cron GitHub Actions ("*/10 * * * *") est declenche de
+facon tres irreguliere en pratique sur ce repo (ecarts constates de 80 a
+100+ min) -- limitation connue de la plateforme sur les workflows planifies
+a faible activite, pas un bug de ce script. sync-site-public.yml redeclenche
+desormais ce workflow immediatement apres chaque sync (cf ce fichier cote
+prive) pour limiter l'impact.
 """
 import json
 import os
