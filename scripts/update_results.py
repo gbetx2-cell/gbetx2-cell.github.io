@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Regenere les blocs de donnees live de index.html (RESULTATS, PERIOD_STATS,
-PERIOD_SERIES, PERF_STATS) depuis les vrais paris regles en production.
-Lance chaque nuit par GitHub Actions (.github/workflows/update-results.yml)
-avec DATABASE_URL en secret.
+Regenere le bloc `const RESULTATS = [...]` de site/index.html depuis les
+vrais conseils regles en production (audit du 12/07/2026 : le bloc etait
+code en dur avec des donnees de demonstration, perimees des le lancement).
 
-Aucun secret dans ce fichier : la connexion vient de l'environnement.
+Usage :
+    DATABASE_URL=postgresql://... python scripts/export_site_results.py [chemin/index.html]
+
+Par defaut, met a jour site/index.html du repo courant. Pour publier :
+relancer sur le clone du repo public gbetx2-cell.github.io puis push.
 """
 import os
 import re
@@ -15,8 +18,13 @@ from zoneinfo import ZoneInfo
 
 N_MATCHES = 20  # matchs regles (chacun peut donner jusqu'a 3 entrees : conseil/value/player pick cote)
 BASE_UNIT_EUR = 200  # doit rester synchro avec ai/staking.py BASE_UNIT_EUR
-BANKROLL_INITIAL_EUR = 10000  # doit rester synchro avec scripts/export_site_results.py (repo prive)
 PARIS_TZ = ZoneInfo("Europe/Paris")
+
+# Bankroll de depart affichee sur le site (points F/G du backlog, 21/07/2026 --
+# choix utilisateur, pas une valeur reelle geree en base : il n'existe pas de
+# ledger bankroll separe, la bankroll = ce montant + la somme cumulee des pnl
+# reels de `paris` depuis le tout premier pari regle).
+BANKROLL_INITIAL_EUR = 10000
 
 # Drapeau par competition (fallback ⚽ si inconnue)
 COMPETITION_FLAGS = {
@@ -71,9 +79,28 @@ COMPETITION_FLAGS = {
 }
 
 
+# Icone par sport (23/07/2026, confirme en direct sur le site public) :
+# _flag() ne sait matcher que des noms de competition FOOTBALL et retombe
+# sur "⚽" par defaut -- tennis/baseball/etc n'ont pas de competition dans
+# COMPETITION_FLAGS, donc affichaient TOUJOURS le ballon de foot. Priorite
+# a l'icone sport pour tout ce qui n'est pas football.
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈",
               "tennis": "🎾", "wnba": "🏀"}
+
+# Sports ou value_bet est le MEME pari que "conseil" (jamais une 2e mise
+# independante comme en football) -- doit rester synchro avec
+# betting_rules.SPORTS_VALUE_BET_IS_CONSEIL. Sans ce filtre, fetch_results()
+# affichait chaque pick de ces sports DEUX FOIS ("Conseil" + "Value bet"
+# identiques, confirme en direct sur le site public le 23/07/2026).
+#
+# Copie locale VOLONTAIRE, pas un import (26/07/2026) : ce fichier est aussi
+# synchronise tel quel vers scripts/update_results.py sur le repo public
+# (cf .github/workflows/sync-site-public.yml), execute la-bas de facon
+# totalement autonome par son propre cron GitHub Actions, sans acces au
+# reste de ce repo prive -- un `from betting_rules import ...` y crasherait.
+# Si cette liste change un jour, la mettre a jour ICI ET dans betting_rules.py.
 SPORTS_VALUE_BET_IS_CONSEIL = {"tennis", "nba", "nhl", "baseball", "wnba", "nfl"}
+
 
 def _flag(competition: str, sport: str = "") -> str:
     icon = SPORT_ICON.get((sport or "").lower())
@@ -131,11 +158,27 @@ def fetch_period_stats() -> dict:
         FROM paris
         WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
+          AND NOT (market_type IN ('total_points', 'player_pick_only'))
         ORDER BY result_updated_at DESC
         LIMIT 1000
         """,
     )
     rows = cur.fetchall()
+
+    # Player picks (26/07/2026, confirme en direct : "AUJOURD'HUI" affichait
+    # "Aucun conseil regle" malgre de vrais gains tennis du jour -- le pnl du
+    # "conseil" est fige a 0 pour le tennis (cf database.py::update_resultat,
+    # _HORS_PNL), le vrai pnl vient des player picks, jamais lus ici avant ce
+    # fix. Meme principe que fetch_perf_stats()/fetch_bankroll() plus bas.
+    cur.execute(
+        """
+        SELECT odd, COALESCE(stake_eur,0), settlement_status,
+               COALESCE(NULLIF(settled_at,''), created_at)
+        FROM sport_player_picks
+        WHERE settlement_status IN ('GAGNE','PERDU')
+        """,
+    )
+    pick_rows = cur.fetchall()
     conn.close()
 
     today = datetime.now(PARIS_TZ).date()
@@ -162,6 +205,22 @@ def fetch_period_stats() -> dict:
                 b["p"] += 1
             elif resultat == "REMBOURSE":
                 b["r"] += 1
+
+    for odd, stake_eur, status, settled_or_created in pick_rows:
+        d = _paris_calendar_date(settled_or_created)
+        if d is None or d > today:
+            continue
+        pnl_val = _pnl_fixed(status, float(odd or 0), float(stake_eur or 0))
+        for key, start in boundaries.items():
+            if d < start:
+                continue
+            b = buckets[key]
+            b["n"] += 1
+            b["pnl_eur"] += pnl_val
+            if status == "GAGNE":
+                b["g"] += 1
+            elif status == "PERDU":
+                b["p"] += 1
 
     out = {}
     for key, b in buckets.items():
@@ -201,11 +260,25 @@ def fetch_period_series() -> dict:
         FROM paris
         WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
+          AND NOT (market_type IN ('total_points', 'player_pick_only'))
         ORDER BY result_updated_at DESC
         LIMIT 5000
         """,
     )
     rows = cur.fetchall()
+
+    # Player picks (26/07/2026) : meme principe que fetch_period_stats()
+    # ci-dessus -- sans ca, la courbe "Evolution du bilan" ignorait tout le
+    # PnL tennis (fige a 0 cote conseil, reel uniquement cote player picks).
+    cur.execute(
+        """
+        SELECT odd, COALESCE(stake_eur,0), settlement_status,
+               COALESCE(NULLIF(settled_at,''), created_at)
+        FROM sport_player_picks
+        WHERE settlement_status IN ('GAGNE','PERDU')
+        """,
+    )
+    pick_rows = cur.fetchall()
     conn.close()
 
     now = datetime.now(PARIS_TZ)
@@ -220,12 +293,9 @@ def fetch_period_series() -> dict:
     mois = [0.0] * n_days_month
     annee = [0.0] * 12
 
-    for pnl, result_updated_at in rows:
-        dt = _paris_datetime(result_updated_at)
-        if dt is None or dt.date() > today:
-            continue
+    def _bucket_pnl(pnl_eur, dt):
         d = dt.date()
-        pnl_u = float(pnl or 0) / BASE_UNIT_EUR
+        pnl_u = pnl_eur / BASE_UNIT_EUR
         if d == today:
             heures[dt.hour] += pnl_u
         if week_start <= d <= today:
@@ -234,6 +304,18 @@ def fetch_period_series() -> dict:
             mois[d.day - 1] += pnl_u
         if year_start <= d <= today:
             annee[d.month - 1] += pnl_u
+
+    for pnl, result_updated_at in rows:
+        dt = _paris_datetime(result_updated_at)
+        if dt is None or dt.date() > today:
+            continue
+        _bucket_pnl(float(pnl or 0), dt)
+
+    for odd, stake_eur, status, settled_or_created in pick_rows:
+        dt = _paris_datetime(settled_or_created)
+        if dt is None or dt.date() > today:
+            continue
+        _bucket_pnl(_pnl_fixed(status, float(odd or 0), float(stake_eur or 0)), dt)
 
     def cumulative_points(values, labels):
         points, running = [], 0.0
@@ -263,6 +345,9 @@ def _cat(selection: str) -> str:
     return "buteur"
 
 
+# Copie locale VOLONTAIRE de betting_rules.pnl_fixed, memes raisons que
+# SPORTS_VALUE_BET_IS_CONSEIL plus haut (fichier synchronise standalone vers
+# le repo public, pas d'import possible).
 def _pnl_fixed(result: str, cote, stake) -> float:
     if result == "GAGNE":
         return (float(cote or 0) - 1) * float(stake or 0)
@@ -373,6 +458,14 @@ def fetch_results() -> list[dict]:
         # via sport_picks_by_fixture -- l'inclure ici aussi doublait
         # l'affichage du MEME pari (meme diagnostic que daily_bilan.py::
         # _is_pure_value_row, applique ici au mirroir player pick).
+        #
+        # sport_l in SPORTS_VALUE_BET_IS_CONSEIL (23/07/2026, confirme en
+        # direct sur le site public) : pour ces sports, value_bet decrit le
+        # MEME pari que "conseil" (jamais une 2e mise independante comme en
+        # football, cf results_tracker.py::_send_result_msg). Sans ce garde,
+        # chaque pick tennis/MLB/etc avec un value bet apparaissait DEUX FOIS
+        # dans "Derniers picks" (une fois "Conseil", une fois "Value bet",
+        # memes match/cote/resultat) -- le bloc value ci-dessous suffit deja.
         if (conseil and resultat in ("GAGNE", "PERDU", "REMBOURSE")
                 and market_type not in ("total_points", "player_pick_only")
                 and not (sport_l in SPORTS_VALUE_BET_IS_CONSEIL and value_bet)):
@@ -387,7 +480,13 @@ def fetch_results() -> list[dict]:
                 "type": "conseil",
             })
 
-        if value_bet and value_result in ("GAGNE", "PERDU"):
+        # REMBOURSE ajoute (26/07/2026, confirme en direct : Lorenzo Musetti
+        # vs Matteo Arnaldi, rembourse, invisible partout -- le bloc conseil
+        # est saute pour les sports mirroir (dedup, cf plus haut), et ce
+        # bloc value ne prenait que GAGNE/PERDU, jamais REMBOURSE. Un match
+        # tennis rembourse avec value bet devenait invisible sur les deux
+        # blocs a la fois.
+        if value_bet and value_result in ("GAGNE", "PERDU", "REMBOURSE"):
             v_pnl = _pnl_fixed(value_result, value_cote, value_stake)
             out.append({
                 "flag": flag, "match": match, "pick": _short_pick(value_bet),
@@ -548,10 +647,16 @@ def fetch_perf_stats() -> dict:
                 m["pnl"] += float(pnl or 0)
                 break
 
-    # ── Player picks MLB individuels (sport_player_picks) : remplace les
-    # lignes baseball exclues ci-dessus par les picks reellement bundles
-    # (jusqu'a 3 par ligne paris, tous visibles ici au lieu du seul meilleur
-    # edge). Jamais les deux sources a la fois pour le meme pick.
+    # ── Player picks individuels (sport_player_picks) : remplace les lignes
+    # paris exclues ci-dessus (market_type total_points/player_pick_only) par
+    # les picks reellement bundles (jusqu'a 3 par ligne paris pour le
+    # baseball, tous visibles ici au lieu du seul meilleur edge). Jamais les
+    # deux sources a la fois pour le meme pick.
+    # Generalise le 23/07/2026 (etait code en dur sport='mlb' -- tennis (37
+    # picks regles) et WNBA (7) etaient donc invisibles des stats perf/
+    # classement du site, alors que fetch_results() (liste brute) les
+    # affichait deja correctement. Meme diagnostic que daily_bilan.py::
+    # _is_pure_player_pick_row, applique ici cote site.
     SPORT_LABEL_MAP = {"mlb": "baseball"}
     MARKET_TYPE_FOR_SPORT = {"baseball": "total_points", "wnba": "total_points"}
     cur.execute(
@@ -587,7 +692,7 @@ def fetch_perf_stats() -> dict:
             if lo <= odd < hi:
                 key = (mt, label)
                 m = markets.setdefault(key, {"n": 0, "w": 0, "l": 0, "pnl": 0.0,
-                                             "blocked": _is_blocked("total_points", (lo + min(hi, 9.0)) / 2)})
+                                             "blocked": _is_blocked(mt, (lo + min(hi, 9.0)) / 2)})
                 m["n"] += 1
                 m["w"] += won
                 m["l"] += lost
@@ -600,7 +705,7 @@ def fetch_perf_stats() -> dict:
         SELECT p.home, p.away, p.conseil,
                COALESCE(NULLIF(p.cote_reelle,0), p.cote_interne),
                COALESCE(p.pnl,0), COALESCE(NULLIF(p.competition,''), pf.league, ''),
-               p.result_updated_at
+               p.result_updated_at, p.sport
         FROM paris p
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
         WHERE p.resultat IN ('GAGNE','PERDU')
@@ -610,7 +715,7 @@ def fetch_perf_stats() -> dict:
     )
     best = worst = None
     leagues: dict = {}
-    for home, away, conseil, cote, pnl, competition, rud in cur.fetchall():
+    for home, away, conseil, cote, pnl, competition, rud, sport in cur.fetchall():
         d = _paris_calendar_date(rud)
         if d is None or not (month_start <= d <= today):
             continue
@@ -618,7 +723,7 @@ def fetch_perf_stats() -> dict:
         entry = {
             "match": f"{home} – {away}", "pick": _short_pick(conseil),
             "cote": round(float(cote or 0), 2), "pnl": round(pnl / BASE_UNIT_EUR, 2),
-            "flag": _flag(competition), "league": competition or "",
+            "flag": _flag(competition, sport), "league": competition or "",
         }
         if pnl > 0 and (best is None or pnl > best["_raw"]):
             best = {**entry, "_raw": pnl}
@@ -698,7 +803,16 @@ def fetch_perf_stats() -> dict:
 
 def fetch_bankroll() -> dict:
     """Bankroll = BANKROLL_INITIAL_EUR + somme cumulee des pnl reels regles
-    (paris.pnl + sport_player_picks, en EUR)."""
+    (paris.pnl + sport_player_picks, en EUR), du plus ancien pari regle au
+    plus recent -- pas de table dediee, on derive tout de la meme source que
+    fetch_perf_stats.
+
+    Generalise le 23/07/2026 : ne lisait que paris.pnl, qui exclut ou
+    sous-compte les player picks (pnl fige a 0 pour tennis -- cf
+    database.py::update_resultat, _HORS_PNL -- et un seul pick sur 3
+    represente pour le "bundle" baseball). La bankroll affichee au public
+    etait donc fausse pour tout sport avec player picks, tennis en tete
+    (son PNL reel provient presque entierement des player picks)."""
     import psycopg2
 
     db = os.environ.get("DATABASE_URL")
@@ -716,6 +830,12 @@ def fetch_bankroll() -> dict:
         """,
     )
     rows = cur.fetchall()
+
+    # COALESCE(settled_at, created_at) : settled_at n'a jamais ete retrofit
+    # sur l'historique (cf database.py::update_sport_player_pick_settlement,
+    # ajoute le 21/07/2026) -- un filtre strict sur settled_at fait
+    # silencieusement disparaitre 20 des 37 picks tennis regles (surtout des
+    # gains, +2962EUR ignores) au lieu de les dater approximativement.
     cur.execute(
         """
         SELECT odd, COALESCE(stake_eur,0), settlement_status,
@@ -733,7 +853,6 @@ def fetch_bankroll() -> dict:
         if d is None:
             continue
         daily[d] = daily.get(d, 0.0) + float(pnl or 0)
-
     for odd, stake_eur, status, settled_or_created in pick_rows:
         d = _paris_calendar_date(settled_or_created)
         if d is None:
@@ -757,6 +876,7 @@ def fetch_bankroll() -> dict:
         "pct": pct,
         "series": series,
     }
+
 
 def render_perf_block(perf: dict) -> str:
     import json
@@ -817,7 +937,7 @@ def update_html(path: str, results: list[dict], period_stats: dict,
 
 if __name__ == "__main__":
     target = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "index.html",
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "site", "index.html",
     )
     update_html(target, fetch_results(), fetch_period_stats(),
                 fetch_period_series(), fetch_perf_stats())
