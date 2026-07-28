@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-28T17:56:20.543708+00:00",
+ "generated_at": "2026-07-28T19:41:48.478071+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178955",
@@ -8,6 +8,16 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Mackenzie McDonald – Alex Michelsen",
+   "kickoff_at": "2026-07-28T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_179036",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
    "kickoff_at": "2026-07-28T16:30Z",
    "published": false
   },
@@ -28,16 +38,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Rafael Jodar – Arthur Fils",
-   "kickoff_at": "2026-07-28T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_179036",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
    "kickoff_at": "2026-07-28T16:30Z",
    "published": false
   },
@@ -113,22 +113,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178961",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jakub Mensik – Trevor Svajda",
-   "kickoff_at": "2026-07-28T19:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_179029",
    "flag": "🎾",
    "league": "Mubadala DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
+   "kickoff_at": "2026-07-28T19:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178961",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jakub Mensik – Trevor Svajda",
    "kickoff_at": "2026-07-28T19:30Z",
    "published": false
   },
@@ -255,17 +255,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179536",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Emma Si Yu Dong – Yeonwoo Ku",
-   "kickoff_at": "2026-07-29T01:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "mlb_824003",
    "flag": "⚾",
    "league": "MLB",
@@ -317,12 +306,33 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_178924",
+   "fixture_id": "tennis_espn_wta_179536",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Emma Si Yu Dong – Yeonwoo Ku",
+   "kickoff_at": "2026-07-29T03:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178913",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Karen Khachanov – Bernard Tomic",
+   "match": "Chak Lam Coleman Wong – Jiri Lehecka",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178927",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tristan Boyer – Francisco Cerundolo",
    "kickoff_at": "2026-07-29T04:00Z",
    "published": false
   },
@@ -347,6 +357,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179440",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maya Joint – Kristina Liutova",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_179462",
    "flag": "🎾",
    "league": "The Memphis Classic",
@@ -357,22 +377,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178913",
+   "fixture_id": "tennis_espn_atp_178924",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Chak Lam Coleman Wong – Jiri Lehecka",
-   "kickoff_at": "2026-07-29T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178927",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tristan Boyer – Francisco Cerundolo",
+   "match": "Karen Khachanov – Bernard Tomic",
    "kickoff_at": "2026-07-29T04:00Z",
    "published": false
   },
@@ -394,6 +404,16 @@
    "sport_label": "Tennis",
    "match": "Carole Monnet – Elena Ruxandra Bertea",
    "kickoff_at": "2026-07-29T10:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183178",
+   "flag": "🎾",
+   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasiia Sobolieva – Laura Samson",
+   "kickoff_at": "2026-07-30T04:00Z",
    "published": false
   },
   {
@@ -423,16 +443,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Mia Ristic – Yelyzaveta Kotliar",
-   "kickoff_at": "2026-07-30T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183178",
-   "flag": "🎾",
-   "league": "Axeria Open 2026 powered by Intaro Sport",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasiia Sobolieva – Laura Samson",
    "kickoff_at": "2026-07-30T04:00Z",
    "published": false
   }
