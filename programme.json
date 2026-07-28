@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-28T19:41:48.478071+00:00",
+ "generated_at": "2026-07-28T20:51:15.519418+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_atp_178955",
@@ -8,16 +8,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Mackenzie McDonald – Alex Michelsen",
-   "kickoff_at": "2026-07-28T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_179036",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
    "kickoff_at": "2026-07-28T16:30Z",
    "published": false
   },
@@ -38,6 +28,16 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Rafael Jodar – Arthur Fils",
+   "kickoff_at": "2026-07-28T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_179036",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
    "kickoff_at": "2026-07-28T16:30Z",
    "published": false
   },
@@ -113,7 +113,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_179029",
+   "fixture_id": "tennis_espn_atp_179039",
    "flag": "🎾",
    "league": "Mubadala DC Open",
    "sport": "tennis",
@@ -133,7 +133,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_179039",
+   "fixture_id": "tennis_espn_atp_179029",
    "flag": "🎾",
    "league": "Mubadala DC Open",
    "sport": "tennis",
@@ -141,17 +141,6 @@
    "match": "? – ?",
    "kickoff_at": "2026-07-28T19:30Z",
    "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179534",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Miho Kuramochi – Moyuka Uchijima",
-   "kickoff_at": "2026-07-28T20:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_179007",
@@ -164,15 +153,15 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179546",
+   "fixture_id": "tennis_espn_wta_179534",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Ellie Schoppe – Priscilla Hon",
+   "match": "Miho Kuramochi – Moyuka Uchijima",
    "kickoff_at": "2026-07-28T22:00Z",
    "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_822949",
@@ -223,6 +212,17 @@
    "match": "Cincinnati Reds – Cleveland Guardians",
    "kickoff_at": "2026-07-28T23:10:00Z",
    "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179546",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Ellie Schoppe – Priscilla Hon",
+   "kickoff_at": "2026-07-28T23:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "mlb_824569",
@@ -295,17 +295,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179532",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Himeno Sakatsume – Hong Yi Cody Wong",
-   "kickoff_at": "2026-07-29T02:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "tennis_espn_wta_179536",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
@@ -317,12 +306,42 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_179466",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elvina Kalieva – Zeynep Sonmez",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179440",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maya Joint – Kristina Liutova",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_atp_178913",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Chak Lam Coleman Wong – Jiri Lehecka",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179462",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Katie Volynets – Iryna Shymanovich",
    "kickoff_at": "2026-07-29T04:00Z",
    "published": false
   },
@@ -347,34 +366,15 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179466",
+   "fixture_id": "tennis_espn_wta_179532",
    "flag": "🎾",
-   "league": "The Memphis Classic",
+   "league": "Odlum Brown VanOpen",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Elvina Kalieva – Zeynep Sonmez",
+   "match": "Himeno Sakatsume – Hong Yi Cody Wong",
    "kickoff_at": "2026-07-29T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179440",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maya Joint – Kristina Liutova",
-   "kickoff_at": "2026-07-29T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179462",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Katie Volynets – Iryna Shymanovich",
-   "kickoff_at": "2026-07-29T04:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_178924",
@@ -407,6 +407,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179599",
+   "flag": "🎾",
+   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mia Ristic – Yelyzaveta Kotliar",
+   "kickoff_at": "2026-07-30T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_183178",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
@@ -433,16 +443,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Lucia Bronzetti – Alevtina Ibragimova",
-   "kickoff_at": "2026-07-30T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179599",
-   "flag": "🎾",
-   "league": "Axeria Open 2026 powered by Intaro Sport",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mia Ristic – Yelyzaveta Kotliar",
    "kickoff_at": "2026-07-30T04:00Z",
    "published": false
   }
