@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-27T23:39:37.977676+00:00",
+ "generated_at": "2026-07-28T01:05:31.782933+00:00",
  "fixtures": [
   {
    "fixture_id": "tennis_espn_wta_179456",
@@ -155,7 +155,10 @@
    "kickoff_at": "2026-07-27T22:00Z",
    "published": true,
    "value_bet": "Vainqueur — Iryna Shymanovich @ 1.641",
-   "value_cote": 1.64
+   "value_cote": 1.64,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "4-6, 3-6"
   },
   {
    "fixture_id": "mlb_824245",
@@ -164,17 +167,6 @@
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Detroit Tigers – Baltimore Orioles",
-   "kickoff_at": "2026-07-27T22:40:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "mlb_823353",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Pittsburgh Pirates – Arizona Diamondbacks",
    "kickoff_at": "2026-07-27T22:40:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -191,6 +183,17 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
+   "fixture_id": "mlb_823353",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Pittsburgh Pirates – Arizona Diamondbacks",
+   "kickoff_at": "2026-07-27T22:40:00Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
    "fixture_id": "mlb_822705",
    "flag": "⚾",
    "league": "MLB",
@@ -202,23 +205,23 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "mlb_824490",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cincinnati Reds – Cleveland Guardians",
-   "kickoff_at": "2026-07-27T23:10:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
    "fixture_id": "mlb_823597",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "New York Mets – Atlanta Braves",
+   "kickoff_at": "2026-07-27T23:10:00Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "mlb_824490",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cincinnati Reds – Cleveland Guardians",
    "kickoff_at": "2026-07-27T23:10:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -251,18 +254,7 @@
    "match": "Storm Hunter – Camila Osorio",
    "kickoff_at": "2026-07-27T23:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179449",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elvina Kalieva – Katherine Sebov",
-   "kickoff_at": "2026-07-27T23:30Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "mlb_824570",
@@ -293,20 +285,9 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Valeria Savinykh – Emma Si Yu Dong",
-   "kickoff_at": "2026-07-27T23:45Z",
+   "kickoff_at": "2026-07-28T00:50Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183114",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Ellie Schoppe – Katrina Scott",
-   "kickoff_at": "2026-07-27T23:45Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_178907",
@@ -316,7 +297,8 @@
    "sport_label": "Tennis",
    "match": "Bernard Tomic – Alex Hernandez",
    "kickoff_at": "2026-07-28T01:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_atp_178929",
@@ -326,7 +308,19 @@
    "sport_label": "Tennis",
    "match": "Tristan Boyer – Gabriel Diallo",
    "kickoff_at": "2026-07-28T01:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179449",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elvina Kalieva – Katherine Sebov",
+   "kickoff_at": "2026-07-28T01:00Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_183117",
@@ -347,7 +341,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Los Angeles Angels – Houston Astros",
    "kickoff_at": "2026-07-28T01:38:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_824977",
@@ -357,7 +352,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Athletics – Boston Red Sox",
    "kickoff_at": "2026-07-28T01:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_823195",
@@ -367,7 +363,19 @@
    "sport_label": "Baseball (MLB)",
    "match": "San Francisco Giants – Milwaukee Brewers",
    "kickoff_at": "2026-07-28T01:45:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183114",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Ellie Schoppe – Katrina Scott",
+   "kickoff_at": "2026-07-28T04:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179580",
