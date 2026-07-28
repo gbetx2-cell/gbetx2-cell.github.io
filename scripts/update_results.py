@@ -105,7 +105,9 @@ SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈",
 # totalement autonome par son propre cron GitHub Actions, sans acces au
 # reste de ce repo prive -- un `from betting_rules import ...` y crasherait.
 # Si cette liste change un jour, la mettre a jour ICI ET dans betting_rules.py.
-SPORTS_VALUE_BET_IS_CONSEIL = {"tennis", "nba", "nhl", "baseball", "wnba", "nfl"}
+# "mlb" ajoute le 29/07/2026 (meme bug/fix que betting_rules.py -- paris.sport
+# vaut "baseball" mais sport_player_picks.sport vaut "mlb" pour le meme sport).
+SPORTS_VALUE_BET_IS_CONSEIL = {"tennis", "nba", "nhl", "baseball", "mlb", "wnba", "nfl"}
 
 
 def _flag(competition: str, sport: str = "") -> str:
