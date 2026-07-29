@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-29T19:41:53.686366+00:00",
+ "generated_at": "2026-07-29T19:44:39.248892+00:00",
  "fixtures": [
   {
    "fixture_id": "wnba_401857092",
@@ -130,26 +130,6 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "tennis_espn_wta_179551",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hayu Kinoshita – Moyuka Uchijima",
-   "kickoff_at": "2026-07-29T17:00Z",
-   "published": true,
-   "result": "GAGNE",
-   "score": "6-2, 4-6, 5-7",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Hayu Kinoshita vs Moyuka Uchijima — Total sets Plus de 2.5",
-     "detail": "cote 2.64",
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_178965",
    "flag": "🎾",
    "league": "Mubadala DC Open",
@@ -169,6 +149,26 @@
      "label": "Lorenzo Musetti vs Aleksandar Vukic — Total sets Moins de 2.5",
      "detail": "cote 1.54",
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179551",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hayu Kinoshita – Moyuka Uchijima",
+   "kickoff_at": "2026-07-29T17:00Z",
+   "published": true,
+   "result": "GAGNE",
+   "score": "6-2, 4-6, 5-7",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Hayu Kinoshita vs Moyuka Uchijima — Total sets Plus de 2.5",
+     "detail": "cote 2.64",
+     "result": "GAGNE"
     }
    ]
   },
@@ -194,23 +194,23 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "mlb_823596",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – Atlanta Braves",
-   "kickoff_at": "2026-07-29T17:10:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
    "fixture_id": "mlb_824242",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Detroit Tigers – Baltimore Orioles",
+   "kickoff_at": "2026-07-29T17:10:00Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "mlb_823596",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – Atlanta Braves",
    "kickoff_at": "2026-07-29T17:10:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -241,17 +241,6 @@
      "detail": "cote 2.72"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179542",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maddison Inglis – Greet Minnen",
-   "kickoff_at": "2026-07-29T18:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_178971",
@@ -304,6 +293,17 @@
    "kickoff_at": "2026-07-29T19:45:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179542",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maddison Inglis – Greet Minnen",
+   "kickoff_at": "2026-07-29T19:50Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_wta_179560",
@@ -459,17 +459,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178923",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Rodrigo Pacheco Mendez – Denis Shapovalov",
-   "kickoff_at": "2026-07-30T02:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "tennis_espn_atp_178926",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
@@ -481,24 +470,15 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179464",
+   "fixture_id": "tennis_espn_atp_178923",
    "flag": "🎾",
-   "league": "The Memphis Classic",
+   "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Peyton Stearns – Tatiana Prozorova",
-   "kickoff_at": "2026-07-30T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179468",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Catherine McNally – Ma YeXin",
-   "kickoff_at": "2026-07-30T04:00Z",
-   "published": false
+   "match": "Rodrigo Pacheco Mendez – Denis Shapovalov",
+   "kickoff_at": "2026-07-30T02:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "tennis_espn_atp_178921",
@@ -523,6 +503,26 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
+   "fixture_id": "tennis_espn_wta_179464",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Peyton Stearns – Tatiana Prozorova",
+   "kickoff_at": "2026-07-30T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179468",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Catherine McNally – Ma YeXin",
+   "kickoff_at": "2026-07-30T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_179463",
    "flag": "🎾",
    "league": "The Memphis Classic",
@@ -533,22 +533,22 @@
    "published": false
   },
   {
-   "fixture_id": "wnba_401857100",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Chicago Sky – Connecticut Sun",
-   "kickoff_at": "2026-07-31T00:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "wnba_401857099",
    "flag": "🏀",
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
    "match": "Toronto Tempo – Minnesota Lynx",
+   "kickoff_at": "2026-07-31T00:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "wnba_401857100",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Chicago Sky – Connecticut Sun",
    "kickoff_at": "2026-07-31T00:00Z",
    "published": false
   },
