@@ -1,16 +1,6 @@
 {
- "generated_at": "2026-07-29T00:13:07.374202+00:00",
+ "generated_at": "2026-07-29T03:45:33.277748+00:00",
  "fixtures": [
-  {
-   "fixture_id": "tennis_espn_atp_179036",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-28T16:30Z",
-   "published": false
-  },
   {
    "fixture_id": "tennis_espn_atp_178955",
    "flag": "🎾",
@@ -28,6 +18,16 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Learner Tien – Adrian Mannarino",
+   "kickoff_at": "2026-07-28T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_179036",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
    "kickoff_at": "2026-07-28T16:30Z",
    "published": false
   },
@@ -63,16 +63,6 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "tennis_espn_atp_178963",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tomas Martin Etcheverry – Brandon Nakashima",
-   "kickoff_at": "2026-07-28T18:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_178994",
    "flag": "🎾",
    "league": "Mubadala DC Open",
@@ -89,6 +79,16 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Cruz Hewitt – Marcos Giron",
+   "kickoff_at": "2026-07-28T18:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178963",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tomas Martin Etcheverry – Brandon Nakashima",
    "kickoff_at": "2026-07-28T18:00Z",
    "published": false
   },
@@ -113,16 +113,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_179029",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-28T19:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_179039",
    "flag": "🎾",
    "league": "Mubadala DC Open",
@@ -139,6 +129,16 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Jakub Mensik – Trevor Svajda",
+   "kickoff_at": "2026-07-28T19:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_179029",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
    "kickoff_at": "2026-07-28T19:30Z",
    "published": false
   },
@@ -164,12 +164,12 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "mlb_823838",
+   "fixture_id": "mlb_822949",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Miami Marlins – Philadelphia Phillies",
+   "match": "Tampa Bay Rays – Texas Rangers",
    "kickoff_at": "2026-07-28T22:40:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -186,12 +186,12 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "mlb_822949",
+   "fixture_id": "mlb_823838",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – Texas Rangers",
+   "match": "Miami Marlins – Philadelphia Phillies",
    "kickoff_at": "2026-07-28T22:40:00Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
@@ -259,7 +259,8 @@
    "sport_label": "Tennis",
    "match": "Edward Winter – Moise Kouame",
    "kickoff_at": "2026-07-29T01:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
    "fixture_id": "mlb_824003",
@@ -269,7 +270,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Los Angeles Angels – Houston Astros",
    "kickoff_at": "2026-07-29T01:38:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_824976",
@@ -279,7 +281,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Athletics – Boston Red Sox",
    "kickoff_at": "2026-07-29T01:40:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_823193",
@@ -289,7 +292,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "San Francisco Giants – Milwaukee Brewers",
    "kickoff_at": "2026-07-29T01:45:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "mlb_823923",
@@ -299,7 +303,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Los Angeles Dodgers – Seattle Mariners",
    "kickoff_at": "2026-07-29T02:10:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179532",
@@ -321,7 +326,7 @@
    "match": "Emma Si Yu Dong – Yeonwoo Ku",
    "kickoff_at": "2026-07-29T03:30Z",
    "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_atp_178927",
@@ -331,17 +336,8 @@
    "sport_label": "Tennis",
    "match": "Tristan Boyer – Francisco Cerundolo",
    "kickoff_at": "2026-07-29T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178924",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Karen Khachanov – Bernard Tomic",
-   "kickoff_at": "2026-07-29T04:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_atp_178913",
@@ -351,7 +347,19 @@
    "sport_label": "Tennis",
    "match": "Chak Lam Coleman Wong – Jiri Lehecka",
    "kickoff_at": "2026-07-29T04:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178924",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Karen Khachanov – Bernard Tomic",
+   "kickoff_at": "2026-07-29T04:00Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179578",
@@ -404,6 +412,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179440",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maya Joint – Kristina Liutova",
+   "kickoff_at": "2026-07-30T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_183178",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
@@ -414,12 +432,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179579",
+   "fixture_id": "tennis_espn_wta_179599",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Lucija Ciric Bagaric – Francesca Jones",
+   "match": "Mia Ristic – Yelyzaveta Kotliar",
    "kickoff_at": "2026-07-30T04:00Z",
    "published": false
   },
@@ -434,22 +452,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179440",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maya Joint – Kristina Liutova",
-   "kickoff_at": "2026-07-30T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179599",
+   "fixture_id": "tennis_espn_wta_179579",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Mia Ristic – Yelyzaveta Kotliar",
+   "match": "Lucija Ciric Bagaric – Francesca Jones",
    "kickoff_at": "2026-07-30T04:00Z",
    "published": false
   }
