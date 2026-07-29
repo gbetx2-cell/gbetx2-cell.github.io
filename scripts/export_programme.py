@@ -26,6 +26,39 @@ from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 PARIS_TZ = ZoneInfo("Europe/Paris")
+UTC = timezone.utc
+
+
+def _get_programme_window_sql_where() -> tuple[str, tuple]:
+    """
+    Retourne la clause WHERE et les paramètres pour SQL (fenêtre J 08h-J+1 07h59).
+
+    Fenêtre J 08h00 Paris → J+1 07h59:59 Paris = J 06h00 UTC → J+1 05h59:59 UTC.
+    Embarqué ici (pas d'import utils/) pour compatibilité repo public sans dépendances.
+
+    Returns:
+        (where_clause, params_tuple) pour utilisation dans cur.execute()
+    """
+    now_paris = datetime.now(PARIS_TZ)
+
+    # Bornes en heure Paris
+    window_start_paris = now_paris.replace(hour=8, minute=0, second=0, microsecond=0)
+    window_end_paris = (now_paris + timedelta(days=1)).replace(
+        hour=7, minute=59, second=59, microsecond=999999
+    )
+
+    # Conversion en UTC
+    window_start_utc = window_start_paris.astimezone(UTC)
+    window_end_utc = window_end_paris.astimezone(UTC)
+
+    # Format ISO pour comparaison SQL
+    start_iso = window_start_utc.isoformat()
+    end_iso = window_end_utc.isoformat()
+
+    where_clause = "kickoff_at::timestamp BETWEEN %s AND %s"
+    params = (start_iso, end_iso)
+
+    return where_clause, params
 
 COMPETITION_FLAGS = {
     "coupe du monde": "🏆", "k league": "🇰🇷", "j1 league": "🇯🇵", "j2 league": "🇯🇵",
@@ -167,15 +200,20 @@ def fetch_programme() -> list[dict]:
 
     programme_date = _programme_date_today()
     placeholders_sport = ",".join(["%s"] * len(PROGRAMME_SPORTS))
+
+    # Filtre fenêtre temporelle: J 08h → J+1 07h59 (nettoyage rétrospectif, ex: Wimbledon hors fenêtre)
+    window_where, window_params = _get_programme_window_sql_where()
+
     cur.execute(
         f"""
         SELECT fixture_id, home, away, league, kickoff_at, publish_status, sport
         FROM programme_fixtures
         WHERE programme_date = %s AND sport IN ({placeholders_sport})
+          AND {window_where}
         ORDER BY kickoff_at ASC
         LIMIT 300
         """,
-        (programme_date, *PROGRAMME_SPORTS),
+        (programme_date, *PROGRAMME_SPORTS, *window_params),
     )
     rows = cur.fetchall()
 
