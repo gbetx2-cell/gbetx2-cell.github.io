@@ -653,6 +653,9 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
             <button data-mode="u" class="active">En unités</button>
             <button data-mode="e">En €</button>
           </div>
+          <div class="chart-toggle sport-filter" id="sportFilter" style="margin-left:10px">
+            <button data-sport="all" class="active">Tous</button>
+          </div>
         </div>
         <div class="delta" id="chartDelta">—</div>
       </div>
@@ -663,6 +666,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <div class="chart-note">
         G = gagné · P = perdu · R = remboursé — mise à jour à chaque bilan quotidien.
       </div>
+      <button id="voirPlusBtn" class="btn btn-ghost" style="margin-top:14px">Voir plus</button>
     </div>
   </div>
 </section>
@@ -874,6 +878,89 @@ const PERF_STATS = {"global": {"n": 756, "w": 368, "l": 384, "winrate": 49, "roi
 const RES_LABEL = {G:"Gagné", P:"Perdu", R:"Remboursé"};
 let currentMode = "u"; // "u" = unités, "e" = euros
 
+/* ── Filtre par sport (Résultats) ── */
+const SPORT_META = {
+  tennis:   {label:"Tennis",   flag:"🎾"},
+  mlb:      {label:"MLB",      flag:"⚾"},
+  wnba:     {label:"WNBA",     flag:"🏀"},
+  nba:      {label:"NBA",      flag:"🏀"},
+  nhl:      {label:"NHL",      flag:"🏒"},
+  nfl:      {label:"NFL",      flag:"🏈"},
+  football: {label:"Football", flag:"⚽"},
+};
+// paris.sport vaut "baseball" pour les paris reels mais "mlb" pour les
+// sport_player_picks, meme sport (cf betting_rules.py) -- normalise en "mlb"
+// partout cote affichage pour ne pas scinder le filtre en deux boutons.
+function normalizeSport(s){
+  s = (s || "").toLowerCase();
+  return s === "baseball" ? "mlb" : s;
+}
+// Repli sur le drapeau si le champ sport est absent (entrees generees avant
+// son ajout, 30/07/2026) -- ambigu seulement entre nba/wnba (meme drapeau
+// 🏀), sans impact tant que les deux ne sont pas actifs en meme temps.
+const FLAG_TO_SPORT = {"🎾":"tennis", "⚾":"mlb", "🏀":"wnba", "🏒":"nhl", "🏈":"nfl"};
+function resSport(res){
+  return normalizeSport(res.sport) || FLAG_TO_SPORT[res.flag] || "";
+}
+let currentSportFilter = "all";
+// Fenetre de visibilite (point 3 pagination, 30/07/2026) : RESULTATS charge
+// jusqu'a 80 matchs regles (cf N_MATCHES, export_site_results.py), mais
+// seuls les 20 derniers sont affiches par defaut -- "Voir plus" etend vers
+// l'arriere dans l'historique deja charge, sans nouvel appel serveur. Le
+// filtre sport s'applique D'ABORD sur tout l'historique charge, puis la
+// fenetre prend les N derniers de CE sous-ensemble (pas les N derniers
+// toutes sports confondus) -- coherent avec le texte "sur les N derniers
+// picks <sport>".
+const BASE_VISIBLE = 20, STEP_VISIBLE = 20;
+let visibleCount = BASE_VISIBLE;
+function baseFiltered(){
+  if (currentSportFilter === "all") return RESULTATS;
+  return RESULTATS.filter(res => resSport(res) === currentSportFilter);
+}
+function filteredResultats(){
+  return baseFiltered().slice(-visibleCount);
+}
+function updateVoirPlusButton(){
+  const btn = document.getElementById('voirPlusBtn');
+  if (!btn) return;
+  const total = baseFiltered().length;
+  if (visibleCount >= total) {
+    btn.style.display = 'none';
+  } else {
+    btn.style.display = '';
+    btn.textContent = `Voir plus (+${Math.min(STEP_VISIBLE, total - visibleCount)})`;
+  }
+}
+function setupSportFilter(){
+  const bar = document.getElementById('sportFilter');
+  if (!bar) return;
+  const sports = [...new Set(RESULTATS.map(resSport).filter(Boolean))];
+  sports.forEach(s=>{
+    const meta = SPORT_META[s] || {label:s, flag:''};
+    const btn = document.createElement('button');
+    btn.dataset.sport = s;
+    btn.textContent = `${meta.flag} ${meta.label}`.trim();
+    bar.appendChild(btn);
+  });
+  bar.addEventListener('click', e=>{
+    const btn = e.target.closest('button[data-sport]');
+    if (!btn) return;
+    currentSportFilter = btn.dataset.sport;
+    visibleCount = BASE_VISIBLE;
+    bar.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b === btn));
+    drawChart();
+    renderChips();
+    updateVoirPlusButton();
+  });
+  document.getElementById('voirPlusBtn')?.addEventListener('click', ()=>{
+    visibleCount += STEP_VISIBLE;
+    drawChart();
+    animateChartLine();
+    renderChips();
+    updateVoirPlusButton();
+  });
+}
+
 /* Gain reel d'un conseil, en unites -- utilise le pnl reel (mise variable
    deja prise en compte) quand il est present ; repli sur l'ancien calcul a
    mise fixe 1u seulement pour d'eventuelles anciennes entrees sans champ pnl. */
@@ -887,7 +974,7 @@ function realGain(res){
 function computeSeries(){
   let units = 0;
   const pts = [{y:0}];
-  RESULTATS.forEach(res=>{
+  filteredResultats().forEach(res=>{
     units += realGain(res);
     pts.push({y:units});
   });
@@ -933,7 +1020,9 @@ function drawChart(){
   const totalDisplay = currentMode === "e"
     ? `${up?'+':''}${(total*MISE_PAR_UNITE).toFixed(0)} €`
     : `${up?'+':''}${total.toFixed(2)} u`;
-  d.innerHTML = `${totalDisplay} <small>sur les ${RESULTATS.length} derniers picks (conseil/value/player pick) · 1 u = ${MISE_PAR_UNITE} €</small>`;
+  const n = filteredResultats().length;
+  const scope = currentSportFilter === "all" ? "derniers picks" : `derniers picks ${SPORT_META[currentSportFilter]?.label || currentSportFilter}`;
+  d.innerHTML = `${totalDisplay} <small>sur les ${n} ${scope} (conseil/value/player pick) · 1 u = ${MISE_PAR_UNITE} €</small>`;
 }
 
 function animateChartLine(){
@@ -1204,15 +1293,17 @@ const TYPE_META = {
   value:   {icon:'trend-up',  label:'Value bet'},
   player:  {icon:'ball',      label:'Player pick'},
 };
-(function(){
+let chipsRevealed = false;
+function renderChips(){
   const row = document.getElementById('chipsRow');
-  RESULTATS.forEach(res=>{
+  row.querySelectorAll('.chip').forEach(c=>c.remove());
+  filteredResultats().forEach(res=>{
     const g = realGain(res);
     const gain = `${g > 0 ? '+' : g < 0 ? '−' : '±'}${Math.abs(g).toFixed(2)} u`;
     const mise = typeof res.mise === 'number' ? res.mise : 1;
     const meta = TYPE_META[res.type] || TYPE_META.conseil;
     const chip = document.createElement('span');
-    chip.className = `chip ${res.r.toLowerCase()}`;
+    chip.className = `chip ${res.r.toLowerCase()}` + (chipsRevealed ? ' visible' : '');
     chip.innerHTML = `
       <span class="flag">${res.flag}</span>${res.r}
       <span class="tip">
@@ -1222,13 +1313,17 @@ const TYPE_META = {
       </span>`;
     row.appendChild(chip);
   });
-  new IntersectionObserver((e,o)=>{
-    if(e[0].isIntersecting){
-      row.querySelectorAll('.chip').forEach((c,i)=>setTimeout(()=>c.classList.add('visible'), i*55));
-      o.disconnect();
-    }
-  },{threshold:.3}).observe(row);
-})();
+}
+renderChips();
+setupSportFilter();
+updateVoirPlusButton();
+new IntersectionObserver((e,o)=>{
+  if(e[0].isIntersecting){
+    chipsRevealed = true;
+    document.getElementById('chipsRow').querySelectorAll('.chip').forEach((c,i)=>setTimeout(()=>c.classList.add('visible'), i*55));
+    o.disconnect();
+  }
+},{threshold:.3}).observe(document.getElementById('chipsRow'));
 
 /* ── Compteurs animés (stats) ── */
 function countUp(el){

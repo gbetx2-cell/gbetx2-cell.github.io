@@ -22,7 +22,10 @@ import sys
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-N_MATCHES = 20  # matchs regles (chacun peut donner jusqu'a 3 entrees : conseil/value/player pick cote)
+N_MATCHES = 80  # matchs regles (chacun peut donner jusqu'a 3 entrees : conseil/value/player pick cote)
+# 80 au lieu de 20 (30/07/2026, point 3 pagination) : alimente le "Voir plus"
+# cote client (site/index.html), qui affiche par defaut les 20 derniers et
+# etend en arriere dans l'historique deja charge, sans nouvel appel serveur.
 BASE_UNIT_EUR = 200  # doit rester synchro avec ai/staking.py BASE_UNIT_EUR
 PARIS_TZ = ZoneInfo("Europe/Paris")
 
@@ -485,7 +488,7 @@ def fetch_results() -> list[dict]:
                 "r": {"GAGNE": "G", "PERDU": "P"}.get(resultat, "R"),
                 "mise": round(float(mise or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
                 "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 2),
-                "type": "conseil",
+                "type": "conseil", "sport": sport_l,
             })
 
         # REMBOURSE ajoute (26/07/2026, confirme en direct : Lorenzo Musetti
@@ -502,7 +505,7 @@ def fetch_results() -> list[dict]:
                 "r": {"GAGNE": "G", "PERDU": "P"}.get(value_result, "R"),
                 "mise": round(float(value_stake or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
                 "pnl": round(v_pnl / BASE_UNIT_EUR, 2),
-                "type": "value",
+                "type": "value", "sport": sport_l,
             })
 
         pick_info = player_by_fixture.get(fixture_id)
@@ -520,7 +523,7 @@ def fetch_results() -> list[dict]:
                     "r": {"GAGNE": "G", "PERDU": "P"}.get(result, "R"),
                     "mise": round(pick_info["stake"] / BASE_UNIT_EUR, 2),
                     "pnl": round(p_pnl / BASE_UNIT_EUR, 2),
-                    "type": "player",
+                    "type": "player", "sport": sport_l,
                 })
 
         # Player picks MLB/NBA/WNBA/NHL/NFL/Tennis (sport_player_picks) --
@@ -535,7 +538,7 @@ def fetch_results() -> list[dict]:
                 "r": {"GAGNE": "G", "PERDU": "P"}.get(sp["result"], "R"),
                 "mise": round(sp["stake"] / BASE_UNIT_EUR, 2),
                 "pnl": round(p_pnl / BASE_UNIT_EUR, 2),
-                "type": "player",
+                "type": "player", "sport": sport_l,
             })
 
     return out
@@ -896,9 +899,11 @@ def render_block(results: list[dict]) -> str:
     for r in results:
         match = r["match"].replace('"', "'")
         pick = r["pick"].replace('"', "'")
+        sport = r.get("sport", "")
         lines.append(
             f'  {{flag:"{r["flag"]}", match:"{match}", pick:"{pick}", '
-            f'cote:{r["cote"]:.2f}, r:"{r["r"]}", mise:{r["mise"]:.2f}, pnl:{r["pnl"]:.2f}, type:"{r["type"]}"}},'
+            f'cote:{r["cote"]:.2f}, r:"{r["r"]}", mise:{r["mise"]:.2f}, pnl:{r["pnl"]:.2f}, '
+            f'type:"{r["type"]}", sport:"{sport}"}},'
         )
     lines.append("];")
     return "\n".join(lines)
