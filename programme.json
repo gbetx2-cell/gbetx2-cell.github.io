@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-29T16:55:40.091763+00:00",
+ "generated_at": "2026-07-29T18:10:23.223132+00:00",
  "fixtures": [
   {
    "fixture_id": "wnba_401857092",
@@ -49,17 +49,6 @@
    ]
   },
   {
-   "fixture_id": "wnba_401857095",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Las Vegas Aces – Portland Fire",
-   "kickoff_at": "2026-07-29T02:00Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
    "fixture_id": "wnba_401857096",
    "flag": "🏀",
    "league": "WNBA",
@@ -78,6 +67,17 @@
    ]
   },
   {
+   "fixture_id": "wnba_401857095",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Las Vegas Aces – Portland Fire",
+   "kickoff_at": "2026-07-29T02:00Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_wta_179462",
    "flag": "🎾",
    "league": "The Memphis Classic",
@@ -86,11 +86,14 @@
    "match": "Katie Volynets – Iryna Shymanovich",
    "kickoff_at": "2026-07-29T16:00Z",
    "published": true,
+   "result": "PERDU",
+   "score": "6-4, 6-2",
    "player_picks": [
     {
      "category": "Player pick",
      "label": "Katie Volynets vs Iryna Shymanovich — Total sets Plus de 2.5",
-     "detail": "cote 2.66"
+     "detail": "cote 2.66",
+     "result": "PERDU"
     }
    ]
   },
@@ -146,16 +149,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_178968",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Stefanos Tsitsipas – Alex de Minaur",
-   "kickoff_at": "2026-07-29T17:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179551",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
@@ -171,6 +164,16 @@
      "detail": "cote 2.64"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178968",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Stefanos Tsitsipas – Alex de Minaur",
+   "kickoff_at": "2026-07-29T17:00Z",
+   "published": false
   },
   {
    "fixture_id": "mlb_822702",
@@ -213,7 +216,8 @@
    "sport_label": "Tennis",
    "match": "Elisabetta Cocciaretto – Emma Navarro",
    "kickoff_at": "2026-07-29T18:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_atp_178980",
@@ -233,18 +237,14 @@
    "sport_label": "Tennis",
    "match": "Sofia Costoulas – Lizette Cabrera",
    "kickoff_at": "2026-07-29T18:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178971",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Kamil Majchrzak – Taylor Fritz",
-   "kickoff_at": "2026-07-29T18:30Z",
-   "published": false
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Sofia Costoulas vs Lizette Cabrera — Total sets Plus de 2.5",
+     "detail": "cote 2.72"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_179542",
@@ -255,7 +255,17 @@
    "match": "Maddison Inglis – Greet Minnen",
    "kickoff_at": "2026-07-29T18:30Z",
    "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178971",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Kamil Majchrzak – Taylor Fritz",
+   "kickoff_at": "2026-07-29T18:30Z",
+   "published": false
   },
   {
    "fixture_id": "tennis_espn_atp_179031",
@@ -439,6 +449,17 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_178923",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rodrigo Pacheco Mendez – Denis Shapovalov",
+   "kickoff_at": "2026-07-30T02:30Z",
+   "published": false,
+   "no_bet_reason": "Compositions arrivées trop tard"
+  },
+  {
    "fixture_id": "tennis_espn_atp_178926",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
@@ -450,15 +471,34 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_atp_178923",
+   "fixture_id": "tennis_espn_wta_179464",
    "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
+   "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Rodrigo Pacheco Mendez – Denis Shapovalov",
-   "kickoff_at": "2026-07-30T02:30Z",
-   "published": false,
-   "no_bet_reason": "Compositions arrivées trop tard"
+   "match": "Peyton Stearns – Tatiana Prozorova",
+   "kickoff_at": "2026-07-30T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179468",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Catherine McNally – Ma YeXin",
+   "kickoff_at": "2026-07-30T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179463",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Darja Vidmanova – Sloane Stephens",
+   "kickoff_at": "2026-07-30T04:00Z",
+   "published": false
   },
   {
    "fixture_id": "tennis_espn_atp_178925",
@@ -483,33 +523,13 @@
    "no_bet_reason": "Compositions arrivées trop tard"
   },
   {
-   "fixture_id": "tennis_espn_wta_179463",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Darja Vidmanova – Sloane Stephens",
-   "kickoff_at": "2026-07-30T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179464",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Peyton Stearns – Tatiana Prozorova",
-   "kickoff_at": "2026-07-30T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179468",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Catherine McNally – Ma YeXin",
-   "kickoff_at": "2026-07-30T04:00Z",
+   "fixture_id": "wnba_401857100",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Chicago Sky – Connecticut Sun",
+   "kickoff_at": "2026-07-31T00:00Z",
    "published": false
   },
   {
@@ -519,16 +539,6 @@
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
    "match": "Toronto Tempo – Minnesota Lynx",
-   "kickoff_at": "2026-07-31T00:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "wnba_401857100",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Chicago Sky – Connecticut Sun",
    "kickoff_at": "2026-07-31T00:00Z",
    "published": false
   },
