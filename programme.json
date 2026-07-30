@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-30T19:34:44.086766+00:00",
+ "generated_at": "2026-07-30T20:07:54.058320+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -261,11 +261,15 @@
    "published": true,
    "value_bet": "Vainqueur — Himeno Sakatsume @ 2.06",
    "value_cote": 2.06,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2-6, 2-6",
    "player_picks": [
     {
      "category": "Player pick",
      "label": "Himeno Sakatsume vs Mai Hontama — Total sets Plus de 2.5",
-     "detail": "cote 2.37"
+     "detail": "cote 2.37",
+     "result": "PERDU"
     }
    ]
   },
@@ -320,23 +324,23 @@
    "value_cote": 1.69
   },
   {
-   "fixture_id": "tennis_espn_wta_179557",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Taylah Preston – Harriet Dart",
-   "kickoff_at": "2026-07-30T19:30Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_wta_179575",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
+   "kickoff_at": "2026-07-30T19:30Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179557",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Taylah Preston – Harriet Dart",
    "kickoff_at": "2026-07-30T19:30Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -380,6 +384,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179481",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-30T21:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_179572",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
@@ -389,16 +403,6 @@
    "kickoff_at": "2026-07-30T21:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179481",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-30T21:00Z",
-   "published": false
   },
   {
    "fixture_id": "tennis_espn_wta_179571",
@@ -422,22 +426,22 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_823595",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – Miami Marlins",
-   "kickoff_at": "2026-07-30T23:10:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_824488",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Cincinnati Reds – Pittsburgh Pirates",
+   "kickoff_at": "2026-07-30T23:10:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "mlb_823595",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – Miami Marlins",
    "kickoff_at": "2026-07-30T23:10:00Z",
    "published": false
   },
@@ -449,6 +453,16 @@
    "sport_label": "Baseball (MLB)",
    "match": "Atlanta Braves – Washington Nationals",
    "kickoff_at": "2026-07-30T23:15:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "wnba_401857099",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Toronto Tempo – Minnesota Lynx",
+   "kickoff_at": "2026-07-31T00:00Z",
    "published": false
   },
   {
@@ -472,13 +486,13 @@
    "published": false
   },
   {
-   "fixture_id": "wnba_401857099",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – Minnesota Lynx",
-   "kickoff_at": "2026-07-31T00:00Z",
+   "fixture_id": "tennis_espn_wta_179568",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-31T00:30Z",
    "published": false
   },
   {
@@ -492,14 +506,15 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179568",
+   "fixture_id": "tennis_espn_atp_178945",
    "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
+   "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
-   "kickoff_at": "2026-07-31T00:30Z",
-   "published": false
+   "kickoff_at": "2026-07-31T01:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_atp_178917",
@@ -508,17 +523,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Arthur Gea – Francisco Cerundolo",
-   "kickoff_at": "2026-07-31T01:00Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_178945",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
    "kickoff_at": "2026-07-31T01:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -534,16 +538,6 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_824974",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Athletics – Boston Red Sox",
-   "kickoff_at": "2026-07-31T01:40:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_823271",
    "flag": "⚾",
    "league": "MLB",
@@ -554,13 +548,13 @@
    "published": false
   },
   {
-   "fixture_id": "wnba_401857101",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Las Vegas Aces – New York Liberty",
-   "kickoff_at": "2026-07-31T02:00Z",
+   "fixture_id": "mlb_824974",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Athletics – Boston Red Sox",
+   "kickoff_at": "2026-07-31T01:40:00Z",
    "published": false
   },
   {
@@ -575,6 +569,16 @@
    "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
+   "fixture_id": "wnba_401857101",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Las Vegas Aces – New York Liberty",
+   "kickoff_at": "2026-07-31T02:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "mlb_823921",
    "flag": "⚾",
    "league": "MLB",
@@ -585,23 +589,23 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178930",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Dalibor Svrcina – Denis Shapovalov",
-   "kickoff_at": "2026-07-31T02:30Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_atp_178944",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
+   "kickoff_at": "2026-07-31T02:30Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178930",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Dalibor Svrcina – Denis Shapovalov",
    "kickoff_at": "2026-07-31T02:30Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
