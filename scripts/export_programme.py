@@ -227,16 +227,30 @@ def fetch_programme() -> list[dict]:
     # Filtre fenêtre temporelle: J 08h → J+1 07h59 (nettoyage rétrospectif, ex: Wimbledon hors fenêtre)
     window_where, window_params = _get_programme_window_sql_where()
 
+    # Filtre par programme_date retire le 30/07/2026 (audit demande explicite,
+    # confirme en direct : match Bronzetti/Ibragimova publie sur Telegram mais
+    # invisible du site). programme_date est fige a la date de PREMIERE
+    # detection du match (le scan tourne plusieurs jours a l'avance) et n'est
+    # jamais rafraichi une fois les noms des joueurs connus (seul le cas
+    # TBD -> vrai nom l'est, cf tennis/predictions.py) -- un match detecte le
+    # 28/07 mais qui se joue le 30/07 restait donc invisible du site tout en
+    # etant normalement publie par le pipeline (qui, lui, ne regarde que
+    # kickoff_at). Le filtre window_where ci-dessous fait deja tout le travail
+    # de restriction a la fenetre du jour, de facon fiable (base sur l'heure
+    # reelle du match, jamais perimee) : programme_date devenait redondant et
+    # etait la seule source du bug. programme_date (variable Python) reste
+    # utilisee plus bas pour la requete Coup du Jour (daily_flags), une table
+    # differente, non affectee par ce retrait.
     cur.execute(
         f"""
         SELECT fixture_id, home, away, league, kickoff_at, publish_status, sport
         FROM programme_fixtures
-        WHERE programme_date = %s AND sport IN ({placeholders_sport})
+        WHERE sport IN ({placeholders_sport})
           AND {window_where}
         ORDER BY kickoff_at ASC
         LIMIT 300
         """,
-        (programme_date, *PROGRAMME_SPORTS, *window_params),
+        (*PROGRAMME_SPORTS, *window_params),
     )
     rows = cur.fetchall()
 
