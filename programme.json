@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-30T20:07:54.058320+00:00",
+ "generated_at": "2026-07-30T21:30:42.303946+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -251,6 +251,26 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179559",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maddison Inglis – Moyuka Uchijima",
+   "kickoff_at": "2026-07-30T18:30Z",
+   "published": true,
+   "result": "GAGNE",
+   "score": "6-4, 6-7, 6-3",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Maddison Inglis vs Moyuka Uchijima — Total sets Plus de 2.5",
+     "detail": "cote 2.49",
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_wta_179558",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
@@ -270,23 +290,6 @@
      "label": "Himeno Sakatsume vs Mai Hontama — Total sets Plus de 2.5",
      "detail": "cote 2.37",
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179559",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maddison Inglis – Moyuka Uchijima",
-   "kickoff_at": "2026-07-30T18:30Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Maddison Inglis vs Moyuka Uchijima — Total sets Plus de 2.5",
-     "detail": "cote 2.49"
     }
    ]
   },
@@ -321,7 +324,10 @@
    "kickoff_at": "2026-07-30T19:05Z",
    "published": true,
    "value_bet": "Vainqueur — Mananchaya Sawangkaew @ 1.694",
-   "value_cote": 1.69
+   "value_cote": 1.69,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-3, 6-2"
   },
   {
    "fixture_id": "tennis_espn_wta_179575",
@@ -330,28 +336,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "? – ?",
-   "kickoff_at": "2026-07-30T19:30Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179557",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Taylah Preston – Harriet Dart",
-   "kickoff_at": "2026-07-30T19:30Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179478",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
    "kickoff_at": "2026-07-30T19:30Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -384,19 +368,42 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179481",
+   "fixture_id": "tennis_espn_wta_179478",
    "flag": "🎾",
    "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
-   "kickoff_at": "2026-07-30T21:00Z",
-   "published": false
+   "kickoff_at": "2026-07-30T20:35Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179557",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Taylah Preston – Harriet Dart",
+   "kickoff_at": "2026-07-30T20:45Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_179572",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-30T21:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179481",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -413,7 +420,7 @@
    "match": "TBD – TBD",
    "kickoff_at": "2026-07-30T21:30Z",
    "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179463",
@@ -426,22 +433,22 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_824488",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cincinnati Reds – Pittsburgh Pirates",
-   "kickoff_at": "2026-07-30T23:10:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_823595",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "New York Mets – Miami Marlins",
+   "kickoff_at": "2026-07-30T23:10:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "mlb_824488",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cincinnati Reds – Pittsburgh Pirates",
    "kickoff_at": "2026-07-30T23:10:00Z",
    "published": false
   },
@@ -466,16 +473,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179566",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-31T00:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "wnba_401857100",
    "flag": "🏀",
    "league": "WNBA",
@@ -486,9 +483,19 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179568",
+   "fixture_id": "tennis_espn_wta_179566",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-07-31T00:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179482",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -496,9 +503,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179482",
+   "fixture_id": "tennis_espn_wta_179568",
    "flag": "🎾",
-   "league": "The Memphis Classic",
+   "league": "Odlum Brown VanOpen",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -907,17 +914,7 @@
    "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-07-31T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179555",
-   "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
+   "match": "Catherine McNally – Kristina Liutova",
    "kickoff_at": "2026-07-31T04:00Z",
    "published": false
   },
@@ -928,6 +925,16 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
+   "kickoff_at": "2026-07-31T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179555",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mai Hontama – Maddison Inglis",
    "kickoff_at": "2026-07-31T04:00Z",
    "published": false
   },
