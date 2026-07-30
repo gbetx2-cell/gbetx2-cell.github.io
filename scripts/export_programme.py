@@ -193,6 +193,24 @@ NO_BET_REASONS_FR = {
 }
 NO_BET_GENERIC_FR = "Critères de publication non atteints"
 
+# Sports sans compositions officielles confirmées avant match (cf.
+# ai/comp_windows.py docstring : tennis n'a "pas de compo officielle" ;
+# wnba n'a qu'un roster d'effectif, jamais un starting lineup titulaire
+# confirme comme NBA/NHL/NFL/foot). Le libelle generique de
+# REASON_AFTER_T20_BLOCKED ("Compositions arrivées trop tard") est donc
+# trompeur pour ces sports -- overrides ici (30/07/2026, audit demande
+# explicite suite a une capture d'ecran site reelle).
+_NO_COMPOSITIONS_SPORTS = {"tennis", "wnba"}
+NO_BET_REASONS_FR_OVERRIDE = {
+    "REASON_AFTER_T20_BLOCKED": "Analyse non finalisée à temps",
+}
+
+
+def _no_bet_label(reason_code: str, sport: str) -> str:
+    if sport in _NO_COMPOSITIONS_SPORTS and reason_code in NO_BET_REASONS_FR_OVERRIDE:
+        return NO_BET_REASONS_FR_OVERRIDE[reason_code]
+    return NO_BET_REASONS_FR.get(reason_code, NO_BET_GENERIC_FR)
+
 
 def fetch_programme() -> list[dict]:
     import psycopg2
@@ -264,7 +282,7 @@ def fetch_programme() -> list[dict]:
             item["coup"] = True
         if publish_status != "published" and str(fixture_id) in no_bet_by_fixture:
             code = no_bet_by_fixture[str(fixture_id)]
-            item["no_bet_reason"] = NO_BET_REASONS_FR.get(code, NO_BET_GENERIC_FR)
+            item["no_bet_reason"] = _no_bet_label(code, sport)
         if publish_status == "published":
             cur.execute(
                 """SELECT conseil, COALESCE(NULLIF(cote_reelle,0), cote_interne),
