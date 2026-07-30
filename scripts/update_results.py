@@ -328,18 +328,58 @@ def fetch_period_series() -> dict:
             continue
         _bucket_pnl(_pnl_fixed(status, float(odd or 0), float(stake_eur or 0)), dt)
 
-    def cumulative_points(values, labels):
+    # Troncature aux buckets futurs (30/07/2026, audit demande explicite) :
+    # les tableaux heures/semaine/mois/annee ci-dessus contiennent toujours
+    # 24/7/N/12 cases (les cases futures restent a 0.0), mais on ne doit
+    # jamais tracer de cumul au-dela de l'instant present -- sinon la
+    # courbe "avance" a plat jusqu'a la fin de l'axe (bug confirme en
+    # capture : ligne plate de 12h31 a 23h alors qu'aucune donnee n'existe
+    # encore pour l'apres-midi). now_idx = index du dernier bucket qui a
+    # deja commence (heure en cours, jour de semaine en cours, etc.).
+    now_idx_jour = now.hour
+    now_idx_semaine = today.weekday()
+    now_idx_mois = today.day - 1
+    now_idx_annee = today.month - 1
+
+    def cumulative_points(values, labels, now_idx):
         points, running = [], 0.0
-        for v, label in zip(values, labels):
+        for i, (v, label) in enumerate(zip(values, labels)):
+            if i > now_idx:
+                break  # bucket futur, pas encore commence -- jamais trace
             running += v
             points.append({"label": label, "pnl": round(running, 2)})
         return points
 
+    # now_frac : fraction exacte (Europe/Paris, jamais l'heure serveur
+    # brute -- meme correctif que la fenetre programme du 30/07/2026) de la
+    # periode ecoulee jusqu'a maintenant. Sert cote client a positionner le
+    # DERNIER point exactement a l'instant present sur l'axe fixe (00h-24h,
+    # Lun-Dim, 1er-dernier jour du mois, Jan-Dec), au lieu de l'accrocher a
+    # la graduation la plus proche. A minuit pile (now_frac=0.0 pour jour),
+    # le point se positionne en tout debut d'axe avec un cumul reparti a 0
+    # (nouvelle journee, tableaux heures/etc. deja reinitialises ci-dessus) :
+    # aucune transition bizarre, juste un nouvel axe qui commence a vide.
+    seconds_of_day = now.hour * 3600 + now.minute * 60 + now.second
+    now_frac_jour = seconds_of_day / 86400
+    days_into_week = (today - week_start).days
+    now_frac_semaine = (days_into_week + seconds_of_day / 86400) / 7
+    now_frac_mois = ((today.day - 1) + seconds_of_day / 86400) / n_days_month
+    days_in_year = 366 if calendar.isleap(today.year) else 365
+    day_of_year = (today - year_start).days
+    now_frac_annee = (day_of_year + seconds_of_day / 86400) / days_in_year
+
     return {
-        "jour": cumulative_points(heures, [f"{h:02d}h" for h in range(24)]),
-        "semaine": cumulative_points(semaine, JOURS_FR),
-        "mois": cumulative_points(mois, [str(i + 1) for i in range(n_days_month)]),
-        "annee": cumulative_points(annee, MOIS_FR),
+        "jour": cumulative_points(heures, [f"{h:02d}h" for h in range(24)], now_idx_jour),
+        "semaine": cumulative_points(semaine, JOURS_FR, now_idx_semaine),
+        "mois": cumulative_points(mois, [str(i + 1) for i in range(n_days_month)], now_idx_mois),
+        "annee": cumulative_points(annee, MOIS_FR, now_idx_annee),
+        "now_frac": {
+            "jour": round(now_frac_jour, 6),
+            "semaine": round(now_frac_semaine, 6),
+            "mois": round(now_frac_mois, 6),
+            "annee": round(now_frac_annee, 6),
+        },
+        "total_buckets": {"jour": 24, "semaine": 7, "mois": n_days_month, "annee": 12},
     }
 
 
@@ -923,7 +963,19 @@ def render_series_block(series: dict) -> str:
         items = ", ".join(f'{{label:"{p["label"]}", pnl:{p["pnl"]:.2f}}}' for p in points)
         return f"[{items}]"
 
-    parts = [f"{key}:{pts(points)}" for key, points in series.items()]
+    def num_dict(d):
+        items = ", ".join(f"{key}:{value}" for key, value in d.items())
+        return f"{{{items}}}"
+
+    # now_frac/total_buckets (30/07/2026) : dicts de nombres (fraction de
+    # periode ecoulee, taille d'axe fixe), pas des listes de points -- format
+    # different de jour/semaine/mois/annee, gere separement ici.
+    parts = []
+    for key, value in series.items():
+        if key in ("now_frac", "total_buckets"):
+            parts.append(f"{key}:{num_dict(value)}")
+        else:
+            parts.append(f"{key}:{pts(value)}")
     return "const PERIOD_SERIES = {" + ", ".join(parts) + "};"
 
 

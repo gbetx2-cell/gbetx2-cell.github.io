@@ -1147,13 +1147,27 @@ function drawPeriodChart(){
     d.textContent = '—';
     return;
   }
+  // Axe FIXE (30/07/2026, audit demande explicite) : totalBuckets = taille
+  // complete de l'axe (24/7/N/12), independante du nombre de points reels
+  // (series peut s'arreter avant, cf export_site_results.py::fetch_period_series
+  // qui ne genere plus les buckets futurs). nowFrac = fraction exacte
+  // (Europe/Paris) de la periode ecoulee jusqu'a maintenant.
+  const totalBuckets = (PERIOD_SERIES.total_buckets || {})[currentPeriod] || series.length;
+  const nowFrac = (PERIOD_SERIES.now_frac || {})[currentPeriod];
   const W = 800, H = 260, PAD_L = 56, PAD_R = 16, PAD_T = 16, PAD_B = 32;
   const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
   const unit = currentMode === "e" ? "€" : "u";
   const vals = series.map(p => p.pnl * factor);
   const n = vals.length;
   const yMin = Math.min(...vals, 0), yMax = Math.max(...vals, factor*0.5);
-  const xs = i => n <= 1 ? PAD_L : PAD_L + (i/(n-1))*(W-PAD_L-PAD_R);
+  // Chaque point de donnee occupe sa graduation fixe (i/totalBuckets), SAUF
+  // le tout dernier (bucket en cours, pas encore termine) : positionne a
+  // nowFrac exact plutot qu'a la graduation la plus proche -- la ligne
+  // s'arrete donc pile a l'instant present, jamais au-dela.
+  const xs = i => {
+    const frac = (i === n-1 && nowFrac != null) ? nowFrac : i/totalBuckets;
+    return PAD_L + frac*(W-PAD_L-PAD_R);
+  };
   const ysc = v => H-PAD_B - ((v-yMin)/(yMax-yMin || 1))*(H-PAD_T-PAD_B);
 
   const line = vals.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
@@ -1172,12 +1186,23 @@ function drawPeriodChart(){
       <text x="${PAD_L-8}" y="${(y+4).toFixed(1)}" fill="rgba(156,148,129,.75)" font-size="11" text-anchor="end" font-family="Inter">${label}</text>`;
   }
 
+  // Labels d'axe X TOUJOURS complets (00h..23h / Lun..Dim / 1..N / Jan..Déc),
+  // independants du nombre de points reellement traces -- l'axe reste fixe
+  // meme quand la courbe s'arrete avant la fin (ex: jour en cours).
+  const AXIS_LABELS = {
+    jour: Array.from({length:24}, (_,h)=>`${String(h).padStart(2,'0')}h`),
+    semaine: ["Lun","Mar","Mer","Jeu","Ven","Sam","Dim"],
+    mois: Array.from({length:totalBuckets}, (_,i)=>String(i+1)),
+    annee: ["Jan","Fév","Mar","Avr","Mai","Jun","Jul","Aoû","Sep","Oct","Nov","Déc"],
+  };
+  const axisLabels = AXIS_LABELS[currentPeriod] || series.map(p=>p.label);
   const maxLabels = 12;
-  const strideX = Math.max(1, Math.ceil(n/maxLabels));
+  const strideX = Math.max(1, Math.ceil(totalBuckets/maxLabels));
   let xLabelsSvg = '';
-  series.forEach((p,i)=>{
-    if(i % strideX !== 0 && i !== n-1) return;
-    xLabelsSvg += `<text x="${xs(i).toFixed(1)}" y="${H-8}" fill="rgba(156,148,129,.75)" font-size="11" text-anchor="middle" font-family="Inter">${p.label}</text>`;
+  axisLabels.forEach((label,i)=>{
+    if(i % strideX !== 0 && i !== totalBuckets-1) return;
+    const x = PAD_L + (i/totalBuckets)*(W-PAD_L-PAD_R);
+    xLabelsSvg += `<text x="${x.toFixed(1)}" y="${H-8}" fill="rgba(156,148,129,.75)" font-size="11" text-anchor="middle" font-family="Inter">${label}</text>`;
   });
 
   svg.innerHTML = `
