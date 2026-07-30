@@ -272,6 +272,7 @@ footer a{color:var(--gold-2);text-decoration:none}
 
 <script>
 const T_MINUS_MINUTES = 30;
+let COMP_WINDOWS = {}; // Chargé depuis programme.json, contient {sport: {comp_min, comp_max}}
 let fixtures = [];
 let lastFetch = 0;
 
@@ -399,7 +400,18 @@ function renderCard(f){
   } else if (f.no_bet_reason) {
     countdownHtml = `<span class="countdown stale">No Bet — ${f.no_bet_reason}</span>`;
   } else if (toPublish > 0) {
-    countdownHtml = `<span class="countdown" data-publish-at="${publishAt.toISOString()}">${ICON('hourglass')} ${fmtCountdown(toPublish)}</span>`;
+    // Double indicateur T-30 : lire la fenêtre d'analyse depuis COMP_WINDOWS
+    const comp = COMP_WINDOWS[f.sport] || {comp_min: T_MINUS_MINUTES, comp_max: T_MINUS_MINUTES};
+    const analysis_window_start_ms = (comp.comp_max - T_MINUS_MINUTES) * 60000;
+
+    if (analysis_window_start_ms > 0 && toPublish <= analysis_window_start_ms) {
+      // Fenêtre T-45 à T-30 : affiche "Analyse en cours"
+      const toDecision = Math.max(0, toPublish);
+      countdownHtml = `<span class="countdown" data-publish-at="${publishAt.toISOString()}"><span style="display:inline-flex;align-items:center;gap:4px">🔍 Analyse en cours — décision dans ${fmtCountdown(toDecision)}</span></span>`;
+    } else {
+      // Avant T-45 : countdown classique
+      countdownHtml = `<span class="countdown" data-publish-at="${publishAt.toISOString()}">${ICON('hourglass')} ${fmtCountdown(toPublish)}</span>`;
+    }
   } else if (sinceKickoff < STALE_AFTER_KICKOFF_MS) {
     stateClass = 'live';
     const live = liveScores[f.fixture_id];
@@ -528,6 +540,8 @@ async function loadProgramme(){
     if (!res.ok) throw new Error('http ' + res.status);
     const data = await res.json();
     fixtures = (data.fixtures || []).sort((a,b) => new Date(a.kickoff_at) - new Date(b.kickoff_at));
+    // Charge COMP_WINDOWS pour le double indicateur T-30
+    if (data.comp_windows) COMP_WINDOWS = data.comp_windows;
     lastFetch = Date.now();
     const genAt = new Date(data.generated_at);
     document.getElementById('status-text').textContent =

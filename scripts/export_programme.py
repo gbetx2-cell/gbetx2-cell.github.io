@@ -22,8 +22,13 @@ le prochain declenchement (auto ou cron naturel) reessaie normalement.
 import json
 import os
 import re
+import sys
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
+
+# Permet d'importer depuis /app
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from ai.comp_windows import COMP_WINDOWS
 
 PARIS_TZ = ZoneInfo("Europe/Paris")
 UTC = timezone.utc
@@ -371,8 +376,16 @@ def main() -> None:
     target = os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "programme.json",
     )
+
+    # Embarque COMP_WINDOWS pour le double indicateur T-30 côté client
+    comp_windows_json = {
+        sport: {"comp_min": comp_min, "comp_max": comp_max}
+        for sport, (comp_min, comp_max) in COMP_WINDOWS.items()
+    }
+
     data = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
+        "comp_windows": comp_windows_json,
         "fixtures": fetch_programme(),
     }
     with open(target, "w", encoding="utf-8") as f:
