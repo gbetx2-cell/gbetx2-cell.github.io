@@ -1395,7 +1395,14 @@ let chipsRevealed = false;
 function renderChips(){
   const row = document.getElementById('chipsRow');
   row.querySelectorAll('.chip').forEach(c=>c.remove());
-  filteredResultats().forEach(res=>{
+  // Affiche du plus recent au plus ancien (30/07/2026, demande explicite :
+  // l'ordre visuel suivait l'ordre chronologique croissant de
+  // filteredResultats(), donc le pick le plus recent finissait tout en bas
+  // -- confus pour un visiteur qui s'attend au plus recent en premier).
+  // Copie inversee uniquement ici : filteredResultats() elle-meme doit
+  // rester chronologique croissante, utilisee aussi par computeSeries()
+  // pour le cumul du graphique de bankroll (bkChart).
+  [...filteredResultats()].reverse().forEach(res=>{
     const g = realGain(res);
     const gain = `${g > 0 ? '+' : g < 0 ? '−' : '±'}${Math.abs(g).toFixed(2)} u`;
     const mise = typeof res.mise === 'number' ? res.mise : 1;
