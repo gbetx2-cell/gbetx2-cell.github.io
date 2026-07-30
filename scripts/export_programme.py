@@ -22,16 +22,34 @@ le prochain declenchement (auto ou cron naturel) reessaie normalement.
 import json
 import os
 import re
-import sys
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
-# Permet d'importer depuis /app
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-from ai.comp_windows import COMP_WINDOWS
-
 PARIS_TZ = ZoneInfo("Europe/Paris")
 UTC = timezone.utc
+
+# COMP_WINDOWS dupliqué depuis ai/comp_windows.py (30/07/2026, bug confirmé en
+# prod : import top-level "from ai.comp_windows import COMP_WINDOWS" cassait
+# TOUTE exécution du script côté repo public -- le module ai/ n'existe que
+# côté repo privé, jamais copié par sync-site-public.yml. Résultat : le cron
+# update-programme.yml échouait à 100% depuis ~11h29 UTC (confirmé via l'API
+# GitHub Actions), programme.json restait fige sur les données de 09h22 UTC
+# pendant que tous les fixs suivants de la journée (garde-fou TBD, texte
+# no-bet, cache RapidAPI, graphique bilan, filtre programme_date) se
+# propageaient bien en code source mais jamais en donnees reelles. Même
+# raison que _get_programme_window_sql_where() ci-dessous (déjà embarquée
+# le même jour pour éviter ce piège) -- gardé synchronisé manuellement avec
+# la source de vérité ai/comp_windows.py.
+COMP_WINDOWS: dict[str, tuple[int, int]] = {
+    "football": (5, 30),
+    "tennis": (30, 45),
+    "nba": (30, 45),
+    "nhl": (30, 45),
+    "baseball": (30, 45),
+    "nfl": (30, 90),
+    "wnba": (30, 45),
+    "f1": (15, 180),
+}
 
 
 def _get_programme_window_sql_where() -> tuple[str, tuple]:
