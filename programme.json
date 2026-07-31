@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-31T16:54:36.807291+00:00",
+ "generated_at": "2026-07-31T18:22:20.061432+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -89,15 +89,18 @@
    "kickoff_at": "2026-07-31T14:00Z",
    "published": true,
    "value_bet": "Vainqueur — Lucia Bronzetti @ 2.17",
-   "value_cote": 2.17
+   "value_cote": 2.17,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-3, 2-6, 7-5"
   },
   {
-   "fixture_id": "tennis_espn_wta_179475",
+   "fixture_id": "tennis_espn_wta_179454",
    "flag": "🎾",
    "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "? – ?",
+   "match": "Catherine McNally – Kristina Liutova",
    "kickoff_at": "2026-07-31T16:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -123,12 +126,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179454",
+   "fixture_id": "tennis_espn_wta_179475",
    "flag": "🎾",
    "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Catherine McNally – Kristina Liutova",
+   "match": "? – ?",
    "kickoff_at": "2026-07-31T16:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -141,7 +144,14 @@
    "sport_label": "Tennis",
    "match": "Peyton Stearns – Elvina Kalieva",
    "kickoff_at": "2026-07-31T17:30Z",
-   "published": false
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Peyton Stearns vs Elvina Kalieva — Total sets Plus de 2.5",
+     "detail": "cote 2.80"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_178964",
@@ -161,7 +171,16 @@
    "sport_label": "Tennis",
    "match": "Mai Hontama – Maddison Inglis",
    "kickoff_at": "2026-07-31T18:00Z",
-   "published": false
+   "published": true,
+   "value_bet": "Vainqueur — Maddison Inglis @ 1.901",
+   "value_cote": 1.9,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Mai Hontama vs Maddison Inglis — Total sets Plus de 2.5",
+     "detail": "cote 2.42"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_179020",
@@ -181,7 +200,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Chicago Cubs – New York Yankees",
    "kickoff_at": "2026-07-31T18:20:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_atp_179028",
@@ -294,12 +314,12 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_822945",
+   "fixture_id": "mlb_824407",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – Chicago White Sox",
+   "match": "Cleveland Guardians – Arizona Diamondbacks",
    "kickoff_at": "2026-07-31T23:10:00Z",
    "published": false
   },
@@ -314,12 +334,12 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_824407",
+   "fixture_id": "mlb_822945",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Arizona Diamondbacks",
+   "match": "Tampa Bay Rays – Chicago White Sox",
    "kickoff_at": "2026-07-31T23:10:00Z",
    "published": false
   },
