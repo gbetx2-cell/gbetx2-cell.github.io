@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-31T18:22:20.061432+00:00",
+ "generated_at": "2026-07-31T20:02:47.806774+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -95,33 +95,12 @@
    "score": "6-3, 2-6, 7-5"
   },
   {
-   "fixture_id": "tennis_espn_wta_179454",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Catherine McNally – Kristina Liutova",
-   "kickoff_at": "2026-07-31T16:00Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_atp_179006",
    "flag": "🎾",
    "league": "Mubadala DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Anna Kalinskaya – Jessica Pegula",
-   "kickoff_at": "2026-07-31T16:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_179040",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
    "kickoff_at": "2026-07-31T16:00Z",
    "published": false
   },
@@ -135,6 +114,27 @@
    "kickoff_at": "2026-07-31T16:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179454",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Catherine McNally – Kristina Liutova",
+   "kickoff_at": "2026-07-31T16:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_179040",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-31T16:00Z",
+   "published": false
   },
   {
    "fixture_id": "tennis_espn_wta_179453",
@@ -164,6 +164,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_179020",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Naomi Osaka – Elisabetta Cocciaretto",
+   "kickoff_at": "2026-07-31T18:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_179555",
    "flag": "🎾",
    "league": "Odlum Brown VanOpen",
@@ -174,23 +184,17 @@
    "published": true,
    "value_bet": "Vainqueur — Maddison Inglis @ 1.901",
    "value_cote": 1.9,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "3-6, 4-6",
    "player_picks": [
     {
      "category": "Player pick",
      "label": "Mai Hontama vs Maddison Inglis — Total sets Plus de 2.5",
-     "detail": "cote 2.42"
+     "detail": "cote 2.42",
+     "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_179020",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Naomi Osaka – Elisabetta Cocciaretto",
-   "kickoff_at": "2026-07-31T18:00Z",
-   "published": false
   },
   {
    "fixture_id": "mlb_824651",
@@ -204,16 +208,6 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "tennis_espn_atp_179028",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-07-31T19:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_179446",
    "flag": "🎾",
    "league": "The Memphis Classic",
@@ -221,7 +215,14 @@
    "sport_label": "Tennis",
    "match": "Renata Zarazua – Anastasia Zakharova",
    "kickoff_at": "2026-07-31T19:00Z",
-   "published": false
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Renata Zarazua vs Anastasia Zakharova — Total sets Plus de 2.5",
+     "detail": "cote 2.29"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_179004",
@@ -234,13 +235,13 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178962",
+   "fixture_id": "tennis_espn_atp_179028",
    "flag": "🎾",
    "league": "Mubadala DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Alex Michelsen – Taylor Fritz",
-   "kickoff_at": "2026-07-31T19:30Z",
+   "match": "? – ?",
+   "kickoff_at": "2026-07-31T19:00Z",
    "published": false
   },
   {
@@ -250,6 +251,17 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Mananchaya Sawangkaew – Taylah Preston",
+   "kickoff_at": "2026-07-31T19:30Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178962",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alex Michelsen – Taylor Fritz",
    "kickoff_at": "2026-07-31T19:30Z",
    "published": false
   },
@@ -314,22 +326,22 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_824407",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Arizona Diamondbacks",
-   "kickoff_at": "2026-07-31T23:10:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_823593",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "New York Mets – Miami Marlins",
+   "kickoff_at": "2026-07-31T23:10:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "mlb_824407",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Arizona Diamondbacks",
    "kickoff_at": "2026-07-31T23:10:00Z",
    "published": false
   },
@@ -354,22 +366,22 @@
    "published": false
   },
   {
-   "fixture_id": "wnba_401857102",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Atlanta Dream – Seattle Storm",
-   "kickoff_at": "2026-07-31T23:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "wnba_401857103",
    "flag": "🏀",
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
    "match": "Washington Mystics – Dallas Wings",
+   "kickoff_at": "2026-07-31T23:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "wnba_401857102",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Atlanta Dream – Seattle Storm",
    "kickoff_at": "2026-07-31T23:30Z",
    "published": false
   },
@@ -381,6 +393,16 @@
    "sport_label": "Baseball (MLB)",
    "match": "Houston Astros – Texas Rangers",
    "kickoff_at": "2026-08-01T00:15:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179473",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-01T00:30Z",
    "published": false
   },
   {
@@ -466,34 +488,15 @@
    "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
-   "fixture_id": "tennis_espn_wta_179548",
+   "fixture_id": "tennis_espn_atp_178910",
    "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
+   "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "TBD – TBD",
+   "match": "Denis Shapovalov – Cameron Norrie",
    "kickoff_at": "2026-08-01T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179444",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-01T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179445",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-01T04:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_atp_178956",
@@ -556,20 +559,19 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178910",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Denis Shapovalov – Cameron Norrie",
-   "kickoff_at": "2026-08-01T04:00Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_wta_179018",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-01T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179445",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -608,9 +610,29 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179548",
+   "flag": "🎾",
+   "league": "Odlum Brown VanOpen",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-01T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_179016",
    "flag": "🎾",
    "league": "Mubadala Citi DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-01T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_179444",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
