@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-31T07:41:11.597080+00:00",
+ "generated_at": "2026-07-31T10:21:10.490974+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -43,7 +43,8 @@
    "sport_label": "Tennis",
    "match": "Carole Monnet – Kaitlin Quevedo",
    "kickoff_at": "2026-07-31T09:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_179592",
@@ -53,7 +54,8 @@
    "sport_label": "Tennis",
    "match": "Mia Ristic – Laura Samson",
    "kickoff_at": "2026-07-31T09:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_179595",
@@ -63,7 +65,8 @@
    "sport_label": "Tennis",
    "match": "Alice Rame – Francesca Jones",
    "kickoff_at": "2026-07-31T10:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179614",
@@ -73,7 +76,8 @@
    "sport_label": "Tennis",
    "match": "TBD – TBD",
    "kickoff_at": "2026-07-31T11:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179594",
@@ -438,9 +442,9 @@
    "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
-   "fixture_id": "tennis_espn_wta_179548",
+   "fixture_id": "tennis_espn_wta_179604",
    "flag": "🎾",
-   "league": "Odlum Brown VanOpen",
+   "league": "Axeria Open 2026 powered by Intaro Sport",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -448,9 +452,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_179604",
+   "fixture_id": "tennis_espn_atp_178933",
    "flag": "🎾",
-   "league": "Axeria Open 2026 powered by Intaro Sport",
+   "league": "Mifel Tennis Open by Telcel Oppo",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -478,29 +482,9 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178933",
-   "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-01T04:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_178937",
    "flag": "🎾",
    "league": "Mifel Tennis Open by Telcel Oppo",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-01T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179445",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
@@ -518,6 +502,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179445",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-01T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_179590",
    "flag": "🎾",
    "league": "Axeria Open 2026 powered by Intaro Sport",
@@ -526,6 +520,17 @@
    "match": "TBD – TBD",
    "kickoff_at": "2026-08-01T04:00Z",
    "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_178910",
+   "flag": "🎾",
+   "league": "Mifel Tennis Open by Telcel Oppo",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Denis Shapovalov – Cameron Norrie",
+   "kickoff_at": "2026-08-01T04:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_atp_178939",
@@ -609,15 +614,14 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178910",
+   "fixture_id": "tennis_espn_wta_179548",
    "flag": "🎾",
-   "league": "Mifel Tennis Open by Telcel Oppo",
+   "league": "Odlum Brown VanOpen",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
    "kickoff_at": "2026-08-01T04:00Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
+   "published": false
   }
  ]
 }
