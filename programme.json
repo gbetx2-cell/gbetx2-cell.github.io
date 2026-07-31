@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-31T15:01:30.989234+00:00",
+ "generated_at": "2026-07-31T16:54:36.807291+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -99,17 +99,8 @@
    "sport_label": "Tennis",
    "match": "? – ?",
    "kickoff_at": "2026-07-31T16:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_179454",
-   "flag": "🎾",
-   "league": "The Memphis Classic",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Catherine McNally – Kristina Liutova",
-   "kickoff_at": "2026-07-31T16:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_atp_179006",
@@ -132,6 +123,17 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_179454",
+   "flag": "🎾",
+   "league": "The Memphis Classic",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Catherine McNally – Kristina Liutova",
+   "kickoff_at": "2026-07-31T16:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
    "fixture_id": "tennis_espn_wta_179453",
    "flag": "🎾",
    "league": "The Memphis Classic",
@@ -142,12 +144,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_179020",
+   "fixture_id": "tennis_espn_atp_178964",
    "flag": "🎾",
    "league": "Mubadala DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Naomi Osaka – Elisabetta Cocciaretto",
+   "match": "Brandon Nakashima – Alex de Minaur",
    "kickoff_at": "2026-07-31T18:00Z",
    "published": false
   },
@@ -162,12 +164,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_178964",
+   "fixture_id": "tennis_espn_atp_179020",
    "flag": "🎾",
    "league": "Mubadala DC Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Brandon Nakashima – Alex de Minaur",
+   "match": "Naomi Osaka – Elisabetta Cocciaretto",
    "kickoff_at": "2026-07-31T18:00Z",
    "published": false
   },
@@ -179,16 +181,6 @@
    "sport_label": "Baseball (MLB)",
    "match": "Chicago Cubs – New York Yankees",
    "kickoff_at": "2026-07-31T18:20:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_179004",
-   "flag": "🎾",
-   "league": "Mubadala DC Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Liudmila Samsonova – Diana Shnaider",
-   "kickoff_at": "2026-07-31T19:00Z",
    "published": false
   },
   {
@@ -208,6 +200,16 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Renata Zarazua – Anastasia Zakharova",
+   "kickoff_at": "2026-07-31T19:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_179004",
+   "flag": "🎾",
+   "league": "Mubadala DC Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Liudmila Samsonova – Diana Shnaider",
    "kickoff_at": "2026-07-31T19:00Z",
    "published": false
   },
@@ -302,22 +304,22 @@
    "published": false
   },
   {
-   "fixture_id": "mlb_824407",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Arizona Diamondbacks",
-   "kickoff_at": "2026-07-31T23:10:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "mlb_823593",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "New York Mets – Miami Marlins",
+   "kickoff_at": "2026-07-31T23:10:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "mlb_824407",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Arizona Diamondbacks",
    "kickoff_at": "2026-07-31T23:10:00Z",
    "published": false
   },
