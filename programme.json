@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-02T09:02:09.681755+00:00",
+ "generated_at": "2026-08-02T10:48:13.978992+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -66,7 +66,7 @@
    "match": "Urszula Radwanska – Marcelina Podlinska",
    "kickoff_at": "2026-08-02T09:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_183921",
@@ -77,7 +77,7 @@
    "match": "Daria Gorska – Alana Smith",
    "kickoff_at": "2026-08-02T09:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_179616",
@@ -87,7 +87,8 @@
    "sport_label": "Tennis",
    "match": "TBD – TBD",
    "kickoff_at": "2026-08-02T11:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179603",
@@ -107,6 +108,16 @@
    "sport_label": "Tennis",
    "match": "Alexandra Eala – Jessica Pegula",
    "kickoff_at": "2026-08-02T16:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181834",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Christopher O'Connell – James Duckworth",
+   "kickoff_at": "2026-08-02T16:30Z",
    "published": false
   },
   {
@@ -140,6 +151,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_181837",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Martin Landaluce – Nicolas Mejia",
+   "kickoff_at": "2026-08-02T16:30Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_atp_182234",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
@@ -160,32 +181,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181834",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Christopher O'Connell – James Duckworth",
-   "kickoff_at": "2026-08-02T16:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_181804",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Mariano Navone – Matteo Berrettini",
-   "kickoff_at": "2026-08-02T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181837",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Martin Landaluce – Nicolas Mejia",
    "kickoff_at": "2026-08-02T16:30Z",
    "published": false
   },
@@ -240,16 +241,6 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816366",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cincinnati Reds – Pittsburgh Pirates",
-   "kickoff_at": "2026-08-02T17:40Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816364",
    "flag": "⚾",
    "league": "MLB",
@@ -260,22 +251,32 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816363",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – Chicago White Sox",
-   "kickoff_at": "2026-08-02T17:40Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816362",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Cleveland Guardians – Arizona Diamondbacks",
+   "kickoff_at": "2026-08-02T17:40Z",
+   "published": false
+  },
+  {
+   "fixture_id": "baseball_401816366",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cincinnati Reds – Pittsburgh Pirates",
+   "kickoff_at": "2026-08-02T17:40Z",
+   "published": false
+  },
+  {
+   "fixture_id": "baseball_401816363",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – Chicago White Sox",
    "kickoff_at": "2026-08-02T17:40Z",
    "published": false
   },
@@ -550,6 +551,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_182081",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Martyna Kubka – Teodora Kostovic",
+   "kickoff_at": "2026-08-03T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_182092",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
@@ -566,16 +577,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Justina Mikulskyte – Weronika Ewald",
-   "kickoff_at": "2026-08-03T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_182081",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Martyna Kubka – Teodora Kostovic",
    "kickoff_at": "2026-08-03T04:00Z",
    "published": false
   },
