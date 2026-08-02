@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-02T15:38:50.592434+00:00",
+ "generated_at": "2026-08-02T16:37:07.282760+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -36,23 +36,23 @@
  },
  "fixtures": [
   {
-   "fixture_id": "tennis_espn_wta_183922",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Nika Hurkacz – Lia Karatancheva",
-   "kickoff_at": "2026-08-02T08:00Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183923",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Georgina Garcia Perez – Elena Micic",
+   "kickoff_at": "2026-08-02T08:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183922",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Nika Hurkacz – Lia Karatancheva",
    "kickoff_at": "2026-08-02T08:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -112,42 +112,22 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_182259",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Viktorija Golubic – Kimberly Birrell",
+   "kickoff_at": "2026-08-02T16:30Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_atp_181783",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Daniel Altmaier – Aleksandar Vukic",
-   "kickoff_at": "2026-08-02T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182234",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Venus Williams – Kamilla Rakhimova",
-   "kickoff_at": "2026-08-02T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182279",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Cristina Bucsa – Moyuka Uchijima",
-   "kickoff_at": "2026-08-02T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182280",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sara Bejlek – Wang Xiyu",
    "kickoff_at": "2026-08-02T16:30Z",
    "published": false
   },
@@ -162,16 +142,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181837",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Martin Landaluce – Nicolas Mejia",
-   "kickoff_at": "2026-08-02T16:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_181834",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
@@ -182,12 +152,42 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_182259",
+   "fixture_id": "tennis_espn_atp_182280",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Viktorija Golubic – Kimberly Birrell",
+   "match": "Sara Bejlek – Wang Xiyu",
+   "kickoff_at": "2026-08-02T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181837",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Martin Landaluce – Nicolas Mejia",
+   "kickoff_at": "2026-08-02T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182279",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Cristina Bucsa – Moyuka Uchijima",
+   "kickoff_at": "2026-08-02T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182234",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Venus Williams – Kamilla Rakhimova",
    "kickoff_at": "2026-08-02T16:30Z",
    "published": false
   },
@@ -199,7 +199,14 @@
    "sport_label": "Basketball (WNBA)",
    "match": "Minnesota Lynx – Indiana Fever",
    "kickoff_at": "2026-08-02T17:00Z",
-   "published": false
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Howard — Points Plus de 12.5",
+     "detail": "cote 2.12"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_179469",
@@ -252,22 +259,22 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816362",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Arizona Diamondbacks",
-   "kickoff_at": "2026-08-02T17:40Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816363",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Tampa Bay Rays – Chicago White Sox",
+   "kickoff_at": "2026-08-02T17:40Z",
+   "published": false
+  },
+  {
+   "fixture_id": "baseball_401816362",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Arizona Diamondbacks",
    "kickoff_at": "2026-08-02T17:40Z",
    "published": false
   },
@@ -282,12 +289,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_182268",
+   "fixture_id": "tennis_espn_atp_182236",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Katherine Sebov – Aoi Ito",
+   "match": "Leolia Jeanjean – Magdalena Frech",
    "kickoff_at": "2026-08-02T18:00Z",
    "published": false
   },
@@ -302,22 +309,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_182236",
+   "fixture_id": "tennis_espn_atp_182268",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Leolia Jeanjean – Magdalena Frech",
+   "match": "Katherine Sebov – Aoi Ito",
    "kickoff_at": "2026-08-02T18:00Z",
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181836",
+   "fixture_id": "tennis_espn_atp_182284",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Corentin Moutet – Marton Fucsovics",
+   "match": "Camila Osorio – Lucrezia Stefanini",
    "kickoff_at": "2026-08-02T18:00Z",
    "published": false
   },
@@ -332,12 +339,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_182284",
+   "fixture_id": "tennis_espn_atp_181836",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Camila Osorio – Lucrezia Stefanini",
+   "match": "Corentin Moutet – Marton Fucsovics",
    "kickoff_at": "2026-08-02T18:00Z",
    "published": false
   },
