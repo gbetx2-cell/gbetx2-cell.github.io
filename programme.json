@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-02T16:37:07.282760+00:00",
+ "generated_at": "2026-08-02T17:43:49.667437+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -112,6 +112,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_181834",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Christopher O'Connell – James Duckworth",
+   "kickoff_at": "2026-08-02T16:30Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_atp_182259",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
@@ -122,32 +132,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181783",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Daniel Altmaier – Aleksandar Vukic",
-   "kickoff_at": "2026-08-02T16:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_181804",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Mariano Navone – Matteo Berrettini",
-   "kickoff_at": "2026-08-02T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181834",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Christopher O'Connell – James Duckworth",
    "kickoff_at": "2026-08-02T16:30Z",
    "published": false
   },
@@ -192,6 +182,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_181783",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Daniel Altmaier – Aleksandar Vukic",
+   "kickoff_at": "2026-08-02T16:30Z",
+   "published": false
+  },
+  {
    "fixture_id": "wnba_401857107",
    "flag": "🏀",
    "league": "WNBA",
@@ -216,7 +216,9 @@
    "sport_label": "Tennis",
    "match": "Darja Vidmanova – Kristina Liutova",
    "kickoff_at": "2026-08-02T17:30Z",
-   "published": false
+   "published": true,
+   "value_bet": "Total sets — Plus de 2.5 @ 2.61",
+   "value_cote": 2.61
   },
   {
    "fixture_id": "baseball_401816365",
@@ -226,7 +228,14 @@
    "sport_label": "Baseball (MLB)",
    "match": "Baltimore Orioles – Philadelphia Phillies",
    "kickoff_at": "2026-08-02T17:35Z",
-   "published": false
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Trea Turner — Coups sûrs Plus de 1.5",
+     "detail": "cote 2.87"
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816368",
@@ -236,7 +245,9 @@
    "sport_label": "Baseball (MLB)",
    "match": "Atlanta Braves – Washington Nationals",
    "kickoff_at": "2026-08-02T17:35Z",
-   "published": false
+   "published": true,
+   "value_bet": "Vainqueur — Washington Nationals @ 2.18",
+   "value_cote": 2.18
   },
   {
    "fixture_id": "baseball_401816367",
@@ -246,7 +257,16 @@
    "sport_label": "Baseball (MLB)",
    "match": "Toronto Blue Jays – St. Louis Cardinals",
    "kickoff_at": "2026-08-02T17:37Z",
-   "published": false
+   "published": true,
+   "value_bet": "Vainqueur — St. Louis Cardinals @ 2.16",
+   "value_cote": 2.16,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Vladimir Guerrero Jr. — Coups sûrs Plus de 1.5",
+     "detail": "cote 2.89"
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816364",
@@ -256,27 +276,16 @@
    "sport_label": "Baseball (MLB)",
    "match": "New York Mets – Miami Marlins",
    "kickoff_at": "2026-08-02T17:40Z",
-   "published": false
-  },
-  {
-   "fixture_id": "baseball_401816363",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – Chicago White Sox",
-   "kickoff_at": "2026-08-02T17:40Z",
-   "published": false
-  },
-  {
-   "fixture_id": "baseball_401816362",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Arizona Diamondbacks",
-   "kickoff_at": "2026-08-02T17:40Z",
-   "published": false
+   "published": true,
+   "value_bet": "Vainqueur — Miami Marlins @ 1.8929",
+   "value_cote": 1.89,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Otto Lopez — Coups sûrs Plus de 1.5",
+     "detail": "cote 2.70"
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816366",
@@ -286,7 +295,38 @@
    "sport_label": "Baseball (MLB)",
    "match": "Cincinnati Reds – Pittsburgh Pirates",
    "kickoff_at": "2026-08-02T17:40Z",
-   "published": false
+   "published": true,
+   "value_bet": "Vainqueur — Pittsburgh Pirates @ 2.26",
+   "value_cote": 2.26
+  },
+  {
+   "fixture_id": "baseball_401816363",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – Chicago White Sox",
+   "kickoff_at": "2026-08-02T17:40Z",
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Yandy Díaz — Coups sûrs Plus de 1.5",
+     "detail": "cote 2.80"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816362",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Arizona Diamondbacks",
+   "kickoff_at": "2026-08-02T17:40Z",
+   "published": true,
+   "value_bet": "Vainqueur — Cleveland Guardians @ 1.6098",
+   "value_cote": 1.61
   },
   {
    "fixture_id": "tennis_espn_atp_182236",
