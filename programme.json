@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-02T06:41:29.371102+00:00",
+ "generated_at": "2026-08-02T09:02:09.681755+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -36,16 +36,6 @@
  },
  "fixtures": [
   {
-   "fixture_id": "tennis_espn_wta_183922",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Nika Hurkacz – Lia Karatancheva",
-   "kickoff_at": "2026-08-02T08:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_183923",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
@@ -53,7 +43,19 @@
    "sport_label": "Tennis",
    "match": "Georgina Garcia Perez – Elena Micic",
    "kickoff_at": "2026-08-02T08:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183922",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Nika Hurkacz – Lia Karatancheva",
+   "kickoff_at": "2026-08-02T08:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_183920",
@@ -63,7 +65,8 @@
    "sport_label": "Tennis",
    "match": "Urszula Radwanska – Marcelina Podlinska",
    "kickoff_at": "2026-08-02T09:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_183921",
@@ -73,7 +76,8 @@
    "sport_label": "Tennis",
    "match": "Daria Gorska – Alana Smith",
    "kickoff_at": "2026-08-02T09:30Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_wta_179616",
@@ -106,6 +110,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_181783",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Daniel Altmaier – Aleksandar Vukic",
+   "kickoff_at": "2026-08-02T16:30Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_atp_182279",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
@@ -126,22 +140,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181834",
+   "fixture_id": "tennis_espn_atp_182234",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Christopher O'Connell – James Duckworth",
-   "kickoff_at": "2026-08-02T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181783",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Daniel Altmaier – Aleksandar Vukic",
+   "match": "Venus Williams – Kamilla Rakhimova",
    "kickoff_at": "2026-08-02T16:30Z",
    "published": false
   },
@@ -156,12 +160,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_182234",
+   "fixture_id": "tennis_espn_atp_181834",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Venus Williams – Kamilla Rakhimova",
+   "match": "Christopher O'Connell – James Duckworth",
    "kickoff_at": "2026-08-02T16:30Z",
    "published": false
   },
@@ -206,22 +210,22 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816368",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Atlanta Braves – Washington Nationals",
-   "kickoff_at": "2026-08-02T17:35Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816365",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Baltimore Orioles – Philadelphia Phillies",
+   "kickoff_at": "2026-08-02T17:35Z",
+   "published": false
+  },
+  {
+   "fixture_id": "baseball_401816368",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Atlanta Braves – Washington Nationals",
    "kickoff_at": "2026-08-02T17:35Z",
    "published": false
   },
@@ -246,6 +250,16 @@
    "published": false
   },
   {
+   "fixture_id": "baseball_401816364",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – Miami Marlins",
+   "kickoff_at": "2026-08-02T17:40Z",
+   "published": false
+  },
+  {
    "fixture_id": "baseball_401816363",
    "flag": "⚾",
    "league": "MLB",
@@ -262,16 +276,6 @@
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Cleveland Guardians – Arizona Diamondbacks",
-   "kickoff_at": "2026-08-02T17:40Z",
-   "published": false
-  },
-  {
-   "fixture_id": "baseball_401816364",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – Miami Marlins",
    "kickoff_at": "2026-08-02T17:40Z",
    "published": false
   },
@@ -426,36 +430,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_182091",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Vendula Valdmannova – Jeline Vandromme",
-   "kickoff_at": "2026-08-03T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_182086",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Linda Fruhvirtova – Katarzyna Kawa",
-   "kickoff_at": "2026-08-03T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_182096",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sofia Costoulas – Gabriela Knutson",
-   "kickoff_at": "2026-08-03T04:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_182082",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
@@ -526,6 +500,46 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_182096",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Sofia Costoulas – Gabriela Knutson",
+   "kickoff_at": "2026-08-03T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182091",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Vendula Valdmannova – Jeline Vandromme",
+   "kickoff_at": "2026-08-03T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182088",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elizara Yaneva – Linda Klimovicova",
+   "kickoff_at": "2026-08-03T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182087",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Weronika Falkowska – Amelia Paszun",
+   "kickoff_at": "2026-08-03T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_182083",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
@@ -546,16 +560,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_182088",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elizara Yaneva – Linda Klimovicova",
-   "kickoff_at": "2026-08-03T04:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_182094",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
@@ -566,22 +570,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_182087",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Weronika Falkowska – Amelia Paszun",
-   "kickoff_at": "2026-08-03T04:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_wta_182081",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Martyna Kubka – Teodora Kostovic",
+   "kickoff_at": "2026-08-03T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182086",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Linda Fruhvirtova – Katarzyna Kawa",
    "kickoff_at": "2026-08-03T04:00Z",
    "published": false
   }
