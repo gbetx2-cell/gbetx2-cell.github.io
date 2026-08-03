@@ -420,10 +420,18 @@ def fetch_results() -> list[dict]:
         raise SystemExit("DATABASE_URL manquant")
     conn = psycopg2.connect(db, connect_timeout=10)
     cur = conn.cursor()
+    # Bug corrige le 04/08/2026 (meme cause que results_tracker.py::
+    # _send_result_msg / database.py::update_resultat / daily_bilan.py::
+    # _pick_cote, corriges le 03/08/2026 -- cote_reelle=0.0 par convention
+    # pour les sports ou value_bet EST le conseil, cf SPORTS_VALUE_BET_IS_
+    # CONSEIL plus bas, la vraie cote marche vit dans value_cote, jamais
+    # consultee ici avant ce fix) : le "pnl" affiche etait deja correct
+    # (lit p.pnl stocke, deja corrige par le backfill du 03/08/2026), mais
+    # la "cote" affichee a cote restait fausse (odd_estimee/cote_interne).
     cur.execute(
         """
         SELECT p.fixture_id, p.home, p.away,
-               p.conseil, COALESCE(NULLIF(p.cote_reelle,0), p.cote_interne),
+               p.conseil, COALESCE(NULLIF(p.cote_reelle,0), NULLIF(p.value_cote,0), p.cote_interne),
                p.resultat, COALESCE(p.mise,1), COALESCE(p.pnl,0),
                p.value_bet, p.value_cote, p.value_result, COALESCE(p.value_stake_eur,0),
                COALESCE(NULLIF(p.competition,''), pf.league, ''),
@@ -644,10 +652,14 @@ def fetch_perf_stats() -> dict:
     # plus bas par TOUTES les lignes sport_player_picks correspondantes, pour ne
     # compter chaque pick individuel qu'une seule fois (21/07/2026, architecture
     # "3 picks bundles" MLB, option B : pas de changement de schema paris).
+    # cote (04/08/2026, meme fix que fetch_results() ci-dessus) : sert ici a
+    # classer le pari dans la bonne bande de cote (ODDS_BANDS), pas au calcul
+    # du pnl (deja correct, lit pnl stocke) -- sans le fix, un pari classe
+    # "winner" tombait dans la mauvaise bande (odd_estimee != vraie cote).
     cur.execute(
         """
         SELECT sport, market_type,
-               COALESCE(NULLIF(cote_reelle,0), cote_interne),
+               COALESCE(NULLIF(cote_reelle,0), NULLIF(value_cote,0), cote_interne),
                resultat, COALESCE(mise,0), COALESCE(pnl,0), result_updated_at
         FROM paris
         WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
@@ -751,10 +763,12 @@ def fetch_perf_stats() -> dict:
                 break
 
     # ── Highlights du mois (meilleur/pire pick, top ligue) ──
+    # cote (04/08/2026, meme fix) : selection best/worst basee sur pnl (deja
+    # correct), seule la cote AFFICHEE a cote du pick etait fausse avant.
     cur.execute(
         """
         SELECT p.home, p.away, p.conseil,
-               COALESCE(NULLIF(p.cote_reelle,0), p.cote_interne),
+               COALESCE(NULLIF(p.cote_reelle,0), NULLIF(p.value_cote,0), p.cote_interne),
                COALESCE(p.pnl,0), COALESCE(NULLIF(p.competition,''), pf.league, ''),
                p.result_updated_at, p.sport
         FROM paris p
