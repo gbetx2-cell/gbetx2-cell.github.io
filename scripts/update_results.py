@@ -96,6 +96,17 @@ COMPETITION_FLAGS = {
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈",
               "tennis": "🎾", "wnba": "🏀"}
 
+# Bug corrige le 04/08/2026 (confirme en direct : "Victoire Boston Red Sox"
+# reglee GAGNE le 03/08 a 00h50, jamais visible sur le site) : paris.resultat/
+# value_result contiennent DEUX graphies -- "GAGNE" (tennis, wnba, etc.) et
+# "GAGNÉ" avec accent (_check_mlb/_check_nfl/_check_f1 dans results_tracker.py,
+# jamais harmonise). daily_bilan.py et database.py geraient deja les deux
+# graphies -- pas ce fichier, qui filtrait uniquement 'GAGNE' partout : tout
+# pick MLB/NFL/F1 gagnant etait donc silencieusement absent du site (liste ET
+# stats de perf). RESULTAT_GAGNE regroupe les deux graphies pour chaque
+# comparaison/filtre SQL et Python touchant paris.resultat ou paris.value_result.
+RESULTAT_GAGNE = ("GAGNE", "GAGNÉ")
+
 # Sports ou value_bet est le MEME pari que "conseil" (jamais une 2e mise
 # independante comme en football) -- doit rester synchro avec
 # betting_rules.SPORTS_VALUE_BET_IS_CONSEIL. Sans ce filtre, fetch_results()
@@ -167,7 +178,7 @@ def fetch_period_stats() -> dict:
         """
         SELECT resultat, pnl, result_updated_at
         FROM paris
-        WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
+        WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
           AND NOT (market_type IN ('total_points', 'player_pick_only'))
         ORDER BY result_updated_at DESC
@@ -210,7 +221,7 @@ def fetch_period_stats() -> dict:
             b = buckets[key]
             b["n"] += 1
             b["pnl_eur"] += pnl_val
-            if resultat == "GAGNE":
+            if resultat in RESULTAT_GAGNE:
                 b["g"] += 1
             elif resultat == "PERDU":
                 b["p"] += 1
@@ -269,7 +280,7 @@ def fetch_period_series() -> dict:
         """
         SELECT pnl, result_updated_at
         FROM paris
-        WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
+        WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
           AND NOT (market_type IN ('total_points', 'player_pick_only'))
         ORDER BY result_updated_at DESC
@@ -400,7 +411,7 @@ def _cat(selection: str) -> str:
 # SPORTS_VALUE_BET_IS_CONSEIL plus haut (fichier synchronise standalone vers
 # le repo public, pas d'import possible).
 def _pnl_fixed(result: str, cote, stake) -> float:
-    if result == "GAGNE":
+    if result in RESULTAT_GAGNE:
         return (float(cote or 0) - 1) * float(stake or 0)
     if result == "PERDU":
         return -float(stake or 0)
@@ -440,8 +451,8 @@ def fetch_results() -> list[dict]:
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
         WHERE p.result_updated_at IS NOT NULL AND p.result_updated_at <> ''
           AND (
-            p.resultat IN ('GAGNE','PERDU','REMBOURSE')
-            OR p.value_result IN ('GAGNE','PERDU')
+            p.resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
+            OR p.value_result IN ('GAGNE','GAGNÉ','PERDU')
             OR EXISTS (
               SELECT 1 FROM offensive_player_picks o
               WHERE o.fixture_id = p.fixture_id AND o.display_mode = 'cote' AND o.market_odd > 1.01
@@ -525,7 +536,7 @@ def fetch_results() -> list[dict]:
         # chaque pick tennis/MLB/etc avec un value bet apparaissait DEUX FOIS
         # dans "Derniers picks" (une fois "Conseil", une fois "Value bet",
         # memes match/cote/resultat) -- le bloc value ci-dessous suffit deja.
-        if (conseil and resultat in ("GAGNE", "PERDU", "REMBOURSE")
+        if (conseil and resultat in ("GAGNE", "GAGNÉ", "PERDU", "REMBOURSE")
                 and market_type not in ("total_points", "player_pick_only")
                 and not (sport_l in SPORTS_VALUE_BET_IS_CONSEIL and value_bet)):
             # paris.mise/paris.pnl sont stockes en EUROS en base (mise =
@@ -533,7 +544,7 @@ def fetch_results() -> list[dict]:
             out.append({
                 "flag": flag, "match": match, "pick": _short_pick(conseil),
                 "cote": round(float(cote or 0), 2),
-                "r": {"GAGNE": "G", "PERDU": "P"}.get(resultat, "R"),
+                "r": "G" if resultat in RESULTAT_GAGNE else {"PERDU": "P"}.get(resultat, "R"),
                 "mise": round(float(mise or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
                 "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 2),
                 "type": "conseil", "sport": sport_l,
@@ -545,12 +556,12 @@ def fetch_results() -> list[dict]:
         # bloc value ne prenait que GAGNE/PERDU, jamais REMBOURSE. Un match
         # tennis rembourse avec value bet devenait invisible sur les deux
         # blocs a la fois.
-        if value_bet and value_result in ("GAGNE", "PERDU", "REMBOURSE"):
+        if value_bet and value_result in ("GAGNE", "GAGNÉ", "PERDU", "REMBOURSE"):
             v_pnl = _pnl_fixed(value_result, value_cote, value_stake)
             out.append({
                 "flag": flag, "match": match, "pick": _short_pick(value_bet),
                 "cote": round(float(value_cote or 0), 2),
-                "r": {"GAGNE": "G", "PERDU": "P"}.get(value_result, "R"),
+                "r": "G" if value_result in RESULTAT_GAGNE else {"PERDU": "P"}.get(value_result, "R"),
                 "mise": round(float(value_stake or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
                 "pnl": round(v_pnl / BASE_UNIT_EUR, 2),
                 "type": "value", "sport": sport_l,
@@ -662,7 +673,7 @@ def fetch_perf_stats() -> dict:
                COALESCE(NULLIF(cote_reelle,0), NULLIF(value_cote,0), cote_interne),
                resultat, COALESCE(mise,0), COALESCE(pnl,0), result_updated_at
         FROM paris
-        WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
+        WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
           AND NOT (market_type IN ('total_points', 'player_pick_only'))
         """,
@@ -679,7 +690,7 @@ def fetch_perf_stats() -> dict:
         d = _paris_calendar_date(rud)
         if d is None:
             continue
-        won = resultat == "GAGNE"
+        won = resultat in RESULTAT_GAGNE
         lost = resultat == "PERDU"
         g["n"] += 1
         g["w"] += won
@@ -773,7 +784,7 @@ def fetch_perf_stats() -> dict:
                p.result_updated_at, p.sport
         FROM paris p
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
-        WHERE p.resultat IN ('GAGNE','PERDU')
+        WHERE p.resultat IN ('GAGNE','GAGNÉ','PERDU')
           AND p.conseil IS NOT NULL AND p.conseil <> ''
           AND p.result_updated_at IS NOT NULL AND p.result_updated_at <> ''
         """,
@@ -889,7 +900,7 @@ def fetch_bankroll() -> dict:
         """
         SELECT pnl, result_updated_at
         FROM paris
-        WHERE resultat IN ('GAGNE','PERDU','REMBOURSE')
+        WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
           AND NOT (market_type IN ('total_points', 'player_pick_only'))
         """,
