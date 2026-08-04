@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-04T22:35:54.232651+00:00",
+ "generated_at": "2026-08-04T22:39:42.250550+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -36,6 +36,21 @@
  },
  "fixtures": [
   {
+   "fixture_id": "tennis_espn_wta_182089",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carol Young Suh Lee – Elsa Jacquemot",
+   "kickoff_at": "2026-08-04T09:00Z",
+   "published": true,
+   "value_bet": "Total sets — Plus de 2.5 @ 2.5",
+   "value_cote": 2.5,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-4, 6-4"
+  },
+  {
    "fixture_id": "tennis_espn_wta_182083",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
@@ -58,19 +73,15 @@
    "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
-   "fixture_id": "tennis_espn_wta_182089",
+   "fixture_id": "tennis_espn_wta_182091",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Carol Young Suh Lee – Elsa Jacquemot",
-   "kickoff_at": "2026-08-04T09:00Z",
-   "published": true,
-   "value_bet": "Total sets — Plus de 2.5 @ 2.5",
-   "value_cote": 2.5,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "6-4, 6-4"
+   "match": "Vendula Valdmannova – Jeline Vandromme",
+   "kickoff_at": "2026-08-04T10:30Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_182088",
@@ -79,17 +90,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Elizara Yaneva – Linda Klimovicova",
-   "kickoff_at": "2026-08-04T10:30Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_182091",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Vendula Valdmannova – Jeline Vandromme",
    "kickoff_at": "2026-08-04T10:30Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -165,22 +165,22 @@
    "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
-   "fixture_id": "tennis_espn_atp_182175",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Viktorija Golubic – Donna Vekic",
-   "kickoff_at": "2026-08-04T16:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_182173",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Diana Shnaider – Rebecca Sramkova",
+   "kickoff_at": "2026-08-04T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182175",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Viktorija Golubic – Donna Vekic",
    "kickoff_at": "2026-08-04T16:30Z",
    "published": false
   },
@@ -305,22 +305,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181776",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Vit Kopriva – Jiri Lehecka",
-   "kickoff_at": "2026-08-04T19:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_181778",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Alexander Blockx – Jaume Munar",
+   "kickoff_at": "2026-08-04T19:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181776",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Vit Kopriva – Jiri Lehecka",
    "kickoff_at": "2026-08-04T19:30Z",
    "published": false
   },
@@ -335,25 +335,6 @@
    "published": true,
    "value_bet": "Vainqueur — Los Angeles Angels @ 2.4",
    "value_cote": 2.4
-  },
-  {
-   "fixture_id": "baseball_401816390",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Philadelphia Phillies – Washington Nationals",
-   "kickoff_at": "2026-08-04T22:40Z",
-   "published": true,
-   "value_bet": "Vainqueur — Washington Nationals @ 3.91",
-   "value_cote": 3.91,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Trea Turner — Coups sûrs Plus de 1.5",
-     "detail": "cote 2.78"
-    }
-   ]
   },
   {
    "fixture_id": "baseball_401816385",
@@ -384,6 +365,25 @@
    "kickoff_at": "2026-08-04T22:40Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "baseball_401816390",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Philadelphia Phillies – Washington Nationals",
+   "kickoff_at": "2026-08-04T22:40Z",
+   "published": true,
+   "value_bet": "Vainqueur — Washington Nationals @ 3.91",
+   "value_cote": 3.91,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Trea Turner — Coups sûrs Plus de 1.5",
+     "detail": "cote 2.78"
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816389",
@@ -438,22 +438,22 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816391",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Los Angeles Dodgers",
-   "kickoff_at": "2026-08-05T00:05Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816394",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Texas Rangers – San Francisco Giants",
+   "kickoff_at": "2026-08-05T00:05Z",
+   "published": false
+  },
+  {
+   "fixture_id": "baseball_401816391",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Los Angeles Dodgers",
    "kickoff_at": "2026-08-05T00:05Z",
    "published": false
   },
