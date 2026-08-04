@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-04T13:43:22.685189+00:00",
+ "generated_at": "2026-08-04T14:01:21.539052+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -151,7 +151,7 @@
    "match": "TBD – TBD",
    "kickoff_at": "2026-08-04T13:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_182118",
@@ -161,6 +161,17 @@
    "sport_label": "Tennis",
    "match": "TBD – TBD",
    "kickoff_at": "2026-08-04T14:30Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182173",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Diana Shnaider – Rebecca Sramkova",
+   "kickoff_at": "2026-08-04T16:30Z",
    "published": false
   },
   {
@@ -170,26 +181,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Denis Shapovalov – Zachary Svajda",
-   "kickoff_at": "2026-08-04T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182175",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Viktorija Golubic – Donna Vekic",
-   "kickoff_at": "2026-08-04T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182173",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Diana Shnaider – Rebecca Sramkova",
    "kickoff_at": "2026-08-04T16:30Z",
    "published": false
   },
@@ -244,6 +235,36 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_182175",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Viktorija Golubic – Donna Vekic",
+   "kickoff_at": "2026-08-04T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181773",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Andrey Rublev – Shang Juncheng",
+   "kickoff_at": "2026-08-04T18:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181810",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jack Draper – Terence Atmane",
+   "kickoff_at": "2026-08-04T18:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_atp_181829",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
@@ -270,26 +291,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Tallon Griekspoor – Lorenzo Sonego",
-   "kickoff_at": "2026-08-04T18:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181810",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jack Draper – Terence Atmane",
-   "kickoff_at": "2026-08-04T18:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181773",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Andrey Rublev – Shang Juncheng",
    "kickoff_at": "2026-08-04T18:00Z",
    "published": false
   },
@@ -394,16 +395,6 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816392",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Kansas City Royals – Minnesota Twins",
-   "kickoff_at": "2026-08-04T23:40Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816393",
    "flag": "⚾",
    "league": "MLB",
@@ -414,13 +405,13 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816391",
+   "fixture_id": "baseball_401816392",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Los Angeles Dodgers",
-   "kickoff_at": "2026-08-05T00:05Z",
+   "match": "Kansas City Royals – Minnesota Twins",
+   "kickoff_at": "2026-08-04T23:40Z",
    "published": false
   },
   {
@@ -430,6 +421,16 @@
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Texas Rangers – San Francisco Giants",
+   "kickoff_at": "2026-08-05T00:05Z",
+   "published": false
+  },
+  {
+   "fixture_id": "baseball_401816391",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Los Angeles Dodgers",
    "kickoff_at": "2026-08-05T00:05Z",
    "published": false
   },
