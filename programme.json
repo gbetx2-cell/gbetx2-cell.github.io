@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-04T23:28:59.465328+00:00",
+ "generated_at": "2026-08-04T23:36:32.993859+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -295,12 +295,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181776",
+   "fixture_id": "tennis_espn_atp_181789",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Vit Kopriva – Jiri Lehecka",
+   "match": "Fabian Marozsan – Shintaro Mochizuki",
    "kickoff_at": "2026-08-04T19:30Z",
    "published": false
   },
@@ -315,12 +315,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181789",
+   "fixture_id": "tennis_espn_atp_181776",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Fabian Marozsan – Shintaro Mochizuki",
+   "match": "Vit Kopriva – Jiri Lehecka",
    "kickoff_at": "2026-08-04T19:30Z",
    "published": false
   },
@@ -356,17 +356,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816388",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – New York Mets",
-   "kickoff_at": "2026-08-04T22:40Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
    "fixture_id": "baseball_401816385",
    "flag": "⚾",
    "league": "MLB",
@@ -384,6 +373,17 @@
      "detail": "cote 2.72"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816388",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – New York Mets",
+   "kickoff_at": "2026-08-04T22:40Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "baseball_401816389",
@@ -466,16 +466,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816394",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Texas Rangers – San Francisco Giants",
-   "kickoff_at": "2026-08-05T00:05Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816391",
    "flag": "⚾",
    "league": "MLB",
@@ -487,6 +477,18 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
+   "fixture_id": "baseball_401816394",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Texas Rangers – San Francisco Giants",
+   "kickoff_at": "2026-08-05T00:05Z",
+   "published": true,
+   "value_bet": "Vainqueur — San Francisco Giants @ 2.75",
+   "value_cote": 2.75
+  },
+  {
    "fixture_id": "baseball_401816395",
    "flag": "⚾",
    "league": "MLB",
@@ -494,7 +496,8 @@
    "sport_label": "Baseball (MLB)",
    "match": "Houston Astros – Toronto Blue Jays",
    "kickoff_at": "2026-08-05T00:10Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "wnba_401857114",
