@@ -348,6 +348,17 @@ function renderPick(f, kind, text, cote, result){
   return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, gauge);
 }
 
+function countdownLabel(kickoffIso){
+  const diffMs = new Date(kickoffIso).getTime() - Date.now();
+  if (diffMs <= 0) return 'Coup d’envoi';
+  const totalMin = Math.ceil(diffMs / 60000);
+  const h = Math.floor(totalMin / 60);
+  const m = totalMin % 60;
+  if (h > 0) return `Coup d’envoi dans ${h}h${m ? ' ' + m + 'min' : ''}`;
+  if (m > 0) return `Coup d’envoi dans ${m} min`;
+  return 'Coup d’envoi imminent';
+}
+
 function renderCard(f){
   const live = liveCache[f.fixture_id];
   let scoreHtml;
@@ -358,6 +369,14 @@ function renderCard(f){
   } else if (live && live.home != null){
     const statusText = live.statusDetail || '';
     scoreHtml = `<div class="score-block"><span class="live-score"><span class="dot"></span> ${live.home} - ${live.away}</span>${statusText ? `<span class="match-time">${statusText}</span>` : ''}</div>`;
+  } else if (f.kickoff_at && new Date(f.kickoff_at).getTime() > Date.now()){
+    // Avant le coup d'envoi : decompte exact (05/08/2026, demande explicite
+    // -- pas de "En cours" tant que le match n'a pas commence). Recalcule a
+    // chaque appel de render() (rafraichi par loadPublications()/
+    // refreshLiveData() toutes les 60s) : pas de setInterval dedie, le
+    // decompte se recalibre simplement a chaque re-render et atteint 0
+    // pile au coup d'envoi.
+    scoreHtml = `<div class="score-block"><span class="match-time">${countdownLabel(f.kickoff_at)}</span></div>`;
   } else {
     scoreHtml = `<div class="score-block"><span class="live-score"><span class="dot"></span> En cours</span></div>`;
   }

@@ -438,24 +438,23 @@ def fetch_programme() -> list[dict]:
 def fetch_publications() -> dict:
     """Sous-ensemble de fetch_programme() pour la page Publications
     (04/08/2026, chantier "gros chantier 10/10" -- remplace a terme
-    programme.html) : ne garde que les fixtures deja DECIDEES aujourd'hui
-    (publiees OU No Bet -- un No Bet est une decision finale, comptee comme
-    "publication active" au meme titre qu'un value bet/player pick, demande
-    explicite), jamais celles encore en attente d'analyse/countdown.
+    programme.html) : ne garde que les fixtures reellement PUBLIEES sur
+    Telegram aujourd'hui (05/08/2026, demande explicite : les No Bet ne sont
+    pas des publications Telegram, ils ne doivent plus apparaitre sur cette
+    page -- seul le flux reellement envoye au canal compte).
     Football exclu (en pause, demande explicite du 04/08/2026 -- pas de
     fixture_id exploitable cote client pour le score/les stats live, cle API
     secrete).
 
     "live" = pas encore reglee (pas de cle "result") ; "done" = reglee
-    (cle "result" presente). Un No Bet reste indefiniment en "live" (rien a
-    regler), conformement a la demande explicite : les 2 sections ne
-    distinguent PAS par categorie (conseil/value/player/no bet), seulement
-    par etat regle/pas regle."""
+    (cle "result" presente). Le statut "live" avant le coup d'envoi est
+    affiche cote client comme un decompte exact jusqu'a kickoff_at (present
+    dans chaque item), pas un simple "En cours" statique."""
     out = {"live": [], "done": []}
     for f in fetch_programme():
         if f.get("sport") == "football":
             continue
-        if not (f.get("published") or f.get("no_bet_reason")):
+        if not f.get("published"):
             continue
         (out["done"] if f.get("result") else out["live"]).append(f)
     return out
