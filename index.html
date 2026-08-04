@@ -166,7 +166,7 @@ header{
 
 /* ── Compteurs live ─────────────────────── */
 .live-strip{background:var(--bg);padding:56px 0 8px}
-.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.live-grid{display:grid;grid-template-columns:1fr;max-width:460px;margin:0 auto;gap:20px}
 .live-card{
   background:linear-gradient(160deg,var(--card-2),var(--card));
   border:1px solid var(--border);
@@ -508,7 +508,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
     </div>
     <nav class="nav-links">
-      <a href="programme.html">Programme du jour</a>
+      <a href="publications.html">Publications</a>
       <a href="#resultats">Résultats</a>
       <a href="#performance">Performance</a>
       <a href="#faq">FAQ</a>
@@ -529,7 +529,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       <svg class="icon" style="width:18px;height:18px"><use href="#i-x"></use></svg>
     </button>
   </div>
-  <a href="programme.html">Programme du jour</a>
+  <a href="publications.html">Publications</a>
   <a href="#resultats">Résultats</a>
   <a href="#performance">Performance</a>
   <a href="#faq">FAQ</a>
@@ -600,13 +600,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
         <div class="lc-title">Prochain scan des matchs</div>
       </div>
       <div class="timer" id="scanTimer">--:--</div>
-    </div>
-    <div class="live-card reveal">
-      <div>
-        <div class="lc-label"><svg class="icon"><use href="#i-clipboard"></use></svg> Programme du jour</div>
-        <div class="lc-title">Prochaine publication du programme</div>
-      </div>
-      <div class="timer" id="progTimer">--:--:--</div>
     </div>
   </div>
 </div>
@@ -791,7 +784,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
         bilan public quotidien.</p>
       </div>
       <nav class="nav-links" style="display:flex;flex-direction:column;gap:10px">
-        <a href="programme.html">Programme du jour</a>
+        <a href="publications.html">Publications</a>
         <a href="#resultats">Résultats</a>
         <a href="#performance">Performance</a>
         <a href="#faq">FAQ</a>
@@ -938,7 +931,7 @@ const PERIOD_STATS = {jour:{n:15, g:5, p:10, r:0, winrate:33, pnl:-1.43}, semain
 
 /* Courbe cumulee par periode (jour=heures, semaine=jours, mois=jours du
    mois, annee=mois) -- regenere par scripts/export_site_results.py. */
-const PERIOD_SERIES = {jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:-1.65}, {label:"04h", pnl:-0.59}, {label:"05h", pnl:0.57}, {label:"06h", pnl:-1.43}, {label:"07h", pnl:-1.43}, {label:"08h", pnl:-1.43}, {label:"09h", pnl:-1.43}, {label:"10h", pnl:-1.43}, {label:"11h", pnl:-1.43}, {label:"12h", pnl:-1.43}, {label:"13h", pnl:-1.43}, {label:"14h", pnl:-1.43}, {label:"15h", pnl:-1.43}, {label:"16h", pnl:-1.43}, {label:"17h", pnl:-1.43}, {label:"18h", pnl:-1.43}, {label:"19h", pnl:-1.43}], semaine:[{label:"Lun", pnl:3.15}, {label:"Mar", pnl:1.71}], mois:[{label:"1", pnl:-7.39}, {label:"2", pnl:-14.86}, {label:"3", pnl:-11.71}, {label:"4", pnl:-13.15}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.72}, {label:"Jul", pnl:-48.71}, {label:"Aoû", pnl:-61.86}], now_frac:{jour:0.827477, semaine:0.261068, mois:0.123467, annee:0.591308}, total_buckets:{jour:24, semaine:7, mois:31, annee:12}};
+const PERIOD_SERIES = {jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:-1.65}, {label:"04h", pnl:-0.59}, {label:"05h", pnl:0.57}, {label:"06h", pnl:-1.43}, {label:"07h", pnl:-1.43}, {label:"08h", pnl:-1.43}, {label:"09h", pnl:-1.43}, {label:"10h", pnl:-1.43}, {label:"11h", pnl:-1.43}, {label:"12h", pnl:-1.43}, {label:"13h", pnl:-1.43}, {label:"14h", pnl:-1.43}, {label:"15h", pnl:-1.43}, {label:"16h", pnl:-1.43}, {label:"17h", pnl:-1.43}, {label:"18h", pnl:-1.43}, {label:"19h", pnl:-1.43}], semaine:[{label:"Lun", pnl:3.15}, {label:"Mar", pnl:1.71}], mois:[{label:"1", pnl:-7.39}, {label:"2", pnl:-14.86}, {label:"3", pnl:-11.71}, {label:"4", pnl:-13.15}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.72}, {label:"Jul", pnl:-48.71}, {label:"Aoû", pnl:-61.86}], now_frac:{jour:0.827106, semaine:0.261015, mois:0.123455, annee:0.591307}, total_buckets:{jour:24, semaine:7, mois:31, annee:12}};
 
 /* Performance publique (ROI global depuis le lancement, sports, marche x
    tranche de cote avec zones bloquees, highlights du mois, picks modele)
@@ -1452,16 +1445,6 @@ function tickTimers(){
   const secIntoCycle = (now.getMinutes()%5)*60 + now.getSeconds();
   const scanLeft = 5*60 - secIntoCycle;
   document.getElementById('scanTimer').textContent = `${pad(Math.floor(scanLeft/60))}:${pad(scanLeft%60)}`;
-
-  // Programme du jour : publié chaque matin à 08:00 (heure de Paris)
-  const parisNow = new Date(now.toLocaleString('en-US',{timeZone:'Europe/Paris'}));
-  const next8 = new Date(parisNow);
-  next8.setHours(8,0,0,0);
-  if(parisNow >= next8) next8.setDate(next8.getDate()+1);
-  let left = Math.floor((next8 - parisNow)/1000);
-  const h = Math.floor(left/3600); left %= 3600;
-  document.getElementById('progTimer').innerHTML =
-    `${pad(h)}:${pad(Math.floor(left/60))}:${pad(left%60)}`;
 }
 tickTimers();
 setInterval(tickTimers, 1000);
