@@ -267,7 +267,12 @@ def fetch_period_series() -> dict:
     jour -> par heure (00h..23h), semaine -> par jour (Lun..Dim),
     mois -> par jour du mois, annee -> par mois (Jan..Dec). Meme source
     (result_updated_at, en unites) que fetch_period_stats -- juste eclate
-    en points de courbe au lieu d'un seul total."""
+    en points de courbe au lieu d'un seul total.
+
+    "by_sport" ajoute le 05/08/2026 (demande explicite, chantier
+    "Resultats simplifie") : meme structure jour/semaine/mois/annee que la
+    racine (qui reste "tous sports", inchangee -- retrocompatible), une
+    entree par sport pour le filtre sport sur la courbe principale."""
     import calendar
     import psycopg2
 
@@ -278,7 +283,7 @@ def fetch_period_series() -> dict:
     cur = conn.cursor()
     cur.execute(
         """
-        SELECT pnl, result_updated_at
+        SELECT pnl, result_updated_at, sport
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
@@ -295,7 +300,7 @@ def fetch_period_series() -> dict:
     cur.execute(
         """
         SELECT odd, COALESCE(stake_eur,0), settlement_status,
-               COALESCE(NULLIF(settled_at,''), created_at)
+               COALESCE(NULLIF(settled_at,''), created_at), sport
         FROM sport_player_picks
         WHERE settlement_status IN ('GAGNE','PERDU')
         """,
@@ -310,34 +315,48 @@ def fetch_period_series() -> dict:
     year_start = today.replace(month=1, day=1)
     n_days_month = calendar.monthrange(today.year, today.month)[1]
 
-    heures = [0.0] * 24
-    semaine = [0.0] * 7
-    mois = [0.0] * n_days_month
-    annee = [0.0] * 12
+    # "mlb" -> "baseball" (meme normalisation que fetch_perf_stats() plus
+    # bas : sport_player_picks.sport vaut "mlb" pour le meme sport que
+    # paris.sport="baseball").
+    SPORT_LABEL_MAP = {"mlb": "baseball"}
 
-    def _bucket_pnl(pnl_eur, dt):
+    def _empty_buckets():
+        return {"heures": [0.0]*24, "semaine": [0.0]*7, "mois": [0.0]*n_days_month, "annee": [0.0]*12}
+
+    buckets_by_sport: dict = {"all": _empty_buckets()}
+
+    def _bucket_pnl(pnl_eur, dt, sport_key):
         d = dt.date()
         pnl_u = pnl_eur / BASE_UNIT_EUR
-        if d == today:
-            heures[dt.hour] += pnl_u
-        if week_start <= d <= today:
-            semaine[d.weekday()] += pnl_u
-        if month_start <= d <= today:
-            mois[d.day - 1] += pnl_u
-        if year_start <= d <= today:
-            annee[d.month - 1] += pnl_u
+        for key in ("all", sport_key):
+            b = buckets_by_sport.setdefault(key, _empty_buckets())
+            if d == today:
+                b["heures"][dt.hour] += pnl_u
+            if week_start <= d <= today:
+                b["semaine"][d.weekday()] += pnl_u
+            if month_start <= d <= today:
+                b["mois"][d.day - 1] += pnl_u
+            if year_start <= d <= today:
+                b["annee"][d.month - 1] += pnl_u
 
-    for pnl, result_updated_at in rows:
+    for pnl, result_updated_at, sport in rows:
         dt = _paris_datetime(result_updated_at)
         if dt is None or dt.date() > today:
             continue
-        _bucket_pnl(float(pnl or 0), dt)
+        sp = SPORT_LABEL_MAP.get((sport or "football").lower(), (sport or "football").lower())
+        _bucket_pnl(float(pnl or 0), dt, sp)
 
-    for odd, stake_eur, status, settled_or_created in pick_rows:
+    for odd, stake_eur, status, settled_or_created, sport in pick_rows:
         dt = _paris_datetime(settled_or_created)
         if dt is None or dt.date() > today:
             continue
-        _bucket_pnl(_pnl_fixed(status, float(odd or 0), float(stake_eur or 0)), dt)
+        sp = SPORT_LABEL_MAP.get((sport or "football").lower(), (sport or "football").lower())
+        _bucket_pnl(_pnl_fixed(status, float(odd or 0), float(stake_eur or 0)), dt, sp)
+
+    heures = buckets_by_sport["all"]["heures"]
+    semaine = buckets_by_sport["all"]["semaine"]
+    mois = buckets_by_sport["all"]["mois"]
+    annee = buckets_by_sport["all"]["annee"]
 
     # Troncature aux buckets futurs (30/07/2026, audit demande explicite) :
     # les tableaux heures/semaine/mois/annee ci-dessus contiennent toujours
@@ -379,19 +398,26 @@ def fetch_period_series() -> dict:
     day_of_year = (today - year_start).days
     now_frac_annee = (day_of_year + seconds_of_day / 86400) / days_in_year
 
-    return {
-        "jour": cumulative_points(heures, [f"{h:02d}h" for h in range(24)], now_idx_jour),
-        "semaine": cumulative_points(semaine, JOURS_FR, now_idx_semaine),
-        "mois": cumulative_points(mois, [str(i + 1) for i in range(n_days_month)], now_idx_mois),
-        "annee": cumulative_points(annee, MOIS_FR, now_idx_annee),
-        "now_frac": {
-            "jour": round(now_frac_jour, 6),
-            "semaine": round(now_frac_semaine, 6),
-            "mois": round(now_frac_mois, 6),
-            "annee": round(now_frac_annee, 6),
-        },
-        "total_buckets": {"jour": 24, "semaine": 7, "mois": n_days_month, "annee": 12},
+    def _build_period_dict(b):
+        return {
+            "jour": cumulative_points(b["heures"], [f"{h:02d}h" for h in range(24)], now_idx_jour),
+            "semaine": cumulative_points(b["semaine"], JOURS_FR, now_idx_semaine),
+            "mois": cumulative_points(b["mois"], [str(i + 1) for i in range(n_days_month)], now_idx_mois),
+            "annee": cumulative_points(b["annee"], MOIS_FR, now_idx_annee),
+        }
+
+    result = _build_period_dict(buckets_by_sport["all"])
+    result["now_frac"] = {
+        "jour": round(now_frac_jour, 6),
+        "semaine": round(now_frac_semaine, 6),
+        "mois": round(now_frac_mois, 6),
+        "annee": round(now_frac_annee, 6),
     }
+    result["total_buckets"] = {"jour": 24, "semaine": 7, "mois": n_days_month, "annee": 12}
+    result["by_sport"] = {
+        sp: _build_period_dict(b) for sp, b in buckets_by_sport.items() if sp != "all"
+    }
+    return result
 
 
 def _cat(selection: str) -> str:
@@ -992,13 +1018,26 @@ def render_series_block(series: dict) -> str:
         items = ", ".join(f"{key}:{value}" for key, value in d.items())
         return f"{{{items}}}"
 
+    def by_sport_obj(d):
+        # {sport: {jour:[...], semaine:[...], mois:[...], annee:[...]}}
+        # (05/08/2026, filtre sport sur la courbe principale) : meme forme
+        # que les 4 cles de premier niveau, imbriquee par sport.
+        sport_parts = [
+            "\"" + sp + "\":{" + ", ".join(f"{k}:{pts(v)}" for k, v in period.items()) + "}"
+            for sp, period in d.items()
+        ]
+        return "{" + ", ".join(sport_parts) + "}"
+
     # now_frac/total_buckets (30/07/2026) : dicts de nombres (fraction de
     # periode ecoulee, taille d'axe fixe), pas des listes de points -- format
-    # different de jour/semaine/mois/annee, gere separement ici.
+    # different de jour/semaine/mois/annee, gere separement ici. by_sport
+    # (05/08/2026) : objet imbrique, gere separement aussi (cf by_sport_obj).
     parts = []
     for key, value in series.items():
         if key in ("now_frac", "total_buckets"):
             parts.append(f"{key}:{num_dict(value)}")
+        elif key == "by_sport":
+            parts.append(f"{key}:{by_sport_obj(value)}")
         else:
             parts.append(f"{key}:{pts(value)}")
     return "const PERIOD_SERIES = {" + ", ".join(parts) + "};"

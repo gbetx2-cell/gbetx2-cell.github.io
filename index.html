@@ -185,6 +185,8 @@ header{
 
 /* ── Bilan jour / semaine / mois ────────── */
 .period-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.period-grid.has-5{grid-template-columns:repeat(5,1fr)}
+.perf-sub-title{font-size:1.05rem;color:var(--text);margin:0 0 12px}
 .period-card{
   background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
   padding:22px 24px;
@@ -277,6 +279,15 @@ header{
 }
 .chip:hover .tip{opacity:1;transform:translateX(-50%) scale(1)}
 .chart-note{color:var(--muted);font-size:.8rem;margin-top:18px}
+.pub-link{
+  display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--gold-2);
+  border:1px solid var(--border-strong);padding:6px 12px;border-radius:8px;margin-top:14px;
+  text-decoration:none;
+}
+.pub-link:hover{background:rgba(240,185,11,.08)}
+.type-filter{flex-wrap:wrap}
+.highlight-link{display:block;margin-top:8px;font-size:.78rem;color:var(--gold-2);text-decoration:none}
+.highlight-link:hover{text-decoration:underline}
 
 /* ── Sections ───────────────────────────── */
 section{padding:84px 0}
@@ -632,10 +643,14 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
             <button data-mode="u" class="active">En unités</button>
             <button data-mode="e">En €</button>
           </div>
+          <div class="chart-toggle sport-filter" id="periodSportFilter" style="margin-left:10px">
+            <button data-sport="all" class="active">Tous</button>
+          </div>
         </div>
         <div class="delta" id="periodChartDelta">—</div>
       </div>
       <svg id="periodChart" viewBox="0 0 800 260" preserveAspectRatio="none" role="img" aria-label="Évolution du bilan par période"></svg>
+      <a class="pub-link" href="publications.html">→ Voir le détail de chaque pick en cours sur Publications</a>
     </div>
 
     <div class="chart-card reveal">
@@ -649,12 +664,18 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
           <div class="chart-toggle sport-filter" id="sportFilter" style="margin-left:10px">
             <button data-sport="all" class="active">Tous</button>
           </div>
+          <div class="chart-toggle type-filter" id="typeFilter" style="margin-left:10px">
+            <button data-type="all" class="active">Tous types</button>
+            <button data-type="conseil">🎯 Conseil</button>
+            <button data-type="value">💎 Value</button>
+            <button data-type="player">👤 Player</button>
+          </div>
         </div>
         <div class="delta" id="chartDelta">—</div>
       </div>
       <svg id="bkChart" viewBox="0 0 800 300" preserveAspectRatio="none" role="img" aria-label="Courbe d'évolution des gains"></svg>
       <div class="chips" id="chipsRow">
-        <span class="c-label">Derniers picks — survolez pour voir le pronostic exact et son type :</span>
+        <span class="c-label">Derniers picks — survolez pour voir le pronostic exact, son type, et son point sur la courbe :</span>
       </div>
       <div class="chart-note">
         G = gagné · P = perdu · R = remboursé — mise à jour à chaque bilan quotidien.
@@ -675,6 +696,8 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       et elles restent affichées ici — c'est le principe.
     </p>
     <div class="period-grid reveal" id="perfGlobalGrid"></div>
+    <h3 class="perf-sub-title">Performance par sport</h3>
+    <div class="period-grid reveal" id="perfSportsGrid"></div>
     <div class="period-grid reveal" id="perfHighlights" style="grid-template-columns:repeat(3,1fr)"></div>
     <div class="chart-card reveal">
       <div class="chart-head">
@@ -931,7 +954,7 @@ const PERIOD_STATS = {jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00}, semaine:{n
 
 /* Courbe cumulee par periode (jour=heures, semaine=jours, mois=jours du
    mois, annee=mois) -- regenere par scripts/export_site_results.py. */
-const PERIOD_SERIES = {jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}], semaine:[{label:"Lun", pnl:3.15}, {label:"Mar", pnl:1.71}, {label:"Mer", pnl:1.71}], mois:[{label:"1", pnl:-7.39}, {label:"2", pnl:-14.86}, {label:"3", pnl:-11.71}, {label:"4", pnl:-13.15}, {label:"5", pnl:-13.15}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.72}, {label:"Jul", pnl:-48.71}, {label:"Aoû", pnl:-61.86}], now_frac:{jour:0.044583, semaine:0.292083, mois:0.13047, annee:0.591903}, total_buckets:{jour:24, semaine:7, mois:31, annee:12}};
+const PERIOD_SERIES = {jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}], semaine:[{label:"Lun", pnl:3.15}, {label:"Mar", pnl:1.71}, {label:"Mer", pnl:1.71}], mois:[{label:"1", pnl:-7.39}, {label:"2", pnl:-14.86}, {label:"3", pnl:-11.71}, {label:"4", pnl:-13.15}, {label:"5", pnl:-13.15}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.72}, {label:"Jul", pnl:-48.71}, {label:"Aoû", pnl:-61.86}], now_frac:{jour:0.044271, semaine:0.292039, mois:0.13046, annee:0.591902}, total_buckets:{jour:24, semaine:7, mois:31, annee:12}};
 
 /* Performance publique (ROI global depuis le lancement, sports, marche x
    tranche de cote avec zones bloquees, highlights du mois, picks modele)
@@ -946,6 +969,7 @@ let currentMode = "u"; // "u" = unités, "e" = euros
 const SPORT_META = {
   tennis:   {label:"Tennis",   flag:"🎾"},
   mlb:      {label:"MLB",      flag:"⚾"},
+  baseball: {label:"MLB",      flag:"⚾"}, // PERIOD_SERIES.by_sport utilise "baseball" (cf export_site_results.py), pas "mlb"
   wnba:     {label:"WNBA",     flag:"🏀"},
   nba:      {label:"NBA",      flag:"🏀"},
   nhl:      {label:"NHL",      flag:"🏒"},
@@ -967,6 +991,10 @@ function resSport(res){
   return normalizeSport(res.sport) || FLAG_TO_SPORT[res.flag] || "";
 }
 let currentSportFilter = "all";
+// Filtre type (05/08/2026, chantier "Resultats simplifie", demande
+// explicite integree du prototype) : Conseil/Value bet/Player pick,
+// independant du filtre sport -- les deux se combinent.
+let currentTypeFilter = "all";
 // Fenetre de visibilite (point 3 pagination, 30/07/2026) : RESULTATS charge
 // jusqu'a 80 matchs regles (cf N_MATCHES, export_site_results.py), mais
 // seuls les 20 derniers sont affiches par defaut -- "Voir plus" etend vers
@@ -978,8 +1006,10 @@ let currentSportFilter = "all";
 const BASE_VISIBLE = 20, STEP_VISIBLE = 20;
 let visibleCount = BASE_VISIBLE;
 function baseFiltered(){
-  if (currentSportFilter === "all") return RESULTATS;
-  return RESULTATS.filter(res => resSport(res) === currentSportFilter);
+  let list = RESULTATS;
+  if (currentSportFilter !== "all") list = list.filter(res => resSport(res) === currentSportFilter);
+  if (currentTypeFilter !== "all") list = list.filter(res => res.type === currentTypeFilter);
+  return list;
 }
 function filteredResultats(){
   return baseFiltered().slice(-visibleCount);
@@ -1025,6 +1055,50 @@ function setupSportFilter(){
   });
 }
 
+/* Filtre type (05/08/2026) : meme mecanique que setupSportFilter(), boutons
+   deja presents en HTML (contrairement au sport, pas besoin de generation
+   dynamique -- 3 types fixes, toujours les memes). */
+function setupTypeFilter(){
+  const bar = document.getElementById('typeFilter');
+  if (!bar) return;
+  bar.addEventListener('click', e=>{
+    const btn = e.target.closest('button[data-type]');
+    if (!btn) return;
+    currentTypeFilter = btn.dataset.type;
+    visibleCount = BASE_VISIBLE;
+    bar.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b === btn));
+    drawChart();
+    renderChips();
+    updateVoirPlusButton();
+  });
+}
+
+/* Filtre sport sur la courbe principale "Evolution du bilan" (05/08/2026,
+   demande explicite) : independant du filtre sport de "Courbe des derniers
+   picks" -- source de donnees differente (PERIOD_SERIES.by_sport, agrege
+   cote serveur, pas RESULTATS filtre cote client). */
+let currentPeriodSportFilter = "all";
+function setupPeriodSportFilter(){
+  const bar = document.getElementById('periodSportFilter');
+  if (!bar) return;
+  const sports = Object.keys(PERIOD_SERIES.by_sport || {});
+  sports.forEach(s=>{
+    const meta = SPORT_META[s] || {label:s, flag:''};
+    const btn = document.createElement('button');
+    btn.dataset.sport = s;
+    btn.textContent = `${meta.flag} ${meta.label}`.trim();
+    bar.appendChild(btn);
+  });
+  bar.addEventListener('click', e=>{
+    const btn = e.target.closest('button[data-sport]');
+    if (!btn) return;
+    currentPeriodSportFilter = btn.dataset.sport;
+    bar.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b === btn));
+    drawPeriodChart();
+    animatePeriodLine();
+  });
+}
+
 /* Gain reel d'un conseil, en unites -- utilise le pnl reel (mise variable
    deja prise en compte) quand il est present ; repli sur l'ancien calcul a
    mise fixe 1u seulement pour d'eventuelles anciennes entrees sans champ pnl. */
@@ -1045,6 +1119,11 @@ function computeSeries(){
   return {pts, total: units};
 }
 
+// Geometrie du dernier drawChart(), reutilisee par highlightBkPoint()/
+// clearBkHighlight() (survol de la liste "Derniers picks") pour placer le
+// marqueur exactement sur la courbe sans redupliquer le calcul d'echelle.
+let _bkChartGeom = null;
+
 function drawChart(){
   const svg = document.getElementById('bkChart');
   const W = 800, H = 300, PAD = 34;
@@ -1054,6 +1133,7 @@ function drawChart(){
   const yMin = Math.min(...ys, 0), yMax = Math.max(...ys, factor*0.5);
   const xs = i => PAD + (i/(pts.length-1))*(W-2*PAD);
   const ysc = v => H-PAD - ((v-yMin)/(yMax-yMin || 1))*(H-2*PAD);
+  _bkChartGeom = {xs, ysc, ys};
 
   const line = ys.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
   const area = line + ` L${xs(ys.length-1).toFixed(1)},${H-PAD} L${PAD},${H-PAD} Z`;
@@ -1101,6 +1181,31 @@ function animateChartLine(){
   });
 }
 
+/* Survol d'un chip "Derniers picks" -> marqueur sur le point correspondant
+   de la courbe (05/08/2026). idx = position du pick dans filteredResultats()
+   (ordre chronologique) ; le point de la courbe qui lui correspond est
+   idx+1 (pts[0] = origine a 0). */
+function highlightBkPoint(idx){
+  const svg = document.getElementById('bkChart');
+  if (!svg || !_bkChartGeom) return;
+  const {xs, ysc, ys} = _bkChartGeom;
+  const i = idx + 1;
+  if (i < 0 || i >= ys.length) return;
+  clearBkHighlight();
+  const marker = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  marker.setAttribute('id', 'bkHoverMarker');
+  marker.setAttribute('cx', xs(i));
+  marker.setAttribute('cy', ysc(ys[i]));
+  marker.setAttribute('r', '7');
+  marker.setAttribute('fill', '#fff');
+  marker.setAttribute('stroke', 'var(--gold-2)');
+  marker.setAttribute('stroke-width', '3');
+  svg.appendChild(marker);
+}
+function clearBkHighlight(){
+  document.getElementById('bkHoverMarker')?.remove();
+}
+
 /* ── Bilan jour / semaine / mois ── */
 const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci", annee:"Cette année"};
 
@@ -1108,7 +1213,8 @@ function renderPeriodStats(){
   const grid = document.getElementById('periodGrid');
   const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
   const unit = currentMode === "e" ? "€" : "u";
-  grid.innerHTML = Object.keys(PERIOD_LABELS).map(key=>{
+  grid.classList.add('has-5');
+  const cards = Object.keys(PERIOD_LABELS).map(key=>{
     const s = PERIOD_STATS[key] || {n:0,g:0,p:0,r:0,winrate:0,pnl:0};
     const val = s.pnl * factor;
     const cls = s.n === 0 ? 'flat' : (val > 0 ? 'up' : val < 0 ? 'down' : 'flat');
@@ -1124,7 +1230,24 @@ function renderPeriodStats(){
         <div class="period-pnl ${cls}">${pnlDisplay}</div>
         <div class="period-sub">${sub}</div>
       </div>`;
-  }).join('');
+  });
+  const g = PERF_STATS.global || {n:0,w:0,l:0,winrate:0,roi:0,pnl:0,since:null};
+  const gVal = g.pnl * factor;
+  const gCls = g.n === 0 ? 'flat' : (gVal > 0 ? 'up' : gVal < 0 ? 'down' : 'flat');
+  const gPnlDisplay = g.n === 0
+    ? '—'
+    : `${gVal > 0 ? '+' : ''}${currentMode === "e" ? gVal.toFixed(0) : gVal.toFixed(2)} ${unit}`;
+  const sinceStr = g.since ? new Date(g.since).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'}) : '';
+  const gSub = g.n === 0
+    ? 'Aucun conseil réglé pour l’instant'
+    : `${g.n} réglés · ${g.w}G ${g.l}P · ${g.winrate}% de réussite${sinceStr ? ' · depuis le ' + sinceStr : ''}`;
+  cards.push(`
+      <div class="period-card">
+        <div class="period-label">Historique complet</div>
+        <div class="period-pnl ${gCls}">${gPnlDisplay}</div>
+        <div class="period-sub">${gSub}</div>
+      </div>`);
+  grid.innerHTML = cards.join('');
 }
 
 /* ── Graphique jour / semaine / mois / année ── */
@@ -1132,7 +1255,14 @@ let currentPeriod = "jour";
 
 function drawPeriodChart(){
   const svg = document.getElementById('periodChart');
-  const series = PERIOD_SERIES[currentPeriod] || [];
+  // Filtre sport (05/08/2026) : PERIOD_SERIES.by_sport[sport] a la MEME
+  // forme (jour/semaine/mois/annee) que la racine "tous sports" -- now_frac/
+  // total_buckets restent lus sur la racine (axe temporel identique, pas
+  // sport-specifique).
+  const sportSeries = currentPeriodSportFilter === "all"
+    ? PERIOD_SERIES
+    : (PERIOD_SERIES.by_sport || {})[currentPeriodSportFilter] || {};
+  const series = sportSeries[currentPeriod] || [];
   const d = document.getElementById('periodChartDelta');
   if (!series.length){
     svg.innerHTML = '';
@@ -1258,8 +1388,6 @@ function renderPerfStats(){
   const grid = document.getElementById('perfGlobalGrid');
   const g = P.global;
   const sinceTxt = g.since ? new Date(g.since).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'}) : '';
-  const sportRows = (P.sports || []).map(s =>
-    `${sportLabel(s.sport)} : ${fmtPnl(s.pnl)} · ${s.winrate}%`).join('<br>');
   const pp = P.percent_picks || {n:0, winrate:0};
   grid.innerHTML = `
     <div class="period-card">
@@ -1273,14 +1401,21 @@ function renderPerfStats(){
       <div class="period-sub">${g.w}G ${g.l}P · ${g.winrate}% de réussite</div>
     </div>
     <div class="period-card">
-      <div class="period-label">Par sport</div>
-      <div class="period-sub" style="font-size:.95rem;line-height:1.9">${sportRows || '—'}</div>
-    </div>
-    <div class="period-card">
       <div class="period-label">Picks joueurs (modèle %)</div>
       <div class="period-pnl flat" style="color:var(--text)">${pp.n ? pp.winrate + '%' : '—'}</div>
       <div class="period-sub">${pp.n ? pp.n + ' picks réglés sans cote marché — jamais comptés dans le bilan en argent' : 'Aucun pick réglé'}</div>
     </div>`;
+
+  // Performance par sport (05/08/2026) : vue autonome (cartes dediees, pas
+  // une simple liste inline dans une carte generique) -- une carte par
+  // sport avec drapeau/label, PnL et ROI.
+  const sportsGrid = document.getElementById('perfSportsGrid');
+  sportsGrid.innerHTML = (P.sports || []).map(s => `
+    <div class="period-card">
+      <div class="period-label">${sportLabel(s.sport)}</div>
+      <div class="period-pnl ${s.pnl > 0 ? 'up' : s.pnl < 0 ? 'down' : 'flat'}">${fmtPnl(s.pnl)}</div>
+      <div class="period-sub">${s.n} réglés · ${s.w}G ${s.l}P · ${s.winrate}% · ROI ${s.roi > 0 ? '+' : ''}${s.roi}%</div>
+    </div>`).join('') || '<div class="period-sub">—</div>';
 
   const hl = P.highlights || {};
   const hlCards = [];
@@ -1289,12 +1424,14 @@ function renderPerfStats(){
       <div class="period-label">Meilleur pick du mois</div>
       <div class="period-pnl up">${fmtPnl(hl.best.pnl)}</div>
       <div class="period-sub">${hl.best.flag} ${hl.best.match}<br>${hl.best.pick} @${hl.best.cote.toFixed(2)}</div>
+      <a class="highlight-link" href="publications.html">→ Voir sur Publications</a>
     </div>`);
   if (hl.worst) hlCards.push(`
     <div class="period-card">
       <div class="period-label">Pire perte du mois — assumée</div>
       <div class="period-pnl down">${fmtPnl(hl.worst.pnl)}</div>
       <div class="period-sub">${hl.worst.flag} ${hl.worst.match}<br>${hl.worst.pick} @${hl.worst.cote.toFixed(2)}</div>
+      <a class="highlight-link" href="publications.html">→ Voir sur Publications</a>
     </div>`);
   if (hl.top_league) hlCards.push(`
     <div class="period-card">
@@ -1393,7 +1530,9 @@ function renderChips(){
   // Copie inversee uniquement ici : filteredResultats() elle-meme doit
   // rester chronologique croissante, utilisee aussi par computeSeries()
   // pour le cumul du graphique de bankroll (bkChart).
-  [...filteredResultats()].reverse().forEach(res=>{
+  const chron = filteredResultats();
+  [...chron].reverse().forEach((res, revIdx)=>{
+    const chronIdx = chron.length - 1 - revIdx;
     const g = realGain(res);
     const gain = `${g > 0 ? '+' : g < 0 ? '−' : '±'}${Math.abs(g).toFixed(2)} u`;
     const mise = typeof res.mise === 'number' ? res.mise : 1;
@@ -1407,11 +1546,15 @@ function renderChips(){
         <svg class="icon"><use href="#i-${meta.icon}"></use></svg> ${meta.label} : <b>${res.pick}</b> @${res.cote.toFixed(2)} · mise ${mise.toFixed(2)} u<br>
         <span class="res-${res.r.toLowerCase()}">${RES_LABEL[res.r]} · ${gain}</span>
       </span>`;
+    chip.addEventListener('mouseenter', ()=>highlightBkPoint(chronIdx));
+    chip.addEventListener('mouseleave', clearBkHighlight);
     row.appendChild(chip);
   });
 }
 renderChips();
 setupSportFilter();
+setupTypeFilter();
+setupPeriodSportFilter();
 updateVoirPlusButton();
 new IntersectionObserver((e,o)=>{
   if(e[0].isIntersecting){
