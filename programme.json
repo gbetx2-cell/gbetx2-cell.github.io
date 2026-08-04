@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-04T14:01:21.539052+00:00",
+ "generated_at": "2026-08-04T14:19:41.197047+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -165,22 +165,32 @@
    "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
-   "fixture_id": "tennis_espn_atp_182173",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Diana Shnaider – Rebecca Sramkova",
-   "kickoff_at": "2026-08-04T16:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_181780",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Denis Shapovalov – Zachary Svajda",
+   "kickoff_at": "2026-08-04T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182175",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Viktorija Golubic – Donna Vekic",
+   "kickoff_at": "2026-08-04T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182173",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Diana Shnaider – Rebecca Sramkova",
    "kickoff_at": "2026-08-04T16:30Z",
    "published": false
   },
@@ -235,36 +245,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_182175",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Viktorija Golubic – Donna Vekic",
-   "kickoff_at": "2026-08-04T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181773",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Andrey Rublev – Shang Juncheng",
-   "kickoff_at": "2026-08-04T18:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181810",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jack Draper – Terence Atmane",
-   "kickoff_at": "2026-08-04T18:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_181829",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
@@ -291,6 +271,26 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Tallon Griekspoor – Lorenzo Sonego",
+   "kickoff_at": "2026-08-04T18:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181810",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jack Draper – Terence Atmane",
+   "kickoff_at": "2026-08-04T18:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181773",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Andrey Rublev – Shang Juncheng",
    "kickoff_at": "2026-08-04T18:00Z",
    "published": false
   },
@@ -395,16 +395,6 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816393",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Milwaukee Brewers – Pittsburgh Pirates",
-   "kickoff_at": "2026-08-04T23:40Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816392",
    "flag": "⚾",
    "league": "MLB",
@@ -415,13 +405,13 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816394",
+   "fixture_id": "baseball_401816393",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Texas Rangers – San Francisco Giants",
-   "kickoff_at": "2026-08-05T00:05Z",
+   "match": "Milwaukee Brewers – Pittsburgh Pirates",
+   "kickoff_at": "2026-08-04T23:40Z",
    "published": false
   },
   {
@@ -431,6 +421,16 @@
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Chicago Cubs – Los Angeles Dodgers",
+   "kickoff_at": "2026-08-05T00:05Z",
+   "published": false
+  },
+  {
+   "fixture_id": "baseball_401816394",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Texas Rangers – San Francisco Giants",
    "kickoff_at": "2026-08-05T00:05Z",
    "published": false
   },
@@ -705,6 +705,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_182101",
+   "flag": "🎾",
+   "league": "Warsaw T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Ella Seidel – Gabriela Knutson",
+   "kickoff_at": "2026-08-05T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_182098",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
@@ -716,16 +726,6 @@
   },
   {
    "fixture_id": "tennis_espn_wta_182100",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-05T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_182101",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
    "sport": "tennis",
