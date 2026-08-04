@@ -64,9 +64,22 @@ def _get_programme_window_sql_where() -> tuple[str, tuple]:
     """
     now_paris = datetime.now(PARIS_TZ)
 
+    # Bug corrige le 05/08/2026 (confirme en direct : 3 publications MLB
+    # fraiches de 00h05-00h10 absentes de publications.json, ET tout le
+    # reste de la journee deja publiee aussi disparu -- live:0, done:0).
+    # Entre minuit et 08h00 Paris, "now_paris.replace(hour=8)" tombe dans
+    # le FUTUR (aujourd'hui 8h, alors qu'on est avant), decalant toute la
+    # fenetre en avant (aujourd'hui 8h -> demain 8h) au lieu de rester
+    # ancree sur le jour programme en cours (hier 8h -> aujourd'hui 8h).
+    # Meme garde que _programme_date_today() (deja correcte), jamais
+    # appliquee ici avant ce fix.
+    day_start_paris = now_paris.replace(hour=8, minute=0, second=0, microsecond=0)
+    if now_paris < day_start_paris and (day_start_paris - now_paris).total_seconds() > 300:
+        day_start_paris -= timedelta(days=1)
+
     # Bornes en heure Paris
-    window_start_paris = now_paris.replace(hour=8, minute=0, second=0, microsecond=0)
-    window_end_paris = (now_paris + timedelta(days=1)).replace(
+    window_start_paris = day_start_paris
+    window_end_paris = (day_start_paris + timedelta(days=1)).replace(
         hour=7, minute=59, second=59, microsecond=999999
     )
 
