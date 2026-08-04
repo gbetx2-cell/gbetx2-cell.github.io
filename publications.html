@@ -433,6 +433,15 @@ async function refreshLiveData(){
 async function loadPublications(){
   try{
     const res = await fetch('publications.json?t=' + Date.now(), {cache:'no-store'});
+    if (res.status === 404){
+      // publications.json n'est cree qu'a la 1ere publication/reglement
+      // depuis le deploiement de cette page -- absent au tout debut, pas
+      // une erreur a afficher comme telle.
+      document.getElementById('status-text').textContent = 'En attente de la première publication du jour.';
+      publications = {live: [], done: []};
+      render();
+      return;
+    }
     if (!res.ok) throw new Error('http ' + res.status);
     const data = await res.json();
     publications = {live: data.live || [], done: data.done || []};
@@ -442,7 +451,7 @@ async function loadPublications(){
     render();
     refreshLiveData();
   }catch(e){
-    document.getElementById('status-text').textContent = 'Publications indisponibles pour le moment (' + e.message + ')';
+    document.getElementById('status-text').textContent = 'Impossible de charger les publications pour le moment.';
   }
 }
 
