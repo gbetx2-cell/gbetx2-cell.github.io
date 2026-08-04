@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-04T14:37:35.466633+00:00",
+ "generated_at": "2026-08-04T14:55:51.024443+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -36,23 +36,23 @@
  },
  "fixtures": [
   {
-   "fixture_id": "tennis_espn_wta_182083",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Susan Bandecchi – Viktoria Hruncakova",
-   "kickoff_at": "2026-08-04T09:00Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_wta_182094",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Justina Mikulskyte – Weronika Ewald",
+   "kickoff_at": "2026-08-04T09:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182083",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Susan Bandecchi – Viktoria Hruncakova",
    "kickoff_at": "2026-08-04T09:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -71,6 +71,17 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "6-4, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182088",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elizara Yaneva – Linda Klimovicova",
+   "kickoff_at": "2026-08-04T10:30Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_182091",
@@ -97,17 +108,6 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "6-2, 6-2"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_182088",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elizara Yaneva – Linda Klimovicova",
-   "kickoff_at": "2026-08-04T10:30Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
    "fixture_id": "tennis_espn_wta_182096",
@@ -143,17 +143,6 @@
    "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
-   "fixture_id": "tennis_espn_wta_182112",
-   "flag": "🎾",
-   "league": "T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-04T13:30Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_wta_182118",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
@@ -162,15 +151,26 @@
    "match": "TBD – TBD",
    "kickoff_at": "2026-08-04T14:30Z",
    "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
-   "fixture_id": "tennis_espn_atp_181819",
+   "fixture_id": "tennis_espn_wta_182112",
+   "flag": "🎾",
+   "league": "T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-04T14:35Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181780",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Roman Andres Burruchaga – Alexei Popyrin",
+   "match": "Denis Shapovalov – Zachary Svajda",
    "kickoff_at": "2026-08-04T16:30Z",
    "published": false
   },
@@ -181,16 +181,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Diana Shnaider – Rebecca Sramkova",
-   "kickoff_at": "2026-08-04T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181780",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Denis Shapovalov – Zachary Svajda",
    "kickoff_at": "2026-08-04T16:30Z",
    "published": false
   },
@@ -215,12 +205,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_182175",
+   "fixture_id": "tennis_espn_atp_181819",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Viktorija Golubic – Donna Vekic",
+   "match": "Roman Andres Burruchaga – Alexei Popyrin",
    "kickoff_at": "2026-08-04T16:30Z",
    "published": false
   },
@@ -242,6 +232,36 @@
    "sport_label": "Tennis",
    "match": "Iga Swiatek – Sara Bejlek",
    "kickoff_at": "2026-08-04T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182175",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Viktorija Golubic – Donna Vekic",
+   "kickoff_at": "2026-08-04T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181773",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Andrey Rublev – Shang Juncheng",
+   "kickoff_at": "2026-08-04T18:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181810",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jack Draper – Terence Atmane",
+   "kickoff_at": "2026-08-04T18:00Z",
    "published": false
   },
   {
@@ -271,26 +291,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Tallon Griekspoor – Lorenzo Sonego",
-   "kickoff_at": "2026-08-04T18:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181810",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jack Draper – Terence Atmane",
-   "kickoff_at": "2026-08-04T18:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181773",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Andrey Rublev – Shang Juncheng",
    "kickoff_at": "2026-08-04T18:00Z",
    "published": false
   },
@@ -395,16 +395,6 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816392",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Kansas City Royals – Minnesota Twins",
-   "kickoff_at": "2026-08-04T23:40Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816393",
    "flag": "⚾",
    "league": "MLB",
@@ -415,13 +405,13 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816391",
+   "fixture_id": "baseball_401816392",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Los Angeles Dodgers",
-   "kickoff_at": "2026-08-05T00:05Z",
+   "match": "Kansas City Royals – Minnesota Twins",
+   "kickoff_at": "2026-08-04T23:40Z",
    "published": false
   },
   {
@@ -431,6 +421,16 @@
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Texas Rangers – San Francisco Giants",
+   "kickoff_at": "2026-08-05T00:05Z",
+   "published": false
+  },
+  {
+   "fixture_id": "baseball_401816391",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Los Angeles Dodgers",
    "kickoff_at": "2026-08-05T00:05Z",
    "published": false
   },
@@ -715,7 +715,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_182098",
+   "fixture_id": "tennis_espn_wta_182100",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
    "sport": "tennis",
@@ -725,12 +725,12 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_182100",
+   "fixture_id": "tennis_espn_wta_182098",
    "flag": "🎾",
-   "league": "T-Mobile Polish Open",
+   "league": "Warsaw T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "TBD – TBD",
+   "match": "Mona Barthel – Martyna Kubka",
    "kickoff_at": "2026-08-05T04:00Z",
    "published": false
   },
