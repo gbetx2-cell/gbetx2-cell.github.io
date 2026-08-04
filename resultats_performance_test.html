@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[TEST] Résultats / Performance — G-BET Bot</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706; --bg-2:#0c0b09; --card:#12110e; --card-2:#1a1813;
+  --border:rgba(240,185,11,.14); --border-strong:rgba(240,185,11,.32);
+  --text:#f2ede1; --muted:#9c9481;
+  --gold:#f0b90b; --gold-2:#f7ca3e; --gold-dark:#b8860b;
+  --green:#22c55e; --red:#ef4444; --blue:#3b82f6; --purple:#a855f7;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6}
+h1,h2,h3{font-family:'Sora',sans-serif}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--border);padding:18px 0;position:sticky;top:0;background:rgba(7,7,6,.92);backdrop-filter:blur(8px);z-index:10}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem}
+.logo img{width:32px;height:32px;border-radius:50%;border:2px solid var(--gold)}
+.logo .g{color:var(--gold-2)}
+.back-link{color:var(--muted);font-size:.9rem}
+.test-banner{
+  background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.4);
+  border-radius:12px;padding:14px 18px;margin:24px 0;font-size:.85rem;color:#93c5fd;
+}
+.change-tag{
+  display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;color:#0a0906;background:var(--gold-2);
+  padding:4px 10px;border-radius:99px;margin-bottom:10px;
+}
+section{padding:44px 0;border-top:1px solid var(--border)}
+section:first-of-type{border-top:none}
+.sec-tag{color:var(--gold-2);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.sec-title{font-size:1.7rem;font-weight:800;margin-bottom:10px}
+.sec-sub{color:var(--muted);font-size:.95rem;max-width:680px;margin-bottom:26px}
+.note{color:var(--muted);font-size:.82rem;font-style:italic;margin-top:8px}
+
+/* ── grille de stats ── */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+.stat-card .lbl{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.stat-card .val{font-family:'Sora';font-weight:800;font-size:1.5rem}
+.stat-card .val.pos{color:var(--green)}
+.stat-card .val.neg{color:var(--red)}
+.stat-card .sub{color:var(--muted);font-size:.78rem;margin-top:4px}
+
+/* ── carte graphique ── */
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:20px}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+.chart-toggle{display:inline-flex;gap:4px;background:var(--card-2);border-radius:10px;padding:3px;margin-top:8px}
+.chart-toggle button{
+  background:none;border:none;color:var(--muted);font-size:.8rem;font-weight:600;
+  padding:6px 12px;border-radius:8px;cursor:pointer;
+}
+.chart-toggle button.active{background:var(--gold-2);color:#0a0906}
+.delta{font-family:'Sora';font-weight:800;font-size:1.3rem}
+.delta.up{color:var(--green)}
+.delta.down{color:var(--red)}
+.delta small{color:var(--muted);font-weight:500;font-size:.7rem;display:block}
+.real-chart{width:100%;height:auto;display:block}
+
+/* ── liens vers publications ── */
+.pub-link{
+  display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--gold-2);
+  border:1px solid var(--border-strong);padding:6px 12px;border-radius:8px;margin-top:10px;
+}
+
+/* ── onglets sport / type ── */
+.sport-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.sport-tabs button{
+  background:var(--card-2);border:1px solid var(--border);color:var(--muted);
+  padding:6px 14px;border-radius:99px;font-size:.82rem;font-weight:600;cursor:pointer;
+}
+.sport-tabs button.active{background:var(--gold-2);color:#0a0906;border-color:var(--gold-2)}
+.sport-stat-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:.88rem}
+.sport-stat-row .roi.pos{color:var(--green);font-weight:700}
+.sport-stat-row .roi.neg{color:var(--red);font-weight:700}
+
+.highlight-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* ── liste des picks (G/P/R) -- reprise a l'identique du site reel ── */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;align-items:center}
+.chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px;width:100%}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 10px;border-radius:9px;
+  font-weight:800;font-size:.78rem;font-family:'Sora';
+  cursor:default;position:relative;
+}
+.chip.g{background:rgba(34,197,94,.14);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.chip.p{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.35)}
+.chip.r{background:rgba(156,148,129,.12);color:var(--muted);border:1px solid rgba(156,148,129,.3)}
+.chip .flag{font-size:1rem}
+.chip .tip{
+  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) scale(.92);
+  background:#1e1b12;border:1px solid var(--border-strong);
+  border-radius:10px;padding:10px 14px;
+  font-family:'Inter';font-weight:500;font-size:.8rem;color:var(--text);
+  white-space:nowrap;pointer-events:none;
+  opacity:0;transition:opacity .15s ease,transform .15s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  z-index:10;
+}
+.chip .tip b{color:var(--gold-2);font-weight:700}
+.chip .tip .res-g{color:var(--green);font-weight:700}
+.chip .tip .res-p{color:var(--red);font-weight:700}
+.chip .tip .res-r{color:var(--muted);font-weight:700}
+.chip .tip::after{
+  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:var(--border-strong);
+}
+.chip:hover .tip{opacity:1;transform:translateX(-50%) scale(1)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html" style="text-decoration:none;color:inherit">
+      <img src="assets/logo.jpg" alt="G-BET Bot">
+      <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+    </a>
+    <a class="back-link" href="index.html">← Retour au site</a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="test-banner">
+    🧪 <b>Page de test — concepts et données fictives.</b> Graphiques rendus avec le même moteur que les courbes réelles du site (axes gradués, point "maintenant" positionné à l'heure exacte, bascule unités/€ fonctionnelle). Pas encore liée depuis le menu principal.
+  </div>
+</div>
+
+<!-- ═══════════════ RÉSULTATS ═══════════════ -->
+<section>
+  <div class="container">
+    <div class="sec-tag">Résultats — proposition 1</div>
+    <span class="change-tag">Simplifié + renvoi vers Publications</span>
+    <h2 class="sec-title">La discipline, ça se <span style="color:var(--gold-2)">voit sur la courbe.</span></h2>
+    <p class="sec-sub">
+      Stats agrégées uniquement ici (jour/semaine/mois/année/historique complet + courbe globale) —
+      le détail pick par pick (texte exact, cote, résultat) vit désormais sur Publications, pas dupliqué ici.
+      Les 5 cartes basculent aussi en € (même bascule que la courbe juste en dessous).
+    </p>
+    <div class="chart-toggle" id="c0-mode" style="margin-bottom:14px"><button data-v="u" class="active">En unités</button><button data-v="e">En €</button></div>
+    <div class="stat-grid" id="c0-grid" style="grid-template-columns:repeat(5,1fr)"></div>
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <h3>Évolution du bilan</h3>
+          <div class="chart-toggle" id="c1-period"><button data-v="jour" class="active">Jour</button><button data-v="semaine">Semaine</button><button data-v="mois">Mois</button><button data-v="annee">Année</button></div>
+          <div class="note" style="margin-top:6px">Bascule unités/€ partagée avec les 5 cartes ci-dessus.</div>
+        </div>
+        <div class="delta" id="c1-delta">—</div>
+      </div>
+      <svg id="c1-svg" class="real-chart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg>
+      <a class="pub-link" href="publications_test.html">→ Voir le détail de chaque pick sur Publications</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-tag">Résultats — proposition 2</div>
+    <span class="change-tag">Filtre sport sur la courbe principale</span>
+    <h2 class="sec-title">Filtrer par <span style="color:var(--gold-2)">sport</span></h2>
+    <p class="sec-sub">Aujourd'hui, seule la 2e courbe ("Derniers picks") a un filtre sport — celle du bilan principal n'en a pas. Ajouté ici pour cohérence. Clique un sport pour voir la courbe changer.</p>
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <h3>Évolution du bilan</h3>
+          <div class="sport-tabs" id="c2-sport">
+            <button data-v="all" class="active">Tous</button><button data-v="football">⚽ Football</button><button data-v="tennis">🎾 Tennis</button>
+            <button data-v="baseball">⚾ MLB</button><button data-v="wnba">🏀 WNBA</button>
+          </div>
+          <div class="chart-toggle" id="c2-mode"><button data-v="u" class="active">En unités</button><button data-v="e">En €</button></div>
+        </div>
+        <div class="delta" id="c2-delta">—</div>
+      </div>
+      <svg id="c2-svg" class="real-chart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-tag">Résultats — proposition 3</div>
+    <span class="change-tag">Filtre par type de pari + liste des picks</span>
+    <h2 class="sec-title">Filtrer par <span style="color:var(--gold-2)">type</span></h2>
+    <p class="sec-sub">En plus du filtre sport existant sur "Courbe des derniers picks" : Conseil / Value bet / Player pick, séparément — cohérent avec les badges de type déjà utilisés sur Publications. En dessous : comment le client voit la liste gagné/perdu/remboursé (survolez une pastille).</p>
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <h3>Courbe des derniers picks</h3>
+          <div class="chart-toggle" id="c3-type">
+            <button data-v="all" class="active">Tous</button><button data-v="conseil">🎯 Conseil</button><button data-v="value">💎 Value</button><button data-v="player">👤 Player</button>
+          </div>
+          <div class="chart-toggle" id="c3-mode" style="margin-left:10px"><button data-v="u" class="active">En unités</button><button data-v="e">En €</button></div>
+        </div>
+        <div class="delta" id="c3-delta">—</div>
+      </div>
+      <svg id="c3-svg" class="real-chart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg>
+      <div class="chips" id="c3-chips"><span class="c-label">Historique de tous les picks réglés — survolez pour voir le pronostic exact et son type :</span></div>
+      <button id="c3-voirplus" class="pub-link" style="cursor:pointer;background:none;font:inherit">Voir plus</button>
+      <div class="note">G = gagné · P = perdu · R = remboursé — survolez une pastille : son point exact s'entoure sur la courbe au-dessus, pour relier visuellement la liste et le graphique.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PERFORMANCE ═══════════════ -->
+<section>
+  <div class="container">
+    <div class="sec-tag">Performance — proposition 4</div>
+    <span class="change-tag">Vue par sport</span>
+    <h2 class="sec-title">Performance <span style="color:var(--gold-2)">par sport</span></h2>
+    <p class="sec-sub">Actuellement uniquement une vue globale toutes sports confondus. Utile de séparer, maintenant que plusieurs sports tournent en parallèle. Bascule unités/€ aussi disponible ici.</p>
+    <div class="chart-card">
+      <div class="chart-head">
+        <div></div>
+        <div class="chart-toggle" id="c4-mode"><button data-v="u" class="active">En unités</button><button data-v="e">En €</button></div>
+      </div>
+      <div id="c4-rows"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-tag">Performance — proposition 5</div>
+    <span class="change-tag">Lien highlight → Publications</span>
+    <h2 class="sec-title">Meilleur / pire pick du <span style="color:var(--gold-2)">mois</span></h2>
+    <p class="sec-sub">Si le match du highlight est encore visible sur Publications (récent), lien direct vers sa carte en direct.</p>
+    <div class="highlight-card">
+      <div>
+        <div style="color:var(--green);font-weight:700;font-size:.9rem">🏆 Meilleur pick</div>
+        <div style="margin-top:4px">Las Vegas Aces – Atlanta Dream · Frieda Buhner — Points Moins de 8.5 @1.79</div>
+        <div style="color:var(--green);font-weight:700;margin-top:4px">+0.79 u</div>
+      </div>
+      <a class="pub-link" href="publications_test.html">→ Voir sur Publications</a>
+    </div>
+  </div>
+</section>
+
+<script>
+const MISE_PAR_UNITE = 200; // 1 unite = 200 e, meme convention que le site reel
+
+/* ── Moteur de courbe (reprend fidelement drawPeriodChart() du site reel :
+   axe FIXE 00h..23h/Lun..Dim/1..N/Jan..Dec, grille + labels Y, point
+   "maintenant" positionne a nowFrac exact -- pas juste a la graduation la
+   plus proche, la ligne s'arrete pile a l'instant present). ── */
+function drawChart(svgId, deltaId, series, nowFrac, totalBuckets, axisLabels, mode){
+  const svg = document.getElementById(svgId);
+  const d = document.getElementById(deltaId);
+  const W = 800, H = 260, PAD_L = 56, PAD_R = 16, PAD_T = 16, PAD_B = 32;
+  const factor = mode === "e" ? MISE_PAR_UNITE : 1;
+  const unit = mode === "e" ? "€" : "u";
+  const vals = series.map(v => v * factor);
+  const n = vals.length;
+  const yMin = Math.min(...vals, 0), yMax = Math.max(...vals, factor*0.5);
+  const xs = i => {
+    const frac = (i === n-1 && nowFrac != null) ? nowFrac : i/totalBuckets;
+    return PAD_L + frac*(W-PAD_L-PAD_R);
+  };
+  const ysc = v => H-PAD_B - ((v-yMin)/(yMax-yMin || 1))*(H-PAD_T-PAD_B);
+
+  const line = vals.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
+  const area = line + ` L${xs(n-1).toFixed(1)},${H-PAD_B} L${xs(0).toFixed(1)},${H-PAD_B} Z`;
+  const last = vals[n-1];
+  const up = last >= 0;
+  const col = up ? '#22c55e' : '#ef4444';
+
+  const steps = 4;
+  let gridSvg = '';
+  for(let s=0; s<=steps; s++){
+    const v = yMin + (yMax-yMin)*s/steps;
+    const y = ysc(v);
+    const label = `${v>=0?'+':''}${mode==="e"?Math.round(v):v.toFixed(1)} ${unit}`;
+    gridSvg += `<line x1="${PAD_L}" y1="${y.toFixed(1)}" x2="${W-PAD_R}" y2="${y.toFixed(1)}" stroke="rgba(156,148,129,.15)" stroke-dasharray="4 5"/>
+      <text x="${PAD_L-8}" y="${(y+4).toFixed(1)}" fill="rgba(156,148,129,.75)" font-size="11" text-anchor="end" font-family="Inter">${label}</text>`;
+  }
+
+  const maxLabels = 12;
+  const strideX = Math.max(1, Math.ceil(totalBuckets/maxLabels));
+  let xLabelsSvg = '';
+  axisLabels.forEach((label,i)=>{
+    if(i % strideX !== 0 && i !== totalBuckets-1) return;
+    const x = PAD_L + (i/totalBuckets)*(W-PAD_L-PAD_R);
+    xLabelsSvg += `<text x="${x.toFixed(1)}" y="${H-8}" fill="rgba(156,148,129,.75)" font-size="11" text-anchor="middle" font-family="Inter">${label}</text>`;
+  });
+
+  const gid = svgId + '-grad';
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${col}" stop-opacity=".28"/>
+        <stop offset="1" stop-color="${col}" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    ${gridSvg}
+    <path d="${area}" fill="url(#${gid})"/>
+    <path d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${xs(n-1).toFixed(1)}" cy="${ysc(last).toFixed(1)}" r="5" fill="${col}"/>
+    ${xLabelsSvg}
+  `;
+
+  d.classList.remove('up','down');
+  d.classList.add(up ? 'up' : 'down');
+  const lastDisplay = mode === "e" ? `${up?'+':''}${last.toFixed(0)} €` : `${up?'+':''}${last.toFixed(2)} u`;
+  d.innerHTML = `${lastDisplay} <small>aujourd'hui</small>`;
+}
+
+const HOURS = Array.from({length:24}, (_,h)=>`${String(h).padStart(2,'0')}h`);
+
+/* ── Jeux de donnees fictifs (24h, avec un "trou" apres l'heure actuelle --
+   comme sur le vrai site, l'axe reste fixe 00h-23h meme si la journee n'est
+   pas terminee). nowFrac = 19.4/24 ~ 19h24, exemple fige pour la demo. ── */
+const NOW_FRAC = 19.4/24;
+
+/* ── Liste des picks (source UNIQUE de verite pour "Courbe des derniers
+   picks", 04/08/2026, demande explicite "dernier picks doit avoir que les
+   picks qui influence ce graphique") : la courbe c3 est CALCULEE a partir
+   de cette liste (cumul heure par heure), au lieu de 2 jeux de donnees
+   distincts qui pouvaient diverger -- un pick affiche dans la liste
+   influence TOUJOURS le graphique, et rien sur le graphique ne vient d'un
+   pick absent de la liste. Un seul pick par heure (hourIdx 0..19) ici. ── */
+const ALL_PICKS = [
+  {r:'g', flag:'🎾', match:'Linda Fruhvirtova – Katarzyna Kawa', pick:'Vainqueur Katarzyna Kawa', cote:1.75, mise:1.0, gain:0.75, type:'Player pick', typeKey:'player', hourIdx:5},
+  {r:'p', flag:'⚾', match:'NY Yankees – Boston Red Sox', pick:'Total points Plus de 8.5', cote:1.91, mise:1.5, gain:-1.5, type:'Value bet', typeKey:'value', hourIdx:6},
+  {r:'g', flag:'🏀', match:'Las Vegas Aces – Atlanta Dream', pick:'Frieda Buhner — Points Moins de 8.5', cote:1.79, mise:1.0, gain:0.79, type:'Player pick', typeKey:'player', hourIdx:4},
+  {r:'r', flag:'🎾', match:'Carol Young Suh Lee – Elsa Jacquemot', pick:'Total sets Plus de 2.5', cote:2.50, mise:1.5, gain:0, type:'Value bet', typeKey:'value', hourIdx:3},
+  {r:'p', flag:'⚽', match:'PSG – Marseille', pick:'Double chance PSG ou Nul', cote:1.42, mise:1.0, gain:-1.0, type:'Conseil', typeKey:'conseil', hourIdx:19},
+  {r:'g', flag:'⚽', match:'Arsenal – Liverpool', pick:'Arsenal ou Nul', cote:1.65, mise:1.0, gain:0.65, type:'Conseil', typeKey:'conseil', hourIdx:0},
+  {r:'g', flag:'⚾', match:'LA Dodgers – Chicago Cubs', pick:'Victoire LA Dodgers', cote:1.58, mise:1.0, gain:0.58, type:'Conseil', typeKey:'conseil', hourIdx:1},
+  {r:'p', flag:'🎾', match:'Novak Djokovic – Carlos Alcaraz', pick:'Total sets Moins de 3.5', cote:1.88, mise:1.5, gain:-1.5, type:'Value bet', typeKey:'value', hourIdx:2},
+  {r:'g', flag:'🏈', match:'Kansas City Chiefs – Buffalo Bills', pick:'Patrick Mahomes — Yards Plus de 275.5', cote:1.90, mise:1.0, gain:0.90, type:'Player pick', typeKey:'player', hourIdx:7},
+  {r:'g', flag:'🏒', match:'Toronto Maple Leafs – Montreal Canadiens', pick:'Victoire Toronto Maple Leafs', cote:1.71, mise:1.0, gain:0.71, type:'Conseil', typeKey:'conseil', hourIdx:8},
+  {r:'p', flag:'🏀', match:'Boston Celtics – Miami Heat', pick:'Jayson Tatum — Points Plus de 27.5', cote:1.95, mise:1.0, gain:-1.0, type:'Player pick', typeKey:'player', hourIdx:9},
+  {r:'g', flag:'⚽', match:'Real Madrid – Barcelone', pick:'Total buts Plus de 2.5', cote:1.80, mise:1.5, gain:1.20, type:'Value bet', typeKey:'value', hourIdx:10},
+  {r:'r', flag:'🎾', match:'Iga Świątek – Aryna Sabalenka', pick:'Total sets Plus de 2.5', cote:2.10, mise:1.0, gain:0, type:'Value bet', typeKey:'value', hourIdx:11},
+  {r:'g', flag:'⚾', match:'Houston Astros – Seattle Mariners', pick:'Victoire Houston Astros', cote:1.65, mise:1.0, gain:0.65, type:'Conseil', typeKey:'conseil', hourIdx:12},
+  {r:'p', flag:'🏀', match:'Las Vegas Aces – Seattle Storm', pick:'Kelsey Plum — Points Moins de 18.5', cote:1.85, mise:1.0, gain:-1.0, type:'Player pick', typeKey:'player', hourIdx:13},
+  {r:'g', flag:'⚽', match:'Bayern Munich – Dortmund', pick:'Double chance Bayern ou Nul', cote:1.38, mise:1.0, gain:0.38, type:'Conseil', typeKey:'conseil', hourIdx:14},
+  {r:'g', flag:'🏈', match:'San Francisco 49ers – Dallas Cowboys', pick:'Victoire San Francisco 49ers', cote:1.72, mise:1.0, gain:0.72, type:'Conseil', typeKey:'conseil', hourIdx:15},
+  {r:'p', flag:'🏒', match:'Edmonton Oilers – Calgary Flames', pick:'Connor McDavid — Points Plus de 1.5', cote:1.90, mise:1.0, gain:-1.0, type:'Player pick', typeKey:'player', hourIdx:16},
+  {r:'g', flag:'⚾', match:'Atlanta Braves – NY Mets', pick:'Total points Moins de 7.5', cote:1.83, mise:1.5, gain:1.24, type:'Value bet', typeKey:'value', hourIdx:17},
+  {r:'g', flag:'🎾', match:'Daniil Medvedev – Alexander Zverev', pick:'Vainqueur Daniil Medvedev', cote:1.68, mise:1.0, gain:0.68, type:'Player pick', typeKey:'player', hourIdx:18},
+];
+const RES_LABEL = {g:'Gagné', p:'Perdu', r:'Remboursé'};
+function picksForType(type){
+  return type === 'all' ? ALL_PICKS : ALL_PICKS.filter(p => p.typeKey === type);
+}
+/* Cumul heure par heure, calcule UNIQUEMENT a partir des picks listes
+   ci-dessus (plus aucun jeu de donnees invente separement pour c3). */
+function buildCumulativeFromPicks(typeFilter){
+  const picks = picksForType(typeFilter);
+  const vals = new Array(20).fill(0);
+  let running = 0;
+  for (let h = 0; h < 20; h++){
+    const p = picks.find(x => x.hourIdx === h);
+    if (p) running += p.gain;
+    vals[h] = running;
+  }
+  return vals;
+}
+
+const DATASETS = {
+  c1: [0,0,0,-1.65,-0.59,0.57,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43],
+  c2: {
+    all:      [0,0,0,-1.65,-0.59,0.57,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43,-1.43],
+    football: [0,0,0,-0.8,-0.8,-0.2,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6],
+    tennis:   [0,0,0,-0.85,0.21,0.77,-1.03,-1.03,-1.03,-1.03,-1.03,-1.03,-1.03,-1.03,-1.03,-1.03,-1.03,-1.03,-1.03,-1.03],
+    baseball: [0,0,0,0,0,0,0,0,0,0,0,0,0.4,0.9,-0.3,-1.0,-1.0,-1.0,-1.0,-1.0],
+    wnba:     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.3,0.3,0.3,0.3],
+  },
+  c3: {
+    all:     buildCumulativeFromPicks('all'),
+    conseil: buildCumulativeFromPicks('conseil'),
+    value:   buildCumulativeFromPicks('value'),
+    player:  buildCumulativeFromPicks('player'),
+  },
+};
+
+let c1Period = "jour", c0Mode = "u";
+let c2Sport = "all", c2Mode = "u";
+let c3Type = "all", c3Mode = "u";
+
+function redrawC1(){ drawChart('c1-svg','c1-delta', DATASETS.c1, NOW_FRAC, 24, HOURS, c0Mode); }
+function redrawC2(){ drawChart('c2-svg','c2-delta', DATASETS.c2[c2Sport], NOW_FRAC, 24, HOURS, c2Mode); }
+function redrawC3(){ drawChart('c3-svg','c3-delta', DATASETS.c3[c3Type], NOW_FRAC, 24, HOURS, c3Mode); }
+
+function wireToggle(id, onChange){
+  document.querySelectorAll('#'+id+' button').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('#'+id+' button').forEach(b=>b.classList.remove('active'));
+      this.classList.add('active');
+      onChange(this.dataset.v);
+    });
+  });
+}
+wireToggle('c1-period', v => { c1Period = v; redrawC1(); });
+wireToggle('c2-sport', v => { c2Sport = v; redrawC2(); });
+wireToggle('c2-mode', v => { c2Mode = v; redrawC2(); });
+wireToggle('c3-type', v => { c3Type = v; visibleCount = BASE_VISIBLE; redrawC3(); redrawChips(); });
+wireToggle('c3-mode', v => { c3Mode = v; redrawC3(); redrawChips(); });
+
+/* ── 5 cartes (proposition 1 etendue) : jour/semaine/mois/annee + historique
+   complet "depuis le lancement" (meme carte que le site reel a deja sur
+   Performance -- ajoutee ici sur Resultats, demande explicite). Bascule
+   u/€ partagee avec la courbe juste en dessous (c0Mode = meme variable). ── */
+const CARDS_DATA = [
+  {lbl:"Aujourd'hui", pnl:-1.43, n:15, wr:33},
+  {lbl:"Cette semaine", pnl:1.71, n:19, wr:47},
+  {lbl:"Ce mois-ci", pnl:-13.15, n:312, wr:41},
+  {lbl:"Cette année", pnl:-61.86, n:2841, wr:43},
+  {lbl:"Historique complet", pnl:-58.14, n:9204, wr:44, sub2:"depuis le 12 juillet 2026"},
+];
+function redrawCards(){
+  const factor = c0Mode === "e" ? MISE_PAR_UNITE : 1;
+  const unit = c0Mode === "e" ? "€" : "u";
+  document.getElementById('c0-grid').innerHTML = CARDS_DATA.map(c => {
+    const v = c.pnl*factor;
+    const vDisp = `${v>=0?'+':''}${c0Mode==="e"?Math.round(v):v.toFixed(2)} ${unit}`;
+    return `<div class="stat-card"><div class="lbl">${c.lbl}</div><div class="val ${v>=0?'pos':'neg'}">${vDisp}</div><div class="sub">${c.n} réglés · ${c.wr}% réussite${c.sub2 ? '<br>'+c.sub2 : ''}</div></div>`;
+  }).join('');
+}
+wireToggle('c0-mode', v => { c0Mode = v; redrawCards(); redrawC1(); });
+
+redrawCards(); redrawC1(); redrawC2(); redrawC3();
+
+/* Pagination sur la liste unique ALL_PICKS definie plus haut (meme
+   principe que BASE_VISIBLE/STEP_VISIBLE du site reel). */
+const BASE_VISIBLE = 8, STEP_VISIBLE = 8;
+let visibleCount = BASE_VISIBLE;
+
+/* Marqueur temporaire sur la courbe c3, place au meme point de calcul
+   (PAD_L/PAD_R/echelle Y) que drawChart() -- doit rester synchro si les
+   constantes W/H/PAD_* de drawChart changent. */
+function highlightChartPoint(hourIdx){
+  const svg = document.getElementById('c3-svg');
+  const old = svg.querySelector('#c3-highlight');
+  if (old) old.remove();
+  const series = DATASETS.c3[c3Type];
+  const factor = c3Mode === "e" ? MISE_PAR_UNITE : 1;
+  const vals = series.map(v => v*factor);
+  const yMin = Math.min(...vals, 0), yMax = Math.max(...vals, factor*0.5);
+  const W = 800, H = 260, PAD_L = 56, PAD_R = 16, PAD_T = 16, PAD_B = 32;
+  const n = vals.length;
+  const frac = (hourIdx === n-1) ? NOW_FRAC : hourIdx/24;
+  const x = PAD_L + frac*(W-PAD_L-PAD_R);
+  const y = H-PAD_B - ((vals[hourIdx]-yMin)/(yMax-yMin || 1))*(H-PAD_T-PAD_B);
+  const ring = document.createElementNS('http://www.w3.org/2000/svg','circle');
+  ring.setAttribute('id','c3-highlight');
+  ring.setAttribute('cx', x.toFixed(1));
+  ring.setAttribute('cy', y.toFixed(1));
+  ring.setAttribute('r', '9');
+  ring.setAttribute('fill', 'none');
+  ring.setAttribute('stroke', 'var(--gold-2)');
+  ring.setAttribute('stroke-width', '3');
+  svg.appendChild(ring);
+}
+function clearChartHighlight(){
+  const old = document.getElementById('c3-svg').querySelector('#c3-highlight');
+  if (old) old.remove();
+}
+
+function redrawChips(){
+  const row = document.getElementById('c3-chips');
+  row.querySelectorAll('.chip').forEach(c=>c.remove());
+  clearChartHighlight();
+  const factor = c3Mode === "e" ? MISE_PAR_UNITE : 1;
+  const unit = c3Mode === "e" ? "€" : "u";
+  const all = picksForType(c3Type);
+  // Du plus recent au plus ancien, comme le site reel -- les STEP_VISIBLE
+  // derniers de la liste d'abord, "Voir plus" en revele plus vers l'arriere.
+  const visible = [...all].reverse().slice(0, visibleCount);
+  visible.forEach(res=>{
+    const gainDisp = `${res.gain > 0 ? '+' : res.gain < 0 ? '−' : '±'}${Math.abs(res.gain*factor).toFixed(c3Mode==="e"?0:2)} ${unit}`;
+    const miseDisp = `${(res.mise*factor).toFixed(c3Mode==="e"?0:2)} ${unit}`;
+    const chip = document.createElement('span');
+    chip.className = `chip ${res.r}`;
+    chip.innerHTML = `
+      <span class="flag">${res.flag}</span>${res.r.toUpperCase()}
+      <span class="tip">
+        ${res.flag} <b>${res.match}</b><br>
+        ${res.type} : <b>${res.pick}</b> @${res.cote.toFixed(2)} · mise ${miseDisp}<br>
+        <span class="res-${res.r}">${RES_LABEL[res.r]} · ${gainDisp}</span>
+      </span>`;
+    chip.addEventListener('mouseenter', () => highlightChartPoint(res.hourIdx));
+    chip.addEventListener('mouseleave', clearChartHighlight);
+    row.appendChild(chip);
+  });
+  updateVoirPlusButton();
+}
+function updateVoirPlusButton(){
+  const btn = document.getElementById('c3-voirplus');
+  const total = picksForType(c3Type).length;
+  if (visibleCount >= total){
+    btn.style.display = 'none';
+  } else {
+    btn.style.display = '';
+    btn.textContent = `Voir plus (+${Math.min(STEP_VISIBLE, total - visibleCount)})`;
+  }
+}
+document.getElementById('c3-voirplus').addEventListener('click', () => {
+  visibleCount += STEP_VISIBLE;
+  redrawChips();
+});
+redrawChips();
+
+/* ── Performance par sport (proposition 4), bascule u/€ ── */
+const PERF_SPORTS = [
+  {icon:'⚽', label:'Football', n:1204, winrate:58, roi:4.2, pnl:14.3},
+  {icon:'🎾', label:'Tennis', n:487, winrate:44, roi:-6.8, pnl:-9.1},
+  {icon:'⚾', label:'MLB', n:356, winrate:51, roi:1.9, pnl:2.4},
+  {icon:'🏀', label:'WNBA', n:142, winrate:53, roi:2.4, pnl:1.6},
+  {icon:'🏈', label:'NFL', n:28, winrate:46, roi:-3.1, pnl:-0.7},
+];
+let c4Mode = "u";
+function redrawC4(){
+  const factor = c4Mode === "e" ? MISE_PAR_UNITE : 1;
+  const unit = c4Mode === "e" ? "€" : "u";
+  document.getElementById('c4-rows').innerHTML = PERF_SPORTS.map(s => {
+    const pnlDisp = `${s.pnl>=0?'+':''}${(s.pnl*factor).toFixed(c4Mode==="e"?0:2)} ${unit}`;
+    return `<div class="sport-stat-row"><span>${s.icon} ${s.label}</span><span>${s.n} réglés · ${s.winrate}% réussite</span><span class="roi ${s.roi>=0?'pos':'neg'}">ROI ${s.roi>=0?'+':''}${s.roi}% · ${pnlDisp}</span></div>`;
+  }).join('');
+}
+wireToggle('c4-mode', v => { c4Mode = v; redrawC4(); });
+redrawC4();
+</script>
+
+</body>
+</html>
