@@ -422,6 +422,32 @@ def fetch_programme() -> list[dict]:
     return out
 
 
+def fetch_publications() -> dict:
+    """Sous-ensemble de fetch_programme() pour la page Publications
+    (04/08/2026, chantier "gros chantier 10/10" -- remplace a terme
+    programme.html) : ne garde que les fixtures deja DECIDEES aujourd'hui
+    (publiees OU No Bet -- un No Bet est une decision finale, comptee comme
+    "publication active" au meme titre qu'un value bet/player pick, demande
+    explicite), jamais celles encore en attente d'analyse/countdown.
+    Football exclu (en pause, demande explicite du 04/08/2026 -- pas de
+    fixture_id exploitable cote client pour le score/les stats live, cle API
+    secrete).
+
+    "live" = pas encore reglee (pas de cle "result") ; "done" = reglee
+    (cle "result" presente). Un No Bet reste indefiniment en "live" (rien a
+    regler), conformement a la demande explicite : les 2 sections ne
+    distinguent PAS par categorie (conseil/value/player/no bet), seulement
+    par etat regle/pas regle."""
+    out = {"live": [], "done": []}
+    for f in fetch_programme():
+        if f.get("sport") == "football":
+            continue
+        if not (f.get("published") or f.get("no_bet_reason")):
+            continue
+        (out["done"] if f.get("result") else out["live"]).append(f)
+    return out
+
+
 def main() -> None:
     target = os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "programme.json",

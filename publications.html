@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1898b001-076e-4422-a322-25b16662f25b"></script>
+<title>Publications — G-BET Bot</title>
+<meta name="description" content="Ce que le bot a déjà publié aujourd'hui, avec scores et progressions en direct.">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706; --bg-2:#0c0b09; --card:#12110e; --card-2:#1a1813;
+  --border:rgba(240,185,11,.14); --border-strong:rgba(240,185,11,.32);
+  --text:#f2ede1; --muted:#9c9481;
+  --gold:#f0b90b; --gold-2:#f7ca3e; --gold-dark:#b8860b;
+  --green:#22c55e; --red:#ef4444; --blue:#3b82f6; --purple:#a855f7;
+  --odds-bg:#1e2650; --odds-text:#c7cdf2;
+  --track:#2a2820; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5}
+.container{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--border);padding:18px 0;position:sticky;top:0;background:rgba(7,7,6,.92);backdrop-filter:blur(8px);z-index:10}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.1rem}
+.logo img{width:32px;height:32px;border-radius:50%;border:2px solid var(--gold)}
+.logo .g{color:var(--gold-2)}
+.back-link{color:var(--muted);font-size:.9rem;text-decoration:none}
+.back-link:hover{color:var(--gold-2)}
+.nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
+.nav-links a{text-decoration:none;color:inherit}
+.nav-links a.active{color:var(--gold-2);font-weight:600}
+.nav-links a:hover{color:var(--gold-2)}
+@media(max-width:640px){.nav-links{display:none}}
+h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 6px}
+.sub{color:var(--muted);font-size:.95rem;margin-bottom:20px}
+#status{font-size:.82rem;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.tabs{display:flex;gap:8px;margin-bottom:24px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.tab{
+  padding:10px 16px;font-size:.9rem;font-weight:600;color:var(--muted);
+  cursor:pointer;border-bottom:2px solid transparent;user-select:none;white-space:nowrap;
+}
+.tab.active{color:var(--gold-2);border-bottom-color:var(--gold-2)}
+.tab .n{color:var(--muted);font-weight:400}
+.tab.active .n{color:var(--gold-2)}
+.section{display:none}
+.section.active{display:block}
+.sport-sep{
+  font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:var(--gold-2);
+  margin:32px 0 12px;padding-left:2px;display:flex;align-items:center;gap:8px;
+}
+.sport-sep:first-child{margin-top:8px}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px 22px;margin-bottom:14px}
+.card.live{border-color:var(--border-strong)}
+.match-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.match-info{display:flex;align-items:center;gap:10px;min-width:0}
+.flag{font-size:1.3rem;flex-shrink:0}
+.match-name{font-weight:600;font-size:1rem}
+.league{color:var(--muted);font-size:.78rem}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.score-block{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.live-score{display:inline-flex;align-items:center;gap:6px;font-family:'Sora',sans-serif;font-weight:700;font-size:1.05rem;color:var(--gold-2)}
+.match-time{font-size:.76rem;color:var(--muted);font-weight:600}
+.final-badge{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem;color:var(--muted)}
+
+.picks{display:grid;gap:20px}
+.pick-row{display:grid;gap:10px}
+.pick-top{display:flex;align-items:center;gap:10px}
+.type-badge{
+  flex-shrink:0;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
+  padding:5px 9px;border-radius:7px;white-space:nowrap;
+}
+.type-badge.conseil{background:rgba(240,185,11,.15);color:var(--gold-2)}
+.type-badge.value{background:rgba(59,130,246,.18);color:#93c5fd}
+.type-badge.player{background:rgba(168,85,247,.18);color:#d8b4fe}
+.type-badge.nobet{background:rgba(156,148,129,.18);color:var(--muted)}
+.pick-label{flex:1;color:var(--muted);font-size:.98rem;min-width:0}
+.pick-label b{font-weight:700}
+.pick-label b.lost{color:var(--red)}
+.pick-label b.done{color:var(--green)}
+.pick-label b.live{color:var(--gold-2)}
+.odds-badge{
+  background:var(--odds-bg);color:var(--odds-text);font-weight:700;font-size:.95rem;
+  padding:6px 12px;border-radius:9px;flex-shrink:0;
+}
+
+.gauge{padding-left:42px;margin-top:2px}
+.gauge-track{position:relative;height:4px;border-radius:99px;background:var(--track);margin-bottom:16px}
+.gauge-fill{height:100%;border-radius:99px;transition:width .4s ease}
+.gauge-fill.lost{background:var(--red)}
+.gauge-fill.done{background:var(--green)}
+.gauge-fill.live{background:var(--gold-2)}
+.gauge-fill.over{background:var(--green)}
+.gauge-marker{
+  position:absolute;top:50%;left:0;transform:translate(-50%,-50%);
+  min-width:26px;height:22px;padding:0 6px;border-radius:99px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Sora',sans-serif;font-weight:800;font-size:.78rem;color:#0a0906;
+  z-index:2;transition:left .4s ease;
+}
+.gauge-marker.lost{background:var(--red)}
+.gauge-marker.done{background:var(--green)}
+.gauge-marker.live{background:var(--gold-2)}
+.gauge-marker.over{background:var(--green)}
+.gauge-marker.live::before, .gauge-marker.over::before{
+  content:"";position:absolute;inset:-6px;border-radius:99px;
+  border:2px solid currentColor;animation:ringPulse 1.6s ease-out infinite;
+  color:var(--gold-2);
+}
+.gauge-marker.over::before{color:var(--green)}
+@keyframes ringPulse{
+  0%{opacity:.9;transform:scale(.75)}
+  100%{opacity:0;transform:scale(1.6)}
+}
+.gauge-threshold-mark{
+  position:absolute;left:0;top:-5px;bottom:-5px;width:2px;
+  background:var(--text);opacity:.5;transform:translateX(-50%);z-index:1;
+}
+.gauge-threshold-label{
+  position:absolute;top:11px;left:0;transform:translateX(-50%);
+  font-size:.72rem;color:var(--muted);white-space:nowrap;
+}
+.over-tag{
+  display:inline-flex;align-items:center;gap:4px;margin-left:6px;
+  font-size:.72rem;font-weight:800;color:var(--green);white-space:nowrap;
+}
+@media (prefers-reduced-motion: reduce){
+  .gauge-marker.live::before, .gauge-marker.over::before{animation:none;display:none}
+  .dot{animation:none}
+}
+
+.empty{color:var(--muted);text-align:center;padding:60px 20px;font-size:.95rem}
+footer{border-top:1px solid var(--border);padding:30px 0;margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem}
+footer a{color:var(--gold-2);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html" style="text-decoration:none;color:inherit">
+      <img src="assets/logo.jpg" alt="G-BET Bot">
+      <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="publications.html" class="active">Publications</a>
+      <a href="index.html#resultats">Résultats</a>
+      <a href="index.html#performance">Performance</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="back-link" href="index.html">← Retour au site</a>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Publications</h1>
+  <p class="sub">Ce que le bot a déjà publié aujourd'hui — scores et progressions en direct.</p>
+  <div id="status"><span class="dot"></span><span id="status-text">Chargement…</span></div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="live">En cours <span class="n" id="n-live">(0)</span></div>
+    <div class="tab" data-tab="done">Passées <span class="n" id="n-done">(0)</span></div>
+  </div>
+
+  <div class="section active" id="section-live"></div>
+  <div class="section" id="section-done"></div>
+</div>
+
+<footer>
+  <p>G-BET Bot — <a href="index.html">Retour à l'accueil</a> · <a href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a></p>
+</footer>
+
+<script>
+let publications = {live: [], done: []};
+
+/* ── Score live + boxscore (meme principe que programme.html::
+   refreshLiveScores, etendu aux stats joueur en direct pour les jauges).
+   Football exclu (fixture_id API-Football, cle secrete -- en pause,
+   demande explicite du 04/08/2026). Tennis inclus pour le score, mais
+   l'endpoint boxscore ESPN tennis renvoie une erreur 400 au moment de ce
+   chantier (verifie en direct le 04/08/2026) -- repli gracieux : pas de
+   jauge affichee si le boxscore est indisponible, jamais de blocage. ── */
+const ESPN_SPORT_PATH = {
+  baseball: 'baseball/mlb', nba: 'basketball/nba', wnba: 'basketball/wnba',
+  nhl: 'hockey/nhl', nfl: 'football/nfl',
+};
+let liveCache = {}; // fixture_id -> {home, away, status, boxscore}
+
+function espnEventInfo(f){
+  const fid = f.fixture_id || '';
+  if (f.sport === 'tennis'){
+    const m = fid.match(/^tennis_espn_(atp|wta)_(\d+)$/);
+    return m ? {path: `tennis/${m[1]}`, eventId: m[2]} : null;
+  }
+  const path = ESPN_SPORT_PATH[f.sport];
+  if (!path) return null;
+  const m = fid.match(/_(\d+)$/);
+  return m ? {path, eventId: m[1]} : null;
+}
+
+async function fetchLiveSummary(f){
+  const info = espnEventInfo(f);
+  if (!info) return null;
+  try{
+    const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${info.path}/summary?event=${info.eventId}`, {cache:'no-store'});
+    if (!res.ok) return null;
+    return await res.json();
+  }catch(e){ return null; }
+}
+
+// Cles boxscore ESPN par sport -> {statKey: libelle FR reconnu dans le texte du pick}
+const STAT_KEYS = {
+  baseball: {hits:['coup sûr','coups sûrs'], homeRuns:['home run'], runs:['point marqué','points marqués'], RBIs:['rbi','point produit']},
+  nba:      {points:['point'], rebounds:['rebond'], assists:['passe décisive','passe decisive']},
+  wnba:     {points:['point'], rebounds:['rebond'], assists:['passe décisive','passe decisive']},
+  nhl:      {goals:['but'], assists:['passe décisive','passe decisive'], shotsOnGoal:['tir cadré','tir cadre']},
+  nfl:      {passingYards:['yard à la passe','yard a la passe'], rushingYards:['yard à la course','yard a la course'],
+             receivingYards:['yard à la réception','yard a la reception'], receptions:['réception','reception']},
+};
+
+function extractPlayerStats(summary, sport){
+  const out = {}; // playerName -> {statKey: value}
+  const groupsBySport = {
+    baseball: g => g.keys && g.keys.includes('runs') && g.keys.includes('homeRuns') && !g.keys.includes('earnedRuns'),
+    nba: g => g.keys && g.keys.includes('points') && g.keys.includes('rebounds'),
+    wnba: g => g.keys && g.keys.includes('points') && g.keys.includes('rebounds'),
+    nhl: g => g.keys && g.keys.includes('goals') && g.keys.includes('assists') && !g.keys.includes('saves'),
+    nfl: g => true,
+  };
+  const test = groupsBySport[sport];
+  if (!test || !summary || !summary.boxscore || !summary.boxscore.players) return out;
+  for (const team of summary.boxscore.players){
+    for (const group of (team.statistics || [])){
+      if (!test(group)) continue;
+      const keys = group.keys || [];
+      for (const ath of (group.athletes || [])){
+        const name = ath.athlete && ath.athlete.displayName;
+        const stats = ath.stats || [];
+        if (!name) continue;
+        const entry = out[name] || {};
+        keys.forEach((k, i) => {
+          const v = parseInt(stats[i], 10);
+          if (!isNaN(v)) entry[k] = v;
+        });
+        out[name] = entry;
+      }
+    }
+  }
+  return out;
+}
+
+/* ── Parsing du seuil depuis le texte FR du pick ("... Plus de 2,5",
+   "... Moins de 8.5") -- jamais de valeur inventee si le texte ne
+   correspond pas au patron attendu (pas de jauge affichee). ── */
+function parseThreshold(label){
+  const m = (label || '').match(/(Plus|Moins) de\s+([\d.,]+)/i);
+  if (!m) return null;
+  return {dir: m[1].toLowerCase() === 'plus' ? 'over' : 'under', value: parseFloat(m[2].replace(',', '.'))};
+}
+
+function findStatKey(sport, label){
+  const table = STAT_KEYS[sport];
+  if (!table) return null;
+  const low = (label || '').toLowerCase();
+  for (const [key, terms] of Object.entries(table)){
+    if (terms.some(t => low.includes(t))) return key;
+  }
+  return null;
+}
+
+function findPlayerName(label){
+  // "Nom Joueur — Marché ..." ou "Nom Joueur - Marché ..."
+  const m = (label || '').split(/—|-/);
+  return m.length > 1 ? m[0].trim() : null;
+}
+
+function isTeamTotalLabel(label){
+  return /total (buts|points) du match/i.test(label || '');
+}
+
+/* ── Rendu ────────────────────────────────────────────────────────── */
+const SPORT_META = {
+  football: {icon:'⚽', label:'Football'}, tennis: {icon:'🎾', label:'Tennis'},
+  baseball: {icon:'⚾', label:'Baseball (MLB)'}, nba: {icon:'🏀', label:'NBA'},
+  nhl: {icon:'🏒', label:'NHL'}, nfl: {icon:'🏈', label:'NFL'}, wnba: {icon:'🏀', label:'WNBA'},
+};
+
+function gaugeHtml(state, currentVal, thresholdVal, scaleMax, overTag){
+  const curPct = Math.max(0, Math.min(100, (currentVal / scaleMax) * 100));
+  const thrPct = Math.max(0, Math.min(100, (thresholdVal / scaleMax) * 100));
+  return `
+    <div class="gauge">
+      <div class="gauge-track">
+        <div class="gauge-fill ${state}" style="width:${curPct}%"></div>
+        <div class="gauge-threshold-mark" style="left:${thrPct}%"></div>
+        <span class="gauge-threshold-label" style="left:${thrPct}%">${thresholdVal}</span>
+        <div class="gauge-marker ${state}" style="left:${curPct}%">${currentVal}</div>
+      </div>
+    </div>
+    ${overTag ? `<span class="over-tag">✓ Seuil déjà dépassé</span>` : ''}`;
+}
+
+function pickRowHtml(type, typeLabel, label, cote, result, gauge){
+  const stateClass = result === 'GAGNE' || result === 'GAGNÉ' ? 'done' : result === 'PERDU' ? 'lost' : 'live';
+  const cls = result ? stateClass : 'live';
+  return `
+    <div class="pick-row">
+      <div class="pick-top">
+        <span class="type-badge ${type}">${typeLabel}</span>
+        <span class="pick-label">${label}</span>
+        ${cote ? `<span class="odds-badge">${cote.toFixed(2).replace('.', ',')}</span>` : ''}
+      </div>
+      ${gauge || ''}
+    </div>`;
+}
+
+function renderPick(f, kind, text, cote, result){
+  const threshold = parseThreshold(text);
+  const stateClass = result === 'GAGNE' || result === 'GAGNÉ' ? 'done' : result === 'PERDU' ? 'lost' : 'live';
+  const labelHtml = `<b class="${stateClass}">${text}</b>`;
+  if (!threshold) return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, '');
+
+  let current = null, scaleMax = threshold.value * 1.6;
+  const live = liveCache[f.fixture_id];
+  if (result){
+    current = null; // reglee : pas de reconstruction de la progression finale, juste le resultat
+  } else if (isTeamTotalLabel(text) && live && live.home != null && live.away != null){
+    current = (parseInt(live.home, 10) || 0) + (parseInt(live.away, 10) || 0);
+  } else if (live && live.stats){
+    const playerName = findPlayerName(text);
+    const statKey = findStatKey(f.sport, text);
+    if (playerName && statKey && live.stats[playerName]){
+      current = live.stats[playerName][statKey];
+    }
+  }
+
+  if (current == null) return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, '');
+
+  const isOver = threshold.dir === 'over' && current >= threshold.value;
+  const isUnderMissed = threshold.dir === 'under' && current > threshold.value;
+  const gaugeState = isOver ? 'over' : isUnderMissed ? 'lost' : 'live';
+  const gauge = gaugeHtml(gaugeState, current, threshold.value, Math.max(scaleMax, current * 1.15, threshold.value * 1.15), isOver);
+  return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, gauge);
+}
+
+function renderCard(f){
+  const live = liveCache[f.fixture_id];
+  let scoreHtml;
+  if (f.result){
+    scoreHtml = `<div class="score-block"><span class="final-badge">Terminé</span>${f.score ? `<span class="match-time">${f.score}</span>` : ''}</div>`;
+  } else if (f.no_bet_reason && !f.published){
+    scoreHtml = `<div class="score-block"><span class="final-badge">No Bet</span><span class="match-time">${f.no_bet_reason}</span></div>`;
+  } else if (live && live.home != null){
+    const statusText = live.statusDetail || '';
+    scoreHtml = `<div class="score-block"><span class="live-score"><span class="dot"></span> ${live.home} - ${live.away}</span>${statusText ? `<span class="match-time">${statusText}</span>` : ''}</div>`;
+  } else {
+    scoreHtml = `<div class="score-block"><span class="live-score"><span class="dot"></span> En cours</span></div>`;
+  }
+
+  const rows = [];
+  if (f.conseil) rows.push(renderPick(f, 'conseil', f.conseil + (f.conseil_cote ? '' : ''), f.conseil_cote, f.result));
+  if (f.value_bet) rows.push(renderPick(f, 'value', f.value_bet, f.value_cote, f.value_result || f.result));
+  (f.player_picks || []).forEach(p => {
+    rows.push(renderPick(f, 'player', `${p.label}`, null, p.result));
+  });
+  if (!rows.length && f.no_bet_reason){
+    rows.push(`<div class="pick-row"><div class="pick-top"><span class="type-badge nobet">No Bet</span><span class="pick-label">${f.no_bet_reason}</span></div></div>`);
+  }
+
+  return `
+    <div class="card ${f.result ? '' : 'live'}">
+      <div class="match-head">
+        <div class="match-info">
+          <span class="flag">${f.flag}</span>
+          <div>
+            <div class="match-name">${f.match}</div>
+            <div class="league">${f.sport && f.sport !== 'football' ? f.sport_label + ' · ' : ''}${f.league}</div>
+          </div>
+        </div>
+        ${scoreHtml}
+      </div>
+      <div class="picks">${rows.join('')}</div>
+    </div>`;
+}
+
+function render(){
+  document.getElementById('n-live').textContent = `(${publications.live.length})`;
+  document.getElementById('n-done').textContent = `(${publications.done.length})`;
+
+  for (const [key, list] of [['live', publications.live], ['done', publications.done]]){
+    const el = document.getElementById('section-' + key);
+    if (!list.length){
+      el.innerHTML = '<div class="empty">Rien à afficher pour le moment.</div>';
+      continue;
+    }
+    const bySport = {};
+    list.forEach(f => { (bySport[f.sport] = bySport[f.sport] || []).push(f); });
+    const order = ['tennis','baseball','nba','nhl','nfl','wnba'];
+    const sports = Object.keys(bySport).sort((a,b) => order.indexOf(a) - order.indexOf(b));
+    el.innerHTML = sports.map(sp => {
+      const meta = SPORT_META[sp] || {icon:'🏅', label:sp};
+      return `<div class="sport-sep">${meta.icon} ${meta.label}</div>` + bySport[sp].map(renderCard).join('');
+    }).join('');
+  }
+}
+
+async function refreshLiveData(){
+  const candidates = publications.live.filter(f => !f.result && espnEventInfo(f));
+  if (!candidates.length) return;
+  await Promise.all(candidates.map(async f => {
+    const summary = await fetchLiveSummary(f);
+    if (!summary) return;
+    const comp = summary.header && summary.header.competitions && summary.header.competitions[0];
+    const comps = (comp && comp.competitors) || [];
+    const home = comps.find(c => c.homeAway === 'home');
+    const away = comps.find(c => c.homeAway === 'away');
+    const statusDetail = comp && comp.status && comp.status.type && comp.status.type.shortDetail;
+    liveCache[f.fixture_id] = {
+      home: home ? home.score : null,
+      away: away ? away.score : null,
+      statusDetail: statusDetail || '',
+      stats: extractPlayerStats(summary, f.sport),
+    };
+  }));
+  render();
+}
+
+async function loadPublications(){
+  try{
+    const res = await fetch('publications.json?t=' + Date.now(), {cache:'no-store'});
+    if (!res.ok) throw new Error('http ' + res.status);
+    const data = await res.json();
+    publications = {live: data.live || [], done: data.done || []};
+    const genAt = new Date(data.generated_at);
+    document.getElementById('status-text').textContent =
+      'Mis à jour à ' + genAt.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Paris'}) + ' (heure de Paris)';
+    render();
+    refreshLiveData();
+  }catch(e){
+    document.getElementById('status-text').textContent = 'Publications indisponibles pour le moment (' + e.message + ')';
+  }
+}
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('section-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+loadPublications();
+setInterval(loadPublications, 60000);     // re-synchronise avec publications.json chaque minute
+setInterval(refreshLiveData, 60000);      // score + boxscore live ESPN pendant les matchs
+</script>
+</body>
+</html>

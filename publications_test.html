@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[TEST] Publications — G-BET Bot</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706; --bg-2:#0c0b09; --card:#12110e; --card-2:#1a1813;
+  --border:rgba(240,185,11,.14); --border-strong:rgba(240,185,11,.32);
+  --text:#f2ede1; --muted:#9c9481;
+  --gold:#f0b90b; --gold-2:#f7ca3e; --gold-dark:#b8860b;
+  --green:#22c55e; --red:#ef4444; --blue:#3b82f6; --purple:#a855f7;
+  --odds-bg:#1e2650; --odds-text:#c7cdf2;
+  --track:#2a2820; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5}
+.container{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--border);padding:18px 0;position:sticky;top:0;background:rgba(7,7,6,.92);backdrop-filter:blur(8px);z-index:10}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.1rem}
+.logo img{width:32px;height:32px;border-radius:50%;border:2px solid var(--gold)}
+.logo .g{color:var(--gold-2)}
+.back-link{color:var(--muted);font-size:.9rem;text-decoration:none}
+.back-link:hover{color:var(--gold-2)}
+h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 6px}
+.sub{color:var(--muted);font-size:.95rem;margin-bottom:8px}
+.test-banner{
+  background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.4);
+  border-radius:12px;padding:12px 16px;margin-bottom:28px;font-size:.85rem;color:#93c5fd;
+}
+.tabs{display:flex;gap:8px;margin-bottom:24px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.tab{
+  padding:10px 16px;font-size:.9rem;font-weight:600;color:var(--muted);
+  cursor:pointer;border-bottom:2px solid transparent;user-select:none;white-space:nowrap;
+}
+.tab.active{color:var(--gold-2);border-bottom-color:var(--gold-2)}
+.tab .n{color:var(--muted);font-weight:400}
+.tab.active .n{color:var(--gold-2)}
+.section{display:none}
+.section.active{display:block}
+.day-sep{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:24px 0 10px;padding-left:2px}
+.sport-sep{
+  font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:var(--gold-2);
+  margin:32px 0 12px;padding-left:2px;display:flex;align-items:center;gap:8px;
+}
+.sport-sep:first-child{margin-top:8px}
+
+/* ── Carte match ─────────────────────────────────────── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px 22px;margin-bottom:14px}
+.card.live{border-color:var(--border-strong)}
+.match-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.match-info{display:flex;align-items:center;gap:10px;min-width:0}
+.flag{font-size:1.3rem;flex-shrink:0}
+.match-name{font-weight:600;font-size:1rem}
+.league{color:var(--muted);font-size:.78rem}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.score-block{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.live-score{display:inline-flex;align-items:center;gap:6px;font-family:'Sora',sans-serif;font-weight:700;font-size:1.05rem;color:var(--gold-2)}
+.match-time{display:inline-flex;align-items:center;gap:4px;font-size:.76rem;color:var(--muted);font-weight:600}
+.match-time .clock{width:11px;height:11px;flex-shrink:0}
+.final-badge{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem;color:var(--muted)}
+
+/* ── Ligne de pick : badge de TYPE (conseil/value/player) a la place
+   du rond de statut -- l'issue (gagne/perdu/en cours) est portee par
+   la couleur du texte de la selection et par la jauge, pas par un icone
+   separe. ── */
+.picks{display:grid;gap:20px}
+.pick-row{display:grid;gap:10px}
+.pick-top{display:flex;align-items:center;gap:10px}
+.type-badge{
+  flex-shrink:0;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
+  padding:5px 9px;border-radius:7px;white-space:nowrap;
+}
+.type-badge.conseil{background:rgba(240,185,11,.15);color:var(--gold-2)}
+.type-badge.value{background:rgba(59,130,246,.18);color:#93c5fd}
+.type-badge.player{background:rgba(168,85,247,.18);color:#d8b4fe}
+.pick-label{flex:1;color:var(--muted);font-size:.98rem;min-width:0}
+.pick-label b{font-weight:700}
+.pick-label b.lost{color:var(--red)}
+.pick-label b.done{color:var(--green)}
+.pick-label b.live{color:var(--gold-2)}
+.odds-badge{
+  background:var(--odds-bg);color:var(--odds-text);font-weight:700;font-size:.95rem;
+  padding:6px 12px;border-radius:9px;flex-shrink:0;
+}
+
+/* ── Jauge a seuil : le seuil est marque SUR LE TUBE (pas en texte a
+   cote) -- une pastille "valeur actuelle" et un repere "seuil" partagent
+   la MEME echelle proportionnelle du tube, donc des que le remplissage
+   depasse le repere de seuil, ca se voit directement sur la barre. ── */
+.gauge{padding-left:42px;margin-top:2px}
+.gauge-track{position:relative;height:4px;border-radius:99px;background:var(--track);margin-bottom:16px}
+.gauge-fill{height:100%;border-radius:99px}
+.gauge-fill.lost{background:var(--red)}
+.gauge-fill.done{background:var(--green)}
+.gauge-fill.live{background:var(--gold-2)}
+.gauge-fill.over{background:var(--green)}
+.gauge-marker{
+  position:absolute;top:50%;left:0;transform:translate(-50%,-50%);
+  min-width:26px;height:22px;padding:0 6px;border-radius:99px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Sora',sans-serif;font-weight:800;font-size:.78rem;color:#0a0906;
+  z-index:2;
+}
+.gauge-marker.lost{background:var(--red)}
+.gauge-marker.done{background:var(--green)}
+.gauge-marker.live{background:var(--gold-2)}
+.gauge-marker.over{background:var(--green)}
+.gauge-marker.live::before, .gauge-marker.over::before{
+  content:"";position:absolute;inset:-6px;border-radius:99px;
+  border:2px solid currentColor;animation:ringPulse 1.6s ease-out infinite;
+  color:var(--gold-2);
+}
+.gauge-marker.over::before{color:var(--green)}
+@keyframes ringPulse{
+  0%{opacity:.9;transform:scale(.75)}
+  100%{opacity:0;transform:scale(1.6)}
+}
+.gauge-threshold-mark{
+  position:absolute;left:0;top:-5px;bottom:-5px;width:2px;
+  background:var(--text);opacity:.5;transform:translateX(-50%);z-index:1;
+}
+.gauge-threshold-label{
+  position:absolute;top:11px;left:0;transform:translateX(-50%);
+  font-size:.72rem;color:var(--muted);white-space:nowrap;
+}
+.over-tag{
+  display:inline-flex;align-items:center;gap:4px;margin-left:6px;
+  font-size:.72rem;font-weight:800;color:var(--green);white-space:nowrap;
+}
+@media (prefers-reduced-motion: reduce){
+  .gauge-marker.live::before, .gauge-marker.over::before{animation:none;display:none}
+  .dot{animation:none}
+}
+
+.empty{color:var(--muted);text-align:center;padding:60px 20px;font-size:.95rem}
+footer{border-top:1px solid var(--border);padding:30px 0;margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem}
+footer a{color:var(--gold-2);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html" style="text-decoration:none;color:inherit">
+      <img src="assets/logo.jpg" alt="G-BET Bot">
+      <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+    </a>
+    <a class="back-link" href="index.html">← Retour au site</a>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Publications</h1>
+  <p class="sub">Ce que le bot a déjà publié aujourd'hui — scores et progressions en direct.</p>
+  <div class="test-banner">
+    🧪 <b>Page de test — données fictives.</b> Un exemple par sport. Le temps de match est affiché sous le score ; le rond de statut est remplacé par le type de pari (Conseil/Value/Player) ; le seuil ("2.5") est désormais positionné directement sur le tube à sa vraie échelle — l'exemple Football montre un seuil déjà dépassé (le remplissage passe le repère, en vert). Pas encore liée depuis le menu principal.
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="live">En cours <span class="n">(7)</span></div>
+    <div class="tab" data-tab="done">Passées <span class="n">(1)</span></div>
+  </div>
+
+  <!-- ═══════════════ SECTION EN COURS — 1 EXEMPLE PAR SPORT ═══════════════ -->
+  <div class="section active" id="section-live">
+
+    <div class="sport-sep">⚽ Football</div>
+    <div class="card live">
+      <div class="match-head">
+        <div class="match-info">
+          <span class="flag">⚽</span>
+          <div>
+            <div class="match-name">PSG – Marseille</div>
+            <div class="league">Ligue 1 · 21:00 (heure de Paris)</div>
+          </div>
+        </div>
+        <div class="score-block">
+          <span class="live-score"><span class="dot"></span> 3 - 0</span>
+          <span class="match-time">72'</span>
+        </div>
+      </div>
+      <div class="picks">
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge conseil">Conseil</span>
+            <span class="pick-label">Double chance <b class="live">PSG ou Nul</b></span>
+            <span class="odds-badge">1,42</span>
+          </div>
+        </div>
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge value">Value</span>
+            <span class="pick-label">Total buts du match <b class="live">Plus de 2,5</b><span class="over-tag">✓ Seuil déjà dépassé</span></span>
+            <span class="odds-badge">2,05</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill over" style="width:75%"></div>
+              <div class="gauge-threshold-mark" style="left:62.5%"></div>
+              <span class="gauge-threshold-label" style="left:62.5%">2.5</span>
+              <div class="gauge-marker over" style="left:75%">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sport-sep">🎾 Tennis</div>
+    <div class="card live">
+      <div class="match-head">
+        <div class="match-info">
+          <span class="flag">🎾</span>
+          <div>
+            <div class="match-name">Linda Fruhvirtova – Katarzyna Kawa</div>
+            <div class="league">WTA Varsovie · 14:30 (heure de Paris)</div>
+          </div>
+        </div>
+        <div class="score-block">
+          <span class="live-score"><span class="dot"></span> 1 set partout</span>
+          <span class="match-time">3e set · 4-3</span>
+        </div>
+      </div>
+      <div class="picks">
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge conseil">Conseil</span>
+            <span class="pick-label">Vainqueur <b class="live">Katarzyna Kawa</b></span>
+            <span class="odds-badge">1,75</span>
+          </div>
+        </div>
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge value">Value</span>
+            <span class="pick-label">Total sets du match <b class="live">Plus de 2,5</b><span class="over-tag">✓ 3e set engagé — seuil déjà garanti</span></span>
+            <span class="odds-badge">2,36</span>
+          </div>
+          <!-- Des qu'un 3e set se joue, 3 sets sont mathematiquement
+               garantis (2 sets 1-1 + le 3e en cours) -- le seuil de 2.5
+               est deja depasse avant meme la fin du set, pas seulement
+               une fois le match termine. -->
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill over" style="width:100%"></div>
+              <div class="gauge-threshold-mark" style="left:83.3%"></div>
+              <span class="gauge-threshold-label" style="left:83.3%">2.5</span>
+              <div class="gauge-marker over" style="left:100%">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sport-sep">⚾ Baseball (MLB)</div>
+    <div class="card live">
+      <div class="match-head">
+        <div class="match-info">
+          <span class="flag">⚾</span>
+          <div>
+            <div class="match-name">New York Yankees – Boston Red Sox</div>
+            <div class="league">MLB · 19:05 (heure de Paris)</div>
+          </div>
+        </div>
+        <div class="score-block">
+          <span class="live-score"><span class="dot"></span> 4 - 3</span>
+          <span class="match-time">7e manche</span>
+        </div>
+      </div>
+      <div class="picks">
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge conseil">Conseil</span>
+            <span class="pick-label">Vainqueur <b class="live">New York Yankees</b></span>
+            <span class="odds-badge">1,88</span>
+          </div>
+        </div>
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge value">Value</span>
+            <span class="pick-label">Total points du match <b class="live">Plus de 8,5</b></span>
+            <span class="odds-badge">1,91</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill live" style="width:58.3%"></div>
+              <div class="gauge-threshold-mark" style="left:70.8%"></div>
+              <span class="gauge-threshold-label" style="left:70.8%">8.5</span>
+              <div class="gauge-marker live" style="left:58.3%">7</div>
+            </div>
+          </div>
+        </div>
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge player">Player</span>
+            <span class="pick-label">Coups sûrs - Aaron Judge <b class="live">Plus de 1,5</b></span>
+            <span class="odds-badge">2,10</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill live" style="width:25%"></div>
+              <div class="gauge-threshold-mark" style="left:37.5%"></div>
+              <span class="gauge-threshold-label" style="left:37.5%">1.5</span>
+              <div class="gauge-marker live" style="left:25%">1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sport-sep">🏀 NBA</div>
+    <div class="card live">
+      <div class="match-head">
+        <div class="match-info">
+          <span class="flag">🏀</span>
+          <div>
+            <div class="match-name">Boston Celtics – Miami Heat</div>
+            <div class="league">NBA · 02:30 (heure de Paris)</div>
+          </div>
+        </div>
+        <div class="score-block">
+          <span class="live-score"><span class="dot"></span> 58 - 52</span>
+          <span class="match-time">3e quart-temps · 6:42</span>
+        </div>
+      </div>
+      <div class="picks">
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge player">Player</span>
+            <span class="pick-label">Points - Jayson Tatum <b class="live">Plus de 27,5</b></span>
+            <span class="odds-badge">1,95</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill live" style="width:45%"></div>
+              <div class="gauge-threshold-mark" style="left:68.75%"></div>
+              <span class="gauge-threshold-label" style="left:68.75%">27.5</span>
+              <div class="gauge-marker live" style="left:45%">18</div>
+            </div>
+          </div>
+        </div>
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge player">Player</span>
+            <span class="pick-label">Passes décisives - Jrue Holiday <b class="live">Plus de 5,5</b></span>
+            <span class="odds-badge">1,80</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill live" style="width:33.3%"></div>
+              <div class="gauge-threshold-mark" style="left:61.1%"></div>
+              <span class="gauge-threshold-label" style="left:61.1%">5.5</span>
+              <div class="gauge-marker live" style="left:33.3%">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sport-sep">🏀 WNBA</div>
+    <div class="card live">
+      <div class="match-head">
+        <div class="match-info">
+          <span class="flag">🏀</span>
+          <div>
+            <div class="match-name">Las Vegas Aces – Atlanta Dream</div>
+            <div class="league">WNBA · 02:00 (heure de Paris)</div>
+          </div>
+        </div>
+        <div class="score-block">
+          <span class="live-score"><span class="dot"></span> 61 - 54</span>
+          <span class="match-time">3e quart-temps · 4:15</span>
+        </div>
+      </div>
+      <div class="picks">
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge player">Player</span>
+            <span class="pick-label">Points - Frieda Buhner <b class="live">Moins de 8,5</b></span>
+            <span class="odds-badge">1,79</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill live" style="width:21.4%"></div>
+              <div class="gauge-threshold-mark" style="left:60.7%"></div>
+              <span class="gauge-threshold-label" style="left:60.7%">8.5</span>
+              <div class="gauge-marker live" style="left:21.4%">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sport-sep">🏒 NHL</div>
+    <div class="card live">
+      <div class="match-head">
+        <div class="match-info">
+          <span class="flag">🏒</span>
+          <div>
+            <div class="match-name">Toronto Maple Leafs – Montreal Canadiens</div>
+            <div class="league">NHL · 01:00 (heure de Paris)</div>
+          </div>
+        </div>
+        <div class="score-block">
+          <span class="live-score"><span class="dot"></span> 2 - 1</span>
+          <span class="match-time">2e période · 11:32</span>
+        </div>
+      </div>
+      <div class="picks">
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge player">Player</span>
+            <span class="pick-label">Tirs cadrés - Auston Matthews <b class="live">Plus de 3,5</b></span>
+            <span class="odds-badge">1,87</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill live" style="width:33.3%"></div>
+              <div class="gauge-threshold-mark" style="left:58.3%"></div>
+              <span class="gauge-threshold-label" style="left:58.3%">3.5</span>
+              <div class="gauge-marker live" style="left:33.3%">2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sport-sep">🏈 NFL</div>
+    <div class="card live">
+      <div class="match-head">
+        <div class="match-info">
+          <span class="flag">🏈</span>
+          <div>
+            <div class="match-name">Kansas City Chiefs – Buffalo Bills</div>
+            <div class="league">NFL · 20:00 (heure de Paris)</div>
+          </div>
+        </div>
+        <div class="score-block">
+          <span class="live-score"><span class="dot"></span> 14 - 10</span>
+          <span class="match-time">2e quart-temps · 4:58</span>
+        </div>
+      </div>
+      <div class="picks">
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge player">Player</span>
+            <span class="pick-label">Yards à la passe - Patrick Mahomes <b class="live">Plus de 275,5</b></span>
+            <span class="odds-badge">1,90</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill live" style="width:31%"></div>
+              <div class="gauge-threshold-mark" style="left:68.9%"></div>
+              <span class="gauge-threshold-label" style="left:68.9%">275.5</span>
+              <div class="gauge-marker live" style="left:31%">124</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SECTION PASSEES ═══════════════ -->
+  <div class="section" id="section-done">
+    <div class="day-sep">Aujourd'hui</div>
+
+    <div class="card">
+      <div class="match-head">
+        <div class="match-info">
+          <span class="flag">🏀</span>
+          <div>
+            <div class="match-name">Las Vegas Aces – Atlanta Dream</div>
+            <div class="league">WNBA · 02:00 (heure de Paris)</div>
+          </div>
+        </div>
+        <div class="score-block">
+          <span class="final-badge">Terminé</span>
+          <span class="match-time">109 - 87</span>
+        </div>
+      </div>
+      <div class="picks">
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge player">Player</span>
+            <span class="pick-label">Points - Frieda Buhner <b class="done">Moins de 8,5</b></span>
+            <span class="odds-badge">1,79</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill done" style="width:28.6%"></div>
+              <div class="gauge-threshold-mark" style="left:60.7%"></div>
+              <span class="gauge-threshold-label" style="left:60.7%">8.5</span>
+              <div class="gauge-marker done" style="left:28.6%">4</div>
+            </div>
+          </div>
+        </div>
+        <div class="pick-row">
+          <div class="pick-top">
+            <span class="type-badge player">Player</span>
+            <span class="pick-label">Points - Naz Hillmon <b class="lost">Plus de 7,5</b></span>
+            <span class="odds-badge">1,86</span>
+          </div>
+          <div class="gauge">
+            <div class="gauge-track">
+              <div class="gauge-fill lost" style="width:70%"></div>
+              <div class="gauge-threshold-mark" style="left:75%"></div>
+              <span class="gauge-threshold-label" style="left:75%">7.5</span>
+              <div class="gauge-marker lost" style="left:70%">7</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty" style="display:none" id="empty-msg">Rien à afficher pour ce filtre.</div>
+</div>
+
+<footer>
+  <p>G-BET Bot — <a href="index.html">Retour à l'accueil</a> · <a href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a></p>
+</footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('section-' + tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
