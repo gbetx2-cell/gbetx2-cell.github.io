@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-05T21:53:38.954573+00:00",
+ "generated_at": "2026-08-05T21:56:56.424028+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -36,23 +36,23 @@
  },
  "fixtures": [
   {
-   "fixture_id": "tennis_espn_wta_182104",
-   "flag": "🎾",
-   "league": "Warsaw T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aliona Falei – Carol Young Suh Lee",
-   "kickoff_at": "2026-08-05T09:00Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_wta_182114",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
+   "kickoff_at": "2026-08-05T09:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182104",
+   "flag": "🎾",
+   "league": "Warsaw T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Aliona Falei – Carol Young Suh Lee",
    "kickoff_at": "2026-08-05T09:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -69,23 +69,23 @@
    "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
-   "fixture_id": "tennis_espn_wta_182098",
-   "flag": "🎾",
-   "league": "Warsaw T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mona Barthel – Martyna Kubka",
-   "kickoff_at": "2026-08-05T10:30Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_wta_182101",
    "flag": "🎾",
    "league": "Warsaw T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Ella Seidel – Gabriela Knutson",
+   "kickoff_at": "2026-08-05T10:30Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182098",
+   "flag": "🎾",
+   "league": "Warsaw T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mona Barthel – Martyna Kubka",
    "kickoff_at": "2026-08-05T10:30Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -327,7 +327,10 @@
    "kickoff_at": "2026-08-05T19:10Z",
    "published": true,
    "value_bet": "Vainqueur — Colorado Rockies @ 2.44",
-   "value_cote": 2.44
+   "value_cote": 2.44,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "0 - 4"
   },
   {
    "fixture_id": "tennis_espn_atp_181753",
@@ -370,22 +373,22 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816400",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cincinnati Reds – Athletics",
-   "kickoff_at": "2026-08-05T22:40Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816403",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
    "match": "Cleveland Guardians – New York Mets",
+   "kickoff_at": "2026-08-05T22:40Z",
+   "published": false
+  },
+  {
+   "fixture_id": "baseball_401816400",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cincinnati Reds – Athletics",
    "kickoff_at": "2026-08-05T22:40Z",
    "published": false
   },
