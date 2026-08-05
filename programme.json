@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-05T01:10:57.599190+00:00",
+ "generated_at": "2026-08-05T01:23:24.291654+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -295,22 +295,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181776",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Vit Kopriva – Jiri Lehecka",
-   "kickoff_at": "2026-08-04T19:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_181778",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Alexander Blockx – Jaume Munar",
+   "kickoff_at": "2026-08-04T19:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181776",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Vit Kopriva – Jiri Lehecka",
    "kickoff_at": "2026-08-04T19:30Z",
    "published": false
   },
@@ -340,29 +340,6 @@
    "score": "3 - 1"
   },
   {
-   "fixture_id": "baseball_401816390",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Philadelphia Phillies – Washington Nationals",
-   "kickoff_at": "2026-08-04T22:40Z",
-   "published": true,
-   "value_bet": "Vainqueur — Washington Nationals @ 3.91",
-   "value_cote": 3.91,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "5 - 0",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Trea Turner — Coups sûrs Plus de 1.5",
-     "detail": "cote 2.78",
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816388",
    "flag": "⚾",
    "league": "MLB",
@@ -384,11 +361,38 @@
    "published": true,
    "value_bet": "Vainqueur — Athletics @ 2.21",
    "value_cote": 2.21,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "5 - 4",
    "player_picks": [
     {
      "category": "Player pick",
      "label": "Jacob Wilson — Coups sûrs Plus de 1.5",
-     "detail": "cote 2.72"
+     "detail": "cote 2.72",
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816390",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Philadelphia Phillies – Washington Nationals",
+   "kickoff_at": "2026-08-04T22:40Z",
+   "published": true,
+   "value_bet": "Vainqueur — Washington Nationals @ 3.91",
+   "value_cote": 3.91,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "5 - 0",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Trea Turner — Coups sûrs Plus de 1.5",
+     "detail": "cote 2.78",
+     "result": "GAGNE"
     }
    ]
   },
@@ -443,17 +447,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816393",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Milwaukee Brewers – Pittsburgh Pirates",
-   "kickoff_at": "2026-08-04T23:40Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
    "fixture_id": "baseball_401816392",
    "flag": "⚾",
    "league": "MLB",
@@ -471,6 +464,17 @@
      "detail": "cote 2.80"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816393",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Milwaukee Brewers – Pittsburgh Pirates",
+   "kickoff_at": "2026-08-04T23:40Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "baseball_401816391",
@@ -514,7 +518,8 @@
    "sport_label": "Basketball (WNBA)",
    "match": "Golden State Valkyries – Toronto Tempo",
    "kickoff_at": "2026-08-05T02:00Z",
-   "published": false
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "tennis_espn_atp_182183",
