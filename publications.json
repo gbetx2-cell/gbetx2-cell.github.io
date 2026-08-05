@@ -1,18 +1,6 @@
 {
- "generated_at": "2026-08-05T01:22:32.354995+00:00",
+ "generated_at": "2026-08-05T01:43:50.118556+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816389",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Yankees – St. Louis Cardinals",
-   "kickoff_at": "2026-08-04T23:05Z",
-   "published": true,
-   "value_bet": "Vainqueur — St. Louis Cardinals @ 2.75",
-   "value_cote": 2.75
-  },
   {
    "fixture_id": "baseball_401816386",
    "flag": "⚾",
@@ -47,7 +35,8 @@
     {
      "category": "Player pick",
      "label": "Drake Baldwin — Coups sûrs Plus de 1.5",
-     "detail": "cote 2.78"
+     "detail": "cote 2.78",
+     "result": "PERDU"
     }
    ]
   },
@@ -174,6 +163,21 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816389",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Yankees – St. Louis Cardinals",
+   "kickoff_at": "2026-08-04T23:05Z",
+   "published": true,
+   "value_bet": "Vainqueur — St. Louis Cardinals @ 2.75",
+   "value_cote": 2.75,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 0"
   }
  ]
 }
