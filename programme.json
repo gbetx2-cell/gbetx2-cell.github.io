@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-05T18:05:38.377587+00:00",
+ "generated_at": "2026-08-05T18:07:06.901912+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -146,12 +146,22 @@
    "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
-   "fixture_id": "tennis_espn_atp_182201",
+   "fixture_id": "tennis_espn_atp_182196",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Belinda Bencic – Sloane Stephens",
+   "match": "Magdalena Frech – Jessica Pegula",
+   "kickoff_at": "2026-08-05T16:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181752",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Arthur Rinderknech – Miomir Kecmanovic",
    "kickoff_at": "2026-08-05T16:30Z",
    "published": false
   },
@@ -172,16 +182,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Arthur Fils – Zachary Svajda",
-   "kickoff_at": "2026-08-05T16:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181752",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Arthur Rinderknech – Miomir Kecmanovic",
    "kickoff_at": "2026-08-05T16:30Z",
    "published": false
   },
@@ -216,32 +216,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_182196",
+   "fixture_id": "tennis_espn_atp_182201",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Magdalena Frech – Jessica Pegula",
+   "match": "Belinda Bencic – Sloane Stephens",
    "kickoff_at": "2026-08-05T16:30Z",
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181749",
+   "fixture_id": "tennis_espn_atp_181743",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Corentin Moutet – Rafael Jodar",
-   "kickoff_at": "2026-08-05T18:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181750",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tallon Griekspoor – Alexander Zverev",
+   "match": "Alejandro Tabilo – Hubert Hurkacz",
    "kickoff_at": "2026-08-05T18:00Z",
    "published": false
   },
@@ -266,12 +256,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181743",
+   "fixture_id": "tennis_espn_atp_181750",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Alejandro Tabilo – Hubert Hurkacz",
+   "match": "Tallon Griekspoor – Alexander Zverev",
+   "kickoff_at": "2026-08-05T18:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181749",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Corentin Moutet – Rafael Jodar",
    "kickoff_at": "2026-08-05T18:00Z",
    "published": false
   },
@@ -307,7 +307,9 @@
    "sport_label": "Baseball (MLB)",
    "match": "Texas Rangers – San Francisco Giants",
    "kickoff_at": "2026-08-05T18:35Z",
-   "published": false
+   "published": true,
+   "value_bet": "Écart de points — Texas Rangers -1,5 @ 2.3",
+   "value_cote": 2.3
   },
   {
    "fixture_id": "baseball_401816411",
@@ -317,6 +319,16 @@
    "sport_label": "Baseball (MLB)",
    "match": "Colorado Rockies – Tampa Bay Rays",
    "kickoff_at": "2026-08-05T19:10Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181746",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Matteo Arnaldi – Fabian Marozsan",
+   "kickoff_at": "2026-08-05T19:30Z",
    "published": false
   },
   {
@@ -340,16 +352,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181746",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Matteo Arnaldi – Fabian Marozsan",
-   "kickoff_at": "2026-08-05T19:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816399",
    "flag": "⚾",
    "league": "MLB",
@@ -360,12 +362,12 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816405",
+   "fixture_id": "baseball_401816400",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Philadelphia Phillies – Washington Nationals",
+   "match": "Cincinnati Reds – Athletics",
    "kickoff_at": "2026-08-05T22:40Z",
    "published": false
   },
@@ -380,12 +382,12 @@
    "published": false
   },
   {
-   "fixture_id": "baseball_401816400",
+   "fixture_id": "baseball_401816405",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Cincinnati Reds – Athletics",
+   "match": "Philadelphia Phillies – Washington Nationals",
    "kickoff_at": "2026-08-05T22:40Z",
    "published": false
   },
@@ -530,7 +532,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_181768",
+   "fixture_id": "tennis_espn_wta_181855",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
@@ -540,7 +542,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_181767",
+   "fixture_id": "tennis_espn_wta_181854",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
@@ -550,7 +552,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_181766",
+   "fixture_id": "tennis_espn_wta_181853",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
@@ -560,7 +562,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_181764",
+   "fixture_id": "tennis_espn_wta_181851",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
@@ -570,7 +572,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_181763",
+   "fixture_id": "tennis_espn_wta_181847",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
@@ -580,7 +582,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_181754",
+   "fixture_id": "tennis_espn_wta_181777",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
@@ -590,7 +592,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_181751",
+   "fixture_id": "tennis_espn_wta_181774",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
@@ -840,7 +842,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_182292",
+   "fixture_id": "tennis_espn_wta_181858",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
@@ -920,6 +922,96 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_wta_181771",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-06T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_181770",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-06T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_181768",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-06T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_181767",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-06T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_181766",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-06T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_181764",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-06T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_181763",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-06T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_181754",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-06T04:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_wta_181751",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-08-06T04:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_wta_181742",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
@@ -970,97 +1062,7 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_wta_181770",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-06T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_181774",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-06T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_181771",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-06T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_181777",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-06T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_181847",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-06T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_181851",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-06T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_181853",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-06T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_181854",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-06T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_181855",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-08-06T04:00Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_wta_181858",
+   "fixture_id": "tennis_espn_atp_182292",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
