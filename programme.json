@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-05T17:34:05.878413+00:00",
+ "generated_at": "2026-08-05T17:41:37.728803+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -36,12 +36,12 @@
  },
  "fixtures": [
   {
-   "fixture_id": "tennis_espn_wta_182104",
+   "fixture_id": "tennis_espn_wta_182103",
    "flag": "🎾",
    "league": "Warsaw T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Aliona Falei – Carol Young Suh Lee",
+   "match": "Justina Mikulskyte – Katarzyna Kawa",
    "kickoff_at": "2026-08-05T09:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -58,24 +58,13 @@
    "no_bet_reason": "Analyse non finalisée à temps"
   },
   {
-   "fixture_id": "tennis_espn_wta_182103",
+   "fixture_id": "tennis_espn_wta_182104",
    "flag": "🎾",
    "league": "Warsaw T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Justina Mikulskyte – Katarzyna Kawa",
+   "match": "Aliona Falei – Carol Young Suh Lee",
    "kickoff_at": "2026-08-05T09:00Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_182098",
-   "flag": "🎾",
-   "league": "Warsaw T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mona Barthel – Martyna Kubka",
-   "kickoff_at": "2026-08-05T10:30Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
   },
@@ -86,6 +75,17 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Ella Seidel – Gabriela Knutson",
+   "kickoff_at": "2026-08-05T10:30Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182098",
+   "flag": "🎾",
+   "league": "Warsaw T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mona Barthel – Martyna Kubka",
    "kickoff_at": "2026-08-05T10:30Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -226,6 +226,16 @@
    "published": false
   },
   {
+   "fixture_id": "tennis_espn_atp_181749",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Corentin Moutet – Rafael Jodar",
+   "kickoff_at": "2026-08-05T18:00Z",
+   "published": false
+  },
+  {
    "fixture_id": "tennis_espn_atp_181750",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
@@ -266,16 +276,6 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181749",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Corentin Moutet – Rafael Jodar",
-   "kickoff_at": "2026-08-05T18:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "baseball_401816410",
    "flag": "⚾",
    "league": "MLB",
@@ -283,7 +283,9 @@
    "sport_label": "Baseball (MLB)",
    "match": "Houston Astros – Toronto Blue Jays",
    "kickoff_at": "2026-08-05T18:10Z",
-   "published": false
+   "published": true,
+   "value_bet": "Écart de points — Houston Astros -1,5 @ 1.9524",
+   "value_cote": 1.95
   },
   {
    "fixture_id": "baseball_401816406",
