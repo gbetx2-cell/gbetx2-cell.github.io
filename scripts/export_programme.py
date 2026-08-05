@@ -383,6 +383,14 @@ def fetch_programme() -> list[dict]:
                     "category": CATEGORY_LABEL_FR.get(category, (category or "Pick").replace("_", " ").capitalize()),
                     "label": label,
                     "detail": detail,
+                    # "odd" numerique (05/08/2026, bug confirme en direct :
+                    # la cote reelle etait deja calculee ici mais jamais
+                    # transmise au client -- publications.html passait
+                    # `null` en dur pour tous les player picks, cote jamais
+                    # affichee malgre "detail" qui la contenait deja en
+                    # texte). None pour les picks mode "percent" (pas de
+                    # cote marche reelle, jamais de valeur inventee).
+                    "odd": float(odd) if mode == "cote" and odd else None,
                     "_cat_key": category,
                 })
                 if len(player_picks) == 2:
@@ -423,6 +431,9 @@ def fetch_programme() -> list[dict]:
                         "category": "Player pick",
                         "label": f"{player_name} — {label}" if player_name else label,
                         "detail": f"cote {float(odd):.2f}" if odd else "",
+                        # "odd" numerique -- meme fix que la branche football
+                        # ci-dessus (05/08/2026).
+                        "odd": float(odd) if odd else None,
                     }
                     if (settlement_status or "").upper() in ("GAGNE", "PERDU"):
                         pick["result"] = settlement_status.upper()

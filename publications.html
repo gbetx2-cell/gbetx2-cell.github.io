@@ -385,7 +385,14 @@ function renderCard(f){
   if (f.conseil) rows.push(renderPick(f, 'conseil', f.conseil + (f.conseil_cote ? '' : ''), f.conseil_cote, f.result));
   if (f.value_bet) rows.push(renderPick(f, 'value', f.value_bet, f.value_cote, f.value_result || f.result));
   (f.player_picks || []).forEach(p => {
-    rows.push(renderPick(f, 'player', `${p.label}`, null, p.result));
+    // Bug corrige le 05/08/2026 (confirme en direct : cote deja calculee
+    // cote serveur mais jamais transmise ici, `null` code en dur -- les
+    // player picks n'affichaient jamais leur cote reelle, contrairement au
+    // value bet). p.odd absent (undefined) pour les picks mode "percent"
+    // (football buteur/passeur, pas de cote marche reelle) -- pickRowHtml
+    // masque deja le badge cote quand elle est falsy, aucun changement de
+    // comportement pour ce cas.
+    rows.push(renderPick(f, 'player', `${p.label}`, p.odd, p.result));
   });
   if (!rows.length && f.no_bet_reason){
     rows.push(`<div class="pick-row"><div class="pick-top"><span class="type-badge nobet">No Bet</span><span class="pick-label">${f.no_bet_reason}</span></div></div>`);
