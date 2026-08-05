@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-05T18:28:28.552814+00:00",
+ "generated_at": "2026-08-05T18:42:01.492497+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -36,23 +36,23 @@
  },
  "fixtures": [
   {
-   "fixture_id": "tennis_espn_wta_182103",
-   "flag": "🎾",
-   "league": "Warsaw T-Mobile Polish Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Justina Mikulskyte – Katarzyna Kawa",
-   "kickoff_at": "2026-08-05T09:00Z",
-   "published": false,
-   "no_bet_reason": "Analyse non finalisée à temps"
-  },
-  {
    "fixture_id": "tennis_espn_wta_182114",
    "flag": "🎾",
    "league": "T-Mobile Polish Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "TBD – TBD",
+   "kickoff_at": "2026-08-05T09:00Z",
+   "published": false,
+   "no_bet_reason": "Analyse non finalisée à temps"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182103",
+   "flag": "🎾",
+   "league": "Warsaw T-Mobile Polish Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Justina Mikulskyte – Katarzyna Kawa",
    "kickoff_at": "2026-08-05T09:00Z",
    "published": false,
    "no_bet_reason": "Analyse non finalisée à temps"
@@ -319,6 +319,18 @@
    "sport_label": "Baseball (MLB)",
    "match": "Colorado Rockies – Tampa Bay Rays",
    "kickoff_at": "2026-08-05T19:10Z",
+   "published": true,
+   "value_bet": "Vainqueur — Colorado Rockies @ 2.44",
+   "value_cote": 2.44
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181741",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Terence Atmane – Karen Khachanov",
+   "kickoff_at": "2026-08-05T19:30Z",
    "published": false
   },
   {
@@ -338,16 +350,6 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Francisco Cerundolo – Alex Michelsen",
-   "kickoff_at": "2026-08-05T19:30Z",
-   "published": false
-  },
-  {
-   "fixture_id": "tennis_espn_atp_181741",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Terence Atmane – Karen Khachanov",
    "kickoff_at": "2026-08-05T19:30Z",
    "published": false
   },
@@ -392,22 +394,22 @@
    "published": false
   },
   {
-   "fixture_id": "wnba_401857115",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Atlanta Dream – Phoenix Mercury",
-   "kickoff_at": "2026-08-05T23:00Z",
-   "published": false
-  },
-  {
    "fixture_id": "wnba_401857116",
    "flag": "🏀",
    "league": "WNBA",
    "sport": "wnba",
    "sport_label": "Basketball (WNBA)",
    "match": "New York Liberty – Seattle Storm",
+   "kickoff_at": "2026-08-05T23:00Z",
+   "published": false
+  },
+  {
+   "fixture_id": "wnba_401857115",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Atlanta Dream – Phoenix Mercury",
    "kickoff_at": "2026-08-05T23:00Z",
    "published": false
   },
