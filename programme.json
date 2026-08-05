@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-05T01:41:06.895558+00:00",
+ "generated_at": "2026-08-05T01:45:01.659104+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -305,22 +305,22 @@
    "published": false
   },
   {
-   "fixture_id": "tennis_espn_atp_181776",
-   "flag": "🎾",
-   "league": "National Bank Open presented by Rogers",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Vit Kopriva – Jiri Lehecka",
-   "kickoff_at": "2026-08-04T19:30Z",
-   "published": false
-  },
-  {
    "fixture_id": "tennis_espn_atp_181789",
    "flag": "🎾",
    "league": "National Bank Open presented by Rogers",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Fabian Marozsan – Shintaro Mochizuki",
+   "kickoff_at": "2026-08-04T19:30Z",
+   "published": false
+  },
+  {
+   "fixture_id": "tennis_espn_atp_181776",
+   "flag": "🎾",
+   "league": "National Bank Open presented by Rogers",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Vit Kopriva – Jiri Lehecka",
    "kickoff_at": "2026-08-04T19:30Z",
    "published": false
   },
@@ -406,7 +406,10 @@
    "kickoff_at": "2026-08-04T23:05Z",
    "published": true,
    "value_bet": "Vainqueur — St. Louis Cardinals @ 2.75",
-   "value_cote": 2.75
+   "value_cote": 2.75,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 0"
   },
   {
    "fixture_id": "baseball_401816386",
@@ -438,13 +441,28 @@
    "published": true,
    "value_bet": "Vainqueur — Miami Marlins @ 2.37",
    "value_cote": 2.37,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4 - 2",
    "player_picks": [
     {
      "category": "Player pick",
      "label": "Drake Baldwin — Coups sûrs Plus de 1.5",
-     "detail": "cote 2.78"
+     "detail": "cote 2.78",
+     "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816393",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Milwaukee Brewers – Pittsburgh Pirates",
+   "kickoff_at": "2026-08-04T23:40Z",
+   "published": false,
+   "no_bet_reason": "Aucun pick n'a passé les critères"
   },
   {
    "fixture_id": "baseball_401816392",
@@ -466,15 +484,16 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816393",
+   "fixture_id": "baseball_401816394",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Milwaukee Brewers – Pittsburgh Pirates",
-   "kickoff_at": "2026-08-04T23:40Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "match": "Texas Rangers – San Francisco Giants",
+   "kickoff_at": "2026-08-05T00:05Z",
+   "published": true,
+   "value_bet": "Vainqueur — San Francisco Giants @ 2.75",
+   "value_cote": 2.75
   },
   {
    "fixture_id": "baseball_401816391",
@@ -486,18 +505,6 @@
    "kickoff_at": "2026-08-05T00:05Z",
    "published": false,
    "no_bet_reason": "Aucun pick n'a passé les critères"
-  },
-  {
-   "fixture_id": "baseball_401816394",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Texas Rangers – San Francisco Giants",
-   "kickoff_at": "2026-08-05T00:05Z",
-   "published": true,
-   "value_bet": "Vainqueur — San Francisco Giants @ 2.75",
-   "value_cote": 2.75
   },
   {
    "fixture_id": "baseball_401816395",
@@ -518,8 +525,14 @@
    "sport_label": "Basketball (WNBA)",
    "match": "Golden State Valkyries – Toronto Tempo",
    "kickoff_at": "2026-08-05T02:00Z",
-   "published": false,
-   "no_bet_reason": "Aucun pick n'a passé les critères"
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Marina Mabrey — Points Plus de 16.5",
+     "detail": "cote 1.91"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182183",
