@@ -48,10 +48,29 @@ jobs:
         run: |
           git config user.name "gbet-results-bot"
           git config user.email "actions@users.noreply.github.com"
-          if ! git diff --quiet index.html; then
-            git add index.html
-            git commit -m "Resultats du jour (auto)"
-            git push
-          else
+          if git diff --quiet index.html; then
             echo "Aucun changement"
+            exit 0
           fi
+          git add index.html
+          git commit -m "Resultats du jour (auto)"
+          # Retry sur rejet du push (05/08/2026, meme fix que sync-site-public.yml
+          # dans le repo prive) : ce repo a plusieurs ecrivains (sync depuis
+          # sports-bot-pro, publications en temps reel via l'API Contents) qui
+          # peuvent pousser au meme moment -- fetch + rebase + nouvel essai
+          # plutot que d'attendre le prochain declenchement.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "[Retry] push rejete (tentative $attempt/5), pull --rebase puis nouvel essai..."
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort
+              echo "[Retry] rebase impossible (conflit reel) -- abandon."
+              exit 1
+            fi
+            sleep $((attempt * 3))
+          done
+          echo "[Retry] push toujours rejete apres 5 tentatives -- abandon."
+          exit 1
