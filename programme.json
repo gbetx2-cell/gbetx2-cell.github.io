@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-05T01:04:56.091666+00:00",
+ "generated_at": "2026-08-05T01:08:55.033349+00:00",
  "comp_windows": {
   "football": {
    "comp_min": 5,
@@ -334,7 +334,10 @@
    "kickoff_at": "2026-08-04T22:35Z",
    "published": true,
    "value_bet": "Vainqueur — Los Angeles Angels @ 2.4",
-   "value_cote": 2.4
+   "value_cote": 2.4,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 1"
   },
   {
    "fixture_id": "baseball_401816390",
@@ -347,11 +350,15 @@
    "published": true,
    "value_bet": "Vainqueur — Washington Nationals @ 3.91",
    "value_cote": 3.91,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "5 - 0",
    "player_picks": [
     {
      "category": "Player pick",
      "label": "Trea Turner — Coups sûrs Plus de 1.5",
-     "detail": "cote 2.78"
+     "detail": "cote 2.78",
+     "result": "GAGNE"
     }
    ]
   },
