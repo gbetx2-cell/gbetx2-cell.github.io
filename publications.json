@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-06T00:30:10.211339+00:00",
+ "generated_at": "2026-08-06T00:36:10.852904+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816409",
@@ -60,26 +60,6 @@
    "published": true,
    "value_bet": "Écart de points — Cincinnati Reds -1,5 @ 2.3",
    "value_cote": 2.3
-  },
-  {
-   "fixture_id": "wnba_401857116",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "New York Liberty – Seattle Storm",
-   "kickoff_at": "2026-08-05T23:00Z",
-   "published": true,
-   "value_bet": "Vainqueur — Seattle Storm @ 4.3",
-   "value_cote": 4.3,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Rebecca Allen — Points Moins de 5.5",
-     "detail": "cote 1.93",
-     "odd": 1.93
-    }
-   ]
   },
   {
    "fixture_id": "wnba_401857115",
@@ -211,6 +191,29 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "0 - 4"
+  },
+  {
+   "fixture_id": "wnba_401857116",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "New York Liberty – Seattle Storm",
+   "kickoff_at": "2026-08-05T23:00Z",
+   "published": true,
+   "value_bet": "Vainqueur — Seattle Storm @ 4.3",
+   "value_cote": 4.3,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "69 - 65",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Rebecca Allen — Points Moins de 5.5",
+     "detail": "cote 1.93",
+     "odd": 1.93
+    }
+   ]
   }
  ]
 }
