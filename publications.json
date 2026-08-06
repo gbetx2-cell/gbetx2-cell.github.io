@@ -1,30 +1,6 @@
 {
- "generated_at": "2026-08-06T00:36:10.852904+00:00",
+ "generated_at": "2026-08-06T01:10:05.722959+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816409",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Texas Rangers – San Francisco Giants",
-   "kickoff_at": "2026-08-05T18:35Z",
-   "published": true,
-   "value_bet": "Écart de points — Texas Rangers -1,5 @ 2.3",
-   "value_cote": 2.3
-  },
-  {
-   "fixture_id": "baseball_401816399",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Baltimore Orioles – Los Angeles Angels",
-   "kickoff_at": "2026-08-05T22:35Z",
-   "published": true,
-   "value_bet": "Écart de points — Baltimore Orioles -1,5 @ 2.5",
-   "value_cote": 2.5
-  },
   {
    "fixture_id": "baseball_401816403",
    "flag": "⚾",
@@ -62,6 +38,27 @@
    "value_cote": 2.3
   },
   {
+   "fixture_id": "wnba_401857116",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "New York Liberty – Seattle Storm",
+   "kickoff_at": "2026-08-05T23:00Z",
+   "published": true,
+   "value_bet": "Vainqueur — Seattle Storm @ 4.3",
+   "value_cote": 4.3,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Rebecca Allen — Points Moins de 5.5",
+     "detail": "cote 1.93",
+     "odd": 1.93,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "wnba_401857115",
    "flag": "🏀",
    "league": "WNBA",
@@ -75,7 +72,8 @@
      "category": "Player pick",
      "label": "Kelsey Plum — Points Plus de 15.5",
      "detail": "cote 1.80",
-     "odd": 1.8
+     "odd": 1.8,
+     "result": "GAGNE"
     }
    ]
   },
@@ -178,6 +176,21 @@
    "score": "7 - 6"
   },
   {
+   "fixture_id": "baseball_401816409",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Texas Rangers – San Francisco Giants",
+   "kickoff_at": "2026-08-05T18:35Z",
+   "published": true,
+   "value_bet": "Écart de points — Texas Rangers -1,5 @ 2.3",
+   "value_cote": 2.3,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 0"
+  },
+  {
    "fixture_id": "baseball_401816411",
    "flag": "⚾",
    "league": "MLB",
@@ -193,27 +206,19 @@
    "score": "0 - 4"
   },
   {
-   "fixture_id": "wnba_401857116",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "New York Liberty – Seattle Storm",
-   "kickoff_at": "2026-08-05T23:00Z",
+   "fixture_id": "baseball_401816399",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Baltimore Orioles – Los Angeles Angels",
+   "kickoff_at": "2026-08-05T22:35Z",
    "published": true,
-   "value_bet": "Vainqueur — Seattle Storm @ 4.3",
-   "value_cote": 4.3,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "69 - 65",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Rebecca Allen — Points Moins de 5.5",
-     "detail": "cote 1.93",
-     "odd": 1.93
-    }
-   ]
+   "value_bet": "Écart de points — Baltimore Orioles -1,5 @ 2.5",
+   "value_cote": 2.5,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "5 - 2"
   }
  ]
 }
