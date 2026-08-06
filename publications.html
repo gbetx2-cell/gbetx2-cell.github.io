@@ -65,7 +65,8 @@ h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .score-block{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
 .live-score{display:inline-flex;align-items:center;gap:6px;font-family:'Sora',sans-serif;font-weight:700;font-size:1.05rem;color:var(--gold-2)}
-.match-time{font-size:.76rem;color:var(--muted);font-weight:600}
+.match-time{font-size:.76rem;color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums}
+.countdown-dot{margin-right:2px}
 .final-badge{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem;color:var(--muted)}
 
 .picks{display:grid;gap:20px}
@@ -349,14 +350,41 @@ function renderPick(f, kind, text, cote, result){
 }
 
 function countdownLabel(kickoffIso){
+  // Decompte en secondes reelles (05/08/2026, demande explicite : "une
+  // animation fluide et un decompte" plutot qu'un texte fige recalcule
+  // seulement toutes les 60s) -- au-dela d'1h, minutes arrondies (pas
+  // besoin de la seconde pres) ; sous 1h, MM:SS qui tique reellement
+  // chaque seconde (tickCountdowns()) ; sous 1 min, secondes seules.
   const diffMs = new Date(kickoffIso).getTime() - Date.now();
   if (diffMs <= 0) return 'Coup d’envoi';
-  const totalMin = Math.ceil(diffMs / 60000);
-  const h = Math.floor(totalMin / 60);
-  const m = totalMin % 60;
-  if (h > 0) return `Coup d’envoi dans ${h}h${m ? ' ' + m + 'min' : ''}`;
-  if (m > 0) return `Coup d’envoi dans ${m} min`;
-  return 'Coup d’envoi imminent';
+  const totalSec = Math.floor(diffMs / 1000);
+  const h = Math.floor(totalSec / 3600);
+  const m = Math.floor((totalSec % 3600) / 60);
+  const s = totalSec % 60;
+  if (h > 0) return `Coup d’envoi dans ${h}h ${String(m).padStart(2, '0')}min`;
+  if (totalSec >= 60) return `Coup d’envoi dans ${m}:${String(s).padStart(2, '0')}`;
+  return `Coup d’envoi dans ${s}s`;
+}
+
+// Tique chaque seconde (05/08/2026) : met a jour uniquement le texte des
+// decomptes deja affiches (pas de re-render complet des cartes, fluide et
+// leger) -- des qu'un decompte atteint 0, un render() complet est declenche
+// pour basculer proprement vers l'etat "En cours"/score live (au lieu
+// d'attendre jusqu'a 60s le prochain cycle loadPublications()/
+// refreshLiveData()).
+function tickCountdowns(){
+  let needsRerender = false;
+  document.querySelectorAll('.countdown-live[data-kickoff]').forEach(el => {
+    const diffMs = new Date(el.dataset.kickoff).getTime() - Date.now();
+    if (diffMs <= 0){ needsRerender = true; return; }
+    const label = countdownLabel(el.dataset.kickoff);
+    if (el.textContent !== label) el.textContent = label;
+    const dot = el.previousElementSibling;
+    if (dot && dot.classList.contains('countdown-dot')){
+      dot.style.display = diffMs <= 5 * 60000 ? '' : 'none';
+    }
+  });
+  if (needsRerender) render();
 }
 
 function renderCard(f){
@@ -371,12 +399,16 @@ function renderCard(f){
     scoreHtml = `<div class="score-block"><span class="live-score"><span class="dot"></span> ${live.home} - ${live.away}</span>${statusText ? `<span class="match-time">${statusText}</span>` : ''}</div>`;
   } else if (f.kickoff_at && new Date(f.kickoff_at).getTime() > Date.now()){
     // Avant le coup d'envoi : decompte exact (05/08/2026, demande explicite
-    // -- pas de "En cours" tant que le match n'a pas commence). Recalcule a
-    // chaque appel de render() (rafraichi par loadPublications()/
-    // refreshLiveData() toutes les 60s) : pas de setInterval dedie, le
-    // decompte se recalibre simplement a chaque re-render et atteint 0
-    // pile au coup d'envoi.
-    scoreHtml = `<div class="score-block"><span class="match-time">${countdownLabel(f.kickoff_at)}</span></div>`;
+    // -- pas de "En cours" tant que le match n'a pas commence), tique
+    // reellement chaque seconde via tickCountdowns() (data-kickoff + classe
+    // countdown-live). Point pulsant sous 5 min (meme animation CSS que le
+    // point "En cours") -- signal visuel d'imminence, pas juste du texte.
+    const soonMs = new Date(f.kickoff_at).getTime() - Date.now();
+    const dotDisplay = soonMs <= 5 * 60000 ? '' : 'display:none';
+    scoreHtml = `<div class="score-block"><span class="match-time">` +
+      `<span class="dot countdown-dot" style="${dotDisplay}"></span> ` +
+      `<span class="countdown-live" data-kickoff="${f.kickoff_at}">${countdownLabel(f.kickoff_at)}</span>` +
+      `</span></div>`;
   } else {
     scoreHtml = `<div class="score-block"><span class="live-score"><span class="dot"></span> En cours</span></div>`;
   }
@@ -456,20 +488,36 @@ async function refreshLiveData(){
   render();
 }
 
+// API live (05/08/2026, chantier "site plus rapide") : lit directement le
+// bot sur Railway au lieu d'attendre le cycle push GitHub + propagation CDN
+// Pages -- supprime les deux etapes les plus lentes. Repli automatique sur
+// le fichier statique publications.json si l'API ne repond pas (le process
+// Railway redemarre a chaque deploiement de code, ~2 min d'indisponibilite
+// pendant lesquelles ce fichier reste la derniere donnee connue, jamais
+// d'ecran d'erreur pour un simple redemarrage).
+const LIVE_API_BASE = 'https://sports-bot-pro-production.up.railway.app';
+
 async function loadPublications(){
   try{
-    const res = await fetch('publications.json?t=' + Date.now(), {cache:'no-store'});
-    if (res.status === 404){
-      // publications.json n'est cree qu'a la 1ere publication/reglement
-      // depuis le deploiement de cette page -- absent au tout debut, pas
-      // une erreur a afficher comme telle.
-      document.getElementById('status-text').textContent = 'En attente de la première publication du jour.';
-      publications = {live: [], done: []};
-      render();
-      return;
+    let data;
+    try{
+      const res = await fetch(LIVE_API_BASE + '/api/publications', {cache:'no-store'});
+      if (!res.ok) throw new Error('http ' + res.status);
+      data = await res.json();
+    }catch(apiErr){
+      const res = await fetch('publications.json?t=' + Date.now(), {cache:'no-store'});
+      if (res.status === 404){
+        // publications.json n'est cree qu'a la 1ere publication/reglement
+        // depuis le deploiement de cette page -- absent au tout debut, pas
+        // une erreur a afficher comme telle.
+        document.getElementById('status-text').textContent = 'En attente de la première publication du jour.';
+        publications = {live: [], done: []};
+        render();
+        return;
+      }
+      if (!res.ok) throw new Error('http ' + res.status);
+      data = await res.json();
     }
-    if (!res.ok) throw new Error('http ' + res.status);
-    const data = await res.json();
     publications = {live: data.live || [], done: data.done || []};
     const genAt = new Date(data.generated_at);
     document.getElementById('status-text').textContent =
@@ -491,8 +539,14 @@ document.querySelectorAll('.tab').forEach(tab => {
 });
 
 loadPublications();
-setInterval(loadPublications, 60000);     // re-synchronise avec publications.json chaque minute
-setInterval(refreshLiveData, 60000);      // score + boxscore live ESPN pendant les matchs
+// Intervalles resserres 60s -> 20s (05/08/2026, chantier "site plus
+// rapide") : l'API live (cache serveur 10s) supporte largement ce rythme
+// sans marteler la base -- avant, le fichier statique imposait un rythme
+// lent pour ne pas declencher trop de push GitHub, cette contrainte
+// n'existe plus.
+setInterval(loadPublications, 20000);
+setInterval(refreshLiveData, 20000);      // score + boxscore live ESPN pendant les matchs
+setInterval(tickCountdowns, 1000);        // decompte fluide seconde par seconde (05/08/2026)
 </script>
 </body>
 </html>
