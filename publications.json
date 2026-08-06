@@ -1,18 +1,6 @@
 {
- "generated_at": "2026-08-06T20:50:58.386375+00:00",
+ "generated_at": "2026-08-06T21:55:36.931341+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401879389",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Toronto Blue Jays",
-   "kickoff_at": "2026-08-06T18:20Z",
-   "published": true,
-   "value_bet": "Combiné : Total — Moins de 7,5 @ 1.8333 + Vainqueur 1ère manche — Toronto Blue Jays @ 1.8",
-   "value_cote": 3.3
-  },
   {
    "fixture_id": "baseball_401816422",
    "flag": "⚾",
@@ -22,8 +10,22 @@
    "match": "Seattle Mariners – Detroit Tigers",
    "kickoff_at": "2026-08-06T20:10Z",
    "published": true,
+   "stars": 2,
    "value_bet": "Vainqueur 1ère manche — Detroit Tigers @ 2.1",
    "value_cote": 2.1
+  },
+  {
+   "fixture_id": "baseball_401816419",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Philadelphia Phillies – Washington Nationals",
+   "kickoff_at": "2026-08-06T22:05Z",
+   "published": true,
+   "stars": 1,
+   "value_bet": "Total équipe Philadelphia Phillies — Plus de 5,5 @ 1.9615",
+   "value_cote": 1.96
   }
  ],
  "done": [
@@ -36,6 +38,7 @@
    "match": "Baltimore Orioles – Los Angeles Angels",
    "kickoff_at": "2026-08-06T16:35Z",
    "published": true,
+   "stars": 1,
    "value_bet": "Combiné : Vainqueur — Baltimore Orioles @ 1.5155 + Écart de points — Baltimore Orioles -1,5 @ 2.05 + Total — Plus de 9,5 @ 1.8696",
    "value_cote": 5.81,
    "value_result": "PERDU",
@@ -51,6 +54,7 @@
    "match": "Cincinnati Reds – Athletics",
    "kickoff_at": "2026-08-06T16:40Z",
    "published": true,
+   "stars": 1,
    "value_bet": "Combiné : Écart de points — Athletics +1,5 @ 1.7143 + Total — Plus de 9,5 @ 2.0",
    "value_cote": 3.43,
    "value_result": "GAGNÉ",
@@ -66,6 +70,7 @@
    "match": "Cleveland Guardians – New York Mets",
    "kickoff_at": "2026-08-06T17:10Z",
    "published": true,
+   "stars": 1,
    "value_bet": "Combiné : Vainqueur — New York Mets @ 2.1 + Écart de points — New York Mets +1,5 @ 1.4762",
    "value_cote": 3.1,
    "value_result": "GAGNÉ",
@@ -81,11 +86,28 @@
    "match": "Milwaukee Brewers – Pittsburgh Pirates",
    "kickoff_at": "2026-08-06T18:10Z",
    "published": true,
+   "stars": 1,
    "value_bet": "Combiné : Total — Plus de 7,5 @ 1.9524 + Vainqueur 1ère manche — Pittsburgh Pirates @ 1.9091",
    "value_cote": 3.73,
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "5 - 2"
+  },
+  {
+   "fixture_id": "baseball_401879389",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Toronto Blue Jays",
+   "kickoff_at": "2026-08-06T18:20Z",
+   "published": true,
+   "stars": 1,
+   "value_bet": "Combiné : Total — Moins de 7,5 @ 1.8333 + Vainqueur 1ère manche — Toronto Blue Jays @ 1.8",
+   "value_cote": 3.3,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "3 - 2"
   }
  ]
 }
