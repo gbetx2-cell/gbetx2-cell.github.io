@@ -138,6 +138,12 @@ def _flag(competition: str, sport: str = "") -> str:
 def _short_pick(conseil: str) -> str:
     s = (conseil or "").strip()
     s = re.sub(r"^Double chance\s+", "", s, flags=re.IGNORECASE)
+    # Retire les labels de marche (06/08/2026, demande explicite : "ca
+    # pollue le texte", ex. "Vainqueur", "Ecart de points") -- meme
+    # fonction que les captions Telegram (tg_bot/format_v2.py), site et
+    # bot toujours coherents. Ne touche jamais la donnee stockee en base.
+    from tg_bot.format_v2 import strip_market_labels
+    s = strip_market_labels(s)
     return s
 
 
@@ -661,6 +667,8 @@ MARKET_FR = {
     "combo": "Combiné",
     "first_inning_ml": "Vainqueur 1ère manche",
     "first_inning_total": "Total 1ère manche",
+    "first_half_ml": "Vainqueur 1ère mi-temps",
+    "first_half_total": "Total 1ère mi-temps",
     "team_total": "Total équipe",
     "scorer": "Buteur",
     "assist": "Passeur",
