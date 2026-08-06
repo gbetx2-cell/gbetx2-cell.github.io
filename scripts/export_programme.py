@@ -130,6 +130,17 @@ SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈", "t
 # tort sous le libelle "Conseil" quand aucun value bet n'avait passe les
 # criteres -- signale par l'utilisateur comme peu clair cote client.
 SPORTS_CONSEIL_IS_MIRROR = {"tennis", "nba", "nhl", "baseball", "wnba", "nfl"}
+
+# Bug corrige le 06/08/2026 (confirme en direct : Texas Rangers -1.5 regle
+# GAGNÉ en base mais jamais affiche comme "Terminé" sur Publications, reste
+# indefiniment "en cours") : paris.resultat/value_result contiennent DEUX
+# graphies -- "GAGNE" (tennis, wnba conseil, etc.) et "GAGNÉ" avec accent
+# (_check_mlb/_check_nfl/_check_f1 dans results_tracker.py). Meme bug deja
+# corrige dans scripts/export_site_results.py::RESULTAT_GAGNE le 03/08/2026,
+# jamais reporte ici (fichier different, meme colonne DB) -- ce fichier
+# filtrait uniquement 'GAGNE' partout, silencieusement "en cours" pour tout
+# match MLB/NFL/F1 gagnant.
+RESULTAT_GAGNE = ("GAGNE", "GAGNÉ")
 SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
                "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)",
                "tennis": "Tennis", "wnba": "Basketball (WNBA)"}
@@ -352,9 +363,9 @@ def fetch_programme() -> list[dict]:
                     # un value bet ET un player pick sur un AUTRE marche, avec
                     # des issues opposees. Chaque ligne affiche desormais son
                     # propre statut au lieu d'un badge unique ambigu.
-                    if (value_result or "").upper() in ("GAGNE", "PERDU"):
+                    if (value_result or "").upper() in RESULTAT_GAGNE + ("PERDU",):
                         item["value_result"] = value_result.upper()
-                    elif sport in SPORTS_CONSEIL_IS_MIRROR and (resultat or "").upper() in ("GAGNE", "PERDU", "REMBOURSE"):
+                    elif sport in SPORTS_CONSEIL_IS_MIRROR and (resultat or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
                         # sport a mirroir : value_result n'est pas toujours
                         # rempli (cf resultat_tracker.py::_send_result_msg),
                         # mais resultat represente ce meme pari quand le
@@ -362,7 +373,7 @@ def fetch_programme() -> list[dict]:
                         # "Total sets" mirrore a la place).
                         if not (conseil or "").lower().startswith("total sets"):
                             item["value_result"] = resultat.upper()
-                if (resultat or "").upper() in ("GAGNE", "PERDU", "REMBOURSE"):
+                if (resultat or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
                     item["result"] = resultat.upper()
                     if score:
                         item["score"] = score
@@ -408,7 +419,7 @@ def fetch_programme() -> list[dict]:
                 )
                 settlements_by_cat: dict = {}
                 for selection, result in cur.fetchall():
-                    if (result or "").upper() in ("GAGNE", "PERDU", "REMBOURSE"):
+                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
                         settlements_by_cat[_cat(selection)] = result.upper()
                 for pick in player_picks:
                     cat_key = pick.pop("_cat_key", None)
@@ -435,7 +446,7 @@ def fetch_programme() -> list[dict]:
                         # ci-dessus (05/08/2026).
                         "odd": float(odd) if odd else None,
                     }
-                    if (settlement_status or "").upper() in ("GAGNE", "PERDU"):
+                    if (settlement_status or "").upper() in RESULTAT_GAGNE + ("PERDU",):
                         pick["result"] = settlement_status.upper()
                     player_picks.append(pick)
             if player_picks:
