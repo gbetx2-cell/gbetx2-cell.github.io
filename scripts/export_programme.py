@@ -360,22 +360,6 @@ def fetch_programme() -> list[dict]:
         for fid, reason_code in cur.fetchall():
             no_bet_by_fixture[str(fid)] = reason_code  # dernier vu = plus recent
 
-    # Confiance (etoiles) par fixture (06/08/2026, demande explicite : avis
-    # animes /5 cote client) -- paris.stars est un texte "⭐⭐⭐" (0 a 5
-    # etoiles, cf database.py::_stars()), converti ici en nombre pour rester
-    # simple cote client (juste iterer 1..5, jamais parser du texte).
-    stars_by_fixture: dict = {}
-    if fixture_ids:
-        placeholders = ",".join(["%s"] * len(fixture_ids))
-        cur.execute(
-            f"SELECT fixture_id, stars FROM paris WHERE fixture_id IN ({placeholders})",
-            tuple(fixture_ids),
-        )
-        for fid, stars in cur.fetchall():
-            count = (stars or "").count("⭐")
-            if count > 0:
-                stars_by_fixture[str(fid)] = count
-
     out = []
     for fixture_id, home, away, league, kickoff_at, publish_status, sport in rows:
         item = {
@@ -393,8 +377,6 @@ def fetch_programme() -> list[dict]:
         }
         if coup_fixture_id and str(fixture_id) == coup_fixture_id:
             item["coup"] = True
-        if str(fixture_id) in stars_by_fixture:
-            item["stars"] = stars_by_fixture[str(fixture_id)]
         if publish_status != "published" and str(fixture_id) in no_bet_by_fixture:
             code = no_bet_by_fixture[str(fixture_id)]
             item["no_bet_reason"] = _no_bet_label(code, sport)
