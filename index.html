@@ -256,6 +256,17 @@ header{
 .flash-down{animation:flashDownGlow 1.2s ease}
 .chart-head .delta.flash-up{animation:flashUpText .5s ease}
 .chart-head .delta.flash-down{animation:flashDownText .5s ease}
+
+/* Pluie de fleches DANS le graphique (07/08/2026, demande explicite :
+   "plein de fleches grosse moyenne et petites qui remplissent le
+   graphique"), validee sur le site fictif de test puis integree ici sur
+   les 3 courbes (bilan, periode, bankroll) -- se declenche uniquement au
+   meme moment que le flash directionnel ci-dessus (mouvement reel). */
+.chart-arrow{opacity:0;transform-box:fill-box;transform-origin:center}
+.chart-arrow.up{fill:var(--green);animation-name:chartArrowUp;animation-timing-function:ease-out;animation-fill-mode:forwards}
+.chart-arrow.down{fill:var(--red);animation-name:chartArrowDown;animation-timing-function:ease-out;animation-fill-mode:forwards}
+@keyframes chartArrowUp{0%{opacity:0;transform:translateY(10px) scale(.5)}18%{opacity:.9}100%{opacity:0;transform:translateY(-60px) scale(1.15)}}
+@keyframes chartArrowDown{0%{opacity:0;transform:translateY(-10px) scale(.5)}18%{opacity:.9}100%{opacity:0;transform:translateY(60px) scale(1.15)}}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;align-items:center}
 .chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px;width:100%}
 .chip{
@@ -969,7 +980,7 @@ let PERIOD_STATS = {jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00}, semaine:{n:5
 
 /* Courbe cumulee par periode (jour=heures, semaine=jours, mois=jours du
    mois, annee=mois) -- regenere par scripts/export_site_results.py. */
-let PERIOD_SERIES = {jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:6.13}, {label:"Mar", pnl:2.19}, {label:"Mer", pnl:-11.28}, {label:"Jeu", pnl:-10.78}, {label:"Ven", pnl:-10.78}], mois:[{label:"1", pnl:-12.89}, {label:"2", pnl:-19.75}, {label:"3", pnl:-13.62}, {label:"4", pnl:-17.55}, {label:"5", pnl:-31.02}, {label:"6", pnl:-30.53}, {label:"7", pnl:-30.53}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.71}, {label:"Jul", pnl:-53.03}, {label:"Aoû", pnl:-83.56}], now_frac:{jour:0.018461, semaine:0.574066, mois:0.194144, annee:0.597311}, total_buckets:{jour:24, semaine:7, mois:31, annee:12}, by_sport:{"baseball":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:2.29}, {label:"Mar", pnl:0.10}, {label:"Mer", pnl:-12.37}, {label:"Jeu", pnl:-11.07}, {label:"Ven", pnl:-11.07}], mois:[{label:"1", pnl:-5.22}, {label:"2", pnl:-13.10}, {label:"3", pnl:-10.80}, {label:"4", pnl:-13.00}, {label:"5", pnl:-25.47}, {label:"6", pnl:-24.17}, {label:"7", pnl:-24.17}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:0.00}, {label:"Jul", pnl:-32.33}, {label:"Aoû", pnl:-56.50}]}, "tennis":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:2.98}, {label:"Mar", pnl:0.48}, {label:"Mer", pnl:0.48}, {label:"Jeu", pnl:0.48}, {label:"Ven", pnl:0.48}], mois:[{label:"1", pnl:-7.41}, {label:"2", pnl:-8.30}, {label:"3", pnl:-5.32}, {label:"4", pnl:-7.82}, {label:"5", pnl:-7.82}, {label:"6", pnl:-7.82}, {label:"7", pnl:-7.82}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:-0.01}, {label:"Jul", pnl:-0.03}, {label:"Aoû", pnl:-7.85}]}, "football":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Mer", pnl:0.00}, {label:"Jeu", pnl:0.00}, {label:"Ven", pnl:0.00}], mois:[{label:"1", pnl:0.00}, {label:"2", pnl:0.00}, {label:"3", pnl:0.00}, {label:"4", pnl:0.00}, {label:"5", pnl:0.00}, {label:"6", pnl:0.00}, {label:"7", pnl:0.00}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.73}, {label:"Jul", pnl:-17.69}, {label:"Aoû", pnl:-17.69}]}, "nhl":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Mer", pnl:0.00}, {label:"Jeu", pnl:0.00}, {label:"Ven", pnl:0.00}], mois:[{label:"1", pnl:0.00}, {label:"2", pnl:0.00}, {label:"3", pnl:0.00}, {label:"4", pnl:0.00}, {label:"5", pnl:0.00}, {label:"6", pnl:0.00}, {label:"7", pnl:0.00}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:-0.00}, {label:"Jul", pnl:-0.00}, {label:"Aoû", pnl:-0.00}]}, "wnba":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.85}, {label:"Mar", pnl:1.61}, {label:"Mer", pnl:0.61}, {label:"Jeu", pnl:-0.19}, {label:"Ven", pnl:-0.19}], mois:[{label:"1", pnl:-0.26}, {label:"2", pnl:1.65}, {label:"3", pnl:2.50}, {label:"4", pnl:3.26}, {label:"5", pnl:2.26}, {label:"6", pnl:1.46}, {label:"7", pnl:1.46}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:0.00}, {label:"Jul", pnl:-2.98}, {label:"Aoû", pnl:-1.52}]}}};
+let PERIOD_SERIES = {jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:6.13}, {label:"Mar", pnl:2.19}, {label:"Mer", pnl:-11.28}, {label:"Jeu", pnl:-10.78}, {label:"Ven", pnl:-10.78}], mois:[{label:"1", pnl:-12.89}, {label:"2", pnl:-19.75}, {label:"3", pnl:-13.62}, {label:"4", pnl:-17.55}, {label:"5", pnl:-31.02}, {label:"6", pnl:-30.53}, {label:"7", pnl:-30.53}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.71}, {label:"Jul", pnl:-53.03}, {label:"Aoû", pnl:-83.56}], now_frac:{jour:0.020532, semaine:0.574362, mois:0.194211, annee:0.597317}, total_buckets:{jour:24, semaine:7, mois:31, annee:12}, by_sport:{"baseball":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:2.29}, {label:"Mar", pnl:0.10}, {label:"Mer", pnl:-12.37}, {label:"Jeu", pnl:-11.07}, {label:"Ven", pnl:-11.07}], mois:[{label:"1", pnl:-5.22}, {label:"2", pnl:-13.10}, {label:"3", pnl:-10.80}, {label:"4", pnl:-13.00}, {label:"5", pnl:-25.47}, {label:"6", pnl:-24.17}, {label:"7", pnl:-24.17}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:0.00}, {label:"Jul", pnl:-32.33}, {label:"Aoû", pnl:-56.50}]}, "tennis":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:2.98}, {label:"Mar", pnl:0.48}, {label:"Mer", pnl:0.48}, {label:"Jeu", pnl:0.48}, {label:"Ven", pnl:0.48}], mois:[{label:"1", pnl:-7.41}, {label:"2", pnl:-8.30}, {label:"3", pnl:-5.32}, {label:"4", pnl:-7.82}, {label:"5", pnl:-7.82}, {label:"6", pnl:-7.82}, {label:"7", pnl:-7.82}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:-0.01}, {label:"Jul", pnl:-0.03}, {label:"Aoû", pnl:-7.85}]}, "football":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Mer", pnl:0.00}, {label:"Jeu", pnl:0.00}, {label:"Ven", pnl:0.00}], mois:[{label:"1", pnl:0.00}, {label:"2", pnl:0.00}, {label:"3", pnl:0.00}, {label:"4", pnl:0.00}, {label:"5", pnl:0.00}, {label:"6", pnl:0.00}, {label:"7", pnl:0.00}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.73}, {label:"Jul", pnl:-17.69}, {label:"Aoû", pnl:-17.69}]}, "nhl":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Mer", pnl:0.00}, {label:"Jeu", pnl:0.00}, {label:"Ven", pnl:0.00}], mois:[{label:"1", pnl:0.00}, {label:"2", pnl:0.00}, {label:"3", pnl:0.00}, {label:"4", pnl:0.00}, {label:"5", pnl:0.00}, {label:"6", pnl:0.00}, {label:"7", pnl:0.00}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:-0.00}, {label:"Jul", pnl:-0.00}, {label:"Aoû", pnl:-0.00}]}, "wnba":{jour:[{label:"00h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.85}, {label:"Mar", pnl:1.61}, {label:"Mer", pnl:0.61}, {label:"Jeu", pnl:-0.19}, {label:"Ven", pnl:-0.19}], mois:[{label:"1", pnl:-0.26}, {label:"2", pnl:1.65}, {label:"3", pnl:2.50}, {label:"4", pnl:3.26}, {label:"5", pnl:2.26}, {label:"6", pnl:1.46}, {label:"7", pnl:1.46}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:0.00}, {label:"Jul", pnl:-2.98}, {label:"Aoû", pnl:-1.52}]}}};
 
 /* Performance publique (ROI global depuis le lancement, sports, marche x
    tranche de cote avec zones bloquees, highlights du mois, picks modele)
@@ -1024,6 +1035,27 @@ let currentMode = "u"; // "u" = unités, "e" = euros
 // (hausse) ou rouge (baisse) uniquement si la valeur a reellement change
 // entre deux rafraichissements (jamais au tout premier rendu).
 let _lastChartTotal = null;
+let _lastPeriodTotal = null;
+let _lastBankrollTotal = null;
+
+// Genere une pluie de fleches (grandes/moyennes/petites) eparpillees dans
+// la zone du graphique -- partagee par les 3 courbes du site.
+function chartArrowsSvg(up, W, H, PAD){
+  const cls = up ? 'up' : 'down';
+  const glyph = up ? '▲' : '▼';
+  const sizes = [14, 14, 18, 18, 24, 24, 30, 34];
+  let out = '';
+  const count = 100;
+  for (let i = 0; i < count; i++){
+    const size = sizes[Math.floor(Math.random() * sizes.length)];
+    const x = PAD + Math.random() * (W - 2 * PAD);
+    const y = PAD + 20 + Math.random() * (H - 2 * PAD - 40);
+    const dur = (1.1 + Math.random() * 0.9).toFixed(2);
+    const delay = (Math.random() * 0.5).toFixed(2);
+    out += `<text class="chart-arrow ${cls}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" font-size="${size}" text-anchor="middle" style="animation-duration:${dur}s;animation-delay:${delay}s">${glyph}</text>`;
+  }
+  return out;
+}
 
 /* ── Filtre par sport (Résultats) ── */
 const SPORT_META = {
@@ -1216,6 +1248,7 @@ function drawChart(){
     <circle id="bkEndPoint" class="${_lastChartTotal !== null && total !== _lastChartTotal ? (total > _lastChartTotal ? 'flash-up' : 'flash-down') : ''}" cx="${xs(ys.length-1)}" cy="${ysc(ys[ys.length-1])}" r="6" fill="${col}">
       <animate attributeName="r" values="5;8;5" dur="1.8s" repeatCount="indefinite"/>
     </circle>
+    ${_lastChartTotal !== null && total !== _lastChartTotal ? chartArrowsSvg(total > _lastChartTotal, W, H, PAD) : ''}
   `;
 
   const d = document.getElementById('chartDelta');
@@ -1404,12 +1437,14 @@ function drawPeriodChart(){
     <path id="periodLine" d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="${xs(n-1).toFixed(1)}" cy="${ysc(last).toFixed(1)}" r="5" fill="${col}"/>
     ${xLabelsSvg}
+    ${_lastPeriodTotal !== null && last !== _lastPeriodTotal ? chartArrowsSvg(last > _lastPeriodTotal, W, H, PAD_T) : ''}
   `;
 
   d.classList.remove('up','down');
   d.classList.add(up ? 'up' : 'down');
   const lastDisplay = currentMode === "e" ? `${up?'+':''}${last.toFixed(0)} €` : `${up?'+':''}${last.toFixed(2)} u`;
   d.innerHTML = `${lastDisplay} <small>${PERIOD_LABELS[currentPeriod] || ''}</small>`;
+  _lastPeriodTotal = last;
 }
 
 function animatePeriodLine(){
@@ -1547,11 +1582,13 @@ function renderBankroll(b){
     <path d="${area}" fill="url(#bg)"/>
     <path d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="${xs(n-1)}" cy="${ysc(vals[n-1])}" r="6" fill="${col}"/>
+    ${_lastBankrollTotal !== null && b.current !== _lastBankrollTotal ? chartArrowsSvg(b.current > _lastBankrollTotal, W, H, PAD_T) : ''}
   `;
 
   delta.className = 'delta ' + (up ? 'up' : 'down');
   delta.textContent = `${b.current.toFixed(0)} € (${up?'+':''}${b.pct}%)`;
   note.textContent = `Départ : ${b.initial.toFixed(0)} € · PnL cumulé : ${up?'+':''}${b.pnl.toFixed(0)} €.`;
+  _lastBankrollTotal = b.current;
 }
 
 drawChart();
