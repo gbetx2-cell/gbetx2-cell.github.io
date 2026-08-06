@@ -658,6 +658,7 @@ MARKET_FR = {
     "both_teams_to_score": "Les deux marquent",
     "handicap": "Handicap",
     "totals": "Total (over/under)",
+    "combo": "Combiné",
     "scorer": "Buteur",
     "assist": "Passeur",
     "player_pick_only": "Pronostic joueur",
