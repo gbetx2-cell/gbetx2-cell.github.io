@@ -169,8 +169,49 @@ def _sport_icon(sport: str, league: str) -> str:
     return _flag(league) if sport == "football" else SPORT_ICON.get(sport, "🏅")
 
 
+# Duplique depuis tg_bot/format_v2.py::strip_market_labels (07/08/2026,
+# bug confirme : ce script (repo public, cf note COMP_WINDOWS ci-dessus)
+# n'a jamais applique ce nettoyage -- Publications affichait donc "Total —
+# Plus de 9,5" (prefixe brut) pour MLB/WNBA alors que le bot Telegram et
+# export_site_results.py (repo prive) affichaient deja "Plus de 9,5" nettoye.
+# Meme raison que ai/comp_windows.py : import top-level depuis tg_bot cassait
+# tout le script cote public (module absent), donc copie locale plutot
+# qu'import.
+_MARKET_LABEL_PATTERNS = [
+    (re.compile(r"^Vainqueur 1ère manche — (.+)$"), r"\1 (1ère manche)"),
+    (re.compile(r"^Total 1ère manche — (.+)$"), r"\1 (1ère manche)"),
+    (re.compile(r"^Vainqueur 1ère mi-temps — (.+)$"), r"\1 (1ère mi-temps)"),
+    (re.compile(r"^Total 1ère mi-temps — (.+)$"), r"\1 (1ère mi-temps)"),
+    (re.compile(r"^Total équipe (.+?) — (.+)$"), r"\1 \2"),
+    (re.compile(r"^Écart de points — (.+)$"), r"\1"),
+    (re.compile(r"^Total — (.+)$"), r"\1"),
+    (re.compile(r"^Vainqueur — (.+)$"), r"\1"),
+]
+
+
+def _strip_market_labels(text: str) -> str:
+    if not text:
+        return text
+    prefix = ""
+    body = text
+    if body.startswith("Combiné : "):
+        prefix = "Combiné : "
+        body = body[len(prefix):]
+    legs = body.split(" + ")
+    cleaned_legs = []
+    for leg in legs:
+        cleaned = leg
+        for pattern, repl in _MARKET_LABEL_PATTERNS:
+            if pattern.match(cleaned):
+                cleaned = pattern.sub(repl, cleaned)
+                break
+        cleaned_legs.append(cleaned)
+    return prefix + " + ".join(cleaned_legs)
+
+
 def _short_pick(conseil: str) -> str:
-    return re.sub(r"^Double chance\s+", "", (conseil or "").strip(), flags=re.IGNORECASE)
+    cleaned = re.sub(r"^Double chance\s+", "", (conseil or "").strip(), flags=re.IGNORECASE)
+    return _strip_market_labels(cleaned)
 
 
 def _cat(selection: str) -> str:

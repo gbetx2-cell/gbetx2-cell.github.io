@@ -297,7 +297,15 @@ function findPlayerName(label){
 }
 
 function isTeamTotalLabel(label){
-  return /total (buts|points) du match/i.test(label || '');
+  // Bug corrige le 07/08/2026 (demande explicite : "meme tube pour tout les
+  // plus ou moins de chaque sport") : ce regex ne matchait AUCUN texte reel
+  // ("total buts/points du match" n'existe dans aucun sport en prod) --
+  // aucune jauge live n'apparaissait jamais pour les totaux de match, tous
+  // sports confondus. Nouveau regex, permissif sur le prefixe ("Total — ",
+  // "Total sets — ", ou rien pour le football) et sur l'unite finale
+  // (buts/points/runs/sets), exclut les paris par equipe ("Domicile ...",
+  // "Total equipe ... —") qui ne doivent pas utiliser le score total.
+  return /^(total[^—-]*[—-]\s*)?(plus|moins) de\s+[\d.,]+(\s*\w+)?$/i.test((label || '').trim());
 }
 
 /* ── Rendu ────────────────────────────────────────────────────────── */
