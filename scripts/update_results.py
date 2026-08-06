@@ -982,11 +982,11 @@ def fetch_bankroll() -> dict:
 
 def render_perf_block(perf: dict) -> str:
     import json
-    return "const PERF_STATS = " + json.dumps(perf, ensure_ascii=False) + ";"
+    return "let PERF_STATS = " + json.dumps(perf, ensure_ascii=False) + ";"
 
 
 def render_block(results: list[dict]) -> str:
-    lines = ["const RESULTATS = ["]
+    lines = ["let RESULTATS = ["]
     for r in results:
         match = r["match"].replace('"', "'")
         pick = r["pick"].replace('"', "'")
@@ -1006,7 +1006,7 @@ def render_period_block(stats: dict) -> str:
         f'winrate:{s["winrate"]}, pnl:{s["pnl"]:.2f}}}'
         for key, s in stats.items()
     ]
-    return "const PERIOD_STATS = {" + ", ".join(parts) + "};"
+    return "let PERIOD_STATS = {" + ", ".join(parts) + "};"
 
 
 def render_series_block(series: dict) -> str:
@@ -1040,23 +1040,23 @@ def render_series_block(series: dict) -> str:
             parts.append(f"{key}:{by_sport_obj(value)}")
         else:
             parts.append(f"{key}:{pts(value)}")
-    return "const PERIOD_SERIES = {" + ", ".join(parts) + "};"
+    return "let PERIOD_SERIES = {" + ", ".join(parts) + "};"
 
 
 def update_html(path: str, results: list[dict], period_stats: dict,
                 period_series: dict, perf_stats: dict) -> None:
     with open(path, encoding="utf-8") as f:
         html = f.read()
-    html, n1 = re.subn(r"const RESULTATS = \[.*?\];", render_block(results), html, count=1, flags=re.DOTALL)
+    html, n1 = re.subn(r"(?:const|let) RESULTATS = \[.*?\];", render_block(results), html, count=1, flags=re.DOTALL)
     if n1 != 1:
         raise SystemExit(f"bloc RESULTATS introuvable dans {path}")
-    html, n2 = re.subn(r"const PERIOD_STATS = \{.*?\};", render_period_block(period_stats), html, count=1, flags=re.DOTALL)
+    html, n2 = re.subn(r"(?:const|let) PERIOD_STATS = \{.*?\};", render_period_block(period_stats), html, count=1, flags=re.DOTALL)
     if n2 != 1:
         raise SystemExit(f"bloc PERIOD_STATS introuvable dans {path}")
-    html, n3 = re.subn(r"const PERIOD_SERIES = \{.*?\};", render_series_block(period_series), html, count=1, flags=re.DOTALL)
+    html, n3 = re.subn(r"(?:const|let) PERIOD_SERIES = \{.*?\};", render_series_block(period_series), html, count=1, flags=re.DOTALL)
     if n3 != 1:
         raise SystemExit(f"bloc PERIOD_SERIES introuvable dans {path}")
-    html, n4 = re.subn(r"const PERF_STATS = \{.*?\};", lambda _: render_perf_block(perf_stats), html, count=1, flags=re.DOTALL)
+    html, n4 = re.subn(r"(?:const|let) PERF_STATS = \{.*?\};", lambda _: render_perf_block(perf_stats), html, count=1, flags=re.DOTALL)
     if n4 != 1:
         raise SystemExit(f"bloc PERF_STATS introuvable dans {path}")
     with open(path, "w", encoding="utf-8", newline="\n") as f:
