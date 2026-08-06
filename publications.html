@@ -293,92 +293,6 @@ function isTeamTotalLabel(label){
   return /^(total[^—-]*[—-]\s*)?(plus|moins) de\s+[\d.,]+(\s*\w+)?$/i.test((label || '').trim());
 }
 
-/* ── Classification des marches a seuil ("Plus/Moins de X") pour choisir la
-   BONNE source de progression live (07/08/2026, audit demande explicite :
-   "regle tout les jauges absentes et fausses"). Avant ce chantier, une seule
-   regle existait (isTeamTotalLabel -> live.home+live.away) : elle ratait les
-   totaux par equipe (Domicile/Total equipe, qui ne doivent utiliser QUE le
-   score de cette equipe) et les totaux par periode (1ere manche/mi-temps,
-   qui ne doivent utiliser QUE cette periode) -- ces derniers affichaient
-   silencieusement une jauge FAUSSE basee sur le score du match entier.
-   Ordre de verification important : equipe/periode avant le cas general
-   "match entier", sinon ces textes matchent d'abord isTeamTotalLabel(). ── */
-function classifyThreshold(f, rawText){
-  // Le champ stocke pour un value bet contient parfois la cote en suffixe
-  // ("... @ 1.9615", cf baseball/predictions.py::value_bet_txt = best["text"])
-  // -- jamais present pour un conseil/player pick, mais casse sinon la
-  // detection par regex ancree ($ en fin de chaine).
-  const text = (rawText || '').replace(/\s*@\s*[\d.,]+\s*$/, '').trim();
-  const threshold = parseThreshold(text);
-  if (!threshold) return null;
-
-  // Total par equipe (baseball/wnba : "Total équipe {team} — ...")
-  const teamTotalMatch = text.match(/^Total équipe (.+?) — /i);
-  if (teamTotalMatch){
-    return {threshold, scope: 'team', teamName: teamTotalMatch[1].trim()};
-  }
-  // Total par equipe (football : "Domicile ..."/"Extérieur ...")
-  if (/^Domicile\s/i.test(text)) return {threshold, scope: 'team', side: 'home'};
-  if (/^Extérieur\s/i.test(text)) return {threshold, scope: 'team', side: 'away'};
-
-  // Total par periode (football mi-temps, baseball 1ere manche, wnba 1ere
-  // mi-temps) -- toujours match entier (les deux equipes) mais UNE SEULE
-  // periode, jamais le score final.
-  if (/en 1(è|e)re mi-temps/i.test(text)) return {threshold, scope: 'period', periods: [0]};
-  if (/en 2(è|e)me mi-temps/i.test(text)) return {threshold, scope: 'period', periods: [1]};
-  if (/^Total 1(è|e)re manche —/i.test(text)) return {threshold, scope: 'period', periods: [0]};
-  if (/^Total 1(è|e)re mi-temps —/i.test(text)) return {threshold, scope: 'period', periods: [0, 1]};
-
-  // Pick joueur (nom avant "—"/"-" + terme de stat reconnu)
-  const playerName = findPlayerName(text);
-  const statKey = findStatKey(f.sport, text);
-  if (playerName && statKey) return {threshold, scope: 'player', playerName, statKey};
-
-  // Total du match entier (les deux equipes, tout le match)
-  if (isTeamTotalLabel(text)) return {threshold, scope: 'match'};
-
-  return {threshold, scope: 'unknown'};
-}
-
-function resolveTeamSide(f, teamName){
-  const parts = (f.match || '').split('–').map(s => s.trim());
-  if (parts.length !== 2 || !teamName) return null;
-  const [homeName, awayName] = parts;
-  if (homeName === teamName || homeName.includes(teamName) || teamName.includes(homeName)) return 'home';
-  if (awayName === teamName || awayName.includes(teamName) || teamName.includes(awayName)) return 'away';
-  return null;
-}
-
-function computeCurrentValue(f, live, cls){
-  if (!live) return null;
-  if (cls.scope === 'match'){
-    if (live.home == null || live.away == null) return null;
-    return (parseInt(live.home, 10) || 0) + (parseInt(live.away, 10) || 0);
-  }
-  if (cls.scope === 'team'){
-    const side = cls.side || resolveTeamSide(f, cls.teamName);
-    if (!side) return null;
-    const v = side === 'home' ? live.home : live.away;
-    return v == null ? null : (parseInt(v, 10) || 0);
-  }
-  if (cls.scope === 'period'){
-    if (!live.homeLinescores || !live.awayLinescores) return null;
-    let sum = 0;
-    for (const idx of cls.periods){
-      const h = live.homeLinescores[idx], a = live.awayLinescores[idx];
-      if (h == null || a == null) return null; // periode pas encore jouee/inconnue -- jamais de valeur partielle inventee
-      sum += (parseInt(h, 10) || 0) + (parseInt(a, 10) || 0);
-    }
-    return sum;
-  }
-  if (cls.scope === 'player'){
-    if (!live.stats || !live.stats[cls.playerName]) return null;
-    const v = live.stats[cls.playerName][cls.statKey];
-    return v == null ? null : v;
-  }
-  return null;
-}
-
 /* ── Rendu ────────────────────────────────────────────────────────── */
 const SPORT_META = {
   football: {icon:'⚽', label:'Football'}, tennis: {icon:'🎾', label:'Tennis'},
@@ -416,16 +330,23 @@ function pickRowHtml(type, typeLabel, label, cote, result, gauge){
 }
 
 function renderPick(f, kind, text, cote, result){
-  const cls = classifyThreshold(f, text);
+  const threshold = parseThreshold(text);
   const stateClass = result === 'GAGNE' || result === 'GAGNÉ' ? 'done' : result === 'PERDU' ? 'lost' : 'live';
   const labelHtml = `<b class="${stateClass}">${text}</b>`;
-  if (!cls) return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, '');
-  const threshold = cls.threshold;
+  if (!threshold) return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, '');
 
   let current = null, scaleMax = threshold.value * 1.6;
   const live = liveCache[f.fixture_id];
-  if (!result){
-    current = computeCurrentValue(f, live, cls); // reglee : pas de reconstruction de la progression finale, juste le resultat
+  if (result){
+    current = null; // reglee : pas de reconstruction de la progression finale, juste le resultat
+  } else if (isTeamTotalLabel(text) && live && live.home != null && live.away != null){
+    current = (parseInt(live.home, 10) || 0) + (parseInt(live.away, 10) || 0);
+  } else if (live && live.stats){
+    const playerName = findPlayerName(text);
+    const statKey = findStatKey(f.sport, text);
+    if (playerName && statKey && live.stats[playerName]){
+      current = live.stats[playerName][statKey];
+    }
   }
 
   if (current == null) return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, '');
@@ -569,13 +490,6 @@ async function refreshLiveData(){
     liveCache[f.fixture_id] = {
       home: home ? home.score : null,
       away: away ? away.score : null,
-      // Scores par periode (mi-temps/manche) -- 07/08/2026, demande explicite
-      // "regler toutes les jauges absentes et fausses" : necessaire pour ne
-      // pas confondre un total 1ere mi-temps/1ere manche avec le score du
-      // match entier (cf classifyThreshold ci-dessous). null si absent cote
-      // ESPN, jamais de valeur partielle inventee.
-      homeLinescores: home && home.linescores ? home.linescores.map(l => l.value) : null,
-      awayLinescores: away && away.linescores ? away.linescores.map(l => l.value) : null,
       statusDetail: statusDetail || '',
       stats: extractPlayerStats(summary, f.sport),
     };
