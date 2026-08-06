@@ -64,21 +64,6 @@ h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 
 .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;animation:pulse 2s infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* Etoiles de confiance animees (06/08/2026, demande explicite : "avis avec
-   des etoiles /5 qui defilent une par une"). Chaque etoile apparait avec un
-   court delai par rapport a la precedente (effet de defilement), jamais
-   toutes en meme temps. Pleines = couleur or, vides = contour discret --
-   jamais de 6e etoile ni de decimale inventee, uniquement 1 a 5 entiers. */
-.stars-row{display:flex;gap:3px;margin-top:4px}
-.star{font-size:.95rem;line-height:1;opacity:0;transform:scale(.4) rotate(-15deg);animation:starPop .35s cubic-bezier(.34,1.56,.64,1) forwards}
-.star.filled{color:var(--gold)}
-.star.empty{color:var(--border-strong)}
-.star:nth-child(1){animation-delay:.05s}
-.star:nth-child(2){animation-delay:.2s}
-.star:nth-child(3){animation-delay:.35s}
-.star:nth-child(4){animation-delay:.5s}
-.star:nth-child(5){animation-delay:.65s}
-@keyframes starPop{to{opacity:1;transform:scale(1) rotate(0)}}
 .score-block{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
 .live-score{display:inline-flex;align-items:center;gap:6px;font-family:'Sora',sans-serif;font-weight:700;font-size:1.05rem;color:var(--gold-2)}
 .match-time{font-size:.76rem;color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums}
@@ -297,7 +282,15 @@ function findPlayerName(label){
 }
 
 function isTeamTotalLabel(label){
-  return /total (buts|points) du match/i.test(label || '');
+  // Bug corrige le 07/08/2026 (demande explicite : "meme tube pour tout les
+  // plus ou moins de chaque sport") : ce regex ne matchait AUCUN texte reel
+  // ("total buts/points du match" n'existe dans aucun sport en prod) --
+  // aucune jauge live n'apparaissait jamais pour les totaux de match, tous
+  // sports confondus. Nouveau regex, permissif sur le prefixe ("Total — ",
+  // "Total sets — ", ou rien pour le football) et sur l'unite finale
+  // (buts/points/runs/sets), exclut les paris par equipe ("Domicile ...",
+  // "Total equipe ... —") qui ne doivent pas utiliser le score total.
+  return /^(total[^—-]*[—-]\s*)?(plus|moins) de\s+[\d.,]+(\s*\w+)?$/i.test((label || '').trim());
 }
 
 /* ── Rendu ────────────────────────────────────────────────────────── */
@@ -403,15 +396,6 @@ function tickCountdowns(){
   if (needsRerender) render();
 }
 
-function starsRowHtml(count){
-  if (!count) return '';
-  const stars = [];
-  for (let i = 1; i <= 5; i++){
-    stars.push(`<span class="star ${i <= count ? 'filled' : 'empty'}">★</span>`);
-  }
-  return `<div class="stars-row">${stars.join('')}</div>`;
-}
-
 function renderCard(f){
   const live = liveCache[f.fixture_id];
   let scoreHtml;
@@ -463,7 +447,6 @@ function renderCard(f){
           <div>
             <div class="match-name">${f.match}</div>
             <div class="league">${f.sport && f.sport !== 'football' ? f.sport_label + ' · ' : ''}${f.league}</div>
-            ${starsRowHtml(f.stars)}
           </div>
         </div>
         ${scoreHtml}
