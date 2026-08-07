@@ -304,30 +304,61 @@ function isTeamTotalLabel(label){
    Ordre de verification important : equipe/periode avant le cas general
    "match entier", sinon ces textes matchent d'abord isTeamTotalLabel(). ── */
 function classifyThreshold(f, rawText){
-  // Le champ stocke pour un value bet contient parfois la cote en suffixe
-  // ("... @ 1.9615", cf baseball/predictions.py::value_bet_txt = best["text"])
-  // -- jamais present pour un conseil/player pick, mais casse sinon la
+  let text = (rawText || '').trim();
+
+  // Bug corrige le 07/08/2026 (confirme en direct : "Philadelphia Phillies
+  // Plus de 5,5 @ 1.9615" sans jauge malgre 6 runs deja marques) : ce
+  // classifieur avait ete ecrit contre le texte BRUT ("Total équipe X — ...",
+  // "Total 1ère manche — ..."), mais export_programme.py::_short_pick
+  // applique desormais strip_market_labels AVANT que ce JS ne voie le texte
+  // -- "Total équipe {team} — {reste}" devient "{team} {reste}" (prefixe
+  // disparu) et "Total 1ère manche — {reste}" devient "{reste} (1ère
+  // manche)" (suffixe en fin de chaine). Les regex ci-dessous ne
+  // matchaient donc plus AUCUN texte reel pour ces deux cas.
+
+  // Suffixe periode ajoute par le nettoyage ("... (1ère manche)"/"... (1ère
+  // mi-temps)" en toute fin de chaine, apres la cote) -- isole avant de
+  // chercher le "Plus/Moins de X".
+  let periodSuffix = null;
+  const suffixMatch = text.match(/\s*\((1(è|e)re manche|1(è|e)re mi-temps)\)\s*$/i);
+  if (suffixMatch){
+    periodSuffix = suffixMatch[1].toLowerCase();
+    text = text.slice(0, suffixMatch.index).trim();
+  }
+
+  // Suffixe cote parfois present dans le texte stocke (value bets) : "...
+  // @ 1.9615" -- jamais present pour un conseil/player pick, casse sinon la
   // detection par regex ancree ($ en fin de chaine).
-  const text = (rawText || '').replace(/\s*@\s*[\d.,]+\s*$/, '').trim();
+  text = text.replace(/\s*@\s*[\d.,]+\s*$/, '').trim();
+
   const threshold = parseThreshold(text);
   if (!threshold) return null;
 
-  // Total par equipe (baseball/wnba : "Total équipe {team} — ...")
+  if (periodSuffix){
+    return periodSuffix.includes('manche')
+      ? {threshold, scope: 'period', periods: [0]}       // 1ere manche (baseball)
+      : {threshold, scope: 'period', periods: [0, 1]};   // 1ere mi-temps (wnba)
+  }
+
+  // Total par equipe -- forme brute jamais strippee ("Total équipe {team}
+  // — ..."), OU forme deja nettoyee ("{team} Plus de X", nom d'equipe en
+  // tete, compare a home/away de f.match).
   const teamTotalMatch = text.match(/^Total équipe (.+?) — /i);
   if (teamTotalMatch){
     return {threshold, scope: 'team', teamName: teamTotalMatch[1].trim()};
   }
-  // Total par equipe (football : "Domicile ..."/"Extérieur ...")
+  const [homeName, awayName] = (f.match || '').split('–').map(s => (s || '').trim());
+  if (homeName && text.startsWith(homeName + ' ')) return {threshold, scope: 'team', side: 'home'};
+  if (awayName && text.startsWith(awayName + ' ')) return {threshold, scope: 'team', side: 'away'};
+
+  // Total par equipe (football, jamais strip : "Domicile ..."/"Extérieur ...")
   if (/^Domicile\s/i.test(text)) return {threshold, scope: 'team', side: 'home'};
   if (/^Extérieur\s/i.test(text)) return {threshold, scope: 'team', side: 'away'};
 
-  // Total par periode (football mi-temps, baseball 1ere manche, wnba 1ere
-  // mi-temps) -- toujours match entier (les deux equipes) mais UNE SEULE
-  // periode, jamais le score final.
+  // Total par periode (football, jamais strip -- "... en 1ère/2ème
+  // mi-temps" dans le corps du texte, pas ajoute par le nettoyage)
   if (/en 1(è|e)re mi-temps/i.test(text)) return {threshold, scope: 'period', periods: [0]};
   if (/en 2(è|e)me mi-temps/i.test(text)) return {threshold, scope: 'period', periods: [1]};
-  if (/^Total 1(è|e)re manche —/i.test(text)) return {threshold, scope: 'period', periods: [0]};
-  if (/^Total 1(è|e)re mi-temps —/i.test(text)) return {threshold, scope: 'period', periods: [0, 1]};
 
   // Pick joueur (nom avant "—"/"-" + terme de stat reconnu)
   const playerName = findPlayerName(text);
