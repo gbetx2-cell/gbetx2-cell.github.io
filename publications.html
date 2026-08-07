@@ -139,9 +139,75 @@ h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 
 .empty{color:var(--muted);text-align:center;padding:60px 20px;font-size:.95rem}
 footer{border-top:1px solid var(--border);padding:30px 0;margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem}
 footer a{color:var(--gold-2);text-decoration:none}
+
+/* ── Transition de page + pop-up partenaire (07/08/2026, demande
+   explicite) -- meme comportement qu'index.html, cf commentaires la-bas. ── */
+.page-loader{
+  position:fixed;inset:0;z-index:999;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.page-loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{
+  width:64px;height:64px;border-radius:50%;
+  border:3px solid var(--gold);
+  animation:loaderSpin 1s linear infinite;
+  box-shadow:0 0 30px rgba(240,185,11,.45);
+}
+@keyframes loaderSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.loader-logo{animation:none}}
+
+.promo-overlay{
+  position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.65);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+.promo-overlay.show{opacity:1;visibility:visible}
+.promo-modal{
+  position:relative;background:var(--card);border:1px solid var(--border-strong);
+  border-radius:var(--radius);padding:32px 28px 26px;max-width:420px;
+  box-shadow:0 30px 90px rgba(0,0,0,.6);text-align:center;
+  transform:translateY(14px);transition:transform .3s ease;
+}
+.promo-overlay.show .promo-modal{transform:translateY(0)}
+.promo-close{
+  position:absolute;top:10px;right:12px;background:none;border:none;
+  color:var(--muted);font-size:1.6rem;line-height:1;cursor:pointer;padding:6px;
+}
+.promo-close:hover{color:var(--text)}
+.promo-tag{
+  display:inline-block;padding:5px 12px;border-radius:99px;
+  background:rgba(240,185,11,.12);border:1px solid var(--border-strong);
+  color:var(--gold-2);font-size:.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.04em;margin-bottom:14px;
+}
+.promo-modal h3{font-size:1.2rem;margin-bottom:10px}
+.promo-modal p{color:var(--muted);font-size:.9rem;line-height:1.5;margin-bottom:18px}
+.promo-cta{
+  display:inline-flex;align-items:center;justify-content:center;width:100%;
+  background:var(--gold);color:#141005;font-weight:700;padding:12px 18px;
+  border-radius:10px;text-decoration:none;
+}
+.promo-cta:hover{background:var(--gold-2)}
+.promo-legal{font-size:.68rem;color:var(--muted);opacity:.8;margin-top:16px;margin-bottom:0;line-height:1.4}
 </style>
 </head>
 <body>
+
+<div id="pageLoader" class="page-loader" aria-hidden="true">
+  <img src="assets/logo.jpg" alt="" class="loader-logo">
+</div>
+
+<div id="promoOverlay" class="promo-overlay" aria-hidden="true">
+  <div class="promo-modal" role="dialog" aria-modal="true" aria-label="Offre partenaire Winamax">
+    <button class="promo-close" id="promoClose" aria-label="Fermer">&times;</button>
+    <div class="promo-tag">Offre partenaire</div>
+    <h3>Envie de jouer vos pronostics ?</h3>
+    <p>Winamax propose une offre de bienvenue aux nouveaux inscrits avec le code parrain <b>GBEUVP</b>.</p>
+    <a class="promo-cta" href="https://www.winamax.fr/parrain?code=GBEUVP" target="_blank" rel="noopener sponsored">Voir l'offre Winamax</a>
+    <p class="promo-legal">18+ · Jouer comporte des risques : endettement, isolement, dépendance. Ne pariez que ce que vous pouvez vous permettre de perdre. Pour être aidé : 09 74 75 13 13 (appel non surtaxé) ou joueurs-info-service.fr.</p>
+  </div>
+</div>
 
 <header>
   <div class="container nav">
@@ -151,9 +217,9 @@ footer a{color:var(--gold-2);text-decoration:none}
     </a>
     <nav class="nav-links">
       <a href="publications.html" class="active">Publications</a>
-      <a href="index.html#resultats">Résultats</a>
-      <a href="index.html#performance">Performance</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="resultats.html">Résultats</a>
+      <a href="performance.html">Performance</a>
+      <a href="faq.html">FAQ</a>
     </nav>
     <a class="back-link" href="index.html">← Retour au site</a>
   </div>
@@ -673,6 +739,75 @@ loadPublications();
 setInterval(loadPublications, 20000);
 setInterval(refreshLiveData, 20000);      // score + boxscore live ESPN pendant les matchs
 setInterval(tickCountdowns, 1000);        // decompte fluide seconde par seconde (05/08/2026)
+
+/* ── Transition de page : logo qui tourne (07/08/2026, demande explicite)
+   -- meme logique qu'index.html (cf commentaires la-bas). ── */
+(function(){
+  const loader = document.getElementById('pageLoader');
+  if (!loader) return;
+  const showLoader = () => loader.classList.remove('hide');
+  const hideLoader = () => loader.classList.add('hide');
+
+  window.addEventListener('load', () => {
+    const target = location.hash ? document.querySelector(location.hash) : null;
+    if (target){
+      setTimeout(() => {
+        target.scrollIntoView({block: 'start'});
+        setTimeout(hideLoader, 250);
+      }, 500);
+    } else {
+      setTimeout(hideLoader, 500);
+    }
+  });
+
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href || a.target === '_blank' || /^https?:\/\//i.test(href)) return;
+    const [path, hash] = href.split('#');
+    const currentFile = location.pathname.split('/').pop();
+    const samePage = !path || path === currentFile;
+    if (samePage && hash){
+      a.addEventListener('click', (e) => {
+        const dest = document.getElementById(hash);
+        if (!dest) return;
+        e.preventDefault();
+        showLoader();
+        setTimeout(() => {
+          dest.scrollIntoView({block: 'start'});
+          setTimeout(hideLoader, 250);
+        }, 350);
+      });
+    } else if (path && path.endsWith('.html') && !samePage){
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        showLoader();
+        setTimeout(() => { window.location.href = href; }, 350);
+      });
+    }
+  });
+})();
+
+/* ── Pop-up partenaire Winamax (07/08/2026, demande explicite) -- meme
+   logique qu'index.html, sessionStorage partage entre les 2 pages (une
+   seule fois par session, quelle que soit la page d'entree). ── */
+(function(){
+  const overlay = document.getElementById('promoOverlay');
+  if (!overlay) return;
+  const closeBtn = document.getElementById('promoClose');
+  function closePromo(){
+    overlay.classList.remove('show');
+    sessionStorage.setItem('gbet_promo_seen', '1');
+  }
+  if (!sessionStorage.getItem('gbet_promo_seen')){
+    window.addEventListener('load', () => {
+      setTimeout(() => overlay.classList.add('show'), 1400);
+    });
+  }
+  closeBtn.addEventListener('click', closePromo);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePromo(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('show')) closePromo(); });
+  overlay.querySelector('.promo-cta')?.addEventListener('click', closePromo);
+})();
 </script>
 </body>
 </html>

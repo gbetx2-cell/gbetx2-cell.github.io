@@ -515,9 +515,74 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
 @media(max-width:900px){
   .menu-toggle{display:flex}
 }
+
+/* ── Transition de page : logo qui tourne (07/08/2026, demande explicite :
+   "quand le client clique sur une page il y a une animation mon logo qui
+   tourne et apres il tombe sur sa page") -- affichee brievement a chaque
+   navigation vers Publications ou vers une section (Resultats/Performance/
+   FAQ), jamais un saut instantane. ── */
+.page-loader{
+  position:fixed;inset:0;z-index:999;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.page-loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{
+  width:64px;height:64px;border-radius:50%;
+  border:3px solid var(--gold);
+  animation:loaderSpin 1s linear infinite;
+  box-shadow:0 0 30px rgba(240,185,11,.45);
+}
+@keyframes loaderSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.loader-logo{animation:none}}
+
+/* ── Pop-up partenaire (07/08/2026, demande explicite) ── */
+.promo-overlay{
+  position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.65);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+.promo-overlay.show{opacity:1;visibility:visible}
+.promo-modal{
+  position:relative;background:var(--card);border:1px solid var(--border-strong);
+  border-radius:var(--radius);padding:32px 28px 26px;max-width:420px;
+  box-shadow:0 30px 90px rgba(0,0,0,.6);text-align:center;
+  transform:translateY(14px);transition:transform .3s ease;
+}
+.promo-overlay.show .promo-modal{transform:translateY(0)}
+.promo-close{
+  position:absolute;top:10px;right:12px;background:none;border:none;
+  color:var(--muted);font-size:1.6rem;line-height:1;cursor:pointer;padding:6px;
+}
+.promo-close:hover{color:var(--text)}
+.promo-tag{
+  display:inline-block;padding:5px 12px;border-radius:99px;
+  background:rgba(240,185,11,.12);border:1px solid var(--border-strong);
+  color:var(--gold-2);font-size:.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.04em;margin-bottom:14px;
+}
+.promo-modal h3{font-size:1.2rem;margin-bottom:10px}
+.promo-modal p{color:var(--muted);font-size:.9rem;line-height:1.5;margin-bottom:18px}
+.promo-cta{width:100%;justify-content:center}
+.promo-legal{font-size:.68rem;color:var(--muted);opacity:.8;margin-top:16px;margin-bottom:0;line-height:1.4}
 </style>
 </head>
 <body>
+
+<div id="pageLoader" class="page-loader" aria-hidden="true">
+  <img src="assets/logo.jpg" alt="" class="loader-logo">
+</div>
+
+<div id="promoOverlay" class="promo-overlay" aria-hidden="true">
+  <div class="promo-modal" role="dialog" aria-modal="true" aria-label="Offre partenaire Winamax">
+    <button class="promo-close" id="promoClose" aria-label="Fermer">&times;</button>
+    <div class="promo-tag">Offre partenaire</div>
+    <h3>Envie de jouer vos pronostics ?</h3>
+    <p>Winamax propose une offre de bienvenue aux nouveaux inscrits avec le code parrain <b>GBEUVP</b>.</p>
+    <a class="btn btn-primary promo-cta" href="https://www.winamax.fr/parrain?code=GBEUVP" target="_blank" rel="noopener sponsored">Voir l'offre Winamax</a>
+    <p class="promo-legal">18+ · Jouer comporte des risques : endettement, isolement, dépendance. Ne pariez que ce que vous pouvez vous permettre de perdre. Pour être aidé : 09 74 75 13 13 (appel non surtaxé) ou joueurs-info-service.fr.</p>
+  </div>
+</div>
 
 <a href="#main" class="skip-link">Aller au contenu</a>
 
@@ -550,9 +615,9 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     </div>
     <nav class="nav-links">
       <a href="publications.html">Publications</a>
-      <a href="#resultats">Résultats</a>
-      <a href="#performance">Performance</a>
-      <a href="#faq">FAQ</a>
+      <a href="resultats.html">Résultats</a>
+      <a href="performance.html">Performance</a>
+      <a href="faq.html">FAQ</a>
     </nav>
     <div class="header-right">
       <a class="btn btn-primary btn-sm" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
@@ -571,9 +636,9 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
     </button>
   </div>
   <a href="publications.html">Publications</a>
-  <a href="#resultats">Résultats</a>
-  <a href="#performance">Performance</a>
-  <a href="#faq">FAQ</a>
+  <a href="resultats.html">Résultats</a>
+  <a href="performance.html">Performance</a>
+  <a href="faq.html">FAQ</a>
   <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
 </nav>
 
@@ -591,7 +656,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener"><svg class="icon"><use href="#i-plane"></use></svg> Recevoir les analyses sur Telegram</a>
-        <a class="btn btn-ghost" href="#resultats">Voir les résultats</a>
+        <a class="btn btn-ghost" href="resultats.html">Voir les résultats</a>
       </div>
     </div>
 
@@ -640,101 +705,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   </div>
 </div>
 
-<!-- ── GRAPHIQUE RÉSULTATS ──────────────── -->
-<section id="resultats" class="chart-sec">
-  <div class="container">
-    <div class="sec-tag">Résultats</div>
-    <h2 class="sec-title">La discipline, ça se <span class="gold">voit sur la courbe.</span></h2>
-    <p class="sec-sub">
-      Évolution des 20 derniers matchs réglés, aux cotes réelles publiées.
-      Conseil, value bet et player pick coté comptent chacun pour leur propre résultat —
-      jamais un badge unique qui masquerait une des trois. Survolez chaque pastille pour
-      revoir le pronostic exact qui avait été donné.
-      Le bilan détaillé de chaque journée est publié sur le canal — l'historique fait foi.
-    </p>
-    <div class="period-grid reveal" id="periodGrid"></div>
-
-    <div class="chart-card reveal" style="margin-bottom:22px">
-      <div class="chart-head">
-        <div>
-          <h3>Évolution du bilan</h3>
-          <div class="chart-toggle" id="periodTabs">
-            <button data-period="jour" class="active">Jour</button>
-            <button data-period="semaine">Semaine</button>
-            <button data-period="mois">Mois</button>
-            <button data-period="annee">Année</button>
-          </div>
-          <div class="chart-toggle mode-toggle" style="margin-left:10px">
-            <button data-mode="u" class="active">En unités</button>
-            <button data-mode="e">En €</button>
-          </div>
-          <div class="chart-toggle sport-filter" id="periodSportFilter" style="margin-left:10px">
-            <button data-sport="all" class="active">Tous</button>
-          </div>
-        </div>
-        <div class="delta" id="periodChartDelta">—</div>
-      </div>
-      <svg id="periodChart" viewBox="0 0 800 260" preserveAspectRatio="none" role="img" aria-label="Évolution du bilan par période"></svg>
-      <a class="pub-link" href="publications.html">→ Voir le détail de chaque pick en cours sur Publications</a>
-    </div>
-
-    <div class="chart-card reveal">
-      <div class="chart-head">
-        <div>
-          <h3>Courbe des derniers picks</h3>
-          <div class="chart-toggle mode-toggle">
-            <button data-mode="u" class="active">En unités</button>
-            <button data-mode="e">En €</button>
-          </div>
-          <div class="chart-toggle sport-filter" id="sportFilter" style="margin-left:10px">
-            <button data-sport="all" class="active">Tous</button>
-          </div>
-          <div class="chart-toggle type-filter" id="typeFilter" style="margin-left:10px">
-            <button data-type="all" class="active">Tous types</button>
-            <button data-type="conseil">🎯 Conseil</button>
-            <button data-type="value">💎 Value</button>
-            <button data-type="player">👤 Player</button>
-          </div>
-        </div>
-        <div class="delta" id="chartDelta">—</div>
-      </div>
-      <svg id="bkChart" viewBox="0 0 800 300" preserveAspectRatio="none" role="img" aria-label="Courbe d'évolution des gains"></svg>
-      <div class="chips" id="chipsRow">
-        <span class="c-label">Derniers picks — survolez pour voir le pronostic exact, son type, et son point sur la courbe :</span>
-      </div>
-      <div class="chart-note">
-        G = gagné · P = perdu · R = remboursé — mise à jour à chaque bilan quotidien.
-      </div>
-      <button id="voirPlusBtn" class="btn btn-ghost" style="margin-top:14px">Voir plus</button>
-    </div>
-  </div>
-</section>
-
-<!-- ── PERFORMANCE ──────────────────────── -->
-<section id="performance" style="padding-top:40px">
-  <div class="container">
-    <div class="sec-tag">Performance</div>
-    <h2 class="sec-title">Chaque marché est <span class="gold">audité en continu.</span></h2>
-    <p class="sec-sub">
-      Réussite et bilan par marché et par tranche de cote, depuis le premier pari réglé.
-      Les zones historiquement perdantes sont <b>bloquées</b> : le bot n'y publie plus,
-      et elles restent affichées ici — c'est le principe.
-    </p>
-    <div class="period-grid reveal" id="perfGlobalGrid"></div>
-    <h3 class="perf-sub-title">Performance par sport</h3>
-    <div class="period-grid reveal" id="perfSportsGrid"></div>
-    <div class="period-grid reveal" id="perfHighlights" style="grid-template-columns:repeat(3,1fr)"></div>
-    <div class="chart-card reveal">
-      <div class="chart-head">
-        <div><h3>Évolution de la bankroll</h3></div>
-        <div class="delta" id="bankrollDelta">—</div>
-      </div>
-      <svg id="bankrollChart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg>
-      <div class="chart-note" id="bankrollNote"></div>
-    </div>
-  </div>
-</section>
-
 <!-- ── TRANSPARENCE ─────────────────────── -->
 <section id="transparence" class="transp">
   <div class="container">
@@ -764,50 +734,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   </div>
 </section>
 
-<!-- ── FAQ ──────────────────────────────── -->
-<section id="faq">
-  <div class="container" style="max-width:760px">
-    <div class="sec-tag">FAQ</div>
-    <h2 class="sec-title">Questions fréquentes</h2>
-    <div style="margin-top:36px">
-      <details class="faq-item reveal">
-        <summary>Combien de pronostics par jour ?</summary>
-        <div class="a">Ça dépend des matchs qui passent les critères — certains jours 5+,
-        d'autres jours zéro. C'est voulu : le volume n'est jamais un objectif.
-        Un jour sans publication est un jour où les données ne méritaient pas votre argent.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>Vous gagnez à tous les coups ?</summary>
-        <div class="a">Non, et méfiez-vous de quiconque le prétend. Il y a des défaites, elles
-        sont publiées dans le bilan comme le reste. L'objectif est un avantage statistique
-        sur la durée : des critères stricts, des zones de cote perdantes exclues, et des
-        mises calibrées sur l'historique réel.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>Quelles compétitions sont couvertes ?</summary>
-        <div class="a">113 ligues vérifiées une par une : les grands championnats européens
-        (analyse complète avec picks buteur/passeur), et une sélection mondiale de
-        championnats où les données officielles — compositions, statistiques joueurs,
-        cotes réelles — sont fiables. Chaque ligue de la liste a été auditée sur ses
-        données réelles avant d'être intégrée.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>Pourquoi certains gros matchs n'apparaissent pas ?</summary>
-        <div class="a">Parce qu'ils ont échoué à un critère : compositions arrivées trop tard,
-        confiance sous le seuil, ou cote dans une bande historiquement perdante.
-        Le bot préfère rater un match que publier un pari bancal.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>C'est quoi exactement, un « pick buteur » ?</summary>
-        <div class="a">Un joueur identifié comme susceptible de marquer ou de délivrer une
-        passe décisive, choisi parmi les 22 titulaires confirmés — jamais un remplaçant
-        supposé. Le choix croise la cote réelle du marché buteur, les statistiques de la
-        saison et la forme des 3 derniers matchs.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
 <!-- ── CTA FINAL ────────────────────────── -->
 <section class="cta-final">
   <div class="container">
@@ -833,9 +759,9 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       </div>
       <nav class="nav-links" style="display:flex;flex-direction:column;gap:10px">
         <a href="publications.html">Publications</a>
-        <a href="#resultats">Résultats</a>
-        <a href="#performance">Performance</a>
-        <a href="#faq">FAQ</a>
+        <a href="resultats.html">Résultats</a>
+        <a href="performance.html">Performance</a>
+        <a href="faq.html">FAQ</a>
       </nav>
     </div>
     <div class="legal">
@@ -859,816 +785,6 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
 <a class="fab" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener" aria-label="Rejoindre le canal Telegram"><svg class="icon" style="width:24px;height:24px;color:#141005"><use href="#i-plane"></use></svg></a>
 
 <script>
-/* ════════════════════════════════════════════════════════════════
-   RÉSULTATS DES DERNIERS CONSEILS — À METTRE À JOUR À CHAQUE BILAN
-   (regénéré par scripts/export_site_results.py depuis la prod réelle)
-   flag  : drapeau de la ligue
-   match : les deux équipes
-   pick  : le pronostic exact qui avait été publié
-   cote  : la cote réelle publiée
-   r     : "G" (gagné), "P" (perdu), "R" (remboursé)
-   mise  : mise réelle en unités (variable par palier d'edge, cf ai/staking.py
-           -- jamais 1u fixe : 0.5u sur les cotes basses, 2u+ sur les gros edges)
-   pnl   : profit/perte réel déjà calculé en prod (database.py update_resultat),
-           pas recalculé ici pour ne jamais diverger de la vérité de la base
-   La courbe, le delta et les pastilles se régénèrent automatiquement.
-   ════════════════════════════════════════════════════════════════ */
-const MISE_PAR_UNITE = 200; // 1 unité = 200 € (ai/staking.py BASE_UNIT_EUR)
-// let (pas const) : chantier "site plus rapide" (05/08/2026, demande
-// explicite) -- loadResultsLive() reassigne ces 4 variables a chaque
-// rafraichissement automatique (API Railway en direct), au lieu d'attendre
-// la prochaine regeneration+push+propagation CDN de cette page HTML.
-let RESULTATS = [
-  {flag:"⚾", match:"Chicago Cubs – New York Yankees", pick:"New York Yankees @ 2.08", cote:2.08, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cleveland Guardians – Arizona Diamondbacks", pick:"Cleveland Guardians @ 1.5814", cote:1.58, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Pittsburgh Pirates", pick:"Pittsburgh Pirates @ 1.8475", cote:1.85, r:"G", mise:1.50, pnl:1.27, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Pittsburgh Pirates", pick:"Jake Mangum — Coups sûrs Plus de 1.5", cote:2.90, r:"G", mise:1.00, pnl:1.90, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Los Angeles Dodgers – Boston Red Sox", pick:"Boston Red Sox @ 2.62", cote:2.62, r:"G", mise:1.50, pnl:2.43, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"San Diego Padres – San Francisco Giants", pick:"San Francisco Giants @ 2.34", cote:2.34, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"San Diego Padres – San Francisco Giants", pick:"Luis Arraez — Coups sûrs Plus de 1.5", cote:2.69, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🎾", match:"Denis Shapovalov – Arthur Gea", pick:"Total sets — Plus de 2.5 @ 2.36", cote:2.36, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"tennis"},
-  {flag:"🏀", match:"Minnesota Lynx – Indiana Fever", pick:"Natasha Howard — Points Plus de 12.5", cote:2.12, r:"G", mise:1.00, pnl:1.12, type:"player", sport:"wnba"},
-  {flag:"🎾", match:"Darja Vidmanova – Kristina Liutova", pick:"Total sets — Plus de 2.5 @ 2.61", cote:2.61, r:"G", mise:1.00, pnl:1.61, type:"value", sport:"tennis"},
-  {flag:"⚾", match:"Toronto Blue Jays – St. Louis Cardinals", pick:"St. Louis Cardinals @ 2.16", cote:2.16, r:"G", mise:1.50, pnl:1.74, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Toronto Blue Jays – St. Louis Cardinals", pick:"Vladimir Guerrero Jr. — Coups sûrs Plus de 1.5", cote:2.89, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Atlanta Braves – Washington Nationals", pick:"Washington Nationals @ 2.18", cote:2.18, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"New York Mets – Miami Marlins", pick:"Miami Marlins @ 1.8929", cote:1.89, r:"G", mise:1.00, pnl:0.89, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"New York Mets – Miami Marlins", pick:"Otto Lopez — Coups sûrs Plus de 1.5", cote:2.70, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Tampa Bay Rays – Chicago White Sox", pick:"Yandy Díaz — Coups sûrs Plus de 1.5", cote:2.80, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Pittsburgh Pirates", pick:"Pittsburgh Pirates @ 2.26", cote:2.26, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Houston Astros – Texas Rangers", pick:"Texas Rangers @ 2.2", cote:2.20, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Chicago Cubs – New York Yankees", pick:"New York Yankees @ 1.8621", cote:1.86, r:"G", mise:1.50, pnl:1.29, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Kansas City Royals", pick:"Colorado Rockies @ 1.8333", cote:1.83, r:"G", mise:1.00, pnl:0.83, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Kansas City Royals", pick:"Troy Johnston — Coups sûrs Plus de 1.5", cote:2.90, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Cleveland Guardians – Arizona Diamondbacks", pick:"Cleveland Guardians @ 1.6098", cote:1.61, r:"G", mise:1.00, pnl:0.61, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Baltimore Orioles – Philadelphia Phillies", pick:"Trea Turner — Coups sûrs Plus de 1.5", cote:2.87, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🏀", match:"Portland Fire – Los Angeles Sparks", pick:"Frieda Buhner — Points Moins de 8.5", cote:1.79, r:"G", mise:1.00, pnl:0.79, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"Dallas Wings – Connecticut Sun", pick:"Olivia Nelson-Ododa — Points Moins de 13.5", cote:1.85, r:"G", mise:1.00, pnl:0.85, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Los Angeles Dodgers – Boston Red Sox", pick:"Boston Red Sox @ 2.53", cote:2.53, r:"G", mise:1.50, pnl:2.29, type:"value", sport:"baseball"},
-  {flag:"🎾", match:"Linda Fruhvirtova – Katarzyna Kawa", pick:"Victoire Katarzyna Kawa", cote:1.54, r:"G", mise:1.00, pnl:0.54, type:"conseil", sport:"tennis"},
-  {flag:"🎾", match:"Martyna Kubka – Teodora Kostovic", pick:"Total sets — Plus de 2.5 @ 2.63", cote:2.63, r:"G", mise:1.50, pnl:2.44, type:"value", sport:"tennis"},
-  {flag:"🏀", match:"Atlanta Dream – Las Vegas Aces", pick:"Naz Hillmon — Points Plus de 7.5", cote:2.05, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"New York Liberty – Seattle Storm", pick:"Rebecca Allen — Points Moins de 6.5", cote:1.85, r:"G", mise:1.00, pnl:0.85, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Philadelphia Phillies – Washington Nationals", pick:"Washington Nationals @ 2.36", cote:2.36, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Milwaukee Brewers – Pittsburgh Pirates", pick:"Pittsburgh Pirates @ 2.37", cote:2.37, r:"G", mise:1.50, pnl:2.06, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Milwaukee Brewers – Pittsburgh Pirates", pick:"Jake Mangum — Coups sûrs Plus de 1.5", cote:2.97, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Texas Rangers – San Francisco Giants", pick:"San Francisco Giants @ 2.2", cote:2.20, r:"G", mise:1.50, pnl:1.80, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Chicago Cubs – Los Angeles Dodgers", pick:"Los Angeles Dodgers @ 1.8333", cote:1.83, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Houston Astros – Toronto Blue Jays", pick:"Houston Astros @ 1.7407", cote:1.74, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Chicago Sky – Phoenix Mercury", pick:"Sydney Taylor — Points Moins de 18.5", cote:1.91, r:"G", mise:1.00, pnl:0.91, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Colorado Rockies – Tampa Bay Rays", pick:"Colorado Rockies @ 2.58", cote:2.58, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Tampa Bay Rays", pick:"Cole Carrigg — Coups sûrs Plus de 1.5", cote:2.95, r:"G", mise:1.00, pnl:1.95, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Arizona Diamondbacks – San Diego Padres", pick:"San Diego Padres @ 2.0", cote:2.00, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Arizona Diamondbacks – San Diego Padres", pick:"Jackson Merrill — Coups sûrs Plus de 1.5", cote:2.95, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🎾", match:"Carol Young Suh Lee – Elsa Jacquemot", pick:"Total sets — Plus de 2.5 @ 2.5", cote:2.50, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"tennis"},
-  {flag:"🎾", match:"Ella Seidel – Dalma Galfi", pick:"Total sets — Plus de 2.5 @ 2.36", cote:2.36, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"tennis"},
-  {flag:"⚾", match:"Baltimore Orioles – Los Angeles Angels", pick:"Los Angeles Angels @ 2.4", cote:2.40, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Philadelphia Phillies – Washington Nationals", pick:"Washington Nationals @ 3.91", cote:3.91, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Philadelphia Phillies – Washington Nationals", pick:"Trea Turner — Coups sûrs Plus de 1.5", cote:2.78, r:"G", mise:1.00, pnl:1.78, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Athletics", pick:"Athletics @ 2.21", cote:2.21, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Athletics", pick:"Jacob Wilson — Coups sûrs Plus de 1.5", cote:2.72, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🏀", match:"Chicago Sky – Connecticut Sun", pick:"Sydney Taylor — Points Moins de 18.5", cote:1.77, r:"G", mise:1.00, pnl:0.77, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"Toronto Tempo – Minnesota Lynx", pick:"Courtney Williams — Points Plus de 11.5", cote:1.85, r:"G", mise:1.00, pnl:0.85, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"New York Yankees – St. Louis Cardinals", pick:"St. Louis Cardinals @ 2.75", cote:2.75, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Atlanta Braves – Miami Marlins", pick:"Miami Marlins @ 2.37", cote:2.37, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Atlanta Braves – Miami Marlins", pick:"Drake Baldwin — Coups sûrs Plus de 1.5", cote:2.78, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Boston Red Sox – Chicago White Sox", pick:"Chicago White Sox @ 2.37", cote:2.37, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Boston Red Sox – Chicago White Sox", pick:"Ceddanne Rafaela — Coups sûrs Plus de 1.5", cote:2.85, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Kansas City Royals – Minnesota Twins", pick:"Minnesota Twins @ 1.7143", cote:1.71, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Kansas City Royals – Minnesota Twins", pick:"Bobby Witt Jr. — Coups sûrs Plus de 1.5", cote:2.80, r:"G", mise:1.00, pnl:1.80, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Texas Rangers – San Francisco Giants", pick:"San Francisco Giants @ 2.75", cote:2.75, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Las Vegas Aces – New York Liberty", pick:"Sabrina Ionescu — Points Moins de 18.5", cote:1.87, r:"G", mise:1.00, pnl:0.87, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"Golden State Valkyries – Toronto Tempo", pick:"Marina Mabrey — Points Plus de 16.5", cote:1.91, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Houston Astros – Toronto Blue Jays", pick:"Houston Astros -1,5 @ 1.9524", cote:1.95, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Texas Rangers – San Francisco Giants", pick:"Texas Rangers -1,5 @ 2.3", cote:2.30, r:"G", mise:1.50, pnl:1.95, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Chicago Cubs – Los Angeles Dodgers", pick:"Chicago Cubs -1,5 @ 2.65", cote:2.65, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Tampa Bay Rays", pick:"Colorado Rockies @ 2.44", cote:2.44, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Baltimore Orioles – Los Angeles Angels", pick:"Baltimore Orioles -1,5 @ 2.5", cote:2.50, r:"G", mise:1.50, pnl:2.25, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Athletics", pick:"Cincinnati Reds -1,5 @ 2.3", cote:2.30, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Atlanta Dream – Phoenix Mercury", pick:"Kelsey Plum — Points Plus de 15.5", cote:1.80, r:"G", mise:1.50, pnl:1.20, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Atlanta Braves – Miami Marlins", pick:"Miami Marlins +1,5 @ 1.5405", cote:1.54, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Boston Red Sox – Chicago White Sox", pick:"Chicago White Sox +1,5 @ 1.6061", cote:1.61, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Kansas City Royals – Minnesota Twins", pick:"Kansas City Royals -1,5 @ 2.7", cote:2.70, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cleveland Guardians – New York Mets", pick:"New York Mets @ 2.01", cote:2.01, r:"G", mise:1.00, pnl:1.01, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Kansas City Royals", pick:"TJ Rumfield — Coups sûrs Plus de 1.5", cote:2.85, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Milwaukee Brewers – Pittsburgh Pirates", pick:"Pittsburgh Pirates +1,5 @ 1.5128", cote:1.51, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Philadelphia Phillies – Washington Nationals", pick:"Washington Nationals +1,5 @ 1.8", cote:1.80, r:"G", mise:1.50, pnl:1.20, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Chicago Sky – Los Angeles Sparks", pick:"Natasha Cloud — Points Moins de 13.5", cote:1.93, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"New York Yankees – St. Louis Cardinals", pick:"St. Louis Cardinals +1,5 @ 1.6711", cote:1.67, r:"G", mise:1.50, pnl:1.01, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Seattle Mariners – Detroit Tigers", pick:"Detroit Tigers +1,5 @ 1.6061", cote:1.61, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Arizona Diamondbacks – San Diego Padres", pick:"San Diego Padres -1,5 @ 2.2", cote:2.20, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Chicago Sky – Las Vegas Aces", pick:"Sydney Taylor — Points Moins de 16.5", cote:1.92, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Cincinnati Reds – Athletics", pick:"Combiné : Athletics +1,5 @ 1.7143 + Plus de 9,5 @ 2.0", cote:3.43, r:"G", mise:1.00, pnl:2.43, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Baltimore Orioles – Los Angeles Angels", pick:"Combiné : Baltimore Orioles @ 1.5155 + Baltimore Orioles -1,5 @ 2.05 + Plus de 9,5 @ 1.8696", cote:5.81, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cleveland Guardians – New York Mets", pick:"Combiné : New York Mets @ 2.1 + New York Mets +1,5 @ 1.4762", cote:3.10, r:"G", mise:1.00, pnl:2.10, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Phoenix Mercury – New York Liberty", pick:"Rebecca Allen — Points Moins de 6.5", cote:1.74, r:"G", mise:1.00, pnl:0.74, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Milwaukee Brewers – Pittsburgh Pirates", pick:"Combiné : Plus de 7,5 @ 1.9524 + Pittsburgh Pirates @ 1.9091 (1ère manche)", cote:3.73, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Chicago Cubs – Toronto Blue Jays", pick:"Combiné : Moins de 7,5 @ 1.8333 + Toronto Blue Jays @ 1.8 (1ère manche)", cote:3.30, r:"G", mise:1.00, pnl:2.30, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Seattle Mariners – Detroit Tigers", pick:"Detroit Tigers @ 2.1 (1ère manche)", cote:2.10, r:"G", mise:1.50, pnl:1.65, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Boston Red Sox – Chicago White Sox", pick:"Chicago White Sox @ 2.5 (1ère manche)", cote:2.50, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Atlanta Braves – Miami Marlins", pick:"Miami Marlins @ 2.2 (1ère manche)", cote:2.20, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Philadelphia Phillies – Washington Nationals", pick:"Philadelphia Phillies Plus de 5,5 @ 1.9615", cote:1.96, r:"G", mise:1.50, pnl:1.44, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Indiana Fever – Las Vegas Aces", pick:"Moins de 192,5 points @ 1.93", cote:1.93, r:"G", mise:1.50, pnl:1.40, type:"value", sport:"wnba"},
-  {flag:"⚾", match:"Colorado Rockies – Kansas City Royals", pick:"Hunter Goodman — Coups sûrs Plus de 1.5", cote:2.90, r:"G", mise:1.00, pnl:1.90, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Kansas City Royals – Minnesota Twins", pick:"Plus de 8,5 runs @ 1.8333", cote:1.83, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Minnesota Lynx – Los Angeles Sparks", pick:"Los Angeles Sparks +16,5 @ 1.96", cote:1.96, r:"G", mise:1.50, pnl:1.44, type:"value", sport:"wnba"},
-  {flag:"🏀", match:"Minnesota Lynx – Los Angeles Sparks", pick:"Natasha Howard — Points Plus de 12.5", cote:1.99, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-];
-
-/* Bilan EN COURS jour / semaine / mois (date de reglement, pas de
-   publication) -- regenere par scripts/export_site_results.py. */
-let PERIOD_STATS = {jour:{n:8, g:4, p:4, r:0, winrate:50, pnl:0.43}, semaine:{n:64, g:24, p:40, r:0, winrate:38, pnl:-10.35}, mois:{n:120, g:43, p:77, r:0, winrate:36, pnl:-30.10}, annee:{n:971, g:476, p:490, r:5, winrate:49, pnl:-83.13}};
-
-/* Courbe cumulee par periode (jour=heures, semaine=jours, mois=jours du
-   mois, annee=mois) -- regenere par scripts/export_site_results.py. */
-let PERIOD_SERIES = {jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:-1.35}, {label:"02h", pnl:0.09}, {label:"03h", pnl:1.49}, {label:"04h", pnl:-0.01}, {label:"05h", pnl:0.43}], semaine:[{label:"Lun", pnl:6.13}, {label:"Mar", pnl:2.19}, {label:"Mer", pnl:-11.28}, {label:"Jeu", pnl:-10.78}, {label:"Ven", pnl:-10.35}], mois:[{label:"1", pnl:-12.89}, {label:"2", pnl:-19.75}, {label:"3", pnl:-13.62}, {label:"4", pnl:-17.55}, {label:"5", pnl:-31.02}, {label:"6", pnl:-30.53}, {label:"7", pnl:-30.10}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.71}, {label:"Jul", pnl:-53.03}, {label:"Aoû", pnl:-83.13}], now_frac:{jour:0.240787, semaine:0.605827, mois:0.201316, annee:0.59792}, total_buckets:{jour:24, semaine:7, mois:31, annee:12}, by_sport:{"wnba":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:1.40}, {label:"04h", pnl:1.40}, {label:"05h", pnl:1.83}], semaine:[{label:"Lun", pnl:0.85}, {label:"Mar", pnl:1.61}, {label:"Mer", pnl:0.61}, {label:"Jeu", pnl:-0.19}, {label:"Ven", pnl:1.64}], mois:[{label:"1", pnl:-0.26}, {label:"2", pnl:1.65}, {label:"3", pnl:2.50}, {label:"4", pnl:3.26}, {label:"5", pnl:2.26}, {label:"6", pnl:1.46}, {label:"7", pnl:3.29}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:0.00}, {label:"Jul", pnl:-2.98}, {label:"Aoû", pnl:0.32}]}, "baseball":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:-1.35}, {label:"02h", pnl:0.09}, {label:"03h", pnl:0.09}, {label:"04h", pnl:-1.41}, {label:"05h", pnl:-1.41}], semaine:[{label:"Lun", pnl:2.29}, {label:"Mar", pnl:0.10}, {label:"Mer", pnl:-12.37}, {label:"Jeu", pnl:-11.07}, {label:"Ven", pnl:-12.48}], mois:[{label:"1", pnl:-5.22}, {label:"2", pnl:-13.10}, {label:"3", pnl:-10.80}, {label:"4", pnl:-13.00}, {label:"5", pnl:-25.47}, {label:"6", pnl:-24.17}, {label:"7", pnl:-25.58}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:0.00}, {label:"Jul", pnl:-32.33}, {label:"Aoû", pnl:-57.90}]}, "tennis":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:0.00}, {label:"04h", pnl:0.00}, {label:"05h", pnl:0.00}], semaine:[{label:"Lun", pnl:2.98}, {label:"Mar", pnl:0.48}, {label:"Mer", pnl:0.48}, {label:"Jeu", pnl:0.48}, {label:"Ven", pnl:0.48}], mois:[{label:"1", pnl:-7.41}, {label:"2", pnl:-8.30}, {label:"3", pnl:-5.32}, {label:"4", pnl:-7.82}, {label:"5", pnl:-7.82}, {label:"6", pnl:-7.82}, {label:"7", pnl:-7.82}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:-0.01}, {label:"Jul", pnl:-0.03}, {label:"Aoû", pnl:-7.85}]}, "football":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:0.00}, {label:"04h", pnl:0.00}, {label:"05h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Mer", pnl:0.00}, {label:"Jeu", pnl:0.00}, {label:"Ven", pnl:0.00}], mois:[{label:"1", pnl:0.00}, {label:"2", pnl:0.00}, {label:"3", pnl:0.00}, {label:"4", pnl:0.00}, {label:"5", pnl:0.00}, {label:"6", pnl:0.00}, {label:"7", pnl:0.00}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.73}, {label:"Jul", pnl:-17.69}, {label:"Aoû", pnl:-17.69}]}, "nhl":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:0.00}, {label:"04h", pnl:0.00}, {label:"05h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Mer", pnl:0.00}, {label:"Jeu", pnl:0.00}, {label:"Ven", pnl:0.00}], mois:[{label:"1", pnl:0.00}, {label:"2", pnl:0.00}, {label:"3", pnl:0.00}, {label:"4", pnl:0.00}, {label:"5", pnl:0.00}, {label:"6", pnl:0.00}, {label:"7", pnl:0.00}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:-0.00}, {label:"Jul", pnl:-0.00}, {label:"Aoû", pnl:-0.00}]}}};
-
-/* Performance publique (ROI global depuis le lancement, sports, marche x
-   tranche de cote avec zones bloquees, highlights du mois, picks modele)
-   -- regenere par scripts/export_site_results.py. */
-
-// API live (05/08/2026, chantier "site plus rapide", demande explicite) :
-// lit directement le bot sur Railway au lieu d'attendre le cycle
-// regeneration + push GitHub + propagation CDN Pages de cette page HTML.
-// Repli silencieux sur les valeurs figees ci-dessus (deja rendues au
-// premier paint) si l'API ne repond pas -- le process Railway redemarre a
-// chaque deploiement de code (~2 min d'indisponibilite), jamais d'ecran
-// d'erreur pour un simple redemarrage, on garde juste les dernieres
-// donnees connues.
-const LIVE_API_BASE = 'https://sports-bot-pro-production.up.railway.app';
-
-async function loadResultsLive(){
-  try{
-    const res = await fetch(LIVE_API_BASE + '/api/results', {cache: 'no-store'});
-    if (!res.ok) return;
-    const data = await res.json();
-    if (!data || !data.results) return;
-    RESULTATS = data.results;
-    PERIOD_STATS = data.period_stats;
-    PERIOD_SERIES = data.period_series;
-    PERF_STATS = data.perf_stats;
-    // Ne rappelle jamais setupSportFilter()/setupTypeFilter()/
-    // setupPeriodSportFilter() ici (creation ponctuelle des boutons de
-    // filtre + listeners, un 2e appel les dupliquerait) -- seulement les
-    // fonctions de rendu, qui relisent les variables ci-dessus a chaque
-    // appel et respectent l'etat de filtre/mode deja choisi par le visiteur.
-    drawChart();
-    renderPeriodStats();
-    drawPeriodChart();
-    renderPerfStats();
-    renderChips();
-    updateVoirPlusButton();
-  }catch(e){
-    // Silencieux (05/08/2026) : rafraichissement en arriere-plan, jamais
-    // d'erreur visible pour un simple manque de reseau/redemarrage bot.
-  }
-}
-
-let PERF_STATS = {"global": {"n": 971, "w": 476, "l": 490, "winrate": 49, "roi": -7.9, "pnl": -83.13, "since": "2026-06-06"}, "sports": [{"sport": "football", "n": 505, "w": 279, "l": 226, "winrate": 55, "roi": -3.2, "pnl": -17.69}, {"sport": "baseball", "n": 265, "w": 102, "l": 163, "winrate": 38, "roi": -19.5, "pnl": -57.9}, {"sport": "tennis", "n": 170, "w": 79, "l": 86, "winrate": 48, "roi": -4.3, "pnl": -7.84}, {"sport": "wnba", "n": 29, "w": 15, "l": 14, "winrate": 52, "roi": 1.0, "pnl": 0.32}, {"sport": "nhl", "n": 2, "w": 1, "l": 1, "winrate": 50, "roi": -38.5, "pnl": -0.0}], "markets": [{"market": "Double chance", "band": "1.50-1.70", "n": 110, "winrate": 60, "pnl": -12.48, "blocked": true}, {"market": "Buts (over/under)", "band": "2.50-3.00", "n": 84, "winrate": 24, "pnl": -28.45, "blocked": false}, {"market": "Vainqueur", "band": "1.50-1.70", "n": 80, "winrate": 62, "pnl": 5.76, "blocked": false}, {"market": "Double chance", "band": "1.70-2.00", "n": 78, "winrate": 44, "pnl": -28.27, "blocked": true}, {"market": "Vainqueur", "band": "1.70-2.00", "n": 77, "winrate": 57, "pnl": 11.08, "blocked": false}, {"market": "Vainqueur", "band": "2.00-2.50", "n": 75, "winrate": 41, "pnl": -11.66, "blocked": false}, {"market": "Double chance", "band": "< 1.50", "n": 69, "winrate": 78, "pnl": 0.88, "blocked": false}, {"market": "Vainqueur", "band": "< 1.50", "n": 44, "winrate": 61, "pnl": -4.5, "blocked": false}, {"market": "Double chance", "band": "2.00-2.50", "n": 44, "winrate": 52, "pnl": 2.95, "blocked": false}, {"market": "Buts (over/under)", "band": "2.00-2.50", "n": 33, "winrate": 27, "pnl": -13.45, "blocked": false}, {"market": "Pronostic joueur", "band": "2.00-2.50", "n": 33, "winrate": 39, "pnl": -1.8, "blocked": false}, {"market": "Vainqueur", "band": "2.50-3.00", "n": 32, "winrate": 47, "pnl": 10.13, "blocked": false}, {"market": "Double chance", "band": "2.50-3.00", "n": 26, "winrate": 38, "pnl": -4.69, "blocked": true}, {"market": "Buts (over/under)", "band": "< 1.50", "n": 23, "winrate": 78, "pnl": 1.75, "blocked": false}, {"market": "Pronostic joueur", "band": "2.50-3.00", "n": 22, "winrate": 64, "pnl": 15.76, "blocked": false}, {"market": "Buts (over/under)", "band": "1.70-2.00", "n": 21, "winrate": 62, "pnl": 3.33, "blocked": false}, {"market": "Pronostic joueur", "band": "1.50-1.70", "n": 20, "winrate": 50, "pnl": -4.87, "blocked": false}, {"market": "Vainqueur", "band": "4.00+", "n": 16, "winrate": 0, "pnl": -8.04, "blocked": true}, {"market": "Double chance", "band": "3.00-4.00", "n": 10, "winrate": 40, "pnl": -1.92, "blocked": true}, {"market": "Vainqueur", "band": "3.00-4.00", "n": 9, "winrate": 33, "pnl": -2.43, "blocked": false}, {"market": "Pronostic joueur", "band": "< 1.50", "n": 9, "winrate": 67, "pnl": -1.41, "blocked": false}, {"market": "Pronostic joueur", "band": "3.00-4.00", "n": 8, "winrate": 12, "pnl": -4.8, "blocked": false}, {"market": "Buts (over/under)", "band": "3.00-4.00", "n": 5, "winrate": 0, "pnl": -0.03, "blocked": true}, {"market": "Buts (over/under)", "band": "4.00+", "n": 5, "winrate": 0, "pnl": -0.03, "blocked": true}, {"market": "Handicap", "band": "1.50-1.70", "n": 5, "winrate": 20, "pnl": -3.99, "blocked": false}, {"market": "Buts (over/under)", "band": "1.70-2.00", "n": 4, "winrate": 75, "pnl": -0.99, "blocked": false}, {"market": "Combiné", "band": "3.00-4.00", "n": 4, "winrate": 75, "pnl": 5.83, "blocked": false}, {"market": "Double chance", "band": "4.00+", "n": 3, "winrate": 0, "pnl": -3.0, "blocked": true}, {"market": "Handicap", "band": "1.70-2.00", "n": 3, "winrate": 67, "pnl": 1.14, "blocked": false}, {"market": "Handicap", "band": "2.50-3.00", "n": 3, "winrate": 33, "pnl": -0.25, "blocked": false}, {"market": "Handicap", "band": "2.00-2.50", "n": 3, "winrate": 33, "pnl": -0.55, "blocked": false}, {"market": "Buts (over/under)", "band": "1.50-1.70", "n": 2, "winrate": 50, "pnl": -0.12, "blocked": false}, {"market": "Vainqueur 1ère manche", "band": "2.00-2.50", "n": 2, "winrate": 50, "pnl": 0.15, "blocked": false}, {"market": "Total (over/under)", "band": "1.70-2.00", "n": 2, "winrate": 50, "pnl": -0.1, "blocked": false}, {"market": "Buts (over/under)", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -0.01, "blocked": false}, {"market": "Buts (over/under)", "band": "2.50-3.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Combiné", "band": "4.00+", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Total équipe", "band": "1.70-2.00", "n": 1, "winrate": 100, "pnl": 1.44, "blocked": false}, {"market": "Vainqueur 1ère manche", "band": "2.50-3.00", "n": 1, "winrate": 0, "pnl": -1.5, "blocked": false}, {"market": "Pronostic joueur", "band": "1.70-2.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Pronostic joueur", "band": "4.00+", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}], "blocked_bands": [{"market": "Double chance", "band": "1.50-2.00"}, {"market": "Double chance", "band": "2.50+"}, {"market": "Vainqueur", "band": "4.00+"}, {"market": "Buts (over/under)", "band": "3.00+"}, {"market": "Les deux marquent", "band": "1.50-3.00"}], "highlights": {"best": {"match": "Martyna Kubka – Teodora Kostovic", "pick": "Total sets Plus de 2.5", "cote": 2.63, "pnl": 2.44, "flag": "🎾", "league": "T-Mobile Polish Open"}, "worst": {"match": "Baltimore Orioles – Los Angeles Angels", "pick": "Victoire Los Angeles Angels", "cote": 2.4, "pnl": -1.5, "flag": "⚾", "league": "MLB"}, "top_league": {"league": "WNBA", "flag": "⚽", "pnl": 2.83, "n": 15}}, "percent_picks": {"n": 81, "winrate": 40}, "bankroll": {"initial": 10000, "current": -6625.83, "pnl": -16625.83, "pct": -166.26, "series": [{"date": "2026-06-06", "value": 9999.05}, {"date": "2026-06-07", "value": 9998.05}, {"date": "2026-06-19", "value": 9992.34}, {"date": "2026-06-20", "value": 9985.19}, {"date": "2026-06-21", "value": 9975.4}, {"date": "2026-06-22", "value": 10454.58}, {"date": "2026-06-23", "value": 9734.36}, {"date": "2026-06-24", "value": 9672.4}, {"date": "2026-06-25", "value": 10943.6}, {"date": "2026-06-26", "value": 11854.8}, {"date": "2026-06-27", "value": 12057.0}, {"date": "2026-06-28", "value": 12249.7}, {"date": "2026-06-29", "value": 11164.7}, {"date": "2026-06-30", "value": 11542.5}, {"date": "2026-07-01", "value": 9065.5}, {"date": "2026-07-02", "value": 7064.1}, {"date": "2026-07-03", "value": 8013.9}, {"date": "2026-07-04", "value": 5905.1}, {"date": "2026-07-05", "value": 4415.9}, {"date": "2026-07-06", "value": 5258.6}, {"date": "2026-07-07", "value": 5610.6}, {"date": "2026-07-08", "value": 5862.9}, {"date": "2026-07-09", "value": 5876.74}, {"date": "2026-07-10", "value": 5560.74}, {"date": "2026-07-11", "value": 4654.74}, {"date": "2026-07-12", "value": 5951.44}, {"date": "2026-07-13", "value": 6075.64}, {"date": "2026-07-15", "value": 6829.04}, {"date": "2026-07-17", "value": 6859.04}, {"date": "2026-07-18", "value": 6459.04}, {"date": "2026-07-19", "value": 2166.53}, {"date": "2026-07-20", "value": 3658.16}, {"date": "2026-07-21", "value": 2685.83}, {"date": "2026-07-22", "value": 2111.79}, {"date": "2026-07-23", "value": 1500.57}, {"date": "2026-07-24", "value": 2530.8}, {"date": "2026-07-25", "value": 651.52}, {"date": "2026-07-26", "value": -177.84}, {"date": "2026-07-27", "value": -528.84}, {"date": "2026-07-28", "value": -281.83}, {"date": "2026-07-29", "value": 15.87}, {"date": "2026-07-30", "value": -914.98}, {"date": "2026-07-31", "value": -606.06}, {"date": "2026-08-01", "value": -3183.4}, {"date": "2026-08-02", "value": -4555.32}, {"date": "2026-08-03", "value": -3329.32}, {"date": "2026-08-04", "value": -4116.32}, {"date": "2026-08-05", "value": -6810.32}, {"date": "2026-08-06", "value": -6711.28}, {"date": "2026-08-07", "value": -6625.83}]}};
-
-/* ── Courbe unités / € ── */
-const RES_LABEL = {G:"Gagné", P:"Perdu", R:"Remboursé"};
-let currentMode = "u"; // "u" = unités, "e" = euros
-
-// Flash directionnel sur mouvement (06/08/2026, demande explicite : "a
-// chaque mouvement dans les graphique une animation quand ca descend ou
-// baisse") -- compare le total au dernier rendu, declenche un flash vert
-// (hausse) ou rouge (baisse) uniquement si la valeur a reellement change
-// entre deux rafraichissements (jamais au tout premier rendu).
-let _lastChartTotal = null;
-let _lastPeriodTotal = null;
-let _lastBankrollTotal = null;
-
-// Genere une pluie de fleches (grandes/moyennes/petites) eparpillees dans
-// la zone du graphique -- partagee par les 3 courbes du site.
-function chartArrowsSvg(up, W, H, PAD){
-  const cls = up ? 'up' : 'down';
-  const glyph = up ? '▲' : '▼';
-  const sizes = [14, 14, 18, 18, 24, 24, 30, 34];
-  let out = '';
-  const count = 100;
-  for (let i = 0; i < count; i++){
-    const size = sizes[Math.floor(Math.random() * sizes.length)];
-    const x = PAD + Math.random() * (W - 2 * PAD);
-    const y = PAD + 20 + Math.random() * (H - 2 * PAD - 40);
-    const dur = (1.1 + Math.random() * 0.9).toFixed(2);
-    const delay = (Math.random() * 0.5).toFixed(2);
-    out += `<text class="chart-arrow ${cls}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" font-size="${size}" text-anchor="middle" style="animation-duration:${dur}s;animation-delay:${delay}s">${glyph}</text>`;
-  }
-  return out;
-}
-
-/* ── Filtre par sport (Résultats) ── */
-const SPORT_META = {
-  tennis:   {label:"Tennis",   flag:"🎾"},
-  mlb:      {label:"MLB",      flag:"⚾"},
-  baseball: {label:"MLB",      flag:"⚾"}, // PERIOD_SERIES.by_sport utilise "baseball" (cf export_site_results.py), pas "mlb"
-  wnba:     {label:"WNBA",     flag:"🏀"},
-  nba:      {label:"NBA",      flag:"🏀"},
-  nhl:      {label:"NHL",      flag:"🏒"},
-  nfl:      {label:"NFL",      flag:"🏈"},
-  football: {label:"Football", flag:"⚽"},
-};
-// paris.sport vaut "baseball" pour les paris reels mais "mlb" pour les
-// sport_player_picks, meme sport (cf betting_rules.py) -- normalise en "mlb"
-// partout cote affichage pour ne pas scinder le filtre en deux boutons.
-function normalizeSport(s){
-  s = (s || "").toLowerCase();
-  return s === "baseball" ? "mlb" : s;
-}
-// Repli sur le drapeau si le champ sport est absent (entrees generees avant
-// son ajout, 30/07/2026) -- ambigu seulement entre nba/wnba (meme drapeau
-// 🏀), sans impact tant que les deux ne sont pas actifs en meme temps.
-const FLAG_TO_SPORT = {"🎾":"tennis", "⚾":"mlb", "🏀":"wnba", "🏒":"nhl", "🏈":"nfl"};
-function resSport(res){
-  return normalizeSport(res.sport) || FLAG_TO_SPORT[res.flag] || "";
-}
-let currentSportFilter = "all";
-// Filtre type (05/08/2026, chantier "Resultats simplifie", demande
-// explicite integree du prototype) : Conseil/Value bet/Player pick,
-// independant du filtre sport -- les deux se combinent.
-let currentTypeFilter = "all";
-// Fenetre de visibilite (point 3 pagination, 30/07/2026) : RESULTATS charge
-// jusqu'a 80 matchs regles (cf N_MATCHES, export_site_results.py), mais
-// seuls les 20 derniers sont affiches par defaut -- "Voir plus" etend vers
-// l'arriere dans l'historique deja charge, sans nouvel appel serveur. Le
-// filtre sport s'applique D'ABORD sur tout l'historique charge, puis la
-// fenetre prend les N derniers de CE sous-ensemble (pas les N derniers
-// toutes sports confondus) -- coherent avec le texte "sur les N derniers
-// picks <sport>".
-const BASE_VISIBLE = 20, STEP_VISIBLE = 20;
-let visibleCount = BASE_VISIBLE;
-function baseFiltered(){
-  let list = RESULTATS;
-  if (currentSportFilter !== "all") list = list.filter(res => resSport(res) === currentSportFilter);
-  if (currentTypeFilter !== "all") list = list.filter(res => res.type === currentTypeFilter);
-  return list;
-}
-function filteredResultats(){
-  return baseFiltered().slice(-visibleCount);
-}
-function updateVoirPlusButton(){
-  const btn = document.getElementById('voirPlusBtn');
-  if (!btn) return;
-  const total = baseFiltered().length;
-  if (visibleCount >= total) {
-    btn.style.display = 'none';
-  } else {
-    btn.style.display = '';
-    btn.textContent = `Voir plus (+${Math.min(STEP_VISIBLE, total - visibleCount)})`;
-  }
-}
-function setupSportFilter(){
-  const bar = document.getElementById('sportFilter');
-  if (!bar) return;
-  const sports = [...new Set(RESULTATS.map(resSport).filter(Boolean))];
-  sports.forEach(s=>{
-    const meta = SPORT_META[s] || {label:s, flag:''};
-    const btn = document.createElement('button');
-    btn.dataset.sport = s;
-    btn.textContent = `${meta.flag} ${meta.label}`.trim();
-    bar.appendChild(btn);
-  });
-  bar.addEventListener('click', e=>{
-    const btn = e.target.closest('button[data-sport]');
-    if (!btn) return;
-    currentSportFilter = btn.dataset.sport;
-    visibleCount = BASE_VISIBLE;
-    bar.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b === btn));
-    drawChart();
-    renderChips();
-    updateVoirPlusButton();
-  });
-  document.getElementById('voirPlusBtn')?.addEventListener('click', ()=>{
-    visibleCount += STEP_VISIBLE;
-    drawChart();
-    animateChartLine();
-    renderChips();
-    updateVoirPlusButton();
-  });
-}
-
-/* Filtre type (05/08/2026) : meme mecanique que setupSportFilter(), boutons
-   deja presents en HTML (contrairement au sport, pas besoin de generation
-   dynamique -- 3 types fixes, toujours les memes). */
-function setupTypeFilter(){
-  const bar = document.getElementById('typeFilter');
-  if (!bar) return;
-  bar.addEventListener('click', e=>{
-    const btn = e.target.closest('button[data-type]');
-    if (!btn) return;
-    currentTypeFilter = btn.dataset.type;
-    visibleCount = BASE_VISIBLE;
-    bar.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b === btn));
-    drawChart();
-    renderChips();
-    updateVoirPlusButton();
-  });
-}
-
-/* Filtre sport sur la courbe principale "Evolution du bilan" (05/08/2026,
-   demande explicite) : independant du filtre sport de "Courbe des derniers
-   picks" -- source de donnees differente (PERIOD_SERIES.by_sport, agrege
-   cote serveur, pas RESULTATS filtre cote client). */
-let currentPeriodSportFilter = "all";
-function setupPeriodSportFilter(){
-  const bar = document.getElementById('periodSportFilter');
-  if (!bar) return;
-  const sports = Object.keys(PERIOD_SERIES.by_sport || {});
-  sports.forEach(s=>{
-    const meta = SPORT_META[s] || {label:s, flag:''};
-    const btn = document.createElement('button');
-    btn.dataset.sport = s;
-    btn.textContent = `${meta.flag} ${meta.label}`.trim();
-    bar.appendChild(btn);
-  });
-  bar.addEventListener('click', e=>{
-    const btn = e.target.closest('button[data-sport]');
-    if (!btn) return;
-    currentPeriodSportFilter = btn.dataset.sport;
-    bar.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b === btn));
-    drawPeriodChart();
-    animatePeriodLine();
-  });
-}
-
-/* Gain reel d'un conseil, en unites -- utilise le pnl reel (mise variable
-   deja prise en compte) quand il est present ; repli sur l'ancien calcul a
-   mise fixe 1u seulement pour d'eventuelles anciennes entrees sans champ pnl. */
-function realGain(res){
-  if (typeof res.pnl === 'number') return res.pnl;
-  if (res.r === 'G') return res.cote - 1;
-  if (res.r === 'P') return -1;
-  return 0;
-}
-
-function computeSeries(){
-  let units = 0;
-  const pts = [{y:0}];
-  filteredResultats().forEach(res=>{
-    units += realGain(res);
-    pts.push({y:units});
-  });
-  return {pts, total: units};
-}
-
-// Geometrie du dernier drawChart(), reutilisee par highlightBkPoint()/
-// clearBkHighlight() (survol de la liste "Derniers picks") pour placer le
-// marqueur exactement sur la courbe sans redupliquer le calcul d'echelle.
-let _bkChartGeom = null;
-
-function drawChart(){
-  const svg = document.getElementById('bkChart');
-  const W = 800, H = 300, PAD = 34;
-  const {pts, total} = computeSeries();
-  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
-  const ys = pts.map(p=>p.y*factor);
-  const yMin = Math.min(...ys, 0), yMax = Math.max(...ys, factor*0.5);
-  const xs = i => PAD + (i/(pts.length-1))*(W-2*PAD);
-  const ysc = v => H-PAD - ((v-yMin)/(yMax-yMin || 1))*(H-2*PAD);
-  _bkChartGeom = {xs, ysc, ys};
-
-  const line = ys.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
-  const area = line + ` L${xs(ys.length-1).toFixed(1)},${H-PAD} L${PAD},${H-PAD} Z`;
-  const zeroY = ysc(0);
-  const up = total >= 0;
-  const col = up ? '#22c55e' : '#ef4444';
-  const unit = currentMode === "e" ? "€" : "u";
-
-  svg.innerHTML = `
-    <defs>
-      <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="${col}" stop-opacity=".28"/>
-        <stop offset="1" stop-color="${col}" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <line x1="${PAD}" y1="${zeroY}" x2="${W-PAD}" y2="${zeroY}" stroke="rgba(156,148,129,.3)" stroke-dasharray="5 6"/>
-    <text x="${W-PAD}" y="${zeroY-8}" fill="rgba(156,148,129,.7)" font-size="12" text-anchor="end" font-family="Inter">0 ${unit}</text>
-    <path d="${area}" fill="url(#ag)"/>
-    <path id="bkLine" d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle id="bkEndPoint" class="${_lastChartTotal !== null && total !== _lastChartTotal ? (total > _lastChartTotal ? 'flash-up' : 'flash-down') : ''}" cx="${xs(ys.length-1)}" cy="${ysc(ys[ys.length-1])}" r="6" fill="${col}">
-      <animate attributeName="r" values="5;8;5" dur="1.8s" repeatCount="indefinite"/>
-    </circle>
-    ${_lastChartTotal !== null && total !== _lastChartTotal ? chartArrowsSvg(total > _lastChartTotal, W, H, PAD) : ''}
-  `;
-
-  const d = document.getElementById('chartDelta');
-  const moved = _lastChartTotal !== null && total !== _lastChartTotal;
-  const movedUp = moved && total > _lastChartTotal;
-  d.classList.remove('up','down','flash-up','flash-down');
-  void d.offsetWidth; // force reflow -- rejoue l'animation meme si la classe etait deja presente juste avant
-  d.classList.add(up ? 'up' : 'down');
-  if (moved) d.classList.add(movedUp ? 'flash-up' : 'flash-down');
-  _lastChartTotal = total;
-  const totalDisplay = currentMode === "e"
-    ? `${up?'+':''}${(total*MISE_PAR_UNITE).toFixed(0)} €`
-    : `${up?'+':''}${total.toFixed(2)} u`;
-  const n = filteredResultats().length;
-  const scope = currentSportFilter === "all" ? "derniers picks" : `derniers picks ${SPORT_META[currentSportFilter]?.label || currentSportFilter}`;
-  d.innerHTML = `${totalDisplay} <small>sur les ${n} ${scope} (conseil/value/player pick) · 1 u = ${MISE_PAR_UNITE} €</small>`;
-}
-
-function animateChartLine(){
-  const path = document.querySelector('#bkLine');
-  if(!path) return;
-  const len = path.getTotalLength();
-  path.style.strokeDasharray = len;
-  path.style.strokeDashoffset = len;
-  requestAnimationFrame(()=>{
-    path.style.transition = 'stroke-dashoffset 2s ease';
-    path.style.strokeDashoffset = '0';
-  });
-}
-
-/* Survol d'un chip "Derniers picks" -> marqueur sur le point correspondant
-   de la courbe (05/08/2026). idx = position du pick dans filteredResultats()
-   (ordre chronologique) ; le point de la courbe qui lui correspond est
-   idx+1 (pts[0] = origine a 0). */
-function highlightBkPoint(idx){
-  const svg = document.getElementById('bkChart');
-  if (!svg || !_bkChartGeom) return;
-  const {xs, ysc, ys} = _bkChartGeom;
-  const i = idx + 1;
-  if (i < 0 || i >= ys.length) return;
-  clearBkHighlight();
-  const marker = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  marker.setAttribute('id', 'bkHoverMarker');
-  marker.setAttribute('cx', xs(i));
-  marker.setAttribute('cy', ysc(ys[i]));
-  marker.setAttribute('r', '7');
-  marker.setAttribute('fill', '#fff');
-  marker.setAttribute('stroke', 'var(--gold-2)');
-  marker.setAttribute('stroke-width', '3');
-  svg.appendChild(marker);
-}
-function clearBkHighlight(){
-  document.getElementById('bkHoverMarker')?.remove();
-}
-
-/* ── Bilan jour / semaine / mois ── */
-const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci", annee:"Cette année"};
-
-function renderPeriodStats(){
-  const grid = document.getElementById('periodGrid');
-  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
-  const unit = currentMode === "e" ? "€" : "u";
-  grid.classList.add('has-5');
-  const cards = Object.keys(PERIOD_LABELS).map(key=>{
-    const s = PERIOD_STATS[key] || {n:0,g:0,p:0,r:0,winrate:0,pnl:0};
-    const val = s.pnl * factor;
-    const cls = s.n === 0 ? 'flat' : (val > 0 ? 'up' : val < 0 ? 'down' : 'flat');
-    const pnlDisplay = s.n === 0
-      ? '—'
-      : `${val > 0 ? '+' : ''}${currentMode === "e" ? val.toFixed(0) : val.toFixed(2)} ${unit}`;
-    const sub = s.n === 0
-      ? 'Aucun conseil réglé pour l’instant'
-      : `${s.n} réglés · ${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''} · ${s.winrate}% de réussite`;
-    return `
-      <div class="period-card">
-        <div class="period-label">${PERIOD_LABELS[key]}</div>
-        <div class="period-pnl ${cls}">${pnlDisplay}</div>
-        <div class="period-sub">${sub}</div>
-      </div>`;
-  });
-  const g = PERF_STATS.global || {n:0,w:0,l:0,winrate:0,roi:0,pnl:0,since:null};
-  const gVal = g.pnl * factor;
-  const gCls = g.n === 0 ? 'flat' : (gVal > 0 ? 'up' : gVal < 0 ? 'down' : 'flat');
-  const gPnlDisplay = g.n === 0
-    ? '—'
-    : `${gVal > 0 ? '+' : ''}${currentMode === "e" ? gVal.toFixed(0) : gVal.toFixed(2)} ${unit}`;
-  const sinceStr = g.since ? new Date(g.since).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'}) : '';
-  const gSub = g.n === 0
-    ? 'Aucun conseil réglé pour l’instant'
-    : `${g.n} réglés · ${g.w}G ${g.l}P · ${g.winrate}% de réussite${sinceStr ? ' · depuis le ' + sinceStr : ''}`;
-  cards.push(`
-      <div class="period-card">
-        <div class="period-label">Historique complet</div>
-        <div class="period-pnl ${gCls}">${gPnlDisplay}</div>
-        <div class="period-sub">${gSub}</div>
-      </div>`);
-  grid.innerHTML = cards.join('');
-}
-
-/* ── Graphique jour / semaine / mois / année ── */
-let currentPeriod = "jour";
-
-function drawPeriodChart(){
-  const svg = document.getElementById('periodChart');
-  // Filtre sport (05/08/2026) : PERIOD_SERIES.by_sport[sport] a la MEME
-  // forme (jour/semaine/mois/annee) que la racine "tous sports" -- now_frac/
-  // total_buckets restent lus sur la racine (axe temporel identique, pas
-  // sport-specifique).
-  const sportSeries = currentPeriodSportFilter === "all"
-    ? PERIOD_SERIES
-    : (PERIOD_SERIES.by_sport || {})[currentPeriodSportFilter] || {};
-  const series = sportSeries[currentPeriod] || [];
-  const d = document.getElementById('periodChartDelta');
-  if (!series.length){
-    svg.innerHTML = '';
-    d.textContent = '—';
-    return;
-  }
-  // Axe FIXE (30/07/2026, audit demande explicite) : totalBuckets = taille
-  // complete de l'axe (24/7/N/12), independante du nombre de points reels
-  // (series peut s'arreter avant, cf export_site_results.py::fetch_period_series
-  // qui ne genere plus les buckets futurs). nowFrac = fraction exacte
-  // (Europe/Paris) de la periode ecoulee jusqu'a maintenant.
-  const totalBuckets = (PERIOD_SERIES.total_buckets || {})[currentPeriod] || series.length;
-  const nowFrac = (PERIOD_SERIES.now_frac || {})[currentPeriod];
-  const W = 800, H = 260, PAD_L = 56, PAD_R = 16, PAD_T = 16, PAD_B = 32;
-  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
-  const unit = currentMode === "e" ? "€" : "u";
-  const vals = series.map(p => p.pnl * factor);
-  const n = vals.length;
-  const yMin = Math.min(...vals, 0), yMax = Math.max(...vals, factor*0.5);
-  // Chaque point de donnee occupe sa graduation fixe (i/totalBuckets), SAUF
-  // le tout dernier (bucket en cours, pas encore termine) : positionne a
-  // nowFrac exact plutot qu'a la graduation la plus proche -- la ligne
-  // s'arrete donc pile a l'instant present, jamais au-dela.
-  const xs = i => {
-    const frac = (i === n-1 && nowFrac != null) ? nowFrac : i/totalBuckets;
-    return PAD_L + frac*(W-PAD_L-PAD_R);
-  };
-  const ysc = v => H-PAD_B - ((v-yMin)/(yMax-yMin || 1))*(H-PAD_T-PAD_B);
-
-  const line = vals.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
-  const area = line + ` L${xs(n-1).toFixed(1)},${H-PAD_B} L${xs(0).toFixed(1)},${H-PAD_B} Z`;
-  const last = vals[n-1];
-  const up = last >= 0;
-  const col = up ? '#22c55e' : '#ef4444';
-
-  const steps = 4;
-  let gridSvg = '';
-  for(let s=0; s<=steps; s++){
-    const v = yMin + (yMax-yMin)*s/steps;
-    const y = ysc(v);
-    const label = `${v>=0?'+':''}${currentMode==="e"?Math.round(v):v.toFixed(1)} ${unit}`;
-    gridSvg += `<line x1="${PAD_L}" y1="${y.toFixed(1)}" x2="${W-PAD_R}" y2="${y.toFixed(1)}" stroke="rgba(156,148,129,.15)" stroke-dasharray="4 5"/>
-      <text x="${PAD_L-8}" y="${(y+4).toFixed(1)}" fill="rgba(156,148,129,.75)" font-size="11" text-anchor="end" font-family="Inter">${label}</text>`;
-  }
-
-  // Labels d'axe X TOUJOURS complets (00h..23h / Lun..Dim / 1..N / Jan..Déc),
-  // independants du nombre de points reellement traces -- l'axe reste fixe
-  // meme quand la courbe s'arrete avant la fin (ex: jour en cours).
-  const AXIS_LABELS = {
-    jour: Array.from({length:24}, (_,h)=>`${String(h).padStart(2,'0')}h`),
-    semaine: ["Lun","Mar","Mer","Jeu","Ven","Sam","Dim"],
-    mois: Array.from({length:totalBuckets}, (_,i)=>String(i+1)),
-    annee: ["Jan","Fév","Mar","Avr","Mai","Jun","Jul","Aoû","Sep","Oct","Nov","Déc"],
-  };
-  const axisLabels = AXIS_LABELS[currentPeriod] || series.map(p=>p.label);
-  const maxLabels = 12;
-  const strideX = Math.max(1, Math.ceil(totalBuckets/maxLabels));
-  let xLabelsSvg = '';
-  axisLabels.forEach((label,i)=>{
-    if(i % strideX !== 0 && i !== totalBuckets-1) return;
-    const x = PAD_L + (i/totalBuckets)*(W-PAD_L-PAD_R);
-    xLabelsSvg += `<text x="${x.toFixed(1)}" y="${H-8}" fill="rgba(156,148,129,.75)" font-size="11" text-anchor="middle" font-family="Inter">${label}</text>`;
-  });
-
-  svg.innerHTML = `
-    <defs>
-      <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="${col}" stop-opacity=".28"/>
-        <stop offset="1" stop-color="${col}" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    ${gridSvg}
-    <path d="${area}" fill="url(#pg)"/>
-    <path id="periodLine" d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="${xs(n-1).toFixed(1)}" cy="${ysc(last).toFixed(1)}" r="5" fill="${col}"/>
-    ${xLabelsSvg}
-    ${_lastPeriodTotal !== null && last !== _lastPeriodTotal ? chartArrowsSvg(last > _lastPeriodTotal, W, H, PAD_T) : ''}
-  `;
-
-  d.classList.remove('up','down');
-  d.classList.add(up ? 'up' : 'down');
-  const lastDisplay = currentMode === "e" ? `${up?'+':''}${last.toFixed(0)} €` : `${up?'+':''}${last.toFixed(2)} u`;
-  d.innerHTML = `${lastDisplay} <small>${PERIOD_LABELS[currentPeriod] || ''}</small>`;
-  _lastPeriodTotal = last;
-}
-
-function animatePeriodLine(){
-  const path = document.querySelector('#periodLine');
-  if(!path) return;
-  const len = path.getTotalLength();
-  path.style.strokeDasharray = len;
-  path.style.strokeDashoffset = len;
-  requestAnimationFrame(()=>{
-    path.style.transition = 'stroke-dashoffset 1.4s ease';
-    path.style.strokeDashoffset = '0';
-  });
-}
-
-document.querySelectorAll('#periodTabs button').forEach(btn=>{
-  btn.addEventListener('click', function(){
-    currentPeriod = this.dataset.period;
-    document.querySelectorAll('#periodTabs button').forEach(b=>b.classList.remove('active'));
-    this.classList.add('active');
-    drawPeriodChart(); animatePeriodLine();
-  });
-});
-
-/* ── Section Performance ── */
-const SPORT_FR = {football:"Football", baseball:"Baseball (MLB)", tennis:"Tennis", nhl:"Hockey (NHL)", basketball:"Basketball", nba:"Basketball (NBA)"};
-function sportLabel(sport){
-  return SPORT_FR[sport] || (sport ? sport.charAt(0).toUpperCase() + sport.slice(1) : sport);
-}
-
-function fmtPnl(u){
-  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
-  const v = u * factor;
-  const unit = currentMode === "e" ? "€" : "u";
-  return `${v > 0 ? '+' : ''}${currentMode === "e" ? v.toFixed(0) : v.toFixed(2)} ${unit}`;
-}
-
-function renderPerfStats(){
-  const P = PERF_STATS;
-  if (!P || !P.global) return;
-
-  const grid = document.getElementById('perfGlobalGrid');
-  const g = P.global;
-  const sinceTxt = g.since ? new Date(g.since).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'}) : '';
-  const pp = P.percent_picks || {n:0, winrate:0};
-  grid.innerHTML = `
-    <div class="period-card">
-      <div class="period-label">Depuis le lancement${sinceTxt ? ' · ' + sinceTxt : ''}</div>
-      <div class="period-pnl ${g.pnl > 0 ? 'up' : g.pnl < 0 ? 'down' : 'flat'}">${fmtPnl(g.pnl)}</div>
-      <div class="period-sub">ROI ${g.roi > 0 ? '+' : ''}${g.roi}% sur l'ensemble des mises</div>
-    </div>
-    <div class="period-card">
-      <div class="period-label">Picks réglés</div>
-      <div class="period-pnl flat" style="color:var(--text)">${g.n}</div>
-      <div class="period-sub">${g.w}G ${g.l}P · ${g.winrate}% de réussite</div>
-    </div>
-    <div class="period-card">
-      <div class="period-label">Picks joueurs (modèle %)</div>
-      <div class="period-pnl flat" style="color:var(--text)">${pp.n ? pp.winrate + '%' : '—'}</div>
-      <div class="period-sub">${pp.n ? pp.n + ' picks réglés sans cote marché — jamais comptés dans le bilan en argent' : 'Aucun pick réglé'}</div>
-    </div>`;
-
-  // Performance par sport (05/08/2026) : vue autonome (cartes dediees, pas
-  // une simple liste inline dans une carte generique) -- une carte par
-  // sport avec drapeau/label, PnL et ROI.
-  const sportsGrid = document.getElementById('perfSportsGrid');
-  sportsGrid.innerHTML = (P.sports || []).map(s => `
-    <div class="period-card">
-      <div class="period-label">${sportLabel(s.sport)}</div>
-      <div class="period-pnl ${s.pnl > 0 ? 'up' : s.pnl < 0 ? 'down' : 'flat'}">${fmtPnl(s.pnl)}</div>
-      <div class="period-sub">${s.n} réglés · ${s.w}G ${s.l}P · ${s.winrate}% · ROI ${s.roi > 0 ? '+' : ''}${s.roi}%</div>
-    </div>`).join('') || '<div class="period-sub">—</div>';
-
-  const hl = P.highlights || {};
-  const hlCards = [];
-  if (hl.best) hlCards.push(`
-    <div class="period-card">
-      <div class="period-label">Meilleur pick du mois</div>
-      <div class="period-pnl up">${fmtPnl(hl.best.pnl)}</div>
-      <div class="period-sub">${hl.best.flag} ${hl.best.match}<br>${hl.best.pick} @${hl.best.cote.toFixed(2)}</div>
-      <a class="highlight-link" href="publications.html">→ Voir sur Publications</a>
-    </div>`);
-  if (hl.worst) hlCards.push(`
-    <div class="period-card">
-      <div class="period-label">Pire perte du mois — assumée</div>
-      <div class="period-pnl down">${fmtPnl(hl.worst.pnl)}</div>
-      <div class="period-sub">${hl.worst.flag} ${hl.worst.match}<br>${hl.worst.pick} @${hl.worst.cote.toFixed(2)}</div>
-      <a class="highlight-link" href="publications.html">→ Voir sur Publications</a>
-    </div>`);
-  if (hl.top_league) hlCards.push(`
-    <div class="period-card">
-      <div class="period-label">Top ligue du mois</div>
-      <div class="period-pnl up">${fmtPnl(hl.top_league.pnl)}</div>
-      <div class="period-sub">${hl.top_league.flag} ${hl.top_league.league} · ${hl.top_league.n} picks</div>
-    </div>`);
-  document.getElementById('perfHighlights').innerHTML = hlCards.join('');
-
-  renderBankroll(P.bankroll);
-}
-
-/* ── Bankroll (points F/G) : valeur de départ + somme cumulée des PnL réels
-   réglés (paris.pnl), même principe de courbe que drawPeriodChart. ── */
-function renderBankroll(b){
-  const svg = document.getElementById('bankrollChart');
-  const note = document.getElementById('bankrollNote');
-  const delta = document.getElementById('bankrollDelta');
-  if (!b || !b.series || !b.series.length){
-    svg.innerHTML = '';
-    delta.textContent = '—';
-    note.textContent = '';
-    return;
-  }
-  const series = [{date: '', value: b.initial}, ...b.series];
-  const W = 800, H = 260, PAD_L = 64, PAD_R = 16, PAD_T = 16, PAD_B = 32;
-  const vals = series.map(p => p.value);
-  const n = vals.length;
-  const yMin = Math.min(...vals), yMax = Math.max(...vals, b.initial + 1);
-  const xs = i => n <= 1 ? PAD_L : PAD_L + (i/(n-1))*(W-PAD_L-PAD_R);
-  const ysc = v => H-PAD_B - ((v-yMin)/(yMax-yMin || 1))*(H-PAD_T-PAD_B);
-
-  const line = vals.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
-  const area = line + ` L${xs(n-1).toFixed(1)},${H-PAD_B} L${PAD_L},${H-PAD_B} Z`;
-  const initY = ysc(b.initial);
-  const up = b.pnl >= 0;
-  const col = up ? '#22c55e' : '#ef4444';
-
-  svg.innerHTML = `
-    <defs>
-      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="${col}" stop-opacity=".28"/>
-        <stop offset="1" stop-color="${col}" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <line x1="${PAD_L}" y1="${initY}" x2="${W-PAD_R}" y2="${initY}" stroke="rgba(156,148,129,.3)" stroke-dasharray="5 6"/>
-    <text x="${W-PAD_R}" y="${initY-8}" fill="rgba(156,148,129,.7)" font-size="12" text-anchor="end" font-family="Inter">${b.initial.toFixed(0)} € (départ)</text>
-    <path d="${area}" fill="url(#bg)"/>
-    <path d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="${xs(n-1)}" cy="${ysc(vals[n-1])}" r="6" fill="${col}"/>
-    ${_lastBankrollTotal !== null && b.current !== _lastBankrollTotal ? chartArrowsSvg(b.current > _lastBankrollTotal, W, H, PAD_T) : ''}
-  `;
-
-  delta.className = 'delta ' + (up ? 'up' : 'down');
-  delta.textContent = `${b.current.toFixed(0)} € (${up?'+':''}${b.pct}%)`;
-  note.textContent = `Départ : ${b.initial.toFixed(0)} € · PnL cumulé : ${up?'+':''}${b.pnl.toFixed(0)} €.`;
-  _lastBankrollTotal = b.current;
-}
-
-drawChart();
-renderPeriodStats();
-drawPeriodChart();
-renderPerfStats();
-new IntersectionObserver((e,o)=>{
-  if(e[0].isIntersecting){ animateChartLine(); o.disconnect(); }
-},{threshold:.3}).observe(document.getElementById('bkChart'));
-new IntersectionObserver((e,o)=>{
-  if(e[0].isIntersecting){ animatePeriodLine(); o.disconnect(); }
-},{threshold:.3}).observe(document.getElementById('periodChart'));
-
-/* Toggle unités/€ partagé : chaque graphique a le sien, tous restent
-   synchronisés (changer l'un change l'autre + les cartes de bilan). */
-function setMode(mode){
-  currentMode = mode;
-  document.querySelectorAll('.mode-toggle button').forEach(b=>{
-    b.classList.toggle('active', b.dataset.mode === mode);
-  });
-  drawChart(); animateChartLine(); renderPeriodStats(); drawPeriodChart(); renderPerfStats();
-}
-document.querySelectorAll('.mode-toggle button').forEach(btn=>{
-  btn.addEventListener('click', ()=>setMode(btn.dataset.mode));
-});
-
-/* ── Pastilles avec drapeau + tooltip du pronostic ── */
-const TYPE_META = {
-  conseil: {icon:'target',    label:'Conseil'},
-  value:   {icon:'trend-up',  label:'Value bet'},
-  player:  {icon:'ball',      label:'Player pick'},
-};
-let chipsRevealed = false;
-function renderChips(){
-  const row = document.getElementById('chipsRow');
-  row.querySelectorAll('.chip').forEach(c=>c.remove());
-  // Affiche du plus recent au plus ancien (30/07/2026, demande explicite :
-  // l'ordre visuel suivait l'ordre chronologique croissant de
-  // filteredResultats(), donc le pick le plus recent finissait tout en bas
-  // -- confus pour un visiteur qui s'attend au plus recent en premier).
-  // Copie inversee uniquement ici : filteredResultats() elle-meme doit
-  // rester chronologique croissante, utilisee aussi par computeSeries()
-  // pour le cumul du graphique de bankroll (bkChart).
-  const chron = filteredResultats();
-  [...chron].reverse().forEach((res, revIdx)=>{
-    const chronIdx = chron.length - 1 - revIdx;
-    const g = realGain(res);
-    const gain = `${g > 0 ? '+' : g < 0 ? '−' : '±'}${Math.abs(g).toFixed(2)} u`;
-    const mise = typeof res.mise === 'number' ? res.mise : 1;
-    const meta = TYPE_META[res.type] || TYPE_META.conseil;
-    const chip = document.createElement('span');
-    chip.className = `chip ${res.r.toLowerCase()}` + (chipsRevealed ? ' visible' : '');
-    chip.innerHTML = `
-      <span class="flag">${res.flag}</span>${res.r}
-      <span class="tip">
-        ${res.flag} <b>${res.match}</b><br>
-        <svg class="icon"><use href="#i-${meta.icon}"></use></svg> ${meta.label} : <b>${res.pick}</b> @${res.cote.toFixed(2)} · mise ${mise.toFixed(2)} u<br>
-        <span class="res-${res.r.toLowerCase()}">${RES_LABEL[res.r]} · ${gain}</span>
-      </span>`;
-    chip.addEventListener('mouseenter', ()=>highlightBkPoint(chronIdx));
-    chip.addEventListener('mouseleave', clearBkHighlight);
-    row.appendChild(chip);
-  });
-}
-renderChips();
-setupSportFilter();
-setupTypeFilter();
-setupPeriodSportFilter();
-updateVoirPlusButton();
-loadResultsLive();
-setInterval(loadResultsLive, 20000); // 05/08/2026, chantier "site plus rapide"
-new IntersectionObserver((e,o)=>{
-  if(e[0].isIntersecting){
-    chipsRevealed = true;
-    document.getElementById('chipsRow').querySelectorAll('.chip').forEach((c,i)=>setTimeout(()=>c.classList.add('visible'), i*55));
-    o.disconnect();
-  }
-},{threshold:.3}).observe(document.getElementById('chipsRow'));
-
 /* ── Compteurs animés (stats) ── */
 function countUp(el){
   const target = parseInt(el.dataset.count,10);
@@ -1795,22 +911,6 @@ const io = new IntersectionObserver((entries)=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-/* ── Etat actif du menu : surligne la section visible (scroll-spy) ── */
-const navAnchors = document.querySelectorAll('.nav-links a[href^="#"], .mobile-nav a[href^="#"]');
-const navSections = Array.from(new Set(Array.from(navAnchors)
-  .map(a => a.getAttribute('href').slice(1))))
-  .map(id => document.getElementById(id))
-  .filter(Boolean);
-function setActiveNav(id){
-  navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-}
-const navSpy = new IntersectionObserver((entries)=>{
-  const visible = entries.filter(e => e.isIntersecting)
-    .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-  if (visible) setActiveNav(visible.target.id);
-},{threshold:[.2,.5], rootMargin:'-15% 0px -50% 0px'});
-navSections.forEach(s => navSpy.observe(s));
-
 /* ── Menu mobile (drawer) ── */
 (function(){
   const toggle = document.getElementById('menuToggle');
@@ -1832,6 +932,79 @@ navSections.forEach(s => navSpy.observe(s));
   backdrop.addEventListener('click', closeMenu);
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+
+/* ── Transition de page : logo qui tourne (07/08/2026, demande explicite)
+   -- au clic sur Publications/Résultats/Performance/FAQ, affiche le loader
+   plutot qu'un saut instantane ; si on ARRIVE sur la page avec un hash
+   dans l'URL (page ouverte directement sur une ancre), le
+   loader reste visible le temps de scroller jusqu'a la section. ── */
+(function(){
+  const loader = document.getElementById('pageLoader');
+  if (!loader) return;
+  const showLoader = () => loader.classList.remove('hide');
+  const hideLoader = () => loader.classList.add('hide');
+
+  window.addEventListener('load', () => {
+    const target = location.hash ? document.querySelector(location.hash) : null;
+    if (target){
+      setTimeout(() => {
+        target.scrollIntoView({block: 'start'});
+        setTimeout(hideLoader, 250);
+      }, 500);
+    } else {
+      setTimeout(hideLoader, 500);
+    }
+  });
+
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href || a.target === '_blank' || /^https?:\/\//i.test(href)) return;
+    const [path, hash] = href.split('#');
+    const currentFile = location.pathname.split('/').pop();
+    const samePage = !path || path === currentFile;
+    if (samePage && hash){
+      a.addEventListener('click', (e) => {
+        const dest = document.getElementById(hash);
+        if (!dest) return;
+        e.preventDefault();
+        showLoader();
+        setTimeout(() => {
+          dest.scrollIntoView({block: 'start'});
+          setTimeout(hideLoader, 250);
+        }, 350);
+      });
+    } else if (path && path.endsWith('.html') && !samePage){
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        showLoader();
+        setTimeout(() => { window.location.href = href; }, 350);
+      });
+    }
+  });
+})();
+
+/* ── Pop-up partenaire Winamax (07/08/2026, demande explicite) -- une
+   seule fois par session (sessionStorage), jamais reaffiche en boucle a
+   chaque page/rechargement. Laisse le temps a la transition du logo de
+   se terminer avant d'apparaitre. ── */
+(function(){
+  const overlay = document.getElementById('promoOverlay');
+  if (!overlay) return;
+  const closeBtn = document.getElementById('promoClose');
+  function closePromo(){
+    overlay.classList.remove('show');
+    sessionStorage.setItem('gbet_promo_seen', '1');
+  }
+  if (!sessionStorage.getItem('gbet_promo_seen')){
+    window.addEventListener('load', () => {
+      setTimeout(() => overlay.classList.add('show'), 1400);
+    });
+  }
+  closeBtn.addEventListener('click', closePromo);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePromo(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('show')) closePromo(); });
+  overlay.querySelector('.promo-cta')?.addEventListener('click', closePromo);
 })();
 const RESULTATS = [
   {flag:"⚾", match:"Los Angeles Angels – Milwaukee Brewers", pick:"Vainqueur — Milwaukee Brewers @ 1.625", cote:1.62, r:"G", mise:1.50, pnl:0.94, type:"value", sport:"baseball"},

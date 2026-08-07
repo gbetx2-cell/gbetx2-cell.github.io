@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1898b001-076e-4422-a322-25b16662f25b"></script>
+<title>Performance — G-BET Bot</title>
+<meta name="description" content="Réussite et bilan par marché et par tranche de cote, depuis le premier pari réglé — les zones perdantes bloquées restent affichées.">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706;
+  --bg-2:#0c0b09;
+  --card:#12110e;
+  --card-2:#1a1813;
+  --border:rgba(240,185,11,.14);
+  --border-strong:rgba(240,185,11,.32);
+  --text:#f2ede1;
+  --muted:#9c9481;
+  --gold:#f0b90b;
+  --gold-2:#f7ca3e;
+  --gold-dark:#b8860b;
+  --green:#22c55e;
+  --red:#ef4444;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.gold{color:var(--gold-2)}
+
+/* ── Header (avec le jeton qui tourne, en haut à gauche) ── */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(7,7,6,.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.5px}
+.logo .g{color:var(--gold-2)}
+.coin-sm-wrap{perspective:400px}
+.coin-sm{
+  width:42px;height:42px;position:relative;
+  transform-style:preserve-3d;
+  animation:coinspin 5s linear infinite;
+  /* Force sa propre couche de composition : evite le gel de l'animation 3D
+     observe sur Safari/WebKit mobile quand l'ancetre est en position:sticky
+     (le header l'est) -- bug WebKit connu, pas un souci de nos donnees. */
+  will-change:transform;
+  transform:translateZ(0);
+  -webkit-transform:translateZ(0);
+}
+.coin-sm .face{
+  position:absolute;inset:0;border-radius:50%;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;
+  border:2px solid var(--gold);
+  box-shadow:0 0 12px rgba(240,185,11,.4);
+}
+.coin-sm .face img{width:100%;height:100%;object-fit:cover;display:block}
+.coin-sm .face.back{transform:rotateY(180deg)}
+@keyframes coinspin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+.nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
+.nav-links a{position:relative;padding-bottom:4px;transition:color .15s}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-links a.active{color:var(--gold-2);font-weight:600}
+.nav-links a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold-2));border-radius:2px;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:12px;
+  font-weight:700;font-size:.95rem;
+  transition:transform .15s ease, box-shadow .15s ease;
+  cursor:pointer;border:none;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  color:#141005;
+  box-shadow:0 4px 24px rgba(240,185,11,.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 34px rgba(240,185,11,.5)}
+.btn-ghost{border:1px solid var(--border-strong);color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn-sm{padding:9px 16px;font-size:.88rem}
+
+/* ── Hero ───────────────────────────────── */
+.hero{
+  position:relative;
+  padding:84px 0 64px;
+  background:
+    radial-gradient(ellipse 58% 48% at 72% 8%, rgba(240,185,11,.10), transparent),
+    radial-gradient(ellipse 40% 34% at 12% 18%, rgba(240,185,11,.05), transparent);
+}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:52px;align-items:center;max-width:640px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px;border-radius:99px;
+  background:rgba(240,185,11,.09);
+  border:1px solid var(--border-strong);
+  color:var(--gold-2);font-size:.82rem;font-weight:600;
+  margin-bottom:22px;
+}
+.badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.05rem,4.5vw,3.3rem);font-weight:800;margin-bottom:20px}
+.hero h1 .hl{
+  background:linear-gradient(120deg,var(--gold-dark),var(--gold-2),var(--gold-dark));
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shine 5s linear infinite;
+}
+@keyframes shine{to{background-position:200% center}}
+.hero p.lead{color:var(--muted);font-size:1.1rem;max-width:520px;margin-bottom:30px}
+.hero p.lead strong{color:var(--text)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.check{color:var(--gold-2)}
+
+/* ── Avis clients (07/08/2026, demande explicite : "au tout debut du
+   site", puis "beaucoup d'avis" + "un avis par un avis change avec une
+   animation") -- temoignages fictifs, generes pour illustrer le format
+   tant qu'aucun vrai retour client n'est collecte. Carrousel : un seul
+   avis affiche a la fois, defile automatiquement (fondu + glissement),
+   jamais tous en meme temps. ── */
+.reviews{border-block:1px solid var(--border);background:var(--bg-2);padding:44px 0}
+.reviews-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.reviews-head h2{font-size:1.3rem;font-weight:800}
+.reviews-disclaimer{color:var(--muted);font-size:.78rem}
+.reviews-carousel{max-width:560px;margin:0 auto;position:relative;min-height:190px}
+.review-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;
+  position:absolute;inset:0;
+  opacity:0;transform:translateX(24px);
+  transition:opacity .5s ease,transform .5s ease;
+  pointer-events:none;
+}
+.review-card.active{opacity:1;transform:translateX(0);pointer-events:auto}
+.review-card.leaving{transform:translateX(-24px)}
+.review-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.review-avatar{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:var(--bg);font-weight:800;font-size:.85rem;
+}
+.review-name{font-weight:700;font-size:.92rem}
+.review-date{color:var(--muted);font-size:.74rem}
+.review-stars{color:var(--gold-2);font-size:.85rem;letter-spacing:2px;margin-bottom:10px}
+.review-text{color:var(--muted);font-size:.9rem;line-height:1.55}
+.reviews-dots{display:flex;justify-content:center;gap:7px;margin-top:18px}
+.reviews-dots .dot{width:7px;height:7px;border-radius:50%;background:var(--border-strong);border:none;padding:0;cursor:pointer;transition:background .3s ease,transform .3s ease}
+.reviews-dots .dot.active{background:var(--gold);transform:scale(1.3)}
+@media (prefers-reduced-motion: reduce){
+  .review-card{transition:opacity .01s linear;transform:none}
+}
+
+/* ── Ticker ligues ──────────────────────── */
+.ticker{
+  border-block:1px solid var(--border);
+  background:var(--bg-2);
+  overflow:hidden;white-space:nowrap;
+  padding:13px 0;
+}
+.ticker-inner{display:inline-block;animation:ticker 38s linear infinite}
+.ticker:hover .ticker-inner{animation-play-state:paused}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker span{
+  display:inline-flex;align-items:center;gap:8px;
+  margin:0 26px;color:var(--muted);font-size:.88rem;font-weight:500;
+}
+.ticker b{color:var(--gold-2);font-weight:700}
+
+/* ── Stats strip ────────────────────────── */
+.stats{border-bottom:1px solid var(--border);background:var(--bg-2)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:34px 20px;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat .n{font-family:'Sora';font-weight:800;font-size:2.15rem;color:var(--gold-2)}
+.stat .l{color:var(--muted);font-size:.85rem;margin-top:4px}
+
+/* ── Compteurs live ─────────────────────── */
+.live-strip{background:var(--bg);padding:56px 0 8px}
+.live-grid{display:grid;grid-template-columns:1fr;max-width:460px;margin:0 auto;gap:20px}
+.live-card{
+  background:linear-gradient(160deg,var(--card-2),var(--card));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:26px 30px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.live-card .lc-label{color:var(--muted);font-size:.86rem;margin-bottom:4px}
+.live-card .lc-title{font-family:'Sora';font-weight:700;font-size:1.06rem}
+.live-card .timer{
+  font-family:'Sora';font-weight:800;font-size:2rem;
+  color:var(--gold-2);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 22px rgba(240,185,11,.35);
+  white-space:nowrap;
+}
+
+/* ── Bilan jour / semaine / mois ────────── */
+.period-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.period-grid.has-5{grid-template-columns:repeat(5,1fr)}
+.perf-sub-title{font-size:1.05rem;color:var(--text);margin:0 0 12px}
+.period-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:22px 24px;
+}
+.period-label{color:var(--muted);font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.period-pnl{font-family:'Sora';font-weight:800;font-size:1.7rem;margin-bottom:6px}
+.period-pnl.up{color:var(--green)}
+.period-pnl.down{color:var(--red)}
+.period-pnl.flat{color:var(--muted)}
+.period-sub{color:var(--muted);font-size:.84rem}
+
+/* ── Tableau performance par marché ─────── */
+.perf-table-wrap{overflow-x:auto}
+.perf-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.perf-table th{
+  text-align:left;color:var(--muted);font-weight:600;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.05em;
+  padding:10px 12px;border-bottom:1px solid var(--border-strong);
+}
+.perf-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
+.perf-table tr:last-child td{border-bottom:none}
+.perf-table .num{font-variant-numeric:tabular-nums;text-align:right}
+.perf-table th.num{text-align:right}
+.perf-table .up{color:var(--green);font-weight:600}
+.perf-table .down{color:var(--red);font-weight:600}
+.badge-blocked{
+  display:inline-block;margin-left:8px;padding:2px 8px;border-radius:6px;
+  font-size:.78rem;font-weight:700;letter-spacing:.04em;
+  color:var(--red);border:1px solid rgba(239,68,68,.4);background:rgba(239,68,68,.08);
+}
+
+/* ── Graphique bankroll ─────────────────── */
+.chart-sec{padding-top:56px}
+.chart-card{
+  background:linear-gradient(170deg,var(--card-2),var(--card));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:34px;
+}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:20px}
+.chart-head h3{font-size:1.2rem}
+.chart-toggle{display:inline-flex;border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;margin-top:8px}
+.chart-toggle button{
+  background:transparent;border:none;color:var(--muted);
+  padding:8px 18px;font-family:'Sora';font-weight:700;font-size:.85rem;
+  cursor:pointer;transition:all .15s;
+}
+.chart-toggle button.active{
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  color:#141005;
+}
+.chart-head .delta{font-family:'Sora';font-weight:800;font-size:1.5rem;text-align:right}
+.chart-head .delta.up{color:var(--green)}
+.chart-head .delta.down{color:var(--red)}
+.chart-head .delta small{display:block;font-family:'Inter';font-weight:500;font-size:.78rem;color:var(--muted)}
+#bkChart,#periodChart,#bankrollChart{width:100%;height:auto;display:block}
+
+/* Flash directionnel sur mouvement de courbe (06/08/2026, demande
+   explicite : "a chaque mouvement dans les graphique une animation quand
+   ca descend ou baisse") -- se declenche uniquement quand la valeur change
+   reellement entre deux rafraichissements, jamais au premier rendu. */
+@keyframes flashUpGlow{0%{filter:drop-shadow(0 0 0 rgba(34,197,94,0))}30%{filter:drop-shadow(0 0 10px rgba(34,197,94,.95))}100%{filter:drop-shadow(0 0 0 rgba(34,197,94,0))}}
+@keyframes flashDownGlow{0%{filter:drop-shadow(0 0 0 rgba(239,68,68,0))}30%{filter:drop-shadow(0 0 10px rgba(239,68,68,.95))}100%{filter:drop-shadow(0 0 0 rgba(239,68,68,0))}}
+@keyframes flashUpText{0%{transform:translateY(0)}25%{transform:translateY(-4px)}60%{transform:translateY(0)}}
+@keyframes flashDownText{0%{transform:translateY(0)}25%{transform:translateY(4px)}60%{transform:translateY(0)}}
+.flash-up{animation:flashUpGlow 1.2s ease}
+.flash-down{animation:flashDownGlow 1.2s ease}
+.chart-head .delta.flash-up{animation:flashUpText .5s ease}
+.chart-head .delta.flash-down{animation:flashDownText .5s ease}
+
+/* Pluie de fleches DANS le graphique (07/08/2026, demande explicite :
+   "plein de fleches grosse moyenne et petites qui remplissent le
+   graphique"), validee sur le site fictif de test puis integree ici sur
+   les 3 courbes (bilan, periode, bankroll) -- se declenche uniquement au
+   meme moment que le flash directionnel ci-dessus (mouvement reel). */
+.chart-arrow{opacity:0;transform-box:fill-box;transform-origin:center}
+.chart-arrow.up{fill:var(--green);animation-name:chartArrowUp;animation-timing-function:ease-out;animation-fill-mode:forwards}
+.chart-arrow.down{fill:var(--red);animation-name:chartArrowDown;animation-timing-function:ease-out;animation-fill-mode:forwards}
+@keyframes chartArrowUp{0%{opacity:0;transform:translateY(10px) scale(.5)}18%{opacity:.9}100%{opacity:0;transform:translateY(-60px) scale(1.15)}}
+@keyframes chartArrowDown{0%{opacity:0;transform:translateY(-10px) scale(.5)}18%{opacity:.9}100%{opacity:0;transform:translateY(60px) scale(1.15)}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;align-items:center}
+.chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px;width:100%}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 10px;border-radius:9px;
+  font-weight:800;font-size:.78rem;font-family:'Sora';
+  cursor:default;position:relative;
+  opacity:0;transform:scale(.4);
+}
+.chip.visible{animation:chipin .35s ease forwards}
+@keyframes chipin{to{opacity:1;transform:scale(1)}}
+.chip.g{background:rgba(34,197,94,.14);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.chip.p{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.35)}
+.chip.r{background:rgba(156,148,129,.12);color:var(--muted);border:1px solid rgba(156,148,129,.3)}
+.chip .flag{font-size:1rem}
+/* Tooltip du chip : le pronostic donné */
+.chip .tip{
+  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) scale(.92);
+  background:#1e1b12;border:1px solid var(--border-strong);
+  border-radius:10px;padding:10px 14px;
+  font-family:'Inter';font-weight:500;font-size:.8rem;color:var(--text);
+  white-space:nowrap;pointer-events:none;
+  opacity:0;transition:opacity .15s ease,transform .15s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  z-index:10;
+}
+.chip .tip b{color:var(--gold-2);font-weight:700}
+.chip .tip .res-g{color:var(--green);font-weight:700}
+.chip .tip .res-p{color:var(--red);font-weight:700}
+.chip .tip .res-r{color:var(--muted);font-weight:700}
+.chip .tip::after{
+  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:var(--border-strong);
+}
+.chip:hover .tip{opacity:1;transform:translateX(-50%) scale(1)}
+.chart-note{color:var(--muted);font-size:.8rem;margin-top:18px}
+.pub-link{
+  display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--gold-2);
+  border:1px solid var(--border-strong);padding:6px 12px;border-radius:8px;margin-top:14px;
+  text-decoration:none;
+}
+.pub-link:hover{background:rgba(240,185,11,.08)}
+.type-filter{flex-wrap:wrap}
+.highlight-link{display:block;margin-top:8px;font-size:.78rem;color:var(--gold-2);text-decoration:none}
+.highlight-link:hover{text-decoration:underline}
+
+/* ── Sections ───────────────────────────── */
+section{padding:84px 0}
+.sec-tag{color:var(--gold-2);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.sec-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;margin-bottom:16px}
+.sec-sub{color:var(--muted);max-width:640px;margin-bottom:48px}
+
+
+
+/* Transparence */
+.transp{background:var(--bg-2);border-block:1px solid var(--border)}
+.transp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;
+}
+.t-card .big{font-family:'Sora';font-weight:800;font-size:1.35rem;margin-bottom:8px}
+.t-card p{color:var(--muted);font-size:.9rem}
+.t-card .ok{color:var(--gold-2)}
+.t-card .ko{color:var(--red)}
+
+/* FAQ */
+.faq-item{
+  border:1px solid var(--border);border-radius:14px;
+  margin-bottom:12px;background:var(--card);
+  overflow:hidden;
+}
+.faq-item summary{
+  padding:20px 24px;cursor:pointer;font-weight:600;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;
+  font-size:.98rem;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';color:var(--gold-2);font-size:1.3rem;font-weight:400}
+.faq-item[open] summary::after{content:'−'}
+.faq-item .a{padding:0 24px 20px;color:var(--muted);font-size:.93rem}
+
+/* CTA final */
+.cta-final{
+  text-align:center;
+  background:radial-gradient(ellipse 50% 62% at 50% 100%, rgba(240,185,11,.13), transparent);
+}
+.cta-final .coin-mini{
+  width:92px;height:92px;border-radius:50%;overflow:hidden;
+  border:3px solid var(--gold);margin:0 auto 26px;
+  box-shadow:0 0 34px rgba(240,185,11,.4);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.cta-final .coin-mini img{width:100%;height:100%;object-fit:cover}
+.cta-final h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;margin-bottom:16px}
+.cta-final p{color:var(--muted);max-width:520px;margin:0 auto 32px}
+
+/* Bouton Telegram flottant */
+.fab{
+  position:fixed;right:22px;bottom:22px;z-index:60;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  box-shadow:0 8px 30px rgba(240,185,11,.45);
+  transition:transform .15s ease;
+}
+.fab:hover{transform:scale(1.1)}
+.fab::after{
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid rgba(240,185,11,.4);
+  animation:fabpulse 2.2s ease-out infinite;
+}
+@keyframes fabpulse{from{transform:scale(.8);opacity:1}to{transform:scale(1.35);opacity:0}}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
+.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.foot-brand{max-width:300px}
+.foot-brand .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--gold)}
+.foot-brand p{color:var(--muted);font-size:.85rem;margin-top:10px}
+.legal{
+  border-top:1px solid var(--border);padding-top:24px;
+  color:var(--muted);font-size:.78rem;line-height:1.7;
+}
+.legal strong{color:#d8d0bd}
+.age{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:50%;
+  border:2px solid var(--red);color:var(--red);
+  font-weight:800;font-size:.8rem;margin-right:12px;flex-shrink:0;
+}
+.legal-flex{display:flex;align-items:flex-start;gap:4px}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── Responsive ─────────────────────────── */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--border)}
+  .transp-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .live-grid{grid-template-columns:1fr}
+  .chart-card{padding:22px}
+  .chip .tip{white-space:normal;width:220px}
+  .period-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── Accessibilité : focus clavier visible ─ */
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+:focus:not(:focus-visible){outline:none}
+
+/* ── Skip link ──────────────────────────── */
+.skip-link{
+  position:fixed;top:-60px;left:12px;z-index:200;
+  background:var(--gold-2);color:#141005;font-weight:700;font-size:.9rem;
+  padding:12px 20px;border-radius:10px;transition:top .2s ease;
+}
+.skip-link:focus{top:12px}
+
+/* ── Icônes SVG (remplacent les émojis fonctionnels) ── */
+.icon{width:1.15em;height:1.15em;display:inline-block;vertical-align:-0.2em;flex-shrink:0;
+  stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ic .icon{width:22px;height:22px;color:var(--gold-2)}
+
+/* ── Réduction de mouvement ────────────────── */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* ── Menu mobile ────────────────────────── */
+.icon-btn{
+  background:transparent;border:1px solid var(--border-strong);border-radius:10px;
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  color:var(--text);cursor:pointer;flex-shrink:0;
+}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold-2)}
+.menu-toggle{display:none}
+.header-right{display:flex;align-items:center;gap:10px}
+.mobile-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:64;
+}
+.mobile-backdrop.open{opacity:1;pointer-events:auto}
+.mobile-nav{
+  position:fixed;top:0;right:0;height:100vh;width:min(320px,82vw);
+  background:var(--bg-2);border-left:1px solid var(--border);
+  transform:translateX(100%);transition:transform .25s ease;
+  z-index:70;padding:20px 22px;display:flex;flex-direction:column;gap:4px;
+  overflow-y:auto;
+}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav-head{display:flex;justify-content:flex-end;margin-bottom:14px}
+.mobile-nav a{padding:15px 4px;font-size:1.05rem;color:var(--text);font-weight:600;
+  border-bottom:1px solid var(--border);}
+.mobile-nav a.active{color:var(--gold-2)}
+.mobile-nav .btn{margin-top:18px;justify-content:center}
+@media(max-width:900px){
+  .menu-toggle{display:flex}
+}
+
+/* ── Transition de page : logo qui tourne (07/08/2026, demande explicite :
+   "quand le client clique sur une page il y a une animation mon logo qui
+   tourne et apres il tombe sur sa page") -- affichee brievement a chaque
+   navigation vers Publications ou vers une section (Resultats/Performance/
+   FAQ), jamais un saut instantane. ── */
+.page-loader{
+  position:fixed;inset:0;z-index:999;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.page-loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{
+  width:64px;height:64px;border-radius:50%;
+  border:3px solid var(--gold);
+  animation:loaderSpin 1s linear infinite;
+  box-shadow:0 0 30px rgba(240,185,11,.45);
+}
+@keyframes loaderSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.loader-logo{animation:none}}
+
+/* ── Pop-up partenaire (07/08/2026, demande explicite) ── */
+.promo-overlay{
+  position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.65);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+.promo-overlay.show{opacity:1;visibility:visible}
+.promo-modal{
+  position:relative;background:var(--card);border:1px solid var(--border-strong);
+  border-radius:var(--radius);padding:32px 28px 26px;max-width:420px;
+  box-shadow:0 30px 90px rgba(0,0,0,.6);text-align:center;
+  transform:translateY(14px);transition:transform .3s ease;
+}
+.promo-overlay.show .promo-modal{transform:translateY(0)}
+.promo-close{
+  position:absolute;top:10px;right:12px;background:none;border:none;
+  color:var(--muted);font-size:1.6rem;line-height:1;cursor:pointer;padding:6px;
+}
+.promo-close:hover{color:var(--text)}
+.promo-tag{
+  display:inline-block;padding:5px 12px;border-radius:99px;
+  background:rgba(240,185,11,.12);border:1px solid var(--border-strong);
+  color:var(--gold-2);font-size:.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.04em;margin-bottom:14px;
+}
+.promo-modal h3{font-size:1.2rem;margin-bottom:10px}
+.promo-modal p{color:var(--muted);font-size:.9rem;line-height:1.5;margin-bottom:18px}
+.promo-cta{width:100%;justify-content:center}
+.promo-legal{font-size:.68rem;color:var(--muted);opacity:.8;margin-top:16px;margin-bottom:0;line-height:1.4}
+</style>
+</head>
+<body>
+
+<div id="pageLoader" class="page-loader" aria-hidden="true">
+  <img src="assets/logo.jpg" alt="" class="loader-logo">
+</div>
+
+<div id="promoOverlay" class="promo-overlay" aria-hidden="true">
+  <div class="promo-modal" role="dialog" aria-modal="true" aria-label="Offre partenaire Winamax">
+    <button class="promo-close" id="promoClose" aria-label="Fermer">&times;</button>
+    <div class="promo-tag">Offre partenaire</div>
+    <h3>Envie de jouer vos pronostics ?</h3>
+    <p>Winamax propose une offre de bienvenue aux nouveaux inscrits avec le code parrain <b>GBEUVP</b>.</p>
+    <a class="btn btn-primary promo-cta" href="https://www.winamax.fr/parrain?code=GBEUVP" target="_blank" rel="noopener sponsored">Voir l'offre Winamax</a>
+    <p class="promo-legal">18+ · Jouer comporte des risques : endettement, isolement, dépendance. Ne pariez que ce que vous pouvez vous permettre de perdre. Pour être aidé : 09 74 75 13 13 (appel non surtaxé) ou joueurs-info-service.fr.</p>
+  </div>
+</div>
+
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7 2.5 2.5 7L21 3Z"/><path d="M12.5 13.5 21 3"/></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5.5"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-trend-up" viewBox="0 0 24 24"><path d="M3 17 10 10l4 4 7-7"/><path d="M15 6h6v6"/></symbol>
+<symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5 15.5 10l-1.3 4H9.8L8.5 10Z"/><path d="M12 7.5V4M15.5 10l3-1.4M14.2 14l2 2.8M9.8 14l-2 2.8M8.5 10l-3-1.4"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18 6l-1.7 1.7M7.7 16.3 6 18M18 18l-1.7-1.7M7.7 7.7 6 6"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M8 11h8M8 15h5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10Z"/><path d="M10 19a2 2 0 0 0 4 0"/></symbol>
+<symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12"/><path d="M7 3c0 4.5 3 5.5 5 7.2C10 12 7 13 7 17.5M17 3c0 4.5-3 5.5-5 7.2 2 1.8 5 2.8 5 7.5"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+</defs>
+</svg>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="coin-sm-wrap">
+        <div class="coin-sm">
+          <div class="face front"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
+          <div class="face back"><img src="assets/logo.jpg" alt=""></div>
+        </div>
+      </div>
+      <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+    </div>
+    <nav class="nav-links">
+      <a href="publications.html">Publications</a>
+      <a href="resultats.html">Résultats</a>
+      <a href="performance.html" class="active">Performance</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="header-right">
+      <a class="btn btn-primary btn-sm" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="icon" style="width:20px;height:20px"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Menu principal">
+  <div class="mobile-nav-head">
+    <button class="icon-btn" id="menuClose" aria-label="Fermer le menu">
+      <svg class="icon" style="width:18px;height:18px"><use href="#i-x"></use></svg>
+    </button>
+  </div>
+  <a href="publications.html">Publications</a>
+  <a href="resultats.html">Résultats</a>
+  <a href="performance.html" class="active">Performance</a>
+  <a href="faq.html">FAQ</a>
+  <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
+</nav>
+
+<div id="main">
+  <div class="container">
+    <div class="sec-tag">Performance</div>
+    <h2 class="sec-title">Chaque marché est <span class="gold">audité en continu.</span></h2>
+    <p class="sec-sub">
+      Réussite et bilan par marché et par tranche de cote, depuis le premier pari réglé.
+      Les zones historiquement perdantes sont <b>bloquées</b> : le bot n'y publie plus,
+      et elles restent affichées ici — c'est le principe.
+    </p>
+    <div class="period-grid reveal" id="perfGlobalGrid"></div>
+    <h3 class="perf-sub-title">Performance par sport</h3>
+    <div class="period-grid reveal" id="perfSportsGrid"></div>
+    <div class="period-grid reveal" id="perfHighlights" style="grid-template-columns:repeat(3,1fr)"></div>
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div><h3>Évolution de la bankroll</h3></div>
+        <div class="delta" id="bankrollDelta">—</div>
+      </div>
+      <svg id="bankrollChart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg>
+      <div class="chart-note" id="bankrollNote"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA FINAL ────────────────────────── -->
+<section class="cta-final">
+  <div class="container">
+    <div class="coin-mini"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
+    <h2>Laissez la machine filtrer.<br>Gardez votre bankroll pour les bons matchs.</h2>
+    <p>Les analyses tombent directement sur Telegram, 30 minutes avant le coup d'envoi,
+    compositions confirmées.</p>
+    <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener"><svg class="icon"><use href="#i-plane"></use></svg> Rejoindre le canal Telegram</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ───────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <img src="assets/logo.jpg" alt="">
+          <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+        </div>
+        <p>Analyses football automatisées. Données officielles, cotes réelles,
+        bilan public quotidien.</p>
+      </div>
+      <nav class="nav-links" style="display:flex;flex-direction:column;gap:10px">
+        <a href="publications.html">Publications</a>
+        <a href="resultats.html">Résultats</a>
+        <a href="performance.html" class="active">Performance</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+    <div class="legal">
+      <div class="legal-flex">
+        <span class="age">18+</span>
+        <div>
+          <strong>Jouer comporte des risques : endettement, isolement, dépendance.</strong>
+          Les jeux d'argent et de hasard sont interdits aux mineurs. G-BET Bot fournit des
+          analyses statistiques à titre informatif — aucun gain n'est garanti et les
+          performances passées ne préjugent pas des résultats futurs. Ne pariez que ce que
+          vous pouvez vous permettre de perdre.
+          Pour être aidé, appelez le <strong>09&nbsp;74&nbsp;75&nbsp;13&nbsp;13</strong>
+          (appel non surtaxé) ou consultez
+          <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener" style="text-decoration:underline">joueurs-info-service.fr</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener" aria-label="Rejoindre le canal Telegram"><svg class="icon" style="width:24px;height:24px;color:#141005"><use href="#i-plane"></use></svg></a>
+
+<script>
+const MISE_PAR_UNITE = 200; // 1 unité = 200 € (ai/staking.py BASE_UNIT_EUR)
+let currentMode = "u"; // "u" = unités, "e" = euros (pas de bascule sur cette page, garde le format unites)
+let _lastBankrollTotal = null;
+
+// Genere une pluie de fleches (grandes/moyennes/petites) eparpillees dans
+// la zone du graphique -- partagee par les courbes du site.
+function chartArrowsSvg(up, W, H, PAD){
+  const cls = up ? 'up' : 'down';
+  const glyph = up ? '▲' : '▼';
+  const sizes = [14, 14, 18, 18, 24, 24, 30, 34];
+  let out = '';
+  const count = 100;
+  for (let i = 0; i < count; i++){
+    const size = sizes[Math.floor(Math.random() * sizes.length)];
+    const x = PAD + Math.random() * (W - 2 * PAD);
+    const y = PAD + 20 + Math.random() * (H - 2 * PAD - 40);
+    const dur = (1.1 + Math.random() * 0.9).toFixed(2);
+    const delay = (Math.random() * 0.5).toFixed(2);
+    out += `<text class="chart-arrow ${cls}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" font-size="${size}" text-anchor="middle" style="animation-duration:${dur}s;animation-delay:${delay}s">${glyph}</text>`;
+  }
+  return out;
+}
+
+// API live (05/08/2026, chantier "site plus rapide") : meme endpoint que
+// Resultats (renvoie tout ensemble), cette page ne lit que data.perf_stats.
+const LIVE_API_BASE = 'https://sports-bot-pro-production.up.railway.app';
+
+let PERF_STATS = {"global": {"n": 969, "w": 475, "l": 489, "winrate": 49, "roi": -7.9, "pnl": -83.57, "since": "2026-06-06"}, "sports": [{"sport": "football", "n": 505, "w": 279, "l": 226, "winrate": 55, "roi": -3.2, "pnl": -17.69}, {"sport": "baseball", "n": 265, "w": 102, "l": 163, "winrate": 38, "roi": -19.5, "pnl": -57.9}, {"sport": "tennis", "n": 170, "w": 79, "l": 86, "winrate": 48, "roi": -4.3, "pnl": -7.84}, {"sport": "wnba", "n": 27, "w": 14, "l": 13, "winrate": 52, "roi": -0.4, "pnl": -0.12}, {"sport": "nhl", "n": 2, "w": 1, "l": 1, "winrate": 50, "roi": -38.5, "pnl": -0.0}], "markets": [{"market": "Double chance", "band": "1.50-1.70", "n": 110, "winrate": 60, "pnl": -12.48, "blocked": true}, {"market": "Buts (over/under)", "band": "2.50-3.00", "n": 84, "winrate": 24, "pnl": -28.45, "blocked": false}, {"market": "Vainqueur", "band": "1.50-1.70", "n": 80, "winrate": 62, "pnl": 5.76, "blocked": false}, {"market": "Double chance", "band": "1.70-2.00", "n": 78, "winrate": 44, "pnl": -28.27, "blocked": true}, {"market": "Vainqueur", "band": "1.70-2.00", "n": 77, "winrate": 57, "pnl": 11.08, "blocked": false}, {"market": "Vainqueur", "band": "2.00-2.50", "n": 75, "winrate": 41, "pnl": -11.66, "blocked": false}, {"market": "Double chance", "band": "< 1.50", "n": 69, "winrate": 78, "pnl": 0.88, "blocked": false}, {"market": "Vainqueur", "band": "< 1.50", "n": 44, "winrate": 61, "pnl": -4.5, "blocked": false}, {"market": "Double chance", "band": "2.00-2.50", "n": 44, "winrate": 52, "pnl": 2.95, "blocked": false}, {"market": "Buts (over/under)", "band": "2.00-2.50", "n": 33, "winrate": 27, "pnl": -13.45, "blocked": false}, {"market": "Pronostic joueur", "band": "2.00-2.50", "n": 33, "winrate": 39, "pnl": -1.8, "blocked": false}, {"market": "Vainqueur", "band": "2.50-3.00", "n": 32, "winrate": 47, "pnl": 10.13, "blocked": false}, {"market": "Double chance", "band": "2.50-3.00", "n": 26, "winrate": 38, "pnl": -4.69, "blocked": true}, {"market": "Buts (over/under)", "band": "< 1.50", "n": 23, "winrate": 78, "pnl": 1.75, "blocked": false}, {"market": "Pronostic joueur", "band": "2.50-3.00", "n": 22, "winrate": 64, "pnl": 15.76, "blocked": false}, {"market": "Buts (over/under)", "band": "1.70-2.00", "n": 20, "winrate": 65, "pnl": 4.33, "blocked": false}, {"market": "Pronostic joueur", "band": "1.50-1.70", "n": 20, "winrate": 50, "pnl": -4.87, "blocked": false}, {"market": "Vainqueur", "band": "4.00+", "n": 16, "winrate": 0, "pnl": -8.04, "blocked": true}, {"market": "Double chance", "band": "3.00-4.00", "n": 10, "winrate": 40, "pnl": -1.92, "blocked": true}, {"market": "Vainqueur", "band": "3.00-4.00", "n": 9, "winrate": 33, "pnl": -2.43, "blocked": false}, {"market": "Pronostic joueur", "band": "< 1.50", "n": 9, "winrate": 67, "pnl": -1.41, "blocked": false}, {"market": "Pronostic joueur", "band": "3.00-4.00", "n": 8, "winrate": 12, "pnl": -4.8, "blocked": false}, {"market": "Buts (over/under)", "band": "3.00-4.00", "n": 5, "winrate": 0, "pnl": -0.03, "blocked": true}, {"market": "Buts (over/under)", "band": "4.00+", "n": 5, "winrate": 0, "pnl": -0.03, "blocked": true}, {"market": "Handicap", "band": "1.50-1.70", "n": 5, "winrate": 20, "pnl": -3.99, "blocked": false}, {"market": "Buts (over/under)", "band": "1.70-2.00", "n": 4, "winrate": 75, "pnl": -0.99, "blocked": false}, {"market": "Combiné", "band": "3.00-4.00", "n": 4, "winrate": 75, "pnl": 5.83, "blocked": false}, {"market": "Double chance", "band": "4.00+", "n": 3, "winrate": 0, "pnl": -3.0, "blocked": true}, {"market": "Handicap", "band": "2.50-3.00", "n": 3, "winrate": 33, "pnl": -0.25, "blocked": false}, {"market": "Handicap", "band": "2.00-2.50", "n": 3, "winrate": 33, "pnl": -0.55, "blocked": false}, {"market": "Buts (over/under)", "band": "1.50-1.70", "n": 2, "winrate": 50, "pnl": -0.12, "blocked": false}, {"market": "Handicap", "band": "1.70-2.00", "n": 2, "winrate": 50, "pnl": -0.3, "blocked": false}, {"market": "Vainqueur 1ère manche", "band": "2.00-2.50", "n": 2, "winrate": 50, "pnl": 0.15, "blocked": false}, {"market": "Total (over/under)", "band": "1.70-2.00", "n": 2, "winrate": 50, "pnl": -0.1, "blocked": false}, {"market": "Buts (over/under)", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -0.01, "blocked": false}, {"market": "Buts (over/under)", "band": "2.50-3.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Combiné", "band": "4.00+", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Total équipe", "band": "1.70-2.00", "n": 1, "winrate": 100, "pnl": 1.44, "blocked": false}, {"market": "Vainqueur 1ère manche", "band": "2.50-3.00", "n": 1, "winrate": 0, "pnl": -1.5, "blocked": false}, {"market": "Pronostic joueur", "band": "1.70-2.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Pronostic joueur", "band": "4.00+", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}], "blocked_bands": [{"market": "Double chance", "band": "1.50-2.00"}, {"market": "Double chance", "band": "2.50+"}, {"market": "Vainqueur", "band": "4.00+"}, {"market": "Buts (over/under)", "band": "3.00+"}, {"market": "Les deux marquent", "band": "1.50-3.00"}], "highlights": {"best": {"match": "Martyna Kubka – Teodora Kostovic", "pick": "Total sets Plus de 2.5", "cote": 2.63, "pnl": 2.44, "flag": "🎾", "league": "T-Mobile Polish Open"}, "worst": {"match": "Baltimore Orioles – Los Angeles Angels", "pick": "Victoire Los Angeles Angels", "cote": 2.4, "pnl": -1.5, "flag": "⚾", "league": "MLB"}, "top_league": {"league": "WNBA", "flag": "⚽", "pnl": 1.4, "n": 14}}, "percent_picks": {"n": 81, "winrate": 40}, "bankroll": {"initial": 10000, "current": -6713.83, "pnl": -16713.83, "pct": -167.14, "series": [{"date": "2026-06-06", "value": 9999.05}, {"date": "2026-06-07", "value": 9998.05}, {"date": "2026-06-19", "value": 9992.34}, {"date": "2026-06-20", "value": 9985.19}, {"date": "2026-06-21", "value": 9975.4}, {"date": "2026-06-22", "value": 10454.58}, {"date": "2026-06-23", "value": 9734.36}, {"date": "2026-06-24", "value": 9672.4}, {"date": "2026-06-25", "value": 10943.6}, {"date": "2026-06-26", "value": 11854.8}, {"date": "2026-06-27", "value": 12057.0}, {"date": "2026-06-28", "value": 12249.7}, {"date": "2026-06-29", "value": 11164.7}, {"date": "2026-06-30", "value": 11542.5}, {"date": "2026-07-01", "value": 9065.5}, {"date": "2026-07-02", "value": 7064.1}, {"date": "2026-07-03", "value": 8013.9}, {"date": "2026-07-04", "value": 5905.1}, {"date": "2026-07-05", "value": 4415.9}, {"date": "2026-07-06", "value": 5258.6}, {"date": "2026-07-07", "value": 5610.6}, {"date": "2026-07-08", "value": 5862.9}, {"date": "2026-07-09", "value": 5876.74}, {"date": "2026-07-10", "value": 5560.74}, {"date": "2026-07-11", "value": 4654.74}, {"date": "2026-07-12", "value": 5951.44}, {"date": "2026-07-13", "value": 6075.64}, {"date": "2026-07-15", "value": 6829.04}, {"date": "2026-07-17", "value": 6859.04}, {"date": "2026-07-18", "value": 6459.04}, {"date": "2026-07-19", "value": 2166.53}, {"date": "2026-07-20", "value": 3658.16}, {"date": "2026-07-21", "value": 2685.83}, {"date": "2026-07-22", "value": 2111.79}, {"date": "2026-07-23", "value": 1500.57}, {"date": "2026-07-24", "value": 2530.8}, {"date": "2026-07-25", "value": 651.52}, {"date": "2026-07-26", "value": -177.84}, {"date": "2026-07-27", "value": -528.84}, {"date": "2026-07-28", "value": -281.83}, {"date": "2026-07-29", "value": 15.87}, {"date": "2026-07-30", "value": -914.98}, {"date": "2026-07-31", "value": -606.06}, {"date": "2026-08-01", "value": -3183.4}, {"date": "2026-08-02", "value": -4555.32}, {"date": "2026-08-03", "value": -3329.32}, {"date": "2026-08-04", "value": -4116.32}, {"date": "2026-08-05", "value": -6810.32}, {"date": "2026-08-06", "value": -6711.28}, {"date": "2026-08-07", "value": -6713.83}]}};
+/* ── Section Performance ── */
+const SPORT_FR = {football:"Football", baseball:"Baseball (MLB)", tennis:"Tennis", nhl:"Hockey (NHL)", basketball:"Basketball", nba:"Basketball (NBA)"};
+function sportLabel(sport){
+  return SPORT_FR[sport] || (sport ? sport.charAt(0).toUpperCase() + sport.slice(1) : sport);
+}
+
+function fmtPnl(u){
+  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
+  const v = u * factor;
+  const unit = currentMode === "e" ? "€" : "u";
+  return `${v > 0 ? '+' : ''}${currentMode === "e" ? v.toFixed(0) : v.toFixed(2)} ${unit}`;
+}
+
+function renderPerfStats(){
+  const P = PERF_STATS;
+  if (!P || !P.global) return;
+
+  const grid = document.getElementById('perfGlobalGrid');
+  const g = P.global;
+  const sinceTxt = g.since ? new Date(g.since).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'}) : '';
+  const pp = P.percent_picks || {n:0, winrate:0};
+  grid.innerHTML = `
+    <div class="period-card">
+      <div class="period-label">Depuis le lancement${sinceTxt ? ' · ' + sinceTxt : ''}</div>
+      <div class="period-pnl ${g.pnl > 0 ? 'up' : g.pnl < 0 ? 'down' : 'flat'}">${fmtPnl(g.pnl)}</div>
+      <div class="period-sub">ROI ${g.roi > 0 ? '+' : ''}${g.roi}% sur l'ensemble des mises</div>
+    </div>
+    <div class="period-card">
+      <div class="period-label">Picks réglés</div>
+      <div class="period-pnl flat" style="color:var(--text)">${g.n}</div>
+      <div class="period-sub">${g.w}G ${g.l}P · ${g.winrate}% de réussite</div>
+    </div>
+    <div class="period-card">
+      <div class="period-label">Picks joueurs (modèle %)</div>
+      <div class="period-pnl flat" style="color:var(--text)">${pp.n ? pp.winrate + '%' : '—'}</div>
+      <div class="period-sub">${pp.n ? pp.n + ' picks réglés sans cote marché — jamais comptés dans le bilan en argent' : 'Aucun pick réglé'}</div>
+    </div>`;
+
+  // Performance par sport (05/08/2026) : vue autonome (cartes dediees, pas
+  // une simple liste inline dans une carte generique) -- une carte par
+  // sport avec drapeau/label, PnL et ROI.
+  const sportsGrid = document.getElementById('perfSportsGrid');
+  sportsGrid.innerHTML = (P.sports || []).map(s => `
+    <div class="period-card">
+      <div class="period-label">${sportLabel(s.sport)}</div>
+      <div class="period-pnl ${s.pnl > 0 ? 'up' : s.pnl < 0 ? 'down' : 'flat'}">${fmtPnl(s.pnl)}</div>
+      <div class="period-sub">${s.n} réglés · ${s.w}G ${s.l}P · ${s.winrate}% · ROI ${s.roi > 0 ? '+' : ''}${s.roi}%</div>
+    </div>`).join('') || '<div class="period-sub">—</div>';
+
+  const hl = P.highlights || {};
+  const hlCards = [];
+  if (hl.best) hlCards.push(`
+    <div class="period-card">
+      <div class="period-label">Meilleur pick du mois</div>
+      <div class="period-pnl up">${fmtPnl(hl.best.pnl)}</div>
+      <div class="period-sub">${hl.best.flag} ${hl.best.match}<br>${hl.best.pick} @${hl.best.cote.toFixed(2)}</div>
+      <a class="highlight-link" href="publications.html">→ Voir sur Publications</a>
+    </div>`);
+  if (hl.worst) hlCards.push(`
+    <div class="period-card">
+      <div class="period-label">Pire perte du mois — assumée</div>
+      <div class="period-pnl down">${fmtPnl(hl.worst.pnl)}</div>
+      <div class="period-sub">${hl.worst.flag} ${hl.worst.match}<br>${hl.worst.pick} @${hl.worst.cote.toFixed(2)}</div>
+      <a class="highlight-link" href="publications.html">→ Voir sur Publications</a>
+    </div>`);
+  if (hl.top_league) hlCards.push(`
+    <div class="period-card">
+      <div class="period-label">Top ligue du mois</div>
+      <div class="period-pnl up">${fmtPnl(hl.top_league.pnl)}</div>
+      <div class="period-sub">${hl.top_league.flag} ${hl.top_league.league} · ${hl.top_league.n} picks</div>
+    </div>`);
+  document.getElementById('perfHighlights').innerHTML = hlCards.join('');
+
+  renderBankroll(P.bankroll);
+}
+
+/* ── Bankroll (points F/G) : valeur de départ + somme cumulée des PnL réels
+   réglés (paris.pnl), même principe de courbe que drawPeriodChart. ── */
+function renderBankroll(b){
+  const svg = document.getElementById('bankrollChart');
+  const note = document.getElementById('bankrollNote');
+  const delta = document.getElementById('bankrollDelta');
+  if (!b || !b.series || !b.series.length){
+    svg.innerHTML = '';
+    delta.textContent = '—';
+    note.textContent = '';
+    return;
+  }
+  const series = [{date: '', value: b.initial}, ...b.series];
+  const W = 800, H = 260, PAD_L = 64, PAD_R = 16, PAD_T = 16, PAD_B = 32;
+  const vals = series.map(p => p.value);
+  const n = vals.length;
+  const yMin = Math.min(...vals), yMax = Math.max(...vals, b.initial + 1);
+  const xs = i => n <= 1 ? PAD_L : PAD_L + (i/(n-1))*(W-PAD_L-PAD_R);
+  const ysc = v => H-PAD_B - ((v-yMin)/(yMax-yMin || 1))*(H-PAD_T-PAD_B);
+
+  const line = vals.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
+  const area = line + ` L${xs(n-1).toFixed(1)},${H-PAD_B} L${PAD_L},${H-PAD_B} Z`;
+  const initY = ysc(b.initial);
+  const up = b.pnl >= 0;
+  const col = up ? '#22c55e' : '#ef4444';
+
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${col}" stop-opacity=".28"/>
+        <stop offset="1" stop-color="${col}" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <line x1="${PAD_L}" y1="${initY}" x2="${W-PAD_R}" y2="${initY}" stroke="rgba(156,148,129,.3)" stroke-dasharray="5 6"/>
+    <text x="${W-PAD_R}" y="${initY-8}" fill="rgba(156,148,129,.7)" font-size="12" text-anchor="end" font-family="Inter">${b.initial.toFixed(0)} € (départ)</text>
+    <path d="${area}" fill="url(#bg)"/>
+    <path d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${xs(n-1)}" cy="${ysc(vals[n-1])}" r="6" fill="${col}"/>
+    ${_lastBankrollTotal !== null && b.current !== _lastBankrollTotal ? chartArrowsSvg(b.current > _lastBankrollTotal, W, H, PAD_T) : ''}
+  `;
+
+  delta.className = 'delta ' + (up ? 'up' : 'down');
+  delta.textContent = `${b.current.toFixed(0)} € (${up?'+':''}${b.pct}%)`;
+  note.textContent = `Départ : ${b.initial.toFixed(0)} € · PnL cumulé : ${up?'+':''}${b.pnl.toFixed(0)} €.`;
+  _lastBankrollTotal = b.current;
+}
+
+async function loadPerfLive(){
+  try{
+    const res = await fetch(LIVE_API_BASE + '/api/results', {cache: 'no-store'});
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!data || !data.perf_stats) return;
+    PERF_STATS = data.perf_stats;
+    renderPerfStats();
+  }catch(e){
+    // Silencieux (05/08/2026) : rafraichissement en arriere-plan, jamais
+    // d'erreur visible pour un simple manque de reseau/redemarrage bot.
+  }
+}
+
+renderPerfStats();
+loadPerfLive();
+setInterval(loadPerfLive, 20000);
+
+/* ── Apparition douce au scroll ── */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+/* ── Menu mobile (drawer) ── */
+(function(){
+  const toggle = document.getElementById('menuToggle');
+  const close = document.getElementById('menuClose');
+  const nav = document.getElementById('mobileNav');
+  const backdrop = document.getElementById('mobileBackdrop');
+  function openMenu(){
+    nav.classList.add('open'); backdrop.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    nav.classList.remove('open'); backdrop.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', () => nav.classList.contains('open') ? closeMenu() : openMenu());
+  close.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+/* ── Transition de page : logo qui tourne (07/08/2026, demande explicite)
+   -- au clic sur Publications/Résultats/Performance/FAQ, affiche le loader
+   plutot qu'un saut instantane ; si on ARRIVE sur la page avec un hash
+   dans l'URL (page ouverte directement sur une ancre), le
+   loader reste visible le temps de scroller jusqu'a la section. ── */
+(function(){
+  const loader = document.getElementById('pageLoader');
+  if (!loader) return;
+  const showLoader = () => loader.classList.remove('hide');
+  const hideLoader = () => loader.classList.add('hide');
+
+  window.addEventListener('load', () => {
+    const target = location.hash ? document.querySelector(location.hash) : null;
+    if (target){
+      setTimeout(() => {
+        target.scrollIntoView({block: 'start'});
+        setTimeout(hideLoader, 250);
+      }, 500);
+    } else {
+      setTimeout(hideLoader, 500);
+    }
+  });
+
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href || a.target === '_blank' || /^https?:\/\//i.test(href)) return;
+    const [path, hash] = href.split('#');
+    const currentFile = location.pathname.split('/').pop();
+    const samePage = !path || path === currentFile;
+    if (samePage && hash){
+      a.addEventListener('click', (e) => {
+        const dest = document.getElementById(hash);
+        if (!dest) return;
+        e.preventDefault();
+        showLoader();
+        setTimeout(() => {
+          dest.scrollIntoView({block: 'start'});
+          setTimeout(hideLoader, 250);
+        }, 350);
+      });
+    } else if (path && path.endsWith('.html') && !samePage){
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        showLoader();
+        setTimeout(() => { window.location.href = href; }, 350);
+      });
+    }
+  });
+})();
+
+/* ── Pop-up partenaire Winamax (07/08/2026, demande explicite) -- une
+   seule fois par session (sessionStorage), jamais reaffiche en boucle a
+   chaque page/rechargement. Laisse le temps a la transition du logo de
+   se terminer avant d'apparaitre. ── */
+(function(){
+  const overlay = document.getElementById('promoOverlay');
+  if (!overlay) return;
+  const closeBtn = document.getElementById('promoClose');
+  function closePromo(){
+    overlay.classList.remove('show');
+    sessionStorage.setItem('gbet_promo_seen', '1');
+  }
+  if (!sessionStorage.getItem('gbet_promo_seen')){
+    window.addEventListener('load', () => {
+      setTimeout(() => overlay.classList.add('show'), 1400);
+    });
+  }
+  closeBtn.addEventListener('click', closePromo);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePromo(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('show')) closePromo(); });
+  overlay.querySelector('.promo-cta')?.addEventListener('click', closePromo);
+})();
+</script>
+</body>
+</html>
