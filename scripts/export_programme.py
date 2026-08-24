@@ -96,6 +96,80 @@ def _get_programme_window_sql_where() -> tuple[str, tuple]:
 
     return where_clause, params
 
+# Duplique depuis tg_bot/league_flags.py::LEAGUE_FLAG_EMOJI (23/08/2026,
+# demande explicite : "remet le drapeaux de la ligue pour chaque
+# publication" -- COMPETITION_FLAGS ci-dessous, base sur une simple
+# recherche de sous-chaine dans le NOM de la ligue, ne couvrait aucune
+# grande ligue domestique (Premier League, La Liga, Bundesliga, Ligue 1,
+# Serie A italienne...) -- tout match sur ces ligues retombait sur le
+# drapeau ballon generique "⚽", qui semble absent au client. Meme raison
+# de duplication que COMP_WINDOWS/REFONTE_MARKET_LABELS plus haut : ce
+# fichier tourne cote repo PUBLIC (sync-site-public.yml), tg_bot/ n'existe
+# que cote repo prive. Cle = league_id (deja disponible sur chaque
+# fixture), beaucoup plus fiable que le matching par nom.
+LEAGUE_FLAG_EMOJI: dict[int, str] = {
+    1:   "🌍", 6:   "🌍", 2:   "🇪🇺", 3:   "🇪🇺", 848: "🇪🇺", 4:   "🇪🇺",
+    960: "🇪🇺", 531: "🇪🇺", 15:  "🌐", 13:  "🌎", 14:  "🌎", 12:  "🌍",
+    39:  "🏴󠁧󠁢󠁥󠁮󠁧󠁿", 40:  "🏴󠁧󠁢󠁥󠁮󠁧󠁿", 41:  "🏴󠁧󠁢󠁥󠁮󠁧󠁿", 42:  "🏴󠁧󠁢󠁥󠁮󠁧󠁿", 45:  "🏴󠁧󠁢󠁥󠁮󠁧󠁿", 48:  "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    61:  "🇫🇷", 62:  "🇫🇷", 63:  "🇫🇷", 66:  "🇫🇷", 65:  "🇫🇷",
+    140: "🇪🇸", 141: "🇪🇸", 143: "🇪🇸", 142: "🇪🇸",
+    78:  "🇩🇪", 79:  "🇩🇪", 80:  "🇩🇪", 81:  "🇩🇪",
+    135: "🇮🇹", 136: "🇮🇹", 137: "🇮🇹", 547: "🇮🇹",
+    94:  "🇵🇹", 96:  "🇵🇹", 97:  "🇵🇹",
+    88:  "🇳🇱", 89:  "🇳🇱", 90:  "🇳🇱",
+    144: "🇧🇪", 145: "🇧🇪",
+    203: "🇹🇷", 204: "🇹🇷", 205: "🇹🇷",
+    235: "🇷🇺",
+    179: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    197: "🇬🇷",
+    333: "🇺🇦",
+    218: "🇦🇹",
+    207: "🇨🇭",
+    119: "🇩🇰",
+    113: "🇸🇪",
+    103: "🇳🇴",
+    244: "🇫🇮",
+    106: "🇵🇱",
+    345: "🇨🇿",
+    210: "🇭🇷",
+    286: "🇷🇸",
+    283: "🇷🇴",
+    307: "🇸🇦",
+    71:  "🇧🇷", 72:  "🇧🇷", 73:  "🇧🇷",
+    128: "🇦🇷", 130: "🇦🇷", 131: "🇦🇷",
+    265: "🇨🇱",
+    239: "🇨🇴",
+    268: "🇺🇾",
+    281: "🇵🇪",
+    240: "🇨🇴",
+    242: "🇵🇾",
+    243: "🇪🇨",
+    241: "🇨🇴",
+    253: "🇺🇸", 254: "🇺🇸",
+    261: "🇨🇦",
+    262: "🇲🇽", 263: "🇲🇽",
+    98:  "🇯🇵", 99:  "🇯🇵",
+    292: "🇰🇷", 293: "🇰🇷",
+    169: "🇨🇳",
+    188: "🇦🇺",
+    288: "🇿🇦",
+    200: "🇲🇦",
+    298: "🇹🇭",
+    202: "🇹🇳",
+    233: "🇪🇬",
+    570: "🇬🇭",
+    387: "🇯🇴",
+    290: "🇮🇷",
+    323: "🇮🇳",
+    909: "🇺🇸", 5:   "🇪🇺", 8:   "🌍", 9:   "🌎", 11:  "🌎", 16:  "🌎",
+    17:  "🌏", 20:  "🌍", 22:  "🌎", 44:  "🏴󠁧󠁢󠁥󠁮󠁧󠁿", 64:  "🇫🇷", 75:  "🇧🇷",
+    82:  "🇩🇪", 95:  "🇵🇹", 114: "🇸🇪", 116: "🇧🇾", 147: "🇧🇪", 164: "🇮🇸",
+    186: "🇩🇿", 206: "🇹🇷", 250: "🇵🇾", 296: "🇹🇭", 299: "🇻🇪", 301: "🇦🇪",
+    327: "🇬🇪", 329: "🇪🇪", 344: "🇧🇴", 362: "🇱🇹", 365: "🇱🇻", 367: "🇫🇴",
+    403: "🇸🇳", 475: "🇧🇷", 479: "🇨🇦", 528: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", 624: "🇧🇷", 1032: "🇦🇷",
+    357: "🇮🇪",
+}
+
 COMPETITION_FLAGS = {
     "coupe du monde": "🏆", "k league": "🇰🇷", "j1 league": "🇯🇵", "j2 league": "🇯🇵",
     "allsvenskan": "🇸🇪", "superettan": "🇸🇪", "eliteserien": "🇳🇴", "obos": "🇳🇴",
@@ -129,7 +203,20 @@ SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈", "t
 # doublon (meme info sous 2 etiquettes) ou pire, un player pick affiche a
 # tort sous le libelle "Conseil" quand aucun value bet n'avait passe les
 # criteres -- signale par l'utilisateur comme peu clair cote client.
-SPORTS_CONSEIL_IS_MIRROR = {"tennis", "nba", "nhl", "baseball", "wnba", "nfl"}
+SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl"}
+
+# "tennis" retire de SPORTS_CONSEIL_IS_MIRROR le 22/08/2026 (bug confirme
+# en production, demande explicite : "le tennis des fois ne montre pas
+# notre pronostic au client sur le site"). L'hypothese "conseil == mirroir
+# du value bet" est FAUSSE pour tennis : tennis/predictions.py stocke
+# value_bet_txt UNIQUEMENT pour un edge "Total sets" (marche distinct,
+# souvent absent), jamais pour le pick vainqueur principal (pick, stocke
+# dans conseil avec market_type="winner"). Supprimer "conseil" faisait
+# donc disparaitre le SEUL pick reellement publie sur Telegram des que ce
+# match n'avait ni edge Total sets ni player pick -- rien n'etait alors
+# affiche au client alors qu'un vrai pick existait. Les autres sports de
+# cette liste n'ont pas ete reverifies -- limiter le changement a tennis,
+# seul sport dont la fausse hypothese a ete confirmee ce jour.
 
 # Bug corrige le 06/08/2026 (confirme en direct : Texas Rangers -1.5 regle
 # GAGNÉ en base mais jamais affiche comme "Terminé" sur Publications, reste
@@ -156,8 +243,32 @@ CATEGORY_LABEL_FR = {
     "touchdown": "Touchdown",
 }
 
+# Duplique ici (21/08/2026, demande explicite : "toute les value ne sont pas
+# sur le site" -- les lignes "💎 VALUE BET" du moteur refonte, formattees par
+# football/refonte_publication_preview.py::format_value_bet_lines et fusionnees
+# dans le caption Telegram, n'etaient jamais persistees dans une colonne lue
+# par ce script -- seule refonte_value_bet_settlements (DB) les garde) plutot
+# qu'importe football/refonte_publication_preview.py : meme raison que
+# COMP_WINDOWS plus haut, le module football/ n'existe que cote repo prive,
+# jamais copie par le cote public. MARKET_DISPLAY_ORDER/MARKET_LABELS/
+# _SELECTION_LABELS source de verite : football/refonte_publication_preview.py.
+REFONTE_MARKET_DISPLAY_ORDER = ["1x2", "over25", "btts", "corners", "cards"]
+REFONTE_MARKET_LABELS = {
+    "1x2": "1X2", "over25": "Over/Under 2.5", "btts": "BTTS",
+    "corners": "Corners O/U 9.5", "cards": "Cartons O/U 3.5",
+}
+REFONTE_SELECTION_LABELS = {
+    "H": "{home}", "D": "Match nul", "A": "{away}",
+    "over": "Plus de 2.5 buts", "under": "Moins de 2.5 buts",
+    "yes": "Les deux équipes marquent", "no": "Les deux équipes ne marquent pas",
+    "corners_over": "Plus de 9.5 corners", "corners_under": "Moins de 9.5 corners",
+    "cards_over": "Plus de 3.5 cartons", "cards_under": "Moins de 3.5 cartons",
+}
 
-def _flag(league: str) -> str:
+
+def _flag(league: str, league_id: int | None = None) -> str:
+    if league_id and league_id in LEAGUE_FLAG_EMOJI:
+        return LEAGUE_FLAG_EMOJI[league_id]
     c = (league or "").lower()
     for key, flag in COMPETITION_FLAGS.items():
         if key in c:
@@ -165,8 +276,41 @@ def _flag(league: str) -> str:
     return "⚽"
 
 
-def _sport_icon(sport: str, league: str) -> str:
-    return _flag(league) if sport == "football" else SPORT_ICON.get(sport, "🏅")
+def _sport_icon(sport: str, league: str, league_id: int | None = None) -> str:
+    return _flag(league, league_id) if sport == "football" else SPORT_ICON.get(sport, "🏅")
+
+
+_TENNIS_PHOTO_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "players")
+_TENNIS_PHOTO_EXTS = (".png", ".webp", ".jpg")
+
+
+def _tennis_player_photo_path(player_name: str) -> str | None:
+    """Chemin relatif (depuis site/) vers la photo deja en cache pour ce
+    joueur, ou None si pas de correspondance/pas encore telechargee.
+
+    24/08/2026 (demande explicite : "on arrete d'utiliser allsportsapi ...
+    est-ce que c'est possible") : nom de fichier base sur
+    normalize_player_name() (meme cle que players_tennis.player_key,
+    tennis_elo_utils, generer_pari_tennis -- LA cle canonique utilisee
+    partout ailleurs dans le bot pour identifier un joueur), plus jamais
+    l'id numerique AllSportsAPI. Avant ce fix, CE lookup lui-meme appelait
+    asa.get_rankings() EN DIRECT a chaque generation du site pour
+    convertir nom -> id AllSportsAPI -- des que ce compte etait en
+    rate-limit (confirme en direct le 24/08/2026, HTTP 429), la fonction
+    retournait un dict vide et TOUTES les photos deja en cache devenaient
+    invisibles sur le site, pas seulement les manquantes. Lookup desormais
+    100% hors-ligne (lecture disque seule, aucun appel reseau)."""
+    try:
+        from tennis_elo_utils import normalize_player_name
+    except Exception:
+        return None
+    key = normalize_player_name(player_name or "")
+    if not key:
+        return None
+    for ext in _TENNIS_PHOTO_EXTS:
+        if os.path.exists(os.path.join(_TENNIS_PHOTO_DIR, f"{key}{ext}")):
+            return f"assets/players/{key}{ext}"
+    return None
 
 
 # Duplique depuis tg_bot/format_v2.py::strip_market_labels (07/08/2026,
@@ -326,7 +470,8 @@ def fetch_programme() -> list[dict]:
     # differente, non affectee par ce retrait.
     cur.execute(
         f"""
-        SELECT fixture_id, home, away, league, kickoff_at, publish_status, sport
+        SELECT fixture_id, home, away, league, kickoff_at, publish_status, sport,
+               league_id, home_team_id, away_team_id
         FROM programme_fixtures
         WHERE sport IN ({placeholders_sport})
           AND {window_where}
@@ -361,13 +506,13 @@ def fetch_programme() -> list[dict]:
             no_bet_by_fixture[str(fid)] = reason_code  # dernier vu = plus recent
 
     out = []
-    for fixture_id, home, away, league, kickoff_at, publish_status, sport in rows:
+    for fixture_id, home, away, league, kickoff_at, publish_status, sport, league_id, home_team_id, away_team_id in rows:
         item = {
             # fixture_id (21/07/2026) : necessaire cote client pour deriver
             # l'ID ESPN et interroger le score en direct pendant le match
             # (remplace "En cours" -- voir programme.html::espnEventInfo).
             "fixture_id": str(fixture_id),
-            "flag": _sport_icon(sport, league),
+            "flag": _sport_icon(sport, league, int(league_id) if league_id else None),
             "league": league or "",
             "sport": sport or "football",
             "sport_label": SPORT_LABEL.get(sport, sport or "Football"),
@@ -375,6 +520,35 @@ def fetch_programme() -> list[dict]:
             "kickoff_at": kickoff_at,
             "published": publish_status == "published",
         }
+        # league_id + logos (13/08/2026, chantier "live score foot via ESPN") :
+        # necessaire cote client pour resoudre le slug ESPN
+        # (FOOTBALL_LEAGUE_SLUGS) et afficher les vrais blasons -- deja stockes
+        # sur programme_fixtures depuis la creation de la ligne, aucun appel
+        # API supplementaire. media.api-sports.io/football/teams/{id}.png est
+        # l'URL publique stable utilisee partout ailleurs dans le bot pour un
+        # logo d'equipe (cf normalize_team()).
+        if sport == "football":
+            if league_id:
+                item["league_id"] = int(league_id)
+            if home_team_id:
+                item["home_logo"] = f"https://media.api-sports.io/football/teams/{int(home_team_id)}.png"
+            if away_team_id:
+                item["away_logo"] = f"https://media.api-sports.io/football/teams/{int(away_team_id)}.png"
+        elif sport == "tennis":
+            # Photos joueurs (13/08/2026, demande explicite "recupere celle
+            # d'ESPN le maximum et installe un systeme pour completer... avec
+            # un rythme de 95/jours") : jobs/tennis_player_photos.py telecharge
+            # en amont dans site/assets/players/{allsportsapi_id}.{ext} -- ici
+            # on resout juste le nom -> id (classement AllSportsAPI deja en
+            # cache memoire 1h) puis verifie si le fichier local existe deja.
+            # Chemin relatif omis (pas de champ) si aucune photo en cache --
+            # le client affiche alors des initiales, jamais d'image inventee.
+            home_photo = _tennis_player_photo_path(home)
+            away_photo = _tennis_player_photo_path(away)
+            if home_photo:
+                item["home_photo"] = home_photo
+            if away_photo:
+                item["away_photo"] = away_photo
         if coup_fixture_id and str(fixture_id) == coup_fixture_id:
             item["coup"] = True
         if publish_status != "published" and str(fixture_id) in no_bet_by_fixture:
@@ -383,20 +557,36 @@ def fetch_programme() -> list[dict]:
         if publish_status == "published":
             cur.execute(
                 """SELECT conseil, COALESCE(NULLIF(cote_reelle,0), cote_interne),
-                          value_bet, value_cote, resultat, score, value_result
+                          value_bet, value_cote, resultat, score, value_result,
+                          lineup_source, COALESCE(mise,0), COALESCE(value_stake_eur,0)
                    FROM paris WHERE fixture_id = %s
                    ORDER BY created_at DESC LIMIT 1""",
                 (fixture_id,),
             )
             row = cur.fetchone()
             if row:
-                conseil, cote, value_bet, value_cote, resultat, score, value_result = row
+                (conseil, cote, value_bet, value_cote, resultat, score, value_result,
+                 lineup_source, conseil_mise, value_mise) = row
                 if conseil and sport not in SPORTS_CONSEIL_IS_MIRROR:
                     item["conseil"] = _short_pick(conseil)
                     item["conseil_cote"] = round(float(cote or 0), 2)
+                    # Mise (22/08/2026, demande explicite "rajoute les mises
+                    # dans les publications") : paris.mise est deja en EUROS
+                    # (football/predictions.py::sauvegarder_pari, mise=
+                    # advice_stake.stake_eur) -- jamais recalculee ici, la
+                    # valeur figee au moment de la publication reelle.
+                    if float(conseil_mise or 0) > 0:
+                        item["conseil_mise_eur"] = round(float(conseil_mise), 0)
+                # Badge "Compo: ..." (11/08/2026, chantier ESPN palier 2) --
+                # purement informatif, n'affecte aucun calcul. Uniquement
+                # pour foot (seul sport avec cette colonne renseignee).
+                if sport == "football" and lineup_source:
+                    item["lineup_source"] = str(lineup_source)
                 if value_bet:
                     item["value_bet"] = _short_pick(value_bet)
                     item["value_cote"] = round(float(value_cote or 0), 2)
+                    if float(value_mise or 0) > 0:
+                        item["value_mise_eur"] = round(float(value_mise), 0)
                     # Statut propre au value bet (24/07/2026, demande explicite,
                     # confirme en direct : badge global du haut affichait le
                     # resultat du "conseil" -- mirroir du value bet OU d'un
@@ -419,14 +609,15 @@ def fetch_programme() -> list[dict]:
                     if score:
                         item["score"] = score
             cur.execute(
-                """SELECT category, selection_label, display_mode, market_odd, public_probability
+                """SELECT category, selection_label, display_mode, market_odd, public_probability,
+                          COALESCE(stake_eur,0)
                    FROM offensive_player_picks WHERE fixture_id = %s
                    ORDER BY created_at DESC""",
                 (fixture_id,),
             )
             player_picks = []
             seen_categories = set()
-            for category, label, mode, odd, prob in cur.fetchall():
+            for category, label, mode, odd, prob, stake_eur in cur.fetchall():
                 if category in seen_categories:
                     continue
                 seen_categories.add(category)
@@ -443,6 +634,12 @@ def fetch_programme() -> list[dict]:
                     # texte). None pour les picks mode "percent" (pas de
                     # cote marche reelle, jamais de valeur inventee).
                     "odd": float(odd) if mode == "cote" and odd else None,
+                    # Mise (22/08/2026) : deja persistee (offensive_player_picks.
+                    # stake_eur, remplie par football/predictions.py au calcul
+                    # de la caption Telegram) mais jamais lue par ce script --
+                    # None en mode "percent" (pas de cote marche, pas de mise
+                    # a afficher, meme regle que "odd" juste au-dessus).
+                    "mise_eur": round(float(stake_eur), 0) if mode == "cote" and stake_eur else None,
                     "_cat_key": category,
                 })
                 if len(player_picks) == 2:
@@ -473,12 +670,12 @@ def fetch_programme() -> list[dict]:
                 # Ajoute le 20/07/2026 -- ces sports n'affichaient jamais leurs
                 # player picks sur le site cote "a venir/publie".
                 cur.execute(
-                    """SELECT player_name, market_label, odd, settlement_status
+                    """SELECT player_name, market_label, odd, settlement_status, COALESCE(stake_eur,0)
                        FROM sport_player_picks
                        WHERE fixture_id = %s ORDER BY created_at ASC LIMIT 2""",
                     (fixture_id,),
                 )
-                for player_name, label, odd, settlement_status in cur.fetchall():
+                for player_name, label, odd, settlement_status, stake_eur in cur.fetchall():
                     pick = {
                         "category": "Player pick",
                         "label": f"{player_name} — {label}" if player_name else label,
@@ -486,12 +683,52 @@ def fetch_programme() -> list[dict]:
                         # "odd" numerique -- meme fix que la branche football
                         # ci-dessus (05/08/2026).
                         "odd": float(odd) if odd else None,
+                        # Mise (22/08/2026) -- deja persistee, jamais lue avant.
+                        "mise_eur": round(float(stake_eur), 0) if odd and stake_eur else None,
                     }
                     if (settlement_status or "").upper() in RESULTAT_GAGNE + ("PERDU",):
                         pick["result"] = settlement_status.upper()
                     player_picks.append(pick)
             if player_picks:
                 item["player_picks"] = player_picks
+
+            # Lignes "💎 VALUE BET" du moteur refonte (1X2/O-U/BTTS/corners/
+            # cartons) -- absentes du site jusqu'ici (21/08/2026, demande
+            # explicite), persistees uniquement dans refonte_value_bet_settlements
+            # une fois le message combine reellement envoye (cf football/
+            # predictions.py::_compute_refonte_value_bet_lines). Foot uniquement
+            # -- cette table n'existe que pour les ligues domestiques refonte.
+            if sport == "football":
+                cur.execute(
+                    """SELECT market, selection, odd, result, COALESCE(stake_eur,0)
+                       FROM refonte_value_bet_settlements
+                       WHERE fixture_id = %s""",
+                    (fixture_id,),
+                )
+                _by_market = {market: (selection, odd, result, stake_eur)
+                              for market, selection, odd, result, stake_eur in cur.fetchall()}
+                refonte_value_bets = []
+                for market in REFONTE_MARKET_DISPLAY_ORDER:
+                    row = _by_market.get(market)
+                    if not row:
+                        continue
+                    selection, odd, result, stake_eur = row
+                    label = REFONTE_SELECTION_LABELS.get(selection, selection)
+                    label = label.format(home=home, away=away) if "{" in label else label
+                    entry = {
+                        "market": REFONTE_MARKET_LABELS.get(market, market),
+                        "label": label,
+                        "odd": round(float(odd or 0), 2),
+                        # Mise (22/08/2026) -- deja persistee (stake_eur fige a
+                        # la publication, cf football/refonte_publication_preview.py::
+                        # record_selections_shadow), jamais lue par le site avant.
+                        "mise_eur": round(float(stake_eur), 0) if stake_eur else None,
+                    }
+                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
+                        entry["result"] = result.upper()
+                    refonte_value_bets.append(entry)
+                if refonte_value_bets:
+                    item["refonte_value_bets"] = refonte_value_bets
         out.append(item)
 
     conn.close()
@@ -505,9 +742,13 @@ def fetch_publications() -> dict:
     Telegram aujourd'hui (05/08/2026, demande explicite : les No Bet ne sont
     pas des publications Telegram, ils ne doivent plus apparaitre sur cette
     page -- seul le flux reellement envoye au canal compte).
-    Football exclu (en pause, demande explicite du 04/08/2026 -- pas de
-    fixture_id exploitable cote client pour le score/les stats live, cle API
-    secrete).
+    Football reintegre (21/08/2026 -- l'exclusion du 04/08/2026 citait
+    "pas de fixture_id exploitable cote client pour le score, cle API
+    secrete" : resolu depuis le 13/08/2026 par le chantier "live score foot
+    via ESPN" (site/publications.html::resolveFootballEventId), qui
+    resout l'event ESPN par similarite de noms d'equipe cote client, sans
+    cle secrete -- l'exclusion ici n'avait juste jamais ete retiree apres
+    coup, alors que le blocage qu'elle citait n'existe plus).
 
     "live" = pas encore reglee (pas de cle "result") ; "done" = reglee
     (cle "result" presente). Le statut "live" avant le coup d'envoi est
@@ -515,8 +756,6 @@ def fetch_publications() -> dict:
     dans chaque item), pas un simple "En cours" statique."""
     out = {"live": [], "done": []}
     for f in fetch_programme():
-        if f.get("sport") == "football":
-            continue
         if not f.get("published"):
             continue
         (out["done"] if f.get("result") else out["live"]).append(f)

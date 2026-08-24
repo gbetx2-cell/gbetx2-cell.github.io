@@ -34,7 +34,56 @@ header{border-bottom:1px solid var(--border);padding:18px 0;position:sticky;top:
 .nav-links a{text-decoration:none;color:inherit}
 .nav-links a.active{color:var(--gold-2);font-weight:600}
 .nav-links a:hover{color:var(--gold-2)}
-@media(max-width:640px){.nav-links{display:none}}
+
+/* ── Bouton (21/08/2026, absent jusqu'ici -- necessaire pour "Rejoindre
+   le canal" dans le nouveau menu mobile ci-dessous, meme style que les
+   4 autres pages) ── */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:12px;
+  font-weight:700;font-size:.95rem;text-decoration:none;
+  transition:transform .15s ease, box-shadow .15s ease;
+  cursor:pointer;border:none;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold-dark,#b8860b),var(--gold-2));
+  color:#141005;
+  box-shadow:0 4px 24px rgba(240,185,11,.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 34px rgba(240,185,11,.5)}
+
+/* ── Menu mobile (21/08/2026, meme markup/CSS que resultats.html) ── */
+.icon-btn{
+  background:transparent;border:1px solid var(--border-strong);border-radius:10px;
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  color:var(--text);cursor:pointer;flex-shrink:0;
+}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold-2)}
+.menu-toggle{display:none}
+.header-right{display:flex;align-items:center;gap:10px}
+.mobile-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:64;
+}
+.mobile-backdrop.open{opacity:1;pointer-events:auto}
+.mobile-nav{
+  position:fixed;top:0;right:0;height:100vh;width:min(320px,82vw);
+  background:var(--bg-2);border-left:1px solid var(--border);
+  transform:translateX(100%);transition:transform .25s ease;
+  z-index:70;padding:20px 22px;display:flex;flex-direction:column;gap:4px;
+  overflow-y:auto;
+}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav-head{display:flex;justify-content:flex-end;margin-bottom:14px}
+.mobile-nav a{padding:15px 4px;font-size:1.05rem;color:var(--text);font-weight:600;
+  border-bottom:1px solid var(--border);text-decoration:none}
+.mobile-nav a.active{color:var(--gold-2)}
+.mobile-nav .btn{margin-top:18px;justify-content:center}
+
+@media(max-width:640px){
+  .nav-links{display:none}
+  .menu-toggle{display:flex}
+}
 h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 6px}
 .sub{color:var(--muted);font-size:.95rem;margin-bottom:20px}
 #status{font-size:.82rem;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}
@@ -90,6 +139,7 @@ h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 
   background:var(--odds-bg);color:var(--odds-text);font-weight:700;font-size:.95rem;
   padding:6px 12px;border-radius:9px;flex-shrink:0;
 }
+.mise-badge{color:var(--muted);font-size:.7rem;font-weight:600;white-space:nowrap}
 
 .gauge{padding-left:42px;margin-top:2px}
 .gauge-track{position:relative;height:4px;border-radius:99px;background:var(--track);margin-bottom:16px}
@@ -209,6 +259,13 @@ footer a{color:var(--gold-2);text-decoration:none}
   </div>
 </div>
 
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+</defs>
+</svg>
+
 <header>
   <div class="container nav">
     <a class="logo" href="index.html" style="text-decoration:none;color:inherit">
@@ -221,9 +278,33 @@ footer a{color:var(--gold-2);text-decoration:none}
       <a href="performance.html">Performance</a>
       <a href="faq.html">FAQ</a>
     </nav>
-    <a class="back-link" href="index.html">← Retour au site</a>
+    <div class="header-right">
+      <a class="back-link" href="index.html">← Retour au site</a>
+      <!-- Menu mobile (21/08/2026, demande explicite : sur Publications,
+           seul "Retour au site" existait sur telephone -- .nav-links est
+           masque sous 900px comme sur les 4 autres pages, mais sans
+           l'alternative hamburger qu'elles ont deja. Meme markup/CSS/JS
+           copie de resultats.html pour rester coherent sur tout le site. -->
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="icon" style="width:20px;height:20px"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
   </div>
 </header>
+
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Menu principal">
+  <div class="mobile-nav-head">
+    <button class="icon-btn" id="menuClose" aria-label="Fermer le menu">
+      <svg class="icon" style="width:18px;height:18px"><use href="#i-x"></use></svg>
+    </button>
+  </div>
+  <a href="publications.html" class="active">Publications</a>
+  <a href="resultats.html">Résultats</a>
+  <a href="performance.html">Performance</a>
+  <a href="faq.html">FAQ</a>
+  <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
+</nav>
 
 <div class="container">
   <h1>Publications</h1>
@@ -259,6 +340,151 @@ const ESPN_SPORT_PATH = {
 };
 let liveCache = {}; // fixture_id -> {home, away, status, boxscore}
 
+// Football (13/08/2026, chantier "live score foot via ESPN", demande
+// explicite : "on change c'est ESPN parce qu'on publie que des ligues
+// backtest et ESPN les couvre toutes") -- meme table que
+// data_providers/espn.py::FOOTBALL_LEAGUE_SLUGS cote serveur, copiee ici
+// car le foot n'a pas d'ID ESPN directement dans fixture_id (contrairement
+// aux autres sports) : il faut resoudre league_id -> slug -> event ESPN du
+// jour par similarite de noms d'equipe, cote client, sans cle secrete
+// (ESPN est gratuit, contrairement a l'API-Football payante -- c'est
+// precisement ce qui debloque le foot, en pause depuis le 04/08/2026,
+// cf commentaire plus haut).
+// Synchronise avec data_providers/espn.py::FOOTBALL_LEAGUE_SLUGS (21/08/2026 --
+// cette copie etait restee figee au 11/08 pendant que le serveur passait a
+// 42 puis 55 entrees, laissant Saudi Pro League/Allsvenskan/etc. bloques
+// sur "- - -" sur le site malgre une couverture ESPN deja confirmee cote
+// bot). A reverifier/resynchroniser si de nouvelles ligues sont ajoutees
+// cote serveur.
+const FOOTBALL_LEAGUE_SLUGS = {
+  2: 'uefa.champions_qual', 3: 'uefa.europa_qual', 11: 'conmebol.sudamericana', 13: 'conmebol.libertadores',
+  39: 'eng.1', 40: 'eng.2', 41: 'eng.3', 42: 'eng.4', 61: 'fra.1', 62: 'fra.2',
+  71: 'bra.1', 78: 'ger.1', 79: 'ger.2', 88: 'ned.1', 94: 'por.1', 98: 'jpn.1',
+  103: 'nor.1', 113: 'swe.1', 119: 'den.1', 128: 'arg.1', 135: 'ita.1', 136: 'ita.2',
+  140: 'esp.1', 141: 'esp.2', 144: 'bel.1', 162: 'crc.1', 169: 'chn.1', 179: 'sco.1',
+  188: 'aus.1', 197: 'gre.1', 203: 'tur.1', 207: 'sui.1', 218: 'aut.1', 234: 'hon.1',
+  235: 'rus.1', 239: 'col.1', 242: 'ecu.1', 250: 'par.1', 253: 'usa.1', 255: 'usa.usl.1',
+  262: 'mex.1', 265: 'chi.1', 268: 'uru.1', 281: 'per.1', 283: 'rou.1', 288: 'rsa.1',
+  292: 'kor.1', 299: 'ven.1', 307: 'ksa.1', 323: 'ind.1', 339: 'gua.1', 344: 'bol.1',
+  357: 'irl.1', 370: 'slv.1', 401: 'zim.1', 848: 'uefa.europa.conf',
+};
+
+const _FOOTBALL_STOPWORDS = new Set(['fc','cf','sv','vfb','vfl','tsv','sc','ac','as','us','calcio','utd','united','1899','98']);
+// Surnoms clubs anglais -> nom canonique (22/08/2026, meme fix cote
+// serveur data_providers/espn.py::_FOOTBALL_NICKNAME_ALIASES -- bug
+// confirme : "Wolves" ne matchait jamais "Wolverhampton Wanderers",
+// bloquant le score live cote client pour ces matchs). Limite aux
+// surnoms non-ambigus, cf commentaire Python pour le detail.
+const _FOOTBALL_NICKNAME_ALIASES = {
+  wolves:'wolverhampton', spurs:'tottenham', gunners:'arsenal', hammers:'west ham',
+  baggies:'west bromwich', toffees:'everton', saints:'southampton', cherries:'bournemouth',
+  eagles:'crystal palace', foxes:'leicester', hornets:'watford', owls:'sheffield wednesday',
+  rams:'derby', tigers:'hull', terriers:'huddersfield', canaries:'norwich',
+  magpies:'newcastle', villans:'aston villa', potters:'stoke', seagulls:'brighton',
+  clarets:'burnley', latics:'wigan', addicks:'charlton', posh:'peterborough',
+};
+function _footballNorm(s){
+  // ø/æ/ß n'ont aucune decomposition Unicode (23/08/2026, confirme en
+  // direct : "Sønderjyske" vs "Sonderjyske" ne matchait jamais, match live
+  // reste bloque sur "a venir") -- meme correctif que data_providers/
+  // espn.py::_football_norm et flashscore.py::_norm (cote backend).
+  let out = (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase().replace(/ø/g, 'o').replace(/æ/g, 'ae').replace(/ß/g, 'ss')
+    .replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  for (const [nickname, canonical] of Object.entries(_FOOTBALL_NICKNAME_ALIASES)){
+    out = out.replace(new RegExp(`(?<!\\w)${nickname}(?!\\w)`, 'g'), canonical);
+  }
+  return out;
+}
+function _footballSim(a, b){
+  // Sous-chaine complete (22/08/2026, bug confirme : "Preston" vs "Preston
+  // North End" ne scorait que 0.333 -- l'ancien code retournait des que le
+  // moindre mot commun existait, sans jamais tester le containment complet
+  // qui aurait donne 0.85 comme cote Python (data_providers/espn.py::
+  // _football_sim) -- meme nom raccourci officiel note comme un match
+  // faible a tort). Teste maintenant les DEUX methodes, garde le meilleur
+  // score plutot que de s'arreter au premier mot commun trouve.
+  const an = _footballNorm(a), bn = _footballNorm(b);
+  let subScore = 0;
+  if (an && bn && (an.includes(bn) || bn.includes(an))) subScore = 0.85;
+  const wa = new Set(an.split(' ').filter(w => w.length >= 2 && !_FOOTBALL_STOPWORDS.has(w)));
+  const wb = new Set(bn.split(' ').filter(w => w.length >= 2 && !_FOOTBALL_STOPWORDS.has(w)));
+  if (!wa.size || !wb.size) return subScore;
+  let inter = 0;
+  wa.forEach(w => { if (wb.has(w)) inter++; });
+  if (inter) return Math.max(subScore, inter / Math.max(wa.size, wb.size));
+  if (subScore) return subScore;
+  for (const x of wa){
+    if (x.length < 4) continue;
+    for (const y of wb){ if (y.length >= 4 && (x.includes(y) || y.includes(x))) return 0.5; }
+  }
+  return 0;
+}
+
+let footballEventIdCache = {}; // fixture_id -> ESPN event id ou null (deja tente, pas trouve)
+
+async function resolveFootballEventId(f){
+  const fid = f.fixture_id;
+  if (fid in footballEventIdCache) return footballEventIdCache[fid];
+  const slug = FOOTBALL_LEAGUE_SLUGS[f.league_id];
+  if (!slug || !f.kickoff_at){ footballEventIdCache[fid] = null; return null; }
+  const [homeName, awayName] = (f.match || '').split('–').map(s => (s || '').trim());
+  try{
+    // Bug corrige le 23/08/2026 (demande explicite : "le bot n'affiche
+    // toujours pas le resultat sur des matchs qui ont commence") : une
+    // seule date UTC etait interrogee, mais le regroupement par journee
+    // d'ESPN ne s'aligne PAS sur minuit UTC pour les ligues au coup
+    // d'envoi tardif (MLS, Liga MX, Arabie Saoudite...) -- confirme en
+    // direct (meme cause racine que data_providers/espn.py::
+    // find_football_match_id, corrige le meme jour cote backend) : un
+    // match a 00h30 UTC tombe dans le bucket scoreboard de la VEILLE.
+    // Essaie desormais 3 buckets (veille/jour/lendemain UTC) et garde le
+    // meilleur score de similarite tous buckets confondus.
+    const d = new Date(f.kickoff_at);
+    let best = null, bestScore = 0;
+    const candidatesWindow = []; // {id, home, away}
+    for (const offsetDays of [0, -1, 1]){
+      const dd = new Date(d.getTime() + offsetDays * 86400000);
+      const dateStr = `${dd.getUTCFullYear()}${String(dd.getUTCMonth()+1).padStart(2,'0')}${String(dd.getUTCDate()).padStart(2,'0')}`;
+      const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/scoreboard?dates=${dateStr}`, {cache:'no-store'});
+      if (!res.ok) continue;
+      const data = await res.json();
+      for (const ev of (data.events || [])){
+        const comp = (ev.competitions || [])[0];
+        const teams = (comp && comp.competitors) || [];
+        const eHome = teams.find(t => t.homeAway === 'home');
+        const eAway = teams.find(t => t.homeAway === 'away');
+        const eHomeName = (eHome && eHome.team && eHome.team.displayName) || '';
+        const eAwayName = (eAway && eAway.team && eAway.team.displayName) || '';
+        candidatesWindow.push({id: ev.id, home: eHomeName, away: eAwayName});
+        const score = (_footballSim(homeName, eHomeName) + _footballSim(awayName, eAwayName)) / 2;
+        if (score > bestScore){ bestScore = score; best = ev.id; }
+      }
+    }
+    let found = bestScore >= 0.6 ? best : null;
+    if (!found){
+      // Repli "ville + horaire" (23/08/2026, confirme en direct : clubs
+      // chinois renommes -- "Shanghai Port" ESPN vs "SHANGHAI SIPG" cote
+      // bot, aucun mot commun. Meme repli que data_providers/espn.py::
+      // find_football_match_id (backend), porte ici a l'identique.
+      const homeCity = (_footballNorm(homeName).split(' ')[0]) || '';
+      const awayCity = (_footballNorm(awayName).split(' ')[0]) || '';
+      if (homeCity.length >= 4 && awayCity.length >= 4){
+        const cityHits = candidatesWindow.filter(c =>
+          (_footballNorm(c.home).split(' ')[0]) === homeCity &&
+          (_footballNorm(c.away).split(' ')[0]) === awayCity
+        );
+        if (cityHits.length === 1) found = cityHits[0].id;
+      }
+    }
+    footballEventIdCache[fid] = found;
+    return found;
+  }catch(e){
+    footballEventIdCache[fid] = null;
+    return null;
+  }
+}
+
 function espnEventInfo(f){
   const fid = f.fixture_id || '';
   if (f.sport === 'tennis'){
@@ -272,7 +498,13 @@ function espnEventInfo(f){
 }
 
 async function fetchLiveSummary(f){
-  const info = espnEventInfo(f);
+  let info = espnEventInfo(f);
+  if (!info && f.sport === 'football'){
+    const eventId = await resolveFootballEventId(f);
+    if (!eventId) return null;
+    const slug = FOOTBALL_LEAGUE_SLUGS[f.league_id];
+    info = {path: `soccer/${slug}`, eventId};
+  }
   if (!info) return null;
   try{
     const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${info.path}/summary?event=${info.eventId}`, {cache:'no-store'});
@@ -372,6 +604,16 @@ function isTeamTotalLabel(label){
 function classifyThreshold(f, rawText){
   let text = (rawText || '').trim();
 
+  // Player pick foot "buteur" (13/08/2026, demande explicite : "on fait que
+  // buteur +1") -- pas de texte "Plus de X" comme les autres marches
+  // (ex: "Mbappé — buteur"), traite comme un seuil implicite "au moins 1
+  // but" pour reutiliser la meme jauge. Verifie avant parseThreshold, qui
+  // ne matcherait jamais ce texte.
+  if (f.sport === 'football' && /buteur/i.test(text)){
+    const playerName = findPlayerName(text);
+    if (playerName) return {threshold: {dir: 'over', value: 1}, scope: 'player', playerName, statKey: 'goals'};
+  }
+
   // Bug corrige le 07/08/2026 (confirme en direct : "Philadelphia Phillies
   // Plus de 5,5 @ 1.9615" sans jauge malgre 6 runs deja marques) : ce
   // classifieur avait ete ecrit contre le texte BRUT ("Total équipe X — ...",
@@ -413,7 +655,19 @@ function classifyThreshold(f, rawText){
   if (teamTotalMatch){
     return {threshold, scope: 'team', teamName: teamTotalMatch[1].trim()};
   }
+  // Bug corrige le 21/08/2026 (confirme en direct : "Al-Hazm gagne + Moins
+  // de 3.5 buts" affichait une jauge a 0 malgre 1 but deja marque dans le
+  // match) : football/predictions.py genere des textes combines sous la
+  // forme "{equipe} gagne + {Plus/Moins} de X buts" ou "{equipe} ou Nul +
+  // {Plus/Moins} de X buts" (goals_leg, cf _line_pick()) -- le seuil de
+  // buts y porte TOUJOURS sur le total du match entier, jamais sur les
+  // buts de la seule equipe nommee en tete. Tout texte combine (" + ",
+  // separateur des deux jambes du pari) doit donc utiliser le score total
+  // du match, jamais le prefixe "{team} " qui ne concerne que la jambe
+  // resultat/double-chance, pas la jambe buts.
   const [homeName, awayName] = (f.match || '').split('–').map(s => (s || '').trim());
+  const isCombo = / \+ /.test(text);
+  if (isCombo) return {threshold, scope: 'match'};
   if (homeName && text.startsWith(homeName + ' ')) return {threshold, scope: 'team', side: 'home'};
   if (awayName && text.startsWith(awayName + ' ')) return {threshold, scope: 'team', side: 'away'};
 
@@ -431,7 +685,17 @@ function classifyThreshold(f, rawText){
   const statKey = findStatKey(f.sport, text);
   if (playerName && statKey) return {threshold, scope: 'player', playerName, statKey};
 
-  // Total du match entier (les deux equipes, tout le match)
+  // Total du match entier (les deux equipes, tout le match) -- corners et
+  // cartons distingues du foot AVANT le cas general "match" (22/08/2026,
+  // bug confirme : "Plus/Moins de X corners"/"...cartons" tombait dans le
+  // scope generique 'match', dont computeCurrentValue() ne connait qu'une
+  // seule source (live.home+live.away = BUTS) -- la jauge affichait donc
+  // le nombre de buts a la place des corners/cartons reels, une donnee
+  // fausse qui pouvait tromper le client). Ancres en fin de texte (unite),
+  // jamais sur le mot seul (evite un faux positif si "corner"/"carton"
+  // apparaissait ailleurs dans un texte).
+  if (isTeamTotalLabel(text) && /corners?$/i.test(text)) return {threshold, scope: 'corners'};
+  if (isTeamTotalLabel(text) && /cartons?$/i.test(text)) return {threshold, scope: 'cards'};
   if (isTeamTotalLabel(text)) return {threshold, scope: 'match'};
 
   return {threshold, scope: 'unknown'};
@@ -457,6 +721,19 @@ function computeCurrentValue(f, live, cls){
     if (!side) return null;
     const v = side === 'home' ? live.home : live.away;
     return v == null ? null : (parseInt(v, 10) || 0);
+  }
+  // Corners/cartons (22/08/2026) : source dediee (live.corners/live.cards,
+  // boxscore ESPN wonCorners/yellowCards+redCards, cf refreshLiveData) --
+  // jamais live.home/live.away (buts) qui affichait une jauge fausse.
+  // null tant que le boxscore n'est pas disponible, jamais une valeur
+  // inventee/reconstruite depuis autre chose.
+  if (cls.scope === 'corners'){
+    if (!live.corners || live.corners.home == null || live.corners.away == null) return null;
+    return (parseInt(live.corners.home, 10) || 0) + (parseInt(live.corners.away, 10) || 0);
+  }
+  if (cls.scope === 'cards'){
+    if (!live.cards || live.cards.home == null || live.cards.away == null) return null;
+    return (parseInt(live.cards.home, 10) || 0) + (parseInt(live.cards.away, 10) || 0);
   }
   if (cls.scope === 'period'){
     if (!live.homeLinescores || !live.awayLinescores) return null;
@@ -498,40 +775,59 @@ function gaugeHtml(state, currentVal, thresholdVal, scaleMax, overTag){
     ${overTag ? `<span class="over-tag">✓ Seuil déjà dépassé</span>` : ''}`;
 }
 
-function pickRowHtml(type, typeLabel, label, cote, result, gauge){
+function pickRowHtml(type, typeLabel, label, cote, result, gauge, mise){
   const stateClass = result === 'GAGNE' || result === 'GAGNÉ' ? 'done' : result === 'PERDU' ? 'lost' : 'live';
   const cls = result ? stateClass : 'live';
+  // Mise (22/08/2026, demande explicite "rajoute les mises dans les
+  // publications") : sous la cote, jamais a la place -- le client doit
+  // pouvoir juger le prix (cote) ET le montant conseille (mise) d'un
+  // coup d'oeil, comme sur Telegram ("cote 1.91" + "Mise conseillee :
+  // 200 € / 1u"). BASE_UNIT_EUR pas duplique cote client (deja utilise
+  // pour les jauges de mise value bet plus haut, cf compute_proportional_stake
+  // cote serveur) -- 200€ = 1u, valeur fixe partagee avec ai/staking.py.
+  const miseHtml = mise ? `<span class="mise-badge">${mise}€ · ${(mise/200).toFixed(1).replace(/\.0$/,'')}u</span>` : '';
   return `
     <div class="pick-row">
       <div class="pick-top">
         <span class="type-badge ${type}">${typeLabel}</span>
         <span class="pick-label">${label}</span>
-        ${cote ? `<span class="odds-badge">${cote.toFixed(2).replace('.', ',')}</span>` : ''}
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
+          ${cote ? `<span class="odds-badge">${cote.toFixed(2).replace('.', ',')}</span>` : ''}
+          ${miseHtml}
+        </div>
       </div>
       ${gauge || ''}
     </div>`;
 }
 
-function renderPick(f, kind, text, cote, result){
+function renderPick(f, kind, text, cote, result, prefix, mise){
+  // "prefix" (21/08/2026) : contexte affiche devant le texte (ex: "1X2 : ",
+  // "Over/Under 2.5 : ") sans jamais entrer dans classifyThreshold -- sinon
+  // "Over/Under 2.5 : Plus de 2.5 buts" ne matche plus isTeamTotalLabel
+  // (ancree en debut de chaine) et perd sa jauge O/U.
   const cls = classifyThreshold(f, text);
   const stateClass = result === 'GAGNE' || result === 'GAGNÉ' ? 'done' : result === 'PERDU' ? 'lost' : 'live';
-  const labelHtml = `<b class="${stateClass}">${text}</b>`;
-  if (!cls) return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, '');
+  const labelHtml = `<b class="${stateClass}">${prefix || ''}${text}</b>`;
+  const typeLabel = kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player';
+  if (!cls) return pickRowHtml(kind, typeLabel, labelHtml, cote, result, '', mise);
   const threshold = cls.threshold;
 
   let current = null, scaleMax = threshold.value * 1.6;
   const live = liveCache[f.fixture_id];
-  if (!result){
-    current = computeCurrentValue(f, live, cls); // reglee : pas de reconstruction de la progression finale, juste le resultat
-  }
+  // Tube (jauge) affiche aussi bien "en cours" que "passe" (21/08/2026,
+  // demande explicite : "la meme pour en cours et passes") -- des que le
+  // score/boxscore final est en cache (refreshLiveData recupere desormais
+  // aussi les matchs regles, une seule fois), la progression finale est
+  // affichee au lieu d'etre masquee.
+  current = computeCurrentValue(f, live, cls);
 
-  if (current == null) return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, '');
+  if (current == null) return pickRowHtml(kind, typeLabel, labelHtml, cote, result, '', mise);
 
   const isOver = threshold.dir === 'over' && current >= threshold.value;
   const isUnderMissed = threshold.dir === 'under' && current > threshold.value;
   const gaugeState = isOver ? 'over' : isUnderMissed ? 'lost' : 'live';
   const gauge = gaugeHtml(gaugeState, current, threshold.value, Math.max(scaleMax, current * 1.15, threshold.value * 1.15), isOver);
-  return pickRowHtml(kind, kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player', labelHtml, cote, result, gauge);
+  return pickRowHtml(kind, typeLabel, labelHtml, cote, result, gauge, mise);
 }
 
 function countdownLabel(kickoffIso){
@@ -572,8 +868,197 @@ function tickCountdowns(){
   if (needsRerender) render();
 }
 
+// En-tete foot (13/08/2026, demande explicite : "logo a gauche et a droite
+// le score au milieu en dessous c'est divise en deux avec les faits
+// importants des equipes donc buteur et carton rouge et en haut a droite le
+// temps") -- mise en page dediee, distincte du match-head generique utilise
+// par les autres sports (qui n'ont pas de logos ni de faits en direct).
+function footballMatchHeadHtml(f, live){
+  const [homeName, awayName] = (f.match || '').split('–').map(s => (s || '').trim());
+  const homeLogo = f.home_logo, awayLogo = f.away_logo;
+
+  // 23/08/2026 (demande explicite : "quand c'est FT il reste dans les en
+  // cours" + "je ne veux plus de en cours alors que le match a commence")
+  // -- priorite au statut ESPN REEL (live.finished/live.state) plutot qu'a
+  // f.result (reglement des paris, qui peut retarder ou ne jamais se
+  // declencher sur un match sans pari) : un match FT cote ESPN passe
+  // "Termine" immediatement, un match dont le coup d'envoi est confirme
+  // passe "En cours" immediatement, meme si kickoff_at n'a pas encore ete
+  // depasse (retard, decalage d'horaire) -- f.result/kickoff_at restent des
+  // secours quand aucune donnee live n'est encore disponible.
+  let score, clock;
+  if (live && live.finished){
+    score = `${live.home} - ${live.away}`;
+    clock = 'Terminé';
+  } else if (f.result){
+    score = f.score || '- - -';
+    clock = 'Terminé';
+  } else if (live && live.home != null){
+    score = `${live.home} - ${live.away}`;
+    clock = live.statusDetail || 'En cours';
+  } else if (f.kickoff_at && new Date(f.kickoff_at).getTime() > Date.now()){
+    score = '- - -';
+    clock = countdownLabel(f.kickoff_at);
+  } else {
+    score = '- - -';
+    clock = 'En cours';
+  }
+
+  const EVENT_ICON = {goal: '⚽', red_card: '🟥', yellow_card: '🟨'};
+  const eventLine = e => `<div>${EVENT_ICON[e.kind] || ''} ${e.minute} ${e.player}</div>`;
+  const events = (live && live.events) || [];
+  const homeEvents = events.filter(e => e.team === 'home').map(eventLine).join('') || `<div style="color:var(--muted)">—</div>`;
+  const awayEvents = events.filter(e => e.team === 'away').map(eventLine).join('') || `<div style="color:var(--muted)">—</div>`;
+
+  const logosHtml = homeLogo && awayLogo ? `
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px">
+        <img src="${homeLogo}" alt="${homeName}" style="width:38px;height:38px;object-fit:contain">
+        <div style="text-align:center;min-width:0">
+          <div style="font-weight:600;font-size:.88rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${f.match}</div>
+          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:1.6rem;margin-top:2px">${score}</div>
+        </div>
+        <img src="${awayLogo}" alt="${awayName}" style="width:38px;height:38px;object-fit:contain">
+      </div>` : `
+      <div style="text-align:center">
+        <div class="match-name">${f.match}</div>
+        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:1.6rem;margin-top:2px">${score}</div>
+      </div>`;
+
+  // Faits marquants affiches uniquement s'il y a un score en direct/final --
+  // rien a montrer avant le coup d'envoi (evite une colonne "—"/"—" vide et
+  // trompeuse pendant le decompte).
+  const factsHtml = (live && live.home != null) || f.result ? `
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)">
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:.8rem;color:var(--text)">${homeEvents}</div>
+        <div style="width:1px;background:var(--border)"></div>
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:.8rem;color:var(--text);text-align:right">${awayEvents}</div>
+      </div>` : '';
+
+  return `
+    <div style="padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-bottom:12px">
+        <span>${f.flag} ${f.league}</span>
+        <span style="color:var(--gold-2);font-weight:700;display:flex;align-items:center;gap:6px">${clock ? `<span class="dot"></span> ${clock}` : ''}</span>
+      </div>
+      ${logosHtml}
+      ${factsHtml}
+    </div>`;
+}
+
+// En-tete tennis (13/08/2026, demande explicite : "a gauche la tete du
+// joueur A dans un cercle, a droite le joueur B, au milieu le score (sets),
+// en dessous plus petit le set/jeu en cours, en haut a droite le temps et
+// le nom du tournoi"). Photo si deja en cache (jobs/tennis_player_photos.py,
+// ESPN puis AllSportsAPI plafonne 95/j), sinon initiales -- jamais d'image
+// inventee. Serveur indique par un point dore a cote du nom (remplace la
+// balle, demande explicite), jamais affiche si l'info service n'est pas
+// disponible (pas de valeur devinee).
+function tennisInitials(name){
+  return (name || '').trim().split(/\s+/).map(w => w[0]).filter(Boolean).slice(-2).join('').toUpperCase();
+}
+
+function tennisAvatarHtml(name, photo){
+  if (photo){
+    return `<img src="${photo}" alt="${name}" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--border-strong);background:var(--card-2)">`;
+  }
+  return `<div style="width:56px;height:56px;border-radius:50%;background:var(--card-2);border:2px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:.9rem;color:var(--gold-2)">${tennisInitials(name)}</div>`;
+}
+
+function tennisMatchHeadHtml(f, live){
+  const [homeName, awayName] = (f.match || '').split('–').map(s => (s || '').trim());
+
+  let score, clock;
+  if (f.result){
+    score = f.score || '- - -';
+    clock = 'Terminé';
+  } else if (live && live.home != null){
+    score = `${live.home} - ${live.away}`;
+    clock = live.statusDetail || '';
+  } else if (f.kickoff_at && new Date(f.kickoff_at).getTime() > Date.now()){
+    score = '- - -';
+    clock = countdownLabel(f.kickoff_at);
+  } else {
+    score = '- - -';
+    clock = 'En cours';
+  }
+
+  // Set/jeu en cours + service : uniquement si vraiment fournis par la
+  // source live (jamais reconstruit/devine) -- absent tant que le detail
+  // set-par-set/jeu-par-jeu n'est pas cable cote refreshLiveData().
+  const currentSetGame = live && live.currentSetGame ? live.currentSetGame : '';
+  const serving = live && live.serving ? live.serving : '';
+  const serveDot = `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 6px var(--gold-2);margin-left:5px;vertical-align:middle"></span>`;
+
+  return `
+    <div style="padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-bottom:14px">
+        <span>${f.flag} ${f.league}</span>
+        <span style="color:var(--gold-2);font-weight:700;display:flex;align-items:center;gap:6px">${clock ? `<span class="dot"></span> ${clock}` : ''}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:start;gap:10px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-width:0">
+          ${tennisAvatarHtml(homeName, f.home_photo)}
+          <span style="font-weight:600;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%">${homeName}${serving === 'home' ? serveDot : ''}</span>
+        </div>
+        <div style="text-align:center;padding-top:10px">
+          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:1.7rem;line-height:1">${score}</div>
+          ${currentSetGame ? `<div style="margin-top:5px;font-size:.9rem;color:var(--gold-2);font-weight:600;white-space:nowrap">${currentSetGame}</div>` : ''}
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-width:0">
+          ${tennisAvatarHtml(awayName, f.away_photo)}
+          <span style="font-weight:600;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%">${serving === 'away' ? serveDot : ''}${awayName}</span>
+        </div>
+      </div>
+    </div>`;
+}
+
 function renderCard(f){
   const live = liveCache[f.fixture_id];
+  if (f.sport === 'football'){
+    const rows = [];
+    if (f.conseil) rows.push(renderPick(f, 'conseil', f.conseil, f.conseil_cote, f.result, '', f.conseil_mise_eur));
+    if (f.value_bet) rows.push(renderPick(f, 'value', f.value_bet, f.value_cote, f.value_result || f.result, '', f.value_mise_eur));
+    (f.player_picks || []).forEach(p => rows.push(renderPick(f, 'player', p.label, p.odd, p.result, '', p.mise_eur)));
+    // Lignes "💎 VALUE BET" du moteur refonte (1X2/O-U/BTTS/corners/cartons,
+    // 21/08/2026, demande explicite : elles n'apparaissaient jamais sur le
+    // site alors qu'elles sont envoyees sur Telegram -- cf site/scripts/
+    // export_programme.py::refonte_value_bet_settlements). Meme rendu
+    // generique que les autres picks (jauge O/U si le texte contient un
+    // seuil reconnu par classifyThreshold, sinon simple ligne).
+    (f.refonte_value_bets || []).forEach(v => rows.push(renderPick(f, 'value', v.label, v.odd, v.result, `${v.market} : `, v.mise_eur)));
+    if (!rows.length && f.no_bet_reason){
+      rows.push(`<div class="pick-row"><div class="pick-top"><span class="type-badge nobet">No Bet</span><span class="pick-label">${f.no_bet_reason}</span></div></div>`);
+    }
+    return `
+      <div class="card ${(f.result || (live && live.finished)) ? '' : 'live'}">
+        ${footballMatchHeadHtml(f, live)}
+        <div class="picks">${rows.join('')}</div>
+      </div>`;
+  }
+  if (f.sport === 'tennis'){
+    // Meme rendu de picks generique que le foot (renderPick/classifyThreshold
+    // reconnaissent deja "Plus/Moins de X sets" comme un total match --
+    // aucune adaptation necessaire, jauge sur le value bet seulement, jamais
+    // sous "Vainqueur", exactement la regle demandee).
+    // Rectifie (22/08/2026, demande explicite : "il n'y a jamais de conseil
+    // en tennis, c'est soit value bet ou player pick") : f.conseil pour le
+    // tennis porte le pick vainqueur ("Victoire X") -- un vrai player pick
+    // conceptuellement, jamais un "Conseil" au sens ou ce badge existe pour
+    // les autres sports. Rendu sous kind 'player' (meme badge que les
+    // autres player picks), plus jamais 'conseil'.
+    const rows = [];
+    if (f.conseil) rows.push(renderPick(f, 'player', f.conseil, f.conseil_cote, f.result, '', f.conseil_mise_eur));
+    if (f.value_bet) rows.push(renderPick(f, 'value', f.value_bet, f.value_cote, f.value_result || f.result, '', f.value_mise_eur));
+    (f.player_picks || []).forEach(p => rows.push(renderPick(f, 'player', p.label, p.odd, p.result, '', p.mise_eur)));
+    if (!rows.length && f.no_bet_reason){
+      rows.push(`<div class="pick-row"><div class="pick-top"><span class="type-badge nobet">No Bet</span><span class="pick-label">${f.no_bet_reason}</span></div></div>`);
+    }
+    return `
+      <div class="card ${f.result ? '' : 'live'}">
+        ${tennisMatchHeadHtml(f, live)}
+        <div class="picks">${rows.join('')}</div>
+      </div>`;
+  }
   let scoreHtml;
   if (f.result){
     scoreHtml = `<div class="score-block"><span class="final-badge">Terminé</span>${f.score ? `<span class="match-time">${f.score}</span>` : ''}</div>`;
@@ -599,8 +1084,8 @@ function renderCard(f){
   }
 
   const rows = [];
-  if (f.conseil) rows.push(renderPick(f, 'conseil', f.conseil + (f.conseil_cote ? '' : ''), f.conseil_cote, f.result));
-  if (f.value_bet) rows.push(renderPick(f, 'value', f.value_bet, f.value_cote, f.value_result || f.result));
+  if (f.conseil) rows.push(renderPick(f, 'conseil', f.conseil + (f.conseil_cote ? '' : ''), f.conseil_cote, f.result, '', f.conseil_mise_eur));
+  if (f.value_bet) rows.push(renderPick(f, 'value', f.value_bet, f.value_cote, f.value_result || f.result, '', f.value_mise_eur));
   (f.player_picks || []).forEach(p => {
     // Bug corrige le 05/08/2026 (confirme en direct : cote deja calculee
     // cote serveur mais jamais transmise ici, `null` code en dur -- les
@@ -609,7 +1094,7 @@ function renderCard(f){
     // (football buteur/passeur, pas de cote marche reelle) -- pickRowHtml
     // masque deja le badge cote quand elle est falsy, aucun changement de
     // comportement pour ce cas.
-    rows.push(renderPick(f, 'player', `${p.label}`, p.odd, p.result));
+    rows.push(renderPick(f, 'player', `${p.label}`, p.odd, p.result, '', p.mise_eur));
   });
   if (!rows.length && f.no_bet_reason){
     rows.push(`<div class="pick-row"><div class="pick-top"><span class="type-badge nobet">No Bet</span><span class="pick-label">${f.no_bet_reason}</span></div></div>`);
@@ -652,17 +1137,194 @@ function render(){
   }
 }
 
+// Buteurs + cartons rouges et jaunes (13/08/2026, chantier "live score
+// foot" ; cartons jaunes ajoutes le 21/08/2026, demande explicite) --
+// summary.keyEvents est le champ ESPN standard pour les evenements notables
+// (but/carton), deja utilise ailleurs pour d'autres sports ESPN. Lecture
+// defensive : si la forme reelle differe (jamais teste en direct faute de
+// match en cours au moment du chantier), on retourne juste une liste vide,
+// jamais de plantage ni de fausse donnee affichee (meme philosophie que le
+// reste de ce fichier -- "jamais de jauge/donnee affichee si indisponible").
+// Corners/cartons reels via boxscore ESPN (22/08/2026, bug confirme :
+// la jauge "Plus/Moins de X corners/cartons" affichait en realite le
+// nombre de BUTS, jamais actualisee sur les vraies stats -- donnee
+// fausse pouvant tromper le client). summary.boxscore.teams[] fournit
+// wonCorners/yellowCards/redCards par equipe (confirme en direct, meme
+// structure que shots/possession deja utilises ailleurs). null si le
+// boxscore n'est pas encore disponible -- jamais une valeur inventee.
+function extractFootballCornersCards(summary, homeTeamEspnId){
+  try{
+    const teams = (summary.boxscore && summary.boxscore.teams) || [];
+    if (teams.length !== 2) return {corners: null, cards: null};
+    const statVal = (team, name) => {
+      const s = (team.statistics || []).find(x => x.name === name);
+      return s ? (parseInt(s.displayValue, 10) || 0) : 0;
+    };
+    const isHome = t => String((t.team && t.team.id) || '') === String(homeTeamEspnId);
+    const homeTeam = teams.find(isHome) || teams[0];
+    const awayTeam = teams.find(t => t !== homeTeam) || teams[1];
+    return {
+      corners: {home: statVal(homeTeam, 'wonCorners'), away: statVal(awayTeam, 'wonCorners')},
+      cards: {
+        home: statVal(homeTeam, 'yellowCards') + statVal(homeTeam, 'redCards'),
+        away: statVal(awayTeam, 'yellowCards') + statVal(awayTeam, 'redCards'),
+      },
+    };
+  }catch(e){ return {corners: null, cards: null}; }
+}
+
+// Score live tennis (22/08/2026, demande explicite -- deja travaille avant,
+// regresse depuis) : l'endpoint /tennis/{tour}/summary renvoie 400 pour
+// TOUS les matchs tennis en ce moment (verifie en direct : meme un match
+// Cincinnati Open en cours -- 182426, Swiatek vs Pegula -- echoue avec le
+// meme 400, pas specifique a un tournoi). fetchLiveSummary()/refreshLiveData()
+// restaient donc silencieusement sans donnee pour tout le tennis. Repli :
+// /tennis/{tour}/scoreboard (qui MARCHE, deja utilise pour resoudre le
+// score foot) contient tout ce qu'il faut par match (competitors[].linescores,
+// possession, status) -- jamais besoin de /summary pour le tennis desormais.
+// Cache par (tour, plage de dates) le temps d'un cycle refreshLiveData -- une
+// grosse reponse partagee par tous les matchs de ce tour plutot qu'un fetch
+// par match.
+let _tennisScoreboardCache = {}; // "tour|dateRange" -> Promise<events[]>
+function _tennisDateRange(){
+  const d = new Date();
+  const fmt = x => `${x.getUTCFullYear()}${String(x.getUTCMonth()+1).padStart(2,'0')}${String(x.getUTCDate()).padStart(2,'0')}`;
+  const y = new Date(d); y.setUTCDate(d.getUTCDate() - 1);
+  const t = new Date(d); t.setUTCDate(d.getUTCDate() + 1);
+  return `${fmt(y)}-${fmt(t)}`;
+}
+async function _fetchTennisScoreboardEvents(tour){
+  const range = _tennisDateRange();
+  const key = `${tour}|${range}`;
+  if (!_tennisScoreboardCache[key]){
+    _tennisScoreboardCache[key] = fetch(`https://site.api.espn.com/apis/site/v2/sports/tennis/${tour}/scoreboard?dates=${range}`, {cache:'no-store'})
+      .then(r => r.ok ? r.json() : null)
+      .then(data => (data && data.events) || [])
+      .catch(() => []);
+  }
+  return _tennisScoreboardCache[key];
+}
+async function fetchTennisLiveScoreboard(f){
+  const info = espnEventInfo(f);
+  if (!info) return null;
+  const tour = info.path.split('/')[1]; // "tennis/atp" -> "atp"
+  const events = await _fetchTennisScoreboardEvents(tour);
+  for (const ev of events){
+    for (const g of (ev.groupings || [])){
+      for (const c of (g.competitions || [])){
+        if (String(c.id) !== String(info.eventId)) continue;
+        const comps = c.competitors || [];
+        const home = comps.find(x => x.homeAway === 'home');
+        const away = comps.find(x => x.homeAway === 'away');
+        if (!home || !away) return null;
+        const setsWon = comp => (comp.linescores || []).filter(l => l.winner).length;
+        const statusType = (c.status && c.status.type) || {};
+        const homeCur = home.linescores && home.linescores.length ? home.linescores[home.linescores.length - 1].value : null;
+        const awayCur = away.linescores && away.linescores.length ? away.linescores[away.linescores.length - 1].value : null;
+        return {
+          home: setsWon(home), away: setsWon(away),
+          currentSetGame: (statusType.state === 'in' && homeCur != null && awayCur != null) ? `${homeCur}-${awayCur} (${statusType.shortDetail || ''})` : '',
+          serving: home.possession ? 'home' : (away.possession ? 'away' : ''),
+          statusDetail: statusType.shortDetail || statusType.detail || '',
+          finished: !!statusType.completed,
+        };
+      }
+    }
+  }
+  return null;
+}
+
+function extractFootballEvents(summary, homeTeamEspnId){
+  const out = [];
+  try{
+    for (const e of (summary.keyEvents || [])){
+      const typeText = ((e.type && e.type.text) || '').toLowerCase();
+      let kind = null;
+      if (typeText.includes('goal') && !typeText.includes('own')) kind = 'goal';
+      else if (typeText.includes('red card')) kind = 'red_card';
+      else if (typeText.includes('yellow card')) kind = 'yellow_card';
+      if (!kind) continue;
+      const minute = (e.clock && e.clock.displayValue) || '';
+      const player = (e.athletesInvolved && e.athletesInvolved[0] && e.athletesInvolved[0].displayName)
+        || (e.participants && e.participants[0] && e.participants[0].athlete && e.participants[0].athlete.displayName) || '';
+      const teamId = e.team && e.team.id;
+      const team = teamId && String(teamId) === String(homeTeamEspnId) ? 'home' : 'away';
+      if (player) out.push({minute, kind, team, player});
+    }
+  }catch(e){ /* silencieux -- forme JSON non confirmee en direct, jamais bloquant */ }
+  return out;
+}
+
 async function refreshLiveData(){
-  const candidates = publications.live.filter(f => !f.result && espnEventInfo(f));
+  // Inclut aussi les matchs "passes" (21/08/2026, demande explicite : "la
+  // meme pour en cours et passes") -- une seule fois par match (pas encore
+  // en cache), pour recuperer le score final/buteurs+minutes/stats et
+  // afficher le tube (jauge) + les faits marquants meme apres reglement.
+  // Les matchs toujours en cours (!f.result) sont eux rafraichis a chaque
+  // appel, comme avant.
+  const all = [...publications.live, ...publications.done];
+  // API-Football live scores (23/08/2026, "branche le live score sur api
+  // football") : source principale du statut FT/en cours pour le foot --
+  // memes fixture_id que le reste du systeme, zero bug de matching de nom
+  // de club (contrairement a ESPN, garde uniquement pour les buteurs/
+  // evenements que cet endpoint ne fournit pas). Best-effort : si l'appel
+  // echoue, ESPN reste seul comme avant ce chantier. Recupere AVANT le
+  // filtre candidates ci-dessous : couvre aussi les ligues sans slug ESPN
+  // (ex. Croatie -- aucune source live avant ce chantier).
+  let apiFootballScores = {};
+  try {
+    const r = await fetch(LIVE_API_BASE + '/api/live-scores', {cache: 'no-store'});
+    if (r.ok){
+      const data = await r.json();
+      apiFootballScores = data.scores || {};
+    }
+  } catch(e){ /* silencieux -- repli ESPN seul */ }
+  const candidates = all.filter(f => (!f.result || !liveCache[f.fixture_id]) &&
+    (espnEventInfo(f) || (f.sport === 'football' && (FOOTBALL_LEAGUE_SLUGS[f.league_id] || apiFootballScores[f.fixture_id]))));
   if (!candidates.length) return;
+  _tennisScoreboardCache = {}; // 1 cache par cycle -- partage entre tous les matchs tennis de ce refresh
   await Promise.all(candidates.map(async f => {
+    if (f.sport === 'tennis'){
+      const tennisLive = await fetchTennisLiveScoreboard(f);
+      if (tennisLive) liveCache[f.fixture_id] = tennisLive;
+      return;
+    }
+    const afScore = f.sport === 'football' ? apiFootballScores[f.fixture_id] : null;
     const summary = await fetchLiveSummary(f);
-    if (!summary) return;
+    if (!summary){
+      // 23/08/2026 : ligue sans slug ESPN (ex. Croatie -- aucune source
+      // live avant ce chantier) -- si API-Football a le score, on l'utilise
+      // seul, sans evenements/buteurs (source absente pour ce signal).
+      if (afScore){
+        liveCache[f.fixture_id] = {
+          home: afScore.home_score, away: afScore.away_score,
+          homeLinescores: null, awayLinescores: null,
+          statusDetail: afScore.status_long || afScore.status_short || '',
+          finished: !!afScore.finished, state: afScore.status_short === 'NS' ? 'pre' : 'in',
+          stats: {}, events: [], corners: null, cards: null,
+        };
+      }
+      return;
+    }
     const comp = summary.header && summary.header.competitions && summary.header.competitions[0];
     const comps = (comp && comp.competitors) || [];
     const home = comps.find(c => c.homeAway === 'home');
     const away = comps.find(c => c.homeAway === 'away');
-    const statusDetail = comp && comp.status && comp.status.type && comp.status.type.shortDetail;
+    const statusType = (comp && comp.status && comp.status.type) || {};
+    const statusDetail = statusType.shortDetail;
+    const footballEvents = f.sport === 'football' ? extractFootballEvents(summary, home && home.id) : null;
+    const footballCornersCards = f.sport === 'football' ? extractFootballCornersCards(summary, home && home.id) : {corners: null, cards: null};
+    // Buteur (13/08/2026) : compte les buts par joueur directement depuis les
+    // evenements deja extraits (plus fiable que de deviner la forme exacte du
+    // boxscore joueurs ESPN foot, jamais verifiee en direct) -- statKey
+    // 'goals', consomme par classifyThreshold/computeCurrentValue comme les
+    // autres sports.
+    const stats = f.sport === 'football'
+      ? (footballEvents || []).filter(e => e.kind === 'goal').reduce((acc, e) => {
+          acc[e.player] = {goals: (acc[e.player] && acc[e.player].goals || 0) + 1};
+          return acc;
+        }, {})
+      : extractPlayerStats(summary, f.sport);
     liveCache[f.fixture_id] = {
       home: home ? home.score : null,
       away: away ? away.score : null,
@@ -674,8 +1336,31 @@ async function refreshLiveData(){
       homeLinescores: home && home.linescores ? home.linescores.map(l => l.value) : null,
       awayLinescores: away && away.linescores ? away.linescores.map(l => l.value) : null,
       statusDetail: statusDetail || '',
-      stats: extractPlayerStats(summary, f.sport),
+      // 23/08/2026 (demande explicite : "quand c'est FT il reste dans les en
+      // cours ... je veux qu'il soit regle directement sur le site") -- avant
+      // ce champ, "Termine" ne s'affichait QUE via f.result (regle par le
+      // pipeline de paris/settlement, qui peut prendre du temps ou ne jamais
+      // se declencher sur un match sans pari associe). `finished`/`state`
+      // exposent directement le statut ESPN reel, independant du reglement
+      // des paris -- meme source que statusDetail ci-dessus.
+      finished: !!statusType.completed,
+      state: statusType.state || '',
+      stats,
+      events: footballEvents,
+      corners: footballCornersCards.corners,
+      cards: footballCornersCards.cards,
     };
+    // API-Football prioritaire sur le score/statut quand disponible
+    // (23/08/2026) : memes fixture_id que le reste du systeme, plus
+    // fiable qu'ESPN sur ce point precis (zero bug de matching de nom).
+    // Buteurs/evenements restent ceux d'ESPN (footballEvents ci-dessus),
+    // API-Football live=all ne les fournit pas.
+    if (afScore){
+      liveCache[f.fixture_id].home = afScore.home_score;
+      liveCache[f.fixture_id].away = afScore.away_score;
+      liveCache[f.fixture_id].statusDetail = afScore.status_long || afScore.status_short || liveCache[f.fixture_id].statusDetail;
+      liveCache[f.fixture_id].finished = !!afScore.finished;
+    }
   }));
   render();
 }
@@ -807,6 +1492,30 @@ setInterval(tickCountdowns, 1000);        // decompte fluide seconde par seconde
   overlay.addEventListener('click', (e) => { if (e.target === overlay) closePromo(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('show')) closePromo(); });
   overlay.querySelector('.promo-cta')?.addEventListener('click', closePromo);
+})();
+
+/* ── Menu mobile (drawer) -- 21/08/2026, meme JS que resultats.html ── */
+(function(){
+  const toggle = document.getElementById('menuToggle');
+  const close = document.getElementById('menuClose');
+  const nav = document.getElementById('mobileNav');
+  const backdrop = document.getElementById('mobileBackdrop');
+  if (!toggle || !nav || !backdrop) return;
+  function openMenu(){
+    nav.classList.add('open'); backdrop.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    nav.classList.remove('open'); backdrop.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', () => nav.classList.contains('open') ? closeMenu() : openMenu());
+  close?.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 })();
 </script>
 </body>
