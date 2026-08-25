@@ -265,6 +265,12 @@ REFONTE_SELECTION_LABELS = {
     "cards_over": "Plus de 3.5 cartons", "cards_under": "Moins de 3.5 cartons",
 }
 
+# LDC/Europa/Conference/Libertadores/Sudamericana (25/08/2026) -- duplique
+# ici pour la meme raison que COMP_WINDOWS/REFONTE_* ci-dessus : source de
+# verite football/elo_cross_competition.py::CUP_ELO_ONLY_LEAGUE_IDS, module
+# qui n'existe que cote repo prive.
+CROSS_COMPETITION_LEAGUE_IDS = {2, 3, 848, 11, 13}
+
 
 def _flag(league: str, league_id: int | None = None) -> str:
     if league_id and league_id in LEAGUE_FLAG_EMOJI:
@@ -729,6 +735,59 @@ def fetch_programme() -> list[dict]:
                     refonte_value_bets.append(entry)
                 if refonte_value_bets:
                     item["refonte_value_bets"] = refonte_value_bets
+
+            # Cross-competition (LDC/Europa/Conference/Libertadores/
+            # Sudamericana) : ces 5 competitions ne passent JAMAIS par
+            # sauvegarder_pari() ni offensive_player_picks (moteur separe,
+            # football/refonte_cross_competition.py) -- leurs picks
+            # atterrissaient dans refonte_cross_competition_value_bet_
+            # settlements / _player_pick_settlements, jamais lus par ce
+            # script. Consequence (25/08/2026, signale) : ces matchs
+            # apparaissaient sur le site avec clubs + decompte mais sans
+            # aucun prono. Reutilise le meme rendu generique deja en place
+            # pour value_bet (refonte_value_bets) et player_picks.
+            if sport == "football" and int(league_id or 0) in CROSS_COMPETITION_LEAGUE_IDS:
+                cur.execute(
+                    """SELECT market, selection, odd, result, COALESCE(stake_eur,0)
+                       FROM refonte_cross_competition_value_bet_settlements
+                       WHERE fixture_id = %s""",
+                    (fixture_id,),
+                )
+                cc_value_bets = []
+                for market, selection, odd, result, stake_eur in cur.fetchall():
+                    entry = {
+                        "market": REFONTE_MARKET_LABELS.get(market, market),
+                        "label": REFONTE_SELECTION_LABELS.get(selection, selection).format(home=home, away=away)
+                                 if "{" in REFONTE_SELECTION_LABELS.get(selection, selection) else
+                                 REFONTE_SELECTION_LABELS.get(selection, selection),
+                        "odd": round(float(odd or 0), 2),
+                        "mise_eur": round(float(stake_eur), 0) if stake_eur else None,
+                    }
+                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
+                        entry["result"] = result.upper()
+                    cc_value_bets.append(entry)
+                if cc_value_bets:
+                    item["refonte_value_bets"] = cc_value_bets
+
+                cur.execute(
+                    """SELECT player_name, selection, odd, result, COALESCE(stake_eur,0)
+                       FROM refonte_cross_competition_player_pick_settlements
+                       WHERE fixture_id = %s""",
+                    (fixture_id,),
+                )
+                cc_row = cur.fetchone()
+                if cc_row:
+                    player_name, selection, odd, result, stake_eur = cc_row
+                    pick = {
+                        "category": "Player pick",
+                        "label": f"{player_name} — {selection}" if player_name else selection,
+                        "detail": f"cote {float(odd):.2f}" if odd else "",
+                        "odd": float(odd) if odd else None,
+                        "mise_eur": round(float(stake_eur), 0) if odd and stake_eur else None,
+                    }
+                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU",):
+                        pick["result"] = result.upper()
+                    item.setdefault("player_picks", []).append(pick)
 
             # Lignes value bet MLB additionnelles (25/08/2026, demande
             # explicite : "les lignes multiples sur le site [seulement],
