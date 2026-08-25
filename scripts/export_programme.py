@@ -729,6 +729,36 @@ def fetch_programme() -> list[dict]:
                     refonte_value_bets.append(entry)
                 if refonte_value_bets:
                     item["refonte_value_bets"] = refonte_value_bets
+
+            # Lignes value bet MLB additionnelles (25/08/2026, demande
+            # explicite : "les lignes multiples sur le site [seulement],
+            # pas le message telegram") -- meme champ "refonte_value_bets"
+            # que le foot ci-dessus (rendu JS deja generique, cf
+            # publications.html "renderPick(f, 'value', ...)"), simplement
+            # alimente depuis mlb_value_bet_settlements au lieu de
+            # refonte_value_bet_settlements. Affiche uniquement les lignes
+            # AU-DELA du pick principal deja affiche via paris.conseil
+            # (celui-la reste la seule ligne envoyee sur Telegram).
+            if sport == "baseball":
+                cur.execute(
+                    """SELECT market, selection_text, odd, result, COALESCE(stake_eur,0)
+                       FROM mlb_value_bet_settlements
+                       WHERE fixture_id = %s""",
+                    (fixture_id,),
+                )
+                mlb_value_bets = []
+                for market, selection_text, odd, result, stake_eur in cur.fetchall():
+                    entry = {
+                        "market": market,
+                        "label": selection_text,
+                        "odd": round(float(odd or 0), 2),
+                        "mise_eur": round(float(stake_eur), 0) if stake_eur else None,
+                    }
+                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU",):
+                        entry["result"] = result.upper()
+                    mlb_value_bets.append(entry)
+                if mlb_value_bets:
+                    item["refonte_value_bets"] = mlb_value_bets
         out.append(item)
 
     conn.close()
