@@ -641,7 +641,18 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       et elles restent affichées ici — c'est le principe.
     </p>
     <h3 class="perf-sub-title">Aujourd'hui, cette semaine, ce mois, cette année</h3>
-    <div class="period-grid reveal" id="periodGrid"></div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px">
+      <div class="chart-toggle" id="perfPeriodTabs">
+        <button data-period="jour" class="active">Aujourd'hui</button>
+        <button data-period="semaine">Semaine</button>
+        <button data-period="mois">Mois</button>
+        <button data-period="annee">Année</button>
+      </div>
+      <div class="chart-toggle sport-filter" id="perfSportFilter">
+        <button data-sport="all" class="active">Tous les sports</button>
+      </div>
+    </div>
+    <div class="period-grid reveal" id="periodGrid" style="grid-template-columns:repeat(3,1fr)"></div>
     <div class="period-grid reveal" id="perfGlobalGrid"></div>
     <h3 class="perf-sub-title">Performance par sport</h3>
     <div class="period-grid reveal" id="perfSportsGrid"></div>
@@ -730,39 +741,85 @@ function fmtPnl(u){
   return `${v > 0 ? '+' : ''}${currentMode === "e" ? v.toFixed(0) : v.toFixed(2)} ${unit}`;
 }
 
-// Aujourd'hui / Semaine / Mois / Année (26/08/2026, demande explicite :
-// "enleve dans les briques aujourd'hui... et le mettre dans performance
-// avec du rouge et du vert") -- meme donnee reelle que resultats.html
-// (data.period_stats, deja renvoyee par /api/results, simplement jamais
-// affichee sur cette page avant) et meme fonction de rendu, dupliquee ici
-// plutot que partagee entre les deux pages (fichiers HTML statiques
-// independants, pas de module JS commun sur ce site).
+// Aujourd'hui / Semaine / Mois / Année + filtre sport (26/08/2026, demande
+// explicite : onglets periode + filtre sport qui mettent a jour les MEMES
+// cartes, comme le prototype -- pas 4 cartes fixes cote a cote). Donnee
+// reelle : data.period_stats (deja renvoyee par /api/results), etendue le
+// meme jour avec un decoupage par sport (period_stats.by_sport[sport][periode])
+// cote serveur (scripts/export_site_results.py::fetch_period_stats), sur le
+// meme modele que period_series.by_sport deja utilise par Resultats pour
+// la courbe.
 const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci", annee:"Cette année"};
-let PERIOD_STATS = {jour:{n:0,g:0,p:0,r:0,winrate:0,pnl:0}, semaine:{n:0,g:0,p:0,r:0,winrate:0,pnl:0},
-                     mois:{n:0,g:0,p:0,r:0,winrate:0,pnl:0}, annee:{n:0,g:0,p:0,r:0,winrate:0,pnl:0}};
+const _emptyPeriodBucket = () => ({n:0,g:0,p:0,r:0,winrate:0,pnl:0});
+let PERIOD_STATS = {jour:_emptyPeriodBucket(), semaine:_emptyPeriodBucket(),
+                     mois:_emptyPeriodBucket(), annee:_emptyPeriodBucket(), by_sport:{}};
+let currentPerfPeriod = "jour";
+let currentPerfSportFilter = "all";
 
 function renderPeriodStats(){
   const grid = document.getElementById('periodGrid');
   if (!grid) return;
   const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
   const unit = currentMode === "e" ? "€" : "u";
-  grid.innerHTML = Object.keys(PERIOD_LABELS).map(key=>{
-    const s = PERIOD_STATS[key] || {n:0,g:0,p:0,r:0,winrate:0,pnl:0};
-    const val = s.pnl * factor;
-    const cls = s.n === 0 ? 'flat' : (val > 0 ? 'up' : val < 0 ? 'down' : 'flat');
-    const pnlDisplay = s.n === 0
-      ? '—'
-      : `${val > 0 ? '+' : ''}${currentMode === "e" ? val.toFixed(0) : val.toFixed(2)} ${unit}`;
-    const sub = s.n === 0
-      ? 'Aucun conseil réglé pour l’instant'
-      : `${s.n} réglés · ${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''} · ${s.winrate}% de réussite`;
-    return `
-      <div class="period-card">
-        <div class="period-label">${PERIOD_LABELS[key]}</div>
-        <div class="period-pnl ${cls}">${pnlDisplay}</div>
-        <div class="period-sub">${sub}</div>
-      </div>`;
-  }).join('');
+  const source = currentPerfSportFilter === "all"
+    ? PERIOD_STATS
+    : (PERIOD_STATS.by_sport || {})[currentPerfSportFilter] || {};
+  const s = source[currentPerfPeriod] || _emptyPeriodBucket();
+  const val = s.pnl * factor;
+  const cls = s.n === 0 ? 'flat' : (val > 0 ? 'up' : val < 0 ? 'down' : 'flat');
+  const pnlDisplay = s.n === 0
+    ? '—'
+    : `${val > 0 ? '+' : ''}${currentMode === "e" ? val.toFixed(0) : val.toFixed(2)} ${unit}`;
+  const sub = s.n === 0
+    ? 'Aucun conseil réglé pour l’instant'
+    : `${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''}`;
+
+  grid.innerHTML = `
+    <div class="period-card">
+      <div class="period-label">Picks réglés — ${PERIOD_LABELS[currentPerfPeriod].toLowerCase()}</div>
+      <div class="period-pnl flat" style="color:var(--text)">${s.n}</div>
+      <div class="period-sub">${sub}</div>
+    </div>
+    <div class="period-card">
+      <div class="period-label">Taux de réussite</div>
+      <div class="period-pnl flat" style="color:var(--text)">${s.n ? s.winrate + '%' : '—'}</div>
+      <div class="period-sub">${s.n ? s.n + ' picks réglés' : 'Aucun pick réglé'}</div>
+    </div>
+    <div class="period-card">
+      <div class="period-label">ROI — ${PERIOD_LABELS[currentPerfPeriod].toLowerCase()}</div>
+      <div class="period-pnl ${cls}">${pnlDisplay}</div>
+      <div class="period-sub">${currentPerfSportFilter === "all" ? "Tous sports confondus" : sportLabel(currentPerfSportFilter)}</div>
+    </div>`;
+}
+
+document.querySelectorAll('#perfPeriodTabs button').forEach(btn=>{
+  btn.addEventListener('click', function(){
+    currentPerfPeriod = this.dataset.period;
+    document.querySelectorAll('#perfPeriodTabs button').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    renderPeriodStats();
+  });
+});
+
+// Filtre sport peuple dynamiquement depuis PERF_STATS.sports (memes sports
+// que la carte "Performance par sport" plus bas) -- reconstruit a chaque
+// rafraichissement live au cas ou un nouveau sport apparaisse.
+function renderPerfSportFilter(){
+  const bar = document.getElementById('perfSportFilter');
+  if (!bar) return;
+  const sports = (PERF_STATS.sports || []).map(s => s.sport);
+  const existing = new Set([...bar.querySelectorAll('button')].map(b => b.dataset.sport));
+  if (sports.every(sp => existing.has(sp)) && existing.size === sports.length + 1) return; // deja a jour
+  bar.innerHTML = '<button data-sport="all" class="active">Tous les sports</button>' +
+    sports.map(sp => `<button data-sport="${sp}">${sportLabel(sp)}</button>`).join('');
+  bar.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      currentPerfSportFilter = this.dataset.sport;
+      bar.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+      this.classList.add('active');
+      renderPeriodStats();
+    });
+  });
 }
 
 function renderPerfStats(){
@@ -883,6 +940,7 @@ async function loadPerfLive(){
     if (data.perf_stats){
       PERF_STATS = data.perf_stats;
       renderPerfStats();
+      renderPerfSportFilter();
     }
     if (data.period_stats){
       PERIOD_STATS = data.period_stats;
@@ -895,6 +953,7 @@ async function loadPerfLive(){
 }
 
 renderPerfStats();
+renderPerfSportFilter();
 renderPeriodStats();
 loadPerfLive();
 setInterval(loadPerfLive, 20000);
