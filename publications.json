@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-08-26T16:44:36.434622+00:00",
+ "generated_at": "2026-08-26T17:10:53.013207+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_184777",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jurij Rodionov – Frederico Ferreira Silva",
-   "kickoff_at": "2026-08-26T15:05Z",
-   "published": true,
-   "home_photo": "assets/players/jurij rodionov.png",
-   "away_photo": "assets/players/frederico ferreira silva.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.543",
-   "value_cote": 1.54,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Jurij Rodionov",
-     "kind": "player",
-     "detail": "cote 1.51",
-     "odd": 1.508,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_184663",
    "flag": "🎾",
@@ -71,6 +43,23 @@
    "value_mise_eur": 200.0
   },
   {
+   "fixture_id": "api_football:1602996",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Faisaly FC – Al-Fateh",
+   "kickoff_at": "2026-08-26T18:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
+   "conseil": "Al-Fateh ou Nul",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1513554",
    "flag": "🇪🇪",
    "league": "Meistriliiga",
@@ -111,23 +100,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1602996",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Faisaly FC – Al-Fateh",
-   "kickoff_at": "2026-08-26T18:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
-   "conseil": "Al-Fateh ou Nul",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1623429",
    "flag": "🇪🇺",
    "league": "Conference League",
@@ -156,40 +128,140 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1600325",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Golden Arrows – Stellenbosch",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2690.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4905.png",
+   "conseil": "Golden Arrows ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "G. Nhlanhla buteur",
+     "detail": "56%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.48,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1600326",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Mamelodi Sundowns – Amazulu",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2699.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
+   "conseil": "Mamelodi Sundowns ou Nul",
+   "conseil_cote": 1.07,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Mamelodi Sundowns",
+     "odd": 1.31,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.61,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1600327",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Polokwane City – Milford FC",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2693.png",
+   "away_logo": "https://media.api-sports.io/football/teams/22234.png",
+   "conseil": "Polokwane City gagne",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1602997",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al Diriyah – Al Kholood",
+   "kickoff_at": "2026-08-26T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/26738.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10509.png",
+   "conseil": "Al Kholood ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.84,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
   }
  ],
  "done": [
   {
-   "fixture_id": "api_football:1507044",
+   "fixture_id": "api_football:1507043",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Daejeon Citizen – Ulsan Hyundai FC",
+   "match": "FC Anyang – Incheon United",
    "kickoff_at": "2026-08-26T12:30:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 300.0,
+   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
+   "conseil": "Incheon United ou Nul",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
+   "result": "PERDU",
    "score": "2 - 1",
-   "refonte_value_bets": [
+   "player_picks": [
     {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.56,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.48,
-     "mise_eur": 200.0
+     "category": "Buteur",
+     "label": "M. Ferrier buteur",
+     "detail": "69%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
     }
    ]
   },
@@ -239,50 +311,70 @@
    ]
   },
   {
-   "fixture_id": "api_football:1507043",
+   "fixture_id": "api_football:1507044",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Anyang – Incheon United",
+   "match": "Daejeon Citizen – Ulsan Hyundai FC",
    "kickoff_at": "2026-08-26T12:30:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
-   "conseil": "Incheon United ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
+   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
+   "result": "GAGNE",
    "score": "2 - 1",
-   "player_picks": [
+   "refonte_value_bets": [
     {
-     "category": "Buteur",
-     "label": "M. Ferrier buteur",
-     "detail": "69%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.56,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.48,
+     "mise_eur": 200.0
     }
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_182127",
+   "fixture_id": "tennis_espn_atp_184777",
    "flag": "🎾",
-   "league": "Ennoble Care Philly Open",
+   "league": "US Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Mananchaya Sawangkaew – Lizette Cabrera",
+   "match": "Jurij Rodionov – Frederico Ferreira Silva",
    "kickoff_at": "2026-08-26T15:05Z",
    "published": true,
-   "home_photo": "assets/players/mananchaya sawangkaew.png",
-   "away_photo": "assets/players/lizette cabrera.png",
-   "conseil": "Victoire Mananchaya Sawangkaew",
-   "conseil_cote": 1.15,
+   "home_photo": "assets/players/jurij rodionov.png",
+   "away_photo": "assets/players/frederico ferreira silva.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
    "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-2, 7-6"
+   "value_bet": "Total sets — Moins de 2.5 @ 1.543",
+   "value_cote": 1.54,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-2, 3-6, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Jurij Rodionov",
+     "kind": "player",
+     "detail": "cote 1.51",
+     "odd": 1.508,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_184665",
@@ -300,6 +392,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-3, 6-1"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182127",
+   "flag": "🎾",
+   "league": "Ennoble Care Philly Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mananchaya Sawangkaew – Lizette Cabrera",
+   "kickoff_at": "2026-08-26T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/mananchaya sawangkaew.png",
+   "away_photo": "assets/players/lizette cabrera.png",
+   "conseil": "Victoire Mananchaya Sawangkaew",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-2, 7-6"
   }
  ]
 }
