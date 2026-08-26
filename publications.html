@@ -1255,6 +1255,41 @@ function extractFootballEvents(summary, homeTeamEspnId){
   return out;
 }
 
+// Buteurs/cartons EN DIRECT via API-Football (26/08/2026, demande explicite
+// "pourquoi tu n'affiches pas la maintenant, regle le probleme") : jusqu'ici
+// ces details n'apparaissaient qu'apres reglement (football/results.py), ou
+// via ESPN quand une ligue avait un slug (FOOTBALL_LEAGUE_SLUGS) -- pour les
+// ligues sans ESPN (ex. K League), rien ne s'affichait pendant le match.
+// afScore.events_json (jobs/live_score_poll.py) comble ce trou : meme forme
+// de sortie {minute, kind, team, player} que extractFootballEvents ci-dessus,
+// pour rester compatible avec le rendu existant (jauge/faits marquants).
+function _normTeamName(s){
+  return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, '');
+}
+function extractApiFootballLiveEvents(afScore, f){
+  const out = [];
+  if (!afScore || !afScore.events_json) return out;
+  let raw;
+  try { raw = JSON.parse(afScore.events_json); } catch(e){ return out; }
+  if (!Array.isArray(raw) || !raw.length) return out;
+  const [homeName, awayName] = (f.match || '').split('–').map(s => (s || '').trim());
+  const homeNorm = _normTeamName(homeName), awayNorm = _normTeamName(awayName);
+  for (const e of raw){
+    const typeText = String(e.type || '').toLowerCase();
+    const detailText = String(e.detail || '').toLowerCase();
+    let kind = null;
+    if (typeText === 'goal' && !detailText.includes('own')) kind = 'goal';
+    else if (typeText === 'card' && detailText.includes('red')) kind = 'red_card';
+    else if (typeText === 'card' && detailText.includes('yellow')) kind = 'yellow_card';
+    if (!kind || !e.player) continue;
+    const teamNorm = _normTeamName(e.team);
+    const team = teamNorm === awayNorm ? 'away' : 'home';
+    const minute = e.elapsed != null ? (e.extra ? `${e.elapsed}+${e.extra}'` : `${e.elapsed}'`) : '';
+    out.push({minute, kind, team, player: e.player});
+  }
+  return out;
+}
+
 async function refreshLiveData(){
   // Inclut aussi les matchs "passes" (21/08/2026, demande explicite : "la
   // meme pour en cours et passes") -- une seule fois par match (pas encore
@@ -1296,12 +1331,17 @@ async function refreshLiveData(){
       // live avant ce chantier) -- si API-Football a le score, on l'utilise
       // seul, sans evenements/buteurs (source absente pour ce signal).
       if (afScore){
+        const liveEvents = extractApiFootballLiveEvents(afScore, f);
+        const liveStats = liveEvents.filter(e => e.kind === 'goal').reduce((acc, e) => {
+          acc[e.player] = {goals: (acc[e.player] && acc[e.player].goals || 0) + 1};
+          return acc;
+        }, {});
         liveCache[f.fixture_id] = {
           home: afScore.home_score, away: afScore.away_score,
           homeLinescores: null, awayLinescores: null,
           statusDetail: afScore.status_long || afScore.status_short || '',
           finished: !!afScore.finished, state: afScore.status_short === 'NS' ? 'pre' : 'in',
-          stats: {}, events: [], corners: null, cards: null,
+          stats: liveStats, events: liveEvents, corners: null, cards: null,
         };
       }
       return;
@@ -1360,6 +1400,20 @@ async function refreshLiveData(){
       liveCache[f.fixture_id].away = afScore.away_score;
       liveCache[f.fixture_id].statusDetail = afScore.status_long || afScore.status_short || liveCache[f.fixture_id].statusDetail;
       liveCache[f.fixture_id].finished = !!afScore.finished;
+      // Repli buteurs/cartons API-Football (26/08/2026) : si ESPN n'a rien
+      // fourni (footballEvents vide -- cas frequent, ESPN keyEvents souvent
+      // vide/en retard meme quand le slug existe), on comble avec les
+      // evenements API-Football captes en direct par live_score_poll.py.
+      if (!footballEvents || !footballEvents.length){
+        const liveEvents = extractApiFootballLiveEvents(afScore, f);
+        if (liveEvents.length){
+          liveCache[f.fixture_id].events = liveEvents;
+          liveCache[f.fixture_id].stats = liveEvents.filter(e => e.kind === 'goal').reduce((acc, e) => {
+            acc[e.player] = {goals: (acc[e.player] && acc[e.player].goals || 0) + 1};
+            return acc;
+          }, {});
+        }
+      }
     }
   }));
   render();
