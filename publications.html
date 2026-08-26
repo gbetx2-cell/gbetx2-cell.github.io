@@ -1204,22 +1204,33 @@ function extractFootballCornersCards(summary, homeTeamEspnId){
 // Cache par (tour, plage de dates) le temps d'un cycle refreshLiveData -- une
 // grosse reponse partagee par tous les matchs de ce tour plutot qu'un fetch
 // par match.
-let _tennisScoreboardCache = {}; // "tour|dateRange" -> Promise<events[]>
-function _tennisDateRange(){
+let _tennisScoreboardCache = {}; // "tour|YYYYMMDD" -> Promise<events[]>
+function _tennisDates(){
+  // 26/08/2026, bug confirme en direct (site public : tennis reste bloque
+  // sur "Coup d'envoi"/score vide en permanence, meme match deja en cours)
+  // -- l'ancien format "dates=20260825-20260827" (plage avec tiret) renvoie
+  // TOUJOURS 0 evenement sur /tennis/{tour}/scoreboard (verifie en direct :
+  // meme plage en un seul appel "dates=20260826" renvoie 3 evenements).
+  // Cet endpoint n'accepte qu'UNE SEULE date par appel, jamais de plage --
+  // 3 appels distincts (hier/aujourd'hui/demain) fusionnes, comme
+  // data_providers/espn.py::get_tennis_fixtures() cote serveur (qui a
+  // toujours utilise un seul "dates=YYYYMMDD", jamais de plage).
   const d = new Date();
   const fmt = x => `${x.getUTCFullYear()}${String(x.getUTCMonth()+1).padStart(2,'0')}${String(x.getUTCDate()).padStart(2,'0')}`;
   const y = new Date(d); y.setUTCDate(d.getUTCDate() - 1);
   const t = new Date(d); t.setUTCDate(d.getUTCDate() + 1);
-  return `${fmt(y)}-${fmt(t)}`;
+  return [fmt(y), fmt(d), fmt(t)];
 }
 async function _fetchTennisScoreboardEvents(tour){
-  const range = _tennisDateRange();
-  const key = `${tour}|${range}`;
+  const dates = _tennisDates();
+  const key = `${tour}|${dates.join(',')}`;
   if (!_tennisScoreboardCache[key]){
-    _tennisScoreboardCache[key] = fetch(`https://site.api.espn.com/apis/site/v2/sports/tennis/${tour}/scoreboard?dates=${range}`, {cache:'no-store'})
-      .then(r => r.ok ? r.json() : null)
-      .then(data => (data && data.events) || [])
-      .catch(() => []);
+    _tennisScoreboardCache[key] = Promise.all(dates.map(dt =>
+      fetch(`https://site.api.espn.com/apis/site/v2/sports/tennis/${tour}/scoreboard?dates=${dt}`, {cache:'no-store'})
+        .then(r => r.ok ? r.json() : null)
+        .then(data => (data && data.events) || [])
+        .catch(() => [])
+    )).then(lists => lists.flat());
   }
   return _tennisScoreboardCache[key];
 }
@@ -1285,6 +1296,22 @@ function extractFootballEvents(summary, homeTeamEspnId){
 function _normTeamName(s){
   return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, '');
 }
+// Minute live foot (26/08/2026, demande explicite "je veux voir les
+// minutes ... dans un match de foot") : afScore.status_long/status_short
+// (ex. "First Half"/"1H") ne contenaient jamais la minute reelle
+// (afScore.elapsed, deja recupere par live_score_poll.py) -- "34'" est
+// desormais ajoute au texte de statut plutot que juste "1ère mi-temps".
+function _afMinuteLabel(afScore){
+  if (!afScore || afScore.elapsed == null) return '';
+  const inProgress = ['1H', '2H', 'ET', 'BT', 'P'].includes(afScore.status_short);
+  return inProgress ? `${afScore.elapsed}'` : '';
+}
+function _afStatusWithMinute(afScore){
+  const minute = _afMinuteLabel(afScore);
+  const base = afScore.status_long || afScore.status_short || '';
+  return minute ? `${minute} · ${base}` : base;
+}
+
 function extractApiFootballLiveEvents(afScore, f){
   const out = [];
   if (!afScore || !afScore.events_json) return out;
@@ -1358,7 +1385,7 @@ async function refreshLiveData(){
         liveCache[f.fixture_id] = {
           home: afScore.home_score, away: afScore.away_score,
           homeLinescores: null, awayLinescores: null,
-          statusDetail: afScore.status_long || afScore.status_short || '',
+          statusDetail: _afStatusWithMinute(afScore),
           finished: !!afScore.finished, state: afScore.status_short === 'NS' ? 'pre' : 'in',
           stats: liveStats, events: liveEvents, corners: null, cards: null,
         };
@@ -1417,7 +1444,7 @@ async function refreshLiveData(){
     if (afScore){
       liveCache[f.fixture_id].home = afScore.home_score;
       liveCache[f.fixture_id].away = afScore.away_score;
-      liveCache[f.fixture_id].statusDetail = afScore.status_long || afScore.status_short || liveCache[f.fixture_id].statusDetail;
+      liveCache[f.fixture_id].statusDetail = _afStatusWithMinute(afScore) || liveCache[f.fixture_id].statusDetail;
       liveCache[f.fixture_id].finished = !!afScore.finished;
       // Repli buteurs/cartons API-Football (26/08/2026) : si ESPN n'a rien
       // fourni (footballEvents vide -- cas frequent, ESPN keyEvents souvent

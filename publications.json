@@ -1,36 +1,6 @@
 {
- "generated_at": "2026-08-26T15:35:30.967420+00:00",
+ "generated_at": "2026-08-26T16:44:36.434622+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_184665",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tomas Barrios Vera – Genaro Alberto Olivieri",
-   "kickoff_at": "2026-08-26T15:05Z",
-   "published": true,
-   "home_photo": "assets/players/tomas barrios vera.png",
-   "away_photo": "assets/players/genaro alberto olivieri.png",
-   "conseil": "Victoire Tomas Barrios Vera",
-   "conseil_cote": 1.29,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_182127",
-   "flag": "🎾",
-   "league": "Ennoble Care Philly Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mananchaya Sawangkaew – Lizette Cabrera",
-   "kickoff_at": "2026-08-26T15:05Z",
-   "published": true,
-   "home_photo": "assets/players/mananchaya sawangkaew.png",
-   "away_photo": "assets/players/lizette cabrera.png",
-   "conseil": "Victoire Mananchaya Sawangkaew",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0
-  },
   {
    "fixture_id": "tennis_espn_atp_184777",
    "flag": "🎾",
@@ -51,7 +21,8 @@
    "player_picks": [
     {
      "category": "Player pick",
-     "label": "Jurij Rodionov vs Frederico Ferreira Silva — Vainqueur du match Jurij Rodionov",
+     "label": "Player pick : Vainqueur du match Jurij Rodionov",
+     "kind": "player",
      "detail": "cote 1.51",
      "odd": 1.508,
      "mise_eur": 200.0
@@ -78,7 +49,8 @@
    "player_picks": [
     {
      "category": "Player pick",
-     "label": "Luka Pavlovic vs Jacob Fearnley — Vainqueur du match Jacob Fearnley",
+     "label": "Player pick : Vainqueur du match Jacob Fearnley",
+     "kind": "player",
      "detail": "cote 1.25",
      "odd": 1.25,
      "mise_eur": 200.0
@@ -86,21 +58,17 @@
    ]
   },
   {
-   "fixture_id": "api_football:1602996",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Faisaly FC – Al-Fateh",
-   "kickoff_at": "2026-08-26T18:00:00+02:00",
+   "fixture_id": "baseball_401816686",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Detroit Tigers – Tampa Bay Rays",
+   "kickoff_at": "2026-08-26T17:10Z",
    "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
-   "conseil": "Al-Fateh ou Nul",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
+   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.8696",
+   "value_cote": 1.87,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "api_football:1513554",
@@ -141,35 +109,87 @@
      "mise_eur": 100.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1602996",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Faisaly FC – Al-Fateh",
+   "kickoff_at": "2026-08-26T18:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
+   "conseil": "Al-Fateh ou Nul",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1623429",
+   "flag": "🇪🇺",
+   "league": "Conference League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rapid Vienna – Heart Of Midlothian",
+   "kickoff_at": "2026-08-26T18:45:00+02:00",
+   "published": true,
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/781.png",
+   "away_logo": "https://media.api-sports.io/football/teams/254.png",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.66,
+     "mise_eur": 100.0
+    }
+   ],
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "T. Adamsen — buteur",
+     "detail": "cote 1.83",
+     "odd": 1.83,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
   {
-   "fixture_id": "api_football:1507043",
+   "fixture_id": "api_football:1507044",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Anyang – Incheon United",
+   "match": "Daejeon Citizen – Ulsan Hyundai FC",
    "kickoff_at": "2026-08-26T12:30:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
-   "conseil": "Incheon United ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
+   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
+   "result": "GAGNE",
    "score": "2 - 1",
-   "player_picks": [
+   "refonte_value_bets": [
     {
-     "category": "Buteur",
-     "label": "M. Ferrier buteur",
-     "detail": "69%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.56,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.48,
+     "mise_eur": 200.0
     }
    ]
   },
@@ -219,38 +239,67 @@
    ]
   },
   {
-   "fixture_id": "api_football:1507044",
+   "fixture_id": "api_football:1507043",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Daejeon Citizen – Ulsan Hyundai FC",
+   "match": "FC Anyang – Incheon United",
    "kickoff_at": "2026-08-26T12:30:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 300.0,
+   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
+   "conseil": "Incheon United ou Nul",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
+   "result": "PERDU",
    "score": "2 - 1",
-   "refonte_value_bets": [
+   "player_picks": [
     {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.56,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.48,
-     "mise_eur": 200.0
+     "category": "Buteur",
+     "label": "M. Ferrier buteur",
+     "detail": "69%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_182127",
+   "flag": "🎾",
+   "league": "Ennoble Care Philly Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mananchaya Sawangkaew – Lizette Cabrera",
+   "kickoff_at": "2026-08-26T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/mananchaya sawangkaew.png",
+   "away_photo": "assets/players/lizette cabrera.png",
+   "conseil": "Victoire Mananchaya Sawangkaew",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-2, 7-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_184665",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tomas Barrios Vera – Genaro Alberto Olivieri",
+   "kickoff_at": "2026-08-26T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/tomas barrios vera.png",
+   "away_photo": "assets/players/genaro alberto olivieri.png",
+   "conseil": "Victoire Tomas Barrios Vera",
+   "conseil_cote": 1.29,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 6-1"
   }
  ]
 }
