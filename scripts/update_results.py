@@ -37,6 +37,16 @@ BANKROLL_INITIAL_EUR = 10000
 
 # Drapeau par competition (fallback ⚽ si inconnue)
 COMPETITION_FLAGS = {
+    # Grandes ligues domestiques ajoutees le 23/08/2026 (demande explicite
+    # "remet le drapeaux de la ligue pour chaque publication") -- absentes
+    # jusqu'ici, retombaient toutes sur le ballon generique "⚽". "serie a"
+    # pointait par erreur vers le Bresil (🇧🇷) alors que la Serie A
+    # italienne (sans accent, donc capturee par la meme cle) est la plus
+    # frequente -- corrigee vers l'Italie, le Bresil reste couvert par
+    # "brasileir" ci-dessous (present dans "Brasileirão Série A/B").
+    "premier league": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "la liga": "🇪🇸", "bundesliga": "🇩🇪",
+    "ligue 1": "🇫🇷", "ligue 2": "🇫🇷", "serie a": "🇮🇹", "serie b": "🇮🇹",
+    "primeira liga": "🇵🇹", "süper lig": "🇹🇷", "super lig": "🇹🇷",
     "coupe du monde": "🏆",
     "k league": "🇰🇷",
     "j1 league": "🇯🇵",
@@ -58,8 +68,6 @@ COMPETITION_FLAGS = {
     "virsliga": "🇱🇻",
     "eerste divisie": "🇳🇱",
     "eredivisie": "🇳🇱",
-    "serie a": "🇧🇷",
-    "serie b": "🇧🇷",
     "brasileir": "🇧🇷",
     "mls": "🇺🇸",
     "usl": "🇺🇸",
@@ -168,6 +176,32 @@ def _paris_calendar_date(value):
     return dt.date() if dt else None
 
 
+def _fetch_refonte_settled_rows(cur) -> list[tuple]:
+    """
+    Lignes value bet du moteur refonte deja reglees (result != ''), pour
+    les 50 ligues domestiques ET les 5 competitions cross-championnat --
+    UNIES ici pour etre injectees dans les memes stats publiques que
+    paris/sport_player_picks (22/08/2026, demande explicite : "je reviens
+    sur ma decision il faut que ca compte" -- decision du 21/08/2026
+    documentee dans daily_bilan.py de les garder PRIVEES est explicitement
+    inversee). Retourne (sport='football', market_type='refonte_value_bet',
+    odd, result, stake_eur, pnl_eur, settled_at) -- meme forme que les
+    lignes paris pour reutiliser le meme code de bucket/agregation sans
+    dupliquer la logique. cur : curseur DEJA ouvert (reutilise la connexion
+    de l'appelant, pas de connexion supplementaire)."""
+    cur.execute(
+        """
+        SELECT odd, result, COALESCE(stake_eur,0), COALESCE(pnl_eur,0), settled_at
+        FROM refonte_value_bet_settlements WHERE result != ''
+        UNION ALL
+        SELECT odd, result, COALESCE(stake_eur,0), COALESCE(pnl_eur,0), settled_at
+        FROM refonte_cross_competition_value_bet_settlements WHERE result != ''
+        """
+    )
+    return [("football", "refonte_value_bet", odd, result, stake_eur, pnl_eur, settled_at)
+            for odd, result, stake_eur, pnl_eur, settled_at in cur.fetchall()]
+
+
 def fetch_period_stats() -> dict:
     """Bilan EN COURS (pas la periode passee complete comme daily_bilan.py)
     pour jour / semaine (lundi->aujourd'hui) / mois (1er->aujourd'hui),
@@ -182,7 +216,7 @@ def fetch_period_stats() -> dict:
     cur = conn.cursor()
     cur.execute(
         """
-        SELECT resultat, pnl, result_updated_at
+        SELECT resultat, pnl, result_updated_at, sport
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
@@ -201,12 +235,13 @@ def fetch_period_stats() -> dict:
     cur.execute(
         """
         SELECT odd, COALESCE(stake_eur,0), settlement_status,
-               COALESCE(NULLIF(settled_at,''), created_at)
+               COALESCE(NULLIF(settled_at,''), created_at), sport
         FROM sport_player_picks
         WHERE settlement_status IN ('GAGNE','PERDU')
         """,
     )
     pick_rows = cur.fetchall()
+    refonte_rows = _fetch_refonte_settled_rows(cur)
     conn.close()
 
     today = datetime.now(PARIS_TZ).date()
@@ -214,9 +249,32 @@ def fetch_period_stats() -> dict:
     month_start = today.replace(day=1)
     year_start = today.replace(month=1, day=1)
     boundaries = {"jour": today, "semaine": week_start, "mois": month_start, "annee": year_start}
-    buckets = {k: {"n": 0, "g": 0, "p": 0, "r": 0, "pnl_eur": 0.0} for k in boundaries}
 
-    for resultat, pnl, result_updated_at in rows:
+    def _empty_bucket():
+        return {"n": 0, "g": 0, "p": 0, "r": 0, "pnl_eur": 0.0}
+
+    # buckets_by_sport["all"] = bilan tous sports confondus (comportement
+    # historique) ; buckets_by_sport[sport] = meme decompte, filtre par sport
+    # -- ajoute le 26/08/2026 (demande explicite : le filtre sport du
+    # prototype globe/performance doit marcher avec de vraies donnees,
+    # meme principe que fetch_period_series()::by_sport deja existant pour
+    # la courbe).
+    buckets_by_sport: dict = {"all": {k: _empty_bucket() for k in boundaries}}
+
+    def _add(sport, key, resultat_or_status, pnl_val):
+        for scope in ("all", sport):
+            sp_buckets = buckets_by_sport.setdefault(scope, {k: _empty_bucket() for k in boundaries})
+            b = sp_buckets[key]
+            b["n"] += 1
+            b["pnl_eur"] += pnl_val
+            if resultat_or_status in RESULTAT_GAGNE or resultat_or_status == "GAGNE":
+                b["g"] += 1
+            elif resultat_or_status == "PERDU":
+                b["p"] += 1
+            elif resultat_or_status == "REMBOURSE":
+                b["r"] += 1
+
+    for resultat, pnl, result_updated_at, sport in rows:
         d = _paris_calendar_date(result_updated_at)
         if d is None or d > today:
             continue
@@ -224,17 +282,9 @@ def fetch_period_stats() -> dict:
         for key, start in boundaries.items():
             if d < start:
                 continue
-            b = buckets[key]
-            b["n"] += 1
-            b["pnl_eur"] += pnl_val
-            if resultat in RESULTAT_GAGNE:
-                b["g"] += 1
-            elif resultat == "PERDU":
-                b["p"] += 1
-            elif resultat == "REMBOURSE":
-                b["r"] += 1
+            _add(sport or "football", key, resultat, pnl_val)
 
-    for odd, stake_eur, status, settled_or_created in pick_rows:
+    for odd, stake_eur, status, settled_or_created, sport in pick_rows:
         d = _paris_calendar_date(settled_or_created)
         if d is None or d > today:
             continue
@@ -242,26 +292,36 @@ def fetch_period_stats() -> dict:
         for key, start in boundaries.items():
             if d < start:
                 continue
-            b = buckets[key]
-            b["n"] += 1
-            b["pnl_eur"] += pnl_val
-            if status == "GAGNE":
-                b["g"] += 1
-            elif status == "PERDU":
-                b["p"] += 1
+            _add(sport or "football", key, status, pnl_val)
 
-    out = {}
-    for key, b in buckets.items():
-        decides = b["g"] + b["p"]
-        out[key] = {
-            "n": b["n"],
-            "g": b["g"],
-            "p": b["p"],
-            "r": b["r"],
-            "winrate": round(b["g"] / decides * 100) if decides else 0,
-            "pnl": round(b["pnl_eur"] / BASE_UNIT_EUR, 2),
-        }
-    return out
+    for sport, _mt, odd, resultat, stake_eur, pnl_eur, settled_at in refonte_rows:
+        d = _paris_calendar_date(settled_at)
+        if d is None or d > today:
+            continue
+        for key, start in boundaries.items():
+            if d < start:
+                continue
+            _add(sport, key, resultat, float(pnl_eur or 0))
+
+    def _build(buckets):
+        out = {}
+        for key, b in buckets.items():
+            decides = b["g"] + b["p"]
+            out[key] = {
+                "n": b["n"],
+                "g": b["g"],
+                "p": b["p"],
+                "r": b["r"],
+                "winrate": round(b["g"] / decides * 100) if decides else 0,
+                "pnl": round(b["pnl_eur"] / BASE_UNIT_EUR, 2),
+            }
+        return out
+
+    result = _build(buckets_by_sport["all"])
+    result["by_sport"] = {
+        sp: _build(b) for sp, b in buckets_by_sport.items() if sp != "all"
+    }
+    return result
 
 
 JOURS_FR = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"]
@@ -312,6 +372,7 @@ def fetch_period_series() -> dict:
         """,
     )
     pick_rows = cur.fetchall()
+    refonte_rows = _fetch_refonte_settled_rows(cur)
     conn.close()
 
     now = datetime.now(PARIS_TZ)
@@ -358,6 +419,12 @@ def fetch_period_series() -> dict:
             continue
         sp = SPORT_LABEL_MAP.get((sport or "football").lower(), (sport or "football").lower())
         _bucket_pnl(_pnl_fixed(status, float(odd or 0), float(stake_eur or 0)), dt, sp)
+
+    for _sp, _mt, _odd, _resultat, _stake_eur, pnl_eur, settled_at in refonte_rows:
+        dt = _paris_datetime(settled_at)
+        if dt is None or dt.date() > today:
+            continue
+        _bucket_pnl(float(pnl_eur or 0), dt, "football")
 
     heures = buckets_by_sport["all"]["heures"]
     semaine = buckets_by_sport["all"]["semaine"]
@@ -426,6 +493,167 @@ def fetch_period_series() -> dict:
     return result
 
 
+def _period_bounds_offset(period: str, offset: int):
+    """Bornes [debut, fin) et labels d'axe pour une periode DECALEE de
+    `offset` unites par rapport a la periode en cours (offset=0 -> periode
+    en cours, offset=-1 -> periode precedente, etc.). Unite = jour pour
+    "jour", semaine (lundi) pour "semaine", mois calendaire pour "mois",
+    annee calendaire pour "annee" -- meme decoupage que fetch_period_series()."""
+    import calendar
+    today = datetime.now(PARIS_TZ).date()
+    if period == "jour":
+        start = today + timedelta(days=offset)
+        end = start + timedelta(days=1)
+        labels = [f"{h:02d}h" for h in range(24)]
+    elif period == "semaine":
+        week_start = today - timedelta(days=today.weekday())
+        start = week_start + timedelta(weeks=offset)
+        end = start + timedelta(days=7)
+        labels = JOURS_FR
+    elif period == "mois":
+        total_months = (today.year * 12 + (today.month - 1)) + offset
+        y2, m0 = divmod(total_months, 12)
+        m2 = m0 + 1
+        start = today.replace(year=y2, month=m2, day=1)
+        n_days = calendar.monthrange(y2, m2)[1]
+        end = start + timedelta(days=n_days)
+        labels = [str(i + 1) for i in range(n_days)]
+    elif period == "annee":
+        y2 = today.year + offset
+        start = today.replace(year=y2, month=1, day=1)
+        end = today.replace(year=y2 + 1, month=1, day=1)
+        labels = MOIS_FR
+    else:
+        raise ValueError(f"periode inconnue: {period}")
+    return start, end, labels
+
+
+def fetch_period_series_offset(period: str, offset: int) -> dict:
+    """
+    Meme donnees que fetch_period_series()[period], mais pour une periode
+    DECALEE de `offset` unites au lieu de la periode en cours (22/08/2026,
+    demande explicite : "des fleches ... pour voir par exemple le jour
+    precedent"). offset=0 doit redonner la meme forme que
+    fetch_period_series() (juste sans le "now_frac" -- ici toujours la
+    periode ENTIERE, jamais tronquee a "maintenant", meme pour offset=0 --
+    le troncage "en cours" reste le comportement de fetch_period_series(),
+    reserve a la vue par defaut au chargement de la page).
+
+    Retourne {"points": [...], "label_range": "...", "pnl_total": float,
+    "by_sport": {sport: {"points": [...], "pnl_total": float}, ...}}.
+    Inclut les value bets refonte (meme source que fetch_period_series()).
+
+    by_sport ajoute le 22/08/2026 (demande explicite : "la navigation ne
+    distingue pas quand je clique un sport specifiquement" -- la premiere
+    version de ce repli n'avait pas de ventilation par sport, contrairement
+    a fetch_period_series()). Meme SPORT_LABEL_MAP ("mlb"->"baseball") que
+    fetch_perf_stats()/fetch_period_series() pour rester coherent.
+    """
+    import psycopg2
+
+    if period not in ("jour", "semaine", "mois", "annee"):
+        raise ValueError(f"periode inconnue: {period}")
+    start, end, labels = _period_bounds_offset(period, offset)
+    start_iso, end_iso = start.isoformat(), end.isoformat()
+
+    db = os.environ.get("DATABASE_URL")
+    if not db:
+        raise SystemExit("DATABASE_URL manquant")
+    conn = psycopg2.connect(db, connect_timeout=10)
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT pnl, result_updated_at, sport
+        FROM paris
+        WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
+          AND result_updated_at IS NOT NULL AND result_updated_at <> ''
+          AND NOT (market_type IN ('total_points', 'player_pick_only'))
+          AND result_updated_at >= %s AND result_updated_at < %s
+        """,
+        (start_iso, end_iso),
+    )
+    rows = cur.fetchall()
+    cur.execute(
+        """
+        SELECT odd, COALESCE(stake_eur,0), settlement_status,
+               COALESCE(NULLIF(settled_at,''), created_at), sport
+        FROM sport_player_picks
+        WHERE settlement_status IN ('GAGNE','PERDU')
+          AND COALESCE(NULLIF(settled_at,''), created_at) >= %s
+          AND COALESCE(NULLIF(settled_at,''), created_at) < %s
+        """,
+        (start_iso, end_iso),
+    )
+    pick_rows = cur.fetchall()
+    refonte_rows = _fetch_refonte_settled_rows(cur)
+    conn.close()
+
+    SPORT_LABEL_MAP = {"mlb": "baseball"}
+    n_slots = len(labels)
+
+    def _empty_values():
+        return [0.0] * n_slots
+
+    values_by_sport: dict = {"all": _empty_values()}
+
+    def _slot_index(d):
+        if period == "jour":
+            return None  # calcule depuis l'heure, pas le jour -- gere plus bas
+        if period in ("semaine", "mois"):
+            return (d - start).days
+        if period == "annee":
+            return d.month - 1
+        return None
+
+    def _add(pnl_eur, dt, sport_key):
+        if dt is None:
+            return
+        if not (start <= dt.date() < end):
+            return
+        pnl_u = float(pnl_eur or 0) / BASE_UNIT_EUR
+        idx = dt.hour if period == "jour" else _slot_index(dt.date())
+        if idx is None or not (0 <= idx < n_slots):
+            return
+        for key in ("all", sport_key):
+            values_by_sport.setdefault(key, _empty_values())[idx] += pnl_u
+
+    for pnl, rud, sport in rows:
+        sp = SPORT_LABEL_MAP.get((sport or "football").lower(), (sport or "football").lower())
+        _add(pnl, _paris_datetime(rud), sp)
+    for odd, stake_eur, status, settled_or_created, sport in pick_rows:
+        sp = SPORT_LABEL_MAP.get((sport or "football").lower(), (sport or "football").lower())
+        _add(_pnl_fixed(status, float(odd or 0), float(stake_eur or 0)), _paris_datetime(settled_or_created), sp)
+    for _sp, _mt, _odd, _resultat, _stake_eur, pnl_eur, settled_at in refonte_rows:
+        _add(pnl_eur, _paris_datetime(settled_at), "football")
+
+    def _cumulative(values):
+        points, running = [], 0.0
+        for v, label in zip(values, labels):
+            running += v
+            points.append({"label": label, "pnl": round(running, 2)})
+        return points, round(running, 2)
+
+    points, pnl_total_all = _cumulative(values_by_sport["all"])
+    by_sport = {}
+    for sp, values in values_by_sport.items():
+        if sp == "all":
+            continue
+        sp_points, sp_total = _cumulative(values)
+        by_sport[sp] = {"points": sp_points, "pnl_total": sp_total}
+
+    if period == "jour":
+        label_range = start.strftime("%d/%m/%Y")
+    elif period == "semaine":
+        label_range = f"{start.strftime('%d/%m')} – {(end - timedelta(days=1)).strftime('%d/%m/%Y')}"
+    elif period == "mois":
+        label_range = f"{MOIS_FR[start.month - 1]} {start.year}"
+    else:
+        label_range = str(start.year)
+
+    return {"points": points, "label_range": label_range, "pnl_total": pnl_total_all,
+            "offset": offset, "by_sport": by_sport}
+
+
 def _cat(selection: str) -> str:
     """Meme classifieur que daily_bilan.py::_cat -- il n'existe pas de FK
     entre offensive_player_picks (categorie) et player_pick_settlements
@@ -437,6 +665,27 @@ def _cat(selection: str) -> str:
     if "decisif" in s or "décisif" in s:
         return "decisif"
     return "buteur"
+
+
+def select_display_odd(cote_reelle, value_cote, cote_interne) -> float:
+    """Priorite d'affichage de la cote/PnL, EXACTEMENT la meme que
+    database.py::update_resultat (fix du 11/08/2026) : cote_reelle d'abord
+    (si > 1.01, cote invalide/placeholder sinon), puis value_cote, puis
+    cote_interne (= odd_estimee au moment de l'insertion, cf sauvegarder_pari)
+    en tout dernier recours.
+
+    Duplique en Python ici (au lieu de laisser seulement le CASE WHEN SQL
+    des requetes de ce fichier) pour permettre un test unitaire simple qui
+    garantit que les deux niveaux (SQL ici, Python en base) restent en
+    synchro -- sans dependance a une vraie connexion Postgres."""
+    cote_reelle = float(cote_reelle or 0)
+    value_cote = float(value_cote or 0)
+    cote_interne = float(cote_interne or 0)
+    if cote_reelle > 1.01:
+        return cote_reelle
+    if value_cote > 1.01:
+        return value_cote
+    return cote_interne
 
 
 # Copie locale VOLONTAIRE de betting_rules.pnl_fixed, memes raisons que
@@ -471,14 +720,25 @@ def fetch_results() -> list[dict]:
     # consultee ici avant ce fix) : le "pnl" affiche etait deja correct
     # (lit p.pnl stocke, deja corrige par le backfill du 03/08/2026), mais
     # la "cote" affichee a cote restait fausse (odd_estimee/cote_interne).
+    #
+    # Seuil >1.01 (11/08/2026, meme fix que database.py::update_resultat,
+    # priorite cote_reelle -> value_cote -> odd_estimee) : COALESCE(NULLIF(x,0), ...)
+    # n'excluait qu'une cote exactement 0, jamais une cote invalide/placeholder
+    # entre 0 et 1.01 -- desormais le meme seuil de validite qu'en base pour
+    # que le PnL/la cote affiches au public correspondent exactement a ce que
+    # update_resultat() a reellement stocke (99 lignes backfillees +5810EUR
+    # sinon potentiellement mal reaffichees ici avec une cote differente).
     cur.execute(
         """
         SELECT p.fixture_id, p.home, p.away,
-               p.conseil, COALESCE(NULLIF(p.cote_reelle,0), NULLIF(p.value_cote,0), p.cote_interne),
+               p.conseil,
+               CASE WHEN p.cote_reelle > 1.01 THEN p.cote_reelle
+                    WHEN p.value_cote > 1.01 THEN p.value_cote
+                    ELSE p.cote_interne END,
                p.resultat, COALESCE(p.mise,1), COALESCE(p.pnl,0),
                p.value_bet, p.value_cote, p.value_result, COALESCE(p.value_stake_eur,0),
                COALESCE(NULLIF(p.competition,''), pf.league, ''),
-               p.market_type, p.sport
+               p.market_type, p.sport, p.result_updated_at
         FROM paris p
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
         WHERE p.result_updated_at IS NOT NULL AND p.result_updated_at <> ''
@@ -547,8 +807,9 @@ def fetch_results() -> list[dict]:
 
     out = []
     for fixture_id, home, away, conseil, cote, resultat, mise, pnl, \
-            value_bet, value_cote, value_result, value_stake, competition, market_type, sport \
+            value_bet, value_cote, value_result, value_stake, competition, market_type, sport, result_updated_at \
             in reversed(fixtures):
+        _ts = result_updated_at or ""
         fixture_id = str(fixture_id)
         flag = _flag(competition, sport)
         match = f"{home} – {away}"
@@ -579,7 +840,7 @@ def fetch_results() -> list[dict]:
                 "r": "G" if resultat in RESULTAT_GAGNE else {"PERDU": "P"}.get(resultat, "R"),
                 "mise": round(float(mise or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
                 "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 2),
-                "type": "conseil", "sport": sport_l,
+                "type": "conseil", "sport": sport_l, "_ts": _ts,
             })
 
         # REMBOURSE ajoute (26/07/2026, confirme en direct : Lorenzo Musetti
@@ -596,7 +857,7 @@ def fetch_results() -> list[dict]:
                 "r": "G" if value_result in RESULTAT_GAGNE else {"PERDU": "P"}.get(value_result, "R"),
                 "mise": round(float(value_stake or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
                 "pnl": round(v_pnl / BASE_UNIT_EUR, 2),
-                "type": "value", "sport": sport_l,
+                "type": "value", "sport": sport_l, "_ts": _ts,
             })
 
         pick_info = player_by_fixture.get(fixture_id)
@@ -614,7 +875,7 @@ def fetch_results() -> list[dict]:
                     "r": {"GAGNE": "G", "PERDU": "P"}.get(result, "R"),
                     "mise": round(pick_info["stake"] / BASE_UNIT_EUR, 2),
                     "pnl": round(p_pnl / BASE_UNIT_EUR, 2),
-                    "type": "player", "sport": sport_l,
+                    "type": "player", "sport": sport_l, "_ts": _ts,
                 })
 
         # Player picks MLB/NBA/WNBA/NHL/NFL/Tennis (sport_player_picks) --
@@ -629,9 +890,60 @@ def fetch_results() -> list[dict]:
                 "r": {"GAGNE": "G", "PERDU": "P"}.get(sp["result"], "R"),
                 "mise": round(sp["stake"] / BASE_UNIT_EUR, 2),
                 "pnl": round(p_pnl / BASE_UNIT_EUR, 2),
-                "type": "player", "sport": sport_l,
+                "type": "player", "sport": sport_l, "_ts": _ts,
             })
 
+    # Value bets refonte football (23/08/2026, demande explicite : "je veux
+    # que toute les value compte ... et aussi je veux les voirs dans la
+    # courbe des derniers picks on ne voit pas les value bet du foot") --
+    # deja agregees dans les stats/PnL periode (_fetch_refonte_settled_rows)
+    # mais jamais listees ligne par ligne ici, contrairement a conseil/value/
+    # player picks ci-dessus. Requete separee (fixture_id/home/away/market/
+    # selection necessaires pour l'affichage, absents de la forme unifiee de
+    # _fetch_refonte_settled_rows).
+    conn2 = psycopg2.connect(db, connect_timeout=10)
+    cur2 = conn2.cursor()
+    cur2.execute(
+        """
+        SELECT fixture_id, home, away, market, selection, odd, result,
+               COALESCE(stake_eur,0), COALESCE(pnl_eur,0), settled_at, ''
+        FROM refonte_value_bet_settlements WHERE result != ''
+        UNION ALL
+        SELECT fixture_id, home, away, market, selection, odd, result,
+               COALESCE(stake_eur,0), COALESCE(pnl_eur,0), settled_at, competition
+        FROM refonte_cross_competition_value_bet_settlements WHERE result != ''
+        ORDER BY settled_at DESC
+        LIMIT %s
+        """,
+        (N_MATCHES,),
+    )
+    refonte_rows = cur2.fetchall()
+    cur2.close()
+    conn2.close()
+    from football.refonte_publication_preview import MARKET_LABELS, _SELECTION_LABELS
+    for r_fid, r_home, r_away, r_market, r_selection, r_odd, r_result, \
+            r_stake, r_pnl, _r_settled_at, r_competition in reversed(refonte_rows):
+        label = _SELECTION_LABELS.get(r_selection, r_selection).format(home=r_home or "", away=r_away or "")
+        market_label = MARKET_LABELS.get(r_market, r_market)
+        out.append({
+            "flag": _flag(r_competition, "football"),
+            "match": f"{r_home} – {r_away}",
+            "pick": f"{market_label} : {label}",
+            "cote": round(float(r_odd or 0), 2),
+            "r": {"GAGNE": "G", "PERDU": "P"}.get(r_result, "R"),
+            "mise": round(float(r_stake or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
+            "pnl": round(float(r_pnl or 0) / BASE_UNIT_EUR, 2),
+            "type": "value", "sport": "football", "_ts": _r_settled_at or "",
+        })
+
+    # Tri chronologique global (23/08/2026) : les value bets refonte ont
+    # leur propre requete/timestamp (settled_at), separee de celle du bloc
+    # paris ci-dessus (result_updated_at) -- sans ce tri final, elles
+    # apparaissaient toujours comme "les plus recentes" quel que soit leur
+    # vrai settled_at, puisque simplement appendees a la fin de `out`.
+    out.sort(key=lambda e: e.get("_ts", ""))
+    for e in out:
+        e.pop("_ts", None)
     return out
 
 
@@ -709,7 +1021,9 @@ def fetch_perf_stats() -> dict:
     cur.execute(
         """
         SELECT sport, market_type,
-               COALESCE(NULLIF(cote_reelle,0), NULLIF(value_cote,0), cote_interne),
+               CASE WHEN cote_reelle > 1.01 THEN cote_reelle
+                    WHEN value_cote > 1.01 THEN value_cote
+                    ELSE cote_interne END,
                resultat, COALESCE(mise,0), COALESCE(pnl,0), result_updated_at
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
@@ -812,13 +1126,59 @@ def fetch_perf_stats() -> dict:
                 m["pnl"] += pnl_pick
                 break
 
+    # Value bets moteur refonte (22/08/2026, demande explicite : "je
+    # reviens sur ma decision il faut que ca compte") -- meme principe que
+    # sport_player_picks ci-dessus, source = _fetch_refonte_settled_rows()
+    # (50 ligues domestiques + 5 competitions cross-championnat, deja
+    # UNIES). Compte aussi bien les lignes reglees AVANT ce chantier
+    # (backfill automatique -- result deja ecrit en base par
+    # football/refonte_settlement.py des le premier passage) que celles a
+    # venir : cette fonction relit TOUJOURS l'integralite de la table.
+    for sp, mt, odd, resultat, stake_eur, pnl_eur, settled_at in _fetch_refonte_settled_rows(cur):
+        d = _paris_calendar_date(settled_at)
+        if d is None:
+            continue
+        won = resultat in RESULTAT_GAGNE
+        lost = resultat == "PERDU"
+        odd = float(odd or 0)
+        stake_eur = float(stake_eur or 0)
+        pnl_eur = float(pnl_eur or 0)
+
+        g["n"] += 1
+        g["w"] += won
+        g["l"] += lost
+        g["stake"] += stake_eur
+        g["pnl"] += pnl_eur
+        if g["since"] is None or d < g["since"]:
+            g["since"] = d
+
+        s = sports.setdefault(sp, {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0})
+        s["n"] += 1
+        s["w"] += won
+        s["l"] += lost
+        s["stake"] += stake_eur
+        s["pnl"] += pnl_eur
+
+        for lo, hi, label in ODDS_BANDS:
+            if lo <= odd < hi:
+                key = (mt, label)
+                m = markets.setdefault(key, {"n": 0, "w": 0, "l": 0, "pnl": 0.0,
+                                             "blocked": _is_blocked(mt, (lo + min(hi, 9.0)) / 2)})
+                m["n"] += 1
+                m["w"] += won
+                m["l"] += lost
+                m["pnl"] += pnl_eur
+                break
+
     # ── Highlights du mois (meilleur/pire pick, top ligue) ──
     # cote (04/08/2026, meme fix) : selection best/worst basee sur pnl (deja
     # correct), seule la cote AFFICHEE a cote du pick etait fausse avant.
     cur.execute(
         """
         SELECT p.home, p.away, p.conseil,
-               COALESCE(NULLIF(p.cote_reelle,0), NULLIF(p.value_cote,0), p.cote_interne),
+               CASE WHEN p.cote_reelle > 1.01 THEN p.cote_reelle
+                    WHEN p.value_cote > 1.01 THEN p.value_cote
+                    ELSE p.cote_interne END,
                COALESCE(p.pnl,0), COALESCE(NULLIF(p.competition,''), pf.league, ''),
                p.result_updated_at, p.sport
         FROM paris p
@@ -960,6 +1320,7 @@ def fetch_bankroll() -> dict:
         """,
     )
     pick_rows = cur.fetchall()
+    refonte_rows = _fetch_refonte_settled_rows(cur)
     conn.close()
 
     daily: dict = {}
@@ -974,6 +1335,11 @@ def fetch_bankroll() -> dict:
             continue
         pnl_pick = _pnl_fixed(status, float(odd or 0), float(stake_eur or 0))
         daily[d] = daily.get(d, 0.0) + pnl_pick
+    for _sp, _mt, _odd, _resultat, _stake_eur, pnl_eur, settled_at in refonte_rows:
+        d = _paris_calendar_date(settled_at)
+        if d is None:
+            continue
+        daily[d] = daily.get(d, 0.0) + float(pnl_eur or 0)
 
     series = []
     running = float(BANKROLL_INITIAL_EUR)
@@ -1013,12 +1379,27 @@ def render_block(results: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def _render_period_bucket_js(s: dict) -> str:
+    return (f'{{n:{s["n"]}, g:{s["g"]}, p:{s["p"]}, r:{s["r"]}, '
+            f'winrate:{s["winrate"]}, pnl:{s["pnl"]:.2f}}}')
+
+
 def render_period_block(stats: dict) -> str:
+    # by_sport (26/08/2026, demande explicite : filtre sport sur les cartes
+    # periode de site/performance.html, comme le prototype) -- forme
+    # differente (dict de dicts, pas un bucket periode direct), serialisee
+    # a part pour ne jamais planter sur stats["n"] si on itere dessus par
+    # erreur comme les 4 cles periode normales.
     parts = [
-        f'{key}:{{n:{s["n"]}, g:{s["g"]}, p:{s["p"]}, r:{s["r"]}, '
-        f'winrate:{s["winrate"]}, pnl:{s["pnl"]:.2f}}}'
-        for key, s in stats.items()
+        f'{key}:{_render_period_bucket_js(s)}'
+        for key, s in stats.items() if key != "by_sport"
     ]
+    by_sport = stats.get("by_sport") or {}
+    sport_parts = [
+        f'{sport}:{{{", ".join(f"{k}:{_render_period_bucket_js(v)}" for k, v in periods.items())}}}'
+        for sport, periods in by_sport.items()
+    ]
+    parts.append("by_sport:{" + ", ".join(sport_parts) + "}")
     return "let PERIOD_STATS = {" + ", ".join(parts) + "};"
 
 
