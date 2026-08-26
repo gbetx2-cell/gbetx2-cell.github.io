@@ -295,16 +295,6 @@ header{
 .chart-head .delta.flash-up{animation:flashUpText .5s ease}
 .chart-head .delta.flash-down{animation:flashDownText .5s ease}
 
-/* Pluie de fleches DANS le graphique (07/08/2026, demande explicite :
-   "plein de fleches grosse moyenne et petites qui remplissent le
-   graphique"), validee sur le site fictif de test puis integree ici sur
-   les 3 courbes (bilan, periode, bankroll) -- se declenche uniquement au
-   meme moment que le flash directionnel ci-dessus (mouvement reel). */
-.chart-arrow{opacity:0;transform-box:fill-box;transform-origin:center}
-.chart-arrow.up{fill:var(--green);animation-name:chartArrowUp;animation-timing-function:ease-out;animation-fill-mode:forwards}
-.chart-arrow.down{fill:var(--red);animation-name:chartArrowDown;animation-timing-function:ease-out;animation-fill-mode:forwards}
-@keyframes chartArrowUp{0%{opacity:0;transform:translateY(10px) scale(.5)}18%{opacity:.9}100%{opacity:0;transform:translateY(-60px) scale(1.15)}}
-@keyframes chartArrowDown{0%{opacity:0;transform:translateY(-10px) scale(.5)}18%{opacity:.9}100%{opacity:0;transform:translateY(60px) scale(1.15)}}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;align-items:center}
 .chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px;width:100%}
 .chip{

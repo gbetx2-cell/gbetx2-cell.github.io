@@ -284,16 +284,6 @@ header{
 .chart-head .delta.flash-up{animation:flashUpText .5s ease}
 .chart-head .delta.flash-down{animation:flashDownText .5s ease}
 
-/* Pluie de fleches DANS le graphique (07/08/2026, demande explicite :
-   "plein de fleches grosse moyenne et petites qui remplissent le
-   graphique"), validee sur le site fictif de test puis integree ici sur
-   les 3 courbes (bilan, periode, bankroll) -- se declenche uniquement au
-   meme moment que le flash directionnel ci-dessus (mouvement reel). */
-.chart-arrow{opacity:0;transform-box:fill-box;transform-origin:center}
-.chart-arrow.up{fill:var(--green);animation-name:chartArrowUp;animation-timing-function:ease-out;animation-fill-mode:forwards}
-.chart-arrow.down{fill:var(--red);animation-name:chartArrowDown;animation-timing-function:ease-out;animation-fill-mode:forwards}
-@keyframes chartArrowUp{0%{opacity:0;transform:translateY(10px) scale(.5)}18%{opacity:.9}100%{opacity:0;transform:translateY(-60px) scale(1.15)}}
-@keyframes chartArrowDown{0%{opacity:0;transform:translateY(-10px) scale(.5)}18%{opacity:.9}100%{opacity:0;transform:translateY(60px) scale(1.15)}}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;align-items:center}
 .chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px;width:100%}
 .chip{
@@ -650,6 +640,8 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
       Les zones historiquement perdantes sont <b>bloquées</b> : le bot n'y publie plus,
       et elles restent affichées ici — c'est le principe.
     </p>
+    <h3 class="perf-sub-title">Aujourd'hui, cette semaine, ce mois, cette année</h3>
+    <div class="period-grid reveal" id="periodGrid"></div>
     <div class="period-grid reveal" id="perfGlobalGrid"></div>
     <h3 class="perf-sub-title">Performance par sport</h3>
     <div class="period-grid reveal" id="perfSportsGrid"></div>
@@ -720,25 +712,6 @@ const MISE_PAR_UNITE = 200; // 1 unité = 200 € (ai/staking.py BASE_UNIT_EUR)
 let currentMode = "u"; // "u" = unités, "e" = euros (pas de bascule sur cette page, garde le format unites)
 let _lastBankrollTotal = null;
 
-// Genere une pluie de fleches (grandes/moyennes/petites) eparpillees dans
-// la zone du graphique -- partagee par les courbes du site.
-function chartArrowsSvg(up, W, H, PAD){
-  const cls = up ? 'up' : 'down';
-  const glyph = up ? '▲' : '▼';
-  const sizes = [14, 14, 18, 18, 24, 24, 30, 34];
-  let out = '';
-  const count = 100;
-  for (let i = 0; i < count; i++){
-    const size = sizes[Math.floor(Math.random() * sizes.length)];
-    const x = PAD + Math.random() * (W - 2 * PAD);
-    const y = PAD + 20 + Math.random() * (H - 2 * PAD - 40);
-    const dur = (1.1 + Math.random() * 0.9).toFixed(2);
-    const delay = (Math.random() * 0.5).toFixed(2);
-    out += `<text class="chart-arrow ${cls}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" font-size="${size}" text-anchor="middle" style="animation-duration:${dur}s;animation-delay:${delay}s">${glyph}</text>`;
-  }
-  return out;
-}
-
 // API live (05/08/2026, chantier "site plus rapide") : meme endpoint que
 // Resultats (renvoie tout ensemble), cette page ne lit que data.perf_stats.
 const LIVE_API_BASE = 'https://sports-bot-pro-production.up.railway.app';
@@ -755,6 +728,41 @@ function fmtPnl(u){
   const v = u * factor;
   const unit = currentMode === "e" ? "€" : "u";
   return `${v > 0 ? '+' : ''}${currentMode === "e" ? v.toFixed(0) : v.toFixed(2)} ${unit}`;
+}
+
+// Aujourd'hui / Semaine / Mois / Année (26/08/2026, demande explicite :
+// "enleve dans les briques aujourd'hui... et le mettre dans performance
+// avec du rouge et du vert") -- meme donnee reelle que resultats.html
+// (data.period_stats, deja renvoyee par /api/results, simplement jamais
+// affichee sur cette page avant) et meme fonction de rendu, dupliquee ici
+// plutot que partagee entre les deux pages (fichiers HTML statiques
+// independants, pas de module JS commun sur ce site).
+const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci", annee:"Cette année"};
+let PERIOD_STATS = {jour:{n:0,g:0,p:0,r:0,winrate:0,pnl:0}, semaine:{n:0,g:0,p:0,r:0,winrate:0,pnl:0},
+                     mois:{n:0,g:0,p:0,r:0,winrate:0,pnl:0}, annee:{n:0,g:0,p:0,r:0,winrate:0,pnl:0}};
+
+function renderPeriodStats(){
+  const grid = document.getElementById('periodGrid');
+  if (!grid) return;
+  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
+  const unit = currentMode === "e" ? "€" : "u";
+  grid.innerHTML = Object.keys(PERIOD_LABELS).map(key=>{
+    const s = PERIOD_STATS[key] || {n:0,g:0,p:0,r:0,winrate:0,pnl:0};
+    const val = s.pnl * factor;
+    const cls = s.n === 0 ? 'flat' : (val > 0 ? 'up' : val < 0 ? 'down' : 'flat');
+    const pnlDisplay = s.n === 0
+      ? '—'
+      : `${val > 0 ? '+' : ''}${currentMode === "e" ? val.toFixed(0) : val.toFixed(2)} ${unit}`;
+    const sub = s.n === 0
+      ? 'Aucun conseil réglé pour l’instant'
+      : `${s.n} réglés · ${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''} · ${s.winrate}% de réussite`;
+    return `
+      <div class="period-card">
+        <div class="period-label">${PERIOD_LABELS[key]}</div>
+        <div class="period-pnl ${cls}">${pnlDisplay}</div>
+        <div class="period-sub">${sub}</div>
+      </div>`;
+  }).join('');
 }
 
 function renderPerfStats(){
@@ -858,7 +866,6 @@ function renderBankroll(b){
     <path d="${area}" fill="url(#bg)"/>
     <path d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="${xs(n-1)}" cy="${ysc(vals[n-1])}" r="6" fill="${col}"/>
-    ${_lastBankrollTotal !== null && b.current !== _lastBankrollTotal ? chartArrowsSvg(b.current > _lastBankrollTotal, W, H, PAD_T) : ''}
   `;
 
   delta.className = 'delta ' + (up ? 'up' : 'down');
@@ -872,9 +879,15 @@ async function loadPerfLive(){
     const res = await fetch(LIVE_API_BASE + '/api/results', {cache: 'no-store'});
     if (!res.ok) return;
     const data = await res.json();
-    if (!data || !data.perf_stats) return;
-    PERF_STATS = data.perf_stats;
-    renderPerfStats();
+    if (!data) return;
+    if (data.perf_stats){
+      PERF_STATS = data.perf_stats;
+      renderPerfStats();
+    }
+    if (data.period_stats){
+      PERIOD_STATS = data.period_stats;
+      renderPeriodStats();
+    }
   }catch(e){
     // Silencieux (05/08/2026) : rafraichissement en arriere-plan, jamais
     // d'erreur visible pour un simple manque de reseau/redemarrage bot.
@@ -882,6 +895,7 @@ async function loadPerfLive(){
 }
 
 renderPerfStats();
+renderPeriodStats();
 loadPerfLive();
 setInterval(loadPerfLive, 20000);
 
