@@ -1,31 +1,35 @@
 {
- "generated_at": "2026-08-26T22:48:56.873975+00:00",
+ "generated_at": "2026-08-26T23:10:38.957151+00:00",
  "live": [
   {
-   "fixture_id": "baseball_401816691",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Los Angeles Angels – Cleveland Guardians",
-   "kickoff_at": "2026-08-26T20:07Z",
+   "fixture_id": "api_football:1622629",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "AEK Athens FC – Levski Sofia",
+   "kickoff_at": "2026-08-26T21:00:00+02:00",
    "published": true,
-   "value_bet": "Cleveland Guardians @ 1.7407",
-   "value_cote": 1.74,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816694",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "San Diego Padres – Pittsburgh Pirates",
-   "kickoff_at": "2026-08-26T20:10Z",
-   "published": true,
-   "value_bet": "Pittsburgh Pirates +1,5 @ 1.5556",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/575.png",
+   "away_logo": "https://media.api-sports.io/football/teams/646.png",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "AEK Athens FC",
+     "odd": 1.47,
+     "mise_eur": 200.0
+    }
+   ],
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "L. Jović — buteur",
+     "detail": "cote 2.00",
+     "odd": 2.0,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1622630",
@@ -89,36 +93,6 @@
      "label": "D. Beljo — buteur",
      "detail": "cote 2.20",
      "odd": 2.2,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1622629",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "AEK Athens FC – Levski Sofia",
-   "kickoff_at": "2026-08-26T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/575.png",
-   "away_logo": "https://media.api-sports.io/football/teams/646.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "AEK Athens FC",
-     "odd": 1.47,
-     "mise_eur": 200.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "L. Jović — buteur",
-     "detail": "cote 2.00",
-     "odd": 2.0,
      "mise_eur": 200.0
     }
    ]
@@ -251,9 +225,70 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816688",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago White Sox – Texas Rangers",
+   "kickoff_at": "2026-08-26T23:40Z",
+   "published": true,
+   "value_bet": "Chicago White Sox Plus de 3,5 @ 1.6897",
+   "value_cote": 1.69,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Texas Rangers +1,5 @ 1.5",
+     "odd": 1.5,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Chicago White Sox @ 1.8475",
+     "odd": 1.85,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
+  {
+   "fixture_id": "api_football:1507044",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Daejeon Citizen – Ulsan Hyundai FC",
+   "kickoff_at": "2026-08-26T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.56,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.48,
+     "mise_eur": 200.0
+    }
+   ]
+  },
   {
    "fixture_id": "api_football:1507045",
    "flag": "🇰🇷",
@@ -300,40 +335,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1507044",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Daejeon Citizen – Ulsan Hyundai FC",
-   "kickoff_at": "2026-08-26T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.56,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.48,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1507043",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -359,6 +360,38 @@
      "odd": null,
      "mise_eur": null,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_184777",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jurij Rodionov – Frederico Ferreira Silva",
+   "kickoff_at": "2026-08-26T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/jurij rodionov.png",
+   "away_photo": "assets/players/frederico ferreira silva.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.543",
+   "value_cote": 1.54,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-2, 3-6, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Jurij Rodionov",
+     "kind": "player",
+     "detail": "cote 1.51",
+     "odd": 1.508,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -395,38 +428,6 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-2, 7-6"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_184777",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jurij Rodionov – Frederico Ferreira Silva",
-   "kickoff_at": "2026-08-26T15:05Z",
-   "published": true,
-   "home_photo": "assets/players/jurij rodionov.png",
-   "away_photo": "assets/players/frederico ferreira silva.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.543",
-   "value_cote": 1.54,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "6-2, 3-6, 6-1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Jurij Rodionov",
-     "kind": "player",
-     "detail": "cote 1.51",
-     "odd": 1.508,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_184663",
@@ -477,6 +478,25 @@
    "score": "0 - 3"
   },
   {
+   "fixture_id": "api_football:1602996",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Faisaly FC – Al-Fateh",
+   "kickoff_at": "2026-08-26T18:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
+   "conseil": "Al-Fateh ou Nul",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1513554",
    "flag": "🇪🇪",
    "league": "Meistriliiga",
@@ -522,23 +542,39 @@
    ]
   },
   {
-   "fixture_id": "api_football:1602996",
-   "flag": "🇸🇦",
-   "league": "Pro League",
+   "fixture_id": "api_football:1600326",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Al-Faisaly FC – Al-Fateh",
-   "kickoff_at": "2026-08-26T18:00:00+02:00",
+   "match": "Mamelodi Sundowns – Amazulu",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
    "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
-   "conseil": "Al-Fateh ou Nul",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 300.0,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2699.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
+   "conseil": "Mamelodi Sundowns ou Nul",
+   "conseil_cote": 1.07,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 1"
+   "score": "5 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Mamelodi Sundowns",
+     "odd": 1.31,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1600327",
@@ -558,6 +594,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1600328",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Richards Bay – Kaizer Chiefs",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2691.png",
+   "conseil": "Kaizer Chiefs gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.4,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1600325",
@@ -603,60 +658,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1600326",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Mamelodi Sundowns – Amazulu",
-   "kickoff_at": "2026-08-26T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/2699.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
-   "conseil": "Mamelodi Sundowns ou Nul",
-   "conseil_cote": 1.07,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "5 - 2",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Mamelodi Sundowns",
-     "odd": 1.31,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.61,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1600328",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Richards Bay – Kaizer Chiefs",
-   "kickoff_at": "2026-08-26T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2691.png",
-   "conseil": "Kaizer Chiefs gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.4,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 2"
   },
   {
    "fixture_id": "baseball_401816689",
@@ -708,6 +709,38 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "baseball_401816691",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Los Angeles Angels – Cleveland Guardians",
+   "kickoff_at": "2026-08-26T20:07Z",
+   "published": true,
+   "value_bet": "Cleveland Guardians @ 1.7407",
+   "value_cote": 1.74,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "3 - 4"
+  },
+  {
+   "fixture_id": "baseball_401816694",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "San Diego Padres – Pittsburgh Pirates",
+   "kickoff_at": "2026-08-26T20:10Z",
+   "published": true,
+   "value_bet": "Pittsburgh Pirates +1,5 @ 1.5556",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 0"
   },
   {
    "fixture_id": "baseball_401816693",
