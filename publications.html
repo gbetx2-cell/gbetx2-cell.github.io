@@ -896,12 +896,18 @@ function footballMatchHeadHtml(f, live){
   } else if (live && live.home != null){
     score = `${live.home} - ${live.away}`;
     clock = live.statusDetail || 'En cours';
-  } else if (f.kickoff_at && new Date(f.kickoff_at).getTime() > Date.now()){
+  } else if (f.kickoff_at){
+    // 26/08/2026, demande explicite "on ne met jamais en cours, soit le
+    // decompte soit le score" -- si le score live n'est pas encore
+    // disponible (ESPN pas encore synchro, ou heure decalee), on continue
+    // d'afficher le decompte (countdownLabel gere deja le cas "coup
+    // d'envoi passe" en affichant "Coup d'envoi" plutot qu'un decompte
+    // negatif) au lieu d'un "En cours" vide et trompeur.
     score = '- - -';
     clock = countdownLabel(f.kickoff_at);
   } else {
     score = '- - -';
-    clock = 'En cours';
+    clock = '';
   }
 
   const EVENT_ICON = {goal: '⚽', red_card: '🟥', yellow_card: '🟨'};
@@ -974,12 +980,18 @@ function tennisMatchHeadHtml(f, live){
   } else if (live && live.home != null){
     score = `${live.home} - ${live.away}`;
     clock = live.statusDetail || '';
-  } else if (f.kickoff_at && new Date(f.kickoff_at).getTime() > Date.now()){
+  } else if (f.kickoff_at){
+    // 26/08/2026, demande explicite "on ne met jamais en cours, soit le
+    // decompte soit le score" -- meme principe que footballMatchHeadHtml :
+    // tant que le score live tennis n'est pas dispo (ESPN scoreboard pas
+    // encore synchro, ou heure decalee), le decompte reste affiche
+    // (countdownLabel gere deja "Coup d'envoi" si l'heure est deja passee)
+    // plutot qu'un "En cours" vide sans score ni decompte.
     score = '- - -';
     clock = countdownLabel(f.kickoff_at);
   } else {
     score = '- - -';
-    clock = 'En cours';
+    clock = '';
   }
 
   // Set/jeu en cours + service : uniquement si vraiment fournis par la
@@ -1018,7 +1030,7 @@ function renderCard(f){
     const rows = [];
     if (f.conseil) rows.push(renderPick(f, 'conseil', f.conseil, f.conseil_cote, f.result, '', f.conseil_mise_eur));
     if (f.value_bet) rows.push(renderPick(f, 'value', f.value_bet, f.value_cote, f.value_result || f.result, '', f.value_mise_eur));
-    (f.player_picks || []).forEach(p => rows.push(renderPick(f, 'player', p.label, p.odd, p.result, '', p.mise_eur)));
+    (f.player_picks || []).forEach(p => rows.push(renderPick(f, p.kind || 'player', p.label, p.odd, p.result, '', p.mise_eur)));
     // Lignes "💎 VALUE BET" du moteur refonte (1X2/O-U/BTTS/corners/cartons,
     // 21/08/2026, demande explicite : elles n'apparaissaient jamais sur le
     // site alors qu'elles sont envoyees sur Telegram -- cf site/scripts/
@@ -1049,7 +1061,7 @@ function renderCard(f){
     const rows = [];
     if (f.conseil) rows.push(renderPick(f, 'player', f.conseil, f.conseil_cote, f.result, '', f.conseil_mise_eur));
     if (f.value_bet) rows.push(renderPick(f, 'value', f.value_bet, f.value_cote, f.value_result || f.result, '', f.value_mise_eur));
-    (f.player_picks || []).forEach(p => rows.push(renderPick(f, 'player', p.label, p.odd, p.result, '', p.mise_eur)));
+    (f.player_picks || []).forEach(p => rows.push(renderPick(f, p.kind || 'player', p.label, p.odd, p.result, '', p.mise_eur)));
     if (!rows.length && f.no_bet_reason){
       rows.push(`<div class="pick-row"><div class="pick-top"><span class="type-badge nobet">No Bet</span><span class="pick-label">${f.no_bet_reason}</span></div></div>`);
     }
@@ -1067,12 +1079,19 @@ function renderCard(f){
   } else if (live && live.home != null){
     const statusText = live.statusDetail || '';
     scoreHtml = `<div class="score-block"><span class="live-score"><span class="dot"></span> ${live.home} - ${live.away}</span>${statusText ? `<span class="match-time">${statusText}</span>` : ''}</div>`;
-  } else if (f.kickoff_at && new Date(f.kickoff_at).getTime() > Date.now()){
-    // Avant le coup d'envoi : decompte exact (05/08/2026, demande explicite
-    // -- pas de "En cours" tant que le match n'a pas commence), tique
-    // reellement chaque seconde via tickCountdowns() (data-kickoff + classe
-    // countdown-live). Point pulsant sous 5 min (meme animation CSS que le
-    // point "En cours") -- signal visuel d'imminence, pas juste du texte.
+  } else if (f.kickoff_at){
+    // Decompte exact (05/08/2026, demande explicite -- pas de "En cours"
+    // tant que le match n'a pas commence), tique reellement chaque seconde
+    // via tickCountdowns() (data-kickoff + classe countdown-live). Point
+    // pulsant sous 5 min (meme animation CSS que le point "En cours") --
+    // signal visuel d'imminence, pas juste du texte.
+    //
+    // 26/08/2026, demande explicite "on ne met jamais en cours, soit le
+    // decompte soit le score" -- ce bloc s'applique desormais AUSSI apres
+    // le coup d'envoi tant que le score live n'est pas encore synchronise
+    // (source pas encore a jour, heure decalee) : countdownLabel affiche
+    // alors "Coup d'envoi" au lieu d'un decompte negatif, jamais "En cours"
+    // vide sans decompte ni score.
     const soonMs = new Date(f.kickoff_at).getTime() - Date.now();
     const dotDisplay = soonMs <= 5 * 60000 ? '' : 'display:none';
     scoreHtml = `<div class="score-block"><span class="match-time">` +
@@ -1080,7 +1099,7 @@ function renderCard(f){
       `<span class="countdown-live" data-kickoff="${f.kickoff_at}">${countdownLabel(f.kickoff_at)}</span>` +
       `</span></div>`;
   } else {
-    scoreHtml = `<div class="score-block"><span class="live-score"><span class="dot"></span> En cours</span></div>`;
+    scoreHtml = '';
   }
 
   const rows = [];
@@ -1094,7 +1113,7 @@ function renderCard(f){
     // (football buteur/passeur, pas de cote marche reelle) -- pickRowHtml
     // masque deja le badge cote quand elle est falsy, aucun changement de
     // comportement pour ce cas.
-    rows.push(renderPick(f, 'player', `${p.label}`, p.odd, p.result, '', p.mise_eur));
+    rows.push(renderPick(f, p.kind || 'player', `${p.label}`, p.odd, p.result, '', p.mise_eur));
   });
   if (!rows.length && f.no_bet_reason){
     rows.push(`<div class="pick-row"><div class="pick-top"><span class="type-badge nobet">No Bet</span><span class="pick-label">${f.no_bet_reason}</span></div></div>`);
