@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-26T19:55:31.939109+00:00",
+ "generated_at": "2026-08-26T21:16:34.485720+00:00",
  "live": [
   {
    "fixture_id": "api_football:1623429",
@@ -45,36 +45,6 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816690",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "San Francisco Giants – Cincinnati Reds",
-   "kickoff_at": "2026-08-26T19:45Z",
-   "published": true,
-   "value_bet": "San Francisco Giants Plus de 3,5 @ 1.9524",
-   "value_cote": 1.95,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1602997",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al Diriyah – Al Kholood",
-   "kickoff_at": "2026-08-26T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/26738.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10509.png",
-   "conseil": "Al Kholood ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.84,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "baseball_401816691",
    "flag": "⚾",
    "league": "MLB",
@@ -85,6 +55,19 @@
    "published": true,
    "value_bet": "Cleveland Guardians @ 1.7407",
    "value_cote": 1.74,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816694",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "San Diego Padres – Pittsburgh Pirates",
+   "kickoff_at": "2026-08-26T20:10Z",
+   "published": true,
+   "value_bet": "Pittsburgh Pirates +1,5 @ 1.5556",
+   "value_cote": 1.56,
    "value_mise_eur": 200.0
   },
   {
@@ -101,17 +84,34 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816694",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "San Diego Padres – Pittsburgh Pirates",
-   "kickoff_at": "2026-08-26T20:10Z",
+   "fixture_id": "api_football:1622630",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lyon – Fenerbahçe",
+   "kickoff_at": "2026-08-26T21:00:00+02:00",
    "published": true,
-   "value_bet": "Pittsburgh Pirates +1,5 @ 1.5556",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/80.png",
+   "away_logo": "https://media.api-sports.io/football/teams/611.png",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.63,
+     "mise_eur": 100.0
+    }
+   ],
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Talisca — buteur",
+     "detail": "cote 2.20",
+     "odd": 2.2,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1622631",
@@ -178,108 +178,9 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1622630",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lyon – Fenerbahçe",
-   "kickoff_at": "2026-08-26T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/80.png",
-   "away_logo": "https://media.api-sports.io/football/teams/611.png",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.63,
-     "mise_eur": 100.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Talisca — buteur",
-     "detail": "cote 2.20",
-     "odd": 2.2,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1570340",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Madrid – Real Sociedad",
-   "kickoff_at": "2026-08-26T21:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/541.png",
-   "away_logo": "https://media.api-sports.io/football/teams/548.png",
-   "conseil": "Real Madrid gagne + Moins de 3.5 buts",
-   "conseil_cote": 2.5,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Kylian Mbappé buteur",
-     "detail": "cote 1.40",
-     "odd": 1.4,
-     "mise_eur": 200.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.6,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.55,
-     "mise_eur": 100.0
-    }
-   ]
   }
  ],
  "done": [
-  {
-   "fixture_id": "api_football:1507043",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Anyang – Incheon United",
-   "kickoff_at": "2026-08-26T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
-   "conseil": "Incheon United ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "M. Ferrier buteur",
-     "detail": "69%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
-    }
-   ]
-  },
   {
    "fixture_id": "api_football:1507044",
    "flag": "🇰🇷",
@@ -360,21 +261,33 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_182127",
-   "flag": "🎾",
-   "league": "Ennoble Care Philly Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mananchaya Sawangkaew – Lizette Cabrera",
-   "kickoff_at": "2026-08-26T15:05Z",
+   "fixture_id": "api_football:1507043",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Anyang – Incheon United",
+   "kickoff_at": "2026-08-26T12:30:00+02:00",
    "published": true,
-   "home_photo": "assets/players/mananchaya sawangkaew.png",
-   "away_photo": "assets/players/lizette cabrera.png",
-   "conseil": "Victoire Mananchaya Sawangkaew",
-   "conseil_cote": 1.15,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
+   "conseil": "Incheon United ou Nul",
+   "conseil_cote": 1.35,
    "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-2, 7-6"
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Ferrier buteur",
+     "detail": "69%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_184665",
@@ -426,6 +339,23 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_wta_182127",
+   "flag": "🎾",
+   "league": "Ennoble Care Philly Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mananchaya Sawangkaew – Lizette Cabrera",
+   "kickoff_at": "2026-08-26T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/mananchaya sawangkaew.png",
+   "away_photo": "assets/players/lizette cabrera.png",
+   "conseil": "Victoire Mananchaya Sawangkaew",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-2, 7-6"
+  },
+  {
    "fixture_id": "tennis_espn_atp_184663",
    "flag": "🎾",
    "league": "US Open",
@@ -474,6 +404,25 @@
    "score": "0 - 3"
   },
   {
+   "fixture_id": "api_football:1602996",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Faisaly FC – Al-Fateh",
+   "kickoff_at": "2026-08-26T18:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
+   "conseil": "Al-Fateh ou Nul",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1513554",
    "flag": "🇪🇪",
    "league": "Meistriliiga",
@@ -519,23 +468,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1602996",
-   "flag": "🇸🇦",
-   "league": "Pro League",
+   "fixture_id": "api_football:1600328",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Al-Faisaly FC – Al-Fateh",
-   "kickoff_at": "2026-08-26T18:00:00+02:00",
+   "match": "Richards Bay – Kaizer Chiefs",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
    "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
-   "conseil": "Al-Fateh ou Nul",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 300.0,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2691.png",
+   "conseil": "Kaizer Chiefs gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.4,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
+   "result": "PERDU",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1600326",
@@ -637,23 +586,82 @@
    "score": "0 - 0"
   },
   {
-   "fixture_id": "api_football:1600328",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
+   "fixture_id": "baseball_401816690",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "San Francisco Giants – Cincinnati Reds",
+   "kickoff_at": "2026-08-26T19:45Z",
+   "published": true,
+   "value_bet": "San Francisco Giants Plus de 3,5 @ 1.9524",
+   "value_cote": 1.95,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "4 - 2 (en cours)"
+  },
+  {
+   "fixture_id": "api_football:1602997",
+   "flag": "🇸🇦",
+   "league": "Pro League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Richards Bay – Kaizer Chiefs",
-   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "match": "Al Diriyah – Al Kholood",
+   "kickoff_at": "2026-08-26T20:00:00+02:00",
    "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2691.png",
-   "conseil": "Kaizer Chiefs gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.4,
-   "conseil_mise_eur": 200.0,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/26738.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10509.png",
+   "conseil": "Al Kholood ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.84,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1570340",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Madrid – Real Sociedad",
+   "kickoff_at": "2026-08-26T21:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/541.png",
+   "away_logo": "https://media.api-sports.io/football/teams/548.png",
+   "conseil": "Real Madrid gagne + Moins de 3.5 buts",
+   "conseil_cote": 2.5,
+   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore",
    "result": "PERDU",
-   "score": "2 - 2"
+   "score": "4 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Kylian Mbappé buteur",
+     "detail": "cote 1.40",
+     "odd": 1.4,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.6,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.55,
+     "mise_eur": 100.0
+    }
+   ]
   }
  ]
 }
