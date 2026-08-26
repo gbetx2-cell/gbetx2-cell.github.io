@@ -682,9 +682,33 @@ def fetch_programme() -> list[dict]:
                     (fixture_id,),
                 )
                 for player_name, label, odd, settlement_status, stake_eur in cur.fetchall():
+                    # sport_player_picks stocke aussi des paris de MATCH (pas un
+                    # joueur nomme) pour le tennis, avec player_name = le nom du
+                    # match ("A vs B") au lieu d'un vrai joueur -- detecte via
+                    # " vs " (jamais present dans un vrai nom de joueur).
+                    #
+                    # 26/08/2026, 2 bugs distincts corriges sur ce cas (confirmes
+                    # en direct par l'utilisateur) :
+                    # 1) "Total sets ..." (marche de MATCH, pas un joueur) sortait
+                    #    quand meme sous le badge "Player pick" -- desormais badge
+                    #    "Value", label brut sans le nom du match en prefixe (deja
+                    #    affiche dans l'entete de la carte).
+                    # 2) "Vainqueur du match X" (pick VRAIMENT joueur, juste mal
+                    #    prefixe) affichait "A vs B — Vainqueur du match X" --
+                    #    desormais "Player pick : Vainqueur du match X", jamais
+                    #    le nom du match en prefixe.
+                    is_match_level = bool(player_name) and " vs " in player_name
+                    is_match_total = is_match_level and (label or "").lower().startswith("total")
+                    if is_match_total:
+                        pick_label = label
+                    elif is_match_level:
+                        pick_label = f"Player pick : {label}"
+                    else:
+                        pick_label = f"{player_name} — {label}" if player_name else label
                     pick = {
-                        "category": "Player pick",
-                        "label": f"{player_name} — {label}" if player_name else label,
+                        "category": "Total du match" if is_match_total else "Player pick",
+                        "label": pick_label,
+                        "kind": "value" if is_match_total else "player",
                         "detail": f"cote {float(odd):.2f}" if odd else "",
                         # "odd" numerique -- meme fix que la branche football
                         # ci-dessus (05/08/2026).
