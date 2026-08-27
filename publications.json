@@ -1,27 +1,6 @@
 {
- "generated_at": "2026-08-27T02:09:57.427061+00:00",
+ "generated_at": "2026-08-27T02:46:02.463467+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816684",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Atlanta Braves – Los Angeles Dodgers",
-   "kickoff_at": "2026-08-26T23:15Z",
-   "published": true,
-   "value_bet": "Atlanta Braves +1,5 @ 1.6289",
-   "value_cote": 1.63,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "team_total",
-     "label": "Total équipe Atlanta Braves — Plus de 3,5 @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "api_football:1618992",
    "flag": "🇧🇴",
@@ -118,6 +97,35 @@
  ],
  "done": [
   {
+   "fixture_id": "api_football:1507043",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Anyang – Incheon United",
+   "kickoff_at": "2026-08-26T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
+   "conseil": "Incheon United ou Nul",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Ferrier buteur",
+     "detail": "69%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1507045",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -163,35 +171,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1507043",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Anyang – Incheon United",
-   "kickoff_at": "2026-08-26T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
-   "conseil": "Incheon United ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "M. Ferrier buteur",
-     "detail": "69%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1507044",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -226,23 +205,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_184665",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tomas Barrios Vera – Genaro Alberto Olivieri",
-   "kickoff_at": "2026-08-26T15:05Z",
-   "published": true,
-   "home_photo": "assets/players/tomas barrios vera.png",
-   "away_photo": "assets/players/genaro alberto olivieri.png",
-   "conseil": "Victoire Tomas Barrios Vera",
-   "conseil_cote": 1.29,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 6-1"
-  },
-  {
    "fixture_id": "tennis_espn_wta_182127",
    "flag": "🎾",
    "league": "Ennoble Care Philly Open",
@@ -258,6 +220,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-2, 7-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_184665",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tomas Barrios Vera – Genaro Alberto Olivieri",
+   "kickoff_at": "2026-08-26T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/tomas barrios vera.png",
+   "away_photo": "assets/players/genaro alberto olivieri.png",
+   "conseil": "Victoire Tomas Barrios Vera",
+   "conseil_cote": 1.29,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 6-1"
   },
   {
    "fixture_id": "tennis_espn_atp_184777",
@@ -340,25 +319,6 @@
    "score": "0 - 3"
   },
   {
-   "fixture_id": "api_football:1602996",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Faisaly FC – Al-Fateh",
-   "kickoff_at": "2026-08-26T18:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
-   "conseil": "Al-Fateh ou Nul",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1513554",
    "flag": "🇪🇪",
    "league": "Meistriliiga",
@@ -404,6 +364,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1602996",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Faisaly FC – Al-Fateh",
+   "kickoff_at": "2026-08-26T18:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2930.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2931.png",
+   "conseil": "Al-Fateh ou Nul",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1600326",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -439,25 +418,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1600327",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Polokwane City – Milford FC",
-   "kickoff_at": "2026-08-26T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/2693.png",
-   "away_logo": "https://media.api-sports.io/football/teams/22234.png",
-   "conseil": "Polokwane City gagne",
-   "conseil_cote": 2.2,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1600328",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -475,6 +435,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1600327",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Polokwane City – Milford FC",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2693.png",
+   "away_logo": "https://media.api-sports.io/football/teams/22234.png",
+   "conseil": "Polokwane City gagne",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1600325",
@@ -786,6 +765,31 @@
      "market": "winner",
      "label": "Vainqueur — Toronto Blue Jays @ 1.6667",
      "odd": 1.67,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816684",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Atlanta Braves – Los Angeles Dodgers",
+   "kickoff_at": "2026-08-26T23:15Z",
+   "published": true,
+   "value_bet": "Atlanta Braves +1,5 @ 1.6289",
+   "value_cote": 1.63,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 5",
+   "refonte_value_bets": [
+    {
+     "market": "team_total",
+     "label": "Total équipe Atlanta Braves — Plus de 3,5 @ 1.6897",
+     "odd": 1.69,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
