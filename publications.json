@@ -1,27 +1,6 @@
 {
- "generated_at": "2026-08-27T01:49:46.242447+00:00",
+ "generated_at": "2026-08-27T02:09:57.427061+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816682",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Yankees – Houston Astros",
-   "kickoff_at": "2026-08-26T23:05Z",
-   "published": true,
-   "value_bet": "Houston Astros +1,5 @ 1.5128",
-   "value_cote": 1.51,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "team_total",
-     "label": "Total équipe New York Yankees — Moins de 4,5 @ 1.7519",
-     "odd": 1.75,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "baseball_401816684",
    "flag": "⚾",
@@ -39,6 +18,29 @@
      "market": "team_total",
      "label": "Total équipe Atlanta Braves — Plus de 3,5 @ 1.6897",
      "odd": 1.69,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1618992",
+   "flag": "🇧🇴",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Blooming – Real Oruro",
+   "kickoff_at": "2026-08-27T02:30:00+02:00",
+   "published": true,
+   "league_id": 344,
+   "home_logo": "https://media.api-sports.io/football/teams/3701.png",
+   "away_logo": "https://media.api-sports.io/football/teams/20252.png",
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "B. Garcés buteur",
+     "detail": "cote 1.67",
+     "odd": 1.67,
      "mise_eur": 200.0
     }
    ]
@@ -75,29 +77,6 @@
      "label": "S. Driussi — buteur",
      "detail": "cote 2.50",
      "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1618992",
-   "flag": "🇧🇴",
-   "league": "Primera División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Blooming – Real Oruro",
-   "kickoff_at": "2026-08-27T02:30:00+02:00",
-   "published": true,
-   "league_id": 344,
-   "home_logo": "https://media.api-sports.io/football/teams/3701.png",
-   "away_logo": "https://media.api-sports.io/football/teams/20252.png",
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "B. Garcés buteur",
-     "detail": "cote 1.67",
-     "odd": 1.67,
      "mise_eur": 200.0
     }
    ]
@@ -425,25 +404,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1600327",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Polokwane City – Milford FC",
-   "kickoff_at": "2026-08-26T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/2693.png",
-   "away_logo": "https://media.api-sports.io/football/teams/22234.png",
-   "conseil": "Polokwane City gagne",
-   "conseil_cote": 2.2,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1600326",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -477,6 +437,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1600327",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Polokwane City – Milford FC",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2693.png",
+   "away_logo": "https://media.api-sports.io/football/teams/22234.png",
+   "conseil": "Polokwane City gagne",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1600328",
@@ -610,22 +589,6 @@
    "score": "3 - 4"
   },
   {
-   "fixture_id": "baseball_401816694",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "San Diego Padres – Pittsburgh Pirates",
-   "kickoff_at": "2026-08-26T20:10Z",
-   "published": true,
-   "value_bet": "Pittsburgh Pirates +1,5 @ 1.5556",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "3 - 0"
-  },
-  {
    "fixture_id": "baseball_401816693",
    "flag": "⚾",
    "league": "MLB",
@@ -640,6 +603,22 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "0 - 6"
+  },
+  {
+   "fixture_id": "baseball_401816694",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "San Diego Padres – Pittsburgh Pirates",
+   "kickoff_at": "2026-08-26T20:10Z",
+   "published": true,
+   "value_bet": "Pittsburgh Pirates +1,5 @ 1.5556",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 0"
   },
   {
    "fixture_id": "api_football:1570340",
@@ -750,6 +729,31 @@
      "market": "winner",
      "label": "Vainqueur — Washington Nationals @ 1.7752",
      "odd": 1.78,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816682",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Yankees – Houston Astros",
+   "kickoff_at": "2026-08-26T23:05Z",
+   "published": true,
+   "value_bet": "Houston Astros +1,5 @ 1.5128",
+   "value_cote": 1.51,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "9 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "team_total",
+     "label": "Total équipe New York Yankees — Moins de 4,5 @ 1.7519",
+     "odd": 1.75,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
