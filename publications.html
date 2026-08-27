@@ -1115,6 +1115,19 @@ function renderCard(f){
     // comportement pour ce cas.
     rows.push(renderPick(f, p.kind || 'player', `${p.label}`, p.odd, p.result, '', p.mise_eur));
   });
+  // Lignes value bet additionnelles (27/08/2026, bug confirme en direct :
+  // MLB/NBA/NHL/NFL/WNBA passent par CETTE branche generique, pas la
+  // branche foot -- f.refonte_value_bets n'y etait jamais lu, seules ces
+  // lignes existaient deja dans le foot (ligne 1040 ci-dessus). Un match
+  // MLB avec plusieurs marches au-dessus du seuil (mlb_value_bet_settlements)
+  // ne montrait donc jamais que sa ligne principale, malgre plusieurs
+  // marches "SEUIL ATTEINT" reellement mises et suivies cote serveur.
+  // Pas de prefixe marche ici (contrairement au foot ligne 1040) : v.label
+  // est deja un texte complet ("Ecart de points -- Colorado Rockies +1,5
+  // @ 1.61", cf export_programme.py::mlb_value_bets) -- v.market ne
+  // contient que la cle interne (handicap/totals/team_total_home/...),
+  // pas un libelle presentable.
+  (f.refonte_value_bets || []).forEach(v => rows.push(renderPick(f, 'value', v.label, v.odd, v.result, '', v.mise_eur)));
   if (!rows.length && f.no_bet_reason){
     rows.push(`<div class="pick-row"><div class="pick-top"><span class="type-badge nobet">No Bet</span><span class="pick-label">${f.no_bet_reason}</span></div></div>`);
   }
