@@ -1,39 +1,6 @@
 {
- "generated_at": "2026-08-27T01:29:21.740292+00:00",
+ "generated_at": "2026-08-27T01:49:46.242447+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816681",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Colorado Rockies",
-   "kickoff_at": "2026-08-26T22:45Z",
-   "published": true,
-   "value_bet": "Washington Nationals Plus de 4,5 @ 1.9615",
-   "value_cote": 1.96,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Colorado Rockies +1,5 @ 1.5556",
-     "odd": 1.56,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 8,5 runs @ 1.7692",
-     "odd": 1.77,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — Washington Nationals @ 1.7752",
-     "odd": 1.78,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "baseball_401816682",
    "flag": "⚾",
@@ -51,33 +18,6 @@
      "market": "team_total",
      "label": "Total équipe New York Yankees — Moins de 4,5 @ 1.7519",
      "odd": 1.75,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816683",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Toronto Blue Jays – Kansas City Royals",
-   "kickoff_at": "2026-08-26T23:07Z",
-   "published": true,
-   "value_bet": "Moins de 8,5 runs @ 1.9346",
-   "value_cote": 1.93,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Kansas City Royals +1,5 @ 1.6711",
-     "odd": 1.67,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — Toronto Blue Jays @ 1.6667",
-     "odd": 1.67,
      "mise_eur": 200.0
     }
    ]
@@ -485,6 +425,79 @@
    ]
   },
   {
+   "fixture_id": "api_football:1600327",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Polokwane City – Milford FC",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2693.png",
+   "away_logo": "https://media.api-sports.io/football/teams/22234.png",
+   "conseil": "Polokwane City gagne",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1600326",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Mamelodi Sundowns – Amazulu",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2699.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
+   "conseil": "Mamelodi Sundowns ou Nul",
+   "conseil_cote": 1.07,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "5 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Mamelodi Sundowns",
+     "odd": 1.31,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1600328",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Richards Bay – Kaizer Chiefs",
+   "kickoff_at": "2026-08-26T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2691.png",
+   "conseil": "Kaizer Chiefs gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.4,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 2"
+  },
+  {
    "fixture_id": "api_football:1600325",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -528,79 +541,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1600326",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Mamelodi Sundowns – Amazulu",
-   "kickoff_at": "2026-08-26T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/2699.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
-   "conseil": "Mamelodi Sundowns ou Nul",
-   "conseil_cote": 1.07,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "5 - 2",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Mamelodi Sundowns",
-     "odd": 1.31,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.61,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1600327",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Polokwane City – Milford FC",
-   "kickoff_at": "2026-08-26T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/2693.png",
-   "away_logo": "https://media.api-sports.io/football/teams/22234.png",
-   "conseil": "Polokwane City gagne",
-   "conseil_cote": 2.2,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 0"
-  },
-  {
-   "fixture_id": "api_football:1600328",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Richards Bay – Kaizer Chiefs",
-   "kickoff_at": "2026-08-26T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2691.png",
-   "conseil": "Kaizer Chiefs gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.4,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 2"
   },
   {
    "fixture_id": "baseball_401816689",
@@ -773,6 +713,77 @@
      "odd": 1.83,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816681",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Washington Nationals – Colorado Rockies",
+   "kickoff_at": "2026-08-26T22:45Z",
+   "published": true,
+   "value_bet": "Washington Nationals Plus de 4,5 @ 1.9615",
+   "value_cote": 1.96,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "1 - 13",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Colorado Rockies +1,5 @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 8,5 runs @ 1.7692",
+     "odd": 1.77,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Washington Nationals @ 1.7752",
+     "odd": 1.78,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816683",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Toronto Blue Jays – Kansas City Royals",
+   "kickoff_at": "2026-08-26T23:07Z",
+   "published": true,
+   "value_bet": "Moins de 8,5 runs @ 1.9346",
+   "value_cote": 1.93,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "3 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Kansas City Royals +1,5 @ 1.6711",
+     "odd": 1.67,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Toronto Blue Jays @ 1.6667",
+     "odd": 1.67,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
