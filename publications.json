@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-27T19:51:53.620696+00:00",
+ "generated_at": "2026-08-27T20:24:18.924298+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_184686",
@@ -86,31 +86,29 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816695",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Colorado Rockies",
-   "kickoff_at": "2026-08-27T17:05Z",
+   "fixture_id": "api_football:1623426",
+   "flag": "🇪🇺",
+   "league": "Conference League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Qarabag – Twente",
+   "kickoff_at": "2026-08-27T18:00:00+02:00",
    "published": true,
-   "value_bet": "Colorado Rockies Plus de 4,5 @ 1.9524",
-   "value_cote": 1.95,
-   "value_mise_eur": 200.0,
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/556.png",
+   "away_logo": "https://media.api-sports.io/football/teams/415.png",
    "refonte_value_bets": [
     {
-     "market": "handicap",
-     "label": "Écart de points — Colorado Rockies +1,5 @ 1.6061",
-     "odd": 1.61,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.63,
+     "mise_eur": 100.0
     },
     {
-     "market": "totals",
-     "label": "Total — Plus de 9,5 runs @ 1.8333",
-     "odd": 1.83,
-     "mise_eur": 200.0,
-     "result": "PERDU"
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.54,
+     "mise_eur": 100.0
     }
    ]
   },
@@ -141,33 +139,6 @@
      "detail": "",
      "odd": null,
      "mise_eur": null
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623426",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Qarabag – Twente",
-   "kickoff_at": "2026-08-27T18:00:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/556.png",
-   "away_logo": "https://media.api-sports.io/football/teams/415.png",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.63,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.54,
-     "mise_eur": 100.0
     }
    ]
   },
@@ -224,42 +195,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1623423",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Monaco – Gornik Zabrze",
-   "kickoff_at": "2026-08-27T18:45:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/91.png",
-   "away_logo": "https://media.api-sports.io/football/teams/340.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Monaco",
-     "odd": 1.34,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.49,
-     "mise_eur": 200.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Paris Josua  Brunner — buteur",
-     "detail": "cote 1.95",
-     "odd": 1.95,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1623415",
    "flag": "🇪🇺",
    "league": "Conference League",
@@ -291,6 +226,42 @@
      "label": "I. Matanović — buteur",
      "detail": "cote 1.80",
      "odd": 1.8,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1623423",
+   "flag": "🇪🇺",
+   "league": "Conference League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Monaco – Gornik Zabrze",
+   "kickoff_at": "2026-08-27T18:45:00+02:00",
+   "published": true,
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/91.png",
+   "away_logo": "https://media.api-sports.io/football/teams/340.png",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Monaco",
+     "odd": 1.34,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.49,
+     "mise_eur": 200.0
+    }
+   ],
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Paris Josua  Brunner — buteur",
+     "detail": "cote 1.95",
+     "odd": 1.95,
      "mise_eur": 200.0
     }
    ]
@@ -584,39 +555,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1623409",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Ajax – FC Sion",
-   "kickoff_at": "2026-08-27T20:00:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/194.png",
-   "away_logo": "https://media.api-sports.io/football/teams/630.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Ajax",
-     "odd": 1.32,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.3,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.52,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1623112",
    "flag": "🇪🇺",
    "league": "Conference League",
@@ -768,32 +706,35 @@
    ]
   },
   {
-   "fixture_id": "api_football:1623442",
+   "fixture_id": "api_football:1623409",
    "flag": "🇪🇺",
-   "league": "Ligue Europa",
+   "league": "Conference League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Anderlecht – Kairat Almaty",
-   "kickoff_at": "2026-08-27T20:30:00+02:00",
+   "match": "Ajax – FC Sion",
+   "kickoff_at": "2026-08-27T20:00:00+02:00",
    "published": true,
-   "league_id": 3,
-   "home_logo": "https://media.api-sports.io/football/teams/554.png",
-   "away_logo": "https://media.api-sports.io/football/teams/664.png",
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/194.png",
+   "away_logo": "https://media.api-sports.io/football/teams/630.png",
    "refonte_value_bets": [
     {
      "market": "1X2",
-     "label": "Anderlecht",
-     "odd": 1.35,
+     "label": "Ajax",
+     "odd": 1.32,
      "mise_eur": 400.0
-    }
-   ],
-   "player_picks": [
+    },
     {
-     "category": "Player pick",
-     "label": "D. Sikan — buteur",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 200.0
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.3,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.52,
+     "mise_eur": 100.0
     }
    ]
   },
@@ -819,89 +760,31 @@
    ]
   },
   {
-   "fixture_id": "api_football:1623411",
+   "fixture_id": "api_football:1623442",
    "flag": "🇪🇺",
-   "league": "Conference League",
+   "league": "Ligue Europa",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Borac Banja Luka – Vikingur Reykjavik",
+   "match": "Anderlecht – Kairat Almaty",
    "kickoff_at": "2026-08-27T20:30:00+02:00",
    "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/3364.png",
-   "away_logo": "https://media.api-sports.io/football/teams/278.png",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.6,
-     "mise_eur": 100.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "L. Juričić — buteur",
-     "detail": "",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623410",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Austria Vienna – SC Braga",
-   "kickoff_at": "2026-08-27T20:30:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/601.png",
-   "away_logo": "https://media.api-sports.io/football/teams/217.png",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Pau Victor — buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623413",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Brighton – Tromso",
-   "kickoff_at": "2026-08-27T20:30:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/51.png",
-   "away_logo": "https://media.api-sports.io/football/teams/325.png",
+   "league_id": 3,
+   "home_logo": "https://media.api-sports.io/football/teams/554.png",
+   "away_logo": "https://media.api-sports.io/football/teams/664.png",
    "refonte_value_bets": [
     {
      "market": "1X2",
-     "label": "Brighton",
-     "odd": 1.15,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.38,
-     "mise_eur": 300.0
+     "label": "Anderlecht",
+     "odd": 1.35,
+     "mise_eur": 400.0
     }
    ],
    "player_picks": [
     {
      "category": "Player pick",
-     "label": "D. Gómez — buteur",
-     "detail": "cote 2.10",
-     "odd": 2.1,
+     "label": "D. Sikan — buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
      "mise_eur": 200.0
     }
    ]
@@ -944,6 +827,115 @@
    ]
   },
   {
+   "fixture_id": "api_football:1623413",
+   "flag": "🇪🇺",
+   "league": "Conference League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Brighton – Tromso",
+   "kickoff_at": "2026-08-27T20:30:00+02:00",
+   "published": true,
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/51.png",
+   "away_logo": "https://media.api-sports.io/football/teams/325.png",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Brighton",
+     "odd": 1.15,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.38,
+     "mise_eur": 300.0
+    }
+   ],
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "D. Gómez — buteur",
+     "detail": "cote 2.10",
+     "odd": 2.1,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1623410",
+   "flag": "🇪🇺",
+   "league": "Conference League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Austria Vienna – SC Braga",
+   "kickoff_at": "2026-08-27T20:30:00+02:00",
+   "published": true,
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/601.png",
+   "away_logo": "https://media.api-sports.io/football/teams/217.png",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Pau Victor — buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1623411",
+   "flag": "🇪🇺",
+   "league": "Conference League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Borac Banja Luka – Vikingur Reykjavik",
+   "kickoff_at": "2026-08-27T20:30:00+02:00",
+   "published": true,
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/3364.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.6,
+     "mise_eur": 100.0
+    }
+   ],
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "L. Juričić — buteur",
+     "detail": "",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1623425",
+   "flag": "🇪🇺",
+   "league": "Conference League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FK Partizan – Getafe",
+   "kickoff_at": "2026-08-27T21:00:00+02:00",
+   "published": true,
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/573.png",
+   "away_logo": "https://media.api-sports.io/football/teams/546.png",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.72,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1570335",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -979,27 +971,6 @@
      "market": "Corners O/U 9.5",
      "label": "Plus de 9.5 corners",
      "odd": 1.6,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623425",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FK Partizan – Getafe",
-   "kickoff_at": "2026-08-27T21:00:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/573.png",
-   "away_logo": "https://media.api-sports.io/football/teams/546.png",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.72,
      "mise_eur": 100.0
     }
    ]
@@ -1052,6 +1023,38 @@
      "odd": 1.485,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816695",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Washington Nationals – Colorado Rockies",
+   "kickoff_at": "2026-08-27T17:05Z",
+   "published": true,
+   "value_bet": "Colorado Rockies Plus de 4,5 @ 1.9524",
+   "value_cote": 1.95,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "7 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Colorado Rockies +1,5 @ 1.6061",
+     "odd": 1.61,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 9,5 runs @ 1.8333",
+     "odd": 1.83,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
