@@ -965,9 +965,9 @@ function tennisInitials(name){
 
 function tennisAvatarHtml(name, photo){
   if (photo){
-    return `<img src="${photo}" alt="${name}" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--border-strong);background:var(--card-2)">`;
+    return `<img src="${photo}" alt="${name}" style="width:68px;height:68px;border-radius:50%;object-fit:cover;border:2px solid var(--border-strong);background:var(--card-2)">`;
   }
-  return `<div style="width:56px;height:56px;border-radius:50%;background:var(--card-2);border:2px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:.9rem;color:var(--gold-2)">${tennisInitials(name)}</div>`;
+  return `<div style="width:68px;height:68px;border-radius:50%;background:var(--card-2);border:2px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;color:var(--gold-2)">${tennisInitials(name)}</div>`;
 }
 
 function tennisMatchHeadHtml(f, live){
@@ -997,9 +997,26 @@ function tennisMatchHeadHtml(f, live){
   // Set/jeu en cours + service : uniquement si vraiment fournis par la
   // source live (jamais reconstruit/devine) -- absent tant que le detail
   // set-par-set/jeu-par-jeu n'est pas cable cote refreshLiveData().
-  const currentSetGame = live && live.currentSetGame ? live.currentSetGame : '';
-  const serving = live && live.serving ? live.serving : '';
-  const serveDot = `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 6px var(--gold-2);margin-left:5px;vertical-align:middle"></span>`;
+  //
+  // 27/08/2026, demande explicite "mets comme ca pour les publications"
+  // (visuel type FlashScore : score en gros au centre, "SET X", jeux du
+  // set en cours, classement sous le nom) -- verifie en direct que
+  // l'API ESPN utilisee ne fournit PAS le score point par point (30:30
+  // dans l'exemple envoye) : jamais invente, ce niveau de detail reste
+  // absent ici, uniquement le score de jeux dans le set en cours.
+  // Bug corrige (verifie en direct) : sur un match TERMINE, live.currentSetGame/
+  // setNumber restaient sur leur derniere valeur live connue (le cache
+  // n'est jamais nettoye) -- affichait a tort "Set 2" sous un score final
+  // deja regle ("Termine"). Ces deux champs ne s'appliquent qu'a un match
+  // reellement en cours.
+  const isLiveNow = !f.result && live && !live.finished;
+  const currentSetGame = isLiveNow && live.currentSetGame ? live.currentSetGame : '';
+  const setNumber = isLiveNow && live.setNumber ? live.setNumber : null;
+  const serving = isLiveNow && live.serving ? live.serving : '';
+  const homeRank = live && live.homeRank ? live.homeRank : null;
+  const awayRank = live && live.awayRank ? live.awayRank : null;
+  const serveDot = `<span title="Au service" style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 6px var(--gold-2);margin-left:5px;vertical-align:middle"></span>`;
+  const rankHtml = r => r ? `<span style="display:block;font-size:.72rem;color:var(--muted);margin-top:1px">${f.league.toUpperCase().includes('WTA') ? 'WTA' : 'ATP'}: ${r}</span>` : '';
 
   return `
     <div style="padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--border)">
@@ -1010,15 +1027,22 @@ function tennisMatchHeadHtml(f, live){
       <div style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:start;gap:10px">
         <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-width:0">
           ${tennisAvatarHtml(homeName, f.home_photo)}
-          <span style="font-weight:600;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%">${homeName}${serving === 'home' ? serveDot : ''}</span>
+          <div style="min-width:0;max-width:100%">
+            <span style="font-weight:600;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;display:inline-block;vertical-align:middle">${homeName}</span>${serving === 'home' ? serveDot : ''}
+            ${rankHtml(homeRank)}
+          </div>
         </div>
-        <div style="text-align:center;padding-top:10px">
-          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:1.7rem;line-height:1">${score}</div>
-          ${currentSetGame ? `<div style="margin-top:5px;font-size:.9rem;color:var(--gold-2);font-weight:600;white-space:nowrap">${currentSetGame}</div>` : ''}
+        <div style="text-align:center;padding-top:2px">
+          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:2.1rem;line-height:1;color:var(--gold-2)">${score}</div>
+          ${setNumber ? `<div style="margin-top:6px;font-size:.68rem;font-weight:700;letter-spacing:.04em;color:var(--muted);text-transform:uppercase">Set ${setNumber}</div>` : ''}
+          ${currentSetGame ? `<div style="margin-top:2px;font-size:.95rem;color:var(--text);font-weight:700;white-space:nowrap">${currentSetGame}</div>` : ''}
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-width:0">
           ${tennisAvatarHtml(awayName, f.away_photo)}
-          <span style="font-weight:600;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%">${serving === 'away' ? serveDot : ''}${awayName}</span>
+          <div style="min-width:0;max-width:100%">
+            ${serving === 'away' ? serveDot : ''}<span style="font-weight:600;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;display:inline-block;vertical-align:middle">${awayName}</span>
+            ${rankHtml(awayRank)}
+          </div>
         </div>
       </div>
     </div>`;
@@ -1294,9 +1318,20 @@ async function fetchTennisLiveScoreboard(f){
         const statusType = (c.status && c.status.type) || {};
         const homeCur = home.linescores && home.linescores.length ? home.linescores[home.linescores.length - 1].value : null;
         const awayCur = away.linescores && away.linescores.length ? away.linescores[away.linescores.length - 1].value : null;
+        // Classement ATP/WTA (27/08/2026, demande explicite : reprendre le
+        // visuel type FlashScore) : curatedRank.current, present UNIQUEMENT
+        // pour les joueurs "curates" par ESPN (verifie en direct : un
+        // joueur classe 13 l'avait, son adversaire non classe/non curate ne
+        // l'avait pas) -- jamais invente si absent, undefined -> pas affiche.
+        const rankOf = comp => (comp.curatedRank && comp.curatedRank.current) || null;
         return {
           home: setsWon(home), away: setsWon(away),
-          currentSetGame: (statusType.state === 'in' && homeCur != null && awayCur != null) ? `${homeCur}-${awayCur} (${statusType.shortDetail || ''})` : '',
+          currentSetGame: (statusType.state === 'in' && homeCur != null && awayCur != null) ? `${homeCur} - ${awayCur}` : '',
+          // Numero du set en cours (27/08/2026) : c.status.period donne
+          // directement le numero (2 = 2e set), plus fiable que de parser
+          // le texte "2nd Set"/"2nd" d'ESPN.
+          setNumber: (c.status && c.status.period) || null,
+          homeRank: rankOf(home), awayRank: rankOf(away),
           serving: home.possession ? 'home' : (away.possession ? 'away' : ''),
           statusDetail: statusType.shortDetail || statusType.detail || '',
           finished: !!statusType.completed,
