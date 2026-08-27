@@ -1058,8 +1058,20 @@ function renderCard(f){
     // conceptuellement, jamais un "Conseil" au sens ou ce badge existe pour
     // les autres sports. Rendu sous kind 'player' (meme badge que les
     // autres player picks), plus jamais 'conseil'.
+    //
+    // 27/08/2026, bug confirme en direct ("plusieurs matchs de tennis, le
+    // bug de Total sets") : pour les matchs ou le "conseil" MIRRORE le
+    // value bet (ex. "Total sets Moins de 2.5" cote interne vs "Total sets
+    // — Moins de 2.5 @ 1.606" cote reelle -- MEME selection, deux sources
+    // de cote), f.conseil n'est PAS un vrai 2e pick distinct -- l'afficher
+    // en plus creait un doublon "Player / Total sets..." a cote du "Value"
+    // qui dit la meme chose. Ne l'affiche que s'il differe reellement du
+    // value bet (ex. un vrai "Victoire X" a cote du value bet sur un autre
+    // marche).
+    const conseilMirrorsValueBet = f.conseil && f.value_bet &&
+      f.value_bet.replace(/\s*@.*$/, '').replace(/\s*—\s*/g, ' ').trim().toLowerCase() === f.conseil.trim().toLowerCase();
     const rows = [];
-    if (f.conseil) rows.push(renderPick(f, 'player', f.conseil, f.conseil_cote, f.result, '', f.conseil_mise_eur));
+    if (f.conseil && !conseilMirrorsValueBet) rows.push(renderPick(f, 'player', f.conseil, f.conseil_cote, f.result, '', f.conseil_mise_eur));
     if (f.value_bet) rows.push(renderPick(f, 'value', f.value_bet, f.value_cote, f.value_result || f.result, '', f.value_mise_eur));
     (f.player_picks || []).forEach(p => rows.push(renderPick(f, p.kind || 'player', p.label, p.odd, p.result, '', p.mise_eur)));
     if (!rows.length && f.no_bet_reason){
@@ -1257,8 +1269,26 @@ async function fetchTennisLiveScoreboard(f){
       for (const c of (g.competitions || [])){
         if (String(c.id) !== String(info.eventId)) continue;
         const comps = c.competitors || [];
-        const home = comps.find(x => x.homeAway === 'home');
-        const away = comps.find(x => x.homeAway === 'away');
+        // 27/08/2026, bug confirme en direct (score attribue au mauvais
+        // joueur, ex. Cristian Garin vs Toby Samuel) : ESPN etiquette ses
+        // "homeAway" independamment de l'ordre home/away qu'on utilise en
+        // interne (f.match, "Home – Away") -- rien ne garantit qu'ils
+        // coincident, et pour ce match precis ils etaient inverses (ESPN
+        // home=Toby Samuel, notre home=Cristian Garin). On matche desormais
+        // par NOM (comme extractApiFootballLiveEvents pour le foot) plutot
+        // que par le champ homeAway d'ESPN, jamais fiable comme reference
+        // absolue.
+        const [ourHomeName, ourAwayName] = (f.match || '').split('–').map(s => (s || '').trim());
+        const ourHomeNorm = _normTeamName(ourHomeName), ourAwayNorm = _normTeamName(ourAwayName);
+        const espnName = comp => _normTeamName((comp.athlete && comp.athlete.displayName) || '');
+        let home = comps.find(x => espnName(x) === ourHomeNorm);
+        let away = comps.find(x => espnName(x) === ourAwayNorm);
+        if (!home || !away){
+          // Repli : nom non reconnu (variante orthographique) -- retombe sur
+          // le homeAway ESPN plutot que de ne rien afficher du tout.
+          home = home || comps.find(x => x.homeAway === 'home');
+          away = away || comps.find(x => x.homeAway === 'away');
+        }
         if (!home || !away) return null;
         const setsWon = comp => (comp.linescores || []).filter(l => l.winner).length;
         const statusType = (c.status && c.status.type) || {};
