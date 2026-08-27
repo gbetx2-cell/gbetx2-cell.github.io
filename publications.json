@@ -1,199 +1,36 @@
 {
- "generated_at": "2026-08-27T22:46:45.396960+00:00",
+ "generated_at": "2026-08-27T23:12:29.596523+00:00",
  "live": [
   {
-   "fixture_id": "tennis_espn_atp_184686",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Cristian Garin – Toby Samuel",
-   "kickoff_at": "2026-08-27T15:45Z",
-   "published": true,
-   "home_photo": "assets/players/cristian garin.png",
-   "away_photo": "assets/players/toby samuel.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.606",
-   "value_cote": 1.61,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Toby Samuel",
-     "kind": "player",
-     "detail": "cote 1.44",
-     "odd": 1.444,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623423",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Monaco – Gornik Zabrze",
-   "kickoff_at": "2026-08-27T18:45:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/91.png",
-   "away_logo": "https://media.api-sports.io/football/teams/340.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Monaco",
-     "odd": 1.34,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.49,
-     "mise_eur": 200.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Paris Josua  Brunner — buteur",
-     "detail": "cote 1.95",
-     "odd": 1.95,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623415",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "SC Freiburg – Motherwell",
-   "kickoff_at": "2026-08-27T18:45:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/160.png",
-   "away_logo": "https://media.api-sports.io/football/teams/256.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "SC Freiburg",
-     "odd": 1.18,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.42,
-     "mise_eur": 200.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "I. Matanović — buteur",
-     "detail": "cote 1.80",
-     "odd": 1.8,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1622633",
+   "fixture_id": "api_football:1627596",
    "flag": "🇪🇺",
    "league": "Ligue Europa",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Plzen – FK Crvena Zvezda",
-   "kickoff_at": "2026-08-27T19:00:00+02:00",
+   "match": "FC Thun – Lech Poznan",
+   "kickoff_at": "2026-08-27T20:00:00+02:00",
    "published": true,
    "league_id": 3,
-   "home_logo": "https://media.api-sports.io/football/teams/567.png",
-   "away_logo": "https://media.api-sports.io/football/teams/598.png",
+   "home_logo": "https://media.api-sports.io/football/teams/1012.png",
+   "away_logo": "https://media.api-sports.io/football/teams/347.png",
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.57,
+     "odd": 1.52,
      "mise_eur": 100.0
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odd": 1.48,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623450",
-   "flag": "🇪🇺",
-   "league": "Ligue Europa",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Red Bull Salzburg – Mjallby AIF",
-   "kickoff_at": "2026-08-27T19:00:00+02:00",
-   "published": true,
-   "league_id": 3,
-   "home_logo": "https://media.api-sports.io/football/teams/571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2240.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Red Bull Salzburg",
-     "odd": 1.2,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.42,
-     "mise_eur": 200.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "H. Tabaković — buteur",
-     "detail": "cote 1.67",
-     "odd": 1.67,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1627539",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Riga – KI Klaksvik",
-   "kickoff_at": "2026-08-27T19:00:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/10124.png",
-   "away_logo": "https://media.api-sports.io/football/teams/701.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Riga",
-     "odd": 1.39,
+     "odd": 1.47,
      "mise_eur": 300.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.59,
-     "mise_eur": 100.0
     }
    ],
    "player_picks": [
     {
      "category": "Player pick",
-     "label": "Reginaldo Ramires — buteur",
+     "label": "F. Dursun — buteur",
      "detail": "",
      "odd": null,
      "mise_eur": null
@@ -201,191 +38,57 @@
    ]
   },
   {
-   "fixture_id": "api_football:1623414",
+   "fixture_id": "api_football:1623112",
    "flag": "🇪🇺",
    "league": "Conference League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Copenhagen – Inter Turku",
-   "kickoff_at": "2026-08-27T19:00:00+02:00",
+   "match": "Hapoel Tel Aviv – Atalanta",
+   "kickoff_at": "2026-08-27T20:00:00+02:00",
    "published": true,
    "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/400.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1164.png",
+   "home_logo": "https://media.api-sports.io/football/teams/4501.png",
+   "away_logo": "https://media.api-sports.io/football/teams/499.png",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "N. Krstović — buteur",
+     "detail": "cote 2.00",
+     "odd": 2.0,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1623409",
+   "flag": "🇪🇺",
+   "league": "Conference League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Ajax – FC Sion",
+   "kickoff_at": "2026-08-27T20:00:00+02:00",
+   "published": true,
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/194.png",
+   "away_logo": "https://media.api-sports.io/football/teams/630.png",
    "refonte_value_bets": [
     {
      "market": "1X2",
-     "label": "FC Copenhagen",
-     "odd": 1.26,
+     "label": "Ajax",
+     "odd": 1.32,
      "mise_eur": 400.0
     },
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.55,
-     "mise_eur": 100.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "M. Elyounoussi — buteur",
-     "detail": "cote 1.87",
-     "odd": 1.87,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623424",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Pafos – Dinamo Tirana",
-   "kickoff_at": "2026-08-27T19:00:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/3403.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3326.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Pafos",
-     "odd": 1.28,
+     "odd": 1.3,
      "mise_eur": 400.0
     },
     {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.64,
-     "mise_eur": 100.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "João Correia — buteur",
-     "detail": "cote 1.75",
-     "odd": 1.75,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623412",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Brann – PAOK",
-   "kickoff_at": "2026-08-27T19:00:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/319.png",
-   "away_logo": "https://media.api-sports.io/football/teams/619.png",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.69,
-     "mise_eur": 100.0
-    },
-    {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odd": 1.54,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623448",
-   "flag": "🇪🇺",
-   "league": "Ligue Europa",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lillestrom – Egnatia Rrogozhinë",
-   "kickoff_at": "2026-08-27T19:00:00+02:00",
-   "published": true,
-   "league_id": 3,
-   "home_logo": "https://media.api-sports.io/football/teams/321.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3327.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Lillestrom",
-     "odd": 1.45,
-     "mise_eur": 300.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "F. Gulbrandsen — buteur",
-     "detail": "",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623447",
-   "flag": "🇪🇺",
-   "league": "Ligue Europa",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kauno Žalgiris – Beşiktaş",
-   "kickoff_at": "2026-08-27T19:00:00+02:00",
-   "published": true,
-   "league_id": 3,
-   "home_logo": "https://media.api-sports.io/football/teams/3872.png",
-   "away_logo": "https://media.api-sports.io/football/teams/549.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Beşiktaş",
-     "odd": 1.37,
-     "mise_eur": 300.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "D. Vlahović — buteur",
-     "detail": "cote 1.95",
-     "odd": 1.95,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623427",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Raków Częstochowa – HNK Hajduk Split",
-   "kickoff_at": "2026-08-27T19:00:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/3491.png",
-   "away_logo": "https://media.api-sports.io/football/teams/608.png",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.62,
+     "odd": 1.52,
      "mise_eur": 100.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "P. Makuch — buteur",
-     "detail": "",
-     "odd": null,
-     "mise_eur": null
     }
    ]
   },
@@ -462,97 +165,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1623409",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Ajax – FC Sion",
-   "kickoff_at": "2026-08-27T20:00:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/194.png",
-   "away_logo": "https://media.api-sports.io/football/teams/630.png",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Ajax",
-     "odd": 1.32,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.3,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.52,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623112",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Hapoel Tel Aviv – Atalanta",
-   "kickoff_at": "2026-08-27T20:00:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/4501.png",
-   "away_logo": "https://media.api-sports.io/football/teams/499.png",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "N. Krstović — buteur",
-     "detail": "cote 2.00",
-     "odd": 2.0,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1627596",
-   "flag": "🇪🇺",
-   "league": "Ligue Europa",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Thun – Lech Poznan",
-   "kickoff_at": "2026-08-27T20:00:00+02:00",
-   "published": true,
-   "league_id": 3,
-   "home_logo": "https://media.api-sports.io/football/teams/1012.png",
-   "away_logo": "https://media.api-sports.io/football/teams/347.png",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.52,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.47,
-     "mise_eur": 300.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "F. Dursun — buteur",
-     "detail": "",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1623444",
    "flag": "🇪🇺",
    "league": "Ligue Europa",
@@ -570,36 +182,6 @@
      "label": "CSKA Sofia",
      "odd": 1.53,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1623411",
-   "flag": "🇪🇺",
-   "league": "Conference League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Borac Banja Luka – Vikingur Reykjavik",
-   "kickoff_at": "2026-08-27T20:30:00+02:00",
-   "published": true,
-   "league_id": 848,
-   "home_logo": "https://media.api-sports.io/football/teams/3364.png",
-   "away_logo": "https://media.api-sports.io/football/teams/278.png",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.6,
-     "mise_eur": 100.0
-    }
-   ],
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "L. Juričić — buteur",
-     "detail": "",
-     "odd": null,
-     "mise_eur": null
     }
    ]
   },
@@ -713,6 +295,36 @@
    ]
   },
   {
+   "fixture_id": "api_football:1623411",
+   "flag": "🇪🇺",
+   "league": "Conference League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Borac Banja Luka – Vikingur Reykjavik",
+   "kickoff_at": "2026-08-27T20:30:00+02:00",
+   "published": true,
+   "league_id": 848,
+   "home_logo": "https://media.api-sports.io/football/teams/3364.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.6,
+     "mise_eur": 100.0
+    }
+   ],
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "L. Juričić — buteur",
+     "detail": "",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1623425",
    "flag": "🇪🇺",
    "league": "Conference League",
@@ -750,19 +362,22 @@
      "market": "handicap",
      "label": "Écart de points — Houston Astros +1,5 @ 1.6711",
      "odd": 1.67,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "team_total_home",
      "label": "Total équipe New York Yankees — Moins de 4,5 @ 1.7519",
      "odd": 1.75,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "winner",
      "label": "Vainqueur — New York Yankees @ 1.6667",
      "odd": 1.67,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -796,25 +411,29 @@
      "market": "team_total_away",
      "label": "Total équipe Milwaukee Brewers — Moins de 4,5 @ 1.7143",
      "odd": 1.71,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "team_total_home",
      "label": "Total équipe New York Mets — Plus de 2,5 @ 1.8475",
      "odd": 1.85,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "totals",
      "label": "Total — Plus de 6,5 runs @ 1.7407",
      "odd": 1.74,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "winner",
      "label": "Vainqueur — Milwaukee Brewers @ 1.5376",
      "odd": 1.54,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -835,7 +454,8 @@
      "market": "handicap",
      "label": "Écart de points — Los Angeles Dodgers +1,5 @ 1.4348",
      "odd": 1.43,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
@@ -889,6 +509,36 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-4, 6-3"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_184686",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Cristian Garin – Toby Samuel",
+   "kickoff_at": "2026-08-27T15:45Z",
+   "published": true,
+   "home_photo": "assets/players/cristian garin.png",
+   "away_photo": "assets/players/toby samuel.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.606",
+   "value_cote": 1.61,
+   "value_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "STATUS_RETIRED",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Toby Samuel",
+     "kind": "player",
+     "detail": "cote 1.44",
+     "odd": 1.444,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816695",
