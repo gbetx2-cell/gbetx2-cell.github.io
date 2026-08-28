@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-28T14:32:39.728051+00:00",
+ "generated_at": "2026-08-28T15:31:18.951782+00:00",
  "live": [
   {
    "fixture_id": "api_football:1565460",
@@ -108,7 +108,8 @@
      "kind": "player",
      "detail": "cote 1.34",
      "odd": 1.336,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -238,9 +239,113 @@
      "mise_eur": null
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1602998",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al Riyadh – NEOM",
+   "kickoff_at": "2026-08-28T17:50:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/10511.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10513.png",
+   "conseil": "NEOM gagne + Plus de 1.5 buts",
+   "conseil_cote": 2.55,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Lacazette buteur",
+     "detail": "cote 2.30",
+     "odd": 2.3,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.61,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1553153",
+   "flag": "🇵🇱",
+   "league": "Ekstraklasa",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Wisla Plock – Korona Kielce",
+   "kickoff_at": "2026-08-28T18:00:00+02:00",
+   "published": true,
+   "league_id": 106,
+   "home_logo": "https://media.api-sports.io/football/teams/341.png",
+   "away_logo": "https://media.api-sports.io/football/teams/346.png",
+   "conseil": "Wisla Plock ou Nul",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.72,
+     "mise_eur": 100.0
+    }
+   ]
   }
  ],
  "done": [
+  {
+   "fixture_id": "api_football:1523251",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Dalian Zhixing – Beijing Guoan",
+   "kickoff_at": "2026-08-28T13:35:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/21263.png",
+   "away_logo": "https://media.api-sports.io/football/teams/830.png",
+   "conseil": "Beijing Guoan ou Nul",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Fábio Abreu buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.41,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.38,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
   {
    "fixture_id": "api_football:1523256",
    "flag": "🇨🇳",
@@ -296,51 +401,6 @@
      "label": "Plus de 9.5 corners",
      "odd": 1.57,
      "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1523251",
-   "flag": "🇨🇳",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dalian Zhixing – Beijing Guoan",
-   "kickoff_at": "2026-08-28T13:35:00+02:00",
-   "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/21263.png",
-   "away_logo": "https://media.api-sports.io/football/teams/830.png",
-   "conseil": "Beijing Guoan ou Nul",
-   "conseil_cote": 1.4,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Fábio Abreu buteur",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.41,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.38,
-     "mise_eur": 300.0,
      "result": "GAGNE"
     }
    ]
