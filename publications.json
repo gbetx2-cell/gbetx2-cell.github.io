@@ -1,448 +1,392 @@
 {
- "generated_at": "2026-08-28T04:24:33.004279+00:00",
- "live": [],
- "done": [
+ "generated_at": "2026-08-28T14:32:39.728051+00:00",
+ "live": [
   {
-   "fixture_id": "tennis_espn_atp_184687",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tomas Barrios Vera – Daniel Rincon",
-   "kickoff_at": "2026-08-27T15:00Z",
-   "published": true,
-   "home_photo": "assets/players/tomas barrios vera.png",
-   "away_photo": "assets/players/daniel rincon.png",
-   "conseil": "Victoire Tomas Barrios Vera",
-   "conseil_cote": 1.56,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-4, 6-3"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_184683",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Dusan Lajovic – Chak Lam Coleman Wong",
-   "kickoff_at": "2026-08-27T15:00Z",
-   "published": true,
-   "home_photo": "assets/players/dusan lajovic.png",
-   "away_photo": "assets/players/chak lam coleman wong.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.667",
-   "value_cote": 1.67,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "4-6, 3-6",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Chak Lam Coleman Wong",
-     "kind": "player",
-     "detail": "cote 1.49",
-     "odd": 1.485,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_184686",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Cristian Garin – Toby Samuel",
-   "kickoff_at": "2026-08-27T15:45Z",
-   "published": true,
-   "home_photo": "assets/players/cristian garin.png",
-   "away_photo": "assets/players/toby samuel.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.606",
-   "value_cote": 1.61,
-   "value_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "STATUS_RETIRED",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Toby Samuel",
-     "kind": "player",
-     "detail": "cote 1.44",
-     "odd": 1.444,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816695",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Colorado Rockies",
-   "kickoff_at": "2026-08-27T17:05Z",
-   "published": true,
-   "value_bet": "Colorado Rockies Plus de 4,5 @ 1.9524",
-   "value_cote": 1.95,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "7 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Colorado Rockies +1,5 @ 1.6061",
-     "odd": 1.61,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 9,5 runs @ 1.8333",
-     "odd": 1.83,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816700",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "St. Louis Cardinals – Baltimore Orioles",
-   "kickoff_at": "2026-08-27T18:15Z",
-   "published": true,
-   "value_bet": "Baltimore Orioles @ 1.8065",
-   "value_cote": 1.81,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "7 - 5",
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — St. Louis Cardinals +1,5 @ 1.6289",
-     "odd": 1.63,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1570336",
-   "flag": "🇪🇸",
-   "league": "Liga",
+   "fixture_id": "api_football:1565460",
+   "flag": "🇺🇦",
+   "league": "Premier League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Celta Vigo – Osasuna",
-   "kickoff_at": "2026-08-27T20:30:00+02:00",
+   "match": "Kolos Kovalivka – Obolon'-Brovar",
+   "kickoff_at": "2026-08-28T14:30:00+02:00",
    "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/538.png",
-   "away_logo": "https://media.api-sports.io/football/teams/727.png",
-   "conseil": "Celta Vigo ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/3627.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3630.png",
+   "conseil": "Obolon'-Brovar ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.68,
+   "conseil_mise_eur": 500.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.62,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.51,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.61,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1570335",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Barcelona – Athletic Club",
-   "kickoff_at": "2026-08-27T21:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/529.png",
-   "away_logo": "https://media.api-sports.io/football/teams/531.png",
-   "conseil": "Barcelona gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.43,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 0",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "Raphinha buteur",
-     "detail": "cote 1.67",
-     "odd": 1.67,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
+     "label": "D. Ustymenko buteur",
+     "detail": "59%",
+     "odd": null,
+     "mise_eur": null
     }
    ],
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.36,
-     "mise_eur": 400.0,
-     "result": "PERDU"
+     "label": "Moins de 2.5 buts",
+     "odd": 1.56,
+     "mise_eur": 100.0
     },
     {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
      "odd": 1.6,
      "mise_eur": 100.0
     }
    ]
   },
   {
-   "fixture_id": "baseball_401816696",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Yankees – Houston Astros",
-   "kickoff_at": "2026-08-27T23:05Z",
+   "fixture_id": "tennis_espn_atp_184688",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Francesco Passaro – Shintaro Mochizuki",
+   "kickoff_at": "2026-08-28T15:00Z",
    "published": true,
-   "value_bet": "Moins de 8,5 runs @ 1.8333",
-   "value_cote": 1.83,
+   "home_photo": "assets/players/francesco passaro.png",
+   "away_photo": "assets/players/shintaro mochizuki.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.662",
+   "value_cote": 1.66,
    "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "1 - 5",
-   "refonte_value_bets": [
+   "player_picks": [
     {
-     "market": "handicap",
-     "label": "Écart de points — Houston Astros +1,5 @ 1.6711",
-     "odd": 1.67,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_home",
-     "label": "Total équipe New York Yankees — Moins de 4,5 @ 1.7519",
-     "odd": 1.75,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — New York Yankees @ 1.6667",
-     "odd": 1.67,
-     "mise_eur": 200.0,
-     "result": "PERDU"
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Shintaro Mochizuki",
+     "kind": "player",
+     "detail": "cote 1.80",
+     "odd": 1.8,
+     "mise_eur": 200.0
     }
    ]
   },
   {
-   "fixture_id": "baseball_401816697",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Toronto Blue Jays – Kansas City Royals",
-   "kickoff_at": "2026-08-27T23:07Z",
+   "fixture_id": "tennis_espn_atp_184689",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Pablo Llamas Ruiz – Lloyd Harris",
+   "kickoff_at": "2026-08-28T15:00Z",
    "published": true,
-   "value_bet": "Toronto Blue Jays +1,5 @ 1.5882",
+   "home_photo": "assets/players/pablo llamas ruiz.png",
+   "away_photo": "assets/players/lloyd harris.png",
+   "conseil": "Victoire Pablo Llamas Ruiz",
+   "conseil_cote": 2.26,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_184679",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jurij Rodionov – Jacob Fearnley",
+   "kickoff_at": "2026-08-28T15:00Z",
+   "published": true,
+   "home_photo": "assets/players/jurij rodionov.png",
+   "away_photo": "assets/players/jacob fearnley.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.592",
    "value_cote": 1.59,
    "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2 - 13"
-  },
-  {
-   "fixture_id": "baseball_401816699",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – Milwaukee Brewers",
-   "kickoff_at": "2026-08-27T23:10Z",
-   "published": true,
-   "value_bet": "New York Mets +1,5 @ 1.8696",
-   "value_cote": 1.87,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2 - 8",
-   "refonte_value_bets": [
+   "player_picks": [
     {
-     "market": "team_total_away",
-     "label": "Total équipe Milwaukee Brewers — Moins de 4,5 @ 1.7143",
-     "odd": 1.71,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_home",
-     "label": "Total équipe New York Mets — Plus de 2,5 @ 1.8475",
-     "odd": 1.85,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 6,5 runs @ 1.7407",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — Milwaukee Brewers @ 1.5376",
-     "odd": 1.54,
-     "mise_eur": 200.0,
-     "result": "PERDU"
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Jacob Fearnley",
+     "kind": "player",
+     "detail": "cote 1.34",
+     "odd": 1.336,
+     "mise_eur": 200.0
     }
    ]
   },
   {
-   "fixture_id": "baseball_401816698",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Atlanta Braves – Los Angeles Dodgers",
-   "kickoff_at": "2026-08-27T23:15Z",
+   "fixture_id": "tennis_espn_atp_184771",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Harry Wendelken – Vilius Gaubas",
+   "kickoff_at": "2026-08-28T15:00Z",
    "published": true,
-   "value_bet": "Los Angeles Dodgers Plus de 2,5 @ 1.6667",
-   "value_cote": 1.67,
+   "home_photo": "assets/players/harry wendelken.png",
+   "away_photo": "assets/players/vilius gaubas.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.709",
+   "value_cote": 1.71,
    "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "1 - 0",
-   "refonte_value_bets": [
+   "player_picks": [
     {
-     "market": "handicap",
-     "label": "Écart de points — Los Angeles Dodgers +1,5 @ 1.4348",
-     "odd": 1.43,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Vilius Gaubas",
+     "kind": "player",
+     "detail": "cote 1.84",
+     "odd": 1.84,
+     "mise_eur": 200.0
     }
    ]
   },
   {
-   "fixture_id": "baseball_401816701",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "San Francisco Giants – Arizona Diamondbacks",
-   "kickoff_at": "2026-08-28T01:45Z",
+   "fixture_id": "tennis_espn_atp_184766",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Nishesh Basavareddy – Arthur Gea",
+   "kickoff_at": "2026-08-28T15:00Z",
    "published": true,
-   "value_bet": "San Francisco Giants +1,5 @ 1.5882",
-   "value_cote": 1.59,
+   "home_photo": "assets/players/nishesh basavareddy.png",
+   "away_photo": "assets/players/arthur gea.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.568",
+   "value_cote": 1.57,
    "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "6 - 1",
-   "refonte_value_bets": [
+   "player_picks": [
     {
-     "market": "team_total_home",
-     "label": "Total équipe San Francisco Giants — Plus de 3,5 @ 1.8696",
-     "odd": 1.87,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Arizona Diamondbacks — Moins de 4,5 @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Arthur Gea",
+     "kind": "player",
+     "detail": "cote 1.78",
+     "odd": 1.781,
+     "mise_eur": 200.0
     }
    ]
   },
   {
-   "fixture_id": "api_football:1618995",
-   "flag": "🇧🇴",
-   "league": "Primera División",
+   "fixture_id": "tennis_espn_atp_184770",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mackenzie McDonald – Dalibor Svrcina",
+   "kickoff_at": "2026-08-28T15:00Z",
+   "published": true,
+   "home_photo": "assets/players/mackenzie mcdonald.png",
+   "away_photo": "assets/players/dalibor svrcina.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.699",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Dalibor Svrcina",
+     "kind": "player",
+     "detail": "cote 1.71",
+     "odd": 1.714,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1599438",
+   "flag": "🇦🇪",
+   "league": "Pro League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Bolívar – ABB",
-   "kickoff_at": "2026-08-28T02:30:00+02:00",
+   "match": "Dubai United – Al-Ittihad Kalba",
+   "kickoff_at": "2026-08-28T15:55:00+02:00",
    "published": true,
-   "league_id": 344,
-   "home_logo": "https://media.api-sports.io/football/teams/3702.png",
-   "away_logo": "https://media.api-sports.io/football/teams/17743.png",
-   "conseil": "Bolívar gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.33,
+   "league_id": 301,
+   "home_logo": "https://media.api-sports.io/football/teams/22321.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2876.png",
+   "conseil": "Dubai United ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.73,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1565237",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Voluntari – Oţelul",
+   "kickoff_at": "2026-08-28T17:00:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/2578.png",
+   "away_logo": "https://media.api-sports.io/football/teams/6886.png",
+   "conseil": "Oţelul ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Décisif",
+     "label": "Pedro Nuno décisif",
+     "detail": "51%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  }
+ ],
+ "done": [
+  {
+   "fixture_id": "api_football:1523256",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Shanghai Shenhua – Shandong Luneng",
+   "kickoff_at": "2026-08-28T13:35:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/833.png",
+   "away_logo": "https://media.api-sports.io/football/teams/844.png",
+   "conseil": "Shanghai Shenhua ou Nul",
+   "conseil_cote": 1.22,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "espn",
-   "result": "GAGNE",
-   "score": "4 - 1",
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 3",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Rafael Ratão buteur",
+     "detail": "cote 1.62",
+     "odd": 1.62,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ],
    "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Shanghai Shenhua",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    },
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.26,
+     "odd": 1.24,
      "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.31,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.57,
+     "mise_eur": 100.0,
      "result": "GAGNE"
     }
    ]
   },
   {
-   "fixture_id": "api_football:1549748",
-   "flag": "🇨🇴",
-   "league": "Primera A",
+   "fixture_id": "api_football:1523251",
+   "flag": "🇨🇳",
+   "league": "Super League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Internacional de Bogota – Deportivo Pasto",
-   "kickoff_at": "2026-08-28T03:15:00+02:00",
+   "match": "Dalian Zhixing – Beijing Guoan",
+   "kickoff_at": "2026-08-28T13:35:00+02:00",
    "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1134.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1126.png",
-   "conseil": "Internacional de Bogota ou Nul",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/21263.png",
+   "away_logo": "https://media.api-sports.io/football/teams/830.png",
+   "conseil": "Beijing Guoan ou Nul",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1",
    "player_picks": [
     {
-     "category": "Décisif",
-     "label": "F. Sanguinetti décisif",
-     "detail": "52%",
-     "odd": null,
-     "mise_eur": null,
+     "category": "Buteur",
+     "label": "Fábio Abreu buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 200.0,
      "result": "PERDU"
     }
    ],
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.65,
-     "mise_eur": 100.0,
+     "label": "Plus de 2.5 buts",
+     "odd": 1.41,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.38,
+     "mise_eur": 300.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1523252",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sichuan Jiuniu – SHANGHAI SIPG",
+   "kickoff_at": "2026-08-28T14:00:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/5686.png",
+   "away_logo": "https://media.api-sports.io/football/teams/836.png",
+   "conseil": "SHANGHAI SIPG ou Nul",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Leonardo buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.48,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.43,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
