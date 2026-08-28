@@ -1,120 +1,6 @@
 {
- "generated_at": "2026-08-28T01:16:13.157792+00:00",
+ "generated_at": "2026-08-28T02:14:37.186289+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816696",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Yankees – Houston Astros",
-   "kickoff_at": "2026-08-27T23:05Z",
-   "published": true,
-   "value_bet": "Moins de 8,5 runs @ 1.8333",
-   "value_cote": 1.83,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Houston Astros +1,5 @ 1.6711",
-     "odd": 1.67,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_home",
-     "label": "Total équipe New York Yankees — Moins de 4,5 @ 1.7519",
-     "odd": 1.75,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — New York Yankees @ 1.6667",
-     "odd": 1.67,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816697",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Toronto Blue Jays – Kansas City Royals",
-   "kickoff_at": "2026-08-27T23:07Z",
-   "published": true,
-   "value_bet": "Toronto Blue Jays +1,5 @ 1.5882",
-   "value_cote": 1.59,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816699",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – Milwaukee Brewers",
-   "kickoff_at": "2026-08-27T23:10Z",
-   "published": true,
-   "value_bet": "New York Mets +1,5 @ 1.8696",
-   "value_cote": 1.87,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Milwaukee Brewers — Moins de 4,5 @ 1.7143",
-     "odd": 1.71,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_home",
-     "label": "Total équipe New York Mets — Plus de 2,5 @ 1.8475",
-     "odd": 1.85,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 6,5 runs @ 1.7407",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — Milwaukee Brewers @ 1.5376",
-     "odd": 1.54,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816698",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Atlanta Braves – Los Angeles Dodgers",
-   "kickoff_at": "2026-08-27T23:15Z",
-   "published": true,
-   "value_bet": "Los Angeles Dodgers Plus de 2,5 @ 1.6667",
-   "value_cote": 1.67,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Los Angeles Dodgers +1,5 @ 1.4348",
-     "odd": 1.43,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
   {
    "fixture_id": "baseball_401816701",
    "flag": "⚾",
@@ -132,13 +18,15 @@
      "market": "team_total_home",
      "label": "Total équipe San Francisco Giants — Plus de 3,5 @ 1.8696",
      "odd": 1.87,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "team_total_away",
      "label": "Total équipe Arizona Diamondbacks — Moins de 4,5 @ 1.6897",
      "odd": 1.69,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -420,6 +308,132 @@
      "label": "Plus de 9.5 corners",
      "odd": 1.6,
      "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816696",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Yankees – Houston Astros",
+   "kickoff_at": "2026-08-27T23:05Z",
+   "published": true,
+   "value_bet": "Moins de 8,5 runs @ 1.8333",
+   "value_cote": 1.83,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "1 - 5",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Houston Astros +1,5 @ 1.6711",
+     "odd": 1.67,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_home",
+     "label": "Total équipe New York Yankees — Moins de 4,5 @ 1.7519",
+     "odd": 1.75,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — New York Yankees @ 1.6667",
+     "odd": 1.67,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816697",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Toronto Blue Jays – Kansas City Royals",
+   "kickoff_at": "2026-08-27T23:07Z",
+   "published": true,
+   "value_bet": "Toronto Blue Jays +1,5 @ 1.5882",
+   "value_cote": 1.59,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 13"
+  },
+  {
+   "fixture_id": "baseball_401816699",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – Milwaukee Brewers",
+   "kickoff_at": "2026-08-27T23:10Z",
+   "published": true,
+   "value_bet": "New York Mets +1,5 @ 1.8696",
+   "value_cote": 1.87,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 8",
+   "refonte_value_bets": [
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Milwaukee Brewers — Moins de 4,5 @ 1.7143",
+     "odd": 1.71,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_home",
+     "label": "Total équipe New York Mets — Plus de 2,5 @ 1.8475",
+     "odd": 1.85,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 6,5 runs @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Milwaukee Brewers @ 1.5376",
+     "odd": 1.54,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816698",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Atlanta Braves – Los Angeles Dodgers",
+   "kickoff_at": "2026-08-27T23:15Z",
+   "published": true,
+   "value_bet": "Los Angeles Dodgers Plus de 2,5 @ 1.6667",
+   "value_cote": 1.67,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Los Angeles Dodgers +1,5 @ 1.4348",
+     "odd": 1.43,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
