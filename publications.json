@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-28T17:26:54.580350+00:00",
+ "generated_at": "2026-08-28T17:51:10.883496+00:00",
  "live": [
   {
    "fixture_id": "api_football:1602998",
@@ -67,21 +67,29 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603547",
-   "flag": "⚽",
-   "league": "1. Division",
+   "fixture_id": "api_football:1553153",
+   "flag": "🇵🇱",
+   "league": "Ekstraklasa",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Krasava Ypsonas – Omonia 29is Maiou",
+   "match": "Wisla Plock – Korona Kielce",
    "kickoff_at": "2026-08-28T18:00:00+02:00",
    "published": true,
-   "league_id": 318,
-   "home_logo": "https://media.api-sports.io/football/teams/3424.png",
-   "away_logo": "https://media.api-sports.io/football/teams/14126.png",
-   "conseil": "Omonia 29is Maiou ou Nul",
-   "conseil_cote": 1.91,
+   "league_id": 106,
+   "home_logo": "https://media.api-sports.io/football/teams/341.png",
+   "away_logo": "https://media.api-sports.io/football/teams/346.png",
+   "conseil": "Wisla Plock ou Nul",
+   "conseil_cote": 1.52,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.72,
+     "mise_eur": 100.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1602999",
@@ -110,27 +118,46 @@
    ]
   },
   {
-   "fixture_id": "api_football:1553153",
-   "flag": "🇵🇱",
-   "league": "Ekstraklasa",
+   "fixture_id": "api_football:1603547",
+   "flag": "⚽",
+   "league": "1. Division",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Wisla Plock – Korona Kielce",
+   "match": "Krasava Ypsonas – Omonia 29is Maiou",
    "kickoff_at": "2026-08-28T18:00:00+02:00",
    "published": true,
-   "league_id": 106,
-   "home_logo": "https://media.api-sports.io/football/teams/341.png",
-   "away_logo": "https://media.api-sports.io/football/teams/346.png",
-   "conseil": "Wisla Plock ou Nul",
-   "conseil_cote": 1.52,
+   "league_id": 318,
+   "home_logo": "https://media.api-sports.io/football/teams/3424.png",
+   "away_logo": "https://media.api-sports.io/football/teams/14126.png",
+   "conseil": "Omonia 29is Maiou ou Nul",
+   "conseil_cote": 1.91,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "baseball_401816711",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Cincinnati Reds",
+   "kickoff_at": "2026-08-28T18:20Z",
+   "published": true,
+   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.7812",
+   "value_cote": 1.78,
+   "value_mise_eur": 200.0,
    "refonte_value_bets": [
     {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.72,
-     "mise_eur": 100.0
+     "market": "winner",
+     "label": "Vainqueur — Chicago Cubs @ 1.5181",
+     "odd": 1.52,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 8,5 runs @ 1.7692",
+     "odd": 1.77,
+     "mise_eur": 200.0
     }
    ]
   },
@@ -209,23 +236,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1582262",
-   "flag": "⚽",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Hibernians – Zabbar St. Patrick",
-   "kickoff_at": "2026-08-28T18:30:00+02:00",
-   "published": true,
-   "league_id": 393,
-   "home_logo": "https://media.api-sports.io/football/teams/3884.png",
-   "away_logo": "https://media.api-sports.io/football/teams/4622.png",
-   "conseil": "Hibernians ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1576152",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -250,6 +260,23 @@
      "mise_eur": null
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1582262",
+   "flag": "⚽",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Hibernians – Zabbar St. Patrick",
+   "kickoff_at": "2026-08-28T18:30:00+02:00",
+   "published": true,
+   "league_id": 393,
+   "home_logo": "https://media.api-sports.io/football/teams/3884.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4622.png",
+   "conseil": "Hibernians ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1570359",
@@ -321,114 +348,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603001",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Nassr – Al Taawon",
-   "kickoff_at": "2026-08-28T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2939.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2936.png",
-   "conseil": "Al-Nassr gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.48,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Cristiano Ronaldo buteur",
-     "detail": "cote 1.44",
-     "odd": 1.44,
-     "mise_eur": 200.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.36,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1603000",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al Khaleej Saihat – Al-Hilal Saudi FC",
-   "kickoff_at": "2026-08-28T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2928.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2932.png",
-   "conseil": "Al-Hilal Saudi FC gagne",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Sultan Mandash buteur",
-     "detail": "cote 2.20",
-     "odd": 2.2,
-     "mise_eur": 200.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.43,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1552458",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rodez – PAU",
-   "kickoff_at": "2026-08-28T20:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/1301.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1297.png",
-   "conseil": "Rodez gagne",
-   "conseil_cote": 1.8,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "I. Baldé buteur",
-     "detail": "cote 2.25",
-     "odd": 2.25,
-     "mise_eur": 200.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.7,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.65,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1552144",
    "flag": "🇳🇱",
    "league": "Eredivisie",
@@ -481,6 +400,46 @@
    ]
   },
   {
+   "fixture_id": "api_football:1552458",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rodez – PAU",
+   "kickoff_at": "2026-08-28T20:00:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/1301.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1297.png",
+   "conseil": "Rodez gagne",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "I. Baldé buteur",
+     "detail": "cote 2.25",
+     "odd": 2.25,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.7,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.65,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1552451",
    "flag": "🇫🇷",
    "league": "Ligue 2",
@@ -496,43 +455,6 @@
    "conseil_cote": 1.88,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1552455",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Montpellier – Boulogne",
-   "kickoff_at": "2026-08-28T20:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/82.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1299.png",
-   "conseil": "Montpellier ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.56,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.73,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.52,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.55,
-     "mise_eur": 100.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1552456",
@@ -572,6 +494,177 @@
    ]
   },
   {
+   "fixture_id": "api_football:1560231",
+   "flag": "⚽",
+   "league": "NB I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Debreceni VSC – MTK Budapest",
+   "kickoff_at": "2026-08-28T20:00:00+02:00",
+   "published": true,
+   "league_id": 271,
+   "home_logo": "https://media.api-sports.io/football/teams/2392.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2396.png",
+   "conseil": "MTK Budapest ou Nul",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Zalán Márk Kerezsi buteur",
+     "detail": "68%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.55,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.47,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1565238",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Universitatea Cluj – Petrolul Ploiesti",
+   "kickoff_at": "2026-08-28T20:00:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/2599.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2598.png",
+   "conseil": "Universitatea Cluj ou Nul",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Décisif",
+     "label": "Jovo Lukić décisif",
+     "detail": "51%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1603000",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al Khaleej Saihat – Al-Hilal Saudi FC",
+   "kickoff_at": "2026-08-28T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2928.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2932.png",
+   "conseil": "Al-Hilal Saudi FC gagne",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Sultan Mandash buteur",
+     "detail": "cote 2.20",
+     "odd": 2.2,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.43,
+     "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1603001",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Nassr – Al Taawon",
+   "kickoff_at": "2026-08-28T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2939.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2936.png",
+   "conseil": "Al-Nassr gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.48,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Cristiano Ronaldo buteur",
+     "detail": "cote 1.44",
+     "odd": 1.44,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.36,
+     "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1552455",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Montpellier – Boulogne",
+   "kickoff_at": "2026-08-28T20:00:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/82.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1299.png",
+   "conseil": "Montpellier ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.56,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.73,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.52,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.55,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1552454",
    "flag": "🇫🇷",
    "league": "Ligue 2",
@@ -594,6 +687,87 @@
      "detail": "51%",
      "odd": null,
      "mise_eur": null
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1551091",
+   "flag": "⚽",
+   "league": "First League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "CSKA 1948 – Lokomotiv Plovdiv",
+   "kickoff_at": "2026-08-28T20:15:00+02:00",
+   "published": true,
+   "league_id": 172,
+   "home_logo": "https://media.api-sports.io/football/teams/1426.png",
+   "away_logo": "https://media.api-sports.io/football/teams/858.png",
+   "conseil": "CSKA 1948 gagne",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Décisif",
+     "label": "A. Iliev décisif",
+     "detail": "50%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1575140",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Bayern München – VfB Stuttgart",
+   "kickoff_at": "2026-08-28T20:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/157.png",
+   "away_logo": "https://media.api-sports.io/football/teams/172.png",
+   "conseil": "Bayern München ou Nul",
+   "conseil_cote": 1.08,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "value_bet": "Les deux équipes ne marquent pas toutes les deux",
+   "value_cote": 2.7,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "H. Kane buteur",
+     "detail": "cote 1.36",
+     "odd": 1.36,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Bayern München",
+     "odd": 1.23,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.16,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.43,
+     "mise_eur": 300.0
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Moins de 3.5 cartons",
+     "odd": 1.63,
+     "mise_eur": 100.0
     }
    ]
   }
@@ -794,55 +968,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_184688",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Francesco Passaro – Shintaro Mochizuki",
-   "kickoff_at": "2026-08-28T15:00Z",
-   "published": true,
-   "home_photo": "assets/players/francesco passaro.png",
-   "away_photo": "assets/players/shintaro mochizuki.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.662",
-   "value_cote": 1.66,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-4, 6-2",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Shintaro Mochizuki",
-     "kind": "player",
-     "detail": "cote 1.80",
-     "odd": 1.8,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_184689",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Pablo Llamas Ruiz – Lloyd Harris",
-   "kickoff_at": "2026-08-28T15:00Z",
-   "published": true,
-   "home_photo": "assets/players/pablo llamas ruiz.png",
-   "away_photo": "assets/players/lloyd harris.png",
-   "conseil": "Victoire Pablo Llamas Ruiz",
-   "conseil_cote": 2.26,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-7, 3-6"
-  },
-  {
    "fixture_id": "tennis_espn_atp_184679",
    "flag": "🎾",
    "league": "US Open",
@@ -969,6 +1094,55 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_184688",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Francesco Passaro – Shintaro Mochizuki",
+   "kickoff_at": "2026-08-28T15:00Z",
+   "published": true,
+   "home_photo": "assets/players/francesco passaro.png",
+   "away_photo": "assets/players/shintaro mochizuki.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.662",
+   "value_cote": 1.66,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Shintaro Mochizuki",
+     "kind": "player",
+     "detail": "cote 1.80",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_184689",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Pablo Llamas Ruiz – Lloyd Harris",
+   "kickoff_at": "2026-08-28T15:00Z",
+   "published": true,
+   "home_photo": "assets/players/pablo llamas ruiz.png",
+   "away_photo": "assets/players/lloyd harris.png",
+   "conseil": "Victoire Pablo Llamas Ruiz",
+   "conseil_cote": 2.26,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-7, 3-6"
   },
   {
    "fixture_id": "api_football:1599438",
