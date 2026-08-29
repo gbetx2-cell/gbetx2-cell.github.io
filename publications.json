@@ -1,19 +1,6 @@
 {
- "generated_at": "2026-08-29T01:01:17.197652+00:00",
+ "generated_at": "2026-08-29T01:32:15.394250+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816706",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Detroit Tigers – Los Angeles Dodgers",
-   "kickoff_at": "2026-08-28T22:40Z",
-   "published": true,
-   "value_bet": "Los Angeles Dodgers @ 1.5556",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "baseball_401816708",
    "flag": "⚾",
@@ -63,6 +50,28 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816702",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Yankees – Boston Red Sox",
+   "kickoff_at": "2026-08-28T23:15Z",
+   "published": true,
+   "value_bet": "Boston Red Sox +1,5 @ 1.5882",
+   "value_cote": 1.59,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — New York Yankees @ 1.6579",
+     "odd": 1.66,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816703",
    "flag": "⚾",
    "league": "MLB",
@@ -86,28 +95,6 @@
      "market": "totals",
      "label": "Total — Plus de 8,5 runs @ 1.7407",
      "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816702",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Yankees – Boston Red Sox",
-   "kickoff_at": "2026-08-28T23:15Z",
-   "published": true,
-   "value_bet": "Boston Red Sox +1,5 @ 1.5882",
-   "value_cote": 1.59,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — New York Yankees @ 1.6579",
-     "odd": 1.66,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -412,38 +399,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_184688",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Francesco Passaro – Shintaro Mochizuki",
-   "kickoff_at": "2026-08-28T15:00Z",
-   "published": true,
-   "home_photo": "assets/players/francesco passaro.png",
-   "away_photo": "assets/players/shintaro mochizuki.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.662",
-   "value_cote": 1.66,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-4, 6-2",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Shintaro Mochizuki",
-     "kind": "player",
-     "detail": "cote 1.80",
-     "odd": 1.8,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_184689",
    "flag": "🎾",
    "league": "US Open",
@@ -589,6 +544,38 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_184688",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Francesco Passaro – Shintaro Mochizuki",
+   "kickoff_at": "2026-08-28T15:00Z",
+   "published": true,
+   "home_photo": "assets/players/francesco passaro.png",
+   "away_photo": "assets/players/shintaro mochizuki.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.662",
+   "value_cote": 1.66,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Shintaro Mochizuki",
+     "kind": "player",
+     "detail": "cote 1.80",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1599438",
    "flag": "🇦🇪",
    "league": "Pro League",
@@ -673,6 +660,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1603547",
+   "flag": "⚽",
+   "league": "1. Division",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Krasava Ypsonas – Omonia 29is Maiou",
+   "kickoff_at": "2026-08-28T18:00:00+02:00",
+   "published": true,
+   "league_id": 318,
+   "home_logo": "https://media.api-sports.io/football/teams/3424.png",
+   "away_logo": "https://media.api-sports.io/football/teams/14126.png",
+   "conseil": "Omonia 29is Maiou ou Nul",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 3"
   },
   {
    "fixture_id": "api_football:1551094",
@@ -767,25 +773,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603547",
-   "flag": "⚽",
-   "league": "1. Division",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Krasava Ypsonas – Omonia 29is Maiou",
-   "kickoff_at": "2026-08-28T18:00:00+02:00",
-   "published": true,
-   "league_id": 318,
-   "home_logo": "https://media.api-sports.io/football/teams/3424.png",
-   "away_logo": "https://media.api-sports.io/football/teams/14126.png",
-   "conseil": "Omonia 29is Maiou ou Nul",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 3"
-  },
-  {
    "fixture_id": "baseball_401816711",
    "flag": "⚾",
    "league": "MLB",
@@ -816,63 +803,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1599439",
-   "flag": "🇦🇪",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Wasl FC – Shabab Al Ahli Dubai",
-   "kickoff_at": "2026-08-28T18:30:00+02:00",
-   "published": true,
-   "league_id": 301,
-   "home_logo": "https://media.api-sports.io/football/teams/2872.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2870.png",
-   "conseil": "Shabab Al Ahli Dubai ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.74,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 1",
-   "player_picks": [
-    {
-     "category": "Décisif",
-     "label": "F. Cartabia décisif",
-     "detail": "70%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.47,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1582262",
-   "flag": "⚽",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Hibernians – Zabbar St. Patrick",
-   "kickoff_at": "2026-08-28T18:30:00+02:00",
-   "published": true,
-   "league_id": 393,
-   "home_logo": "https://media.api-sports.io/football/teams/3884.png",
-   "away_logo": "https://media.api-sports.io/football/teams/4622.png",
-   "conseil": "Hibernians ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1576153",
@@ -916,6 +846,63 @@
      "odd": 1.53,
      "mise_eur": 100.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1582262",
+   "flag": "⚽",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Hibernians – Zabbar St. Patrick",
+   "kickoff_at": "2026-08-28T18:30:00+02:00",
+   "published": true,
+   "league_id": 393,
+   "home_logo": "https://media.api-sports.io/football/teams/3884.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4622.png",
+   "conseil": "Hibernians ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1599439",
+   "flag": "🇦🇪",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Wasl FC – Shabab Al Ahli Dubai",
+   "kickoff_at": "2026-08-28T18:30:00+02:00",
+   "published": true,
+   "league_id": 301,
+   "home_logo": "https://media.api-sports.io/football/teams/2872.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2870.png",
+   "conseil": "Shabab Al Ahli Dubai ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.74,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Décisif",
+     "label": "F. Cartabia décisif",
+     "detail": "70%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.47,
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -1026,42 +1013,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603001",
-   "flag": "🇸🇦",
-   "league": "Pro League",
+   "fixture_id": "api_football:1552451",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Al-Nassr – Al Taawon",
+   "match": "Clermont Foot – Sochaux",
    "kickoff_at": "2026-08-28T20:00:00+02:00",
    "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2939.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2936.png",
-   "conseil": "Al-Nassr gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.48,
-   "conseil_mise_eur": 400.0,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/99.png",
+   "away_logo": "https://media.api-sports.io/football/teams/115.png",
+   "conseil": "Clermont Foot ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.88,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "2 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Cristiano Ronaldo buteur",
-     "detail": "cote 1.44",
-     "odd": 1.44,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.36,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
-    }
-   ]
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1552458",
@@ -1168,25 +1136,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1552451",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Clermont Foot – Sochaux",
-   "kickoff_at": "2026-08-28T20:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/99.png",
-   "away_logo": "https://media.api-sports.io/football/teams/115.png",
-   "conseil": "Clermont Foot ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.88,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1552456",
    "flag": "🇫🇷",
    "league": "Ligue 2",
@@ -1225,77 +1174,6 @@
      "odd": 1.57,
      "mise_eur": 100.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1552454",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Laval – Grenoble",
-   "kickoff_at": "2026-08-28T20:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/433.png",
-   "away_logo": "https://media.api-sports.io/football/teams/101.png",
-   "conseil": "Laval gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.01,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 3",
-   "player_picks": [
-    {
-     "category": "Décisif",
-     "label": "M. Houdayer décisif",
-     "detail": "51%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1552455",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Montpellier – Boulogne",
-   "kickoff_at": "2026-08-28T20:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/82.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1299.png",
-   "conseil": "Montpellier ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.56,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.73,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.52,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.55,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -1412,6 +1290,115 @@
    ]
   },
   {
+   "fixture_id": "api_football:1603001",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Nassr – Al Taawon",
+   "kickoff_at": "2026-08-28T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2939.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2936.png",
+   "conseil": "Al-Nassr gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.48,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Cristiano Ronaldo buteur",
+     "detail": "cote 1.44",
+     "odd": 1.44,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.36,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1552455",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Montpellier – Boulogne",
+   "kickoff_at": "2026-08-28T20:00:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/82.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1299.png",
+   "conseil": "Montpellier ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.56,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.73,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.52,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.55,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1552454",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Laval – Grenoble",
+   "kickoff_at": "2026-08-28T20:00:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/433.png",
+   "away_logo": "https://media.api-sports.io/football/teams/101.png",
+   "conseil": "Laval gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.01,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 3",
+   "player_picks": [
+    {
+     "category": "Décisif",
+     "label": "M. Houdayer décisif",
+     "detail": "51%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1551091",
    "flag": "⚽",
    "league": "First League",
@@ -1502,6 +1489,22 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816706",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Detroit Tigers – Los Angeles Dodgers",
+   "kickoff_at": "2026-08-28T22:40Z",
+   "published": true,
+   "value_bet": "Los Angeles Dodgers @ 1.5556",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "1 - 2"
   },
   {
    "fixture_id": "baseball_401816707",
