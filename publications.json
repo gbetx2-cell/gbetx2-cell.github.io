@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-28T23:42:56.325449+00:00",
+ "generated_at": "2026-08-29T00:02:00.494915+00:00",
  "live": [
   {
    "fixture_id": "api_football:1553153",
@@ -231,28 +231,6 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816707",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Miami Marlins",
-   "kickoff_at": "2026-08-28T22:45Z",
-   "published": true,
-   "value_bet": "Washington Nationals Plus de 3,5 @ 1.885",
-   "value_cote": 1.89,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Washington Nationals +1,5 @ 1.7143",
-     "odd": 1.71,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816704",
    "flag": "⚾",
    "league": "MLB",
@@ -263,6 +241,19 @@
    "published": true,
    "value_bet": "New York Mets +1,5 @ 1.5882",
    "value_cote": 1.59,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816708",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – San Diego Padres",
+   "kickoff_at": "2026-08-28T23:10Z",
+   "published": true,
+   "value_bet": "San Diego Padres +1,5 @ 1.5",
+   "value_cote": 1.5,
    "value_mise_eur": 200.0
   },
   {
@@ -286,19 +277,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "baseball_401816708",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – San Diego Padres",
-   "kickoff_at": "2026-08-28T23:10Z",
-   "published": true,
-   "value_bet": "San Diego Padres +1,5 @ 1.5",
-   "value_cote": 1.5,
-   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816703",
@@ -419,7 +397,8 @@
      "market": "handicap",
      "label": "Écart de points — Chicago White Sox +1,5 @ 1.5128",
      "odd": 1.51,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
@@ -944,35 +923,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1576152",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "VfL Bochum – VfL Osnabrück",
-   "kickoff_at": "2026-08-28T18:30:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/176.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1324.png",
-   "conseil": "VfL Bochum ou Nul",
-   "conseil_cote": 1.23,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 1",
-   "player_picks": [
-    {
-     "category": "Décisif",
-     "label": "P. Hofmann décisif",
-     "detail": "46%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1576153",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -1014,6 +964,35 @@
      "odd": 1.53,
      "mise_eur": 100.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1576152",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfL Bochum – VfL Osnabrück",
+   "kickoff_at": "2026-08-28T18:30:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/176.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1324.png",
+   "conseil": "VfL Bochum ou Nul",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Décisif",
+     "label": "P. Hofmann décisif",
+     "detail": "46%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
     }
    ]
   },
@@ -1460,6 +1439,31 @@
      "label": "Moins de 3.5 cartons",
      "odd": 1.63,
      "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816707",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Washington Nationals – Miami Marlins",
+   "kickoff_at": "2026-08-28T22:45Z",
+   "published": true,
+   "value_bet": "Washington Nationals Plus de 3,5 @ 1.885",
+   "value_cote": 1.89,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "5 - 1 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Washington Nationals +1,5 @ 1.7143",
+     "odd": 1.71,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
