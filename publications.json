@@ -1,93 +1,6 @@
 {
- "generated_at": "2026-08-29T02:27:18.128688+00:00",
+ "generated_at": "2026-08-29T05:29:10.729941+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816714",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "San Francisco Giants – Arizona Diamondbacks",
-   "kickoff_at": "2026-08-29T02:15Z",
-   "published": true,
-   "value_bet": "San Francisco Giants +1,5 @ 1.6061",
-   "value_cote": 1.61,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "totals",
-     "label": "Total — Moins de 8,5 runs @ 1.7692",
-     "odd": 1.77,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_home",
-     "label": "Total équipe San Francisco Giants — Plus de 3,5 @ 1.8333",
-     "odd": 1.83,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Arizona Diamondbacks — Moins de 4,5 @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1493095",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Boca Juniors – Lanus",
-   "kickoff_at": "2026-08-29T02:30:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/451.png",
-   "away_logo": "https://media.api-sports.io/football/teams/446.png",
-   "conseil": "Boca Juniors ou Nul",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1550939",
-   "flag": "🇲🇽",
-   "league": "Liga MX",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Atlante FC – Leon",
-   "kickoff_at": "2026-08-29T03:00:00+02:00",
-   "published": true,
-   "league_id": 262,
-   "home_logo": "https://media.api-sports.io/football/teams/2312.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2289.png",
-   "conseil": "Leon ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.23,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1550940",
-   "flag": "🇲🇽",
-   "league": "Liga MX",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Necaxa – Cruz Azul",
-   "kickoff_at": "2026-08-29T03:00:00+02:00",
-   "published": true,
-   "league_id": 262,
-   "home_logo": "https://media.api-sports.io/football/teams/2288.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2295.png",
-   "conseil": "Cruz Azul ou Nul",
-   "conseil_cote": 1.33,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
   {
    "fixture_id": "api_football:1550941",
    "flag": "🇲🇽",
@@ -1517,31 +1430,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816709",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Toronto Blue Jays – Seattle Mariners",
-   "kickoff_at": "2026-08-28T23:15Z",
-   "published": true,
-   "value_bet": "Toronto Blue Jays @ 1.7092",
-   "value_cote": 1.71,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "8 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Seattle Mariners +1,5 @ 1.6061",
-     "odd": 1.61,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816703",
    "flag": "⚾",
    "league": "MLB",
@@ -1570,6 +1458,31 @@
      "odd": 1.74,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816709",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Toronto Blue Jays – Seattle Mariners",
+   "kickoff_at": "2026-08-28T23:15Z",
+   "published": true,
+   "value_bet": "Toronto Blue Jays @ 1.7092",
+   "value_cote": 1.71,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "8 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Seattle Mariners +1,5 @ 1.6061",
+     "odd": 1.61,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -1629,6 +1542,102 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816714",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "San Francisco Giants – Arizona Diamondbacks",
+   "kickoff_at": "2026-08-29T02:15Z",
+   "published": true,
+   "value_bet": "San Francisco Giants +1,5 @ 1.6061",
+   "value_cote": 1.61,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6 - 10",
+   "refonte_value_bets": [
+    {
+     "market": "totals",
+     "label": "Total — Moins de 8,5 runs @ 1.7692",
+     "odd": 1.77,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_home",
+     "label": "Total équipe San Francisco Giants — Plus de 3,5 @ 1.8333",
+     "odd": 1.83,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Arizona Diamondbacks — Moins de 4,5 @ 1.6897",
+     "odd": 1.69,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493095",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Boca Juniors – Lanus",
+   "kickoff_at": "2026-08-29T02:30:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/451.png",
+   "away_logo": "https://media.api-sports.io/football/teams/446.png",
+   "conseil": "Boca Juniors ou Nul",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1550939",
+   "flag": "🇲🇽",
+   "league": "Liga MX",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Atlante FC – Leon",
+   "kickoff_at": "2026-08-29T03:00:00+02:00",
+   "published": true,
+   "league_id": 262,
+   "home_logo": "https://media.api-sports.io/football/teams/2312.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2289.png",
+   "conseil": "Leon ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.23,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1550940",
+   "flag": "🇲🇽",
+   "league": "Liga MX",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Necaxa – Cruz Azul",
+   "kickoff_at": "2026-08-29T03:00:00+02:00",
+   "published": true,
+   "league_id": 262,
+   "home_logo": "https://media.api-sports.io/football/teams/2288.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2295.png",
+   "conseil": "Cruz Azul ou Nul",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3"
   }
  ]
 }
