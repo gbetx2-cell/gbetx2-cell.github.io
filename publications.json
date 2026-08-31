@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-08-31T17:31:01.752162+00:00",
+ "generated_at": "2026-08-31T18:05:51.845563+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_182655",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Arthur Fils – Stefanos Tsitsipas",
-   "kickoff_at": "2026-08-31T15:05Z",
-   "published": true,
-   "home_photo": "assets/players/arthur fils.png",
-   "away_photo": "assets/players/stefanos tsitsipas.png",
-   "conseil": "Total sets Plus de 3.5",
-   "conseil_cote": 2.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Plus de 3.5 @ 1.704",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Arthur Fils",
-     "kind": "player",
-     "detail": "cote 1.26",
-     "odd": 1.257,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_182669",
    "flag": "🎾",
@@ -115,23 +87,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1593300",
-   "flag": "🇬🇷",
-   "league": "Super League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Levadiakos – Panathinaikos",
-   "kickoff_at": "2026-08-31T18:30:00+02:00",
-   "published": true,
-   "league_id": 197,
-   "home_logo": "https://media.api-sports.io/football/teams/957.png",
-   "away_logo": "https://media.api-sports.io/football/teams/617.png",
-   "conseil": "Panathinaikos ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1548519",
    "flag": "🇭🇷",
    "league": "HNL",
@@ -163,6 +118,60 @@
    ]
   },
   {
+   "fixture_id": "api_football:1593300",
+   "flag": "🇬🇷",
+   "league": "Super League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Levadiakos – Panathinaikos",
+   "kickoff_at": "2026-08-31T18:30:00+02:00",
+   "published": true,
+   "league_id": 197,
+   "home_logo": "https://media.api-sports.io/football/teams/957.png",
+   "away_logo": "https://media.api-sports.io/football/teams/617.png",
+   "conseil": "Panathinaikos ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1494258",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Djurgardens IF – Mjallby AIF",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/364.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2240.png",
+   "conseil": "Djurgardens IF ou Nul",
+   "conseil_cote": 1.16,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Djurgardens IF",
+     "odd": 1.47,
+     "mise_eur": 300.0
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.5,
+     "mise_eur": 300.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.62,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1494260",
    "flag": "🇸🇪",
    "league": "Allsvenskan",
@@ -178,62 +187,6 @@
    "conseil_cote": 2.2,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1553853",
-   "flag": "🇷🇸",
-   "league": "Super Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FK Partizan – OFK Beograd",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
-   "published": true,
-   "league_id": 286,
-   "home_logo": "https://media.api-sports.io/football/teams/573.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2633.png",
-   "conseil": "OFK Beograd ou Nul",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.54,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.53,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1549007",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Copenhagen – Sonderjyske",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/400.png",
-   "away_logo": "https://media.api-sports.io/football/teams/396.png",
-   "conseil": "FC Copenhagen gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.56,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.43,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1494264",
@@ -290,39 +243,33 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1494258",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
+   "fixture_id": "api_football:1553853",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Djurgardens IF – Mjallby AIF",
+   "match": "FK Partizan – OFK Beograd",
    "kickoff_at": "2026-08-31T19:00:00+02:00",
    "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/364.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2240.png",
-   "conseil": "Djurgardens IF ou Nul",
-   "conseil_cote": 1.16,
-   "conseil_mise_eur": 200.0,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/573.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2633.png",
+   "conseil": "OFK Beograd ou Nul",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore",
    "refonte_value_bets": [
     {
-     "market": "1X2",
-     "label": "Djurgardens IF",
-     "odd": 1.47,
-     "mise_eur": 300.0
-    },
-    {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.5,
-     "mise_eur": 300.0
+     "odd": 1.54,
+     "mise_eur": 100.0
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odd": 1.62,
-     "mise_eur": 200.0
+     "odd": 1.53,
+     "mise_eur": 100.0
     }
    ]
   },
@@ -354,6 +301,31 @@
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.65,
      "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1549007",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Copenhagen – Sonderjyske",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/400.png",
+   "away_logo": "https://media.api-sports.io/football/teams/396.png",
+   "conseil": "FC Copenhagen gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.56,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.43,
+     "mise_eur": 200.0
     }
    ]
   },
@@ -398,6 +370,130 @@
      "mise_eur": 300.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1551089",
+   "flag": "⚽",
+   "league": "First League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Arda Kardzhali – Botev Vratsa",
+   "kickoff_at": "2026-08-31T20:15:00+02:00",
+   "published": true,
+   "league_id": 172,
+   "home_logo": "https://media.api-sports.io/football/teams/1430.png",
+   "away_logo": "https://media.api-sports.io/football/teams/859.png",
+   "conseil": "Arda Kardzhali gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.6,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.54,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1584385",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Amed – Trabzonspor",
+   "kickoff_at": "2026-08-31T20:30:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/3579.png",
+   "away_logo": "https://media.api-sports.io/football/teams/998.png",
+   "conseil": "Amed ou Nul",
+   "conseil_cote": 1.82,
+   "conseil_mise_eur": 500.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1584387",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Beşiktaş – Çorum FK",
+   "kickoff_at": "2026-08-31T20:30:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/549.png",
+   "away_logo": "https://media.api-sports.io/football/teams/6343.png",
+   "conseil": "Beşiktaş ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.6,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1550098",
+   "flag": "🇮🇹",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Atalanta – Bologna",
+   "kickoff_at": "2026-08-31T20:45:00+02:00",
+   "published": true,
+   "league_id": 135,
+   "home_logo": "https://media.api-sports.io/football/teams/499.png",
+   "away_logo": "https://media.api-sports.io/football/teams/500.png",
+   "conseil": "Atalanta gagne + Moins de 3.5 buts",
+   "conseil_cote": 2.68,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.9,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1552452",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Dijon – Saint Etienne",
+   "kickoff_at": "2026-08-31T20:45:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/89.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1063.png",
+   "conseil": "Saint Etienne gagne",
+   "conseil_cote": 1.72,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1557377",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aston Villa – Arsenal",
+   "kickoff_at": "2026-08-31T21:00:00+02:00",
+   "published": true,
+   "league_id": 39,
+   "home_logo": "https://media.api-sports.io/football/teams/66.png",
+   "away_logo": "https://media.api-sports.io/football/teams/42.png",
+   "conseil": "Arsenal gagne",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
   }
  ],
  "done": [
@@ -430,6 +526,38 @@
      "odd": 1.8,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182655",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Arthur Fils – Stefanos Tsitsipas",
+   "kickoff_at": "2026-08-31T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/arthur fils.png",
+   "away_photo": "assets/players/stefanos tsitsipas.png",
+   "conseil": "Total sets Plus de 3.5",
+   "conseil_cote": 2.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Plus de 3.5 @ 1.704",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-7, 1-6, 4-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Arthur Fils",
+     "kind": "player",
+     "detail": "cote 1.26",
+     "odd": 1.257,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
