@@ -1,90 +1,6 @@
 {
- "generated_at": "2026-08-31T21:13:47.154582+00:00",
+ "generated_at": "2026-08-31T21:24:05.575641+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1548517",
-   "flag": "🇭🇷",
-   "league": "HNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "HNK Gorica – HNK Rijeka",
-   "kickoff_at": "2026-08-31T21:00:00+02:00",
-   "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/1068.png",
-   "away_logo": "https://media.api-sports.io/football/teams/561.png",
-   "conseil": "HNK Rijeka ou Nul",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1557377",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Aston Villa – Arsenal",
-   "kickoff_at": "2026-08-31T21:00:00+02:00",
-   "published": true,
-   "league_id": 39,
-   "home_logo": "https://media.api-sports.io/football/teams/66.png",
-   "away_logo": "https://media.api-sports.io/football/teams/42.png",
-   "conseil": "Arsenal gagne",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1575477",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "SC Braga – Vitória SC",
-   "kickoff_at": "2026-08-31T21:15:00+02:00",
-   "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/217.png",
-   "away_logo": "https://media.api-sports.io/football/teams/224.png",
-   "conseil": "SC Braga ou Nul",
-   "conseil_cote": 1.23,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "SC Braga",
-     "odd": 1.81,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1575476",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Benfica – Estoril",
-   "kickoff_at": "2026-08-31T21:15:00+02:00",
-   "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/211.png",
-   "away_logo": "https://media.api-sports.io/football/teams/230.png",
-   "conseil": "Benfica gagne",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.27,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "api_football:1569897",
    "flag": "🇪🇸",
@@ -137,6 +53,31 @@
    ]
   },
   {
+   "fixture_id": "api_football:1493096",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Defensa Y Justicia – Platense",
+   "kickoff_at": "2026-09-01T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/442.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "conseil": "Defensa Y Justicia ou Nul",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1493098",
    "flag": "🇦🇷",
    "league": "Liga Profesional Argentina",
@@ -172,66 +113,9 @@
      "mise_eur": 100.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1493096",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Defensa Y Justicia – Platense",
-   "kickoff_at": "2026-09-01T00:00:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/442.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
-   "conseil": "Defensa Y Justicia ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.68,
-     "mise_eur": 100.0
-    }
-   ]
   }
  ],
  "done": [
-  {
-   "fixture_id": "tennis_espn_atp_182760",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aleksandar Kovacevic – Valentin Vacherot",
-   "kickoff_at": "2026-08-31T15:05Z",
-   "published": true,
-   "home_photo": "assets/players/aleksandar kovacevic.png",
-   "away_photo": "assets/players/valentin vacherot.png",
-   "conseil": "Total sets Plus de 3.5",
-   "conseil_cote": 2.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Plus de 3.5 @ 1.455",
-   "value_cote": 1.46,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2-6, 3-6, 5-7",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Valentin Vacherot",
-     "kind": "player",
-     "detail": "cote 1.80",
-     "odd": 1.8,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_182655",
    "flag": "🎾",
@@ -261,6 +145,38 @@
      "odd": 1.257,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182760",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Aleksandar Kovacevic – Valentin Vacherot",
+   "kickoff_at": "2026-08-31T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/aleksandar kovacevic.png",
+   "away_photo": "assets/players/valentin vacherot.png",
+   "conseil": "Total sets Plus de 3.5",
+   "conseil_cote": 2.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Plus de 3.5 @ 1.455",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2-6, 3-6, 5-7",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Valentin Vacherot",
+     "kind": "player",
+     "detail": "cote 1.80",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -342,6 +258,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1550103",
+   "flag": "🇮🇹",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lecce – AS Roma",
+   "kickoff_at": "2026-08-31T18:30:00+02:00",
+   "published": true,
+   "league_id": 135,
+   "home_logo": "https://media.api-sports.io/football/teams/867.png",
+   "away_logo": "https://media.api-sports.io/football/teams/497.png",
+   "conseil": "AS Roma gagne + Plus de 2.5 buts",
+   "conseil_cote": 3.1,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 4"
+  },
+  {
    "fixture_id": "api_football:1593300",
    "flag": "🇬🇷",
    "league": "Super League 1",
@@ -396,67 +331,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1550103",
-   "flag": "🇮🇹",
-   "league": "Serie A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lecce – AS Roma",
-   "kickoff_at": "2026-08-31T18:30:00+02:00",
-   "published": true,
-   "league_id": 135,
-   "home_logo": "https://media.api-sports.io/football/teams/867.png",
-   "away_logo": "https://media.api-sports.io/football/teams/497.png",
-   "conseil": "AS Roma gagne + Plus de 2.5 buts",
-   "conseil_cote": 3.1,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 4"
-  },
-  {
-   "fixture_id": "api_football:1494264",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sirius – Malmo FF",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/370.png",
-   "away_logo": "https://media.api-sports.io/football/teams/375.png",
-   "conseil": "Sirius ou Nul",
-   "conseil_cote": 1.29,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Sirius",
-     "odd": 1.73,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.41,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.43,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1549007",
    "flag": "🇩🇰",
    "league": "Superliga",
@@ -483,44 +357,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1569895",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Burgos – Real Sociedad II",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
-   "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9580.png",
-   "away_logo": "https://media.api-sports.io/football/teams/9585.png",
-   "conseil": "Burgos ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.71,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2"
-  },
-  {
-   "fixture_id": "api_football:1494260",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gais – IF Brommapojkarna",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
-   "away_logo": "https://media.api-sports.io/football/teams/371.png",
-   "conseil": "IF Brommapojkarna ou Nul",
-   "conseil_cote": 2.2,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 0"
   },
   {
    "fixture_id": "api_football:1494258",
@@ -565,6 +401,67 @@
    ]
   },
   {
+   "fixture_id": "api_football:1494260",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gais – IF Brommapojkarna",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
+   "away_logo": "https://media.api-sports.io/football/teams/371.png",
+   "conseil": "IF Brommapojkarna ou Nul",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 0"
+  },
+  {
+   "fixture_id": "api_football:1494264",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sirius – Malmo FF",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/370.png",
+   "away_logo": "https://media.api-sports.io/football/teams/375.png",
+   "conseil": "Sirius ou Nul",
+   "conseil_cote": 1.29,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Sirius",
+     "odd": 1.73,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.41,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.43,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1553853",
    "flag": "🇷🇸",
    "league": "Super Liga",
@@ -598,6 +495,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1569895",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Burgos – Real Sociedad II",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9580.png",
+   "away_logo": "https://media.api-sports.io/football/teams/9585.png",
+   "conseil": "Burgos ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.71,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1603549",
@@ -635,25 +551,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1565235",
-   "flag": "🇷🇴",
-   "league": "Liga I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rapid – Universitatea Craiova",
-   "kickoff_at": "2026-08-31T19:30:00+02:00",
-   "published": true,
-   "league_id": 283,
-   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
-   "away_logo": "https://media.api-sports.io/football/teams/632.png",
-   "conseil": "Rapid ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1570358",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -680,6 +577,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1565235",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rapid – Universitatea Craiova",
+   "kickoff_at": "2026-08-31T19:30:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
+   "away_logo": "https://media.api-sports.io/football/teams/632.png",
+   "conseil": "Rapid ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1551089",
@@ -755,25 +671,6 @@
    "score": "2 - 1"
   },
   {
-   "fixture_id": "api_football:1552452",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dijon – Saint Etienne",
-   "kickoff_at": "2026-08-31T20:45:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/89.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1063.png",
-   "conseil": "Saint Etienne gagne",
-   "conseil_cote": 1.72,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 3"
-  },
-  {
    "fixture_id": "api_football:1550098",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -800,6 +697,63 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1552452",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Dijon – Saint Etienne",
+   "kickoff_at": "2026-08-31T20:45:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/89.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1063.png",
+   "conseil": "Saint Etienne gagne",
+   "conseil_cote": 1.72,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 3"
+  },
+  {
+   "fixture_id": "api_football:1557377",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aston Villa – Arsenal",
+   "kickoff_at": "2026-08-31T21:00:00+02:00",
+   "published": true,
+   "league_id": 39,
+   "home_logo": "https://media.api-sports.io/football/teams/66.png",
+   "away_logo": "https://media.api-sports.io/football/teams/42.png",
+   "conseil": "Arsenal gagne",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1"
+  },
+  {
+   "fixture_id": "api_football:1548517",
+   "flag": "🇭🇷",
+   "league": "HNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "HNK Gorica – HNK Rijeka",
+   "kickoff_at": "2026-08-31T21:00:00+02:00",
+   "published": true,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/1068.png",
+   "away_logo": "https://media.api-sports.io/football/teams/561.png",
+   "conseil": "HNK Rijeka ou Nul",
+   "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1508848",
@@ -833,6 +787,62 @@
      "odd": 1.26,
      "mise_eur": 400.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1575477",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "SC Braga – Vitória SC",
+   "kickoff_at": "2026-08-31T21:15:00+02:00",
+   "published": true,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/217.png",
+   "away_logo": "https://media.api-sports.io/football/teams/224.png",
+   "conseil": "SC Braga ou Nul",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "SC Braga",
+     "odd": 1.81,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1575476",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Benfica – Estoril",
+   "kickoff_at": "2026-08-31T21:15:00+02:00",
+   "published": true,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/211.png",
+   "away_logo": "https://media.api-sports.io/football/teams/230.png",
+   "conseil": "Benfica gagne",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.27,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
