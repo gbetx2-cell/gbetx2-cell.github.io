@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T21:04:47.131912+00:00",
+ "generated_at": "2026-08-31T21:13:47.154582+00:00",
  "live": [
   {
    "fixture_id": "api_football:1548517",
@@ -34,37 +34,6 @@
    "conseil_cote": 1.57,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1508848",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Breidablik – Stjarnan",
-   "kickoff_at": "2026-08-31T21:15:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/276.png",
-   "away_logo": "https://media.api-sports.io/football/teams/275.png",
-   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.49,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.23,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.26,
-     "mise_eur": 400.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1575477",
@@ -829,6 +798,41 @@
      "odd": 1.9,
      "mise_eur": 100.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1508848",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Breidablik – Stjarnan",
+   "kickoff_at": "2026-08-31T21:15:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/276.png",
+   "away_logo": "https://media.api-sports.io/football/teams/275.png",
+   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.49,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.23,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.26,
+     "mise_eur": 400.0,
+     "result": "PERDU"
     }
    ]
   }
