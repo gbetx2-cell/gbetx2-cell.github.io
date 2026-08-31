@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T21:24:05.575641+00:00",
+ "generated_at": "2026-08-31T21:35:42.394211+00:00",
  "live": [
   {
    "fixture_id": "api_football:1569897",
@@ -49,6 +49,39 @@
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.74,
      "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401878657",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Atlanta Braves – San Francisco Giants",
+   "kickoff_at": "2026-08-31T22:05Z",
+   "published": true,
+   "value_bet": "San Francisco Giants Plus de 3,5 @ 1.8333",
+   "value_cote": 1.83,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Atlanta Braves — Plus de 4,5 @ 1.6849",
+     "odd": 1.68,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 8,5 runs @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Atlanta Braves @ 1.4878",
+     "odd": 1.49,
+     "mise_eur": 200.0
     }
    ]
   },
