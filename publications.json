@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T22:30:43.526437+00:00",
+ "generated_at": "2026-08-31T23:10:44.542599+00:00",
  "live": [
   {
    "fixture_id": "baseball_401878657",
@@ -161,6 +161,71 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816753",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Minnesota Twins – Detroit Tigers",
+   "kickoff_at": "2026-08-31T23:40Z",
+   "published": true,
+   "value_bet": "Plus de 8,5 runs @ 1.7692",
+   "value_cote": 1.77,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Detroit Tigers +1,5 @ 1.5128",
+     "odd": 1.51,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Detroit Tigers — Moins de 4,5 @ 1.7143",
+     "odd": 1.71,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816754",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Milwaukee Brewers",
+   "kickoff_at": "2026-08-31T23:40Z",
+   "published": true,
+   "value_bet": "Milwaukee Brewers +1,5 @ 1.4762",
+   "value_cote": 1.48,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1493096",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Defensa Y Justicia – Platense",
+   "kickoff_at": "2026-09-01T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/442.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "conseil": "Defensa Y Justicia ou Nul",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1493098",
    "flag": "🇦🇷",
    "league": "Liga Profesional Argentina",
@@ -193,31 +258,6 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.62,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1493096",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Defensa Y Justicia – Platense",
-   "kickoff_at": "2026-09-01T00:00:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/442.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
-   "conseil": "Defensa Y Justicia ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.68,
      "mise_eur": 100.0
     }
    ]
@@ -447,25 +487,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1593300",
-   "flag": "🇬🇷",
-   "league": "Super League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Levadiakos – Panathinaikos",
-   "kickoff_at": "2026-08-31T18:30:00+02:00",
-   "published": true,
-   "league_id": 197,
-   "home_logo": "https://media.api-sports.io/football/teams/957.png",
-   "away_logo": "https://media.api-sports.io/football/teams/617.png",
-   "conseil": "Panathinaikos ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 2"
-  },
-  {
    "fixture_id": "api_football:1550103",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -518,6 +539,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1593300",
+   "flag": "🇬🇷",
+   "league": "Super League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Levadiakos – Panathinaikos",
+   "kickoff_at": "2026-08-31T18:30:00+02:00",
+   "published": true,
+   "league_id": 197,
+   "home_logo": "https://media.api-sports.io/football/teams/957.png",
+   "away_logo": "https://media.api-sports.io/football/teams/617.png",
+   "conseil": "Panathinaikos ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
   },
   {
    "fixture_id": "api_football:1549007",
@@ -590,25 +630,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1494260",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gais – IF Brommapojkarna",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
-   "away_logo": "https://media.api-sports.io/football/teams/371.png",
-   "conseil": "IF Brommapojkarna ou Nul",
-   "conseil_cote": 2.2,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 0"
-  },
-  {
    "fixture_id": "api_football:1603549",
    "flag": "⚽",
    "league": "1. Division",
@@ -638,6 +659,41 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.65,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1553853",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FK Partizan – OFK Beograd",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/573.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2633.png",
+   "conseil": "OFK Beograd ou Nul",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.54,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.53,
      "mise_eur": 100.0,
      "result": "GAGNE"
     }
@@ -705,39 +761,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1553853",
-   "flag": "🇷🇸",
-   "league": "Super Liga",
+   "fixture_id": "api_football:1494260",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FK Partizan – OFK Beograd",
+   "match": "Gais – IF Brommapojkarna",
    "kickoff_at": "2026-08-31T19:00:00+02:00",
    "published": true,
-   "league_id": 286,
-   "home_logo": "https://media.api-sports.io/football/teams/573.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2633.png",
-   "conseil": "OFK Beograd ou Nul",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 600.0,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
+   "away_logo": "https://media.api-sports.io/football/teams/371.png",
+   "conseil": "IF Brommapojkarna ou Nul",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "PERDU",
-   "score": "3 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.54,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.53,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
+   "score": "4 - 0"
   },
   {
    "fixture_id": "api_football:1570358",
@@ -907,25 +947,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1548517",
-   "flag": "🇭🇷",
-   "league": "HNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "HNK Gorica – HNK Rijeka",
-   "kickoff_at": "2026-08-31T21:00:00+02:00",
-   "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/1068.png",
-   "away_logo": "https://media.api-sports.io/football/teams/561.png",
-   "conseil": "HNK Rijeka ou Nul",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1557377",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Premier League",
@@ -945,32 +966,23 @@
    "score": "0 - 1"
   },
   {
-   "fixture_id": "api_football:1575476",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
+   "fixture_id": "api_football:1548517",
+   "flag": "🇭🇷",
+   "league": "HNL",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Benfica – Estoril",
-   "kickoff_at": "2026-08-31T21:15:00+02:00",
+   "match": "HNK Gorica – HNK Rijeka",
+   "kickoff_at": "2026-08-31T21:00:00+02:00",
    "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/211.png",
-   "away_logo": "https://media.api-sports.io/football/teams/230.png",
-   "conseil": "Benfica gagne",
-   "conseil_cote": 1.15,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/1068.png",
+   "away_logo": "https://media.api-sports.io/football/teams/561.png",
+   "conseil": "HNK Rijeka ou Nul",
+   "conseil_cote": 1.18,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "2 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.27,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1508848",
@@ -1004,6 +1016,34 @@
      "odd": 1.26,
      "mise_eur": 400.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1575476",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Benfica – Estoril",
+   "kickoff_at": "2026-08-31T21:15:00+02:00",
+   "published": true,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/211.png",
+   "away_logo": "https://media.api-sports.io/football/teams/230.png",
+   "conseil": "Benfica gagne",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.27,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
