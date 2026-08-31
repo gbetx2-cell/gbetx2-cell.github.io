@@ -1,23 +1,6 @@
 {
- "generated_at": "2026-08-31T21:35:42.394211+00:00",
+ "generated_at": "2026-08-31T21:49:43.197394+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1569897",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Celta de Vigo II – Castellón",
-   "kickoff_at": "2026-08-31T21:30:00+02:00",
-   "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
-   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
-  },
   {
    "fixture_id": "api_football:1570354",
    "flag": "🇪🇸",
@@ -42,15 +25,34 @@
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
      "odd": 1.23,
-     "mise_eur": 400.0
+     "mise_eur": 400.0,
+     "result": "GAGNE"
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.74,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1569897",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Celta de Vigo II – Castellón",
+   "kickoff_at": "2026-08-31T21:30:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
+   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "baseball_401878657",
@@ -69,44 +71,22 @@
      "market": "team_total_home",
      "label": "Total équipe Atlanta Braves — Plus de 4,5 @ 1.6849",
      "odd": 1.68,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "totals",
      "label": "Total — Plus de 8,5 runs @ 1.7407",
      "odd": 1.74,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "winner",
      "label": "Vainqueur — Atlanta Braves @ 1.4878",
      "odd": 1.49,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1493096",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Defensa Y Justicia – Platense",
-   "kickoff_at": "2026-09-01T00:00:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/442.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
-   "conseil": "Defensa Y Justicia ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.68,
-     "mise_eur": 100.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -146,41 +126,59 @@
      "mise_eur": 100.0
     }
    ]
-  }
- ],
- "done": [
+  },
   {
-   "fixture_id": "tennis_espn_atp_182655",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Arthur Fils – Stefanos Tsitsipas",
-   "kickoff_at": "2026-08-31T15:05Z",
+   "fixture_id": "api_football:1493096",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Defensa Y Justicia – Platense",
+   "kickoff_at": "2026-09-01T00:00:00+02:00",
    "published": true,
-   "home_photo": "assets/players/arthur fils.png",
-   "away_photo": "assets/players/stefanos tsitsipas.png",
-   "conseil": "Total sets Plus de 3.5",
-   "conseil_cote": 2.56,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/442.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "conseil": "Defensa Y Justicia ou Nul",
+   "conseil_cote": 1.35,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Plus de 3.5 @ 1.704",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-4, 6-7, 1-6, 4-6",
-   "player_picks": [
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
     {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Arthur Fils",
-     "kind": "player",
-     "detail": "cote 1.26",
-     "odd": 1.257,
-     "mise_eur": 200.0,
-     "result": "PERDU"
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 100.0
     }
    ]
   },
+  {
+   "fixture_id": "api_football:1505514",
+   "flag": "🇨🇱",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Union La Calera – D. La Serena",
+   "kickoff_at": "2026-09-01T00:15:00+02:00",
+   "published": true,
+   "league_id": 265,
+   "home_logo": "https://media.api-sports.io/football/teams/2326.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2341.png",
+   "conseil": "D. La Serena ou Nul",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.66,
+     "mise_eur": 100.0
+    }
+   ]
+  }
+ ],
+ "done": [
   {
    "fixture_id": "tennis_espn_atp_182760",
    "flag": "🎾",
@@ -210,6 +208,38 @@
      "odd": 1.8,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182655",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Arthur Fils – Stefanos Tsitsipas",
+   "kickoff_at": "2026-08-31T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/arthur fils.png",
+   "away_photo": "assets/players/stefanos tsitsipas.png",
+   "conseil": "Total sets Plus de 3.5",
+   "conseil_cote": 2.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Plus de 3.5 @ 1.704",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-7, 1-6, 4-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Arthur Fils",
+     "kind": "player",
+     "detail": "cote 1.26",
+     "odd": 1.257,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -291,6 +321,41 @@
    ]
   },
   {
+   "fixture_id": "api_football:1548519",
+   "flag": "🇭🇷",
+   "league": "HNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "HNK Hajduk Split – NK Lokomotiva Zagreb",
+   "kickoff_at": "2026-08-31T18:30:00+02:00",
+   "published": true,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/608.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1017.png",
+   "conseil": "HNK Hajduk Split ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "HNK Hajduk Split",
+     "odd": 1.41,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.57,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1550103",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -329,64 +394,55 @@
    "score": "0 - 2"
   },
   {
-   "fixture_id": "api_football:1548519",
-   "flag": "🇭🇷",
-   "league": "HNL",
+   "fixture_id": "api_football:1569895",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
    "sport": "football",
    "sport_label": "Football",
-   "match": "HNK Hajduk Split – NK Lokomotiva Zagreb",
-   "kickoff_at": "2026-08-31T18:30:00+02:00",
-   "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/608.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1017.png",
-   "conseil": "HNK Hajduk Split ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "HNK Hajduk Split",
-     "odd": 1.41,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.57,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1549007",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Copenhagen – Sonderjyske",
+   "match": "Burgos – Real Sociedad II",
    "kickoff_at": "2026-08-31T19:00:00+02:00",
    "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/400.png",
-   "away_logo": "https://media.api-sports.io/football/teams/396.png",
-   "conseil": "FC Copenhagen gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.56,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9580.png",
+   "away_logo": "https://media.api-sports.io/football/teams/9585.png",
+   "conseil": "Burgos ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.71,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
+   "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1553853",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FK Partizan – OFK Beograd",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/573.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2633.png",
+   "conseil": "OFK Beograd ou Nul",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
    "score": "3 - 1",
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.43,
-     "mise_eur": 200.0,
+     "odd": 1.54,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.53,
+     "mise_eur": 100.0,
      "result": "GAGNE"
     }
    ]
@@ -434,23 +490,39 @@
    ]
   },
   {
-   "fixture_id": "api_football:1494260",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
+   "fixture_id": "api_football:1603549",
+   "flag": "⚽",
+   "league": "1. Division",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Gais – IF Brommapojkarna",
+   "match": "Omonia Nicosia – Omonia Aradippou",
    "kickoff_at": "2026-08-31T19:00:00+02:00",
    "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
-   "away_logo": "https://media.api-sports.io/football/teams/371.png",
-   "conseil": "IF Brommapojkarna ou Nul",
-   "conseil_cote": 2.2,
+   "league_id": 318,
+   "home_logo": "https://media.api-sports.io/football/teams/3402.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3416.png",
+   "conseil": "Omonia Nicosia ou Nul",
+   "conseil_cote": 1.04,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 0"
+   "result": "GAGNE",
+   "score": "0 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.42,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.65,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1494264",
@@ -495,93 +567,70 @@
    ]
   },
   {
-   "fixture_id": "api_football:1553853",
-   "flag": "🇷🇸",
-   "league": "Super Liga",
+   "fixture_id": "api_football:1494260",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FK Partizan – OFK Beograd",
+   "match": "Gais – IF Brommapojkarna",
    "kickoff_at": "2026-08-31T19:00:00+02:00",
    "published": true,
-   "league_id": 286,
-   "home_logo": "https://media.api-sports.io/football/teams/573.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2633.png",
-   "conseil": "OFK Beograd ou Nul",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 600.0,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
+   "away_logo": "https://media.api-sports.io/football/teams/371.png",
+   "conseil": "IF Brommapojkarna ou Nul",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "PERDU",
+   "score": "4 - 0"
+  },
+  {
+   "fixture_id": "api_football:1549007",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Copenhagen – Sonderjyske",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/400.png",
+   "away_logo": "https://media.api-sports.io/football/teams/396.png",
+   "conseil": "FC Copenhagen gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.56,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
    "score": "3 - 1",
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.54,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.53,
-     "mise_eur": 100.0,
+     "odd": 1.43,
+     "mise_eur": 200.0,
      "result": "GAGNE"
     }
    ]
   },
   {
-   "fixture_id": "api_football:1569895",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
+   "fixture_id": "api_football:1565235",
+   "flag": "🇷🇴",
+   "league": "Liga I",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Burgos – Real Sociedad II",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "match": "Rapid – Universitatea Craiova",
+   "kickoff_at": "2026-08-31T19:30:00+02:00",
    "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9580.png",
-   "away_logo": "https://media.api-sports.io/football/teams/9585.png",
-   "conseil": "Burgos ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.71,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
+   "away_logo": "https://media.api-sports.io/football/teams/632.png",
+   "conseil": "Rapid ou Nul",
+   "conseil_cote": 1.53,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "2 - 2"
-  },
-  {
-   "fixture_id": "api_football:1603549",
-   "flag": "⚽",
-   "league": "1. Division",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Omonia Nicosia – Omonia Aradippou",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
-   "published": true,
-   "league_id": 318,
-   "home_logo": "https://media.api-sports.io/football/teams/3402.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3416.png",
-   "conseil": "Omonia Nicosia ou Nul",
-   "conseil_cote": 1.04,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.42,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.65,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1570358",
@@ -610,25 +659,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1565235",
-   "flag": "🇷🇴",
-   "league": "Liga I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rapid – Universitatea Craiova",
-   "kickoff_at": "2026-08-31T19:30:00+02:00",
-   "published": true,
-   "league_id": 283,
-   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
-   "away_logo": "https://media.api-sports.io/football/teams/632.png",
-   "conseil": "Rapid ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1551089",
@@ -789,37 +819,30 @@
    "score": "0 - 0"
   },
   {
-   "fixture_id": "api_football:1508848",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
+   "fixture_id": "api_football:1575476",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Breidablik – Stjarnan",
+   "match": "Benfica – Estoril",
    "kickoff_at": "2026-08-31T21:15:00+02:00",
    "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/276.png",
-   "away_logo": "https://media.api-sports.io/football/teams/275.png",
-   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.49,
-   "conseil_mise_eur": 300.0,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/211.png",
+   "away_logo": "https://media.api-sports.io/football/teams/230.png",
+   "conseil": "Benfica gagne",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 2",
+   "result": "GAGNE",
+   "score": "2 - 1",
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.23,
+     "odd": 1.27,
      "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.26,
-     "mise_eur": 400.0,
-     "result": "PERDU"
+     "result": "GAGNE"
     }
    ]
   },
@@ -852,30 +875,37 @@
    ]
   },
   {
-   "fixture_id": "api_football:1575476",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
+   "fixture_id": "api_football:1508848",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Benfica – Estoril",
+   "match": "Breidablik – Stjarnan",
    "kickoff_at": "2026-08-31T21:15:00+02:00",
    "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/211.png",
-   "away_logo": "https://media.api-sports.io/football/teams/230.png",
-   "conseil": "Benfica gagne",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/276.png",
+   "away_logo": "https://media.api-sports.io/football/teams/275.png",
+   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.49,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 1",
+   "result": "PERDU",
+   "score": "0 - 2",
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.27,
+     "odd": 1.23,
      "mise_eur": 200.0,
-     "result": "GAGNE"
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.26,
+     "mise_eur": 400.0,
+     "result": "PERDU"
     }
    ]
   }
