@@ -1,33 +1,22 @@
 {
- "generated_at": "2026-08-31T20:13:11.109364+00:00",
+ "generated_at": "2026-08-31T20:41:46.343190+00:00",
  "live": [
   {
-   "fixture_id": "tennis_espn_atp_182669",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "James Duckworth – Matteo Arnaldi",
-   "kickoff_at": "2026-08-31T17:00Z",
+   "fixture_id": "api_football:1584385",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Amed – Trabzonspor",
+   "kickoff_at": "2026-08-31T20:30:00+02:00",
    "published": true,
-   "home_photo": "assets/players/james duckworth.png",
-   "away_photo": "assets/players/matteo arnaldi.png",
-   "conseil": "Total sets Plus de 3.5",
-   "conseil_cote": 2.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Plus de 3.5 @ 1.483",
-   "value_cote": 1.48,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Matteo Arnaldi",
-     "kind": "player",
-     "detail": "cote 1.91",
-     "odd": 1.909,
-     "mise_eur": 200.0
-    }
-   ]
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/3579.png",
+   "away_logo": "https://media.api-sports.io/football/teams/998.png",
+   "conseil": "Amed ou Nul",
+   "conseil_cote": 1.82,
+   "conseil_mise_eur": 500.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1584387",
@@ -44,23 +33,6 @@
    "conseil": "Beşiktaş ou Nul + Moins de 3.5 buts",
    "conseil_cote": 1.6,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1584385",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Amed – Trabzonspor",
-   "kickoff_at": "2026-08-31T20:30:00+02:00",
-   "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/3579.png",
-   "away_logo": "https://media.api-sports.io/football/teams/998.png",
-   "conseil": "Amed ou Nul",
-   "conseil_cote": 1.82,
-   "conseil_mise_eur": 500.0,
    "lineup_source": "flashscore"
   },
   {
@@ -106,23 +78,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1548517",
-   "flag": "🇭🇷",
-   "league": "HNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "HNK Gorica – HNK Rijeka",
-   "kickoff_at": "2026-08-31T21:00:00+02:00",
-   "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/1068.png",
-   "away_logo": "https://media.api-sports.io/football/teams/561.png",
-   "conseil": "HNK Rijeka ou Nul",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1557377",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Premier League",
@@ -137,6 +92,23 @@
    "conseil": "Arsenal gagne",
    "conseil_cote": 1.57,
    "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1548517",
+   "flag": "🇭🇷",
+   "league": "HNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "HNK Gorica – HNK Rijeka",
+   "kickoff_at": "2026-08-31T21:00:00+02:00",
+   "published": true,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/1068.png",
+   "away_logo": "https://media.api-sports.io/football/teams/561.png",
+   "conseil": "HNK Rijeka ou Nul",
+   "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -221,6 +193,23 @@
    ]
   },
   {
+   "fixture_id": "api_football:1569897",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Celta de Vigo II – Castellón",
+   "kickoff_at": "2026-08-31T21:30:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
+   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1570354",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -253,23 +242,6 @@
      "mise_eur": 100.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1569897",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Celta de Vigo II – Castellón",
-   "kickoff_at": "2026-08-31T21:30:00+02:00",
-   "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
-   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
   }
  ],
  "done": [
@@ -338,6 +310,38 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_182669",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "James Duckworth – Matteo Arnaldi",
+   "kickoff_at": "2026-08-31T17:00Z",
+   "published": true,
+   "home_photo": "assets/players/james duckworth.png",
+   "away_photo": "assets/players/matteo arnaldi.png",
+   "conseil": "Total sets Plus de 3.5",
+   "conseil_cote": 2.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Plus de 3.5 @ 1.483",
+   "value_cote": 1.48,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "5-7, 6-3, 6-2, 7-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Matteo Arnaldi",
+     "kind": "player",
+     "detail": "cote 1.91",
+     "odd": 1.909,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_atp_182705",
    "flag": "🎾",
    "league": "US Open",
@@ -383,41 +387,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1548519",
-   "flag": "🇭🇷",
-   "league": "HNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "HNK Hajduk Split – NK Lokomotiva Zagreb",
-   "kickoff_at": "2026-08-31T18:30:00+02:00",
-   "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/608.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1017.png",
-   "conseil": "HNK Hajduk Split ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "HNK Hajduk Split",
-     "odd": 1.41,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.57,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1550103",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -456,58 +425,39 @@
    "score": "0 - 2"
   },
   {
-   "fixture_id": "api_football:1553853",
-   "flag": "🇷🇸",
-   "league": "Super Liga",
+   "fixture_id": "api_football:1548519",
+   "flag": "🇭🇷",
+   "league": "HNL",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FK Partizan – OFK Beograd",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "match": "HNK Hajduk Split – NK Lokomotiva Zagreb",
+   "kickoff_at": "2026-08-31T18:30:00+02:00",
    "published": true,
-   "league_id": 286,
-   "home_logo": "https://media.api-sports.io/football/teams/573.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2633.png",
-   "conseil": "OFK Beograd ou Nul",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 600.0,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/608.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1017.png",
+   "conseil": "HNK Hajduk Split ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 1",
+   "result": "GAGNE",
+   "score": "2 - 0",
    "refonte_value_bets": [
     {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.54,
-     "mise_eur": 100.0,
+     "market": "1X2",
+     "label": "HNK Hajduk Split",
+     "odd": 1.41,
+     "mise_eur": 400.0,
      "result": "GAGNE"
     },
     {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.53,
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.57,
      "mise_eur": 100.0,
-     "result": "GAGNE"
+     "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1494260",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gais – IF Brommapojkarna",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
-   "away_logo": "https://media.api-sports.io/football/teams/371.png",
-   "conseil": "IF Brommapojkarna ou Nul",
-   "conseil_cote": 2.2,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 0"
   },
   {
    "fixture_id": "api_football:1494264",
@@ -552,6 +502,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1549007",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Copenhagen – Sonderjyske",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/400.png",
+   "away_logo": "https://media.api-sports.io/football/teams/396.png",
+   "conseil": "FC Copenhagen gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.56,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.43,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1569895",
    "flag": "🇪🇸",
    "league": "Segunda División",
@@ -569,6 +547,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1494260",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gais – IF Brommapojkarna",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
+   "away_logo": "https://media.api-sports.io/football/teams/371.png",
+   "conseil": "IF Brommapojkarna ou Nul",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 0"
   },
   {
    "fixture_id": "api_football:1494258",
@@ -613,29 +610,36 @@
    ]
   },
   {
-   "fixture_id": "api_football:1549007",
-   "flag": "🇩🇰",
-   "league": "Superliga",
+   "fixture_id": "api_football:1553853",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Copenhagen – Sonderjyske",
+   "match": "FK Partizan – OFK Beograd",
    "kickoff_at": "2026-08-31T19:00:00+02:00",
    "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/400.png",
-   "away_logo": "https://media.api-sports.io/football/teams/396.png",
-   "conseil": "FC Copenhagen gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.56,
-   "conseil_mise_eur": 300.0,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/573.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2633.png",
+   "conseil": "OFK Beograd ou Nul",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
+   "result": "PERDU",
    "score": "3 - 1",
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.43,
-     "mise_eur": 200.0,
+     "odd": 1.54,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.53,
+     "mise_eur": 100.0,
      "result": "GAGNE"
     }
    ]
@@ -676,6 +680,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1565235",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rapid – Universitatea Craiova",
+   "kickoff_at": "2026-08-31T19:30:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
+   "away_logo": "https://media.api-sports.io/football/teams/632.png",
+   "conseil": "Rapid ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1570358",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -702,25 +725,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1565235",
-   "flag": "🇷🇴",
-   "league": "Liga I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rapid – Universitatea Craiova",
-   "kickoff_at": "2026-08-31T19:30:00+02:00",
-   "published": true,
-   "league_id": 283,
-   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
-   "away_logo": "https://media.api-sports.io/football/teams/632.png",
-   "conseil": "Rapid ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1551089",
