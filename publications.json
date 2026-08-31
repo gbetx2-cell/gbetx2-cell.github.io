@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T18:34:25.576455+00:00",
+ "generated_at": "2026-08-31T18:45:23.534665+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182669",
@@ -455,6 +455,37 @@
    "conseil_cote": 1.18,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1508848",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Breidablik – Stjarnan",
+   "kickoff_at": "2026-08-31T21:15:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/276.png",
+   "away_logo": "https://media.api-sports.io/football/teams/275.png",
+   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.49,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.23,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.26,
+     "mise_eur": 400.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1575477",
