@@ -1,42 +1,6 @@
 {
- "generated_at": "2026-08-31T23:35:42.563195+00:00",
+ "generated_at": "2026-08-31T23:40:48.627082+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401878657",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Atlanta Braves – San Francisco Giants",
-   "kickoff_at": "2026-08-31T22:05Z",
-   "published": true,
-   "value_bet": "San Francisco Giants Plus de 3,5 @ 1.8333",
-   "value_cote": 1.83,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "team_total_home",
-     "label": "Total équipe Atlanta Braves — Plus de 4,5 @ 1.6849",
-     "odd": 1.68,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 8,5 runs @ 1.7407",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — Atlanta Braves @ 1.4878",
-     "odd": 1.49,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
   {
    "fixture_id": "baseball_401816748",
    "flag": "⚾",
@@ -281,18 +245,54 @@
      "market": "handicap",
      "label": "Écart de points — Athletics +1,5 @ 1.8",
      "odd": 1.8,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "team_total_home",
      "label": "Total équipe Texas Rangers — Moins de 4,5 @ 1.7353",
      "odd": 1.74,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "winner",
      "label": "Vainqueur — Texas Rangers @ 1.4739",
      "odd": 1.47,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816752",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Houston Astros – Chicago White Sox",
+   "kickoff_at": "2026-09-01T00:10Z",
+   "published": true,
+   "value_bet": "Plus de 8,5 runs @ 1.8333",
+   "value_cote": 1.83,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Chicago White Sox +1,5 @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Chicago White Sox — Plus de 3,5 @ 1.6897",
+     "odd": 1.69,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Houston Astros @ 1.7937",
+     "odd": 1.79,
      "mise_eur": 200.0
     }
    ]
@@ -1229,6 +1229,45 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 2"
+  },
+  {
+   "fixture_id": "baseball_401878657",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Atlanta Braves – San Francisco Giants",
+   "kickoff_at": "2026-08-31T22:05Z",
+   "published": true,
+   "value_bet": "San Francisco Giants Plus de 3,5 @ 1.8333",
+   "value_cote": 1.83,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "3 - 6 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Atlanta Braves — Plus de 4,5 @ 1.6849",
+     "odd": 1.68,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 8,5 runs @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Atlanta Braves @ 1.4878",
+     "odd": 1.49,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
