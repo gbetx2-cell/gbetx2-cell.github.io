@@ -1,23 +1,6 @@
 {
- "generated_at": "2026-08-31T21:56:46.214187+00:00",
+ "generated_at": "2026-08-31T21:56:52.583115+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1569897",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Celta de Vigo II – Castellón",
-   "kickoff_at": "2026-08-31T21:30:00+02:00",
-   "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
-   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
-  },
   {
    "fixture_id": "baseball_401878657",
    "flag": "⚾",
@@ -911,6 +894,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1569897",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Celta de Vigo II – Castellón",
+   "kickoff_at": "2026-08-31T21:30:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
+   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
   }
  ]
 }
