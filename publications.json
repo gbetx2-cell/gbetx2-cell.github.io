@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T20:53:06.495597+00:00",
+ "generated_at": "2026-08-31T21:04:47.131912+00:00",
  "live": [
   {
    "fixture_id": "api_football:1548517",
@@ -166,6 +166,68 @@
      "mise_eur": 100.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1493098",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Estudiantes L.P. – Newells Old Boys",
+   "kickoff_at": "2026-09-01T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/450.png",
+   "away_logo": "https://media.api-sports.io/football/teams/457.png",
+   "conseil": "Estudiantes L.P. ou Nul",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Estudiantes L.P.",
+     "odd": 1.67,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.59,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.62,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493096",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Defensa Y Justicia – Platense",
+   "kickoff_at": "2026-09-01T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/442.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "conseil": "Defensa Y Justicia ou Nul",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 100.0
+    }
+   ]
   }
  ],
  "done": [
@@ -311,25 +373,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1550103",
-   "flag": "🇮🇹",
-   "league": "Serie A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lecce – AS Roma",
-   "kickoff_at": "2026-08-31T18:30:00+02:00",
-   "published": true,
-   "league_id": 135,
-   "home_logo": "https://media.api-sports.io/football/teams/867.png",
-   "away_logo": "https://media.api-sports.io/football/teams/497.png",
-   "conseil": "AS Roma gagne + Plus de 2.5 buts",
-   "conseil_cote": 3.1,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 4"
-  },
-  {
    "fixture_id": "api_football:1593300",
    "flag": "🇬🇷",
    "league": "Super League 1",
@@ -382,6 +425,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1550103",
+   "flag": "🇮🇹",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lecce – AS Roma",
+   "kickoff_at": "2026-08-31T18:30:00+02:00",
+   "published": true,
+   "league_id": 135,
+   "home_logo": "https://media.api-sports.io/football/teams/867.png",
+   "away_logo": "https://media.api-sports.io/football/teams/497.png",
+   "conseil": "AS Roma gagne + Plus de 2.5 buts",
+   "conseil_cote": 3.1,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 4"
   },
   {
    "fixture_id": "api_football:1494264",
@@ -604,6 +666,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1565235",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rapid – Universitatea Craiova",
+   "kickoff_at": "2026-08-31T19:30:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
+   "away_logo": "https://media.api-sports.io/football/teams/632.png",
+   "conseil": "Rapid ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1570358",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -630,25 +711,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1565235",
-   "flag": "🇷🇴",
-   "league": "Liga I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rapid – Universitatea Craiova",
-   "kickoff_at": "2026-08-31T19:30:00+02:00",
-   "published": true,
-   "league_id": 283,
-   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
-   "away_logo": "https://media.api-sports.io/football/teams/632.png",
-   "conseil": "Rapid ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1551089",
@@ -686,6 +748,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1584387",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Beşiktaş – Çorum FK",
+   "kickoff_at": "2026-08-31T20:30:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/549.png",
+   "away_logo": "https://media.api-sports.io/football/teams/6343.png",
+   "conseil": "Beşiktaş ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.6,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "6 - 2"
+  },
+  {
    "fixture_id": "api_football:1584385",
    "flag": "🇹🇷",
    "league": "Süper Lig",
@@ -705,23 +786,23 @@
    "score": "2 - 1"
   },
   {
-   "fixture_id": "api_football:1584387",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
+   "fixture_id": "api_football:1552452",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Beşiktaş – Çorum FK",
-   "kickoff_at": "2026-08-31T20:30:00+02:00",
+   "match": "Dijon – Saint Etienne",
+   "kickoff_at": "2026-08-31T20:45:00+02:00",
    "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/549.png",
-   "away_logo": "https://media.api-sports.io/football/teams/6343.png",
-   "conseil": "Beşiktaş ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.6,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/89.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1063.png",
+   "conseil": "Saint Etienne gagne",
+   "conseil_cote": 1.72,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "6 - 2"
+   "result": "GAGNE",
+   "score": "2 - 3"
   },
   {
    "fixture_id": "api_football:1550098",
@@ -750,25 +831,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1552452",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dijon – Saint Etienne",
-   "kickoff_at": "2026-08-31T20:45:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/89.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1063.png",
-   "conseil": "Saint Etienne gagne",
-   "conseil_cote": 1.72,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 3"
   }
  ]
 }
