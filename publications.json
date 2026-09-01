@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T17:51:46.524153+00:00",
+ "generated_at": "2026-09-01T17:51:49.895098+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182721",
@@ -333,6 +333,31 @@
    "conseil_cote": 1.71,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1563125",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Swansea – Watford",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/76.png",
+   "away_logo": "https://media.api-sports.io/football/teams/38.png",
+   "conseil": "Swansea ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.47,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": []
