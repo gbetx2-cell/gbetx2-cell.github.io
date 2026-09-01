@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T20:30:46.963024+00:00",
+ "generated_at": "2026-09-01T20:30:54.111709+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182736",
@@ -73,32 +73,6 @@
    "conseil": "Victoire Nishesh Basavareddy",
    "conseil_cote": 1.4,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1603007",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Hilal Saudi FC – Al-Ahli Jeddah",
-   "kickoff_at": "2026-09-01T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2932.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2929.png",
-   "conseil": "Al-Hilal Saudi FC gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.84,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.53,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1563126",
@@ -429,6 +403,34 @@
      "odd": 1.55,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1603007",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Hilal Saudi FC – Al-Ahli Jeddah",
+   "kickoff_at": "2026-09-01T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2932.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2929.png",
+   "conseil": "Al-Hilal Saudi FC gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.84,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.53,
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   },
