@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T00:35:42.905727+00:00",
+ "generated_at": "2026-09-01T01:14:51.697726+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816748",
@@ -25,42 +25,6 @@
      "market": "winner",
      "label": "Vainqueur — Tampa Bay Rays @ 1.5525",
      "odd": 1.55,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816749",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cincinnati Reds – San Diego Padres",
-   "kickoff_at": "2026-08-31T22:40Z",
-   "published": true,
-   "value_bet": "San Diego Padres Plus de 4,5 @ 1.8",
-   "value_cote": 1.8,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "team_total_home",
-     "label": "Total équipe Cincinnati Reds — Plus de 3,5 @ 1.7812",
-     "odd": 1.78,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 8,5 runs @ 1.7692",
-     "odd": 1.77,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — San Diego Padres @ 1.6944",
-     "odd": 1.69,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -302,37 +266,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1493102",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Instituto Cordoba – San Lorenzo",
-   "kickoff_at": "2026-09-01T02:15:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/478.png",
-   "away_logo": "https://media.api-sports.io/football/teams/460.png",
-   "conseil": "Instituto Cordoba ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.39,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.41,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.52,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1493105",
    "flag": "🇦🇷",
    "league": "Liga Profesional Argentina",
@@ -359,6 +292,37 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.49,
+     "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493102",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Instituto Cordoba – San Lorenzo",
+   "kickoff_at": "2026-09-01T02:15:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/478.png",
+   "away_logo": "https://media.api-sports.io/football/teams/460.png",
+   "conseil": "Instituto Cordoba ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.39,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.41,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.52,
      "mise_eur": 300.0
     }
    ]
@@ -1053,41 +1017,6 @@
    "score": "0 - 0"
   },
   {
-   "fixture_id": "api_football:1508848",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Breidablik – Stjarnan",
-   "kickoff_at": "2026-08-31T21:15:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/276.png",
-   "away_logo": "https://media.api-sports.io/football/teams/275.png",
-   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.49,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 2",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.23,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.26,
-     "mise_eur": 400.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1575477",
    "flag": "🇵🇹",
    "league": "Primeira Liga",
@@ -1144,23 +1073,39 @@
    ]
   },
   {
-   "fixture_id": "api_football:1569897",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
+   "fixture_id": "api_football:1508848",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Celta de Vigo II – Castellón",
-   "kickoff_at": "2026-08-31T21:30:00+02:00",
+   "match": "Breidablik – Stjarnan",
+   "kickoff_at": "2026-08-31T21:15:00+02:00",
    "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
-   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 600.0,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/276.png",
+   "away_logo": "https://media.api-sports.io/football/teams/275.png",
+   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.49,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 2"
+   "result": "PERDU",
+   "score": "0 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.23,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.26,
+     "mise_eur": 400.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1570354",
@@ -1202,6 +1147,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1569897",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Celta de Vigo II – Castellón",
+   "kickoff_at": "2026-08-31T21:30:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
+   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
+  },
+  {
    "fixture_id": "baseball_401878657",
    "flag": "⚾",
    "league": "MLB",
@@ -1235,6 +1199,45 @@
      "market": "winner",
      "label": "Vainqueur — Atlanta Braves @ 1.4878",
      "odd": 1.49,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816749",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cincinnati Reds – San Diego Padres",
+   "kickoff_at": "2026-08-31T22:40Z",
+   "published": true,
+   "value_bet": "San Diego Padres Plus de 4,5 @ 1.8",
+   "value_cote": 1.8,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "0 - 5 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Cincinnati Reds — Plus de 3,5 @ 1.7812",
+     "odd": 1.78,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 8,5 runs @ 1.7692",
+     "odd": 1.77,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — San Diego Padres @ 1.6944",
+     "odd": 1.69,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
