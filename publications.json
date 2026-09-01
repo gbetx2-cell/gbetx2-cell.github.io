@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T00:10:42.243698+00:00",
+ "generated_at": "2026-09-01T00:15:43.968431+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816749",
@@ -305,19 +305,22 @@
      "market": "handicap",
      "label": "Écart de points — Colorado Rockies +1,5 @ 1.7143",
      "odd": 1.71,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "team_total_away",
      "label": "Total équipe Baltimore Orioles — Plus de 5,5 @ 1.8475",
      "odd": 1.85,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "totals",
      "label": "Total — Plus de 10,5 runs @ 1.7407",
      "odd": 1.74,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -436,6 +439,37 @@
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.49,
      "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1505512",
+   "flag": "🇨🇱",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "U. Catolica – O'Higgins",
+   "kickoff_at": "2026-09-01T02:45:00+02:00",
+   "published": true,
+   "league_id": 265,
+   "home_logo": "https://media.api-sports.io/football/teams/2994.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2320.png",
+   "conseil": "U. Catolica ou Nul",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "U. Catolica",
+     "odd": 1.74,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.7,
+     "mise_eur": 100.0
     }
    ]
   }
