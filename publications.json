@@ -1,42 +1,6 @@
 {
- "generated_at": "2026-09-01T02:46:46.075055+00:00",
+ "generated_at": "2026-09-01T02:46:50.891550+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816752",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Houston Astros – Chicago White Sox",
-   "kickoff_at": "2026-09-01T00:10Z",
-   "published": true,
-   "value_bet": "Plus de 8,5 runs @ 1.8333",
-   "value_cote": 1.83,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Chicago White Sox +1,5 @ 1.5556",
-     "odd": 1.56,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Chicago White Sox — Plus de 3,5 @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — Houston Astros @ 1.7937",
-     "odd": 1.79,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
   {
    "fixture_id": "baseball_401816755",
    "flag": "⚾",
@@ -1237,6 +1201,45 @@
      "market": "winner",
      "label": "Vainqueur — Texas Rangers @ 1.4739",
      "odd": 1.47,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816752",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Houston Astros – Chicago White Sox",
+   "kickoff_at": "2026-09-01T00:10Z",
+   "published": true,
+   "value_bet": "Plus de 8,5 runs @ 1.8333",
+   "value_cote": 1.83,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 3 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Chicago White Sox +1,5 @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Chicago White Sox — Plus de 3,5 @ 1.6897",
+     "odd": 1.69,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Houston Astros @ 1.7937",
+     "odd": 1.79,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
