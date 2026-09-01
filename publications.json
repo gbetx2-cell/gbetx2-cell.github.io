@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T21:01:36.593442+00:00",
+ "generated_at": "2026-09-01T21:01:49.549489+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182736",
@@ -120,32 +120,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1563125",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Swansea – Watford",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/76.png",
-   "away_logo": "https://media.api-sports.io/football/teams/38.png",
-   "conseil": "Swansea ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.47,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_182681",
    "flag": "🎾",
    "league": "US Open",
@@ -159,49 +133,6 @@
    "conseil": "Victoire Jesper de Jong",
    "conseil_cote": 1.85,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1563119",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Birmingham – Southampton",
-   "kickoff_at": "2026-09-01T21:00:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/54.png",
-   "away_logo": "https://media.api-sports.io/football/teams/41.png",
-   "conseil": "Southampton ou Nul",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.77,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.6,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.58,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.46,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1563124",
@@ -486,6 +417,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1563125",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Swansea – Watford",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/76.png",
+   "away_logo": "https://media.api-sports.io/football/teams/38.png",
+   "conseil": "Swansea ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.47,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1563120",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -588,6 +547,53 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "3 - 2"
+  },
+  {
+   "fixture_id": "api_football:1563119",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Birmingham – Southampton",
+   "kickoff_at": "2026-09-01T21:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/54.png",
+   "away_logo": "https://media.api-sports.io/football/teams/41.png",
+   "conseil": "Southampton ou Nul",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.77,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.6,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.58,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.46,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ]
 }
