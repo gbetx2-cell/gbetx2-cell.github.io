@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T17:35:44.734768+00:00",
+ "generated_at": "2026-09-01T17:50:45.201133+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182721",
@@ -30,34 +30,6 @@
    "conseil": "Victoire Corentin Moutet",
    "conseil_cote": 1.26,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182736",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Francisco Cerundolo – Filip Misolic",
-   "kickoff_at": "2026-09-01T17:45Z",
-   "published": true,
-   "home_photo": "assets/players/francisco cerundolo.png",
-   "away_photo": "assets/players/filip misolic.png",
-   "conseil": "Total sets Moins de 3.5",
-   "conseil_cote": 1.77,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 3.5 @ 1.741",
-   "value_cote": 1.74,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Francisco Cerundolo",
-     "kind": "player",
-     "detail": "cote 1.08",
-     "odd": 1.082,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182715",
@@ -107,38 +79,32 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1600333",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kruger United – Orlando Pirates",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "fixture_id": "tennis_espn_atp_182736",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Francisco Cerundolo – Filip Misolic",
+   "kickoff_at": "2026-09-01T18:45Z",
    "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
-   "conseil": "Orlando Pirates gagne",
-   "conseil_cote": 1.34,
+   "home_photo": "assets/players/francisco cerundolo.png",
+   "away_photo": "assets/players/filip misolic.png",
+   "conseil": "Total sets Moins de 3.5",
+   "conseil_cote": 1.77,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1508846",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "KR Reykjavik – Vikingur Reykjavik",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/271.png",
-   "away_logo": "https://media.api-sports.io/football/teams/278.png",
-   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
+   "value_bet": "Total sets — Moins de 3.5 @ 1.741",
+   "value_cote": 1.74,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Francisco Cerundolo",
+     "kind": "player",
+     "detail": "cote 1.08",
+     "odd": 1.082,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1600329",
@@ -172,6 +138,23 @@
    ]
   },
   {
+   "fixture_id": "api_football:1600333",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kruger United – Orlando Pirates",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
+   "conseil": "Orlando Pirates gagne",
+   "conseil_cote": 1.34,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1561915",
    "flag": "🇦🇹",
    "league": "Bundesliga",
@@ -201,6 +184,23 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1508846",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KR Reykjavik – Vikingur Reykjavik",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/271.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1603007",
@@ -257,6 +257,40 @@
      "mise_eur": 400.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1563120",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lincoln – Blackburn",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/1379.png",
+   "away_logo": "https://media.api-sports.io/football/teams/67.png",
+   "conseil": "Blackburn ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.16,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1563126",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "West Ham – Wolves",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/48.png",
+   "away_logo": "https://media.api-sports.io/football/teams/39.png",
+   "conseil": "Wolves gagne + Plus de 1.5 buts",
+   "conseil_cote": 5.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   }
  ],
  "done": []
