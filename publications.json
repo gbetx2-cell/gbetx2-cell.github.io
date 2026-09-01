@@ -1,35 +1,6 @@
 {
- "generated_at": "2026-09-01T01:44:53.842198+00:00",
+ "generated_at": "2026-09-01T01:50:45.554631+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816747",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Miami Marlins",
-   "kickoff_at": "2026-08-31T22:45Z",
-   "published": true,
-   "value_bet": "Washington Nationals +1,5 @ 1.6061",
-   "value_cote": 1.61,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Miami Marlins — Moins de 4,5 @ 1.7353",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_home",
-     "label": "Total équipe Washington Nationals — Plus de 3,5 @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
   {
    "fixture_id": "baseball_401816754",
    "flag": "⚾",
@@ -1188,6 +1159,38 @@
      "market": "winner",
      "label": "Vainqueur — Boston Red Sox @ 1.6623",
      "odd": 1.66,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816747",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Washington Nationals – Miami Marlins",
+   "kickoff_at": "2026-08-31T22:45Z",
+   "published": true,
+   "value_bet": "Washington Nationals +1,5 @ 1.6061",
+   "value_cote": 1.61,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Miami Marlins — Moins de 4,5 @ 1.7353",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Washington Nationals — Plus de 3,5 @ 1.6897",
+     "odd": 1.69,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
