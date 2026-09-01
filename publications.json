@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T01:15:46.454276+00:00",
+ "generated_at": "2026-09-01T01:22:46.219391+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816748",
@@ -206,31 +206,6 @@
      "odd": 1.74,
      "mise_eur": 200.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1492357",
-   "flag": "🇧🇷",
-   "league": "Serie A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Remo – Coritiba",
-   "kickoff_at": "2026-09-01T01:00:00+02:00",
-   "published": true,
-   "league_id": 71,
-   "home_logo": "https://media.api-sports.io/football/teams/1198.png",
-   "away_logo": "https://media.api-sports.io/football/teams/147.png",
-   "conseil": "Coritiba ou Nul",
-   "conseil_cote": 1.79,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.64,
-     "mise_eur": 200.0
     }
    ]
   },
@@ -523,25 +498,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1593300",
-   "flag": "🇬🇷",
-   "league": "Super League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Levadiakos – Panathinaikos",
-   "kickoff_at": "2026-08-31T18:30:00+02:00",
-   "published": true,
-   "league_id": 197,
-   "home_logo": "https://media.api-sports.io/football/teams/957.png",
-   "away_logo": "https://media.api-sports.io/football/teams/617.png",
-   "conseil": "Panathinaikos ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 2"
-  },
-  {
    "fixture_id": "api_football:1550103",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -559,6 +515,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 4"
+  },
+  {
+   "fixture_id": "api_football:1593300",
+   "flag": "🇬🇷",
+   "league": "Super League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Levadiakos – Panathinaikos",
+   "kickoff_at": "2026-08-31T18:30:00+02:00",
+   "published": true,
+   "league_id": 197,
+   "home_logo": "https://media.api-sports.io/football/teams/957.png",
+   "away_logo": "https://media.api-sports.io/football/teams/617.png",
+   "conseil": "Panathinaikos ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
   },
   {
    "fixture_id": "api_football:1494258",
@@ -781,6 +756,25 @@
    "score": "4 - 0"
   },
   {
+   "fixture_id": "api_football:1565235",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rapid – Universitatea Craiova",
+   "kickoff_at": "2026-08-31T19:30:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
+   "away_logo": "https://media.api-sports.io/football/teams/632.png",
+   "conseil": "Rapid ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1570358",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -807,25 +801,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1565235",
-   "flag": "🇷🇴",
-   "league": "Liga I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rapid – Universitatea Craiova",
-   "kickoff_at": "2026-08-31T19:30:00+02:00",
-   "published": true,
-   "league_id": 283,
-   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
-   "away_logo": "https://media.api-sports.io/football/teams/632.png",
-   "conseil": "Rapid ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1551089",
@@ -986,30 +961,37 @@
    "score": "0 - 0"
   },
   {
-   "fixture_id": "api_football:1575477",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
+   "fixture_id": "api_football:1508848",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
    "sport": "football",
    "sport_label": "Football",
-   "match": "SC Braga – Vitória SC",
+   "match": "Breidablik – Stjarnan",
    "kickoff_at": "2026-08-31T21:15:00+02:00",
    "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/217.png",
-   "away_logo": "https://media.api-sports.io/football/teams/224.png",
-   "conseil": "SC Braga ou Nul",
-   "conseil_cote": 1.23,
-   "conseil_mise_eur": 200.0,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/276.png",
+   "away_logo": "https://media.api-sports.io/football/teams/275.png",
+   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.49,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0",
+   "result": "PERDU",
+   "score": "0 - 2",
    "refonte_value_bets": [
     {
-     "market": "1X2",
-     "label": "SC Braga",
-     "odd": 1.81,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.23,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.26,
+     "mise_eur": 400.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -1042,37 +1024,30 @@
    ]
   },
   {
-   "fixture_id": "api_football:1508848",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
+   "fixture_id": "api_football:1575477",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Breidablik – Stjarnan",
+   "match": "SC Braga – Vitória SC",
    "kickoff_at": "2026-08-31T21:15:00+02:00",
    "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/276.png",
-   "away_logo": "https://media.api-sports.io/football/teams/275.png",
-   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.49,
-   "conseil_mise_eur": 300.0,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/217.png",
+   "away_logo": "https://media.api-sports.io/football/teams/224.png",
+   "conseil": "SC Braga ou Nul",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 2",
+   "result": "GAGNE",
+   "score": "1 - 0",
    "refonte_value_bets": [
     {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.23,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.26,
-     "mise_eur": 400.0,
-     "result": "PERDU"
+     "market": "1X2",
+     "label": "SC Braga",
+     "odd": 1.81,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -1372,6 +1347,34 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.68,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1492357",
+   "flag": "🇧🇷",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Remo – Coritiba",
+   "kickoff_at": "2026-09-01T01:00:00+02:00",
+   "published": true,
+   "league_id": 71,
+   "home_logo": "https://media.api-sports.io/football/teams/1198.png",
+   "away_logo": "https://media.api-sports.io/football/teams/147.png",
+   "conseil": "Coritiba ou Nul",
+   "conseil_cote": 1.79,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.64,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
