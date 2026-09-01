@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T17:11:48.039602+00:00",
+ "generated_at": "2026-09-01T17:35:44.377099+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182721",
@@ -23,42 +23,12 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Corentin Moutet – Dane Sweeny",
-   "kickoff_at": "2026-09-01T16:30Z",
+   "kickoff_at": "2026-09-01T17:45Z",
    "published": true,
    "home_photo": "assets/players/corentin moutet.png",
    "away_photo": "assets/players/dane sweeny.png",
    "conseil": "Victoire Corentin Moutet",
    "conseil_cote": 1.26,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182715",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tristan Schoolkate – Nishesh Basavareddy",
-   "kickoff_at": "2026-09-01T16:30Z",
-   "published": true,
-   "home_photo": "assets/players/tristan schoolkate.png",
-   "away_photo": "assets/players/nishesh basavareddy.png",
-   "conseil": "Victoire Nishesh Basavareddy",
-   "conseil_cote": 1.4,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182683",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Zsombor Piros – Mattia Bellucci",
-   "kickoff_at": "2026-09-01T16:30Z",
-   "published": true,
-   "home_photo": "assets/players/zsombor piros.png",
-   "away_photo": "assets/players/mattia bellucci.png",
-   "conseil": "Victoire Mattia Bellucci",
-   "conseil_cote": 1.47,
    "conseil_mise_eur": 200.0
   },
   {
@@ -68,7 +38,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Francisco Cerundolo – Filip Misolic",
-   "kickoff_at": "2026-09-01T16:30Z",
+   "kickoff_at": "2026-09-01T17:45Z",
    "published": true,
    "home_photo": "assets/players/francisco cerundolo.png",
    "away_photo": "assets/players/filip misolic.png",
@@ -90,6 +60,36 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_182715",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tristan Schoolkate – Nishesh Basavareddy",
+   "kickoff_at": "2026-09-01T17:45Z",
+   "published": true,
+   "home_photo": "assets/players/tristan schoolkate.png",
+   "away_photo": "assets/players/nishesh basavareddy.png",
+   "conseil": "Victoire Nishesh Basavareddy",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182683",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Zsombor Piros – Mattia Bellucci",
+   "kickoff_at": "2026-09-01T17:45Z",
+   "published": true,
+   "home_photo": "assets/players/zsombor piros.png",
+   "away_photo": "assets/players/mattia bellucci.png",
+   "conseil": "Victoire Mattia Bellucci",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "api_football:1582787",
    "flag": "⚽",
    "league": "Premijer Liga",
@@ -105,37 +105,6 @@
    "conseil_cote": 1.52,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1561915",
-   "flag": "🇦🇹",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Wolfsberger AC – Lask Linz",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 218,
-   "home_logo": "https://media.api-sports.io/football/teams/1025.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1026.png",
-   "conseil": "Lask Linz ou Nul",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.43,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.55,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1600333",
@@ -203,6 +172,37 @@
    ]
   },
   {
+   "fixture_id": "api_football:1561915",
+   "flag": "🇦🇹",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Wolfsberger AC – Lask Linz",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 218,
+   "home_logo": "https://media.api-sports.io/football/teams/1025.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1026.png",
+   "conseil": "Lask Linz ou Nul",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.43,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.55,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1603007",
    "flag": "🇸🇦",
    "league": "Pro League",
@@ -224,6 +224,37 @@
      "label": "Les deux équipes marquent",
      "odd": 1.53,
      "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1555377",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Zurich – BSC Young Boys",
+   "kickoff_at": "2026-09-01T20:30:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/783.png",
+   "away_logo": "https://media.api-sports.io/football/teams/565.png",
+   "conseil": "BSC Young Boys gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.73,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.24,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.34,
+     "mise_eur": 400.0
     }
    ]
   }
