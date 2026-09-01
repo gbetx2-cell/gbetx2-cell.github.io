@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T20:58:03.902732+00:00",
+ "generated_at": "2026-09-01T20:58:06.655980+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182736",
@@ -72,6 +72,21 @@
    "away_photo": "assets/players/juan manuel cerundolo.png",
    "conseil": "Victoire Juan Manuel Cerundolo",
    "conseil_cote": 2.22,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182702",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lorenzo Musetti – Arthur Fery",
+   "kickoff_at": "2026-09-01T20:15Z",
+   "published": true,
+   "home_photo": "assets/players/lorenzo musetti.png",
+   "away_photo": "assets/players/arthur fery.png",
+   "conseil": "Victoire Lorenzo Musetti",
+   "conseil_cote": 1.27,
    "conseil_mise_eur": 200.0
   },
   {
@@ -316,25 +331,6 @@
    "score": "4-6, 2-6, 0-6"
   },
   {
-   "fixture_id": "api_football:1508846",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "KR Reykjavik – Vikingur Reykjavik",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/271.png",
-   "away_logo": "https://media.api-sports.io/football/teams/278.png",
-   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1600329",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -368,6 +364,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1508846",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KR Reykjavik – Vikingur Reykjavik",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/271.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1600333",
