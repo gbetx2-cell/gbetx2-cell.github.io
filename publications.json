@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T00:18:47.258700+00:00",
+ "generated_at": "2026-09-01T00:18:54.196412+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816748",
@@ -90,35 +90,6 @@
      "market": "team_total_home",
      "label": "Total équipe Washington Nationals — Plus de 3,5 @ 1.6897",
      "odd": 1.69,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816750",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Boston Red Sox – Seattle Mariners",
-   "kickoff_at": "2026-08-31T22:45Z",
-   "published": true,
-   "value_bet": "Plus de 7,5 runs @ 1.8333",
-   "value_cote": 1.83,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Seattle Mariners +1,5 @ 1.6711",
-     "odd": 1.67,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — Boston Red Sox @ 1.6623",
-     "odd": 1.66,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -1273,6 +1244,38 @@
      "market": "winner",
      "label": "Vainqueur — Atlanta Braves @ 1.4878",
      "odd": 1.49,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816750",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Boston Red Sox – Seattle Mariners",
+   "kickoff_at": "2026-08-31T22:45Z",
+   "published": true,
+   "value_bet": "Plus de 7,5 runs @ 1.8333",
+   "value_cote": 1.83,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "5 - 3 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Seattle Mariners +1,5 @ 1.6711",
+     "odd": 1.67,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Boston Red Sox @ 1.6623",
+     "odd": 1.66,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
