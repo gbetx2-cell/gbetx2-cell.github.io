@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T19:50:47.012979+00:00",
+ "generated_at": "2026-09-01T19:50:53.063194+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182736",
@@ -73,39 +73,6 @@
    "conseil": "Victoire Nishesh Basavareddy",
    "conseil_cote": 1.4,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1600329",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Durban City – Stellenbosch",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/24757.png",
-   "away_logo": "https://media.api-sports.io/football/teams/4905.png",
-   "conseil": "Durban City ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.75,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.51,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.71,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1603007",
@@ -424,6 +391,41 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1600329",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Durban City – Stellenbosch",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/24757.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4905.png",
+   "conseil": "Durban City ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.75,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.51,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.71,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1561915",
