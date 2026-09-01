@@ -1,43 +1,6 @@
 {
- "generated_at": "2026-09-01T03:22:46.918142+00:00",
- "live": [
-  {
-   "fixture_id": "baseball_401816755",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Colorado Rockies – Baltimore Orioles",
-   "kickoff_at": "2026-09-01T00:40Z",
-   "published": true,
-   "value_bet": "Colorado Rockies Plus de 4,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Colorado Rockies +1,5 @ 1.7143",
-     "odd": 1.71,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Baltimore Orioles — Plus de 5,5 @ 1.8475",
-     "odd": 1.85,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 10,5 runs @ 1.7407",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  }
- ],
+ "generated_at": "2026-09-01T04:57:46.011967+00:00",
+ "live": [],
  "done": [
   {
    "fixture_id": "tennis_espn_atp_182655",
@@ -1221,6 +1184,45 @@
      "label": "Les deux équipes marquent",
      "odd": 1.66,
      "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816755",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Colorado Rockies – Baltimore Orioles",
+   "kickoff_at": "2026-09-01T00:40Z",
+   "published": true,
+   "value_bet": "Colorado Rockies Plus de 4,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "1 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Colorado Rockies +1,5 @ 1.7143",
+     "odd": 1.71,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Baltimore Orioles — Plus de 5,5 @ 1.8475",
+     "odd": 1.85,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 10,5 runs @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0,
      "result": "PERDU"
     }
    ]
