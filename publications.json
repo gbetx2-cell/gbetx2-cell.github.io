@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T01:14:51.697726+00:00",
+ "generated_at": "2026-09-01T01:15:46.089224+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816748",
@@ -206,37 +206,6 @@
      "odd": 1.74,
      "mise_eur": 200.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1549757",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Deportivo Pasto – Deportivo Pereira",
-   "kickoff_at": "2026-09-01T01:00:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1126.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1462.png",
-   "conseil": "Deportivo Pasto ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.49,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Deportivo Pasto",
-     "odd": 1.61,
-     "mise_eur": 300.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.68,
-     "mise_eur": 200.0
     }
    ]
   },
@@ -1369,6 +1338,41 @@
      "label": "Les deux équipes marquent",
      "odd": 1.66,
      "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1549757",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Deportivo Pasto – Deportivo Pereira",
+   "kickoff_at": "2026-09-01T01:00:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1126.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1462.png",
+   "conseil": "Deportivo Pasto ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.49,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Deportivo Pasto",
+     "odd": 1.61,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 200.0,
      "result": "PERDU"
     }
    ]
