@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T00:18:54.556638+00:00",
+ "generated_at": "2026-09-01T00:33:47.202863+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816748",
@@ -205,32 +205,6 @@
      "label": "Vainqueur — Houston Astros @ 1.7937",
      "odd": 1.79,
      "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1505514",
-   "flag": "🇨🇱",
-   "league": "Primera División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Union La Calera – D. La Serena",
-   "kickoff_at": "2026-09-01T00:15:00+02:00",
-   "published": true,
-   "league_id": 265,
-   "home_logo": "https://media.api-sports.io/football/teams/2326.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2341.png",
-   "conseil": "D. La Serena ou Nul",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.66,
-     "mise_eur": 100.0,
      "result": "PERDU"
     }
    ]
@@ -1348,6 +1322,34 @@
      "odd": 1.68,
      "mise_eur": 100.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1505514",
+   "flag": "🇨🇱",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Union La Calera – D. La Serena",
+   "kickoff_at": "2026-09-01T00:15:00+02:00",
+   "published": true,
+   "league_id": 265,
+   "home_logo": "https://media.api-sports.io/football/teams/2326.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2341.png",
+   "conseil": "D. La Serena ou Nul",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.66,
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   }
