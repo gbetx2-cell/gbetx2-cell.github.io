@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T20:46:47.391325+00:00",
+ "generated_at": "2026-09-01T20:51:46.019458+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182736",
@@ -45,21 +45,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_182683",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Zsombor Piros – Mattia Bellucci",
-   "kickoff_at": "2026-09-01T18:50Z",
-   "published": true,
-   "home_photo": "assets/players/zsombor piros.png",
-   "away_photo": "assets/players/mattia bellucci.png",
-   "conseil": "Victoire Mattia Bellucci",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_182706",
    "flag": "🎾",
    "league": "US Open",
@@ -95,7 +80,8 @@
      "market": "Cartons O/U 3.5",
      "label": "Plus de 3.5 cartons",
      "odd": 1.61,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -154,7 +140,8 @@
      "market": "Cartons O/U 3.5",
      "label": "Plus de 3.5 cartons",
      "odd": 1.47,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -282,6 +269,23 @@
    "score": "0 - 0"
   },
   {
+   "fixture_id": "tennis_espn_atp_182683",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Zsombor Piros – Mattia Bellucci",
+   "kickoff_at": "2026-09-01T18:50Z",
+   "published": true,
+   "home_photo": "assets/players/zsombor piros.png",
+   "away_photo": "assets/players/mattia bellucci.png",
+   "conseil": "Victoire Mattia Bellucci",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "4-6, 2-6, 0-6"
+  },
+  {
    "fixture_id": "api_football:1600333",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -299,25 +303,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 4"
-  },
-  {
-   "fixture_id": "api_football:1508846",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "KR Reykjavik – Vikingur Reykjavik",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/271.png",
-   "away_logo": "https://media.api-sports.io/football/teams/278.png",
-   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1600329",
@@ -388,6 +373,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1508846",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KR Reykjavik – Vikingur Reykjavik",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/271.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1603007",
