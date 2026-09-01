@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T01:44:47.686537+00:00",
+ "generated_at": "2026-09-01T01:44:53.523250+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816747",
@@ -27,35 +27,6 @@
      "odd": 1.69,
      "mise_eur": 200.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816753",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Minnesota Twins – Detroit Tigers",
-   "kickoff_at": "2026-08-31T23:40Z",
-   "published": true,
-   "value_bet": "Plus de 8,5 runs @ 1.7692",
-   "value_cote": 1.77,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Detroit Tigers +1,5 @ 1.5128",
-     "odd": 1.51,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Detroit Tigers — Moins de 4,5 @ 1.7143",
-     "odd": 1.71,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -1219,6 +1190,38 @@
      "odd": 1.66,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816753",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Minnesota Twins – Detroit Tigers",
+   "kickoff_at": "2026-08-31T23:40Z",
+   "published": true,
+   "value_bet": "Plus de 8,5 runs @ 1.7692",
+   "value_cote": 1.77,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "9 - 1 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Detroit Tigers +1,5 @ 1.5128",
+     "odd": 1.51,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Detroit Tigers — Moins de 4,5 @ 1.7143",
+     "odd": 1.71,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
