@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T22:10:29.268482+00:00",
+ "generated_at": "2026-09-01T22:15:21.466451+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182710",
@@ -177,13 +177,15 @@
      "market": "winner",
      "label": "Vainqueur — Tampa Bay Rays @ 1.7407",
      "odd": 1.74,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "handicap",
      "label": "Écart de points — New York Mets +1,5 @ 1.5556",
      "odd": 1.56,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -204,13 +206,15 @@
      "market": "winner",
      "label": "Vainqueur — Pittsburgh Pirates @ 1.625",
      "odd": 1.62,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "team_total_away",
      "label": "Total équipe San Francisco Giants — Moins de 3,5 @ 1.7042",
      "odd": 1.7,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -231,7 +235,8 @@
      "market": "winner",
      "label": "Vainqueur — San Diego Padres @ 1.7576",
      "odd": 1.76,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -252,12 +257,35 @@
      "market": "winner",
      "label": "Vainqueur — Cleveland Guardians @ 1.578",
      "odd": 1.58,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "handicap",
      "label": "Écart de points — Toronto Blue Jays +1,5 @ 1.6897",
      "odd": 1.69,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816758",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Washington Nationals – Atlanta Braves",
+   "kickoff_at": "2026-09-01T22:45Z",
+   "published": true,
+   "value_bet": "Washington Nationals +1,5 @ 1.8",
+   "value_cote": 1.8,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "totals",
+     "label": "Total — Plus de 9,5 runs @ 1.8",
+     "odd": 1.8,
      "mise_eur": 200.0
     }
    ]
