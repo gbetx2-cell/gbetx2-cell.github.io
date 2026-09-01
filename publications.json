@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T21:18:18.451388+00:00",
+ "generated_at": "2026-09-01T21:27:21.192381+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182715",
@@ -14,36 +14,6 @@
    "away_photo": "assets/players/nishesh basavareddy.png",
    "conseil": "Victoire Nishesh Basavareddy",
    "conseil_cote": 1.4,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182706",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Corentin Moutet – Dane Sweeny",
-   "kickoff_at": "2026-09-01T18:50Z",
-   "published": true,
-   "home_photo": "assets/players/corentin moutet.png",
-   "away_photo": "assets/players/dane sweeny.png",
-   "conseil": "Victoire Corentin Moutet",
-   "conseil_cote": 1.26,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182710",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Arthur Gea – Juan Manuel Cerundolo",
-   "kickoff_at": "2026-09-01T20:15Z",
-   "published": true,
-   "home_photo": "assets/players/arthur gea.png",
-   "away_photo": "assets/players/juan manuel cerundolo.png",
-   "conseil": "Victoire Juan Manuel Cerundolo",
-   "conseil_cote": 2.22,
    "conseil_mise_eur": 200.0
   },
   {
@@ -62,6 +32,21 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "tennis_espn_atp_182710",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Arthur Gea – Juan Manuel Cerundolo",
+   "kickoff_at": "2026-09-01T20:15Z",
+   "published": true,
+   "home_photo": "assets/players/arthur gea.png",
+   "away_photo": "assets/players/juan manuel cerundolo.png",
+   "conseil": "Victoire Juan Manuel Cerundolo",
+   "conseil_cote": 2.22,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_182702",
    "flag": "🎾",
    "league": "US Open",
@@ -77,21 +62,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_182685",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Carlos Taberner – Zizou Bergs",
-   "kickoff_at": "2026-09-01T20:15Z",
-   "published": true,
-   "home_photo": "assets/players/carlos taberner.png",
-   "away_photo": "assets/players/zizou bergs.png",
-   "conseil": "Victoire Zizou Bergs",
-   "conseil_cote": 1.06,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_182681",
    "flag": "🎾",
    "league": "US Open",
@@ -104,6 +74,21 @@
    "away_photo": "assets/players/jesper de jong.png",
    "conseil": "Victoire Jesper de Jong",
    "conseil_cote": 1.85,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182685",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carlos Taberner – Zizou Bergs",
+   "kickoff_at": "2026-09-01T21:20Z",
+   "published": true,
+   "home_photo": "assets/players/carlos taberner.png",
+   "away_photo": "assets/players/zizou bergs.png",
+   "conseil": "Victoire Zizou Bergs",
+   "conseil_cote": 1.06,
    "conseil_mise_eur": 200.0
   },
   {
@@ -206,6 +191,23 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182706",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Corentin Moutet – Dane Sweeny",
+   "kickoff_at": "2026-09-01T18:50Z",
+   "published": true,
+   "home_photo": "assets/players/corentin moutet.png",
+   "away_photo": "assets/players/dane sweeny.png",
+   "conseil": "Victoire Corentin Moutet",
+   "conseil_cote": 1.26,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "STATUS_RETIRED"
   },
   {
    "fixture_id": "tennis_espn_atp_182683",
@@ -396,72 +398,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1582789",
-   "flag": "⚽",
-   "league": "Premijer Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Zrinjski – BSK Banja Luka",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/588.png",
-   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
-   "conseil": "Zrinjski gagne",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "3 - 1"
-  },
-  {
-   "fixture_id": "api_football:1563123",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sheffield Utd – Bolton",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/62.png",
-   "away_logo": "https://media.api-sports.io/football/teams/68.png",
-   "conseil": "Sheffield Utd ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.71,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 2"
-  },
-  {
-   "fixture_id": "api_football:1563125",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Swansea – Watford",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/76.png",
-   "away_logo": "https://media.api-sports.io/football/teams/38.png",
-   "conseil": "Swansea ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.47,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1563126",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -498,6 +434,72 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1563123",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sheffield Utd – Bolton",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/62.png",
+   "away_logo": "https://media.api-sports.io/football/teams/68.png",
+   "conseil": "Sheffield Utd ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.71,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 2"
+  },
+  {
+   "fixture_id": "api_football:1582789",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Zrinjski – BSK Banja Luka",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/588.png",
+   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
+   "conseil": "Zrinjski gagne",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1"
+  },
+  {
+   "fixture_id": "api_football:1563125",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Swansea – Watford",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/76.png",
+   "away_logo": "https://media.api-sports.io/football/teams/38.png",
+   "conseil": "Swansea ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.47,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1563122",
@@ -592,13 +594,15 @@
      "market": "Corners O/U 9.5",
      "label": "Plus de 9.5 corners",
      "odd": 1.58,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "Cartons O/U 3.5",
      "label": "Plus de 3.5 cartons",
      "odd": 1.46,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
