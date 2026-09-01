@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T19:34:47.147427+00:00",
+ "generated_at": "2026-09-01T19:50:46.663373+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182736",
@@ -95,44 +95,15 @@
      "market": "Over/Under 2.5",
      "label": "Moins de 2.5 buts",
      "odd": 1.51,
-     "mise_eur": 400.0
+     "mise_eur": 400.0,
+     "result": "GAGNE"
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.71,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1561915",
-   "flag": "🇦🇹",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Wolfsberger AC – Lask Linz",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 218,
-   "home_logo": "https://media.api-sports.io/football/teams/1025.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1026.png",
-   "conseil": "Lask Linz ou Nul",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.43,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.55,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -453,6 +424,41 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1561915",
+   "flag": "🇦🇹",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Wolfsberger AC – Lask Linz",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 218,
+   "home_logo": "https://media.api-sports.io/football/teams/1025.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1026.png",
+   "conseil": "Lask Linz ou Nul",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.43,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.55,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
