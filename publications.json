@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T22:15:24.529234+00:00",
+ "generated_at": "2026-09-01T22:40:26.559234+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182710",
@@ -14,21 +14,6 @@
    "away_photo": "assets/players/juan manuel cerundolo.png",
    "conseil": "Victoire Juan Manuel Cerundolo",
    "conseil_cote": 2.22,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182702",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lorenzo Musetti – Arthur Fery",
-   "kickoff_at": "2026-09-01T20:15Z",
-   "published": true,
-   "home_photo": "assets/players/lorenzo musetti.png",
-   "away_photo": "assets/players/arthur fery.png",
-   "conseil": "Victoire Lorenzo Musetti",
-   "conseil_cote": 1.27,
    "conseil_mise_eur": 200.0
   },
   {
@@ -286,13 +271,15 @@
      "market": "handicap",
      "label": "Écart de points — Seattle Mariners +1,5 @ 1.4878",
      "odd": 1.49,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "totals",
      "label": "Total — Plus de 7,0 runs @ 1.8",
      "odd": 1.8,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -313,7 +300,8 @@
      "market": "totals",
      "label": "Total — Plus de 9,5 runs @ 1.8",
      "odd": 1.8,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -606,6 +594,23 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_182702",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lorenzo Musetti – Arthur Fery",
+   "kickoff_at": "2026-09-01T20:15Z",
+   "published": true,
+   "home_photo": "assets/players/lorenzo musetti.png",
+   "away_photo": "assets/players/arthur fery.png",
+   "conseil": "Victoire Lorenzo Musetti",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 6-3, 7-5"
+  },
+  {
    "fixture_id": "tennis_espn_atp_182694",
    "flag": "🎾",
    "league": "US Open",
@@ -705,23 +710,32 @@
    ]
   },
   {
-   "fixture_id": "api_football:1582789",
-   "flag": "⚽",
-   "league": "Premijer Liga",
+   "fixture_id": "api_football:1563122",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Zrinjski – BSK Banja Luka",
+   "match": "Preston – Bristol City",
    "kickoff_at": "2026-09-01T20:45:00+02:00",
    "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/588.png",
-   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
-   "conseil": "Zrinjski gagne",
-   "conseil_cote": 1.22,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/59.png",
+   "away_logo": "https://media.api-sports.io/football/teams/56.png",
+   "conseil": "Bristol City gagne",
+   "conseil_cote": 2.49,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "3 - 1"
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1563120",
@@ -762,32 +776,23 @@
    "score": "4 - 2"
   },
   {
-   "fixture_id": "api_football:1563122",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
+   "fixture_id": "api_football:1582789",
+   "flag": "⚽",
+   "league": "Premijer Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Preston – Bristol City",
+   "match": "Zrinjski – BSK Banja Luka",
    "kickoff_at": "2026-09-01T20:45:00+02:00",
    "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/59.png",
-   "away_logo": "https://media.api-sports.io/football/teams/56.png",
-   "conseil": "Bristol City gagne",
-   "conseil_cote": 2.49,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/588.png",
+   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
+   "conseil": "Zrinjski gagne",
+   "conseil_cote": 1.22,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.61,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
+   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1563124",
