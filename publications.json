@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T23:36:00.672752+00:00",
+ "generated_at": "2026-09-01T23:38:13.292907+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182710",
@@ -206,33 +206,24 @@
    ]
   },
   {
-   "fixture_id": "api_football:1519473",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Delfin SC – Tecnico Universitario",
-   "kickoff_at": "2026-09-01T23:30:00+02:00",
+   "fixture_id": "baseball_401816768",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Milwaukee Brewers",
+   "kickoff_at": "2026-09-01T23:40Z",
    "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1149.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1151.png",
-   "conseil": "Delfin SC ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
+   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.7143",
+   "value_cote": 1.71,
+   "value_mise_eur": 200.0,
    "refonte_value_bets": [
     {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
+     "market": "handicap",
+     "label": "Écart de points — Milwaukee Brewers +1,5 @ 1.5405",
      "odd": 1.54,
-     "mise_eur": 300.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.68,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -266,26 +257,19 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816768",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Milwaukee Brewers",
-   "kickoff_at": "2026-09-01T23:40Z",
+   "fixture_id": "tennis_espn_atp_182697",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Botic Van De Zandschulp – Jan Choinski",
+   "kickoff_at": "2026-09-01T23:45Z",
    "published": true,
-   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.7143",
-   "value_cote": 1.71,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Milwaukee Brewers +1,5 @ 1.5405",
-     "odd": 1.54,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
+   "home_photo": "assets/players/botic van de zandschulp.png",
+   "away_photo": "assets/players/jan choinski.png",
+   "conseil": "Victoire Botic Van De Zandschulp",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_182712",
@@ -316,21 +300,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182697",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Botic Van De Zandschulp – Jan Choinski",
-   "kickoff_at": "2026-09-01T23:45Z",
-   "published": true,
-   "home_photo": "assets/players/botic van de zandschulp.png",
-   "away_photo": "assets/players/jan choinski.png",
-   "conseil": "Victoire Botic Van De Zandschulp",
-   "conseil_cote": 1.33,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "baseball_401816764",
    "flag": "⚾",
    "league": "MLB",
@@ -347,19 +316,22 @@
      "market": "winner",
      "label": "Vainqueur — Texas Rangers @ 1.463",
      "odd": 1.46,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "market": "team_total_home",
      "label": "Total équipe Texas Rangers — Moins de 4,5 @ 1.7812",
      "odd": 1.78,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "team_total_away",
      "label": "Total équipe Athletics — Plus de 2,5 @ 1.6897",
      "odd": 1.69,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -955,6 +927,41 @@
      "odd": 1.8,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1519473",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Delfin SC – Tecnico Universitario",
+   "kickoff_at": "2026-09-01T23:30:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1149.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1151.png",
+   "conseil": "Delfin SC ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.54,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
