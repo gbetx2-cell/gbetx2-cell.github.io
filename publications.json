@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T16:04:43.574199+00:00",
+ "generated_at": "2026-09-01T16:35:43.221221+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182721",
@@ -14,21 +14,6 @@
    "away_photo": "assets/players/francisco comesana.png",
    "conseil": "Victoire Flavio Cobolli",
    "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182706",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Corentin Moutet – Dane Sweeny",
-   "kickoff_at": "2026-09-01T16:30Z",
-   "published": true,
-   "home_photo": "assets/players/corentin moutet.png",
-   "away_photo": "assets/players/dane sweeny.png",
-   "conseil": "Victoire Corentin Moutet",
-   "conseil_cote": 1.26,
    "conseil_mise_eur": 200.0
   },
   {
@@ -75,6 +60,21 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_182706",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Corentin Moutet – Dane Sweeny",
+   "kickoff_at": "2026-09-01T16:30Z",
+   "published": true,
+   "home_photo": "assets/players/corentin moutet.png",
+   "away_photo": "assets/players/dane sweeny.png",
+   "conseil": "Victoire Corentin Moutet",
+   "conseil_cote": 1.26,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_182683",
    "flag": "🎾",
    "league": "US Open",
@@ -105,6 +105,37 @@
    "conseil_cote": 1.52,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1561915",
+   "flag": "🇦🇹",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Wolfsberger AC – Lask Linz",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 218,
+   "home_logo": "https://media.api-sports.io/football/teams/1025.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1026.png",
+   "conseil": "Lask Linz ou Nul",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.43,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.55,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": []
