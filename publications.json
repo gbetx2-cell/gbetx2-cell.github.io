@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T22:40:26.559234+00:00",
+ "generated_at": "2026-09-01T23:10:23.607184+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182710",
@@ -255,6 +255,28 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816758",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Washington Nationals – Atlanta Braves",
+   "kickoff_at": "2026-09-01T22:45Z",
+   "published": true,
+   "value_bet": "Washington Nationals +1,5 @ 1.8",
+   "value_cote": 1.8,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "totals",
+     "label": "Total — Plus de 9,5 runs @ 1.8",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816761",
    "flag": "⚾",
    "league": "MLB",
@@ -277,28 +299,6 @@
     {
      "market": "totals",
      "label": "Total — Plus de 7,0 runs @ 1.8",
-     "odd": 1.8,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816758",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Atlanta Braves",
-   "kickoff_at": "2026-09-01T22:45Z",
-   "published": true,
-   "value_bet": "Washington Nationals +1,5 @ 1.8",
-   "value_cote": 1.8,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "totals",
-     "label": "Total — Plus de 9,5 runs @ 1.8",
      "odd": 1.8,
      "mise_eur": 200.0,
      "result": "PERDU"
@@ -332,6 +332,33 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.68,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816766",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Minnesota Twins – Detroit Tigers",
+   "kickoff_at": "2026-09-01T23:40Z",
+   "published": true,
+   "value_bet": "Minnesota Twins +1,5 @ 1.5618",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Minnesota Twins — Moins de 4,5 @ 1.6667",
+     "odd": 1.67,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Detroit Tigers — Moins de 4,5 @ 1.7246",
+     "odd": 1.72,
      "mise_eur": 200.0
     }
    ]
@@ -407,23 +434,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182715",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tristan Schoolkate – Nishesh Basavareddy",
-   "kickoff_at": "2026-09-01T18:50Z",
-   "published": true,
-   "home_photo": "assets/players/tristan schoolkate.png",
-   "away_photo": "assets/players/nishesh basavareddy.png",
-   "conseil": "Victoire Nishesh Basavareddy",
-   "conseil_cote": 1.4,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "7-6, 3-6, 6-3, 6-4"
-  },
-  {
    "fixture_id": "tennis_espn_atp_182706",
    "flag": "🎾",
    "league": "US Open",
@@ -441,6 +451,23 @@
    "score": "STATUS_RETIRED"
   },
   {
+   "fixture_id": "tennis_espn_atp_182715",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tristan Schoolkate – Nishesh Basavareddy",
+   "kickoff_at": "2026-09-01T18:50Z",
+   "published": true,
+   "home_photo": "assets/players/tristan schoolkate.png",
+   "away_photo": "assets/players/nishesh basavareddy.png",
+   "conseil": "Victoire Nishesh Basavareddy",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "7-6, 3-6, 6-3, 6-4"
+  },
+  {
    "fixture_id": "tennis_espn_atp_182683",
    "flag": "🎾",
    "league": "US Open",
@@ -456,6 +483,44 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "4-6, 2-6, 0-6"
+  },
+  {
+   "fixture_id": "api_football:1508846",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KR Reykjavik – Vikingur Reykjavik",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/271.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1600333",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kruger United – Orlando Pirates",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
+   "conseil": "Orlando Pirates gagne",
+   "conseil_cote": 1.34,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 4"
   },
   {
    "fixture_id": "api_football:1561915",
@@ -493,25 +558,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1600333",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kruger United – Orlando Pirates",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
-   "conseil": "Orlando Pirates gagne",
-   "conseil_cote": 1.34,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 4"
-  },
-  {
    "fixture_id": "api_football:1600329",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -545,25 +591,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1508846",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "KR Reykjavik – Vikingur Reykjavik",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/271.png",
-   "away_logo": "https://media.api-sports.io/football/teams/278.png",
-   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1603007",
@@ -663,25 +690,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1563123",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sheffield Utd – Bolton",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/62.png",
-   "away_logo": "https://media.api-sports.io/football/teams/68.png",
-   "conseil": "Sheffield Utd ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.71,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 2"
-  },
-  {
    "fixture_id": "api_football:1563125",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -708,6 +716,44 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1563123",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sheffield Utd – Bolton",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/62.png",
+   "away_logo": "https://media.api-sports.io/football/teams/68.png",
+   "conseil": "Sheffield Utd ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.71,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 2"
+  },
+  {
+   "fixture_id": "api_football:1582789",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Zrinjski – BSK Banja Luka",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/588.png",
+   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
+   "conseil": "Zrinjski gagne",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1563122",
@@ -738,25 +784,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1563120",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lincoln – Blackburn",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/1379.png",
-   "away_logo": "https://media.api-sports.io/football/teams/67.png",
-   "conseil": "Blackburn ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.16,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1563126",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -776,23 +803,23 @@
    "score": "4 - 2"
   },
   {
-   "fixture_id": "api_football:1582789",
-   "flag": "⚽",
-   "league": "Premijer Liga",
+   "fixture_id": "api_football:1563120",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Zrinjski – BSK Banja Luka",
+   "match": "Lincoln – Blackburn",
    "kickoff_at": "2026-09-01T20:45:00+02:00",
    "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/588.png",
-   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
-   "conseil": "Zrinjski gagne",
-   "conseil_cote": 1.22,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/1379.png",
+   "away_logo": "https://media.api-sports.io/football/teams/67.png",
+   "conseil": "Blackburn ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.16,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "3 - 1"
+   "result": "PERDU",
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1563124",
