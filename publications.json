@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T23:10:25.281750+00:00",
+ "generated_at": "2026-09-01T23:13:19.922633+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182710",
@@ -277,35 +277,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816761",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Boston Red Sox – Seattle Mariners",
-   "kickoff_at": "2026-09-01T22:45Z",
-   "published": true,
-   "value_bet": "Seattle Mariners Plus de 3,5 @ 2.0",
-   "value_cote": 2.0,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Seattle Mariners +1,5 @ 1.4878",
-     "odd": 1.49,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 7,0 runs @ 1.8",
-     "odd": 1.8,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1519473",
    "flag": "🇵🇾",
    "league": "Liga Pro",
@@ -353,13 +324,15 @@
      "market": "team_total_home",
      "label": "Total équipe Minnesota Twins — Moins de 4,5 @ 1.6667",
      "odd": 1.67,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "team_total_away",
      "label": "Total équipe Detroit Tigers — Moins de 4,5 @ 1.7246",
      "odd": 1.72,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -380,7 +353,8 @@
      "market": "handicap",
      "label": "Écart de points — Milwaukee Brewers +1,5 @ 1.5405",
      "odd": 1.54,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
@@ -916,6 +890,38 @@
      "odd": 1.46,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816761",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Boston Red Sox – Seattle Mariners",
+   "kickoff_at": "2026-09-01T22:45Z",
+   "published": true,
+   "value_bet": "Seattle Mariners Plus de 3,5 @ 2.0",
+   "value_cote": 2.0,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "1 - 6 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Seattle Mariners +1,5 @ 1.4878",
+     "odd": 1.49,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 7,0 runs @ 1.8",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
