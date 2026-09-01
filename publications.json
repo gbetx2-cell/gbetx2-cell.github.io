@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T20:58:12.616176+00:00",
+ "generated_at": "2026-09-01T21:00:23.329330+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182736",
@@ -60,6 +60,21 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "tennis_espn_atp_182702",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lorenzo Musetti – Arthur Fery",
+   "kickoff_at": "2026-09-01T20:15Z",
+   "published": true,
+   "home_photo": "assets/players/lorenzo musetti.png",
+   "away_photo": "assets/players/arthur fery.png",
+   "conseil": "Victoire Lorenzo Musetti",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_182710",
    "flag": "🎾",
    "league": "US Open",
@@ -90,21 +105,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_182702",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lorenzo Musetti – Arthur Fery",
-   "kickoff_at": "2026-09-01T20:15Z",
-   "published": true,
-   "home_photo": "assets/players/lorenzo musetti.png",
-   "away_photo": "assets/players/arthur fery.png",
-   "conseil": "Victoire Lorenzo Musetti",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_182694",
    "flag": "🎾",
    "league": "US Open",
@@ -118,49 +118,6 @@
    "conseil": "Victoire Jan-Lennard Struff",
    "conseil_cote": 1.45,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1563122",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Preston – Bristol City",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/59.png",
-   "away_logo": "https://media.api-sports.io/football/teams/56.png",
-   "conseil": "Bristol City gagne",
-   "conseil_cote": 2.49,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.61,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1563120",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lincoln – Blackburn",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/1379.png",
-   "away_logo": "https://media.api-sports.io/football/teams/67.png",
-   "conseil": "Blackburn ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.16,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1563125",
@@ -204,6 +161,49 @@
    "conseil_cote": 1.71,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1563120",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lincoln – Blackburn",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/1379.png",
+   "away_logo": "https://media.api-sports.io/football/teams/67.png",
+   "conseil": "Blackburn ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.16,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1563122",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Preston – Bristol City",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/59.png",
+   "away_logo": "https://media.api-sports.io/football/teams/56.png",
+   "conseil": "Bristol City gagne",
+   "conseil_cote": 2.49,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1563126",
@@ -304,6 +304,37 @@
      "mise_eur": 100.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1519473",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Delfin SC – Tecnico Universitario",
+   "kickoff_at": "2026-09-01T23:30:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1149.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1151.png",
+   "conseil": "Delfin SC ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.54,
+     "mise_eur": 300.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -359,41 +390,6 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "4-6, 2-6, 0-6"
-  },
-  {
-   "fixture_id": "api_football:1600329",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Durban City – Stellenbosch",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/24757.png",
-   "away_logo": "https://media.api-sports.io/football/teams/4905.png",
-   "conseil": "Durban City ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.75,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.51,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.71,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1508846",
@@ -463,6 +459,41 @@
      "market": "BTTS",
      "label": "Les deux équipes marquent",
      "odd": 1.55,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1600329",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Durban City – Stellenbosch",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/24757.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4905.png",
+   "conseil": "Durban City ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.75,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.51,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.71,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
