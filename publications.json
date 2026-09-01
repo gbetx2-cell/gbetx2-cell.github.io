@@ -1,35 +1,6 @@
 {
- "generated_at": "2026-09-01T01:22:46.563964+00:00",
+ "generated_at": "2026-09-01T01:44:47.686537+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816748",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – New York Mets",
-   "kickoff_at": "2026-08-31T22:40Z",
-   "published": true,
-   "value_bet": "Plus de 7,5 runs @ 1.8",
-   "value_cote": 1.8,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — New York Mets +1,5 @ 1.7407",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — Tampa Bay Rays @ 1.5525",
-     "odd": 1.55,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
   {
    "fixture_id": "baseball_401816747",
    "flag": "⚾",
@@ -60,19 +31,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816754",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Milwaukee Brewers",
-   "kickoff_at": "2026-08-31T23:40Z",
-   "published": true,
-   "value_bet": "Milwaukee Brewers +1,5 @ 1.4762",
-   "value_cote": 1.48,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "baseball_401816753",
    "flag": "⚾",
    "league": "MLB",
@@ -100,6 +58,19 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816754",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Milwaukee Brewers",
+   "kickoff_at": "2026-08-31T23:40Z",
+   "published": true,
+   "value_bet": "Milwaukee Brewers +1,5 @ 1.4762",
+   "value_cote": 1.48,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816751",
@@ -210,37 +181,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1493105",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tigre – Barracas Central",
-   "kickoff_at": "2026-09-01T02:15:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/452.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2432.png",
-   "conseil": "Tigre ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.34,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.38,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.49,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1493102",
    "flag": "🇦🇷",
    "league": "Liga Profesional Argentina",
@@ -267,6 +207,37 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.52,
+     "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493105",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tigre – Barracas Central",
+   "kickoff_at": "2026-09-01T02:15:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/452.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2432.png",
+   "conseil": "Tigre ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.34,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.38,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.49,
      "mise_eur": 300.0
     }
    ]
@@ -756,25 +727,6 @@
    "score": "4 - 0"
   },
   {
-   "fixture_id": "api_football:1565235",
-   "flag": "🇷🇴",
-   "league": "Liga I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rapid – Universitatea Craiova",
-   "kickoff_at": "2026-08-31T19:30:00+02:00",
-   "published": true,
-   "league_id": 283,
-   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
-   "away_logo": "https://media.api-sports.io/football/teams/632.png",
-   "conseil": "Rapid ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1570358",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -801,6 +753,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1565235",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rapid – Universitatea Craiova",
+   "kickoff_at": "2026-08-31T19:30:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/6231.png",
+   "away_logo": "https://media.api-sports.io/football/teams/632.png",
+   "conseil": "Rapid ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1551089",
@@ -923,25 +894,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1557377",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Aston Villa – Arsenal",
-   "kickoff_at": "2026-08-31T21:00:00+02:00",
-   "published": true,
-   "league_id": 39,
-   "home_logo": "https://media.api-sports.io/football/teams/66.png",
-   "away_logo": "https://media.api-sports.io/football/teams/42.png",
-   "conseil": "Arsenal gagne",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 1"
-  },
-  {
    "fixture_id": "api_football:1548517",
    "flag": "🇭🇷",
    "league": "HNL",
@@ -959,6 +911,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1557377",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aston Villa – Arsenal",
+   "kickoff_at": "2026-08-31T21:00:00+02:00",
+   "published": true,
+   "league_id": 39,
+   "home_logo": "https://media.api-sports.io/football/teams/66.png",
+   "away_logo": "https://media.api-sports.io/football/teams/42.png",
+   "conseil": "Arsenal gagne",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1"
   },
   {
    "fixture_id": "api_football:1508848",
@@ -996,34 +967,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1575476",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Benfica – Estoril",
-   "kickoff_at": "2026-08-31T21:15:00+02:00",
-   "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/211.png",
-   "away_logo": "https://media.api-sports.io/football/teams/230.png",
-   "conseil": "Benfica gagne",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.27,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1575477",
    "flag": "🇵🇹",
    "league": "Primeira Liga",
@@ -1047,6 +990,34 @@
      "label": "SC Braga",
      "odd": 1.81,
      "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1575476",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Benfica – Estoril",
+   "kickoff_at": "2026-08-31T21:15:00+02:00",
+   "published": true,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/211.png",
+   "away_logo": "https://media.api-sports.io/football/teams/230.png",
+   "conseil": "Benfica gagne",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.27,
+     "mise_eur": 200.0,
      "result": "GAGNE"
     }
    ]
@@ -1188,6 +1159,38 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816748",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – New York Mets",
+   "kickoff_at": "2026-08-31T22:40Z",
+   "published": true,
+   "value_bet": "Plus de 7,5 runs @ 1.8",
+   "value_cote": 1.8,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — New York Mets +1,5 @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Tampa Bay Rays @ 1.5525",
+     "odd": 1.55,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816750",
    "flag": "⚾",
    "league": "MLB",
@@ -1216,6 +1219,34 @@
      "odd": 1.66,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493096",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Defensa Y Justicia – Platense",
+   "kickoff_at": "2026-09-01T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/442.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "conseil": "Defensa Y Justicia ou Nul",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -1256,34 +1287,6 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.62,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1493096",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Defensa Y Justicia – Platense",
-   "kickoff_at": "2026-09-01T00:00:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/442.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
-   "conseil": "Defensa Y Justicia ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.68,
      "mise_eur": 100.0,
      "result": "GAGNE"
     }
