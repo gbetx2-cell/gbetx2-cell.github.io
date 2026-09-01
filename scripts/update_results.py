@@ -324,6 +324,156 @@ def fetch_period_stats() -> dict:
     return result
 
 
+def fetch_league_stats() -> dict:
+    """Bilan reel PAR LIGUE (n/w/l/roi), pour le globe de la page
+    Performance (26/08/2026, demande explicite "recopie le prototype a
+    l'identique ... et mets nos donnees" -- le prototype colorait chaque
+    pays selon le ROI et affichait un detail par ligue dans la popup,
+    donnees qui n'existaient nulle part cote serveur jusqu'ici).
+
+    paris.competition stocke deja le league_id API-Football numerique tel
+    quel pour le foot (ex. '39'=Premier League, '292'=K League 1, verifie
+    en direct) -- aucune colonne/migration necessaire, juste grouper dessus.
+    Cle de retour = str(league_id). Foot uniquement (seul sport dont le
+    globe a un vrai decoupage par pays/ligue dans le prototype)."""
+    import psycopg2
+
+    db = os.environ.get("DATABASE_URL")
+    if not db:
+        raise SystemExit("DATABASE_URL manquant")
+    conn = psycopg2.connect(db, connect_timeout=10)
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT competition, resultat, COALESCE(mise,0), COALESCE(pnl,0)
+        FROM paris
+        WHERE sport = 'football'
+          AND resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
+          AND competition ~ '^[0-9]+$'
+        """,
+    )
+    rows = cur.fetchall()
+    conn.close()
+
+    leagues: dict = {}
+    for competition, resultat, mise, pnl in rows:
+        b = leagues.setdefault(competition, {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0})
+        b["n"] += 1
+        if resultat in RESULTAT_GAGNE:
+            b["w"] += 1
+        elif resultat == "PERDU":
+            b["l"] += 1
+        b["stake"] += float(mise or 0)
+        b["pnl"] += float(pnl or 0)
+
+    return {
+        lid: {
+            "n": b["n"], "w": b["w"], "l": b["l"],
+            "roi": round(b["pnl"] / b["stake"] * 100, 1) if b["stake"] else 0.0,
+        }
+        for lid, b in leagues.items()
+    }
+
+
+# Tournois tennis deja places sur le globe (site/performance.html::
+# LEAGUE_COUNTRIES), verifies en direct contre ESPN (venue.fullName) au
+# moment de leur ajout -- jamais une ville devinee. Liste tenue a jour
+# manuellement (cf _alert_new_tennis_tournaments ci-dessous, qui signale
+# tout nouveau tournoi avec des paris reels regles mais absent d'ici,
+# plutot que de deviner des coordonnees automatiquement).
+TENNIS_TOURNAMENT_CITIES = frozenset({
+    "US Open", "Ennoble Care Philly Open", "Winston-Salem Open", "Cincinnati Open",
+    "The Memphis Classic", "Mubadala DC Open", "Mubadala Citi DC Open",
+    "Abierto GNP Seguros", "Mifel Tennis Open by Telcel Oppo", "T-Mobile Polish Open",
+    "Odlum Brown VanOpen", "Palermo Ladies Open", "Millennium Estoril Open",
+    "MSC Hamburg Ladies Open", "Generali Open", "Livesport Prague Open",
+    "Axeria Open 2026 powered by Intaro Sport",
+})
+
+# Anti-spam (meme principe que _alert_sync_failures dans jobs/site_stats_sync.py) :
+# alerte au plus une fois par tournoi et par process (redemarre a chaque
+# redeploiement Railway) -- jamais une alerte a chaque appel de cette
+# fonction (rafraichie par le client toutes les 20s).
+_alerted_new_tennis_tournaments: set = set()
+
+
+def _alert_new_tennis_tournaments(tournament_names) -> None:
+    """Signale un tournoi avec des paris reels regles mais absent du globe
+    (28/08/2026, demande explicite "a chaque nouveaux tournois tu rajoutes
+    dans le globe a sa bonne place") -- jamais de coordonnees devinees
+    automatiquement (verifie en direct pour les 17 tournois initiaux que
+    le meme nom de tournoi peut recouvrir 2 ecritures differentes du meme
+    evenement reel, ex. "Mubadala DC Open"/"Mubadala Citi DC Open") :
+    alerte admin pour ajout manuel verifie, best-effort, jamais bloquant."""
+    new_ones = [t for t in tournament_names
+                if t not in TENNIS_TOURNAMENT_CITIES and t not in _alerted_new_tennis_tournaments]
+    if not new_ones:
+        return
+    for t in new_ones:
+        _alerted_new_tennis_tournaments.add(t)
+    try:
+        from tg_bot.alerts import _envoyer
+        _envoyer(
+            "\U0001F3BE⚠️ <b>Nouveau tournoi tennis absent du globe Performance</b>\n\n"
+            + "\n".join(f"- {t}" for t in new_ones)
+            + "\n\n<i>Des paris reels sont deja regles dessus -- ajouter sa ville/pays reels "
+              "a TENNIS_TOURNAMENT_CITIES (scripts/export_site_results.py) et au globe "
+              "(site/performance.html::LEAGUE_COUNTRIES).</i>"
+        )
+    except Exception as e:
+        print(f"[TennisGlobe] alerte nouveau tournoi echouee (non bloquant): {e}")
+
+
+def fetch_tennis_tournament_stats() -> dict:
+    """Bilan reel PAR TOURNOI de tennis (28/08/2026, demande explicite
+    "rajoute les tournois de tennis qu'on a fait dans notre globe des
+    performance") -- meme principe que fetch_league_stats() ci-dessus,
+    mais le tennis n'a pas de league_id numerique stable comme le foot
+    (paris.competition vide pour le tennis) : regroupe plutot sur
+    programme_fixtures.league (nom de tournoi tel que recu d'ESPN),
+    seule cle disponible. Cle de retour = nom du tournoi (texte)."""
+    import psycopg2
+
+    db = os.environ.get("DATABASE_URL")
+    if not db:
+        raise SystemExit("DATABASE_URL manquant")
+    conn = psycopg2.connect(db, connect_timeout=10)
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT pf.league, p.resultat, COALESCE(p.mise,0), COALESCE(p.pnl,0)
+        FROM paris p
+        JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
+        WHERE p.sport = 'tennis'
+          AND p.resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
+          AND pf.league != ''
+        """,
+    )
+    rows = cur.fetchall()
+    conn.close()
+
+    tournaments: dict = {}
+    for league, resultat, mise, pnl in rows:
+        b = tournaments.setdefault(league, {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0})
+        b["n"] += 1
+        if resultat in RESULTAT_GAGNE:
+            b["w"] += 1
+        elif resultat == "PERDU":
+            b["l"] += 1
+        b["stake"] += float(mise or 0)
+        b["pnl"] += float(pnl or 0)
+
+    _alert_new_tennis_tournaments(tournaments.keys())
+
+    return {
+        name: {
+            "n": b["n"], "w": b["w"], "l": b["l"],
+            "roi": round(b["pnl"] / b["stake"] * 100, 1) if b["stake"] else 0.0,
+        }
+        for name, b in tournaments.items()
+    }
+
+
 JOURS_FR = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"]
 MOIS_FR = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Déc"]
 
