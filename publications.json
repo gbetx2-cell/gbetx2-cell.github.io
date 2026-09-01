@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T02:36:52.157915+00:00",
+ "generated_at": "2026-09-01T02:40:46.084382+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816754",
@@ -13,42 +13,6 @@
    "value_bet": "Milwaukee Brewers +1,5 @ 1.4762",
    "value_cote": 1.48,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816751",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Texas Rangers – Athletics",
-   "kickoff_at": "2026-09-01T00:05Z",
-   "published": true,
-   "value_bet": "Athletics Plus de 2,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Athletics +1,5 @ 1.8",
-     "odd": 1.8,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_home",
-     "label": "Total équipe Texas Rangers — Moins de 4,5 @ 1.7353",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "winner",
-     "label": "Vainqueur — Texas Rangers @ 1.4739",
-     "odd": 1.47,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "baseball_401816752",
@@ -1233,6 +1197,45 @@
      "odd": 1.62,
      "mise_eur": 100.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816751",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Texas Rangers – Athletics",
+   "kickoff_at": "2026-09-01T00:05Z",
+   "published": true,
+   "value_bet": "Athletics Plus de 2,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "8 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Athletics +1,5 @ 1.8",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Texas Rangers — Moins de 4,5 @ 1.7353",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Texas Rangers @ 1.4739",
+     "odd": 1.47,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
