@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-01T21:01:55.951129+00:00",
+ "generated_at": "2026-09-01T21:18:17.955009+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_182736",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Francisco Cerundolo – Filip Misolic",
-   "kickoff_at": "2026-09-01T18:45Z",
-   "published": true,
-   "home_photo": "assets/players/francisco cerundolo.png",
-   "away_photo": "assets/players/filip misolic.png",
-   "conseil": "Total sets Moins de 3.5",
-   "conseil_cote": 1.77,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 3.5 @ 1.741",
-   "value_cote": 1.74,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Francisco Cerundolo",
-     "kind": "player",
-     "detail": "cote 1.08",
-     "odd": 1.082,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_182715",
    "flag": "🎾",
@@ -60,6 +32,36 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "tennis_espn_atp_182710",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Arthur Gea – Juan Manuel Cerundolo",
+   "kickoff_at": "2026-09-01T20:15Z",
+   "published": true,
+   "home_photo": "assets/players/arthur gea.png",
+   "away_photo": "assets/players/juan manuel cerundolo.png",
+   "conseil": "Victoire Juan Manuel Cerundolo",
+   "conseil_cote": 2.22,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182694",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jan-Lennard Struff – Camilo Ugo Carabelli",
+   "kickoff_at": "2026-09-01T20:15Z",
+   "published": true,
+   "home_photo": "assets/players/jan lennard struff.png",
+   "away_photo": "assets/players/camilo ugo carabelli.png",
+   "conseil": "Victoire Jan-Lennard Struff",
+   "conseil_cote": 1.45,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_182702",
    "flag": "🎾",
    "league": "US Open",
@@ -87,36 +89,6 @@
    "away_photo": "assets/players/zizou bergs.png",
    "conseil": "Victoire Zizou Bergs",
    "conseil_cote": 1.06,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182694",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jan-Lennard Struff – Camilo Ugo Carabelli",
-   "kickoff_at": "2026-09-01T20:15Z",
-   "published": true,
-   "home_photo": "assets/players/jan lennard struff.png",
-   "away_photo": "assets/players/camilo ugo carabelli.png",
-   "conseil": "Victoire Jan-Lennard Struff",
-   "conseil_cote": 1.45,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182710",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Arthur Gea – Juan Manuel Cerundolo",
-   "kickoff_at": "2026-09-01T20:15Z",
-   "published": true,
-   "home_photo": "assets/players/arthur gea.png",
-   "away_photo": "assets/players/juan manuel cerundolo.png",
-   "conseil": "Victoire Juan Manuel Cerundolo",
-   "conseil_cote": 2.22,
    "conseil_mise_eur": 200.0
   },
   {
@@ -202,6 +174,38 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182736",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Francisco Cerundolo – Filip Misolic",
+   "kickoff_at": "2026-09-01T18:45Z",
+   "published": true,
+   "home_photo": "assets/players/francisco cerundolo.png",
+   "away_photo": "assets/players/filip misolic.png",
+   "conseil": "Total sets Moins de 3.5",
+   "conseil_cote": 1.77,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 3.5 @ 1.741",
+   "value_cote": 1.74,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-3, 7-5",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Francisco Cerundolo",
+     "kind": "player",
+     "detail": "cote 1.08",
+     "odd": 1.082,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182683",
@@ -392,100 +396,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1563125",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Swansea – Watford",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/76.png",
-   "away_logo": "https://media.api-sports.io/football/teams/38.png",
-   "conseil": "Swansea ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.47,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1563120",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lincoln – Blackburn",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/1379.png",
-   "away_logo": "https://media.api-sports.io/football/teams/67.png",
-   "conseil": "Blackburn ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.16,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 0"
-  },
-  {
-   "fixture_id": "api_football:1563126",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "West Ham – Wolves",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/48.png",
-   "away_logo": "https://media.api-sports.io/football/teams/39.png",
-   "conseil": "Wolves gagne + Plus de 1.5 buts",
-   "conseil_cote": 5.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 2"
-  },
-  {
-   "fixture_id": "api_football:1563122",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Preston – Bristol City",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/59.png",
-   "away_logo": "https://media.api-sports.io/football/teams/56.png",
-   "conseil": "Bristol City gagne",
-   "conseil_cote": 2.49,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.61,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1582789",
    "flag": "⚽",
    "league": "Premijer Liga",
@@ -522,6 +432,128 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "3 - 2"
+  },
+  {
+   "fixture_id": "api_football:1563125",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Swansea – Watford",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/76.png",
+   "away_logo": "https://media.api-sports.io/football/teams/38.png",
+   "conseil": "Swansea ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.47,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1563126",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "West Ham – Wolves",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/48.png",
+   "away_logo": "https://media.api-sports.io/football/teams/39.png",
+   "conseil": "Wolves gagne + Plus de 1.5 buts",
+   "conseil_cote": 5.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 2"
+  },
+  {
+   "fixture_id": "api_football:1563120",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lincoln – Blackburn",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/1379.png",
+   "away_logo": "https://media.api-sports.io/football/teams/67.png",
+   "conseil": "Blackburn ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.16,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1563122",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Preston – Bristol City",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/59.png",
+   "away_logo": "https://media.api-sports.io/football/teams/56.png",
+   "conseil": "Bristol City gagne",
+   "conseil_cote": 2.49,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1563124",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Stoke City – Norwich",
+   "kickoff_at": "2026-09-01T21:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/75.png",
+   "away_logo": "https://media.api-sports.io/football/teams/71.png",
+   "conseil": "Norwich ou Nul",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.64,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1563119",
@@ -567,34 +599,6 @@
      "label": "Plus de 3.5 cartons",
      "odd": 1.46,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1563124",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Stoke City – Norwich",
-   "kickoff_at": "2026-09-01T21:00:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/75.png",
-   "away_logo": "https://media.api-sports.io/football/teams/71.png",
-   "conseil": "Norwich ou Nul",
-   "conseil_cote": 1.33,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.64,
-     "mise_eur": 100.0,
-     "result": "PERDU"
     }
    ]
   }
