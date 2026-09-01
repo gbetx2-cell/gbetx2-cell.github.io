@@ -1,6 +1,35 @@
 {
- "generated_at": "2026-09-01T00:15:43.968431+00:00",
+ "generated_at": "2026-09-01T00:18:47.258700+00:00",
  "live": [
+  {
+   "fixture_id": "baseball_401816748",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – New York Mets",
+   "kickoff_at": "2026-08-31T22:40Z",
+   "published": true,
+   "value_bet": "Plus de 7,5 runs @ 1.8",
+   "value_cote": 1.8,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — New York Mets +1,5 @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — Tampa Bay Rays @ 1.5525",
+     "odd": 1.55,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
   {
    "fixture_id": "baseball_401816749",
    "flag": "⚾",
@@ -38,29 +67,29 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816748",
+   "fixture_id": "baseball_401816747",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – New York Mets",
-   "kickoff_at": "2026-08-31T22:40Z",
+   "match": "Washington Nationals – Miami Marlins",
+   "kickoff_at": "2026-08-31T22:45Z",
    "published": true,
-   "value_bet": "Plus de 7,5 runs @ 1.8",
-   "value_cote": 1.8,
+   "value_bet": "Washington Nationals +1,5 @ 1.6061",
+   "value_cote": 1.61,
    "value_mise_eur": 200.0,
    "refonte_value_bets": [
     {
-     "market": "handicap",
-     "label": "Écart de points — New York Mets +1,5 @ 1.7407",
+     "market": "team_total_away",
+     "label": "Total équipe Miami Marlins — Moins de 4,5 @ 1.7353",
      "odd": 1.74,
      "mise_eur": 200.0,
      "result": "GAGNE"
     },
     {
-     "market": "winner",
-     "label": "Vainqueur — Tampa Bay Rays @ 1.5525",
-     "odd": 1.55,
+     "market": "team_total_home",
+     "label": "Total équipe Washington Nationals — Plus de 3,5 @ 1.6897",
+     "odd": 1.69,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -96,33 +125,17 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816747",
+   "fixture_id": "baseball_401816754",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Miami Marlins",
-   "kickoff_at": "2026-08-31T22:45Z",
+   "match": "Chicago Cubs – Milwaukee Brewers",
+   "kickoff_at": "2026-08-31T23:40Z",
    "published": true,
-   "value_bet": "Washington Nationals +1,5 @ 1.6061",
-   "value_cote": 1.61,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Miami Marlins — Moins de 4,5 @ 1.7353",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_home",
-     "label": "Total équipe Washington Nationals — Plus de 3,5 @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
+   "value_bet": "Milwaukee Brewers +1,5 @ 1.4762",
+   "value_cote": 1.48,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816753",
@@ -150,44 +163,6 @@
      "odd": 1.71,
      "mise_eur": 200.0,
      "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816754",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Milwaukee Brewers",
-   "kickoff_at": "2026-08-31T23:40Z",
-   "published": true,
-   "value_bet": "Milwaukee Brewers +1,5 @ 1.4762",
-   "value_cote": 1.48,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1493096",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Defensa Y Justicia – Platense",
-   "kickoff_at": "2026-09-01T00:00:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/442.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
-   "conseil": "Defensa Y Justicia ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.68,
-     "mise_eur": 100.0
     }
    ]
   },
@@ -284,7 +259,8 @@
      "market": "BTTS",
      "label": "Les deux équipes marquent",
      "odd": 1.66,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -476,38 +452,6 @@
  ],
  "done": [
   {
-   "fixture_id": "tennis_espn_atp_182655",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Arthur Fils – Stefanos Tsitsipas",
-   "kickoff_at": "2026-08-31T15:05Z",
-   "published": true,
-   "home_photo": "assets/players/arthur fils.png",
-   "away_photo": "assets/players/stefanos tsitsipas.png",
-   "conseil": "Total sets Plus de 3.5",
-   "conseil_cote": 2.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Plus de 3.5 @ 1.704",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-4, 6-7, 1-6, 4-6",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Arthur Fils",
-     "kind": "player",
-     "detail": "cote 1.26",
-     "odd": 1.257,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_182760",
    "flag": "🎾",
    "league": "US Open",
@@ -536,6 +480,38 @@
      "odd": 1.8,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182655",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Arthur Fils – Stefanos Tsitsipas",
+   "kickoff_at": "2026-08-31T15:05Z",
+   "published": true,
+   "home_photo": "assets/players/arthur fils.png",
+   "away_photo": "assets/players/stefanos tsitsipas.png",
+   "conseil": "Total sets Plus de 3.5",
+   "conseil_cote": 2.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Plus de 3.5 @ 1.704",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-7, 1-6, 4-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Arthur Fils",
+     "kind": "player",
+     "detail": "cote 1.26",
+     "odd": 1.257,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -690,25 +666,6 @@
    "score": "0 - 4"
   },
   {
-   "fixture_id": "api_football:1494260",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gais – IF Brommapojkarna",
-   "kickoff_at": "2026-08-31T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
-   "away_logo": "https://media.api-sports.io/football/teams/371.png",
-   "conseil": "IF Brommapojkarna ou Nul",
-   "conseil_cote": 2.2,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 0"
-  },
-  {
    "fixture_id": "api_football:1494258",
    "flag": "🇸🇪",
    "league": "Allsvenskan",
@@ -849,6 +806,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1569895",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Burgos – Real Sociedad II",
+   "kickoff_at": "2026-08-31T19:00:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9580.png",
+   "away_logo": "https://media.api-sports.io/football/teams/9585.png",
+   "conseil": "Burgos ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.71,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
+  },
+  {
    "fixture_id": "api_football:1494264",
    "flag": "🇸🇪",
    "league": "Allsvenskan",
@@ -891,23 +867,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1569895",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
+   "fixture_id": "api_football:1494260",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Burgos – Real Sociedad II",
+   "match": "Gais – IF Brommapojkarna",
    "kickoff_at": "2026-08-31T19:00:00+02:00",
    "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9580.png",
-   "away_logo": "https://media.api-sports.io/football/teams/9585.png",
-   "conseil": "Burgos ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.71,
-   "conseil_mise_eur": 300.0,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2170.png",
+   "away_logo": "https://media.api-sports.io/football/teams/371.png",
+   "conseil": "IF Brommapojkarna ou Nul",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2"
+   "result": "PERDU",
+   "score": "4 - 0"
   },
   {
    "fixture_id": "api_football:1570358",
@@ -1030,6 +1006,25 @@
    "score": "6 - 2"
   },
   {
+   "fixture_id": "api_football:1552452",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Dijon – Saint Etienne",
+   "kickoff_at": "2026-08-31T20:45:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/89.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1063.png",
+   "conseil": "Saint Etienne gagne",
+   "conseil_cote": 1.72,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 3"
+  },
+  {
    "fixture_id": "api_football:1550098",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -1058,44 +1053,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1552452",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dijon – Saint Etienne",
-   "kickoff_at": "2026-08-31T20:45:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/89.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1063.png",
-   "conseil": "Saint Etienne gagne",
-   "conseil_cote": 1.72,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 3"
-  },
-  {
-   "fixture_id": "api_football:1548517",
-   "flag": "🇭🇷",
-   "league": "HNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "HNK Gorica – HNK Rijeka",
-   "kickoff_at": "2026-08-31T21:00:00+02:00",
-   "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/1068.png",
-   "away_logo": "https://media.api-sports.io/football/teams/561.png",
-   "conseil": "HNK Rijeka ou Nul",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1557377",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Premier League",
@@ -1115,32 +1072,23 @@
    "score": "0 - 1"
   },
   {
-   "fixture_id": "api_football:1575477",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
+   "fixture_id": "api_football:1548517",
+   "flag": "🇭🇷",
+   "league": "HNL",
    "sport": "football",
    "sport_label": "Football",
-   "match": "SC Braga – Vitória SC",
-   "kickoff_at": "2026-08-31T21:15:00+02:00",
+   "match": "HNK Gorica – HNK Rijeka",
+   "kickoff_at": "2026-08-31T21:00:00+02:00",
    "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/217.png",
-   "away_logo": "https://media.api-sports.io/football/teams/224.png",
-   "conseil": "SC Braga ou Nul",
-   "conseil_cote": 1.23,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/1068.png",
+   "away_logo": "https://media.api-sports.io/football/teams/561.png",
+   "conseil": "HNK Rijeka ou Nul",
+   "conseil_cote": 1.18,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "SC Braga",
-     "odd": 1.81,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1508848",
@@ -1178,6 +1126,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1575477",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "SC Braga – Vitória SC",
+   "kickoff_at": "2026-08-31T21:15:00+02:00",
+   "published": true,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/217.png",
+   "away_logo": "https://media.api-sports.io/football/teams/224.png",
+   "conseil": "SC Braga ou Nul",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "SC Braga",
+     "odd": 1.81,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1575476",
    "flag": "🇵🇹",
    "league": "Primeira Liga",
@@ -1204,6 +1180,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1569897",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Celta de Vigo II – Castellón",
+   "kickoff_at": "2026-08-31T21:30:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
+   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
   },
   {
    "fixture_id": "api_football:1570354",
@@ -1243,25 +1238,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1569897",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Celta de Vigo II – Castellón",
-   "kickoff_at": "2026-08-31T21:30:00+02:00",
-   "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5254.png",
-   "conseil": "Castellón ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 2"
   },
   {
    "fixture_id": "baseball_401878657",
@@ -1339,6 +1315,34 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.62,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493096",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Defensa Y Justicia – Platense",
+   "kickoff_at": "2026-09-01T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/442.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "conseil": "Defensa Y Justicia ou Nul",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
      "mise_eur": 100.0,
      "result": "GAGNE"
     }
