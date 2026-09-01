@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T16:35:43.221221+00:00",
+ "generated_at": "2026-09-01T17:00:44.455755+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182721",
@@ -14,6 +14,21 @@
    "away_photo": "assets/players/francisco comesana.png",
    "conseil": "Victoire Flavio Cobolli",
    "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182683",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Zsombor Piros – Mattia Bellucci",
+   "kickoff_at": "2026-09-01T16:30Z",
+   "published": true,
+   "home_photo": "assets/players/zsombor piros.png",
+   "away_photo": "assets/players/mattia bellucci.png",
+   "conseil": "Victoire Mattia Bellucci",
+   "conseil_cote": 1.47,
    "conseil_mise_eur": 200.0
   },
   {
@@ -75,21 +90,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_182683",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Zsombor Piros – Mattia Bellucci",
-   "kickoff_at": "2026-09-01T16:30Z",
-   "published": true,
-   "home_photo": "assets/players/zsombor piros.png",
-   "away_photo": "assets/players/mattia bellucci.png",
-   "conseil": "Victoire Mattia Bellucci",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "api_football:1582787",
    "flag": "⚽",
    "league": "Premijer Liga",
@@ -103,6 +103,23 @@
    "away_logo": "https://media.api-sports.io/football/teams/3363.png",
    "conseil": "Sloga Doboj ou Nul + Moins de 3.5 buts",
    "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1508846",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KR Reykjavik – Vikingur Reykjavik",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/271.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 1.66,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
