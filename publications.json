@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T18:53:17.472520+00:00",
+ "generated_at": "2026-09-02T18:55:02.623422+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182712",
@@ -228,6 +228,39 @@
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.61,
      "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816784",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Colorado Rockies – Baltimore Orioles",
+   "kickoff_at": "2026-09-02T19:10Z",
+   "published": true,
+   "value_bet": "Plus de 11,5 runs @ 2.05",
+   "value_cote": 2.05,
+   "value_mise_eur": 210.0,
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Baltimore Orioles @ 1.6369",
+     "odd": 1.64,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Colorado Rockies — Plus de 4,5 @ 1.8333",
+     "odd": 1.83,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Baltimore Orioles — Plus de 6,5 @ 2.0",
+     "odd": 2.0,
+     "mise_eur": 200.0
     }
    ]
   },
