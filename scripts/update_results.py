@@ -178,28 +178,39 @@ def _paris_calendar_date(value):
 
 def _fetch_refonte_settled_rows(cur) -> list[tuple]:
     """
-    Lignes value bet du moteur refonte deja reglees (result != ''), pour
-    les 50 ligues domestiques ET les 5 competitions cross-championnat --
-    UNIES ici pour etre injectees dans les memes stats publiques que
-    paris/sport_player_picks (22/08/2026, demande explicite : "je reviens
-    sur ma decision il faut que ca compte" -- decision du 21/08/2026
-    documentee dans daily_bilan.py de les garder PRIVEES est explicitement
-    inversee). Retourne (sport='football', market_type='refonte_value_bet',
-    odd, result, stake_eur, pnl_eur, settled_at) -- meme forme que les
-    lignes paris pour reutiliser le meme code de bucket/agregation sans
-    dupliquer la logique. cur : curseur DEJA ouvert (reutilise la connexion
-    de l'appelant, pas de connexion supplementaire)."""
+    Lignes value bet "additionnelles" deja reglees (result != ''), au-dela
+    de la ligne "best" deja comptee via paris/sport_player_picks -- foot
+    (refonte, 50 ligues domestiques + 5 competitions cross-championnat,
+    22/08/2026, demande explicite : "je reviens sur ma decision il faut
+    que ca compte" -- decision du 21/08/2026 documentee dans daily_bilan.py
+    de les garder PRIVEES est explicitement inversee) ET MLB (03/09/2026,
+    demande explicite "il faudra que tu arrives a les regler les 3 et les
+    mettre dans resultat et aussi performance ... comme le foot" -- meme
+    trou identifie : mlb_value_bet_settlements ne comptait jusqu'ici nulle
+    part cote site, seule la ligne "best" du match dans `paris` apparaissait
+    en resultats/performance, malgre jusqu'a 2 lignes supplementaires
+    reellement publiees et reglees par match).
+    Retourne (sport, market_type, odd, result, stake_eur, pnl_eur,
+    settled_at) -- meme forme que les lignes paris pour reutiliser le meme
+    code de bucket/agregation sans dupliquer la logique. cur : curseur DEJA
+    ouvert (reutilise la connexion de l'appelant, pas de connexion
+    supplementaire)."""
     cur.execute(
         """
-        SELECT odd, result, COALESCE(stake_eur,0), COALESCE(pnl_eur,0), settled_at
+        SELECT 'football' AS sport, 'refonte_value_bet' AS market_type,
+               odd, result, COALESCE(stake_eur,0), COALESCE(pnl_eur,0), settled_at
         FROM refonte_value_bet_settlements WHERE result != ''
         UNION ALL
-        SELECT odd, result, COALESCE(stake_eur,0), COALESCE(pnl_eur,0), settled_at
+        SELECT 'football' AS sport, 'refonte_value_bet' AS market_type,
+               odd, result, COALESCE(stake_eur,0), COALESCE(pnl_eur,0), settled_at
         FROM refonte_cross_competition_value_bet_settlements WHERE result != ''
+        UNION ALL
+        SELECT 'baseball' AS sport, 'mlb_value_bet' AS market_type,
+               odd, result, COALESCE(stake_eur,0), COALESCE(pnl_eur,0), settled_at
+        FROM mlb_value_bet_settlements WHERE result != ''
         """
     )
-    return [("football", "refonte_value_bet", odd, result, stake_eur, pnl_eur, settled_at)
-            for odd, result, stake_eur, pnl_eur, settled_at in cur.fetchall()]
+    return list(cur.fetchall())
 
 
 def fetch_period_stats() -> dict:
@@ -574,7 +585,11 @@ def fetch_period_series() -> dict:
         dt = _paris_datetime(settled_at)
         if dt is None or dt.date() > today:
             continue
-        _bucket_pnl(float(pnl_eur or 0), dt, "football")
+        # Bug corrige le 03/09/2026 (_sp etait ignore, tout finissait dans le
+        # bucket "football" en dur -- inoffensif tant que seul le foot
+        # alimentait cette table, casse silencieusement des l'ajout des
+        # lignes value bet MLB additionnelles au meme flux unifie).
+        _bucket_pnl(float(pnl_eur or 0), dt, _sp)
 
     heures = buckets_by_sport["all"]["heures"]
     semaine = buckets_by_sport["all"]["semaine"]
@@ -774,7 +789,9 @@ def fetch_period_series_offset(period: str, offset: int) -> dict:
         sp = SPORT_LABEL_MAP.get((sport or "football").lower(), (sport or "football").lower())
         _add(_pnl_fixed(status, float(odd or 0), float(stake_eur or 0)), _paris_datetime(settled_or_created), sp)
     for _sp, _mt, _odd, _resultat, _stake_eur, pnl_eur, settled_at in refonte_rows:
-        _add(pnl_eur, _paris_datetime(settled_at), "football")
+        # Bug corrige le 03/09/2026, meme cause que fetch_period_series() :
+        # _sp ignore, tout finissait dans "football" en dur.
+        _add(pnl_eur, _paris_datetime(settled_at), _sp)
 
     def _cumulative(values):
         points, running = [], 0.0
@@ -1084,6 +1101,49 @@ def fetch_results() -> list[dict]:
             "mise": round(float(r_stake or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
             "pnl": round(float(r_pnl or 0) / BASE_UNIT_EUR, 2),
             "type": "value", "sport": "football", "_ts": _r_settled_at or "",
+        })
+
+    # Value bets MLB additionnelles (03/09/2026, demande explicite, meme
+    # trou que le foot ci-dessus corrige le 23/08 : mlb_value_bet_settlements
+    # stocke jusqu'a 2 lignes de plus par match (au-dela de la "best" deja
+    # dans `paris`), jamais listees ici avant ce fix. Pas de home/away/
+    # competition dans cette table (contrairement a refonte_value_bet_
+    # settlements) -- LEFT JOIN sur paris.fixture_id, fiable car toute ligne
+    # ici a necessairement une ligne "best" soeur dans paris (meme appel
+    # predictions.py, cf save_extra_mlb_value_bets). selection_text est deja
+    # un libelle FR complet ("Total équipe X — Plus de 4,5 @ 1.68"), aucune
+    # traduction MARKET_LABELS necessaire contrairement au foot.
+    conn3 = psycopg2.connect(db, connect_timeout=10)
+    cur3 = conn3.cursor()
+    cur3.execute(
+        """
+        SELECT m.home_txt, m.away_txt, m.selection_text, m.odd, m.result,
+               COALESCE(m.stake_eur,0), COALESCE(m.pnl_eur,0), m.settled_at
+        FROM (
+            SELECT s.fixture_id, p.home AS home_txt, p.away AS away_txt,
+                   s.selection_text, s.odd, s.result, s.stake_eur, s.pnl_eur, s.settled_at
+            FROM mlb_value_bet_settlements s
+            LEFT JOIN paris p ON p.fixture_id = s.fixture_id
+            WHERE s.result != ''
+        ) m
+        ORDER BY m.settled_at DESC
+        LIMIT %s
+        """,
+        (N_MATCHES,),
+    )
+    mlb_extra_rows = cur3.fetchall()
+    cur3.close()
+    conn3.close()
+    for m_home, m_away, m_selection_text, m_odd, m_result, m_stake, m_pnl, m_settled_at in reversed(mlb_extra_rows):
+        out.append({
+            "flag": _flag("", "baseball"),
+            "match": f"{m_home or '?'} – {m_away or '?'}",
+            "pick": m_selection_text,
+            "cote": round(float(m_odd or 0), 2),
+            "r": {"GAGNE": "G", "PERDU": "P"}.get(m_result, "R"),
+            "mise": round(float(m_stake or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
+            "pnl": round(float(m_pnl or 0) / BASE_UNIT_EUR, 2),
+            "type": "value", "sport": "baseball", "_ts": m_settled_at or "",
         })
 
     # Tri chronologique global (23/08/2026) : les value bets refonte ont
