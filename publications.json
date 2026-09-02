@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T18:06:23.590679+00:00",
+ "generated_at": "2026-09-02T18:14:22.726925+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182714",
@@ -207,43 +207,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1513602",
-   "flag": "🇪🇪",
-   "league": "Meistriliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Flora Tallinn – Tammeka",
-   "kickoff_at": "2026-09-02T18:00:00+02:00",
-   "published": true,
-   "league_id": 329,
-   "home_logo": "https://media.api-sports.io/football/teams/687.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3530.png",
-   "conseil": "Flora Tallinn ou Nul",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Flora Tallinn",
-     "odd": 1.55,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.36,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.43,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1582788",
    "flag": "⚽",
    "league": "Premijer Liga",
@@ -264,13 +227,15 @@
      "market": "Over/Under 2.5",
      "label": "Moins de 2.5 buts",
      "odd": 1.53,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.68,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -2047,6 +2012,48 @@
      "odd": 1.61,
      "mise_eur": 100.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1513602",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Flora Tallinn – Tammeka",
+   "kickoff_at": "2026-09-02T18:00:00+02:00",
+   "published": true,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/687.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3530.png",
+   "conseil": "Flora Tallinn ou Nul",
+   "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Flora Tallinn",
+     "odd": 1.55,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.36,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.43,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
     }
    ]
   },
