@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T23:00:40.689127+00:00",
+ "generated_at": "2026-09-02T23:00:47.545099+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182776",
@@ -30,33 +30,6 @@
    "conseil": "Victoire Tommy Paul",
    "conseil_cote": 1.26,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816776",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Boston Red Sox – Seattle Mariners",
-   "kickoff_at": "2026-09-02T20:10Z",
-   "published": true,
-   "value_bet": "Seattle Mariners Plus de 3,5 @ 1.8",
-   "value_cote": 1.8,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Boston Red Sox @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "handicap",
-     "label": "Écart de points — Seattle Mariners +1,5 @ 1.5882",
-     "odd": 1.59,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1555379",
@@ -2451,6 +2424,38 @@
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.9,
      "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816776",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Boston Red Sox – Seattle Mariners",
+   "kickoff_at": "2026-09-02T20:10Z",
+   "published": true,
+   "value_bet": "Seattle Mariners Plus de 3,5 @ 1.8",
+   "value_cote": 1.8,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "3 - 8",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Boston Red Sox @ 1.6897",
+     "odd": 1.69,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "handicap",
+     "label": "Écart de points — Seattle Mariners +1,5 @ 1.5882",
+     "odd": 1.59,
+     "mise_eur": 200.0,
      "result": "GAGNE"
     }
    ]
