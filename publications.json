@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T02:29:36.547681+00:00",
+ "generated_at": "2026-09-02T02:59:35.174632+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182681",
@@ -82,33 +82,19 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816766",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Minnesota Twins – Detroit Tigers",
-   "kickoff_at": "2026-09-01T23:40Z",
+   "fixture_id": "tennis_espn_atp_182697",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Botic Van De Zandschulp – Jan Choinski",
+   "kickoff_at": "2026-09-01T23:45Z",
    "published": true,
-   "value_bet": "Minnesota Twins +1,5 @ 1.5618",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "team_total_home",
-     "label": "Total équipe Minnesota Twins — Moins de 4,5 @ 1.6667",
-     "odd": 1.67,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Detroit Tigers — Moins de 4,5 @ 1.7246",
-     "odd": 1.72,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
+   "home_photo": "assets/players/botic van de zandschulp.png",
+   "away_photo": "assets/players/jan choinski.png",
+   "conseil": "Victoire Botic Van De Zandschulp",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_182712",
@@ -137,21 +123,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182697",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Botic Van De Zandschulp – Jan Choinski",
-   "kickoff_at": "2026-09-01T23:45Z",
-   "published": true,
-   "home_photo": "assets/players/botic van de zandschulp.png",
-   "away_photo": "assets/players/jan choinski.png",
-   "conseil": "Victoire Botic Van De Zandschulp",
-   "conseil_cote": 1.33,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816764",
@@ -238,7 +209,8 @@
      "market": "Over/Under 2.5",
      "label": "Moins de 2.5 buts",
      "odd": 1.71,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   }
@@ -364,6 +336,25 @@
    "score": "7-6, 3-6, 6-3, 6-4"
   },
   {
+   "fixture_id": "api_football:1508846",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KR Reykjavik – Vikingur Reykjavik",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/271.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1561915",
    "flag": "🇦🇹",
    "league": "Bundesliga",
@@ -397,25 +388,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1600333",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kruger United – Orlando Pirates",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
-   "conseil": "Orlando Pirates gagne",
-   "conseil_cote": 1.34,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 4"
   },
   {
    "fixture_id": "api_football:1600329",
@@ -453,23 +425,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1508846",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
+   "fixture_id": "api_football:1600333",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "KR Reykjavik – Vikingur Reykjavik",
+   "match": "Kruger United – Orlando Pirates",
    "kickoff_at": "2026-09-01T19:30:00+02:00",
    "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/271.png",
-   "away_logo": "https://media.api-sports.io/football/teams/278.png",
-   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 300.0,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
+   "conseil": "Orlando Pirates gagne",
+   "conseil_cote": 1.34,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1"
+   "result": "GAGNE",
+   "score": "0 - 4"
   },
   {
    "fixture_id": "api_football:1603007",
@@ -517,23 +489,6 @@
    "score": "6-3, 2-6, 3-6, 6-3, 6-1"
   },
   {
-   "fixture_id": "tennis_espn_atp_182702",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lorenzo Musetti – Arthur Fery",
-   "kickoff_at": "2026-09-01T20:15Z",
-   "published": true,
-   "home_photo": "assets/players/lorenzo musetti.png",
-   "away_photo": "assets/players/arthur fery.png",
-   "conseil": "Victoire Lorenzo Musetti",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 6-3, 7-5"
-  },
-  {
    "fixture_id": "tennis_espn_atp_182694",
    "flag": "🎾",
    "league": "US Open",
@@ -549,6 +504,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-4, 6-3, 6-3"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182702",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lorenzo Musetti – Arthur Fery",
+   "kickoff_at": "2026-09-01T20:15Z",
+   "published": true,
+   "home_photo": "assets/players/lorenzo musetti.png",
+   "away_photo": "assets/players/arthur fery.png",
+   "conseil": "Victoire Lorenzo Musetti",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 6-3, 7-5"
   },
   {
    "fixture_id": "api_football:1555377",
@@ -605,6 +577,25 @@
    "score": "0 - 0"
   },
   {
+   "fixture_id": "api_football:1563126",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "West Ham – Wolves",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/48.png",
+   "away_logo": "https://media.api-sports.io/football/teams/39.png",
+   "conseil": "Wolves gagne + Plus de 1.5 buts",
+   "conseil_cote": 5.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 2"
+  },
+  {
    "fixture_id": "api_football:1563122",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -629,34 +620,6 @@
      "odd": 1.61,
      "mise_eur": 100.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1563125",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Swansea – Watford",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/76.png",
-   "away_logo": "https://media.api-sports.io/football/teams/38.png",
-   "conseil": "Swansea ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.47,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -699,23 +662,32 @@
    "score": "3 - 2"
   },
   {
-   "fixture_id": "api_football:1563126",
+   "fixture_id": "api_football:1563125",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
    "sport": "football",
    "sport_label": "Football",
-   "match": "West Ham – Wolves",
+   "match": "Swansea – Watford",
    "kickoff_at": "2026-09-01T20:45:00+02:00",
    "published": true,
    "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/48.png",
-   "away_logo": "https://media.api-sports.io/football/teams/39.png",
-   "conseil": "Wolves gagne + Plus de 1.5 buts",
-   "conseil_cote": 5.36,
+   "home_logo": "https://media.api-sports.io/football/teams/76.png",
+   "away_logo": "https://media.api-sports.io/football/teams/38.png",
+   "conseil": "Swansea ou Nul",
+   "conseil_cote": 1.27,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 2"
+   "result": "GAGNE",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.47,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1563119",
@@ -795,6 +767,31 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816760",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cincinnati Reds – San Diego Padres",
+   "kickoff_at": "2026-09-01T22:40Z",
+   "published": true,
+   "value_bet": "San Diego Padres Plus de 4,5 @ 1.7576",
+   "value_cote": 1.76,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — San Diego Padres @ 1.7576",
+     "odd": 1.76,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816763",
    "flag": "⚾",
    "league": "MLB",
@@ -827,63 +824,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816762",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Pittsburgh Pirates – San Francisco Giants",
-   "kickoff_at": "2026-09-01T22:40Z",
-   "published": true,
-   "value_bet": "Pittsburgh Pirates Plus de 3,5 @ 1.6667",
-   "value_cote": 1.67,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "11 - 5 (en cours)",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Pittsburgh Pirates @ 1.625",
-     "odd": 1.62,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe San Francisco Giants — Moins de 3,5 @ 1.7042",
-     "odd": 1.7,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816760",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cincinnati Reds – San Diego Padres",
-   "kickoff_at": "2026-09-01T22:40Z",
-   "published": true,
-   "value_bet": "San Diego Padres Plus de 4,5 @ 1.7576",
-   "value_cote": 1.76,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "4 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — San Diego Padres @ 1.7576",
-     "odd": 1.76,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816759",
    "flag": "⚾",
    "league": "MLB",
@@ -910,6 +850,38 @@
      "market": "handicap",
      "label": "Écart de points — New York Mets +1,5 @ 1.5556",
      "odd": 1.56,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816762",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Pittsburgh Pirates – San Francisco Giants",
+   "kickoff_at": "2026-09-01T22:40Z",
+   "published": true,
+   "value_bet": "Pittsburgh Pirates Plus de 3,5 @ 1.6667",
+   "value_cote": 1.67,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "11 - 5 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Pittsburgh Pirates @ 1.625",
+     "odd": 1.62,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe San Francisco Giants — Moins de 3,5 @ 1.7042",
+     "odd": 1.7,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
@@ -1002,6 +974,38 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.68,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816766",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Minnesota Twins – Detroit Tigers",
+   "kickoff_at": "2026-09-01T23:40Z",
+   "published": true,
+   "value_bet": "Minnesota Twins +1,5 @ 1.5618",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "15 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Minnesota Twins — Moins de 4,5 @ 1.6667",
+     "odd": 1.67,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Detroit Tigers — Moins de 4,5 @ 1.7246",
+     "odd": 1.72,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
