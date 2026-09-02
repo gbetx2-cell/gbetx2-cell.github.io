@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T16:35:07.281191+00:00",
+ "generated_at": "2026-09-02T17:12:07.641295+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182708",
@@ -233,6 +233,37 @@
    ]
   },
   {
+   "fixture_id": "api_football:1582788",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Velež – Radnik Bijeljina",
+   "kickoff_at": "2026-09-02T18:00:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/3381.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3359.png",
+   "conseil": "Velež ou Nul",
+   "conseil_cote": 1.26,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.53,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.68,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1513602",
    "flag": "🇪🇪",
    "league": "Meistriliiga",
@@ -266,37 +297,6 @@
      "label": "Les deux équipes marquent",
      "odd": 1.43,
      "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1582788",
-   "flag": "⚽",
-   "league": "Premijer Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Velež – Radnik Bijeljina",
-   "kickoff_at": "2026-09-02T18:00:00+02:00",
-   "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/3381.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3359.png",
-   "conseil": "Velež ou Nul",
-   "conseil_cote": 1.26,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.53,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.68,
-     "mise_eur": 200.0
     }
    ]
   },
@@ -368,6 +368,37 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.61,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1549008",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aarhus – FC Midtjylland",
+   "kickoff_at": "2026-09-02T20:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/406.png",
+   "away_logo": "https://media.api-sports.io/football/teams/397.png",
+   "conseil": "FC Midtjylland ou Nul",
+   "conseil_cote": 1.37,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.6,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.57,
      "mise_eur": 100.0
     }
    ]
@@ -848,34 +879,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1563124",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Stoke City – Norwich",
-   "kickoff_at": "2026-09-01T21:00:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/75.png",
-   "away_logo": "https://media.api-sports.io/football/teams/71.png",
-   "conseil": "Norwich ou Nul",
-   "conseil_cote": 1.33,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.64,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1563119",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -921,6 +924,34 @@
      "odd": 1.46,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1563124",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Stoke City – Norwich",
+   "kickoff_at": "2026-09-01T21:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/75.png",
+   "away_logo": "https://media.api-sports.io/football/teams/71.png",
+   "conseil": "Norwich ou Nul",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.64,
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -1288,25 +1319,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556043",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "JEF United Chiba – Fagiano Okayama",
-   "kickoff_at": "2026-09-02T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/301.png",
-   "away_logo": "https://media.api-sports.io/football/teams/310.png",
-   "conseil": "Fagiano Okayama ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 2"
-  },
-  {
    "fixture_id": "api_football:1556042",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -1331,117 +1343,6 @@
      "odd": 1.61,
      "mise_eur": 100.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556047",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Shimizu S-pulse – FC Tokyo",
-   "kickoff_at": "2026-09-02T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/283.png",
-   "away_logo": "https://media.api-sports.io/football/teams/292.png",
-   "conseil": "FC Tokyo ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
-   "fixture_id": "api_football:1556045",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Mito Hollyhock – Kashima",
-   "kickoff_at": "2026-09-02T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/305.png",
-   "away_logo": "https://media.api-sports.io/football/teams/290.png",
-   "conseil": "Kashima ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 2",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Léo Ceará buteur",
-     "detail": "cote 2.10",
-     "odd": 2.1,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556044",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Machida Zelvia – Kawasaki Frontale",
-   "kickoff_at": "2026-09-02T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/303.png",
-   "away_logo": "https://media.api-sports.io/football/teams/294.png",
-   "conseil": "Machida Zelvia ou Nul",
-   "conseil_cote": 1.28,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.65,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556048",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tokyo Verdy – Vissel Kobe",
-   "kickoff_at": "2026-09-02T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/306.png",
-   "away_logo": "https://media.api-sports.io/football/teams/289.png",
-   "conseil": "Vissel Kobe ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.51,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 2",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.48,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.6,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -1472,6 +1373,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1556043",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "JEF United Chiba – Fagiano Okayama",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/301.png",
+   "away_logo": "https://media.api-sports.io/football/teams/310.png",
+   "conseil": "Fagiano Okayama ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
   },
   {
    "fixture_id": "api_football:1556046",
@@ -1505,6 +1425,117 @@
      "odd": 1.59,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556044",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Machida Zelvia – Kawasaki Frontale",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/303.png",
+   "away_logo": "https://media.api-sports.io/football/teams/294.png",
+   "conseil": "Machida Zelvia ou Nul",
+   "conseil_cote": 1.28,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.65,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556045",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Mito Hollyhock – Kashima",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/305.png",
+   "away_logo": "https://media.api-sports.io/football/teams/290.png",
+   "conseil": "Kashima ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Léo Ceará buteur",
+     "detail": "cote 2.10",
+     "odd": 2.1,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556047",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Shimizu S-pulse – FC Tokyo",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/283.png",
+   "away_logo": "https://media.api-sports.io/football/teams/292.png",
+   "conseil": "FC Tokyo ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1556048",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tokyo Verdy – Vissel Kobe",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/306.png",
+   "away_logo": "https://media.api-sports.io/football/teams/289.png",
+   "conseil": "Vissel Kobe ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.51,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.48,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.6,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     }
    ]
   },
