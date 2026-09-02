@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T03:31:35.755735+00:00",
+ "generated_at": "2026-09-02T03:31:40.747267+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182681",
@@ -101,42 +101,6 @@
    "conseil": "Victoire Botic Van De Zandschulp",
    "conseil_cote": 1.33,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816764",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Texas Rangers – Athletics",
-   "kickoff_at": "2026-09-02T00:05Z",
-   "published": true,
-   "value_bet": "Athletics +1,5 @ 1.8",
-   "value_cote": 1.8,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Texas Rangers @ 1.463",
-     "odd": 1.46,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "team_total_home",
-     "label": "Total équipe Texas Rangers — Moins de 4,5 @ 1.7812",
-     "odd": 1.78,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Athletics — Plus de 2,5 @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182708",
@@ -985,6 +949,45 @@
      "odd": 1.54,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816764",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Texas Rangers – Athletics",
+   "kickoff_at": "2026-09-02T00:05Z",
+   "published": true,
+   "value_bet": "Athletics +1,5 @ 1.8",
+   "value_cote": 1.8,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "8 - 5",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Texas Rangers @ 1.463",
+     "odd": 1.46,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Texas Rangers — Moins de 4,5 @ 1.7812",
+     "odd": 1.78,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Athletics — Plus de 2,5 @ 1.6897",
+     "odd": 1.69,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
