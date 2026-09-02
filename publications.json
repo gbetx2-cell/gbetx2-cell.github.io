@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T17:53:27.104699+00:00",
+ "generated_at": "2026-09-02T17:55:21.554987+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182712",
@@ -233,32 +233,6 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.68,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1559986",
-   "flag": "🇨🇿",
-   "league": "Czech Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Zbrojovka Brno – Hradec Králové",
-   "kickoff_at": "2026-09-02T18:00:00+02:00",
-   "published": true,
-   "league_id": 345,
-   "home_logo": "https://media.api-sports.io/football/teams/3733.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3723.png",
-   "conseil": "Zbrojovka Brno ou Nul",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "D. Vašulín buteur",
-     "detail": "cote 2.70",
-     "odd": 2.7,
      "mise_eur": 200.0
     }
    ]
@@ -1972,6 +1946,35 @@
      "odd": 1.61,
      "mise_eur": 100.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1559986",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Zbrojovka Brno – Hradec Králové",
+   "kickoff_at": "2026-09-02T18:00:00+02:00",
+   "published": true,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/3733.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3723.png",
+   "conseil": "Zbrojovka Brno ou Nul",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "D. Vašulín buteur",
+     "detail": "cote 2.70",
+     "odd": 2.7,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
