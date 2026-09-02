@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T18:06:07.578803+00:00",
+ "generated_at": "2026-09-02T18:06:23.590679+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182714",
@@ -612,6 +612,31 @@
    ]
   },
   {
+   "fixture_id": "api_football:1582785",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Borac Banja Luka – Zeljeznicar Sarajevo",
+   "kickoff_at": "2026-09-02T20:30:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/3364.png",
+   "away_logo": "https://media.api-sports.io/football/teams/654.png",
+   "conseil": "Borac Banja Luka gagne",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.61,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1555378",
    "flag": "🇨🇭",
    "league": "Super League",
@@ -816,6 +841,40 @@
    "conseil_cote": 1.97,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1556654",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Falkirk – Rangers",
+   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/1389.png",
+   "away_logo": "https://media.api-sports.io/football/teams/257.png",
+   "conseil": "Rangers ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.9,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "L. Shankland buteur",
+     "detail": "cote 1.67",
+     "odd": 1.67,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Rangers",
+     "odd": 1.61,
+     "mise_eur": 100.0
+    }
+   ]
   }
  ],
  "done": [
