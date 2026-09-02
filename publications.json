@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T23:40:33.097008+00:00",
+ "generated_at": "2026-09-02T23:57:46.602736+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -14,21 +14,6 @@
    "away_photo": "assets/players/dino prizmic.png",
    "conseil": "Victoire Tommy Paul",
    "conseil_cote": 1.26,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182776",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Toby Samuel – Jiri Lehecka",
-   "kickoff_at": "2026-09-02T19:30Z",
-   "published": true,
-   "home_photo": "assets/players/toby samuel.png",
-   "away_photo": "assets/players/jiri lehecka.png",
-   "conseil": "Victoire Jiri Lehecka",
-   "conseil_cote": 1.38,
    "conseil_mise_eur": 200.0
   },
   {
@@ -1317,6 +1302,31 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816760",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cincinnati Reds – San Diego Padres",
+   "kickoff_at": "2026-09-01T22:40Z",
+   "published": true,
+   "value_bet": "San Diego Padres Plus de 4,5 @ 1.7576",
+   "value_cote": 1.76,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — San Diego Padres @ 1.7576",
+     "odd": 1.76,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816759",
    "flag": "⚾",
    "league": "MLB",
@@ -1343,31 +1353,6 @@
      "market": "handicap",
      "label": "Écart de points — New York Mets +1,5 @ 1.5556",
      "odd": 1.56,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816760",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cincinnati Reds – San Diego Padres",
-   "kickoff_at": "2026-09-01T22:40Z",
-   "published": true,
-   "value_bet": "San Diego Padres Plus de 4,5 @ 1.7576",
-   "value_cote": 1.76,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "4 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — San Diego Padres @ 1.7576",
-     "odd": 1.76,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -2345,6 +2330,23 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 0"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182776",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Toby Samuel – Jiri Lehecka",
+   "kickoff_at": "2026-09-02T19:30Z",
+   "published": true,
+   "home_photo": "assets/players/toby samuel.png",
+   "away_photo": "assets/players/jiri lehecka.png",
+   "conseil": "Victoire Jiri Lehecka",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "4-6, 2-6, 4-6"
   },
   {
    "fixture_id": "baseball_401816786",
