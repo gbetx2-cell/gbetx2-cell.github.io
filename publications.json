@@ -1,32 +1,6 @@
 {
- "generated_at": "2026-09-02T12:36:59.811034+00:00",
+ "generated_at": "2026-09-02T12:37:21.731296+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1556045",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Mito Hollyhock – Kashima",
-   "kickoff_at": "2026-09-02T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/305.png",
-   "away_logo": "https://media.api-sports.io/football/teams/290.png",
-   "conseil": "Kashima ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Léo Ceará buteur",
-     "detail": "cote 2.10",
-     "odd": 2.1,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "api_football:1556049",
    "flag": "🇯🇵",
@@ -1161,6 +1135,35 @@
      "odd": 1.71,
      "mise_eur": 100.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556045",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Mito Hollyhock – Kashima",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/305.png",
+   "away_logo": "https://media.api-sports.io/football/teams/290.png",
+   "conseil": "Kashima ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Léo Ceará buteur",
+     "detail": "cote 2.10",
+     "odd": 2.1,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
