@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T20:39:19.461536+00:00",
+ "generated_at": "2026-09-02T21:19:19.861257+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182750",
@@ -88,27 +88,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816773",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Atlanta Braves",
-   "kickoff_at": "2026-09-02T17:05Z",
-   "published": true,
-   "value_bet": "Washington Nationals +1,5 @ 1.7407",
-   "value_cote": 1.74,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "team_total_home",
-     "label": "Total équipe Washington Nationals — Plus de 3,5 @ 1.6494",
-     "odd": 1.65,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_182681",
    "flag": "🎾",
    "league": "US Open",
@@ -185,21 +164,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182776",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Toby Samuel – Jiri Lehecka",
-   "kickoff_at": "2026-09-02T19:30Z",
-   "published": true,
-   "home_photo": "assets/players/toby samuel.png",
-   "away_photo": "assets/players/jiri lehecka.png",
-   "conseil": "Victoire Jiri Lehecka",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_182761",
    "flag": "🎾",
    "league": "US Open",
@@ -212,6 +176,21 @@
    "away_photo": "assets/players/dino prizmic.png",
    "conseil": "Victoire Tommy Paul",
    "conseil_cote": 1.26,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182776",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Toby Samuel – Jiri Lehecka",
+   "kickoff_at": "2026-09-02T19:30Z",
+   "published": true,
+   "home_photo": "assets/players/toby samuel.png",
+   "away_photo": "assets/players/jiri lehecka.png",
+   "conseil": "Victoire Jiri Lehecka",
+   "conseil_cote": 1.38,
    "conseil_mise_eur": 200.0
   },
   {
@@ -269,47 +248,29 @@
    ]
   },
   {
-   "fixture_id": "api_football:1561917",
-   "flag": "🇦🇹",
-   "league": "Bundesliga",
+   "fixture_id": "api_football:1582785",
+   "flag": "⚽",
+   "league": "Premijer Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Red Bull Salzburg – Rapid Vienna",
+   "match": "Borac Banja Luka – Zeljeznicar Sarajevo",
    "kickoff_at": "2026-09-02T20:30:00+02:00",
    "published": true,
-   "league_id": 218,
-   "home_logo": "https://media.api-sports.io/football/teams/571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/781.png",
-   "conseil": "Rapid Vienna ou Nul",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 200.0,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/3364.png",
+   "away_logo": "https://media.api-sports.io/football/teams/654.png",
+   "conseil": "Borac Banja Luka gagne",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "player_picks": [
+   "refonte_value_bets": [
     {
-     "category": "Buteur",
-     "label": "E. Kara buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 300.0
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.61,
+     "mise_eur": 100.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1555379",
-   "flag": "🇨🇭",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Luzern – FC Vaduz",
-   "kickoff_at": "2026-09-02T20:30:00+02:00",
-   "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/644.png",
-   "away_logo": "https://media.api-sports.io/football/teams/660.png",
-   "conseil": "FC Luzern ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1555378",
@@ -393,6 +354,32 @@
    ]
   },
   {
+   "fixture_id": "api_football:1561917",
+   "flag": "🇦🇹",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Red Bull Salzburg – Rapid Vienna",
+   "kickoff_at": "2026-09-02T20:30:00+02:00",
+   "published": true,
+   "league_id": 218,
+   "home_logo": "https://media.api-sports.io/football/teams/571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/781.png",
+   "conseil": "Rapid Vienna ou Nul",
+   "conseil_cote": 2.05,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "E. Kara buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
+     "mise_eur": 300.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1555380",
    "flag": "🇨🇭",
    "league": "Super League",
@@ -424,29 +411,21 @@
    ]
   },
   {
-   "fixture_id": "api_football:1582785",
-   "flag": "⚽",
-   "league": "Premijer Liga",
+   "fixture_id": "api_football:1555379",
+   "flag": "🇨🇭",
+   "league": "Super League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Borac Banja Luka – Zeljeznicar Sarajevo",
+   "match": "FC Luzern – FC Vaduz",
    "kickoff_at": "2026-09-02T20:30:00+02:00",
    "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/3364.png",
-   "away_logo": "https://media.api-sports.io/football/teams/654.png",
-   "conseil": "Borac Banja Luka gagne",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.61,
-     "mise_eur": 100.0
-    }
-   ]
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/644.png",
+   "away_logo": "https://media.api-sports.io/football/teams/660.png",
+   "conseil": "FC Luzern ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1563128",
@@ -607,6 +586,23 @@
    ]
   },
   {
+   "fixture_id": "api_football:1582265",
+   "flag": "⚽",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Floriana – Gzira United",
+   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "published": true,
+   "league_id": 393,
+   "home_logo": "https://media.api-sports.io/football/teams/4625.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2264.png",
+   "conseil": "Floriana gagne",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1519478",
    "flag": "🇵🇾",
    "league": "Liga Pro",
@@ -661,23 +657,6 @@
    "conseil": "Burnley ou Nul + Plus de 1.5 buts",
    "conseil_cote": 1.97,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1582265",
-   "flag": "⚽",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Floriana – Gzira United",
-   "kickoff_at": "2026-09-02T21:00:00+02:00",
-   "published": true,
-   "league_id": 393,
-   "home_logo": "https://media.api-sports.io/football/teams/4625.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2264.png",
-   "conseil": "Floriana gagne",
-   "conseil_cote": 1.8,
-   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore"
   },
   {
@@ -1630,32 +1609,52 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556042",
+   "fixture_id": "api_football:1556045",
    "flag": "🇯🇵",
    "league": "J1 League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Cerezo Osaka – Kashiwa Reysol",
+   "match": "Mito Hollyhock – Kashima",
    "kickoff_at": "2026-09-02T12:00:00+02:00",
    "published": true,
    "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/291.png",
-   "away_logo": "https://media.api-sports.io/football/teams/281.png",
-   "conseil": "Kashiwa Reysol ou Nul",
-   "conseil_cote": 1.36,
+   "home_logo": "https://media.api-sports.io/football/teams/305.png",
+   "away_logo": "https://media.api-sports.io/football/teams/290.png",
+   "conseil": "Kashima ou Nul",
+   "conseil_cote": 1.27,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "PERDU",
-   "score": "2 - 0",
-   "refonte_value_bets": [
+   "score": "4 - 2",
+   "player_picks": [
     {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.61,
-     "mise_eur": 100.0,
-     "result": "PERDU"
+     "category": "Buteur",
+     "label": "Léo Ceará buteur",
+     "detail": "cote 2.10",
+     "odd": 2.1,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1556050",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Yokohama F. Marinos – Kyoto Sanga",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/296.png",
+   "away_logo": "https://media.api-sports.io/football/teams/302.png",
+   "conseil": "Yokohama F. Marinos ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1556048",
@@ -1787,54 +1786,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556045",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Mito Hollyhock – Kashima",
-   "kickoff_at": "2026-09-02T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/305.png",
-   "away_logo": "https://media.api-sports.io/football/teams/290.png",
-   "conseil": "Kashima ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 2",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Léo Ceará buteur",
-     "detail": "cote 2.10",
-     "odd": 2.1,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556047",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Shimizu S-pulse – FC Tokyo",
-   "kickoff_at": "2026-09-02T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/283.png",
-   "away_logo": "https://media.api-sports.io/football/teams/292.png",
-   "conseil": "FC Tokyo ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1556046",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -1870,23 +1821,51 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556050",
+   "fixture_id": "api_football:1556047",
    "flag": "🇯🇵",
    "league": "J1 League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Yokohama F. Marinos – Kyoto Sanga",
+   "match": "Shimizu S-pulse – FC Tokyo",
    "kickoff_at": "2026-09-02T12:00:00+02:00",
    "published": true,
    "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/296.png",
-   "away_logo": "https://media.api-sports.io/football/teams/302.png",
-   "conseil": "Yokohama F. Marinos ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 300.0,
+   "home_logo": "https://media.api-sports.io/football/teams/283.png",
+   "away_logo": "https://media.api-sports.io/football/teams/292.png",
+   "conseil": "FC Tokyo ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1556042",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Cerezo Osaka – Kashiwa Reysol",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/291.png",
+   "away_logo": "https://media.api-sports.io/football/teams/281.png",
+   "conseil": "Kashiwa Reysol ou Nul",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182697",
@@ -1998,6 +1977,31 @@
      "odd": 1.51,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816773",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Washington Nationals – Atlanta Braves",
+   "kickoff_at": "2026-09-02T17:05Z",
+   "published": true,
+   "value_bet": "Washington Nationals +1,5 @ 1.7407",
+   "value_cote": 1.74,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "0 - 9",
+   "refonte_value_bets": [
+    {
+     "market": "team_total_home",
+     "label": "Total équipe Washington Nationals — Plus de 3,5 @ 1.6494",
+     "odd": 1.65,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
