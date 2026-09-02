@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T19:00:03.751982+00:00",
+ "generated_at": "2026-09-02T19:00:14.781692+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182712",
@@ -282,6 +282,21 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "tennis_espn_atp_182761",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tommy Paul – Dino Prizmic",
+   "kickoff_at": "2026-09-02T19:30Z",
+   "published": true,
+   "home_photo": "assets/players/tommy paul.png",
+   "away_photo": "assets/players/dino prizmic.png",
+   "conseil": "Victoire Tommy Paul",
+   "conseil_cote": 1.26,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_182776",
    "flag": "🎾",
    "league": "US Open",
@@ -421,27 +436,28 @@
    ]
   },
   {
-   "fixture_id": "api_football:1582786",
-   "flag": "⚽",
-   "league": "Premijer Liga",
+   "fixture_id": "api_football:1561917",
+   "flag": "🇦🇹",
+   "league": "Bundesliga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Siroki Brijeg – FK Sarajevo",
+   "match": "Red Bull Salzburg – Rapid Vienna",
    "kickoff_at": "2026-09-02T20:30:00+02:00",
    "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/642.png",
-   "away_logo": "https://media.api-sports.io/football/teams/679.png",
-   "conseil": "Siroki Brijeg ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.94,
-   "conseil_mise_eur": 500.0,
+   "league_id": 218,
+   "home_logo": "https://media.api-sports.io/football/teams/571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/781.png",
+   "conseil": "Rapid Vienna ou Nul",
+   "conseil_cote": 2.05,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "refonte_value_bets": [
+   "player_picks": [
     {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.49,
-     "mise_eur": 200.0
+     "category": "Buteur",
+     "label": "E. Kara buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
+     "mise_eur": 300.0
     }
    ]
   },
@@ -575,28 +591,27 @@
    ]
   },
   {
-   "fixture_id": "api_football:1561917",
-   "flag": "🇦🇹",
-   "league": "Bundesliga",
+   "fixture_id": "api_football:1582786",
+   "flag": "⚽",
+   "league": "Premijer Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Red Bull Salzburg – Rapid Vienna",
+   "match": "Siroki Brijeg – FK Sarajevo",
    "kickoff_at": "2026-09-02T20:30:00+02:00",
    "published": true,
-   "league_id": 218,
-   "home_logo": "https://media.api-sports.io/football/teams/571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/781.png",
-   "conseil": "Rapid Vienna ou Nul",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 200.0,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/642.png",
+   "away_logo": "https://media.api-sports.io/football/teams/679.png",
+   "conseil": "Siroki Brijeg ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.94,
+   "conseil_mise_eur": 500.0,
    "lineup_source": "flashscore",
-   "player_picks": [
+   "refonte_value_bets": [
     {
-     "category": "Buteur",
-     "label": "E. Kara buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 300.0
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.49,
+     "mise_eur": 200.0
     }
    ]
   },
