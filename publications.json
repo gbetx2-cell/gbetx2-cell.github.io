@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T00:05:20.833208+00:00",
+ "generated_at": "2026-09-02T00:38:57.819206+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182710",
@@ -304,6 +304,31 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1549758",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fortaleza FC – Once Caldas",
+   "kickoff_at": "2026-09-02T03:00:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1147.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1136.png",
+   "conseil": "Fortaleza FC ou Nul",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.71,
+     "mise_eur": 100.0
+    }
+   ]
   }
  ],
  "done": [
@@ -376,21 +401,21 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182715",
+   "fixture_id": "tennis_espn_atp_182683",
    "flag": "🎾",
    "league": "US Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Tristan Schoolkate – Nishesh Basavareddy",
+   "match": "Zsombor Piros – Mattia Bellucci",
    "kickoff_at": "2026-09-01T18:50Z",
    "published": true,
-   "home_photo": "assets/players/tristan schoolkate.png",
-   "away_photo": "assets/players/nishesh basavareddy.png",
-   "conseil": "Victoire Nishesh Basavareddy",
-   "conseil_cote": 1.4,
+   "home_photo": "assets/players/zsombor piros.png",
+   "away_photo": "assets/players/mattia bellucci.png",
+   "conseil": "Victoire Mattia Bellucci",
+   "conseil_cote": 1.47,
    "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "7-6, 3-6, 6-3, 6-4"
+   "result": "GAGNE",
+   "score": "4-6, 2-6, 0-6"
   },
   {
    "fixture_id": "tennis_espn_atp_182706",
@@ -410,21 +435,59 @@
    "score": "STATUS_RETIRED"
   },
   {
-   "fixture_id": "tennis_espn_atp_182683",
+   "fixture_id": "tennis_espn_atp_182715",
    "flag": "🎾",
    "league": "US Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Zsombor Piros – Mattia Bellucci",
+   "match": "Tristan Schoolkate – Nishesh Basavareddy",
    "kickoff_at": "2026-09-01T18:50Z",
    "published": true,
-   "home_photo": "assets/players/zsombor piros.png",
-   "away_photo": "assets/players/mattia bellucci.png",
-   "conseil": "Victoire Mattia Bellucci",
-   "conseil_cote": 1.47,
+   "home_photo": "assets/players/tristan schoolkate.png",
+   "away_photo": "assets/players/nishesh basavareddy.png",
+   "conseil": "Victoire Nishesh Basavareddy",
+   "conseil_cote": 1.4,
    "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "7-6, 3-6, 6-3, 6-4"
+  },
+  {
+   "fixture_id": "api_football:1508846",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KR Reykjavik – Vikingur Reykjavik",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/271.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1600333",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kruger United – Orlando Pirates",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
+   "conseil": "Orlando Pirates gagne",
+   "conseil_cote": 1.34,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "4-6, 2-6, 0-6"
+   "score": "0 - 4"
   },
   {
    "fixture_id": "api_football:1561915",
@@ -462,25 +525,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1600333",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kruger United – Orlando Pirates",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
-   "conseil": "Orlando Pirates gagne",
-   "conseil_cote": 1.34,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 4"
-  },
-  {
    "fixture_id": "api_football:1600329",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -516,25 +560,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1508846",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "KR Reykjavik – Vikingur Reykjavik",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/271.png",
-   "away_logo": "https://media.api-sports.io/football/teams/278.png",
-   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1603007",
    "flag": "🇸🇦",
    "league": "Pro League",
@@ -563,23 +588,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182694",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jan-Lennard Struff – Camilo Ugo Carabelli",
-   "kickoff_at": "2026-09-01T20:15Z",
-   "published": true,
-   "home_photo": "assets/players/jan lennard struff.png",
-   "away_photo": "assets/players/camilo ugo carabelli.png",
-   "conseil": "Victoire Jan-Lennard Struff",
-   "conseil_cote": 1.45,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-4, 6-3, 6-3"
-  },
-  {
    "fixture_id": "tennis_espn_atp_182702",
    "flag": "🎾",
    "league": "US Open",
@@ -595,6 +603,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-3, 6-3, 7-5"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182694",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jan-Lennard Struff – Camilo Ugo Carabelli",
+   "kickoff_at": "2026-09-01T20:15Z",
+   "published": true,
+   "home_photo": "assets/players/jan lennard struff.png",
+   "away_photo": "assets/players/camilo ugo carabelli.png",
+   "conseil": "Victoire Jan-Lennard Struff",
+   "conseil_cote": 1.45,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-4, 6-3, 6-3"
   },
   {
    "fixture_id": "api_football:1555377",
@@ -630,6 +655,72 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1563126",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "West Ham – Wolves",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/48.png",
+   "away_logo": "https://media.api-sports.io/football/teams/39.png",
+   "conseil": "Wolves gagne + Plus de 1.5 buts",
+   "conseil_cote": 5.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 2"
+  },
+  {
+   "fixture_id": "api_football:1563122",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Preston – Bristol City",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/59.png",
+   "away_logo": "https://media.api-sports.io/football/teams/56.png",
+   "conseil": "Bristol City gagne",
+   "conseil_cote": 2.49,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1582789",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Zrinjski – BSK Banja Luka",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/588.png",
+   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
+   "conseil": "Zrinjski gagne",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1563123",
@@ -696,72 +787,6 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "0 - 0"
-  },
-  {
-   "fixture_id": "api_football:1563126",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "West Ham – Wolves",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/48.png",
-   "away_logo": "https://media.api-sports.io/football/teams/39.png",
-   "conseil": "Wolves gagne + Plus de 1.5 buts",
-   "conseil_cote": 5.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 2"
-  },
-  {
-   "fixture_id": "api_football:1582789",
-   "flag": "⚽",
-   "league": "Premijer Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Zrinjski – BSK Banja Luka",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/588.png",
-   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
-   "conseil": "Zrinjski gagne",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "3 - 1"
-  },
-  {
-   "fixture_id": "api_football:1563122",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Preston – Bristol City",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/59.png",
-   "away_logo": "https://media.api-sports.io/football/teams/56.png",
-   "conseil": "Bristol City gagne",
-   "conseil_cote": 2.49,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.61,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1563119",
