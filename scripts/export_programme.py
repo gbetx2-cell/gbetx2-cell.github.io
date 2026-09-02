@@ -52,12 +52,24 @@ COMP_WINDOWS: dict[str, tuple[int, int]] = {
 }
 
 
-def _get_programme_window_sql_where() -> tuple[str, tuple]:
+def _get_programme_window_sql_where(days_back: int = 0) -> tuple[str, tuple]:
     """
     Retourne la clause WHERE et les paramètres pour SQL (fenêtre J 08h-J+1 07h59).
 
     Fenêtre J 08h00 Paris → J+1 07h59:59 Paris = J 06h00 UTC → J+1 05h59:59 UTC.
     Embarqué ici (pas d'import utils/) pour compatibilité repo public sans dépendances.
+
+    days_back (02/09/2026, demande explicite : "corrige la fenetre pour que
+    ca reste visible" -- bug confirme en direct : les resultats MLB de la
+    veille au soir (kickoff US = nuit cote Paris) disparaissaient de la page
+    Publications des que la fenetre roulait a 08h Paris, alors qu'ils
+    restaient corrects en base) : recule uniquement le DEBUT de la fenetre
+    de N jours supplementaires, sans toucher la fin (day_start_paris+1j
+    07h59) -- utilise par fetch_publications() (days_back=1, fenetre 48h)
+    pour garder un match regle visible toute la journee suivant son
+    reglement, sans elargir programme.html (days_back=0 par defaut, jamais
+    touche -- page "programme du jour", volontairement etroite, cf
+    commentaire "nettoyage retrospectif" plus haut).
 
     Returns:
         (where_clause, params_tuple) pour utilisation dans cur.execute()
@@ -78,7 +90,7 @@ def _get_programme_window_sql_where() -> tuple[str, tuple]:
         day_start_paris -= timedelta(days=1)
 
     # Bornes en heure Paris
-    window_start_paris = day_start_paris
+    window_start_paris = day_start_paris - timedelta(days=days_back)
     window_end_paris = (day_start_paris + timedelta(days=1)).replace(
         hour=7, minute=59, second=59, microsecond=999999
     )
@@ -445,7 +457,7 @@ def _no_bet_label(reason_code: str, sport: str) -> str:
     return NO_BET_REASONS_FR.get(reason_code, NO_BET_GENERIC_FR)
 
 
-def fetch_programme() -> list[dict]:
+def fetch_programme(days_back: int = 0) -> list[dict]:
     import psycopg2
 
     db = os.environ.get("DATABASE_URL")
@@ -458,7 +470,10 @@ def fetch_programme() -> list[dict]:
     placeholders_sport = ",".join(["%s"] * len(PROGRAMME_SPORTS))
 
     # Filtre fenêtre temporelle: J 08h → J+1 07h59 (nettoyage rétrospectif, ex: Wimbledon hors fenêtre)
-    window_where, window_params = _get_programme_window_sql_where()
+    # days_back : voir docstring de _get_programme_window_sql_where() -- 0 ici
+    # (comportement inchangé pour programme.html), fetch_publications() passe
+    # 1 pour garder les résultats réglés visibles au-delà du rollover 08h Paris.
+    window_where, window_params = _get_programme_window_sql_where(days_back=days_back)
 
     # Filtre par programme_date retire le 30/07/2026 (audit demande explicite,
     # confirme en direct : match Bronzetti/Ibragimova publie sur Telegram mais
@@ -866,9 +881,16 @@ def fetch_publications() -> dict:
     "live" = pas encore reglee (pas de cle "result") ; "done" = reglee
     (cle "result" presente). Le statut "live" avant le coup d'envoi est
     affiche cote client comme un decompte exact jusqu'a kickoff_at (present
-    dans chaque item), pas un simple "En cours" statique."""
+    dans chaque item), pas un simple "En cours" statique.
+
+    days_back=1 (02/09/2026, demande explicite : "corrige la fenetre pour
+    que ca reste visible" -- bug confirme en direct : matchs MLB de la
+    veille au soir disparaissaient de "done" des que la fenetre roulait a
+    08h Paris) : fenetre 48h au lieu de 24h pour cette page uniquement --
+    programme.html (fetch_programme() sans argument, page "programme du
+    jour") reste sur la fenetre stricte d'origine."""
     out = {"live": [], "done": []}
-    for f in fetch_programme():
+    for f in fetch_programme(days_back=1):
         if not f.get("published"):
             continue
         (out["done"] if f.get("result") else out["live"]).append(f)
