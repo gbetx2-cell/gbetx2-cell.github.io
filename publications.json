@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T18:30:08.941926+00:00",
+ "generated_at": "2026-09-02T18:30:28.610261+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182712",
@@ -769,6 +769,46 @@
    "conseil_cote": 1.97,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1519478",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Macara – Manta FC",
+   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1155.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1980.png",
+   "conseil": "Macara ou Nul",
+   "conseil_cote": 1.12,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "F. Posse buteur",
+     "detail": "cote 2.25",
+     "odd": 2.25,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Macara",
+     "odd": 1.45,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.6,
+     "mise_eur": 100.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1556654",
