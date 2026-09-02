@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T23:38:13.292907+00:00",
+ "generated_at": "2026-09-02T00:05:14.824680+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182710",
@@ -155,35 +155,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816759",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – New York Mets",
-   "kickoff_at": "2026-09-01T22:40Z",
-   "published": true,
-   "value_bet": "Tampa Bay Rays Plus de 3,5 @ 1.6897",
-   "value_cote": 1.69,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Tampa Bay Rays @ 1.7407",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "handicap",
-     "label": "Écart de points — New York Mets +1,5 @ 1.5556",
-     "odd": 1.56,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816758",
    "flag": "⚾",
    "league": "MLB",
@@ -202,28 +173,6 @@
      "odd": 1.8,
      "mise_eur": 200.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816768",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Milwaukee Brewers",
-   "kickoff_at": "2026-09-01T23:40Z",
-   "published": true,
-   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.7143",
-   "value_cote": 1.71,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Milwaukee Brewers +1,5 @ 1.5405",
-     "odd": 1.54,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -251,6 +200,28 @@
      "market": "team_total_away",
      "label": "Total équipe Detroit Tigers — Moins de 4,5 @ 1.7246",
      "odd": 1.72,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816768",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Milwaukee Brewers",
+   "kickoff_at": "2026-09-01T23:40Z",
+   "published": true,
+   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.7143",
+   "value_cote": 1.71,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Milwaukee Brewers +1,5 @ 1.5405",
+     "odd": 1.54,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
@@ -895,6 +866,38 @@
      "odd": 1.64,
      "mise_eur": 100.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816759",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – New York Mets",
+   "kickoff_at": "2026-09-01T22:40Z",
+   "published": true,
+   "value_bet": "Tampa Bay Rays Plus de 3,5 @ 1.6897",
+   "value_cote": 1.69,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "5 - 1 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Tampa Bay Rays @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "handicap",
+     "label": "Écart de points — New York Mets +1,5 @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
