@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T19:55:03.443416+00:00",
+ "generated_at": "2026-09-02T20:19:16.427336+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182750",
@@ -270,37 +270,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1549008",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Aarhus – FC Midtjylland",
-   "kickoff_at": "2026-09-02T20:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/406.png",
-   "away_logo": "https://media.api-sports.io/football/teams/397.png",
-   "conseil": "FC Midtjylland ou Nul",
-   "conseil_cote": 1.37,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.6,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.57,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1582268",
    "flag": "⚽",
    "league": "Premier League",
@@ -321,13 +290,15 @@
      "market": "Over/Under 2.5",
      "label": "Moins de 2.5 buts",
      "odd": 1.76,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.9,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -352,19 +323,22 @@
      "market": "1X2",
      "label": "Celje",
      "odd": 1.57,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
      "odd": 1.49,
-     "mise_eur": 300.0
+     "mise_eur": 300.0,
+     "result": "PERDU"
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
      "odd": 1.55,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -389,7 +363,8 @@
      "market": "Over/Under 2.5",
      "label": "Moins de 2.5 buts",
      "odd": 1.85,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -2292,6 +2267,41 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 0"
+  },
+  {
+   "fixture_id": "api_football:1549008",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aarhus – FC Midtjylland",
+   "kickoff_at": "2026-09-02T20:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/406.png",
+   "away_logo": "https://media.api-sports.io/football/teams/397.png",
+   "conseil": "FC Midtjylland ou Nul",
+   "conseil_cote": 1.37,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.6,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.57,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
