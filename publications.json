@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T20:19:16.427336+00:00",
+ "generated_at": "2026-09-02T20:19:23.428185+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182750",
@@ -266,39 +266,6 @@
      "label": "Total — Plus de 8,5 runs @ 1.8264",
      "odd": 1.83,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1582268",
-   "flag": "⚽",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Hibernians – Valletta FC",
-   "kickoff_at": "2026-09-02T20:00:00+02:00",
-   "published": true,
-   "league_id": 393,
-   "home_logo": "https://media.api-sports.io/football/teams/3884.png",
-   "away_logo": "https://media.api-sports.io/football/teams/659.png",
-   "conseil": "Valletta FC gagne",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.76,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.9,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -2298,6 +2265,41 @@
      "market": "Cartons O/U 3.5",
      "label": "Plus de 3.5 cartons",
      "odd": 1.57,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1582268",
+   "flag": "⚽",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Hibernians – Valletta FC",
+   "kickoff_at": "2026-09-02T20:00:00+02:00",
+   "published": true,
+   "league_id": 393,
+   "home_logo": "https://media.api-sports.io/football/teams/3884.png",
+   "away_logo": "https://media.api-sports.io/football/teams/659.png",
+   "conseil": "Valletta FC gagne",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.76,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.9,
      "mise_eur": 100.0,
      "result": "GAGNE"
     }
