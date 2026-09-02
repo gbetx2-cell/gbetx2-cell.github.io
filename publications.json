@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T00:05:14.824680+00:00",
+ "generated_at": "2026-09-02T00:05:21.225481+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182710",
@@ -93,35 +93,6 @@
      "odd": 1.76,
      "mise_eur": 200.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816762",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Pittsburgh Pirates – San Francisco Giants",
-   "kickoff_at": "2026-09-01T22:40Z",
-   "published": true,
-   "value_bet": "Pittsburgh Pirates Plus de 3,5 @ 1.6667",
-   "value_cote": 1.67,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Pittsburgh Pirates @ 1.625",
-     "odd": 1.62,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe San Francisco Giants — Moins de 3,5 @ 1.7042",
-     "odd": 1.7,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -866,6 +837,38 @@
      "odd": 1.64,
      "mise_eur": 100.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816762",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Pittsburgh Pirates – San Francisco Giants",
+   "kickoff_at": "2026-09-01T22:40Z",
+   "published": true,
+   "value_bet": "Pittsburgh Pirates Plus de 3,5 @ 1.6667",
+   "value_cote": 1.67,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "11 - 5 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Pittsburgh Pirates @ 1.625",
+     "odd": 1.62,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe San Francisco Giants — Moins de 3,5 @ 1.7042",
+     "odd": 1.7,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
