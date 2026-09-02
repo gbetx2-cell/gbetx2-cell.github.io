@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T09:04:34.066444+00:00",
+ "generated_at": "2026-09-02T09:04:39.997377+00:00",
  "live": [
   {
    "fixture_id": "api_football:1556046",
@@ -92,6 +92,32 @@
    ]
   },
   {
+   "fixture_id": "api_football:1556045",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Mito Hollyhock – Kashima",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/305.png",
+   "away_logo": "https://media.api-sports.io/football/teams/290.png",
+   "conseil": "Kashima ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Léo Ceará buteur",
+     "detail": "cote 2.10",
+     "odd": 2.1,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1556042",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -117,28 +143,50 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556045",
+   "fixture_id": "api_football:1556047",
    "flag": "🇯🇵",
    "league": "J1 League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Mito Hollyhock – Kashima",
+   "match": "Shimizu S-pulse – FC Tokyo",
    "kickoff_at": "2026-09-02T12:00:00+02:00",
    "published": true,
    "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/305.png",
-   "away_logo": "https://media.api-sports.io/football/teams/290.png",
-   "conseil": "Kashima ou Nul",
-   "conseil_cote": 1.27,
+   "home_logo": "https://media.api-sports.io/football/teams/283.png",
+   "away_logo": "https://media.api-sports.io/football/teams/292.png",
+   "conseil": "FC Tokyo ou Nul",
+   "conseil_cote": 1.3,
    "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1556048",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tokyo Verdy – Vissel Kobe",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/306.png",
+   "away_logo": "https://media.api-sports.io/football/teams/289.png",
+   "conseil": "Vissel Kobe ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.51,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "player_picks": [
+   "refonte_value_bets": [
     {
-     "category": "Buteur",
-     "label": "Léo Ceará buteur",
-     "detail": "cote 2.10",
-     "odd": 2.1,
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.48,
      "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.6,
+     "mise_eur": 100.0
     }
    ]
   },
