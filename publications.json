@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T01:34:12.128908+00:00",
+ "generated_at": "2026-09-02T01:34:17.887366+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182710",
@@ -71,35 +71,6 @@
      "detail": "cote 3.10",
      "odd": 3.1,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816763",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Toronto Blue Jays",
-   "kickoff_at": "2026-09-01T22:40Z",
-   "published": true,
-   "value_bet": "Cleveland Guardians Moins de 4,5 @ 1.7519",
-   "value_cote": 1.75,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Cleveland Guardians @ 1.578",
-     "odd": 1.58,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "handicap",
-     "label": "Écart de points — Toronto Blue Jays +1,5 @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -929,6 +900,38 @@
      "odd": 1.76,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816763",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Toronto Blue Jays",
+   "kickoff_at": "2026-09-01T22:40Z",
+   "published": true,
+   "value_bet": "Cleveland Guardians Moins de 4,5 @ 1.7519",
+   "value_cote": 1.75,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Cleveland Guardians @ 1.578",
+     "odd": 1.58,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "handicap",
+     "label": "Écart de points — Toronto Blue Jays +1,5 @ 1.6897",
+     "odd": 1.69,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
