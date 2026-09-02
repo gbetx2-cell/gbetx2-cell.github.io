@@ -932,11 +932,16 @@ let PERIOD_SERIES = {jour:[{label:"00h", pnl:0.28}, {label:"01h", pnl:3.02}, {la
 // chaque deploiement de code (~2 min d'indisponibilite), jamais d'ecran
 // d'erreur pour un simple redemarrage, on garde juste les dernieres
 // donnees connues.
-const LIVE_API_BASE = 'https://sports-bot-pro-production.up.railway.app';
+// Railway abandonne le 31/08/2026 (migration Oracle Cloud) -- URL remplacee
+// le 02/09/2026 par un reverse proxy Caddy (HTTPS auto, DNS nip.io) devant
+// l'API du bot sur la VM Oracle. Timeout court (4s) : si l'API ne repond
+// pas, on tombe vite sur les donnees figees plutot que de laisser fetch()
+// pendre sur le timeout TCP par defaut du navigateur.
+const LIVE_API_BASE = 'https://api-89-168-57-74.nip.io';
 
 async function loadResultsLive(){
   try{
-    const res = await fetch(LIVE_API_BASE + '/api/results', {cache: 'no-store'});
+    const res = await fetch(LIVE_API_BASE + '/api/results', {cache: 'no-store', signal: AbortSignal.timeout(4000)});
     if (!res.ok) return;
     const data = await res.json();
     if (!data || !data.results) return;
@@ -1282,7 +1287,7 @@ let _periodOffsetLoading = false;
 async function loadPeriodOffset(period, offset){
   const key = `${period}:${offset}`;
   if (_periodOffsetCache[key]) return _periodOffsetCache[key];
-  const res = await fetch(`${LIVE_API_BASE}/api/results/history?period=${period}&offset=${offset}`, {cache:'no-store'});
+  const res = await fetch(`${LIVE_API_BASE}/api/results/history?period=${period}&offset=${offset}`, {cache:'no-store', signal: AbortSignal.timeout(4000)});
   if (!res.ok) throw new Error('http ' + res.status);
   const data = await res.json();
   _periodOffsetCache[key] = data;

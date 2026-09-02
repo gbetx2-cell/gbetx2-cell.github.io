@@ -1432,7 +1432,7 @@ async function refreshLiveData(){
   // (ex. Croatie -- aucune source live avant ce chantier).
   let apiFootballScores = {};
   try {
-    const r = await fetch(LIVE_API_BASE + '/api/live-scores', {cache: 'no-store'});
+    const r = await fetch(LIVE_API_BASE + '/api/live-scores', {cache: 'no-store', signal: AbortSignal.timeout(4000)});
     if (r.ok){
       const data = await r.json();
       apiFootballScores = data.scores || {};
@@ -1550,13 +1550,21 @@ async function refreshLiveData(){
 // Railway redemarre a chaque deploiement de code, ~2 min d'indisponibilite
 // pendant lesquelles ce fichier reste la derniere donnee connue, jamais
 // d'ecran d'erreur pour un simple redemarrage).
-const LIVE_API_BASE = 'https://sports-bot-pro-production.up.railway.app';
+// Railway abandonne le 31/08/2026 (migration Oracle Cloud) -- URL remplacee
+// le 02/09/2026 par un reverse proxy Caddy (HTTPS auto via Let's Encrypt,
+// DNS gratuit nip.io resolvant vers l'IP de la VM, aucun domaine a acheter)
+// devant l'API du bot sur la VM Oracle. Caddy ne relaie que /api/* (jamais
+// /admin/quotas, non protege par mot de passe). Timeout court (4s, cf
+// AbortSignal.timeout ci-dessous) : si l'API ne repond pas, on tombe vite
+// sur publications.json plutot que de laisser fetch() pendre sur le timeout
+// TCP par defaut du navigateur.
+const LIVE_API_BASE = 'https://api-89-168-57-74.nip.io';
 
 async function loadPublications(){
   try{
     let data;
     try{
-      const res = await fetch(LIVE_API_BASE + '/api/publications', {cache:'no-store'});
+      const res = await fetch(LIVE_API_BASE + '/api/publications', {cache:'no-store', signal: AbortSignal.timeout(4000)});
       if (!res.ok) throw new Error('http ' + res.status);
       data = await res.json();
     }catch(apiErr){
