@@ -1,21 +1,6 @@
 {
- "generated_at": "2026-09-02T01:34:23.701208+00:00",
+ "generated_at": "2026-09-02T01:54:12.031679+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_182710",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Arthur Gea – Juan Manuel Cerundolo",
-   "kickoff_at": "2026-09-01T20:15Z",
-   "published": true,
-   "home_photo": "assets/players/arthur gea.png",
-   "away_photo": "assets/players/juan manuel cerundolo.png",
-   "conseil": "Victoire Juan Manuel Cerundolo",
-   "conseil_cote": 2.22,
-   "conseil_mise_eur": 200.0
-  },
   {
    "fixture_id": "tennis_espn_atp_182681",
    "flag": "🎾",
@@ -75,6 +60,28 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816768",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Milwaukee Brewers",
+   "kickoff_at": "2026-09-01T23:40Z",
+   "published": true,
+   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.7143",
+   "value_cote": 1.71,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "handicap",
+     "label": "Écart de points — Milwaukee Brewers +1,5 @ 1.5405",
+     "odd": 1.54,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816766",
    "flag": "⚾",
    "league": "MLB",
@@ -98,28 +105,6 @@
      "market": "team_total_away",
      "label": "Total équipe Detroit Tigers — Moins de 4,5 @ 1.7246",
      "odd": 1.72,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816768",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Milwaukee Brewers",
-   "kickoff_at": "2026-09-01T23:40Z",
-   "published": true,
-   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.7143",
-   "value_cote": 1.71,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "handicap",
-     "label": "Écart de points — Milwaukee Brewers +1,5 @ 1.5405",
-     "odd": 1.54,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
@@ -328,6 +313,23 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_182715",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tristan Schoolkate – Nishesh Basavareddy",
+   "kickoff_at": "2026-09-01T18:50Z",
+   "published": true,
+   "home_photo": "assets/players/tristan schoolkate.png",
+   "away_photo": "assets/players/nishesh basavareddy.png",
+   "conseil": "Victoire Nishesh Basavareddy",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "7-6, 3-6, 6-3, 6-4"
+  },
+  {
    "fixture_id": "tennis_espn_atp_182706",
    "flag": "🎾",
    "league": "US Open",
@@ -362,21 +364,23 @@
    "score": "4-6, 2-6, 0-6"
   },
   {
-   "fixture_id": "tennis_espn_atp_182715",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tristan Schoolkate – Nishesh Basavareddy",
-   "kickoff_at": "2026-09-01T18:50Z",
+   "fixture_id": "api_football:1600333",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kruger United – Orlando Pirates",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
    "published": true,
-   "home_photo": "assets/players/tristan schoolkate.png",
-   "away_photo": "assets/players/nishesh basavareddy.png",
-   "conseil": "Victoire Nishesh Basavareddy",
-   "conseil_cote": 1.4,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
+   "conseil": "Orlando Pirates gagne",
+   "conseil_cote": 1.34,
    "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "7-6, 3-6, 6-3, 6-4"
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 4"
   },
   {
    "fixture_id": "api_football:1600329",
@@ -414,6 +418,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1508846",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KR Reykjavik – Vikingur Reykjavik",
+   "kickoff_at": "2026-09-01T19:30:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/271.png",
+   "away_logo": "https://media.api-sports.io/football/teams/278.png",
+   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1561915",
    "flag": "🇦🇹",
    "league": "Bundesliga",
@@ -447,44 +470,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1600333",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kruger United – Orlando Pirates",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/24759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2700.png",
-   "conseil": "Orlando Pirates gagne",
-   "conseil_cote": 1.34,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 4"
-  },
-  {
-   "fixture_id": "api_football:1508846",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "KR Reykjavik – Vikingur Reykjavik",
-   "kickoff_at": "2026-09-01T19:30:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/271.png",
-   "away_logo": "https://media.api-sports.io/football/teams/278.png",
-   "conseil": "Vikingur Reykjavik ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1603007",
@@ -549,6 +534,23 @@
    "score": "6-4, 6-3, 6-3"
   },
   {
+   "fixture_id": "tennis_espn_atp_182710",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Arthur Gea – Juan Manuel Cerundolo",
+   "kickoff_at": "2026-09-01T20:15Z",
+   "published": true,
+   "home_photo": "assets/players/arthur gea.png",
+   "away_photo": "assets/players/juan manuel cerundolo.png",
+   "conseil": "Victoire Juan Manuel Cerundolo",
+   "conseil_cote": 2.22,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-3, 2-6, 3-6, 6-3, 6-1"
+  },
+  {
    "fixture_id": "api_football:1555377",
    "flag": "🇨🇭",
    "league": "Super League",
@@ -584,25 +586,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1582789",
-   "flag": "⚽",
-   "league": "Premijer Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Zrinjski – BSK Banja Luka",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/588.png",
-   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
-   "conseil": "Zrinjski gagne",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "3 - 1"
-  },
-  {
    "fixture_id": "api_football:1563120",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -620,6 +603,53 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1563122",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Preston – Bristol City",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/59.png",
+   "away_logo": "https://media.api-sports.io/football/teams/56.png",
+   "conseil": "Bristol City gagne",
+   "conseil_cote": 2.49,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1563126",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "West Ham – Wolves",
+   "kickoff_at": "2026-09-01T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/48.png",
+   "away_logo": "https://media.api-sports.io/football/teams/39.png",
+   "conseil": "Wolves gagne + Plus de 1.5 buts",
+   "conseil_cote": 5.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 2"
   },
   {
    "fixture_id": "api_football:1563125",
@@ -669,51 +699,23 @@
    "score": "3 - 2"
   },
   {
-   "fixture_id": "api_football:1563122",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
+   "fixture_id": "api_football:1582789",
+   "flag": "⚽",
+   "league": "Premijer Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Preston – Bristol City",
+   "match": "Zrinjski – BSK Banja Luka",
    "kickoff_at": "2026-09-01T20:45:00+02:00",
    "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/59.png",
-   "away_logo": "https://media.api-sports.io/football/teams/56.png",
-   "conseil": "Bristol City gagne",
-   "conseil_cote": 2.49,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/588.png",
+   "away_logo": "https://media.api-sports.io/football/teams/21736.png",
+   "conseil": "Zrinjski gagne",
+   "conseil_cote": 1.22,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.61,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1563126",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "West Ham – Wolves",
-   "kickoff_at": "2026-09-01T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/48.png",
-   "away_logo": "https://media.api-sports.io/football/teams/39.png",
-   "conseil": "Wolves gagne + Plus de 1.5 buts",
-   "conseil_cote": 5.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 2"
+   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1563119",
@@ -789,38 +791,6 @@
      "odd": 1.64,
      "mise_eur": 100.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816759",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – New York Mets",
-   "kickoff_at": "2026-09-01T22:40Z",
-   "published": true,
-   "value_bet": "Tampa Bay Rays Plus de 3,5 @ 1.6897",
-   "value_cote": 1.69,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "5 - 1 (en cours)",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Tampa Bay Rays @ 1.7407",
-     "odd": 1.74,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "handicap",
-     "label": "Écart de points — New York Mets +1,5 @ 1.5556",
-     "odd": 1.56,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -908,6 +878,38 @@
      "market": "handicap",
      "label": "Écart de points — Toronto Blue Jays +1,5 @ 1.6897",
      "odd": 1.69,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816759",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – New York Mets",
+   "kickoff_at": "2026-09-01T22:40Z",
+   "published": true,
+   "value_bet": "Tampa Bay Rays Plus de 3,5 @ 1.6897",
+   "value_cote": 1.69,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "5 - 1 (en cours)",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Tampa Bay Rays @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "handicap",
+     "label": "Écart de points — New York Mets +1,5 @ 1.5556",
+     "odd": 1.56,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
