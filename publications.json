@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T17:38:08.072098+00:00",
+ "generated_at": "2026-09-02T17:38:19.582913+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182750",
@@ -536,6 +536,37 @@
      "detail": "cote 2.75",
      "odd": 2.75,
      "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1555378",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Grasshoppers – FC ST. Gallen",
+   "kickoff_at": "2026-09-02T20:30:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/1013.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1011.png",
+   "conseil": "FC ST. Gallen gagne + Plus de 2.5 buts",
+   "conseil_cote": 2.65,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.45,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.45,
+     "mise_eur": 200.0
     }
    ]
   }
