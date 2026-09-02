@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T09:03:22.307490+00:00",
+ "generated_at": "2026-09-02T09:03:33.214854+00:00",
  "live": [
   {
    "fixture_id": "api_football:1556041",
@@ -17,6 +17,59 @@
    "conseil_cote": 2.04,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1556042",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Cerezo Osaka – Kashiwa Reysol",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/291.png",
+   "away_logo": "https://media.api-sports.io/football/teams/281.png",
+   "conseil": "Kashiwa Reysol ou Nul",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.61,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182708",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Michael Zheng – Fabian Marozsan",
+   "kickoff_at": "2026-09-02T16:30Z",
+   "published": true,
+   "home_photo": "assets/players/michael zheng.png",
+   "away_photo": "assets/players/fabian marozsan.png",
+   "conseil": "Total sets Plus de 3.5",
+   "conseil_cote": 2.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Plus de 3.5 @ 1.559",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Fabian Marozsan",
+     "kind": "player",
+     "detail": "cote 2.25",
+     "odd": 2.25,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182697",
@@ -85,34 +138,6 @@
      "kind": "player",
      "detail": "cote 3.10",
      "odd": 3.1,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182708",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Michael Zheng – Fabian Marozsan",
-   "kickoff_at": "2026-09-02T16:30Z",
-   "published": true,
-   "home_photo": "assets/players/michael zheng.png",
-   "away_photo": "assets/players/fabian marozsan.png",
-   "conseil": "Total sets Plus de 3.5",
-   "conseil_cote": 2.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Plus de 3.5 @ 1.559",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Fabian Marozsan",
-     "kind": "player",
-     "detail": "cote 2.25",
-     "odd": 2.25,
      "mise_eur": 200.0
     }
    ]
