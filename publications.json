@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T20:19:30.181713+00:00",
+ "generated_at": "2026-09-02T20:19:36.088040+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182750",
@@ -266,32 +266,6 @@
      "label": "Total — Plus de 8,5 runs @ 1.8264",
      "odd": 1.83,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1559985",
-   "flag": "🇨🇿",
-   "league": "Czech Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Bohemians 1905 – FK Jablonec",
-   "kickoff_at": "2026-09-02T20:00:00+02:00",
-   "published": true,
-   "league_id": 345,
-   "home_logo": "https://media.api-sports.io/football/teams/3714.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1122.png",
-   "conseil": "FK Jablonec ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.85,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -2304,6 +2278,34 @@
      "odd": 1.55,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1559985",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Bohemians 1905 – FK Jablonec",
+   "kickoff_at": "2026-09-02T20:00:00+02:00",
+   "published": true,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/3714.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1122.png",
+   "conseil": "FK Jablonec ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.85,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     }
    ]
   }
