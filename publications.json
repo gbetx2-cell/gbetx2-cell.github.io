@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T02:59:35.511288+00:00",
+ "generated_at": "2026-09-02T03:03:34.128347+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182681",
@@ -185,32 +185,6 @@
      "detail": "cote 2.25",
      "odd": 2.25,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1549758",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Fortaleza FC – Once Caldas",
-   "kickoff_at": "2026-09-02T03:00:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1147.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1136.png",
-   "conseil": "Fortaleza FC ou Nul",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.71,
-     "mise_eur": 100.0,
-     "result": "PERDU"
     }
    ]
   }
@@ -1008,6 +982,34 @@
      "odd": 1.72,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1549758",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fortaleza FC – Once Caldas",
+   "kickoff_at": "2026-09-02T03:00:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1147.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1136.png",
+   "conseil": "Fortaleza FC ou Nul",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.71,
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   }
