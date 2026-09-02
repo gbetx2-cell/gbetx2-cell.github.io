@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T17:53:08.135152+00:00",
+ "generated_at": "2026-09-02T17:53:23.402497+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182712",
@@ -390,32 +390,32 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1549008",
-   "flag": "🇩🇰",
-   "league": "Superliga",
+   "fixture_id": "api_football:1582268",
+   "flag": "⚽",
+   "league": "Premier League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Aarhus – FC Midtjylland",
+   "match": "Hibernians – Valletta FC",
    "kickoff_at": "2026-09-02T20:00:00+02:00",
    "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/406.png",
-   "away_logo": "https://media.api-sports.io/football/teams/397.png",
-   "conseil": "FC Midtjylland ou Nul",
-   "conseil_cote": 1.37,
-   "conseil_mise_eur": 200.0,
+   "league_id": 393,
+   "home_logo": "https://media.api-sports.io/football/teams/3884.png",
+   "away_logo": "https://media.api-sports.io/football/teams/659.png",
+   "conseil": "Valletta FC gagne",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 400.0,
    "lineup_source": "flashscore",
    "refonte_value_bets": [
     {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.6,
-     "mise_eur": 100.0
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.76,
+     "mise_eur": 200.0
     },
     {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.57,
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.9,
      "mise_eur": 100.0
     }
    ]
@@ -446,32 +446,32 @@
    ]
   },
   {
-   "fixture_id": "api_football:1582268",
-   "flag": "⚽",
-   "league": "Premier League",
+   "fixture_id": "api_football:1549008",
+   "flag": "🇩🇰",
+   "league": "Superliga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Hibernians – Valletta FC",
+   "match": "Aarhus – FC Midtjylland",
    "kickoff_at": "2026-09-02T20:00:00+02:00",
    "published": true,
-   "league_id": 393,
-   "home_logo": "https://media.api-sports.io/football/teams/3884.png",
-   "away_logo": "https://media.api-sports.io/football/teams/659.png",
-   "conseil": "Valletta FC gagne",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 400.0,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/406.png",
+   "away_logo": "https://media.api-sports.io/football/teams/397.png",
+   "conseil": "FC Midtjylland ou Nul",
+   "conseil_cote": 1.37,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "refonte_value_bets": [
     {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.76,
-     "mise_eur": 200.0
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.6,
+     "mise_eur": 100.0
     },
     {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.9,
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.57,
      "mise_eur": 100.0
     }
    ]
@@ -510,6 +510,32 @@
      "label": "Les deux équipes marquent",
      "odd": 1.55,
      "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1561917",
+   "flag": "🇦🇹",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Red Bull Salzburg – Rapid Vienna",
+   "kickoff_at": "2026-09-02T20:30:00+02:00",
+   "published": true,
+   "league_id": 218,
+   "home_logo": "https://media.api-sports.io/football/teams/571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/781.png",
+   "conseil": "Rapid Vienna ou Nul",
+   "conseil_cote": 2.05,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "E. Kara buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
+     "mise_eur": 300.0
     }
    ]
   },
@@ -570,6 +596,23 @@
    ]
   },
   {
+   "fixture_id": "api_football:1555379",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Luzern – FC Vaduz",
+   "kickoff_at": "2026-09-02T20:30:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/644.png",
+   "away_logo": "https://media.api-sports.io/football/teams/660.png",
+   "conseil": "FC Luzern ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1555378",
    "flag": "🇨🇭",
    "league": "Super League",
@@ -599,49 +642,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1561917",
-   "flag": "🇦🇹",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Red Bull Salzburg – Rapid Vienna",
-   "kickoff_at": "2026-09-02T20:30:00+02:00",
-   "published": true,
-   "league_id": 218,
-   "home_logo": "https://media.api-sports.io/football/teams/571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/781.png",
-   "conseil": "Rapid Vienna ou Nul",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "E. Kara buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1555379",
-   "flag": "🇨🇭",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Luzern – FC Vaduz",
-   "kickoff_at": "2026-09-02T20:30:00+02:00",
-   "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/644.png",
-   "away_logo": "https://media.api-sports.io/football/teams/660.png",
-   "conseil": "FC Luzern ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1556652",
@@ -732,6 +732,49 @@
    "conseil_cote": 2.18,
    "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1556657",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Motherwell – Dundee Utd",
+   "kickoff_at": "2026-09-02T20:45:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/256.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1386.png",
+   "conseil": "Motherwell ou Nul",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1556653",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Dundee – ST Johnstone",
+   "kickoff_at": "2026-09-02T20:45:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/253.png",
+   "away_logo": "https://media.api-sports.io/football/teams/258.png",
+   "conseil": "Dundee ou Nul",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Westley buteur",
+     "detail": "cote 2.88",
+     "odd": 2.88,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
