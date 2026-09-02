@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T20:19:23.428185+00:00",
+ "generated_at": "2026-09-02T20:19:30.181713+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182750",
@@ -266,46 +266,6 @@
      "label": "Total — Plus de 8,5 runs @ 1.8264",
      "odd": 1.83,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1557974",
-   "flag": "⚽",
-   "league": "1. SNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Aluminij – Celje",
-   "kickoff_at": "2026-09-02T20:00:00+02:00",
-   "published": true,
-   "league_id": 373,
-   "home_logo": "https://media.api-sports.io/football/teams/4358.png",
-   "away_logo": "https://media.api-sports.io/football/teams/4360.png",
-   "conseil": "Celje ou Nul",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Celje",
-     "odd": 1.57,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.49,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.55,
-     "mise_eur": 200.0,
-     "result": "PERDU"
     }
    ]
   },
@@ -2302,6 +2262,48 @@
      "odd": 1.9,
      "mise_eur": 100.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1557974",
+   "flag": "⚽",
+   "league": "1. SNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aluminij – Celje",
+   "kickoff_at": "2026-09-02T20:00:00+02:00",
+   "published": true,
+   "league_id": 373,
+   "home_logo": "https://media.api-sports.io/football/teams/4358.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4360.png",
+   "conseil": "Celje ou Nul",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Celje",
+     "odd": 1.57,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.49,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.55,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
