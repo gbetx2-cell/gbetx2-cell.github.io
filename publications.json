@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T12:37:21.731296+00:00",
+ "generated_at": "2026-09-02T12:37:29.238016+00:00",
  "live": [
   {
    "fixture_id": "api_football:1556049",
@@ -76,23 +76,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1556047",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Shimizu S-pulse – FC Tokyo",
-   "kickoff_at": "2026-09-02T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/283.png",
-   "away_logo": "https://media.api-sports.io/football/teams/292.png",
-   "conseil": "FC Tokyo ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "tennis_espn_atp_182751",
@@ -1295,6 +1278,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1556047",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Shimizu S-pulse – FC Tokyo",
+   "kickoff_at": "2026-09-02T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/283.png",
+   "away_logo": "https://media.api-sports.io/football/teams/292.png",
+   "conseil": "FC Tokyo ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   }
  ]
 }
