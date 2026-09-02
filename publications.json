@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T17:39:18.753098+00:00",
+ "generated_at": "2026-09-02T17:39:21.924212+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182750",
@@ -586,6 +586,37 @@
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1555380",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Thun – Lausanne",
+   "kickoff_at": "2026-09-02T20:30:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/1012.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1014.png",
+   "conseil": "Lausanne ou Nul",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.61,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.51,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1558607",
