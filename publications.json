@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T00:00:34.384943+00:00",
+ "generated_at": "2026-09-03T00:03:32.923395+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -15,6 +15,23 @@
    "conseil": "Victoire Tommy Paul",
    "conseil_cote": 1.26,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1555379",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Luzern – FC Vaduz",
+   "kickoff_at": "2026-09-02T20:30:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/644.png",
+   "away_logo": "https://media.api-sports.io/football/teams/660.png",
+   "conseil": "FC Luzern ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1582785",
@@ -180,87 +197,27 @@
    ]
   },
   {
-   "fixture_id": "api_football:1555379",
-   "flag": "🇨🇭",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Luzern – FC Vaduz",
-   "kickoff_at": "2026-09-02T20:30:00+02:00",
-   "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/644.png",
-   "away_logo": "https://media.api-sports.io/football/teams/660.png",
-   "conseil": "FC Luzern ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1556656",
+   "fixture_id": "api_football:1556652",
    "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
    "league": "Premiership",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Kilmarnock – ST Mirren",
+   "match": "Celtic – Aberdeen",
    "kickoff_at": "2026-09-02T20:45:00+02:00",
    "published": true,
    "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/250.png",
-   "away_logo": "https://media.api-sports.io/football/teams/251.png",
-   "conseil": "ST Mirren gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.06,
+   "home_logo": "https://media.api-sports.io/football/teams/247.png",
+   "away_logo": "https://media.api-sports.io/football/teams/252.png",
+   "conseil": "Celtic gagne",
+   "conseil_cote": 1.29,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.65,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556657",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Motherwell – Dundee Utd",
-   "kickoff_at": "2026-09-02T20:45:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/256.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1386.png",
-   "conseil": "Motherwell ou Nul",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1556653",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dundee – ST Johnstone",
-   "kickoff_at": "2026-09-02T20:45:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/253.png",
-   "away_logo": "https://media.api-sports.io/football/teams/258.png",
-   "conseil": "Dundee ou Nul",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Westley buteur",
-     "detail": "cote 2.88",
-     "odd": 2.88,
-     "mise_eur": 200.0
+     "odd": 1.39,
+     "mise_eur": 400.0
     }
    ]
   },
@@ -330,96 +287,71 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1556652",
+   "fixture_id": "api_football:1556656",
    "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
    "league": "Premiership",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Celtic – Aberdeen",
+   "match": "Kilmarnock – ST Mirren",
    "kickoff_at": "2026-09-02T20:45:00+02:00",
    "published": true,
    "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/247.png",
-   "away_logo": "https://media.api-sports.io/football/teams/252.png",
-   "conseil": "Celtic gagne",
-   "conseil_cote": 1.29,
+   "home_logo": "https://media.api-sports.io/football/teams/250.png",
+   "away_logo": "https://media.api-sports.io/football/teams/251.png",
+   "conseil": "ST Mirren gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.06,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
-     "odd": 1.39,
-     "mise_eur": 400.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556654",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Falkirk – Rangers",
-   "kickoff_at": "2026-09-02T21:00:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/1389.png",
-   "away_logo": "https://media.api-sports.io/football/teams/257.png",
-   "conseil": "Rangers ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.9,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "L. Shankland buteur",
-     "detail": "cote 1.67",
-     "odd": 1.67,
-     "mise_eur": 200.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Rangers",
-     "odd": 1.61,
+     "odd": 1.65,
      "mise_eur": 100.0
     }
    ]
   },
   {
-   "fixture_id": "api_football:1563127",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
+   "fixture_id": "api_football:1556653",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Burnley – Middlesbrough",
-   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "match": "Dundee – ST Johnstone",
+   "kickoff_at": "2026-09-02T20:45:00+02:00",
    "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/44.png",
-   "away_logo": "https://media.api-sports.io/football/teams/70.png",
-   "conseil": "Burnley ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.97,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/253.png",
+   "away_logo": "https://media.api-sports.io/football/teams/258.png",
+   "conseil": "Dundee ou Nul",
+   "conseil_cote": 1.57,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Westley buteur",
+     "detail": "cote 2.88",
+     "odd": 2.88,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
-   "fixture_id": "api_football:1582265",
-   "flag": "⚽",
-   "league": "Premier League",
+   "fixture_id": "api_football:1556657",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Floriana – Gzira United",
-   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "match": "Motherwell – Dundee Utd",
+   "kickoff_at": "2026-09-02T20:45:00+02:00",
    "published": true,
-   "league_id": 393,
-   "home_logo": "https://media.api-sports.io/football/teams/4625.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2264.png",
-   "conseil": "Floriana gagne",
-   "conseil_cote": 1.8,
-   "conseil_mise_eur": 600.0,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/256.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1386.png",
+   "conseil": "Motherwell ou Nul",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -463,6 +395,74 @@
    ]
   },
   {
+   "fixture_id": "api_football:1582265",
+   "flag": "⚽",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Floriana – Gzira United",
+   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "published": true,
+   "league_id": 393,
+   "home_logo": "https://media.api-sports.io/football/teams/4625.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2264.png",
+   "conseil": "Floriana gagne",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1563127",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Burnley – Middlesbrough",
+   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/44.png",
+   "away_logo": "https://media.api-sports.io/football/teams/70.png",
+   "conseil": "Burnley ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.97,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1556654",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Falkirk – Rangers",
+   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/1389.png",
+   "away_logo": "https://media.api-sports.io/football/teams/257.png",
+   "conseil": "Rangers ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.9,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "L. Shankland buteur",
+     "detail": "cote 1.67",
+     "odd": 1.67,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Rangers",
+     "odd": 1.61,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816774",
    "flag": "⚾",
    "league": "MLB",
@@ -485,33 +485,6 @@
      "market": "totals",
      "label": "Total — Moins de 8,5 runs @ 1.7692",
      "odd": 1.77,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816777",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Pittsburgh Pirates – San Francisco Giants",
-   "kickoff_at": "2026-09-02T22:40Z",
-   "published": true,
-   "value_bet": "San Francisco Giants Plus de 3,5 @ 1.7519",
-   "value_cote": 1.75,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Pittsburgh Pirates @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "handicap",
-     "label": "Écart de points — San Francisco Giants +1,5 @ 1.6061",
-     "odd": 1.61,
      "mise_eur": 200.0
     }
    ]
@@ -556,6 +529,33 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816777",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Pittsburgh Pirates – San Francisco Giants",
+   "kickoff_at": "2026-09-02T22:40Z",
+   "published": true,
+   "value_bet": "San Francisco Giants Plus de 3,5 @ 1.7519",
+   "value_cote": 1.75,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Pittsburgh Pirates @ 1.6897",
+     "odd": 1.69,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "handicap",
+     "label": "Écart de points — San Francisco Giants +1,5 @ 1.6061",
+     "odd": 1.61,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_atp_182742",
    "flag": "🎾",
    "league": "US Open",
@@ -571,22 +571,28 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816783",
+   "fixture_id": "baseball_401816781",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Milwaukee Brewers",
+   "match": "Minnesota Twins – Detroit Tigers",
    "kickoff_at": "2026-09-02T23:40Z",
    "published": true,
-   "value_bet": "Chicago Cubs Moins de 3,5 @ 1.9804",
-   "value_cote": 1.98,
-   "value_mise_eur": 200.0,
+   "value_bet": "Combiné : Detroit Tigers +1,5 @ 1.4762 + Plus de 8,5 runs @ 1.8",
+   "value_cote": 2.66,
+   "value_mise_eur": 300.0,
    "refonte_value_bets": [
     {
-     "market": "winner",
-     "label": "Vainqueur — Milwaukee Brewers @ 1.6897",
-     "odd": 1.69,
+     "market": "handicap",
+     "label": "Écart de points — Detroit Tigers +1,5 @ 1.4762",
+     "odd": 1.48,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 8,5 runs @ 1.8",
+     "odd": 1.8,
      "mise_eur": 200.0
     }
    ]
@@ -613,28 +619,22 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816781",
+   "fixture_id": "baseball_401816783",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Minnesota Twins – Detroit Tigers",
+   "match": "Chicago Cubs – Milwaukee Brewers",
    "kickoff_at": "2026-09-02T23:40Z",
    "published": true,
-   "value_bet": "Combiné : Detroit Tigers +1,5 @ 1.4762 + Plus de 8,5 runs @ 1.8",
-   "value_cote": 2.66,
-   "value_mise_eur": 300.0,
+   "value_bet": "Chicago Cubs Moins de 3,5 @ 1.9804",
+   "value_cote": 1.98,
+   "value_mise_eur": 200.0,
    "refonte_value_bets": [
     {
-     "market": "handicap",
-     "label": "Écart de points — Detroit Tigers +1,5 @ 1.4762",
-     "odd": 1.48,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 8,5 runs @ 1.8",
-     "odd": 1.8,
+     "market": "winner",
+     "label": "Vainqueur — Milwaukee Brewers @ 1.6897",
+     "odd": 1.69,
      "mise_eur": 200.0
     }
    ]
@@ -685,6 +685,31 @@
      "detail": "cote 1.09",
      "odd": 1.095,
      "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1505479",
+   "flag": "🇨🇱",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Deportes Limache – Nublense",
+   "kickoff_at": "2026-09-03T02:30:00+02:00",
+   "published": true,
+   "league_id": 265,
+   "home_logo": "https://media.api-sports.io/football/teams/16730.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2337.png",
+   "conseil": "Nublense ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.61,
+     "mise_eur": 100.0
     }
    ]
   }
