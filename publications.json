@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T00:03:33.379408+00:00",
+ "generated_at": "2026-09-03T00:05:45.003876+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -86,32 +86,6 @@
      "label": "Les deux équipes marquent",
      "odd": 1.51,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1561917",
-   "flag": "🇦🇹",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Red Bull Salzburg – Rapid Vienna",
-   "kickoff_at": "2026-09-02T20:30:00+02:00",
-   "published": true,
-   "league_id": 218,
-   "home_logo": "https://media.api-sports.io/football/teams/571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/781.png",
-   "conseil": "Rapid Vienna ou Nul",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "E. Kara buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 300.0
     }
    ]
   },
@@ -2602,6 +2576,35 @@
      "odd": 1.59,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1561917",
+   "flag": "🇦🇹",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Red Bull Salzburg – Rapid Vienna",
+   "kickoff_at": "2026-09-02T20:30:00+02:00",
+   "published": true,
+   "league_id": 218,
+   "home_logo": "https://media.api-sports.io/football/teams/571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/781.png",
+   "conseil": "Rapid Vienna ou Nul",
+   "conseil_cote": 2.05,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "5 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "E. Kara buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
+     "mise_eur": 300.0,
+     "result": "PERDU"
     }
    ]
   }
