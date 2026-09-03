@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T23:37:16.905424+00:00",
+ "generated_at": "2026-09-03T23:35:06.985664+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182707",
@@ -56,6 +56,48 @@
    "value_bet": "Chicago Cubs Plus de 3,5 @ 1.8",
    "value_cote": 1.8,
    "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1519476",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Leones del Norte – Orense SC",
+   "kickoff_at": "2026-09-03T23:30:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/19034.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1992.png",
+   "conseil": "Leones del Norte ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "C. Solano buteur",
+     "detail": "cote 3.25",
+     "odd": 3.25,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.69,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.69,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816792",
@@ -2602,51 +2644,6 @@
      "label": "Moins de 9.5 corners",
      "odd": 1.59,
      "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1519476",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Leones del Norte – Orense SC",
-   "kickoff_at": "2026-09-03T23:30:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/19034.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1992.png",
-   "conseil": "Leones del Norte ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "C. Solano buteur",
-     "detail": "cote 3.25",
-     "odd": 3.25,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.69,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.69,
-     "mise_eur": 100.0,
      "result": "GAGNE"
     }
    ]
