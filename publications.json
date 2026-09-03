@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T23:30:07.961119+00:00",
+ "generated_at": "2026-09-03T23:35:06.330608+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182707",
@@ -87,13 +87,15 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.69,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     },
     {
      "market": "Corners O/U 9.5",
      "label": "Moins de 9.5 corners",
      "odd": 1.69,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -108,6 +110,19 @@
    "published": true,
    "value_bet": "Kansas City Royals Plus de 4,5 @ 2.02",
    "value_cote": 2.02,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816794",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Texas Rangers – Tampa Bay Rays",
+   "kickoff_at": "2026-09-04T00:05Z",
+   "published": true,
+   "value_bet": "Tampa Bay Rays Plus de 3,5 @ 1.6897",
+   "value_cote": 1.69,
    "value_mise_eur": 200.0
   },
   {
@@ -1806,31 +1821,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816783",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Milwaukee Brewers",
-   "kickoff_at": "2026-09-02T23:40Z",
-   "published": true,
-   "value_bet": "Chicago Cubs Moins de 3,5 @ 1.9804",
-   "value_cote": 1.98,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "5 - 9",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Milwaukee Brewers @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816782",
    "flag": "⚾",
    "league": "MLB",
@@ -1850,6 +1840,31 @@
      "market": "totals",
      "label": "Total — Plus de 8,5 runs @ 1.7692",
      "odd": 1.77,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816783",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Milwaukee Brewers",
+   "kickoff_at": "2026-09-02T23:40Z",
+   "published": true,
+   "value_bet": "Chicago Cubs Moins de 3,5 @ 1.9804",
+   "value_cote": 1.98,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "5 - 9",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Milwaukee Brewers @ 1.6897",
+     "odd": 1.69,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
