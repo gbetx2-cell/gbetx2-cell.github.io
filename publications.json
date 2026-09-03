@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T20:35:22.115835+00:00",
+ "generated_at": "2026-09-03T20:38:19.631073+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182756",
@@ -72,55 +72,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1553140",
-   "flag": "🇵🇱",
-   "league": "Ekstraklasa",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lech Poznan – Jagiellonia",
-   "kickoff_at": "2026-09-03T20:30:00+02:00",
-   "published": true,
-   "league_id": 106,
-   "home_logo": "https://media.api-sports.io/football/teams/347.png",
-   "away_logo": "https://media.api-sports.io/football/teams/336.png",
-   "conseil": "Lech Poznan ou Nul",
-   "conseil_cote": 1.24,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Lech Poznan",
-     "odd": 1.65,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.41,
-     "mise_eur": 300.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.45,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.53,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.52,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1555382",
    "flag": "🇨🇭",
    "league": "Super League",
@@ -141,13 +92,15 @@
      "market": "Over/Under 2.5",
      "label": "Plus de 2.5 buts",
      "odd": 1.62,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "PERDU"
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
      "odd": 1.52,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -2440,6 +2393,62 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1553140",
+   "flag": "🇵🇱",
+   "league": "Ekstraklasa",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lech Poznan – Jagiellonia",
+   "kickoff_at": "2026-09-03T20:30:00+02:00",
+   "published": true,
+   "league_id": 106,
+   "home_logo": "https://media.api-sports.io/football/teams/347.png",
+   "away_logo": "https://media.api-sports.io/football/teams/336.png",
+   "conseil": "Lech Poznan ou Nul",
+   "conseil_cote": 1.24,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Lech Poznan",
+     "odd": 1.65,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.41,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.45,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.53,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.52,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1555381",
