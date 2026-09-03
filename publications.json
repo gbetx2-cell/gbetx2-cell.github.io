@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T03:30:44.347027+00:00",
+ "generated_at": "2026-09-03T03:43:45.143110+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816781",
@@ -67,46 +67,6 @@
      "label": "Vainqueur — Los Angeles Dodgers @ 1.3846",
      "odd": 1.38,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1549842",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Santa Fe – Millonarios",
-   "kickoff_at": "2026-09-03T03:25:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1139.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1125.png",
-   "conseil": "Millonarios ou Nul",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "L. Castro buteur",
-     "detail": "cote 2.62",
-     "odd": 2.62,
-     "mise_eur": 300.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.52,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.69,
-     "mise_eur": 100.0
     }
    ]
   },
@@ -2806,6 +2766,51 @@
      "market": "BTTS",
      "label": "Les deux équipes marquent",
      "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1549842",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Santa Fe – Millonarios",
+   "kickoff_at": "2026-09-03T03:25:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1139.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1125.png",
+   "conseil": "Millonarios ou Nul",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "L. Castro buteur",
+     "detail": "cote 2.62",
+     "odd": 2.62,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.52,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.69,
      "mise_eur": 100.0,
      "result": "PERDU"
     }
