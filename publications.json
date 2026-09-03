@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T00:16:53.404482+00:00",
+ "generated_at": "2026-09-03T00:16:47.279246+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -15,6 +15,48 @@
    "conseil": "Victoire Tommy Paul",
    "conseil_cote": 1.26,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1519478",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Macara – Manta FC",
+   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1155.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1980.png",
+   "conseil": "Macara ou Nul",
+   "conseil_cote": 1.12,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "F. Posse buteur",
+     "detail": "cote 2.25",
+     "odd": 2.25,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Macara",
+     "odd": 1.45,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.6,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816777",
@@ -2594,51 +2636,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "4 - 1"
-  },
-  {
-   "fixture_id": "api_football:1519478",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Macara – Manta FC",
-   "kickoff_at": "2026-09-02T21:00:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1155.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1980.png",
-   "conseil": "Macara ou Nul",
-   "conseil_cote": 1.12,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "4 - 3",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "F. Posse buteur",
-     "detail": "cote 2.25",
-     "odd": 2.25,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "1X2",
-     "label": "Macara",
-     "odd": 1.45,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.6,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1563127",
