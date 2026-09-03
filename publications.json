@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T21:11:16.519187+00:00",
+ "generated_at": "2026-09-03T21:11:22.610894+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182707",
@@ -43,32 +43,6 @@
    "value_bet": "Toronto Blue Jays Plus de 3,5 @ 1.7143",
    "value_cote": 1.71,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1556655",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Hibernian – Heart Of Midlothian",
-   "kickoff_at": "2026-09-03T20:45:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/249.png",
-   "away_logo": "https://media.api-sports.io/football/teams/254.png",
-   "conseil": "Heart Of Midlothian ou Nul",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.58,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1549763",
@@ -2503,6 +2477,34 @@
      "odd": 1.41,
      "mise_eur": 300.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556655",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Hibernian – Heart Of Midlothian",
+   "kickoff_at": "2026-09-03T20:45:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/249.png",
+   "away_logo": "https://media.api-sports.io/football/teams/254.png",
+   "conseil": "Heart Of Midlothian ou Nul",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.58,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     }
    ]
   },
