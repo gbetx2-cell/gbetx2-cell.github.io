@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T01:40:33.114572+00:00",
+ "generated_at": "2026-09-03T01:47:45.926055+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -77,33 +77,6 @@
     {
      "market": "team_total_away",
      "label": "Total équipe Toronto Blue Jays — Plus de 3,5 @ 1.7692",
-     "odd": 1.77,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816774",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – New York Mets",
-   "kickoff_at": "2026-09-02T22:40Z",
-   "published": true,
-   "value_bet": "New York Mets +1,5 @ 1.7143",
-   "value_cote": 1.71,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Tampa Bay Rays @ 1.5556",
-     "odd": 1.56,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "totals",
-     "label": "Total — Moins de 8,5 runs @ 1.7692",
      "odd": 1.77,
      "mise_eur": 200.0
     }
@@ -2737,6 +2710,38 @@
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.6,
      "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816774",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – New York Mets",
+   "kickoff_at": "2026-09-02T22:40Z",
+   "published": true,
+   "value_bet": "New York Mets +1,5 @ 1.7143",
+   "value_cote": 1.71,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "4 - 10",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Tampa Bay Rays @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Moins de 8,5 runs @ 1.7692",
+     "odd": 1.77,
+     "mise_eur": 200.0,
      "result": "PERDU"
     }
    ]
