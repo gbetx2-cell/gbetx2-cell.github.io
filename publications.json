@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T23:57:46.602736+00:00",
+ "generated_at": "2026-09-03T00:00:33.908395+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -17,28 +17,27 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1561917",
-   "flag": "🇦🇹",
-   "league": "Bundesliga",
+   "fixture_id": "api_football:1582785",
+   "flag": "⚽",
+   "league": "Premijer Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Red Bull Salzburg – Rapid Vienna",
+   "match": "Borac Banja Luka – Zeljeznicar Sarajevo",
    "kickoff_at": "2026-09-02T20:30:00+02:00",
    "published": true,
-   "league_id": 218,
-   "home_logo": "https://media.api-sports.io/football/teams/571.png",
-   "away_logo": "https://media.api-sports.io/football/teams/781.png",
-   "conseil": "Rapid Vienna ou Nul",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 200.0,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/3364.png",
+   "away_logo": "https://media.api-sports.io/football/teams/654.png",
+   "conseil": "Borac Banja Luka gagne",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "player_picks": [
+   "refonte_value_bets": [
     {
-     "category": "Buteur",
-     "label": "E. Kara buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 300.0
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.61,
+     "mise_eur": 100.0
     }
    ]
   },
@@ -74,27 +73,28 @@
    ]
   },
   {
-   "fixture_id": "api_football:1558607",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
+   "fixture_id": "api_football:1561917",
+   "flag": "🇦🇹",
+   "league": "Bundesliga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "St. Truiden – Union St. Gilloise",
+   "match": "Red Bull Salzburg – Rapid Vienna",
    "kickoff_at": "2026-09-02T20:30:00+02:00",
    "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/735.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1393.png",
-   "conseil": "Union St. Gilloise gagne + Plus de 1.5 buts",
-   "conseil_cote": 2.52,
+   "league_id": 218,
+   "home_logo": "https://media.api-sports.io/football/teams/571.png",
+   "away_logo": "https://media.api-sports.io/football/teams/781.png",
+   "conseil": "Rapid Vienna ou Nul",
+   "conseil_cote": 2.05,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "refonte_value_bets": [
+   "player_picks": [
     {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.56,
-     "mise_eur": 100.0
+     "category": "Buteur",
+     "label": "E. Kara buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
+     "mise_eur": 300.0
     }
    ]
   },
@@ -124,21 +124,29 @@
    ]
   },
   {
-   "fixture_id": "api_football:1555379",
-   "flag": "🇨🇭",
-   "league": "Super League",
+   "fixture_id": "api_football:1558607",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Luzern – FC Vaduz",
+   "match": "St. Truiden – Union St. Gilloise",
    "kickoff_at": "2026-09-02T20:30:00+02:00",
    "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/644.png",
-   "away_logo": "https://media.api-sports.io/football/teams/660.png",
-   "conseil": "FC Luzern ou Nul",
-   "conseil_cote": 1.25,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/735.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1393.png",
+   "conseil": "Union St. Gilloise gagne + Plus de 1.5 buts",
+   "conseil_cote": 2.52,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.56,
+     "mise_eur": 100.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1555378",
@@ -172,29 +180,21 @@
    ]
   },
   {
-   "fixture_id": "api_football:1582785",
-   "flag": "⚽",
-   "league": "Premijer Liga",
+   "fixture_id": "api_football:1555379",
+   "flag": "🇨🇭",
+   "league": "Super League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Borac Banja Luka – Zeljeznicar Sarajevo",
+   "match": "FC Luzern – FC Vaduz",
    "kickoff_at": "2026-09-02T20:30:00+02:00",
    "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/3364.png",
-   "away_logo": "https://media.api-sports.io/football/teams/654.png",
-   "conseil": "Borac Banja Luka gagne",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.61,
-     "mise_eur": 100.0
-    }
-   ]
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/644.png",
+   "away_logo": "https://media.api-sports.io/football/teams/660.png",
+   "conseil": "FC Luzern ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1556656",
@@ -656,6 +656,34 @@
      "market": "winner",
      "label": "Vainqueur — Houston Astros @ 1.7143",
      "odd": 1.71,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182764",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carlos Alcaraz – Jaime Faria",
+   "kickoff_at": "2026-09-03T00:30Z",
+   "published": true,
+   "home_photo": "assets/players/carlos alcaraz.png",
+   "away_photo": "assets/players/jaime faria.png",
+   "conseil": "Total sets Moins de 3.5",
+   "conseil_cote": 1.77,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 3.5 @ 1.885",
+   "value_cote": 1.89,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Carlos Alcaraz",
+     "kind": "player",
+     "detail": "cote 1.09",
+     "odd": 1.095,
      "mise_eur": 200.0
     }
    ]
