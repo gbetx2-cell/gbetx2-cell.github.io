@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T19:07:17.523621+00:00",
+ "generated_at": "2026-09-03T19:34:19.242859+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182707",
@@ -95,32 +95,6 @@
      "label": "Total — Plus de 8,5 runs @ 1.9009",
      "odd": 1.9,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1560214",
-   "flag": "⚽",
-   "league": "NB I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gyori ETO FC – Ferencvarosi TC",
-   "kickoff_at": "2026-09-03T19:30:00+02:00",
-   "published": true,
-   "league_id": 271,
-   "home_logo": "https://media.api-sports.io/football/teams/2402.png",
-   "away_logo": "https://media.api-sports.io/football/teams/651.png",
-   "conseil": "Gyori ETO FC ou Nul",
-   "conseil_cote": 2.2,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "V. Đukanović buteur",
-     "detail": "46%",
-     "odd": null,
-     "mise_eur": null
     }
    ]
   },
@@ -2414,6 +2388,35 @@
      "label": "Plus de 9.5 corners",
      "odd": 1.63,
      "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1560214",
+   "flag": "⚽",
+   "league": "NB I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gyori ETO FC – Ferencvarosi TC",
+   "kickoff_at": "2026-09-03T19:30:00+02:00",
+   "published": true,
+   "league_id": 271,
+   "home_logo": "https://media.api-sports.io/football/teams/2402.png",
+   "away_logo": "https://media.api-sports.io/football/teams/651.png",
+   "conseil": "Gyori ETO FC ou Nul",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 3",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "V. Đukanović buteur",
+     "detail": "46%",
+     "odd": null,
+     "mise_eur": null,
      "result": "PERDU"
     }
    ]
