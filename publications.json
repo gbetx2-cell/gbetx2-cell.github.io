@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T02:45:45.593386+00:00",
+ "generated_at": "2026-09-03T02:48:42.804178+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -152,32 +152,6 @@
      "label": "Vainqueur — Los Angeles Dodgers @ 1.3846",
      "odd": 1.38,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1505479",
-   "flag": "🇨🇱",
-   "league": "Primera División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Deportes Limache – Nublense",
-   "kickoff_at": "2026-09-03T02:30:00+02:00",
-   "published": true,
-   "league_id": 265,
-   "home_logo": "https://media.api-sports.io/football/teams/16730.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2337.png",
-   "conseil": "Nublense ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.61,
-     "mise_eur": 100.0,
-     "result": "PERDU"
     }
    ]
   },
@@ -2762,6 +2736,34 @@
      "odd": 1.71,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1505479",
+   "flag": "🇨🇱",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Deportes Limache – Nublense",
+   "kickoff_at": "2026-09-03T02:30:00+02:00",
+   "published": true,
+   "league_id": 265,
+   "home_logo": "https://media.api-sports.io/football/teams/16730.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2337.png",
+   "conseil": "Nublense ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.61,
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   }
