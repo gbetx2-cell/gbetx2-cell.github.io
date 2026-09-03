@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T20:04:18.158259+00:00",
+ "generated_at": "2026-09-03T20:07:17.565353+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182756",
@@ -68,46 +68,6 @@
      "label": "Total — Plus de 8,5 runs @ 1.9009",
      "odd": 1.9,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1549009",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Copenhagen – FC Nordsjaelland",
-   "kickoff_at": "2026-09-03T20:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/400.png",
-   "away_logo": "https://media.api-sports.io/football/teams/398.png",
-   "conseil": "FC Copenhagen ou Nul",
-   "conseil_cote": 1.39,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "M. Elyounoussi buteur",
-     "detail": "cote 2.20",
-     "odd": 2.2,
-     "mise_eur": 200.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.42,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.38,
-     "mise_eur": 300.0
     }
    ]
   },
@@ -2427,6 +2387,51 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 2"
+  },
+  {
+   "fixture_id": "api_football:1549009",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Copenhagen – FC Nordsjaelland",
+   "kickoff_at": "2026-09-03T20:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/400.png",
+   "away_logo": "https://media.api-sports.io/football/teams/398.png",
+   "conseil": "FC Copenhagen ou Nul",
+   "conseil_cote": 1.39,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Elyounoussi buteur",
+     "detail": "cote 2.20",
+     "odd": 2.2,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.42,
+     "mise_eur": 400.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.38,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
