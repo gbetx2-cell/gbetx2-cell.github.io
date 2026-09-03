@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T01:47:45.926055+00:00",
+ "generated_at": "2026-09-03T01:47:59.705676+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -15,72 +15,6 @@
    "conseil": "Victoire Tommy Paul",
    "conseil_cote": 1.26,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816777",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Pittsburgh Pirates – San Francisco Giants",
-   "kickoff_at": "2026-09-02T22:40Z",
-   "published": true,
-   "value_bet": "San Francisco Giants Plus de 3,5 @ 1.7519",
-   "value_cote": 1.75,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Pittsburgh Pirates @ 1.6897",
-     "odd": 1.69,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "handicap",
-     "label": "Écart de points — San Francisco Giants +1,5 @ 1.6061",
-     "odd": 1.61,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816778",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Toronto Blue Jays",
-   "kickoff_at": "2026-09-02T22:40Z",
-   "published": true,
-   "value_bet": "Cleveland Guardians Moins de 3,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Toronto Blue Jays @ 1.8",
-     "odd": 1.8,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "handicap",
-     "label": "Écart de points — Cleveland Guardians +1,5 @ 1.6061",
-     "odd": 1.61,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "totals",
-     "label": "Total — Moins de 7,5 runs @ 1.8",
-     "odd": 1.8,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "team_total_away",
-     "label": "Total équipe Toronto Blue Jays — Plus de 3,5 @ 1.7692",
-     "odd": 1.77,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182742",
@@ -2711,6 +2645,84 @@
      "odd": 1.6,
      "mise_eur": 100.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816777",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Pittsburgh Pirates – San Francisco Giants",
+   "kickoff_at": "2026-09-02T22:40Z",
+   "published": true,
+   "value_bet": "San Francisco Giants Plus de 3,5 @ 1.7519",
+   "value_cote": 1.75,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "4 - 5",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Pittsburgh Pirates @ 1.6897",
+     "odd": 1.69,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "handicap",
+     "label": "Écart de points — San Francisco Giants +1,5 @ 1.6061",
+     "odd": 1.61,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816778",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Toronto Blue Jays",
+   "kickoff_at": "2026-09-02T22:40Z",
+   "published": true,
+   "value_bet": "Cleveland Guardians Moins de 3,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "0 - 11",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Toronto Blue Jays @ 1.8",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "handicap",
+     "label": "Écart de points — Cleveland Guardians +1,5 @ 1.6061",
+     "odd": 1.61,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Moins de 7,5 runs @ 1.8",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "team_total_away",
+     "label": "Total équipe Toronto Blue Jays — Plus de 3,5 @ 1.7692",
+     "odd": 1.77,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
