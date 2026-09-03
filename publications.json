@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T00:16:02.546656+00:00",
+ "generated_at": "2026-09-03T00:16:15.482342+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -64,32 +64,6 @@
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.61,
      "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556652",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Celtic – Aberdeen",
-   "kickoff_at": "2026-09-02T20:45:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/247.png",
-   "away_logo": "https://media.api-sports.io/football/teams/252.png",
-   "conseil": "Celtic gagne",
-   "conseil_cote": 1.29,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.39,
-     "mise_eur": 400.0,
      "result": "GAGNE"
     }
    ]
@@ -2606,6 +2580,34 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1556652",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Celtic – Aberdeen",
+   "kickoff_at": "2026-09-02T20:45:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/247.png",
+   "away_logo": "https://media.api-sports.io/football/teams/252.png",
+   "conseil": "Celtic gagne",
+   "conseil_cote": 1.29,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.39,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1582265",
