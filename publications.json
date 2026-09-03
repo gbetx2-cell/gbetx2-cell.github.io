@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T02:57:45.193096+00:00",
+ "generated_at": "2026-09-03T03:16:44.890644+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816783",
@@ -45,34 +45,6 @@
      "market": "totals",
      "label": "Total — Plus de 8,5 runs @ 1.8",
      "odd": 1.8,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182764",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Carlos Alcaraz – Jaime Faria",
-   "kickoff_at": "2026-09-03T00:30Z",
-   "published": true,
-   "home_photo": "assets/players/carlos alcaraz.png",
-   "away_photo": "assets/players/jaime faria.png",
-   "conseil": "Total sets Moins de 3.5",
-   "conseil_cote": 1.77,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 3.5 @ 1.885",
-   "value_cote": 1.89,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Carlos Alcaraz",
-     "kind": "player",
-     "detail": "cote 1.09",
-     "odd": 1.095,
      "mise_eur": 200.0
     }
    ]
@@ -2740,6 +2712,38 @@
      "market": "winner",
      "label": "Vainqueur — Houston Astros @ 1.7143",
      "odd": 1.71,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182764",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carlos Alcaraz – Jaime Faria",
+   "kickoff_at": "2026-09-03T00:30Z",
+   "published": true,
+   "home_photo": "assets/players/carlos alcaraz.png",
+   "away_photo": "assets/players/jaime faria.png",
+   "conseil": "Total sets Moins de 3.5",
+   "conseil_cote": 1.77,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 3.5 @ 1.885",
+   "value_cote": 1.89,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4-6, 6-0, 6-3, 6-2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Carlos Alcaraz",
+     "kind": "player",
+     "detail": "cote 1.09",
+     "odd": 1.095,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
