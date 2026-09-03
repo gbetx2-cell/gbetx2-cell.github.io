@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T00:06:22.651542+00:00",
+ "generated_at": "2026-09-03T00:06:44.361400+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -235,23 +235,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556657",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Motherwell – Dundee Utd",
-   "kickoff_at": "2026-09-02T20:45:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/256.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1386.png",
-   "conseil": "Motherwell ou Nul",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1519478",
    "flag": "🇵🇾",
    "league": "Liga Pro",
@@ -306,23 +289,6 @@
    "conseil": "Floriana gagne",
    "conseil_cote": 1.8,
    "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1563127",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Burnley – Middlesbrough",
-   "kickoff_at": "2026-09-02T21:00:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/44.png",
-   "away_logo": "https://media.api-sports.io/football/teams/70.png",
-   "conseil": "Burnley ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.97,
-   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -2616,6 +2582,44 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1556657",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Motherwell – Dundee Utd",
+   "kickoff_at": "2026-09-02T20:45:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/256.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1386.png",
+   "conseil": "Motherwell ou Nul",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 0"
+  },
+  {
+   "fixture_id": "api_football:1563127",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Burnley – Middlesbrough",
+   "kickoff_at": "2026-09-02T21:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/44.png",
+   "away_logo": "https://media.api-sports.io/football/teams/70.png",
+   "conseil": "Burnley ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.97,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   }
  ]
 }
