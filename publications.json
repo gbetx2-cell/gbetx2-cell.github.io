@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T00:16:15.482342+00:00",
+ "generated_at": "2026-09-03T00:16:27.779413+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -15,32 +15,6 @@
    "conseil": "Victoire Tommy Paul",
    "conseil_cote": 1.26,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1582786",
-   "flag": "⚽",
-   "league": "Premijer Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Siroki Brijeg – FK Sarajevo",
-   "kickoff_at": "2026-09-02T20:30:00+02:00",
-   "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/642.png",
-   "away_logo": "https://media.api-sports.io/football/teams/679.png",
-   "conseil": "Siroki Brijeg ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.94,
-   "conseil_mise_eur": 500.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.49,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1582785",
@@ -65,32 +39,6 @@
      "odd": 1.61,
      "mise_eur": 100.0,
      "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556656",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kilmarnock – ST Mirren",
-   "kickoff_at": "2026-09-02T20:45:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/250.png",
-   "away_logo": "https://media.api-sports.io/football/teams/251.png",
-   "conseil": "ST Mirren gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.06,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.65,
-     "mise_eur": 100.0,
-     "result": "PERDU"
     }
    ]
   },
@@ -2343,6 +2291,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1582786",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Siroki Brijeg – FK Sarajevo",
+   "kickoff_at": "2026-09-02T20:30:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/642.png",
+   "away_logo": "https://media.api-sports.io/football/teams/679.png",
+   "conseil": "Siroki Brijeg ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.94,
+   "conseil_mise_eur": 500.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.49,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1561917",
    "flag": "🇦🇹",
    "league": "Bundesliga",
@@ -2606,6 +2582,34 @@
      "odd": 1.39,
      "mise_eur": 400.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556656",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kilmarnock – ST Mirren",
+   "kickoff_at": "2026-09-02T20:45:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/250.png",
+   "away_logo": "https://media.api-sports.io/football/teams/251.png",
+   "conseil": "ST Mirren gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.06,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.65,
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   },
