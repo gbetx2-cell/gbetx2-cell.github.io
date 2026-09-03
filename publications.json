@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T02:48:42.804178+00:00",
+ "generated_at": "2026-09-03T02:51:45.697340+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -15,27 +15,6 @@
    "conseil": "Victoire Tommy Paul",
    "conseil_cote": 1.26,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816782",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Kansas City Royals – Miami Marlins",
-   "kickoff_at": "2026-09-02T23:40Z",
-   "published": true,
-   "value_bet": "Kansas City Royals Plus de 4,5 @ 2.12",
-   "value_cote": 2.12,
-   "value_mise_eur": 224.0,
-   "refonte_value_bets": [
-    {
-     "market": "totals",
-     "label": "Total — Plus de 8,5 runs @ 1.7692",
-     "odd": 1.77,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "baseball_401816783",
@@ -2713,6 +2692,31 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-3, 7-6, 7-5"
+  },
+  {
+   "fixture_id": "baseball_401816782",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Kansas City Royals – Miami Marlins",
+   "kickoff_at": "2026-09-02T23:40Z",
+   "published": true,
+   "value_bet": "Kansas City Royals Plus de 4,5 @ 2.12",
+   "value_cote": 2.12,
+   "value_mise_eur": 224.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 9",
+   "refonte_value_bets": [
+    {
+     "market": "totals",
+     "label": "Total — Plus de 8,5 runs @ 1.7692",
+     "odd": 1.77,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816780",
