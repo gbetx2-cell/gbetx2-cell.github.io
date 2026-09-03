@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T21:08:18.449355+00:00",
+ "generated_at": "2026-09-03T21:11:16.519187+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182707",
@@ -43,39 +43,6 @@
    "value_bet": "Toronto Blue Jays Plus de 3,5 @ 1.7143",
    "value_cote": 1.71,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1552754",
-   "flag": "🇫🇷",
-   "league": "Ligue 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Toulouse – Lille",
-   "kickoff_at": "2026-09-03T20:45:00+02:00",
-   "published": true,
-   "league_id": 61,
-   "home_logo": "https://media.api-sports.io/football/teams/96.png",
-   "away_logo": "https://media.api-sports.io/football/teams/79.png",
-   "conseil": "Lille gagne",
-   "conseil_cote": 2.24,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.72,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "Cartons O/U 3.5",
-     "label": "Plus de 3.5 cartons",
-     "odd": 1.41,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1556655",
@@ -2500,6 +2467,41 @@
      "label": "Les deux équipes marquent",
      "odd": 1.52,
      "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1552754",
+   "flag": "🇫🇷",
+   "league": "Ligue 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Toulouse – Lille",
+   "kickoff_at": "2026-09-03T20:45:00+02:00",
+   "published": true,
+   "league_id": 61,
+   "home_logo": "https://media.api-sports.io/football/teams/96.png",
+   "away_logo": "https://media.api-sports.io/football/teams/79.png",
+   "conseil": "Lille gagne",
+   "conseil_cote": 2.24,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.72,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.41,
+     "mise_eur": 300.0,
      "result": "PERDU"
     }
    ]
