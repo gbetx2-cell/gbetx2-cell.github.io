@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T01:51:44.575995+00:00",
+ "generated_at": "2026-09-03T02:45:45.593386+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182761",
@@ -81,27 +81,6 @@
      "market": "totals",
      "label": "Total — Plus de 8,5 runs @ 1.8",
      "odd": 1.8,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816780",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Houston Astros – Chicago White Sox",
-   "kickoff_at": "2026-09-03T00:10Z",
-   "published": true,
-   "value_bet": "Houston Astros Moins de 4,5 @ 1.8",
-   "value_cote": 1.8,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Houston Astros @ 1.7143",
-     "odd": 1.71,
      "mise_eur": 200.0
     }
    ]
@@ -197,7 +176,8 @@
      "market": "BTTS",
      "label": "Les deux équipes marquent",
      "odd": 1.61,
-     "mise_eur": 100.0
+     "mise_eur": 100.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -1687,35 +1667,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1559986",
-   "flag": "🇨🇿",
-   "league": "Czech Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Zbrojovka Brno – Hradec Králové",
-   "kickoff_at": "2026-09-02T18:00:00+02:00",
-   "published": true,
-   "league_id": 345,
-   "home_logo": "https://media.api-sports.io/football/teams/3733.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3723.png",
-   "conseil": "Zbrojovka Brno ou Nul",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "D. Vašulín buteur",
-     "detail": "cote 2.70",
-     "odd": 2.7,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1513602",
    "flag": "🇪🇪",
    "league": "Meistriliiga",
@@ -1758,21 +1709,33 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182685",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Carlos Taberner – Zizou Bergs",
-   "kickoff_at": "2026-09-02T18:00Z",
+   "fixture_id": "api_football:1559986",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Zbrojovka Brno – Hradec Králové",
+   "kickoff_at": "2026-09-02T18:00:00+02:00",
    "published": true,
-   "home_photo": "assets/players/carlos taberner.png",
-   "away_photo": "assets/players/zizou bergs.png",
-   "conseil": "Victoire Zizou Bergs",
-   "conseil_cote": 1.06,
-   "conseil_mise_eur": 200.0,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/3733.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3723.png",
+   "conseil": "Zbrojovka Brno ou Nul",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "3-6, 6-3, 2-6, 2-6"
+   "score": "1 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "D. Vašulín buteur",
+     "detail": "cote 2.70",
+     "odd": 2.7,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182681",
@@ -1790,6 +1753,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-2, 2-6, 6-4, 3-6, 2-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182685",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carlos Taberner – Zizou Bergs",
+   "kickoff_at": "2026-09-02T18:00Z",
+   "published": true,
+   "home_photo": "assets/players/carlos taberner.png",
+   "away_photo": "assets/players/zizou bergs.png",
+   "conseil": "Victoire Zizou Bergs",
+   "conseil_cote": 1.06,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "3-6, 6-3, 2-6, 2-6"
   },
   {
    "fixture_id": "api_football:1561916",
@@ -2759,6 +2739,31 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-3, 7-6, 7-5"
+  },
+  {
+   "fixture_id": "baseball_401816780",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Houston Astros – Chicago White Sox",
+   "kickoff_at": "2026-09-03T00:10Z",
+   "published": true,
+   "value_bet": "Houston Astros Moins de 4,5 @ 1.8",
+   "value_cote": 1.8,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Houston Astros @ 1.7143",
+     "odd": 1.71,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
