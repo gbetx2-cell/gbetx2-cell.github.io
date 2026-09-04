@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T17:06:04.529459+00:00",
+ "generated_at": "2026-09-04T17:07:03.903541+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -171,49 +171,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1560241",
-   "flag": "⚽",
-   "league": "NB I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Vasas – Nyiregyhaza",
-   "kickoff_at": "2026-09-04T18:30:00+02:00",
-   "published": true,
-   "league_id": 271,
-   "home_logo": "https://media.api-sports.io/football/teams/675.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2403.png",
-   "conseil": "Vasas gagne",
-   "conseil_cote": 2.3,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1576161",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Arminia Bielefeld – FC St. Pauli",
-   "kickoff_at": "2026-09-04T18:30:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/188.png",
-   "away_logo": "https://media.api-sports.io/football/teams/186.png",
-   "conseil": "Arminia Bielefeld ou Nul",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Grodowski buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1576163",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -257,38 +214,64 @@
    ]
   },
   {
-   "fixture_id": "api_football:1494750",
-   "flag": "🇳🇴",
-   "league": "Eliteserien",
+   "fixture_id": "api_football:1560241",
+   "flag": "⚽",
+   "league": "NB I",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Fredrikstad – Bodo/Glimt",
-   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "match": "Vasas – Nyiregyhaza",
+   "kickoff_at": "2026-09-04T18:30:00+02:00",
    "published": true,
-   "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/2149.png",
-   "away_logo": "https://media.api-sports.io/football/teams/327.png",
-   "conseil": "Bodo/Glimt ou Nul",
-   "conseil_cote": 1.1,
-   "conseil_mise_eur": 200.0,
+   "league_id": 271,
+   "home_logo": "https://media.api-sports.io/football/teams/675.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2403.png",
+   "conseil": "Vasas gagne",
+   "conseil_cote": 2.3,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576161",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Arminia Bielefeld – FC St. Pauli",
+   "kickoff_at": "2026-09-04T18:30:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/188.png",
+   "away_logo": "https://media.api-sports.io/football/teams/186.png",
+   "conseil": "Arminia Bielefeld ou Nul",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "A. Helmersen buteur",
-     "detail": "cote 1.62",
-     "odd": 1.62,
+     "label": "J. Grodowski buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
      "mise_eur": 200.0
     }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.63,
-     "mise_eur": 100.0
-    }
    ]
+  },
+  {
+   "fixture_id": "api_football:1553860",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Novi Pazar – Železničar Pančevo",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/2643.png",
+   "away_logo": "https://media.api-sports.io/football/teams/12360.png",
+   "conseil": "Železničar Pančevo ou Nul",
+   "conseil_cote": 1.48,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1552750",
@@ -411,21 +394,38 @@
    ]
   },
   {
-   "fixture_id": "api_football:1553860",
-   "flag": "🇷🇸",
-   "league": "Super Liga",
+   "fixture_id": "api_football:1494750",
+   "flag": "🇳🇴",
+   "league": "Eliteserien",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Novi Pazar – Železničar Pančevo",
+   "match": "Fredrikstad – Bodo/Glimt",
    "kickoff_at": "2026-09-04T19:00:00+02:00",
    "published": true,
-   "league_id": 286,
-   "home_logo": "https://media.api-sports.io/football/teams/2643.png",
-   "away_logo": "https://media.api-sports.io/football/teams/12360.png",
-   "conseil": "Železničar Pančevo ou Nul",
-   "conseil_cote": 1.48,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
+   "league_id": 103,
+   "home_logo": "https://media.api-sports.io/football/teams/2149.png",
+   "away_logo": "https://media.api-sports.io/football/teams/327.png",
+   "conseil": "Bodo/Glimt ou Nul",
+   "conseil_cote": 1.1,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Helmersen buteur",
+     "detail": "cote 1.62",
+     "odd": 1.62,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.63,
+     "mise_eur": 100.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1549010",
@@ -460,6 +460,32 @@
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1552459",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Boulogne – Dijon",
+   "kickoff_at": "2026-09-04T20:00:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/1299.png",
+   "away_logo": "https://media.api-sports.io/football/teams/89.png",
+   "conseil": "Boulogne ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.88,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Hbouch buteur",
+     "detail": "cote 4.00",
+     "odd": 4.0,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1552153",
