@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T16:00:06.457447+00:00",
+ "generated_at": "2026-09-04T16:06:04.891863+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -17,21 +17,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_182691",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Frances Tiafoe – Valentin Vacherot",
-   "kickoff_at": "2026-09-04T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/frances tiafoe.png",
-   "away_photo": "assets/players/valentin vacherot.png",
-   "conseil": "Victoire Frances Tiafoe",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_182745",
    "flag": "🎾",
    "league": "US Open",
@@ -44,6 +29,21 @@
    "away_photo": "assets/players/ben shelton.png",
    "conseil": "Victoire Ben Shelton",
    "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182691",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Frances Tiafoe – Valentin Vacherot",
+   "kickoff_at": "2026-09-04T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/frances tiafoe.png",
+   "away_photo": "assets/players/valentin vacherot.png",
+   "conseil": "Victoire Frances Tiafoe",
+   "conseil_cote": 1.53,
    "conseil_mise_eur": 200.0
   },
   {
@@ -87,6 +87,31 @@
    ]
   },
   {
+   "fixture_id": "api_football:1551101",
+   "flag": "⚽",
+   "league": "First League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Septemvri Sofia – Botev Vratsa",
+   "kickoff_at": "2026-09-04T18:00:00+02:00",
+   "published": true,
+   "league_id": 172,
+   "home_logo": "https://media.api-sports.io/football/teams/856.png",
+   "away_logo": "https://media.api-sports.io/football/teams/859.png",
+   "conseil": "Septemvri Sofia ou Nul",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.57,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1603554",
    "flag": "⚽",
    "league": "1. Division",
@@ -121,31 +146,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1551101",
-   "flag": "⚽",
-   "league": "First League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Septemvri Sofia – Botev Vratsa",
-   "kickoff_at": "2026-09-04T18:00:00+02:00",
-   "published": true,
-   "league_id": 172,
-   "home_logo": "https://media.api-sports.io/football/teams/856.png",
-   "away_logo": "https://media.api-sports.io/football/teams/859.png",
-   "conseil": "Septemvri Sofia ou Nul",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.57,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1599446",
    "flag": "🇦🇪",
    "league": "Pro League",
@@ -167,6 +167,32 @@
      "label": "Plus de 2.5 buts",
      "odd": 1.39,
      "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1576161",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Arminia Bielefeld – FC St. Pauli",
+   "kickoff_at": "2026-09-04T18:30:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/188.png",
+   "away_logo": "https://media.api-sports.io/football/teams/186.png",
+   "conseil": "Arminia Bielefeld ou Nul",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Grodowski buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
+     "mise_eur": 200.0
     }
    ]
   },
@@ -231,28 +257,48 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1576161",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
+   "fixture_id": "api_football:1552750",
+   "flag": "🇫🇷",
+   "league": "Ligue 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Arminia Bielefeld – FC St. Pauli",
-   "kickoff_at": "2026-09-04T18:30:00+02:00",
+   "match": "Lyon – Auxerre",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
    "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/188.png",
-   "away_logo": "https://media.api-sports.io/football/teams/186.png",
-   "conseil": "Arminia Bielefeld ou Nul",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 300.0,
+   "league_id": 61,
+   "home_logo": "https://media.api-sports.io/football/teams/80.png",
+   "away_logo": "https://media.api-sports.io/football/teams/108.png",
+   "conseil": "Lyon ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.39,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "J. Grodowski buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
+     "label": "L. Openda buteur",
+     "detail": "cote 1.83",
+     "odd": 1.83,
      "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Lyon",
+     "odd": 1.45,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.59,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.66,
+     "mise_eur": 100.0
     }
    ]
   },
@@ -350,25 +396,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1547596",
-   "flag": "🇱🇹",
-   "league": "A Lyga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Banga – Panevėžys",
-   "kickoff_at": "2026-09-03T18:00:00+02:00",
-   "published": true,
-   "league_id": 362,
-   "home_logo": "https://media.api-sports.io/football/teams/3858.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3874.png",
-   "conseil": "Panevėžys ou Nul",
-   "conseil_cote": 1.96,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 3"
-  },
-  {
    "fixture_id": "api_football:1553144",
    "flag": "🇵🇱",
    "league": "Ekstraklasa",
@@ -386,6 +413,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1547596",
+   "flag": "🇱🇹",
+   "league": "A Lyga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Banga – Panevėžys",
+   "kickoff_at": "2026-09-03T18:00:00+02:00",
+   "published": true,
+   "league_id": 362,
+   "home_logo": "https://media.api-sports.io/football/teams/3858.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3874.png",
+   "conseil": "Panevėžys ou Nul",
+   "conseil_cote": 1.96,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 3"
   },
   {
    "fixture_id": "baseball_401816791",
@@ -513,25 +559,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603010",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al Diriyah – Al-Qadisiyah FC",
-   "kickoff_at": "2026-09-03T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/26738.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2933.png",
-   "conseil": "Al-Qadisiyah FC ou Nul",
-   "conseil_cote": 1.16,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 2"
-  },
-  {
    "fixture_id": "api_football:1549009",
    "flag": "🇩🇰",
    "league": "Superliga",
@@ -575,6 +602,63 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1603010",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al Diriyah – Al-Qadisiyah FC",
+   "kickoff_at": "2026-09-03T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/26738.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2933.png",
+   "conseil": "Al-Qadisiyah FC ou Nul",
+   "conseil_cote": 1.16,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
+  },
+  {
+   "fixture_id": "api_football:1555381",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Basel 1893 – FC Sion",
+   "kickoff_at": "2026-09-03T20:30:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/551.png",
+   "away_logo": "https://media.api-sports.io/football/teams/630.png",
+   "conseil": "FC Basel 1893 ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.87,
+   "conseil_mise_eur": 500.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1558603",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gent – OH Leuven",
+   "kickoff_at": "2026-09-03T20:30:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/631.png",
+   "away_logo": "https://media.api-sports.io/football/teams/260.png",
+   "conseil": "Gent gagne",
+   "conseil_cote": 1.75,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
   },
   {
    "fixture_id": "api_football:1553140",
@@ -633,6 +717,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1558604",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Anderlecht – Kortrijk",
+   "kickoff_at": "2026-09-03T20:30:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/554.png",
+   "away_logo": "https://media.api-sports.io/football/teams/734.png",
+   "conseil": "Anderlecht ou Nul",
+   "conseil_cote": 1.14,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
+  },
+  {
    "fixture_id": "api_football:1555382",
    "flag": "🇨🇭",
    "league": "Super League",
@@ -668,61 +771,32 @@
    ]
   },
   {
-   "fixture_id": "api_football:1558603",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
+   "fixture_id": "api_football:1556655",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Gent – OH Leuven",
-   "kickoff_at": "2026-09-03T20:30:00+02:00",
+   "match": "Hibernian – Heart Of Midlothian",
+   "kickoff_at": "2026-09-03T20:45:00+02:00",
    "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/631.png",
-   "away_logo": "https://media.api-sports.io/football/teams/260.png",
-   "conseil": "Gent gagne",
-   "conseil_cote": 1.75,
-   "conseil_mise_eur": 600.0,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/249.png",
+   "away_logo": "https://media.api-sports.io/football/teams/254.png",
+   "conseil": "Heart Of Midlothian ou Nul",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 0"
-  },
-  {
-   "fixture_id": "api_football:1558604",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Anderlecht – Kortrijk",
-   "kickoff_at": "2026-09-03T20:30:00+02:00",
-   "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/554.png",
-   "away_logo": "https://media.api-sports.io/football/teams/734.png",
-   "conseil": "Anderlecht ou Nul",
-   "conseil_cote": 1.14,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0"
-  },
-  {
-   "fixture_id": "api_football:1555381",
-   "flag": "🇨🇭",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Basel 1893 – FC Sion",
-   "kickoff_at": "2026-09-03T20:30:00+02:00",
-   "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/551.png",
-   "away_logo": "https://media.api-sports.io/football/teams/630.png",
-   "conseil": "FC Basel 1893 ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.87,
-   "conseil_mise_eur": 500.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 2"
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.58,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1552754",
@@ -760,32 +834,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556655",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
+   "fixture_id": "api_football:1519479",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Hibernian – Heart Of Midlothian",
-   "kickoff_at": "2026-09-03T20:45:00+02:00",
+   "match": "Universidad Catolica – Aucas",
+   "kickoff_at": "2026-09-03T21:00:00+02:00",
    "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/249.png",
-   "away_logo": "https://media.api-sports.io/football/teams/254.png",
-   "conseil": "Heart Of Midlothian ou Nul",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 300.0,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1157.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1156.png",
+   "conseil": "Universidad Catolica ou Nul",
+   "conseil_cote": 1.26,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.58,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1570392",
@@ -805,25 +870,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
-  },
-  {
-   "fixture_id": "api_football:1519479",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Universidad Catolica – Aucas",
-   "kickoff_at": "2026-09-03T21:00:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1157.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1156.png",
-   "conseil": "Universidad Catolica ou Nul",
-   "conseil_cote": 1.26,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1549763",
@@ -871,22 +917,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816788",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Baltimore Orioles – Boston Red Sox",
-   "kickoff_at": "2026-09-03T23:15Z",
-   "published": true,
-   "value_bet": "Boston Red Sox Plus de 4,5 @ 2.08",
-   "value_cote": 2.08,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "5 - 6"
-  },
-  {
    "fixture_id": "baseball_401816793",
    "flag": "⚾",
    "league": "MLB",
@@ -901,6 +931,22 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "baseball_401816788",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Baltimore Orioles – Boston Red Sox",
+   "kickoff_at": "2026-09-03T23:15Z",
+   "published": true,
+   "value_bet": "Boston Red Sox Plus de 4,5 @ 2.08",
+   "value_cote": 2.08,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "5 - 6"
   },
   {
    "fixture_id": "api_football:1519476",
