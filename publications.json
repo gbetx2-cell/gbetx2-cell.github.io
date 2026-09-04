@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T06:17:54.386287+00:00",
+ "generated_at": "2026-09-04T09:34:18.888308+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -45,6 +45,23 @@
    "conseil": "Victoire Frances Tiafoe",
    "conseil_cote": 1.53,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1565465",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Chornomorets – Livyi Bereh",
+   "kickoff_at": "2026-09-04T12:00:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/3615.png",
+   "away_logo": "https://media.api-sports.io/football/teams/17162.png",
+   "conseil": "Livyi Bereh ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.63,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football"
   },
   {
    "fixture_id": "tennis_espn_atp_182687",
@@ -382,6 +399,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1558603",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gent – OH Leuven",
+   "kickoff_at": "2026-09-03T20:30:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/631.png",
+   "away_logo": "https://media.api-sports.io/football/teams/260.png",
+   "conseil": "Gent gagne",
+   "conseil_cote": 1.75,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
+  },
+  {
    "fixture_id": "api_football:1558604",
    "flag": "🇧🇪",
    "league": "Jupiler Pro League",
@@ -457,25 +493,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1555381",
-   "flag": "🇨🇭",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Basel 1893 – FC Sion",
-   "kickoff_at": "2026-09-03T20:30:00+02:00",
-   "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/551.png",
-   "away_logo": "https://media.api-sports.io/football/teams/630.png",
-   "conseil": "FC Basel 1893 ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.87,
-   "conseil_mise_eur": 500.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 2"
-  },
-  {
    "fixture_id": "api_football:1555382",
    "flag": "🇨🇭",
    "league": "Super League",
@@ -511,23 +528,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1558603",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
+   "fixture_id": "api_football:1555381",
+   "flag": "🇨🇭",
+   "league": "Super League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Gent – OH Leuven",
+   "match": "FC Basel 1893 – FC Sion",
    "kickoff_at": "2026-09-03T20:30:00+02:00",
    "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/631.png",
-   "away_logo": "https://media.api-sports.io/football/teams/260.png",
-   "conseil": "Gent gagne",
-   "conseil_cote": 1.75,
-   "conseil_mise_eur": 600.0,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/551.png",
+   "away_logo": "https://media.api-sports.io/football/teams/630.png",
+   "conseil": "FC Basel 1893 ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.87,
+   "conseil_mise_eur": 500.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0"
+   "result": "PERDU",
+   "score": "1 - 2"
   },
   {
    "fixture_id": "api_football:1552754",
@@ -593,25 +610,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1570392",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Sociedad – Celta Vigo",
-   "kickoff_at": "2026-09-03T21:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/548.png",
-   "away_logo": "https://media.api-sports.io/football/teams/538.png",
-   "conseil": "Real Sociedad ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1519479",
    "flag": "🇵🇾",
    "league": "Liga Pro",
@@ -629,6 +627,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1570392",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Sociedad – Celta Vigo",
+   "kickoff_at": "2026-09-03T21:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/548.png",
+   "away_logo": "https://media.api-sports.io/football/teams/538.png",
+   "conseil": "Real Sociedad ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1549763",
