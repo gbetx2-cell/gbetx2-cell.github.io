@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T17:41:05.245303+00:00",
+ "generated_at": "2026-09-04T17:42:04.800392+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -758,6 +758,31 @@
    "conseil": "Victoire Tomas Martin Etcheverry",
    "conseil_cote": 2.12,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1569910",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Las Palmas – Leganes",
+   "kickoff_at": "2026-09-04T20:30:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/534.png",
+   "away_logo": "https://media.api-sports.io/football/teams/537.png",
+   "conseil": "Leganes ou Nul",
+   "conseil_cote": 1.97,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.9,
+     "mise_eur": 100.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1575149",
