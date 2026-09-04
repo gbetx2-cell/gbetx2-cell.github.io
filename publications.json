@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T09:34:19.214710+00:00",
+ "generated_at": "2026-09-04T12:37:30.387466+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -45,23 +45,6 @@
    "conseil": "Victoire Frances Tiafoe",
    "conseil_cote": 1.53,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1565465",
-   "flag": "🇺🇦",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Chornomorets – Livyi Bereh",
-   "kickoff_at": "2026-09-04T12:00:00+02:00",
-   "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/3615.png",
-   "away_logo": "https://media.api-sports.io/football/teams/17162.png",
-   "conseil": "Livyi Bereh ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.63,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football"
   },
   {
    "fixture_id": "tennis_espn_atp_182687",
@@ -399,44 +382,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1558603",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gent – OH Leuven",
-   "kickoff_at": "2026-09-03T20:30:00+02:00",
-   "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/631.png",
-   "away_logo": "https://media.api-sports.io/football/teams/260.png",
-   "conseil": "Gent gagne",
-   "conseil_cote": 1.75,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0"
-  },
-  {
-   "fixture_id": "api_football:1558604",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Anderlecht – Kortrijk",
-   "kickoff_at": "2026-09-03T20:30:00+02:00",
-   "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/554.png",
-   "away_logo": "https://media.api-sports.io/football/teams/734.png",
-   "conseil": "Anderlecht ou Nul",
-   "conseil_cote": 1.14,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0"
-  },
-  {
    "fixture_id": "api_football:1553140",
    "flag": "🇵🇱",
    "league": "Ekstraklasa",
@@ -493,6 +438,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1555381",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Basel 1893 – FC Sion",
+   "kickoff_at": "2026-09-03T20:30:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/551.png",
+   "away_logo": "https://media.api-sports.io/football/teams/630.png",
+   "conseil": "FC Basel 1893 ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.87,
+   "conseil_mise_eur": 500.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 2"
+  },
+  {
    "fixture_id": "api_football:1555382",
    "flag": "🇨🇭",
    "league": "Super League",
@@ -528,23 +492,70 @@
    ]
   },
   {
-   "fixture_id": "api_football:1555381",
-   "flag": "🇨🇭",
-   "league": "Super League",
+   "fixture_id": "api_football:1558603",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Basel 1893 – FC Sion",
+   "match": "Gent – OH Leuven",
    "kickoff_at": "2026-09-03T20:30:00+02:00",
    "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/551.png",
-   "away_logo": "https://media.api-sports.io/football/teams/630.png",
-   "conseil": "FC Basel 1893 ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.87,
-   "conseil_mise_eur": 500.0,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/631.png",
+   "away_logo": "https://media.api-sports.io/football/teams/260.png",
+   "conseil": "Gent gagne",
+   "conseil_cote": 1.75,
+   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 2"
+   "result": "GAGNE",
+   "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1558604",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Anderlecht – Kortrijk",
+   "kickoff_at": "2026-09-03T20:30:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/554.png",
+   "away_logo": "https://media.api-sports.io/football/teams/734.png",
+   "conseil": "Anderlecht ou Nul",
+   "conseil_cote": 1.14,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1556655",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Hibernian – Heart Of Midlothian",
+   "kickoff_at": "2026-09-03T20:45:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/249.png",
+   "away_logo": "https://media.api-sports.io/football/teams/254.png",
+   "conseil": "Heart Of Midlothian ou Nul",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.58,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1552754",
@@ -582,32 +593,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556655",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
+   "fixture_id": "api_football:1570392",
+   "flag": "🇪🇸",
+   "league": "Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Hibernian – Heart Of Midlothian",
-   "kickoff_at": "2026-09-03T20:45:00+02:00",
+   "match": "Real Sociedad – Celta Vigo",
+   "kickoff_at": "2026-09-03T21:00:00+02:00",
    "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/249.png",
-   "away_logo": "https://media.api-sports.io/football/teams/254.png",
-   "conseil": "Heart Of Midlothian ou Nul",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 300.0,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/548.png",
+   "away_logo": "https://media.api-sports.io/football/teams/538.png",
+   "conseil": "Real Sociedad ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.58,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1519479",
@@ -627,25 +629,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
-  },
-  {
-   "fixture_id": "api_football:1570392",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Sociedad – Celta Vigo",
-   "kickoff_at": "2026-09-03T21:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/548.png",
-   "away_logo": "https://media.api-sports.io/football/teams/538.png",
-   "conseil": "Real Sociedad ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1549763",
@@ -693,22 +676,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816793",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Milwaukee Brewers",
-   "kickoff_at": "2026-09-03T23:15Z",
-   "published": true,
-   "value_bet": "Chicago Cubs Plus de 3,5 @ 1.8",
-   "value_cote": 1.8,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2 - 1"
-  },
-  {
    "fixture_id": "baseball_401816788",
    "flag": "⚾",
    "league": "MLB",
@@ -723,6 +690,22 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "5 - 6"
+  },
+  {
+   "fixture_id": "baseball_401816793",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Milwaukee Brewers",
+   "kickoff_at": "2026-09-03T23:15Z",
+   "published": true,
+   "value_bet": "Chicago Cubs Plus de 3,5 @ 1.8",
+   "value_cote": 1.8,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 1"
   },
   {
    "fixture_id": "api_football:1519476",
@@ -934,6 +917,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1565465",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Chornomorets – Livyi Bereh",
+   "kickoff_at": "2026-09-04T12:00:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/3615.png",
+   "away_logo": "https://media.api-sports.io/football/teams/17162.png",
+   "conseil": "Livyi Bereh ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.63,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "0 - 0"
   }
  ]
 }
