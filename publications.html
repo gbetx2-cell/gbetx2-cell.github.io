@@ -142,6 +142,41 @@ h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 
 }
 .mise-badge{color:var(--muted);font-size:.7rem;font-weight:600;white-space:nowrap}
 
+/* ── Bandeau connexion / compte (04/09/2026) ── */
+.auth-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;margin-bottom:16px;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;font-size:.88rem}
+.auth-status{color:var(--muted)}
+.auth-status b{color:var(--text)}
+.auth-input{background:var(--bg-2);border:1px solid var(--border);color:var(--text);border-radius:8px;
+  padding:7px 10px;font-size:.86rem;font-family:inherit;width:140px}
+.auth-input:focus{outline:none;border-color:var(--border-strong)}
+.btn-auth{background:var(--gold);color:#1a1400;border:none;border-radius:8px;padding:7px 14px;
+  font-size:.85rem;font-weight:700;cursor:pointer}
+.btn-auth:hover{background:var(--gold-2)}
+.btn-auth-secondary{background:transparent;color:var(--gold-2);border:1px solid var(--border-strong)}
+.btn-auth-secondary:hover{background:rgba(240,185,11,.08)}
+.auth-error{color:var(--red);font-size:.82rem}
+
+/* ── Repli des lignes en trop sur une carte (04/09/2026, correctif MLB) ── */
+.picks-toggle{color:var(--gold-2);font-size:.82rem;font-weight:600;cursor:pointer;padding:8px 0 2px;text-align:center}
+.picks-toggle:hover{text-decoration:underline}
+
+/* ── Chat en direct par publication (04/09/2026) ── */
+.chat-widget{border-top:1px solid var(--border);margin-top:10px;padding-top:8px}
+.chat-toggle{color:var(--muted);font-size:.82rem;font-weight:600;cursor:pointer;padding:2px 0}
+.chat-toggle:hover{color:var(--gold-2)}
+.chat-panel{margin-top:8px}
+.chat-messages{max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;
+  padding:10px;background:var(--bg-2);border-radius:10px;margin-bottom:8px}
+.chat-msg{font-size:.85rem;color:var(--text);word-break:break-word}
+.chat-msg b{color:var(--gold-2);margin-right:6px}
+.chat-empty{color:var(--muted);font-size:.82rem;font-style:italic}
+.chat-input-row{display:flex;gap:8px}
+.chat-input{flex:1;background:var(--bg-2);border:1px solid var(--border);color:var(--text);
+  border-radius:8px;padding:8px 10px;font-size:.85rem;font-family:inherit}
+.chat-input:focus{outline:none;border-color:var(--border-strong)}
+.chat-login-hint{color:var(--muted);font-size:.82rem;font-style:italic}
+
 .gauge{padding-left:42px;margin-top:2px}
 .gauge-track{position:relative;height:4px;border-radius:99px;background:var(--track);margin-bottom:16px}
 .gauge-fill{height:100%;border-radius:99px;transition:width .4s ease}
@@ -309,7 +344,7 @@ footer a{color:var(--gold-2);text-decoration:none}
 
 <div class="container">
   <h1>Publications</h1>
-  <p class="sub">Ce que le bot a déjà publié aujourd'hui — scores et progressions en direct.</p>
+  <div id="authBar" class="auth-bar"></div>
   <div id="status"><span class="dot"></span><span id="status-text">Chargement…</span></div>
 
   <div class="tabs">
@@ -1070,6 +1105,7 @@ function renderCard(f){
       <div class="card ${(f.result || (live && live.finished)) ? '' : 'live'}">
         ${footballMatchHeadHtml(f, live)}
         <div class="picks">${rows.join('')}</div>
+        ${chatWidgetHtml(f)}
       </div>`;
   }
   if (f.sport === 'tennis'){
@@ -1106,6 +1142,7 @@ function renderCard(f){
       <div class="card ${f.result ? '' : 'live'}">
         ${tennisMatchHeadHtml(f, live)}
         <div class="picks">${rows.join('')}</div>
+        ${chatWidgetHtml(f)}
       </div>`;
   }
   let scoreHtml;
@@ -1169,6 +1206,20 @@ function renderCard(f){
     rows.push(`<div class="pick-row"><div class="pick-top"><span class="type-badge nobet">No Bet</span><span class="pick-label">${f.no_bet_reason}</span></div></div>`);
   }
 
+  // Repli au-dela de 3 lignes (04/09/2026, demande explicite : "trop de
+  // lignes affichees" sur MLB -- mlb_value_bet_settlements peut ajouter
+  // plusieurs marches "SEUIL ATTEINT" au-dessus du pick principal, cf
+  // commentaire ci-dessus, la carte s'empilait sans limite). Pur CSS/JS,
+  // aucun changement cote serveur -- les 3 premieres lignes restent
+  // toujours visibles (le pick principal + les 2 suivantes), le reste se
+  // deplie au clic.
+  const ROWS_VISIBLE = 3;
+  const rowsHtml = rows.length > ROWS_VISIBLE
+    ? rows.slice(0, ROWS_VISIBLE).join('') +
+      `<div class="picks-toggle" onclick="this.nextElementSibling.hidden=false;this.hidden=true">Voir ${rows.length - ROWS_VISIBLE} marché${rows.length - ROWS_VISIBLE > 1 ? 's' : ''} de plus ▾</div>` +
+      `<div class="picks-hidden" hidden>${rows.slice(ROWS_VISIBLE).join('')}</div>`
+    : rows.join('');
+
   return `
     <div class="card ${f.result ? '' : 'live'}">
       <div class="match-head">
@@ -1181,7 +1232,8 @@ function renderCard(f){
         </div>
         ${scoreHtml}
       </div>
-      <div class="picks">${rows.join('')}</div>
+      <div class="picks">${rowsHtml}</div>
+      ${chatWidgetHtml(f)}
     </div>`;
 }
 
@@ -1560,6 +1612,176 @@ async function refreshLiveData(){
 // sur publications.json plutot que de laisser fetch() pendre sur le timeout
 // TCP par defaut du navigateur.
 const LIVE_API_BASE = 'https://api-89-168-57-74.nip.io';
+
+// ── Comptes / chat en direct / vues de page (04/09/2026, demande explicite)
+function _escapeHtml(s){
+  const d = document.createElement('div');
+  d.textContent = s == null ? '' : String(s);
+  return d.innerHTML;
+}
+
+// Vues de page : visitor_id genere une fois cote client (localStorage),
+// jamais une IP -- minimise deliberement la donnee collectee (cf plan).
+const VISITOR_ID = (function(){
+  try {
+    let id = localStorage.getItem('gbet_visitor_id');
+    if (!id) {
+      id = 'v_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('gbet_visitor_id', id);
+    }
+    return id;
+  } catch(e) { return 'v_' + Math.random().toString(36).slice(2); }
+})();
+fetch(LIVE_API_BASE + '/api/track', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({page: 'publications', visitor_id: VISITOR_ID}),
+}).catch(()=>{});
+
+let currentUser = null; // {username, role} | null -- juste pour l'affichage, la vraie autorite est le cookie de session cote serveur
+try { const saved = localStorage.getItem('gbet_user'); if (saved) currentUser = JSON.parse(saved); } catch(e){}
+
+function renderAuthBar(){
+  const el = document.getElementById('authBar');
+  if (!el) return;
+  if (currentUser){
+    el.innerHTML = `<span class="auth-status">Connecté : <b>${_escapeHtml(currentUser.username)}</b></span>` +
+      `<button class="btn-auth btn-auth-secondary" onclick="doLogout()">Déconnexion</button>`;
+  } else {
+    el.innerHTML = `
+      <input id="authUsername" class="auth-input" placeholder="Pseudo" maxlength="32">
+      <input id="authPassword" class="auth-input" type="password" placeholder="Mot de passe" maxlength="64">
+      <button class="btn-auth" onclick="doLogin()">Se connecter</button>
+      <button class="btn-auth btn-auth-secondary" onclick="doSignup()">Créer un compte</button>
+      <span id="authError" class="auth-error"></span>`;
+  }
+}
+
+async function _authRequest(path, body){
+  try {
+    const res = await fetch(LIVE_API_BASE + path, {
+      method: 'POST', credentials: 'include',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body),
+      signal: AbortSignal.timeout(6000),
+    });
+    return {status: res.status, data: await res.json().catch(()=>({}))};
+  } catch(e) {
+    return {status: 0, data: {ok:false, reason: 'Connexion impossible, réessaie.'}};
+  }
+}
+
+async function doSignup(){
+  const username = document.getElementById('authUsername').value.trim();
+  const password = document.getElementById('authPassword').value;
+  const {data} = await _authRequest('/api/signup', {username, password});
+  if (data.ok){
+    currentUser = {username: data.username, role: data.role};
+    try { localStorage.setItem('gbet_user', JSON.stringify(currentUser)); } catch(e){}
+    renderAuthBar();
+  } else {
+    document.getElementById('authError').textContent = data.reason || 'Erreur';
+  }
+}
+
+async function doLogin(){
+  const username = document.getElementById('authUsername').value.trim();
+  const password = document.getElementById('authPassword').value;
+  const {data} = await _authRequest('/api/login', {username, password});
+  if (data.ok){
+    currentUser = {username: data.username, role: data.role};
+    try { localStorage.setItem('gbet_user', JSON.stringify(currentUser)); } catch(e){}
+    renderAuthBar();
+  } else {
+    document.getElementById('authError').textContent = data.reason || 'Erreur';
+  }
+}
+
+function doLogout(){
+  currentUser = null;
+  try { localStorage.removeItem('gbet_user'); } catch(e){}
+  // Pas de route /api/logout dediee (portee volontairement limitee) --
+  // ecrase directement le cookie cote client, suffisant pour ce chantier.
+  document.cookie = 'gbet_session=; Path=/; Max-Age=0; SameSite=None; Secure';
+  renderAuthBar();
+  render();
+}
+
+// Chat par fixture (1 salon par carte, pas par ligne de pick). openChats :
+// salons actuellement deplies -- render() reconstruit toute la liste de
+// cartes toutes les 20s (rafraichissement des scores/publications), donc
+// l'etat "deplie" doit etre reconstruit a partir de ce Set a chaque appel
+// de chatWidgetHtml(), sinon un chat ouvert se refermerait tout seul.
+let openChats = new Set();
+let chatMessages = {};   // fixture_id -> [{id, username, message, created_at}]
+let chatSinceId = {};    // fixture_id -> dernier id recu (poll incremental)
+
+function _chatMessagesHtml(fid){
+  const msgs = chatMessages[fid] || [];
+  return msgs.length
+    ? msgs.map(m => `<div class="chat-msg"><b>${_escapeHtml(m.username)}</b>${_escapeHtml(m.message)}</div>`).join('')
+    : '<div class="chat-empty">Aucun message pour l’instant — sois le premier à écrire.</div>';
+}
+
+function chatWidgetHtml(f){
+  const fid = f.fixture_id;
+  const isOpen = openChats.has(fid);
+  const count = (chatMessages[fid] || []).length;
+  const inputHtml = currentUser
+    ? `<div class="chat-input-row">
+         <input class="chat-input" id="chatInput-${fid}" maxlength="500" placeholder="Écrire un message…"
+                onkeydown="if(event.key==='Enter'){sendChatMessage('${fid}')}">
+         <button class="btn-auth" onclick="sendChatMessage('${fid}')">Envoyer</button>
+       </div>`
+    : `<div class="chat-login-hint">Connecte-toi pour participer à la discussion.</div>`;
+  return `
+    <div class="chat-widget">
+      <div class="chat-toggle" onclick="toggleChat('${fid}')">💬 Discussion${count ? ' (' + count + ')' : ''} ${isOpen ? '▴' : '▾'}</div>
+      ${isOpen ? `<div class="chat-panel"><div class="chat-messages" id="chatMessages-${fid}">${_chatMessagesHtml(fid)}</div>${inputHtml}</div>` : ''}
+    </div>`;
+}
+
+async function toggleChat(fid){
+  if (openChats.has(fid)) openChats.delete(fid);
+  else openChats.add(fid);
+  render();
+  if (openChats.has(fid)) await pollChat(fid);
+}
+
+async function pollChat(fid){
+  try{
+    const since = chatSinceId[fid] || 0;
+    const res = await fetch(`${LIVE_API_BASE}/api/chat?fixture_id=${encodeURIComponent(fid)}&since_id=${since}`,
+      {cache:'no-store', signal: AbortSignal.timeout(4000)});
+    if (!res.ok) return;
+    const data = await res.json();
+    const newMsgs = data.messages || [];
+    if (!newMsgs.length) return;
+    chatMessages[fid] = (chatMessages[fid] || []).concat(newMsgs);
+    chatSinceId[fid] = newMsgs[newMsgs.length - 1].id;
+    const el = document.getElementById('chatMessages-' + fid);
+    if (el){
+      el.innerHTML = _chatMessagesHtml(fid);
+      el.scrollTop = el.scrollHeight;
+    }
+  }catch(e){}
+}
+
+async function sendChatMessage(fid){
+  const input = document.getElementById('chatInput-' + fid);
+  if (!input) return;
+  const message = input.value.trim();
+  if (!message) return;
+  input.value = '';
+  const {data} = await _authRequest('/api/chat/post', {fixture_id: fid, message});
+  if (data.ok) await pollChat(fid);
+  else alert(data.reason || 'Message refusé');
+}
+
+// Poll des salons ouverts uniquement (pas tous en arriere-plan) -- 5s,
+// plus reactif que les 20s des scores (un chat doit paraitre vivant).
+setInterval(() => { openChats.forEach(fid => pollChat(fid)); }, 5000);
+renderAuthBar();
 
 async function loadPublications(){
   try{
