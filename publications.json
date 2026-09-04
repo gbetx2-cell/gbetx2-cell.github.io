@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T18:23:19.635429+00:00",
+ "generated_at": "2026-09-04T18:25:04.551877+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -882,6 +882,43 @@
    "conseil_cote": 1.36,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1575485",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Porto – Moreirense",
+   "kickoff_at": "2026-09-04T21:15:00+02:00",
+   "published": true,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/212.png",
+   "away_logo": "https://media.api-sports.io/football/teams/215.png",
+   "conseil": "FC Porto gagne",
+   "conseil_cote": 1.19,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.59,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.41,
+     "mise_eur": 300.0
+    },
+    {
+     "market": "Cartons O/U 3.5",
+     "label": "Plus de 3.5 cartons",
+     "odd": 1.5,
+     "mise_eur": 300.0
+    }
+   ]
   }
  ],
  "done": [
