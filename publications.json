@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T22:40:18.245230+00:00",
+ "generated_at": "2026-09-04T23:10:11.815772+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -149,6 +149,27 @@
    "value_mise_eur": 200.0
   },
   {
+   "fixture_id": "baseball_401816803",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – San Francisco Giants",
+   "kickoff_at": "2026-09-04T23:10Z",
+   "published": true,
+   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — New York Mets @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816800",
    "flag": "⚾",
    "league": "MLB",
@@ -171,27 +192,6 @@
      "market": "totals",
      "label": "Total — Plus de 7,5 runs @ 1.8",
      "odd": 1.8,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816803",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – San Francisco Giants",
-   "kickoff_at": "2026-09-04T23:10Z",
-   "published": true,
-   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — New York Mets @ 1.5556",
-     "odd": 1.56,
      "mise_eur": 200.0
     }
    ]
@@ -222,41 +222,17 @@
    ]
   },
   {
-   "fixture_id": "api_football:1493115",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Platense – Deportivo Riestra",
-   "kickoff_at": "2026-09-05T00:00:00+02:00",
+   "fixture_id": "baseball_401816805",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago White Sox – Minnesota Twins",
+   "kickoff_at": "2026-09-04T23:40Z",
    "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/1064.png",
-   "away_logo": "https://media.api-sports.io/football/teams/476.png",
-   "conseil": "Deportivo Riestra ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.3,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.49,
-     "mise_eur": 300.0
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.47,
-     "mise_eur": 300.0
-    }
-   ]
+   "value_bet": "Minnesota Twins Plus de 4,5 @ 2.0",
+   "value_cote": 2.0,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "api_football:1493109",
@@ -285,6 +261,43 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.5,
+     "mise_eur": 300.0
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.47,
+     "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493115",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Platense – Deportivo Riestra",
+   "kickoff_at": "2026-09-05T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "away_logo": "https://media.api-sports.io/football/teams/476.png",
+   "conseil": "Deportivo Riestra ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.3,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.49,
      "mise_eur": 300.0
     },
     {
@@ -1267,25 +1280,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603011",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Abha – Al-Ettifaq",
-   "kickoff_at": "2026-09-04T18:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
-   "conseil": "Al-Ettifaq ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 1"
-  },
-  {
    "fixture_id": "api_football:1603554",
    "flag": "⚽",
    "league": "1. Division",
@@ -1333,6 +1327,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1603011",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Abha – Al-Ettifaq",
+   "kickoff_at": "2026-09-04T18:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
+   "conseil": "Al-Ettifaq ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1"
+  },
+  {
    "fixture_id": "baseball_401877193",
    "flag": "⚾",
    "league": "MLB",
@@ -1372,35 +1385,6 @@
      "label": "Plus de 2.5 buts",
      "odd": 1.39,
      "mise_eur": 300.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1576161",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Arminia Bielefeld – FC St. Pauli",
-   "kickoff_at": "2026-09-04T18:30:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/188.png",
-   "away_logo": "https://media.api-sports.io/football/teams/186.png",
-   "conseil": "Arminia Bielefeld ou Nul",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Grodowski buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0,
      "result": "GAGNE"
     }
    ]
@@ -1455,6 +1439,35 @@
    ]
   },
   {
+   "fixture_id": "api_football:1576161",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Arminia Bielefeld – FC St. Pauli",
+   "kickoff_at": "2026-09-04T18:30:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/188.png",
+   "away_logo": "https://media.api-sports.io/football/teams/186.png",
+   "conseil": "Arminia Bielefeld ou Nul",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Grodowski buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1560241",
    "flag": "⚽",
    "league": "NB I",
@@ -1472,44 +1485,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 2"
-  },
-  {
-   "fixture_id": "api_football:1549010",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Viborg – Lyngby",
-   "kickoff_at": "2026-09-04T19:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/2070.png",
-   "away_logo": "https://media.api-sports.io/football/teams/625.png",
-   "conseil": "Viborg gagne",
-   "conseil_cote": 1.82,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 2"
-  },
-  {
-   "fixture_id": "api_football:1553860",
-   "flag": "🇷🇸",
-   "league": "Super Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Novi Pazar – Železničar Pančevo",
-   "kickoff_at": "2026-09-04T19:00:00+02:00",
-   "published": true,
-   "league_id": 286,
-   "home_logo": "https://media.api-sports.io/football/teams/2643.png",
-   "away_logo": "https://media.api-sports.io/football/teams/12360.png",
-   "conseil": "Železničar Pančevo ou Nul",
-   "conseil_cote": 1.48,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 0"
   },
   {
    "fixture_id": "api_football:1494750",
@@ -1595,6 +1570,44 @@
    ]
   },
   {
+   "fixture_id": "api_football:1584394",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Başakşehir – Galatasaray",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/564.png",
+   "away_logo": "https://media.api-sports.io/football/teams/645.png",
+   "conseil": "Galatasaray ou Nul",
+   "conseil_cote": 1.19,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 3",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "V. Osimhen buteur",
+     "detail": "cote 1.62",
+     "odd": 1.62,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.47,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1552750",
    "flag": "🇫🇷",
    "league": "Ligue 1",
@@ -1647,42 +1660,61 @@
    ]
   },
   {
-   "fixture_id": "api_football:1584394",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
+   "fixture_id": "api_football:1549010",
+   "flag": "🇩🇰",
+   "league": "Superliga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Başakşehir – Galatasaray",
+   "match": "Viborg – Lyngby",
    "kickoff_at": "2026-09-04T19:00:00+02:00",
    "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/564.png",
-   "away_logo": "https://media.api-sports.io/football/teams/645.png",
-   "conseil": "Galatasaray ou Nul",
-   "conseil_cote": 1.19,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/2070.png",
+   "away_logo": "https://media.api-sports.io/football/teams/625.png",
+   "conseil": "Viborg gagne",
+   "conseil_cote": 1.82,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 2"
+  },
+  {
+   "fixture_id": "api_football:1553860",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Novi Pazar – Železničar Pančevo",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/2643.png",
+   "away_logo": "https://media.api-sports.io/football/teams/12360.png",
+   "conseil": "Železničar Pančevo ou Nul",
+   "conseil_cote": 1.48,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 0"
+  },
+  {
+   "fixture_id": "api_football:1600331",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Richards Bay – Amazulu",
+   "kickoff_at": "2026-09-04T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
+   "conseil": "Amazulu ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.43,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "2 - 3",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "V. Osimhen buteur",
-     "detail": "cote 1.62",
-     "odd": 1.62,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.47,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
+   "score": "1 - 2"
   },
   {
    "fixture_id": "api_football:1565239",
@@ -1739,23 +1771,32 @@
    ]
   },
   {
-   "fixture_id": "api_football:1600331",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
+   "fixture_id": "api_football:1552460",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Richards Bay – Amazulu",
-   "kickoff_at": "2026-09-04T19:30:00+02:00",
+   "match": "Dunkerque – Clermont Foot",
+   "kickoff_at": "2026-09-04T20:00:00+02:00",
    "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
-   "conseil": "Amazulu ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.43,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/1304.png",
+   "away_logo": "https://media.api-sports.io/football/teams/99.png",
+   "conseil": "Dunkerque gagne + Plus de 1.5 buts",
+   "conseil_cote": 2.38,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 2"
+   "result": "PERDU",
+   "score": "1 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.87,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1603013",
@@ -1793,98 +1834,61 @@
    ]
   },
   {
-   "fixture_id": "api_football:1548526",
-   "flag": "🇭🇷",
-   "league": "HNL",
+   "fixture_id": "api_football:1552153",
+   "flag": "🇳🇱",
+   "league": "Eredivisie",
    "sport": "football",
    "sport_label": "Football",
-   "match": "NK Varazdin – Istra 1961",
+   "match": "Sparta Rotterdam – PEC Zwolle",
    "kickoff_at": "2026-09-04T20:00:00+02:00",
    "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/1483.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1016.png",
-   "conseil": "NK Varazdin ou Nul",
-   "conseil_cote": 1.24,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
-  },
-  {
-   "fixture_id": "api_football:1552460",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dunkerque – Clermont Foot",
-   "kickoff_at": "2026-09-04T20:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/1304.png",
-   "away_logo": "https://media.api-sports.io/football/teams/99.png",
-   "conseil": "Dunkerque gagne + Plus de 1.5 buts",
-   "conseil_cote": 2.38,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.87,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1603012",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Ahli Jeddah – Al Riyadh",
-   "kickoff_at": "2026-09-04T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2929.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10511.png",
-   "conseil": "Al-Ahli Jeddah gagne + Plus de 2.5 buts",
-   "conseil_cote": 2.03,
+   "league_id": 88,
+   "home_logo": "https://media.api-sports.io/football/teams/426.png",
+   "away_logo": "https://media.api-sports.io/football/teams/193.png",
+   "conseil": "PEC Zwolle ou Nul",
+   "conseil_cote": 2.0,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "5 - 0",
+   "score": "2 - 2",
    "refonte_value_bets": [
     {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.43,
-     "mise_eur": 300.0,
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.47,
+     "mise_eur": 200.0,
      "result": "GAGNE"
     }
    ]
   },
   {
-   "fixture_id": "api_football:1552465",
+   "fixture_id": "api_football:1552459",
    "flag": "🇫🇷",
    "league": "Ligue 2",
    "sport": "football",
    "sport_label": "Football",
-   "match": "PAU – Sochaux",
+   "match": "Boulogne – Dijon",
    "kickoff_at": "2026-09-04T20:00:00+02:00",
    "published": true,
    "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/1297.png",
-   "away_logo": "https://media.api-sports.io/football/teams/115.png",
-   "conseil": "Sochaux ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.15,
-   "conseil_mise_eur": 200.0,
+   "home_logo": "https://media.api-sports.io/football/teams/1299.png",
+   "away_logo": "https://media.api-sports.io/football/teams/89.png",
+   "conseil": "Boulogne ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.88,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 1"
+   "score": "1 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Hbouch buteur",
+     "detail": "cote 4.00",
+     "odd": 4.0,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1552461",
@@ -1950,80 +1954,70 @@
    ]
   },
   {
-   "fixture_id": "api_football:1552153",
-   "flag": "🇳🇱",
-   "league": "Eredivisie",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sparta Rotterdam – PEC Zwolle",
-   "kickoff_at": "2026-09-04T20:00:00+02:00",
-   "published": true,
-   "league_id": 88,
-   "home_logo": "https://media.api-sports.io/football/teams/426.png",
-   "away_logo": "https://media.api-sports.io/football/teams/193.png",
-   "conseil": "PEC Zwolle ou Nul",
-   "conseil_cote": 2.0,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.47,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1552459",
+   "fixture_id": "api_football:1552465",
    "flag": "🇫🇷",
    "league": "Ligue 2",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Boulogne – Dijon",
+   "match": "PAU – Sochaux",
    "kickoff_at": "2026-09-04T20:00:00+02:00",
    "published": true,
    "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/1299.png",
-   "away_logo": "https://media.api-sports.io/football/teams/89.png",
-   "conseil": "Boulogne ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.88,
+   "home_logo": "https://media.api-sports.io/football/teams/1297.png",
+   "away_logo": "https://media.api-sports.io/football/teams/115.png",
+   "conseil": "Sochaux ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1548526",
+   "flag": "🇭🇷",
+   "league": "HNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "NK Varazdin – Istra 1961",
+   "kickoff_at": "2026-09-04T20:00:00+02:00",
+   "published": true,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/1483.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1016.png",
+   "conseil": "NK Varazdin ou Nul",
+   "conseil_cote": 1.24,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1603012",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Ahli Jeddah – Al Riyadh",
+   "kickoff_at": "2026-09-04T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2929.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10511.png",
+   "conseil": "Al-Ahli Jeddah gagne + Plus de 2.5 buts",
+   "conseil_cote": 2.03,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 1",
-   "player_picks": [
+   "score": "5 - 0",
+   "refonte_value_bets": [
     {
-     "category": "Buteur",
-     "label": "A. Hbouch buteur",
-     "detail": "cote 4.00",
-     "odd": 4.0,
-     "mise_eur": 200.0,
-     "result": "PERDU"
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.43,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1558007",
-   "flag": "⚽",
-   "league": "1. SNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Nafta – Radomlje",
-   "kickoff_at": "2026-09-04T20:15:00+02:00",
-   "published": true,
-   "league_id": 373,
-   "home_logo": "https://media.api-sports.io/football/teams/4376.png",
-   "away_logo": "https://media.api-sports.io/football/teams/4378.png",
-   "conseil": "Radomlje ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.0,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1551096",
@@ -2043,6 +2037,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "2 - 3"
+  },
+  {
+   "fixture_id": "api_football:1558007",
+   "flag": "⚽",
+   "league": "1. SNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Nafta – Radomlje",
+   "kickoff_at": "2026-09-04T20:15:00+02:00",
+   "published": true,
+   "league_id": 373,
+   "home_logo": "https://media.api-sports.io/football/teams/4376.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4378.png",
+   "conseil": "Radomlje ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.0,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1569910",
@@ -2127,25 +2140,6 @@
    "score": "3 - 0"
   },
   {
-   "fixture_id": "api_football:1562053",
-   "flag": "⚽",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Larne – Glentoran",
-   "kickoff_at": "2026-09-04T20:45:00+02:00",
-   "published": true,
-   "league_id": 408,
-   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5352.png",
-   "conseil": "Larne ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.75,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 1"
-  },
-  {
    "fixture_id": "api_football:1550112",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -2193,6 +2187,100 @@
    "score": "0 - 1"
   },
   {
+   "fixture_id": "api_football:1562053",
+   "flag": "⚽",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Larne – Glentoran",
+   "kickoff_at": "2026-09-04T20:45:00+02:00",
+   "published": true,
+   "league_id": 408,
+   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5352.png",
+   "conseil": "Larne ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.75,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1494754",
+   "flag": "🇳🇴",
+   "league": "Eliteserien",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sandefjord – Viking",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 103,
+   "home_logo": "https://media.api-sports.io/football/teams/332.png",
+   "away_logo": "https://media.api-sports.io/football/teams/759.png",
+   "conseil": "Viking ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.35,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1557393",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Ipswich – Liverpool",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 39,
+   "home_logo": "https://media.api-sports.io/football/teams/57.png",
+   "away_logo": "https://media.api-sports.io/football/teams/40.png",
+   "conseil": "Liverpool ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
+  },
+  {
+   "fixture_id": "api_football:1570365",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Betis – Real Madrid",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/543.png",
+   "away_logo": "https://media.api-sports.io/football/teams/541.png",
+   "conseil": "Real Madrid gagne",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.52,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1492754",
    "flag": "🇮🇪",
    "league": "Premier Division",
@@ -2219,25 +2307,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1557393",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Ipswich – Liverpool",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
-   "published": true,
-   "league_id": 39,
-   "home_logo": "https://media.api-sports.io/football/teams/57.png",
-   "away_logo": "https://media.api-sports.io/football/teams/40.png",
-   "conseil": "Liverpool ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 2"
   },
   {
    "fixture_id": "api_football:1618996",
@@ -2287,62 +2356,6 @@
      "label": "Les deux équipes marquent",
      "odd": 1.37,
      "mise_eur": 300.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1494754",
-   "flag": "🇳🇴",
-   "league": "Eliteserien",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sandefjord – Viking",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
-   "published": true,
-   "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/332.png",
-   "away_logo": "https://media.api-sports.io/football/teams/759.png",
-   "conseil": "Viking ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.15,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.35,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1570365",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Betis – Real Madrid",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/543.png",
-   "away_logo": "https://media.api-sports.io/football/teams/541.png",
-   "conseil": "Real Madrid gagne",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.52,
-     "mise_eur": 100.0,
      "result": "PERDU"
     }
    ]
