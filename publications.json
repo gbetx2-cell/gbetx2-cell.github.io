@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T17:50:04.036577+00:00",
+ "generated_at": "2026-09-04T18:01:08.562393+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -85,23 +85,6 @@
      "mise_eur": 300.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1603011",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Abha – Al-Ettifaq",
-   "kickoff_at": "2026-09-04T18:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
-   "conseil": "Al-Ettifaq ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1603554",
@@ -523,37 +506,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1603013",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al Shabab – Al-Hilal Saudi FC",
-   "kickoff_at": "2026-09-04T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2940.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2932.png",
-   "conseil": "Al-Hilal Saudi FC gagne + Plus de 2.5 buts",
-   "conseil_cote": 1.72,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.3,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.56,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1552153",
    "flag": "🇳🇱",
    "league": "Eredivisie",
@@ -745,6 +697,37 @@
    ]
   },
   {
+   "fixture_id": "api_football:1603013",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al Shabab – Al-Hilal Saudi FC",
+   "kickoff_at": "2026-09-04T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2940.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2932.png",
+   "conseil": "Al-Hilal Saudi FC gagne + Plus de 2.5 buts",
+   "conseil_cote": 1.72,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.3,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.56,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_atp_182740",
    "flag": "🎾",
    "league": "US Open",
@@ -777,21 +760,35 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1553160",
-   "flag": "🇵🇱",
-   "league": "Ekstraklasa",
+   "fixture_id": "api_football:1575149",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Piast Gliwice – GKS Katowice",
+   "match": "VfB Stuttgart – 1. FC Köln",
    "kickoff_at": "2026-09-04T20:30:00+02:00",
    "published": true,
-   "league_id": 106,
-   "home_logo": "https://media.api-sports.io/football/teams/349.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3484.png",
-   "conseil": "Piast Gliwice ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.76,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore"
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/172.png",
+   "away_logo": "https://media.api-sports.io/football/teams/192.png",
+   "conseil": "1. FC Köln gagne + Plus de 2.5 buts",
+   "conseil_cote": 8.76,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.35,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.59,
+     "mise_eur": 100.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1569910",
@@ -819,32 +816,43 @@
    ]
   },
   {
-   "fixture_id": "api_football:1575149",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
+   "fixture_id": "api_football:1553160",
+   "flag": "🇵🇱",
+   "league": "Ekstraklasa",
    "sport": "football",
    "sport_label": "Football",
-   "match": "VfB Stuttgart – 1. FC Köln",
+   "match": "Piast Gliwice – GKS Katowice",
    "kickoff_at": "2026-09-04T20:30:00+02:00",
    "published": true,
-   "league_id": 78,
-   "home_logo": "https://media.api-sports.io/football/teams/172.png",
-   "away_logo": "https://media.api-sports.io/football/teams/192.png",
-   "conseil": "1. FC Köln gagne + Plus de 2.5 buts",
-   "conseil_cote": 8.76,
-   "conseil_mise_eur": 200.0,
+   "league_id": 106,
+   "home_logo": "https://media.api-sports.io/football/teams/349.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3484.png",
+   "conseil": "Piast Gliwice ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.76,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1550112",
+   "flag": "🇮🇹",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Genoa – Como",
+   "kickoff_at": "2026-09-04T20:45:00+02:00",
+   "published": true,
+   "league_id": 135,
+   "home_logo": "https://media.api-sports.io/football/teams/495.png",
+   "away_logo": "https://media.api-sports.io/football/teams/895.png",
+   "conseil": "Como gagne",
+   "conseil_cote": 1.85,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "refonte_value_bets": [
     {
      "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.35,
-     "mise_eur": 400.0
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.59,
+     "label": "Moins de 2.5 buts",
+     "odd": 1.76,
      "mise_eur": 100.0
     }
    ]
@@ -1737,6 +1745,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1603011",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Abha – Al-Ettifaq",
+   "kickoff_at": "2026-09-04T18:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
+   "conseil": "Al-Ettifaq ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1"
   }
  ]
 }
