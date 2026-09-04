@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T18:30:06.324485+00:00",
+ "generated_at": "2026-09-04T18:30:18.951622+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -812,6 +812,52 @@
      "label": "Plus de 9.5 corners",
      "odd": 1.35,
      "mise_eur": 400.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1618996",
+   "flag": "🇧🇴",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Oruro – San Antonio Bulo Bulo",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 344,
+   "home_logo": "https://media.api-sports.io/football/teams/20252.png",
+   "away_logo": "https://media.api-sports.io/football/teams/17760.png",
+   "conseil": "Real Oruro ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.34,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Y. Vallejos buteur",
+     "detail": "cote 2.38",
+     "odd": 2.38,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Real Oruro",
+     "odd": 1.66,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.32,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.37,
+     "mise_eur": 300.0
     }
    ]
   },
