@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T15:35:04.286527+00:00",
+ "generated_at": "2026-09-04T15:35:16.733775+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -167,6 +167,49 @@
      "label": "J. Grodowski buteur",
      "detail": "cote 2.50",
      "odd": 2.5,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1576163",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Hannover 96 – Karlsruher SC",
+   "kickoff_at": "2026-09-04T18:30:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/166.png",
+   "away_logo": "https://media.api-sports.io/football/teams/785.png",
+   "conseil": "Hannover 96 ou Nul",
+   "conseil_cote": 1.19,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Hannover 96",
+     "odd": 1.56,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.38,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.44,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.53,
      "mise_eur": 200.0
     }
    ]
