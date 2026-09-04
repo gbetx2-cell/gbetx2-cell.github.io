@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T23:10:12.196827+00:00",
+ "generated_at": "2026-09-04T23:14:23.965022+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -83,6 +83,19 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816798",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Philadelphia Phillies – Atlanta Braves",
+   "kickoff_at": "2026-09-04T22:40Z",
+   "published": true,
+   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0
+  },
+  {
    "fixture_id": "baseball_401816797",
    "flag": "⚾",
    "league": "MLB",
@@ -110,19 +123,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816798",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Philadelphia Phillies – Atlanta Braves",
-   "kickoff_at": "2026-09-04T22:40Z",
-   "published": true,
-   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "baseball_401816799",
    "flag": "⚾",
    "league": "MLB",
@@ -133,19 +133,6 @@
    "published": true,
    "value_bet": "Boston Red Sox Moins de 4,5 @ 1.7143",
    "value_cote": 1.71,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816801",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Detroit Tigers",
-   "kickoff_at": "2026-09-04T23:10Z",
-   "published": true,
-   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
-   "value_cote": 1.75,
    "value_mise_eur": 200.0
   },
   {
@@ -197,29 +184,17 @@
    ]
   },
   {
-   "fixture_id": "api_football:1618997",
-   "flag": "🇧🇴",
-   "league": "Primera División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "ABB – Universitario de Vinto",
-   "kickoff_at": "2026-09-04T23:15:00+02:00",
+   "fixture_id": "baseball_401816801",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Detroit Tigers",
+   "kickoff_at": "2026-09-04T23:10Z",
    "published": true,
-   "league_id": 344,
-   "home_logo": "https://media.api-sports.io/football/teams/17743.png",
-   "away_logo": "https://media.api-sports.io/football/teams/17762.png",
-   "conseil": "Universitario de Vinto ou Nul",
-   "conseil_cote": 1.83,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "espn",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.57,
-     "mise_eur": 200.0
-    }
-   ]
+   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
+   "value_cote": 1.75,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816805",
@@ -2020,25 +1995,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1551096",
-   "flag": "⚽",
-   "league": "First League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Arda Kardzhali – Botev Plovdiv",
-   "kickoff_at": "2026-09-04T20:15:00+02:00",
-   "published": true,
-   "league_id": 172,
-   "home_logo": "https://media.api-sports.io/football/teams/1430.png",
-   "away_logo": "https://media.api-sports.io/football/teams/634.png",
-   "conseil": "Arda Kardzhali gagne",
-   "conseil_cote": 2.27,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 3"
-  },
-  {
    "fixture_id": "api_football:1558007",
    "flag": "⚽",
    "league": "1. SNL",
@@ -2058,32 +2014,23 @@
    "score": "3 - 1"
   },
   {
-   "fixture_id": "api_football:1569910",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
+   "fixture_id": "api_football:1551096",
+   "flag": "⚽",
+   "league": "First League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Las Palmas – Leganes",
-   "kickoff_at": "2026-09-04T20:30:00+02:00",
+   "match": "Arda Kardzhali – Botev Plovdiv",
+   "kickoff_at": "2026-09-04T20:15:00+02:00",
    "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/534.png",
-   "away_logo": "https://media.api-sports.io/football/teams/537.png",
-   "conseil": "Leganes ou Nul",
-   "conseil_cote": 1.97,
-   "conseil_mise_eur": 400.0,
+   "league_id": 172,
+   "home_logo": "https://media.api-sports.io/football/teams/1430.png",
+   "away_logo": "https://media.api-sports.io/football/teams/634.png",
+   "conseil": "Arda Kardzhali gagne",
+   "conseil_cote": 2.27,
+   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.9,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
+   "result": "PERDU",
+   "score": "2 - 3"
   },
   {
    "fixture_id": "api_football:1575149",
@@ -2115,6 +2062,34 @@
      "market": "Corners O/U 9.5",
      "label": "Plus de 9.5 corners",
      "odd": 1.59,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1569910",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Las Palmas – Leganes",
+   "kickoff_at": "2026-09-04T20:30:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/534.png",
+   "away_logo": "https://media.api-sports.io/football/teams/537.png",
+   "conseil": "Leganes ou Nul",
+   "conseil_cote": 1.97,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.9,
      "mise_eur": 100.0,
      "result": "GAGNE"
     }
@@ -2168,25 +2143,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1558617",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lommel United – Club Brugge KV",
-   "kickoff_at": "2026-09-04T20:45:00+02:00",
-   "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/259.png",
-   "away_logo": "https://media.api-sports.io/football/teams/569.png",
-   "conseil": "Lommel United ou Nul",
-   "conseil_cote": 3.75,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 1"
-  },
-  {
    "fixture_id": "api_football:1562053",
    "flag": "⚽",
    "league": "Premiership",
@@ -2206,32 +2162,23 @@
    "score": "2 - 1"
   },
   {
-   "fixture_id": "api_football:1494754",
-   "flag": "🇳🇴",
-   "league": "Eliteserien",
+   "fixture_id": "api_football:1558617",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Sandefjord – Viking",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "match": "Lommel United – Club Brugge KV",
+   "kickoff_at": "2026-09-04T20:45:00+02:00",
    "published": true,
-   "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/332.png",
-   "away_logo": "https://media.api-sports.io/football/teams/759.png",
-   "conseil": "Viking ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.15,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/259.png",
+   "away_logo": "https://media.api-sports.io/football/teams/569.png",
+   "conseil": "Lommel United ou Nul",
+   "conseil_cote": 3.75,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.35,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    }
-   ]
+   "result": "PERDU",
+   "score": "0 - 1"
   },
   {
    "fixture_id": "api_football:1557393",
@@ -2251,34 +2198,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 2"
-  },
-  {
-   "fixture_id": "api_football:1570365",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Betis – Real Madrid",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/543.png",
-   "away_logo": "https://media.api-sports.io/football/teams/541.png",
-   "conseil": "Real Madrid gagne",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.52,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1492754",
@@ -2305,6 +2224,34 @@
      "odd": 1.67,
      "mise_eur": 100.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1494754",
+   "flag": "🇳🇴",
+   "league": "Eliteserien",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sandefjord – Viking",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 103,
+   "home_logo": "https://media.api-sports.io/football/teams/332.png",
+   "away_logo": "https://media.api-sports.io/football/teams/759.png",
+   "conseil": "Viking ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.35,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -2356,6 +2303,34 @@
      "label": "Les deux équipes marquent",
      "odd": 1.37,
      "mise_eur": 300.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1570365",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Betis – Real Madrid",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/543.png",
+   "away_logo": "https://media.api-sports.io/football/teams/541.png",
+   "conseil": "Real Madrid gagne",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.52,
+     "mise_eur": 100.0,
      "result": "PERDU"
     }
    ]
@@ -2470,6 +2445,34 @@
      "odd": 3.6,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1618997",
+   "flag": "🇧🇴",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "ABB – Universitario de Vinto",
+   "kickoff_at": "2026-09-04T23:15:00+02:00",
+   "published": true,
+   "league_id": 344,
+   "home_logo": "https://media.api-sports.io/football/teams/17743.png",
+   "away_logo": "https://media.api-sports.io/football/teams/17762.png",
+   "conseil": "Universitario de Vinto ou Nul",
+   "conseil_cote": 1.83,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "espn",
+   "result": "PERDU",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.57,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
