@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T20:28:19.492458+00:00",
+ "generated_at": "2026-09-04T20:41:16.816953+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -171,23 +171,6 @@
      "mise_eur": 100.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1558617",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lommel United – Club Brugge KV",
-   "kickoff_at": "2026-09-04T20:45:00+02:00",
-   "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/259.png",
-   "away_logo": "https://media.api-sports.io/football/teams/569.png",
-   "conseil": "Lommel United ou Nul",
-   "conseil_cote": 3.75,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1557393",
@@ -2141,6 +2124,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 0"
+  },
+  {
+   "fixture_id": "api_football:1558617",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lommel United – Club Brugge KV",
+   "kickoff_at": "2026-09-04T20:45:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/259.png",
+   "away_logo": "https://media.api-sports.io/football/teams/569.png",
+   "conseil": "Lommel United ou Nul",
+   "conseil_cote": 3.75,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1"
   }
  ]
 }
