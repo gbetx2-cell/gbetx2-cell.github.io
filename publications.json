@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T18:27:17.324129+00:00",
+ "generated_at": "2026-09-04T18:30:05.916624+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -791,31 +791,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1570365",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Betis – Real Madrid",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/543.png",
-   "away_logo": "https://media.api-sports.io/football/teams/541.png",
-   "conseil": "Real Madrid gagne",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.52,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1494754",
    "flag": "🇳🇴",
    "league": "Eliteserien",
@@ -841,6 +816,31 @@
    ]
   },
   {
+   "fixture_id": "api_football:1492754",
+   "flag": "🇮🇪",
+   "league": "Premier Division",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Shamrock Rovers – Shelbourne",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 357,
+   "home_logo": "https://media.api-sports.io/football/teams/652.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3854.png",
+   "conseil": "Shamrock Rovers ou Nul",
+   "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "1X2",
+     "label": "Shamrock Rovers",
+     "odd": 1.67,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1557393",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Premier League",
@@ -856,6 +856,31 @@
    "conseil_cote": 1.36,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1570365",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Betis – Real Madrid",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/543.png",
+   "away_logo": "https://media.api-sports.io/football/teams/541.png",
+   "conseil": "Real Madrid gagne",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.52,
+     "mise_eur": 100.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1575485",
