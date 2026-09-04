@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T18:31:17.143062+00:00",
+ "generated_at": "2026-09-04T18:39:04.634374+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -774,6 +774,31 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1570365",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Betis – Real Madrid",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/543.png",
+   "away_logo": "https://media.api-sports.io/football/teams/541.png",
+   "conseil": "Real Madrid gagne",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.52,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1494754",
    "flag": "🇳🇴",
    "league": "Eliteserien",
@@ -887,26 +912,38 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1570365",
-   "flag": "🇪🇸",
-   "league": "Liga",
+   "fixture_id": "api_football:1552753",
+   "flag": "🇫🇷",
+   "league": "Ligue 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Real Betis – Real Madrid",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "match": "Paris Saint Germain – Monaco",
+   "kickoff_at": "2026-09-04T21:05:00+02:00",
    "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/543.png",
-   "away_logo": "https://media.api-sports.io/football/teams/541.png",
-   "conseil": "Real Madrid gagne",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
+   "league_id": 61,
+   "home_logo": "https://media.api-sports.io/football/teams/85.png",
+   "away_logo": "https://media.api-sports.io/football/teams/91.png",
+   "conseil": "Monaco ou Nul",
+   "conseil_cote": 3.52,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
    "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.32,
+     "mise_eur": 400.0
+    },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odd": 1.52,
+     "odd": 1.54,
+     "mise_eur": 100.0
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.77,
      "mise_eur": 100.0
     }
    ]
