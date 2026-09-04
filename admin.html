@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — G-BET Bot</title>
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706; --bg-2:#0c0b09; --card:#12110e; --card-2:#1a1813;
+  --border:rgba(240,185,11,.14); --border-strong:rgba(240,185,11,.32);
+  --text:#f2ede1; --muted:#9c9481;
+  --gold:#f0b90b; --gold-2:#f7ca3e;
+  --green:#22c55e; --red:#ef4444;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5;min-height:100vh}
+.container{max-width:920px;margin:0 auto;padding:40px 20px}
+h1{font-family:'Sora',sans-serif;font-weight:800;font-size:1.6rem;margin-bottom:6px}
+.sub{color:var(--muted);font-size:.92rem;margin-bottom:28px}
+
+/* Ecran de connexion -- affiche tant que /api/stats n'a pas confirme un role admin. */
+.gate{max-width:360px;margin:80px auto;text-align:center}
+.gate input{width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);
+  border-radius:10px;padding:11px 14px;font-size:.95rem;font-family:inherit;margin-bottom:10px}
+.gate input:focus{outline:none;border-color:var(--border-strong)}
+.gate button{width:100%;background:var(--gold);color:#1a1400;border:none;border-radius:10px;
+  padding:11px;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:4px}
+.gate button:hover{background:var(--gold-2)}
+.gate-error{color:var(--red);font-size:.85rem;margin-top:10px;min-height:1.2em}
+
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:28px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.stat-label{color:var(--muted);font-size:.85rem;margin-bottom:6px}
+.stat-value{font-family:'Sora',sans-serif;font-weight:800;font-size:1.8rem}
+.stat-sub{color:var(--muted);font-size:.82rem;margin-top:4px}
+
+.top-pages{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px}
+.top-pages h2{font-size:1.05rem;margin-bottom:14px}
+.top-page-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem}
+.top-page-row:last-child{border-bottom:none}
+.top-page-row b{color:var(--gold-2)}
+
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<div id="gate" class="gate">
+  <h1 style="margin-bottom:6px">Espace admin</h1>
+  <p class="sub" style="margin-bottom:20px">Connexion requise.</p>
+  <input id="gateUsername" placeholder="Pseudo" maxlength="32">
+  <input id="gatePassword" type="password" placeholder="Mot de passe" maxlength="64">
+  <button onclick="doAdminLogin()">Se connecter</button>
+  <div id="gateError" class="gate-error"></div>
+</div>
+
+<div id="dashboard" class="container" hidden>
+  <h1>📊 Stats du site</h1>
+  <p class="sub" id="dashSub">Vues et visiteurs — invisible des clients.</p>
+
+  <div class="stats-grid" id="statsGrid"></div>
+  <div class="top-pages" id="topPages"></div>
+</div>
+
+<script>
+const LIVE_API_BASE = 'https://api-89-168-57-74.nip.io';
+const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci"};
+
+async function doAdminLogin(){
+  const username = document.getElementById('gateUsername').value.trim();
+  const password = document.getElementById('gatePassword').value;
+  const errEl = document.getElementById('gateError');
+  errEl.textContent = '';
+  try{
+    const res = await fetch(LIVE_API_BASE + '/api/login', {
+      method: 'POST', credentials: 'include',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username, password}),
+      signal: AbortSignal.timeout(6000),
+    });
+    const data = await res.json();
+    if (!data.ok){ errEl.textContent = data.reason || 'Erreur'; return; }
+    if (data.role !== 'admin'){ errEl.textContent = 'Ce compte n’a pas accès à cet espace.'; return; }
+    loadStats();
+  }catch(e){ errEl.textContent = 'Connexion impossible, réessaie.'; }
+}
+
+function renderStats(data){
+  document.getElementById('gate').hidden = true;
+  document.getElementById('dashboard').hidden = false;
+  const grid = document.getElementById('statsGrid');
+  grid.innerHTML = Object.keys(PERIOD_LABELS).map(key => {
+    const s = data[key] || {views:0, unique_visitors:0};
+    return `
+      <div class="stat-card">
+        <div class="stat-label">${PERIOD_LABELS[key]}</div>
+        <div class="stat-value">${s.views}</div>
+        <div class="stat-sub">${s.views} vue${s.views>1?'s':''} · ${s.unique_visitors} visiteur${s.unique_visitors>1?'s':''} unique${s.unique_visitors>1?'s':''}</div>
+      </div>`;
+  }).join('');
+
+  const topByPeriod = data['mois'] || data['semaine'] || data['jour'] || {top_pages:[]};
+  const pages = topByPeriod.top_pages || [];
+  document.getElementById('topPages').innerHTML = `
+    <h2>Pages les plus consultées (ce mois-ci)</h2>
+    ${pages.length ? pages.map(p => `<div class="top-page-row"><span>${p.page}</span><b>${p.views} vues</b></div>`).join('')
+                   : '<p style="color:var(--muted);font-size:.88rem">Pas encore de données.</p>'}
+  `;
+}
+
+async function loadStats(){
+  try{
+    const res = await fetch(LIVE_API_BASE + '/api/stats', {credentials: 'include', cache: 'no-store', signal: AbortSignal.timeout(6000)});
+    if (res.status === 403){
+      // Session absente/expirée ou pas admin -- reste sur l'ecran de connexion,
+      // jamais de redirection qui confirmerait l'existence de cette page.
+      return;
+    }
+    if (!res.ok) throw new Error('http ' + res.status);
+    const data = await res.json();
+    renderStats(data);
+  }catch(e){
+    // Echec silencieux -- reste sur l'ecran de connexion.
+  }
+}
+
+// Tentative silencieuse au chargement (cookie de session deja valide d'une visite precedente).
+loadStats();
+</script>
+</body>
+</html>
