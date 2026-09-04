@@ -220,10 +220,7 @@ header{
    rotation par matrice) -- meme principe que Cobe/planetary.js/earthjs,
    aucune librairie externe, valide sur un prototype avant integration ici. */
 .globe-panel{background:var(--card-bg,rgba(255,255,255,.03));border:1px solid rgba(156,148,129,.18);border-radius:16px;padding:28px;margin-bottom:32px}
-/* 04/09/2026 : padding reduit -- le globe est desormais imbrique dans
-   #main juste sous le titre (plus une section pleine largeur a part
-   comme avant), un espacement de section complet serait excessif ici. */
-#globe-section{padding:0 0 40px}
+#globe-section{padding:64px 0 84px}
 .globe-stage{position:relative;height:460px;display:flex;align-items:center;justify-content:center}
 .globe-zoom{position:absolute;left:6px;bottom:6px;display:flex;flex-direction:column;gap:4px;z-index:3}
 .globe-zoom button{
@@ -696,47 +693,47 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
 </nav>
 
+<!-- ── GLOBE (04/09/2026, demande explicite : "met en haut de la page" +
+     un globe par sport avec des onglets au-dessus -- avant ce jour, un
+     seul globe combinait deja tous les sports (26-28/08/2026, "les autres
+     sports c'est souvent le meme pays donc pas besoin de faire d'autre
+     globe") mais sans separation par onglet, et en bas de page. Meme
+     canvas/rotation/zoom reutilises tels quels (LEAGUE_COUNTRIES porte
+     deja un id par ligue qui encode son sport -- numerique = football,
+     "sport:xxx" = xxx, "tennis:xxx" = tennis -- cf leagueSport() plus bas)
+     : seul le filtrage des points affiches change par onglet, pas de
+     composant duplique par sport. ────────────────────── -->
+<div id="globe-section">
+  <div class="container">
+    <h3 class="perf-sub-title">Nos ligues, pays par pays</h3>
+    <div class="chart-toggle sport-filter" id="globeSportFilter" style="margin-bottom:16px">
+      <button data-sport="football" class="active">⚽ Football</button>
+      <button data-sport="tennis">🎾 Tennis</button>
+      <button data-sport="baseball">⚾ MLB</button>
+      <button data-sport="nba">🏀 NBA</button>
+      <button data-sport="nhl">🏒 NHL</button>
+      <button data-sport="nfl">🏈 NFL</button>
+      <button data-sport="wnba">🏀 WNBA</button>
+    </div>
+    <div class="globe-panel">
+      <div class="globe-stage" id="globeStage">
+        <canvas id="globeCanvas" width="460" height="460" role="img" aria-label="Globe des ligues couvertes, pays par pays"></canvas>
+        <div class="globe-popup" id="globePopup"><button class="globe-popup-close" id="globePopupClose" aria-label="Fermer">✕</button><div id="globePopupBody"></div></div>
+        <div class="globe-tooltip" id="globeTooltip"></div>
+        <div class="globe-zoom" id="globeZoom">
+          <button id="globeZoomIn" aria-label="Zoomer">+</button>
+          <button id="globeZoomOut" aria-label="Dézoomer">−</button>
+        </div>
+      </div>
+      <p class="chart-note" style="text-align:center" id="globeEmptyNote">Faites glisser le globe pour l'orienter, zoomez pour séparer les points collés — chaque point est un pays où une ligue est couverte.</p>
+    </div>
+  </div>
+</div>
+
 <div id="main">
   <div class="container">
     <div class="sec-tag">Performance</div>
     <h2 class="sec-title">Chaque marché est <span class="gold">audité en continu.</span></h2>
-
-    <!-- ── GLOBE (04/09/2026, demande explicite : sous le titre "Chaque
-         marché est audité en continu" -- pas au tout debut de page comme
-         d'abord fait, ni tout en bas comme avant ce jour. Un globe par
-         sport avec des onglets au-dessus (26-28/08/2026, un seul globe
-         combinait deja tous les sports, "les autres sports c'est souvent
-         le meme pays donc pas besoin de faire d'autre globe", mais sans
-         separation par onglet). Meme canvas/rotation/zoom reutilises tels
-         quels (LEAGUE_COUNTRIES porte deja un id par ligue qui encode son
-         sport -- numerique = football, "sport:xxx" = xxx, "tennis:xxx" =
-         tennis -- cf leagueSport() plus bas) : seul le filtrage des
-         points affiches change par onglet, pas de composant duplique par
-         sport. ────────────────────── -->
-    <div id="globe-section">
-      <h3 class="perf-sub-title">Nos ligues, pays par pays</h3>
-      <div class="chart-toggle sport-filter" id="globeSportFilter" style="margin-bottom:16px">
-        <button data-sport="football" class="active">⚽ Football</button>
-        <button data-sport="tennis">🎾 Tennis</button>
-        <button data-sport="baseball">⚾ MLB</button>
-        <button data-sport="nba">🏀 NBA</button>
-        <button data-sport="nhl">🏒 NHL</button>
-        <button data-sport="nfl">🏈 NFL</button>
-        <button data-sport="wnba">🏀 WNBA</button>
-      </div>
-      <div class="globe-panel">
-        <div class="globe-stage" id="globeStage">
-          <canvas id="globeCanvas" width="460" height="460" role="img" aria-label="Globe des ligues couvertes, pays par pays"></canvas>
-          <div class="globe-popup" id="globePopup"><button class="globe-popup-close" id="globePopupClose" aria-label="Fermer">✕</button><div id="globePopupBody"></div></div>
-          <div class="globe-tooltip" id="globeTooltip"></div>
-          <div class="globe-zoom" id="globeZoom">
-            <button id="globeZoomIn" aria-label="Zoomer">+</button>
-            <button id="globeZoomOut" aria-label="Dézoomer">−</button>
-          </div>
-        </div>
-        <p class="chart-note" style="text-align:center" id="globeEmptyNote">Faites glisser le globe pour l'orienter, zoomez pour séparer les points collés — chaque point est un pays où une ligue est couverte.</p>
-      </div>
-    </div>
     <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px">
       <div class="chart-toggle" id="perfPeriodTabs">
         <button data-period="jour" class="active">Aujourd'hui</button>
@@ -839,7 +836,7 @@ const LIVE_API_BASE = 'https://api-89-168-57-74.nip.io';
   } catch(e){}
 })();
 
-let PERF_STATS = {"global": {"n": 382, "w": 240, "l": 141, "winrate": 63, "roi": 4.7, "pnl": 19.79, "since": "2026-08-31"}, "sports": [{"sport": "football", "n": 230, "w": 152, "l": 78, "winrate": 66, "roi": 9.1, "pnl": 24.4}, {"sport": "baseball", "n": 116, "w": 63, "l": 53, "winrate": 54, "roi": -5.1, "pnl": -5.93}, {"sport": "tennis", "n": 36, "w": 25, "l": 10, "winrate": 71, "roi": 3.7, "pnl": 1.32}], "markets": [{"market": "refonte_value_bet", "band": "1.50-1.70", "n": 68, "winrate": 51, "pnl": -8.55, "blocked": false}, {"market": "Double chance", "band": "< 1.50", "n": 47, "winrate": 81, "pnl": 0.66, "blocked": false}, {"market": "refonte_value_bet", "band": "< 1.50", "n": 36, "winrate": 61, "pnl": -5.84, "blocked": false}, {"market": "mlb_value_bet", "band": "1.50-1.70", "n": 32, "winrate": 53, "pnl": -4.23, "blocked": false}, {"market": "mlb_value_bet", "band": "1.70-2.00", "n": 30, "winrate": 53, "pnl": -1.81, "blocked": false}, {"market": "Vainqueur", "band": "< 1.50", "n": 27, "winrate": 92, "pnl": 6.05, "blocked": false}, {"market": "Total équipe", "band": "1.70-2.00", "n": 22, "winrate": 50, "pnl": -2.38, "blocked": false}, {"market": "Double chance", "band": "1.50-1.70", "n": 15, "winrate": 73, "pnl": 3.11, "blocked": true}, {"market": "Double chance", "band": "1.70-2.00", "n": 13, "winrate": 77, "pnl": 9.08, "blocked": true}, {"market": "refonte_value_bet", "band": "1.70-2.00", "n": 12, "winrate": 58, "pnl": 1.07, "blocked": false}, {"market": "Vainqueur", "band": "1.70-2.00", "n": 11, "winrate": 91, "pnl": 13.07, "blocked": false}, {"market": "Vainqueur", "band": "1.50-1.70", "n": 9, "winrate": 67, "pnl": 0.9, "blocked": false}, {"market": "mlb_value_bet", "band": "< 1.50", "n": 8, "winrate": 62, "pnl": -0.73, "blocked": false}, {"market": "Double chance", "band": "2.00-2.50", "n": 7, "winrate": 14, "pnl": -6.46, "blocked": false}, {"market": "Vainqueur", "band": "2.00-2.50", "n": 6, "winrate": 83, "pnl": 8.35, "blocked": false}, {"market": "Total (over/under)", "band": "1.70-2.00", "n": 4, "winrate": 75, "pnl": 1.44, "blocked": false}, {"market": "Handicap", "band": "1.70-2.00", "n": 4, "winrate": 50, "pnl": -0.49, "blocked": false}, {"market": "Total équipe", "band": "2.00-2.50", "n": 4, "winrate": 100, "pnl": 4.35, "blocked": false}, {"market": "Vainqueur", "band": "2.50-3.00", "n": 3, "winrate": 67, "pnl": 2.2, "blocked": false}, {"market": "Total équipe", "band": "1.50-1.70", "n": 3, "winrate": 67, "pnl": 0.36, "blocked": false}, {"market": "Pronostic joueur", "band": "< 1.50", "n": 3, "winrate": 67, "pnl": -0.82, "blocked": false}, {"market": "Vainqueur", "band": "3.00-4.00", "n": 2, "winrate": 50, "pnl": 1.1, "blocked": false}, {"market": "Handicap", "band": "1.50-1.70", "n": 2, "winrate": 100, "pnl": 1.17, "blocked": false}, {"market": "Vainqueur", "band": "4.00+", "n": 2, "winrate": 50, "pnl": 3.49, "blocked": true}, {"market": "Pronostic joueur", "band": "1.70-2.00", "n": 2, "winrate": 50, "pnl": -0.2, "blocked": false}, {"market": "Pronostic joueur", "band": "2.00-2.50", "n": 2, "winrate": 0, "pnl": -2.0, "blocked": false}, {"market": "Handicap", "band": "< 1.50", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Handicap", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -1.05, "blocked": false}, {"market": "Total (over/under)", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -1.05, "blocked": false}, {"market": "Combiné", "band": "2.50-3.00", "n": 1, "winrate": 100, "pnl": 2.49, "blocked": false}, {"market": "Pronostic joueur", "band": "3.00-4.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Pronostic joueur", "band": "1.50-1.70", "n": 1, "winrate": 100, "pnl": 0.51, "blocked": false}, {"market": "Buts (over/under)", "band": "3.00-4.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "mlb_value_bet", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}], "blocked_bands": [{"market": "Double chance", "band": "1.50-2.00"}, {"market": "Double chance", "band": "2.50+"}, {"market": "Vainqueur", "band": "4.00+"}, {"market": "Buts (over/under)", "band": "3.00+"}, {"market": "Les deux marquent", "band": "1.50-3.00"}], "highlights": {"best": {"match": "Raków Częstochowa – Gornik Zabrze", "pick": "Gornik Zabrze gagne + Plus de 2.5 buts", "cote": 5.49, "pnl": 4.49, "flag": "⚽", "league": "106"}, "worst": {"match": "Gyori ETO FC – Ferencvarosi TC", "pick": "Gyori ETO FC ou Nul", "cote": 2.2, "pnl": -3.0, "flag": "⚽", "league": "271"}, "top_league": {"league": "106", "flag": "⚽", "pnl": 4.73, "n": 2}}, "percent_picks": {"n": 1, "winrate": 0}, "bankroll": {"initial": 10000, "current": 13957.46, "pnl": 3957.46, "pct": 39.57, "series": [{"date": "2026-08-31", "value": 10042.94}, {"date": "2026-09-01", "value": 11529.34}, {"date": "2026-09-02", "value": 11596.94}, {"date": "2026-09-03", "value": 13095.01}, {"date": "2026-09-04", "value": 13957.46}]}};
+let PERF_STATS = {"global": {"n": 384, "w": 241, "l": 142, "winrate": 63, "roi": 4.1, "pnl": 17.54, "since": "2026-08-31"}, "sports": [{"sport": "football", "n": 232, "w": 153, "l": 79, "winrate": 66, "roi": 8.1, "pnl": 22.15}, {"sport": "baseball", "n": 116, "w": 63, "l": 53, "winrate": 54, "roi": -5.1, "pnl": -5.93}, {"sport": "tennis", "n": 36, "w": 25, "l": 10, "winrate": 71, "roi": 3.7, "pnl": 1.32}], "markets": [{"market": "refonte_value_bet", "band": "1.50-1.70", "n": 68, "winrate": 51, "pnl": -8.55, "blocked": false}, {"market": "Double chance", "band": "< 1.50", "n": 47, "winrate": 81, "pnl": 0.66, "blocked": false}, {"market": "refonte_value_bet", "band": "< 1.50", "n": 36, "winrate": 61, "pnl": -5.84, "blocked": false}, {"market": "mlb_value_bet", "band": "1.50-1.70", "n": 32, "winrate": 53, "pnl": -4.23, "blocked": false}, {"market": "mlb_value_bet", "band": "1.70-2.00", "n": 30, "winrate": 53, "pnl": -1.81, "blocked": false}, {"market": "Vainqueur", "band": "< 1.50", "n": 27, "winrate": 92, "pnl": 6.05, "blocked": false}, {"market": "Total équipe", "band": "1.70-2.00", "n": 22, "winrate": 50, "pnl": -2.38, "blocked": false}, {"market": "Double chance", "band": "1.50-1.70", "n": 16, "winrate": 75, "pnl": 3.86, "blocked": true}, {"market": "Double chance", "band": "1.70-2.00", "n": 13, "winrate": 77, "pnl": 9.08, "blocked": true}, {"market": "refonte_value_bet", "band": "1.70-2.00", "n": 12, "winrate": 58, "pnl": 1.07, "blocked": false}, {"market": "Vainqueur", "band": "1.70-2.00", "n": 11, "winrate": 91, "pnl": 13.07, "blocked": false}, {"market": "Vainqueur", "band": "1.50-1.70", "n": 9, "winrate": 67, "pnl": 0.9, "blocked": false}, {"market": "mlb_value_bet", "band": "< 1.50", "n": 8, "winrate": 62, "pnl": -0.73, "blocked": false}, {"market": "Double chance", "band": "2.00-2.50", "n": 7, "winrate": 14, "pnl": -6.46, "blocked": false}, {"market": "Vainqueur", "band": "2.00-2.50", "n": 7, "winrate": 71, "pnl": 5.35, "blocked": false}, {"market": "Total (over/under)", "band": "1.70-2.00", "n": 4, "winrate": 75, "pnl": 1.44, "blocked": false}, {"market": "Handicap", "band": "1.70-2.00", "n": 4, "winrate": 50, "pnl": -0.49, "blocked": false}, {"market": "Total équipe", "band": "2.00-2.50", "n": 4, "winrate": 100, "pnl": 4.35, "blocked": false}, {"market": "Vainqueur", "band": "2.50-3.00", "n": 3, "winrate": 67, "pnl": 2.2, "blocked": false}, {"market": "Total équipe", "band": "1.50-1.70", "n": 3, "winrate": 67, "pnl": 0.36, "blocked": false}, {"market": "Pronostic joueur", "band": "< 1.50", "n": 3, "winrate": 67, "pnl": -0.82, "blocked": false}, {"market": "Vainqueur", "band": "3.00-4.00", "n": 2, "winrate": 50, "pnl": 1.1, "blocked": false}, {"market": "Handicap", "band": "1.50-1.70", "n": 2, "winrate": 100, "pnl": 1.17, "blocked": false}, {"market": "Vainqueur", "band": "4.00+", "n": 2, "winrate": 50, "pnl": 3.49, "blocked": true}, {"market": "Pronostic joueur", "band": "1.70-2.00", "n": 2, "winrate": 50, "pnl": -0.2, "blocked": false}, {"market": "Pronostic joueur", "band": "2.00-2.50", "n": 2, "winrate": 0, "pnl": -2.0, "blocked": false}, {"market": "Handicap", "band": "< 1.50", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Handicap", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -1.05, "blocked": false}, {"market": "Total (over/under)", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -1.05, "blocked": false}, {"market": "Combiné", "band": "2.50-3.00", "n": 1, "winrate": 100, "pnl": 2.49, "blocked": false}, {"market": "Pronostic joueur", "band": "3.00-4.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Pronostic joueur", "band": "1.50-1.70", "n": 1, "winrate": 100, "pnl": 0.51, "blocked": false}, {"market": "Buts (over/under)", "band": "3.00-4.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "mlb_value_bet", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}], "blocked_bands": [{"market": "Double chance", "band": "1.50-2.00"}, {"market": "Double chance", "band": "2.50+"}, {"market": "Vainqueur", "band": "4.00+"}, {"market": "Buts (over/under)", "band": "3.00+"}, {"market": "Les deux marquent", "band": "1.50-3.00"}], "highlights": {"best": {"match": "Raków Częstochowa – Gornik Zabrze", "pick": "Gornik Zabrze gagne + Plus de 2.5 buts", "cote": 5.49, "pnl": 4.49, "flag": "⚽", "league": "106"}, "worst": {"match": "Gyori ETO FC – Ferencvarosi TC", "pick": "Gyori ETO FC ou Nul", "cote": 2.2, "pnl": -3.0, "flag": "⚽", "league": "271"}, "top_league": {"league": "307", "flag": "⚽", "pnl": 5.36, "n": 5}}, "percent_picks": {"n": 1, "winrate": 0}, "bankroll": {"initial": 10000, "current": 13507.46, "pnl": 3507.46, "pct": 35.07, "series": [{"date": "2026-08-31", "value": 10042.94}, {"date": "2026-09-01", "value": 11529.34}, {"date": "2026-09-02", "value": 11596.94}, {"date": "2026-09-03", "value": 13095.01}, {"date": "2026-09-04", "value": 13507.46}]}};
 /* ── Section Performance ── */
 const SPORT_FR = {football:"Football", baseball:"Baseball (MLB)", tennis:"Tennis", nhl:"Hockey (NHL)", basketball:"Basketball", nba:"Basketball (NBA)", wnba:"Basketball (WNBA)", nfl:"Football US (NFL)"};
 function sportLabel(sport){
@@ -863,7 +860,7 @@ function fmtPnl(u){
 // la courbe.
 const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci", annee:"Cette année"};
 const _emptyPeriodBucket = () => ({n:0,g:0,p:0,r:0,winrate:0,pnl:0,mise:0});
-let PERIOD_STATS = {jour:{n:25, g:19, p:6, r:0, winrate:76, pnl:4.31, mise:5000.00}, semaine:{n:382, g:240, p:141, r:1, winrate:63, pnl:19.79, mise:84044.00}, mois:{n:324, g:203, p:120, r:1, winrate:63, pnl:19.57, mise:69844.00}, annee:{n:382, g:240, p:141, r:1, winrate:63, pnl:19.79, mise:84044.00}, by_sport:{football:{jour:{n:14, g:12, p:2, r:0, winrate:86, pnl:3.83, mise:2800.00}, semaine:{n:230, g:152, p:78, r:0, winrate:66, pnl:24.40, mise:53500.00}, mois:{n:181, g:119, p:62, r:0, winrate:66, pnl:21.32, mise:41100.00}, annee:{n:230, g:152, p:78, r:0, winrate:66, pnl:24.40, mise:53500.00}}, tennis:{jour:{n:2, g:2, p:0, r:0, winrate:100, pnl:0.41, mise:400.00}, semaine:{n:36, g:25, p:10, r:1, winrate:71, pnl:1.32, mise:7200.00}, mois:{n:29, g:21, p:7, r:1, winrate:75, pnl:2.18, mise:5800.00}, annee:{n:36, g:25, p:10, r:1, winrate:71, pnl:1.32, mise:7200.00}}, baseball:{jour:{n:8, g:5, p:3, r:0, winrate:62, pnl:1.08, mise:1600.00}, semaine:{n:115, g:63, p:52, r:0, winrate:55, pnl:-4.93, mise:23144.00}, mois:{n:113, g:63, p:50, r:0, winrate:56, pnl:-2.93, mise:22744.00}, annee:{n:115, g:63, p:52, r:0, winrate:55, pnl:-4.93, mise:23144.00}}, mlb:{jour:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00, mise:200.00}, semaine:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00, mise:200.00}, mois:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00, mise:200.00}, annee:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00, mise:200.00}}}};
+let PERIOD_STATS = {jour:{n:27, g:20, p:7, r:0, winrate:74, pnl:2.06, mise:5900.00}, semaine:{n:384, g:241, p:142, r:1, winrate:63, pnl:17.54, mise:84944.00}, mois:{n:326, g:204, p:121, r:1, winrate:63, pnl:17.32, mise:70744.00}, annee:{n:384, g:241, p:142, r:1, winrate:63, pnl:17.54, mise:84944.00}, by_sport:{football:{jour:{n:16, g:13, p:3, r:0, winrate:81, pnl:1.58, mise:3700.00}, semaine:{n:232, g:153, p:79, r:0, winrate:66, pnl:22.15, mise:54400.00}, mois:{n:183, g:120, p:63, r:0, winrate:66, pnl:19.07, mise:42000.00}, annee:{n:232, g:153, p:79, r:0, winrate:66, pnl:22.15, mise:54400.00}}, tennis:{jour:{n:2, g:2, p:0, r:0, winrate:100, pnl:0.41, mise:400.00}, semaine:{n:36, g:25, p:10, r:1, winrate:71, pnl:1.32, mise:7200.00}, mois:{n:29, g:21, p:7, r:1, winrate:75, pnl:2.18, mise:5800.00}, annee:{n:36, g:25, p:10, r:1, winrate:71, pnl:1.32, mise:7200.00}}, baseball:{jour:{n:8, g:5, p:3, r:0, winrate:62, pnl:1.08, mise:1600.00}, semaine:{n:115, g:63, p:52, r:0, winrate:55, pnl:-4.93, mise:23144.00}, mois:{n:113, g:63, p:50, r:0, winrate:56, pnl:-2.93, mise:22744.00}, annee:{n:115, g:63, p:52, r:0, winrate:55, pnl:-4.93, mise:23144.00}}, mlb:{jour:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00, mise:200.00}, semaine:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00, mise:200.00}, mois:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00, mise:200.00}, annee:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00, mise:200.00}}}};
 let currentPerfPeriod = "jour";
 let currentPerfSportFilter = "all";
 
