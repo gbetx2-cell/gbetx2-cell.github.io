@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T21:40:04.568759+00:00",
+ "generated_at": "2026-09-04T21:43:20.583693+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -73,32 +73,6 @@
    "conseil": "Victoire Tomas Martin Etcheverry",
    "conseil_cote": 2.12,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1493111",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Estudiantes de Rio Cuarto – Sarmiento Junin",
-   "kickoff_at": "2026-09-04T21:45:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/2424.png",
-   "away_logo": "https://media.api-sports.io/football/teams/474.png",
-   "conseil": "Sarmiento Junin ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Marabel buteur",
-     "detail": "cote 3.60",
-     "odd": 3.6,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "baseball_401816802",
@@ -2299,6 +2273,35 @@
      "label": "Plus de 3.5 cartons",
      "odd": 1.5,
      "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493111",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Estudiantes de Rio Cuarto – Sarmiento Junin",
+   "kickoff_at": "2026-09-04T21:45:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/2424.png",
+   "away_logo": "https://media.api-sports.io/football/teams/474.png",
+   "conseil": "Sarmiento Junin ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Marabel buteur",
+     "detail": "cote 3.60",
+     "odd": 3.6,
+     "mise_eur": 200.0,
      "result": "GAGNE"
     }
    ]
