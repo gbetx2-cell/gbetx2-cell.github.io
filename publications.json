@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T19:21:20.668197+00:00",
+ "generated_at": "2026-09-04T19:21:26.565824+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -2032,13 +2032,16 @@
    "conseil_cote": 1.1,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2",
    "player_picks": [
     {
      "category": "Buteur",
      "label": "A. Helmersen buteur",
      "detail": "cote 1.62",
      "odd": 1.62,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ],
    "refonte_value_bets": [
@@ -2049,8 +2052,7 @@
      "mise_eur": 100.0,
      "result": "PERDU"
     }
-   ],
-   "result": "PERDU"
+   ]
   },
   {
    "fixture_id": "api_football:1494748",
