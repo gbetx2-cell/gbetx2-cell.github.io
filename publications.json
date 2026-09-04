@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T23:37:16.905424+00:00",
+ "generated_at": "2026-09-04T00:30:03.695464+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182707",
@@ -120,6 +120,31 @@
      "label": "Moins de 9.5 corners",
      "odd": 1.63,
      "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1549751",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Deportivo Pereira – Independiente Medellin",
+   "kickoff_at": "2026-09-04T03:00:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1462.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1128.png",
+   "conseil": "Independiente Medellin ou Nul",
+   "conseil_cote": 1.16,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.61,
+     "mise_eur": 300.0
     }
    ]
   }
