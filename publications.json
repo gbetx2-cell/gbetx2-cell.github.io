@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T20:50:05.634915+00:00",
+ "generated_at": "2026-09-04T20:58:16.696564+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -73,23 +73,6 @@
    "conseil": "Victoire Tomas Martin Etcheverry",
    "conseil_cote": 2.12,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1557393",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Ipswich – Liverpool",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
-   "published": true,
-   "league_id": 39,
-   "home_logo": "https://media.api-sports.io/football/teams/57.png",
-   "away_logo": "https://media.api-sports.io/football/teams/40.png",
-   "conseil": "Liverpool ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1494754",
@@ -2180,6 +2163,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "0 - 1"
+  },
+  {
+   "fixture_id": "api_football:1557393",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Ipswich – Liverpool",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 39,
+   "home_logo": "https://media.api-sports.io/football/teams/57.png",
+   "away_logo": "https://media.api-sports.io/football/teams/40.png",
+   "conseil": "Liverpool ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
   }
  ]
 }
