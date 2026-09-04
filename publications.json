@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T15:55:04.501458+00:00",
+ "generated_at": "2026-09-04T16:00:06.032361+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -87,23 +87,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603011",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Abha – Al-Ettifaq",
-   "kickoff_at": "2026-09-04T18:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
-   "conseil": "Al-Ettifaq ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1603554",
    "flag": "⚽",
    "league": "1. Division",
@@ -118,6 +101,23 @@
    "conseil": "Omonia 29is Maiou gagne",
    "conseil_cote": 2.37,
    "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1603011",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Abha – Al-Ettifaq",
+   "kickoff_at": "2026-09-04T18:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
+   "conseil": "Al-Ettifaq ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -171,32 +171,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1576161",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Arminia Bielefeld – FC St. Pauli",
-   "kickoff_at": "2026-09-04T18:30:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/188.png",
-   "away_logo": "https://media.api-sports.io/football/teams/186.png",
-   "conseil": "Arminia Bielefeld ou Nul",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Grodowski buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1576163",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -235,6 +209,49 @@
      "market": "Corners O/U 9.5",
      "label": "Plus de 9.5 corners",
      "odd": 1.53,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1560241",
+   "flag": "⚽",
+   "league": "NB I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Vasas – Nyiregyhaza",
+   "kickoff_at": "2026-09-04T18:30:00+02:00",
+   "published": true,
+   "league_id": 271,
+   "home_logo": "https://media.api-sports.io/football/teams/675.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2403.png",
+   "conseil": "Vasas gagne",
+   "conseil_cote": 2.3,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576161",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Arminia Bielefeld – FC St. Pauli",
+   "kickoff_at": "2026-09-04T18:30:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/188.png",
+   "away_logo": "https://media.api-sports.io/football/teams/186.png",
+   "conseil": "Arminia Bielefeld ou Nul",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Grodowski buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
      "mise_eur": 200.0
     }
    ]
