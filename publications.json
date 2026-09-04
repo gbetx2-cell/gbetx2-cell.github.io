@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T17:10:04.825089+00:00",
+ "generated_at": "2026-09-04T17:10:20.745803+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -477,6 +477,37 @@
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1600330",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Marumo Gallants – Polokwane City",
+   "kickoff_at": "2026-09-04T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2682.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2693.png",
+   "conseil": "Polokwane City ou Nul",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.35,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.55,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1552153",
