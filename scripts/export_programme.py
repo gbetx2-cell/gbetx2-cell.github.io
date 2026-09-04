@@ -240,6 +240,18 @@ SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl"}
 # filtrait uniquement 'GAGNE' partout, silencieusement "en cours" pour tout
 # match MLB/NFL/F1 gagnant.
 RESULTAT_GAGNE = ("GAGNE", "GAGNÉ")
+
+# "A_VERIFIER" (03/09/2026, demande explicite : "tout ce qu'on publie dans le
+# site se regle sans exception") : statut ecrit par le garde-fou "stale
+# pending" (database.py::mark_paris_a_verifier / mark_value_bet_a_verifier /
+# mark_player_pick_a_verifier) quand une ligne reste bloquee >5 jours sans
+# reglement automatique -- sans ce statut dans RESULTAT_TERMINAL, ce script
+# le filtrait comme "pas encore regle" au meme titre qu'un vrai match en
+# cours : la ligne restait affichee "en cours" sur Publications indefiniment
+# meme APRES que le garde-fou ait explicitement renonce a un reglement auto.
+# Cote client (publications.html), A_VERIFIER recoit son propre style neutre
+# ("review", ni vert ni rouge) -- jamais confondu avec un vrai GAGNE/PERDU.
+RESULTAT_TERMINAL = RESULTAT_GAGNE + ("PERDU", "REMBOURSE", "A_VERIFIER")
 SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
                "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)",
                "tennis": "Tennis", "wnba": "Basketball (WNBA)"}
@@ -615,9 +627,9 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                     # un value bet ET un player pick sur un AUTRE marche, avec
                     # des issues opposees. Chaque ligne affiche desormais son
                     # propre statut au lieu d'un badge unique ambigu.
-                    if (value_result or "").upper() in RESULTAT_GAGNE + ("PERDU",):
+                    if (value_result or "").upper() in RESULTAT_TERMINAL:
                         item["value_result"] = value_result.upper()
-                    elif sport in SPORTS_CONSEIL_IS_MIRROR and (resultat or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
+                    elif sport in SPORTS_CONSEIL_IS_MIRROR and (resultat or "").upper() in RESULTAT_TERMINAL:
                         # sport a mirroir : value_result n'est pas toujours
                         # rempli (cf resultat_tracker.py::_send_result_msg),
                         # mais resultat represente ce meme pari quand le
@@ -625,7 +637,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                         # "Total sets" mirrore a la place).
                         if not (conseil or "").lower().startswith("total sets"):
                             item["value_result"] = resultat.upper()
-                if (resultat or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
+                if (resultat or "").upper() in RESULTAT_TERMINAL:
                     item["result"] = resultat.upper()
                     if score:
                         item["score"] = score
@@ -678,7 +690,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                 )
                 settlements_by_cat: dict = {}
                 for selection, result in cur.fetchall():
-                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
+                    if (result or "").upper() in RESULTAT_TERMINAL:
                         settlements_by_cat[_cat(selection)] = result.upper()
                 for pick in player_picks:
                     cat_key = pick.pop("_cat_key", None)
@@ -731,7 +743,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                         # Mise (22/08/2026) -- deja persistee, jamais lue avant.
                         "mise_eur": round(float(stake_eur), 0) if odd and stake_eur else None,
                     }
-                    if (settlement_status or "").upper() in RESULTAT_GAGNE + ("PERDU",):
+                    if (settlement_status or "").upper() in RESULTAT_TERMINAL:
                         pick["result"] = settlement_status.upper()
                     player_picks.append(pick)
             if player_picks:
@@ -769,7 +781,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                         # record_selections_shadow), jamais lue par le site avant.
                         "mise_eur": round(float(stake_eur), 0) if stake_eur else None,
                     }
-                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
+                    if (result or "").upper() in RESULTAT_TERMINAL:
                         entry["result"] = result.upper()
                     refonte_value_bets.append(entry)
                 if refonte_value_bets:
@@ -802,7 +814,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                         "odd": round(float(odd or 0), 2),
                         "mise_eur": round(float(stake_eur), 0) if stake_eur else None,
                     }
-                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU", "REMBOURSE"):
+                    if (result or "").upper() in RESULTAT_TERMINAL:
                         entry["result"] = result.upper()
                     cc_value_bets.append(entry)
                 if cc_value_bets:
@@ -824,7 +836,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                         "odd": float(odd) if odd else None,
                         "mise_eur": round(float(stake_eur), 0) if odd and stake_eur else None,
                     }
-                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU",):
+                    if (result or "").upper() in RESULTAT_TERMINAL:
                         pick["result"] = result.upper()
                     item.setdefault("player_picks", []).append(pick)
 
@@ -852,11 +864,45 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                         "odd": round(float(odd or 0), 2),
                         "mise_eur": round(float(stake_eur), 0) if stake_eur else None,
                     }
-                    if (result or "").upper() in RESULTAT_GAGNE + ("PERDU",):
+                    if (result or "").upper() in RESULTAT_TERMINAL:
                         entry["result"] = result.upper()
                     mlb_value_bets.append(entry)
                 if mlb_value_bets:
                     item["refonte_value_bets"] = mlb_value_bets
+
+            # Filet de securite "sans exception" (03/09/2026, demande
+            # explicite) : item["result"] (seul champ regarde par
+            # fetch_publications() pour decider live/done) ne vient QUE de
+            # paris.resultat ci-dessus -- or les fixtures cross-competition
+            # (LDC/Europa/Conference/Libertadores/Sudamericana) n'ont JAMAIS
+            # de ligne paris (moteur separe, football/refonte_cross_
+            # competition.py, qui ecrit direct dans refonte_cross_
+            # competition_value_bet_settlements / _player_pick_settlements,
+            # jamais via sauvegarder_pari) : un match cross-competition
+            # regle GAGNE/PERDU en base restait donc affiche "en cours" sur
+            # Publications a vie, meme si sa ligne value bet/player pick
+            # individuelle affichait deja le bon resultat. Des qu'UN
+            # sous-marche quelconque de ce fixture porte un resultat
+            # terminal, la fixture entiere compte comme reglee (memes
+            # matchs reels regles ensemble par le meme cycle de
+            # reglement) -- ne remplace jamais un resultat deja pose par
+            # paris.resultat, comble seulement les cas ou il est absent.
+            if publish_status == "published" and not item.get("result"):
+                _fallback_result = None
+                if item.get("value_result"):
+                    _fallback_result = item["value_result"]
+                if not _fallback_result:
+                    for _pick in item.get("player_picks") or []:
+                        if _pick.get("result"):
+                            _fallback_result = _pick["result"]
+                            break
+                if not _fallback_result:
+                    for _vb in item.get("refonte_value_bets") or []:
+                        if _vb.get("result"):
+                            _fallback_result = _vb["result"]
+                            break
+                if _fallback_result:
+                    item["result"] = _fallback_result
         out.append(item)
 
     conn.close()

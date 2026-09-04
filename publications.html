@@ -135,6 +135,7 @@ h1{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;margin:36px 0 
 .pick-label b.lost{color:var(--red)}
 .pick-label b.done{color:var(--green)}
 .pick-label b.live{color:var(--gold-2)}
+.pick-label b.review{color:var(--muted)}
 .odds-badge{
   background:var(--odds-bg);color:var(--odds-text);font-weight:700;font-size:.95rem;
   padding:6px 12px;border-radius:9px;flex-shrink:0;
@@ -776,7 +777,7 @@ function gaugeHtml(state, currentVal, thresholdVal, scaleMax, overTag){
 }
 
 function pickRowHtml(type, typeLabel, label, cote, result, gauge, mise){
-  const stateClass = result === 'GAGNE' || result === 'GAGNÉ' ? 'done' : result === 'PERDU' ? 'lost' : 'live';
+  const stateClass = result === 'GAGNE' || result === 'GAGNÉ' ? 'done' : result === 'PERDU' ? 'lost' : result === 'A_VERIFIER' ? 'review' : 'live';
   const cls = result ? stateClass : 'live';
   // Mise (22/08/2026, demande explicite "rajoute les mises dans les
   // publications") : sous la cote, jamais a la place -- le client doit
@@ -806,7 +807,7 @@ function renderPick(f, kind, text, cote, result, prefix, mise){
   // "Over/Under 2.5 : Plus de 2.5 buts" ne matche plus isTeamTotalLabel
   // (ancree en debut de chaine) et perd sa jauge O/U.
   const cls = classifyThreshold(f, text);
-  const stateClass = result === 'GAGNE' || result === 'GAGNÉ' ? 'done' : result === 'PERDU' ? 'lost' : 'live';
+  const stateClass = result === 'GAGNE' || result === 'GAGNÉ' ? 'done' : result === 'PERDU' ? 'lost' : result === 'A_VERIFIER' ? 'review' : 'live';
   const labelHtml = `<b class="${stateClass}">${prefix || ''}${text}</b>`;
   const typeLabel = kind === 'conseil' ? 'Conseil' : kind === 'value' ? 'Value' : 'Player';
   if (!cls) return pickRowHtml(kind, typeLabel, labelHtml, cote, result, '', mise);
