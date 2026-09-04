@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T19:48:20.737732+00:00",
+ "generated_at": "2026-09-04T20:00:19.970438+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -58,32 +58,6 @@
    "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
    "value_cote": 1.75,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1552459",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Boulogne – Dijon",
-   "kickoff_at": "2026-09-04T20:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/1299.png",
-   "away_logo": "https://media.api-sports.io/football/teams/89.png",
-   "conseil": "Boulogne ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.88,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Hbouch buteur",
-     "detail": "cote 4.00",
-     "odd": 4.0,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1552153",
@@ -2108,6 +2082,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1552459",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Boulogne – Dijon",
+   "kickoff_at": "2026-09-04T20:00:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/1299.png",
+   "away_logo": "https://media.api-sports.io/football/teams/89.png",
+   "conseil": "Boulogne ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.88,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Hbouch buteur",
+     "detail": "cote 4.00",
+     "odd": 4.0,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
