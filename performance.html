@@ -840,7 +840,7 @@ function fmtPnl(u){
 // meme modele que period_series.by_sport deja utilise par Resultats pour
 // la courbe.
 const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci", annee:"Cette année"};
-const _emptyPeriodBucket = () => ({n:0,g:0,p:0,r:0,winrate:0,pnl:0});
+const _emptyPeriodBucket = () => ({n:0,g:0,p:0,r:0,winrate:0,pnl:0,mise:0});
 let PERIOD_STATS = {jour:{n:23, g:18, p:5, r:0, winrate:78, pnl:4.62}, semaine:{n:380, g:239, p:140, r:1, winrate:63, pnl:20.10}, mois:{n:322, g:202, p:119, r:1, winrate:63, pnl:19.88}, annee:{n:380, g:239, p:140, r:1, winrate:63, pnl:20.10}, by_sport:{football:{jour:{n:12, g:11, p:1, r:0, winrate:92, pnl:4.14}, semaine:{n:228, g:151, p:77, r:0, winrate:66, pnl:24.71}, mois:{n:179, g:118, p:61, r:0, winrate:66, pnl:21.63}, annee:{n:228, g:151, p:77, r:0, winrate:66, pnl:24.71}}, tennis:{jour:{n:2, g:2, p:0, r:0, winrate:100, pnl:0.41}, semaine:{n:36, g:25, p:10, r:1, winrate:71, pnl:1.32}, mois:{n:29, g:21, p:7, r:1, winrate:75, pnl:2.18}, annee:{n:36, g:25, p:10, r:1, winrate:71, pnl:1.32}}, baseball:{jour:{n:8, g:5, p:3, r:0, winrate:62, pnl:1.08}, semaine:{n:115, g:63, p:52, r:0, winrate:55, pnl:-4.93}, mois:{n:113, g:63, p:50, r:0, winrate:56, pnl:-2.93}, annee:{n:115, g:63, p:52, r:0, winrate:55, pnl:-4.93}}, mlb:{jour:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00}, semaine:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00}, mois:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00}, annee:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00}}}};
 let currentPerfPeriod = "jour";
 let currentPerfSportFilter = "all";
@@ -859,9 +859,10 @@ function renderPeriodStats(){
   const pnlDisplay = s.n === 0
     ? '—'
     : `${val > 0 ? '+' : ''}${currentMode === "e" ? val.toFixed(0) : val.toFixed(2)} ${unit}`;
+  const miseDisplay = s.mise > 0 ? `${Math.round(s.mise).toLocaleString('fr-FR')} € misés` : '';
   const sub = s.n === 0
     ? 'Aucun conseil réglé pour l’instant'
-    : `${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''}`;
+    : `${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''}${miseDisplay ? ' · ' + miseDisplay : ''}`;
   const decides = s.g + s.p;
   const wPct = decides ? Math.round(s.g/decides*100) : 0, lPct = 100 - wPct;
 

@@ -227,7 +227,7 @@ def fetch_period_stats() -> dict:
     cur = conn.cursor()
     cur.execute(
         """
-        SELECT resultat, pnl, result_updated_at, sport
+        SELECT resultat, pnl, result_updated_at, sport, COALESCE(mise,0)
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
@@ -262,7 +262,7 @@ def fetch_period_stats() -> dict:
     boundaries = {"jour": today, "semaine": week_start, "mois": month_start, "annee": year_start}
 
     def _empty_bucket():
-        return {"n": 0, "g": 0, "p": 0, "r": 0, "pnl_eur": 0.0}
+        return {"n": 0, "g": 0, "p": 0, "r": 0, "pnl_eur": 0.0, "mise_eur": 0.0}
 
     # buckets_by_sport["all"] = bilan tous sports confondus (comportement
     # historique) ; buckets_by_sport[sport] = meme decompte, filtre par sport
@@ -272,12 +272,17 @@ def fetch_period_stats() -> dict:
     # la courbe).
     buckets_by_sport: dict = {"all": {k: _empty_bucket() for k in boundaries}}
 
-    def _add(sport, key, resultat_or_status, pnl_val):
+    def _add(sport, key, resultat_or_status, pnl_val, stake_val=0.0):
         for scope in ("all", sport):
             sp_buckets = buckets_by_sport.setdefault(scope, {k: _empty_bucket() for k in boundaries})
             b = sp_buckets[key]
             b["n"] += 1
             b["pnl_eur"] += pnl_val
+            # mise_eur (04/09/2026, demande explicite "montre mes mises sur
+            # le site") : volume total mise par periode, a cote du PnL/ROI
+            # deja affiches -- donne l'echelle reelle (un ROI eleve sur 1
+            # journee pese different selon qu'il porte sur 200€ ou 9000€).
+            b["mise_eur"] += stake_val
             if resultat_or_status in RESULTAT_GAGNE or resultat_or_status == "GAGNE":
                 b["g"] += 1
             elif resultat_or_status == "PERDU":
@@ -285,7 +290,7 @@ def fetch_period_stats() -> dict:
             elif resultat_or_status == "REMBOURSE":
                 b["r"] += 1
 
-    for resultat, pnl, result_updated_at, sport in rows:
+    for resultat, pnl, result_updated_at, sport, mise in rows:
         d = _paris_calendar_date(result_updated_at)
         if d is None or d > today:
             continue
@@ -293,7 +298,7 @@ def fetch_period_stats() -> dict:
         for key, start in boundaries.items():
             if d < start:
                 continue
-            _add(sport or "football", key, resultat, pnl_val)
+            _add(sport or "football", key, resultat, pnl_val, float(mise or 0))
 
     for odd, stake_eur, status, settled_or_created, sport in pick_rows:
         d = _paris_calendar_date(settled_or_created)
@@ -303,7 +308,7 @@ def fetch_period_stats() -> dict:
         for key, start in boundaries.items():
             if d < start:
                 continue
-            _add(sport or "football", key, status, pnl_val)
+            _add(sport or "football", key, status, pnl_val, float(stake_eur or 0))
 
     for sport, _mt, odd, resultat, stake_eur, pnl_eur, settled_at in refonte_rows:
         d = _paris_calendar_date(settled_at)
@@ -312,7 +317,7 @@ def fetch_period_stats() -> dict:
         for key, start in boundaries.items():
             if d < start:
                 continue
-            _add(sport, key, resultat, float(pnl_eur or 0))
+            _add(sport, key, resultat, float(pnl_eur or 0), float(stake_eur or 0))
 
     def _build(buckets):
         out = {}
@@ -325,6 +330,10 @@ def fetch_period_stats() -> dict:
                 "r": b["r"],
                 "winrate": round(b["g"] / decides * 100) if decides else 0,
                 "pnl": round(b["pnl_eur"] / BASE_UNIT_EUR, 2),
+                # mise (04/09/2026, demande explicite) : volume total mise en
+                # euros (pas en unites -- le "combien j'ai engage" se lit
+                # plus naturellement en € que le PnL relatif).
+                "mise": round(b["mise_eur"], 2),
             }
         return out
 
@@ -1591,7 +1600,7 @@ def render_block(results: list[dict]) -> str:
 
 def _render_period_bucket_js(s: dict) -> str:
     return (f'{{n:{s["n"]}, g:{s["g"]}, p:{s["p"]}, r:{s["r"]}, '
-            f'winrate:{s["winrate"]}, pnl:{s["pnl"]:.2f}}}')
+            f'winrate:{s["winrate"]}, pnl:{s["pnl"]:.2f}, mise:{s["mise"]:.2f}}}')
 
 
 def render_period_block(stats: dict) -> str:

@@ -1343,15 +1343,20 @@ function renderPeriodStats(){
   const unit = currentMode === "e" ? "€" : "u";
   grid.classList.add('has-5');
   const cards = Object.keys(PERIOD_LABELS).map(key=>{
-    const s = PERIOD_STATS[key] || {n:0,g:0,p:0,r:0,winrate:0,pnl:0};
+    const s = PERIOD_STATS[key] || {n:0,g:0,p:0,r:0,winrate:0,pnl:0,mise:0};
     const val = s.pnl * factor;
     const cls = s.n === 0 ? 'flat' : (val > 0 ? 'up' : val < 0 ? 'down' : 'flat');
     const pnlDisplay = s.n === 0
       ? '—'
       : `${val > 0 ? '+' : ''}${currentMode === "e" ? val.toFixed(0) : val.toFixed(2)} ${unit}`;
+    // Mise totale (04/09/2026, demande explicite "montre mes mises sur le
+    // site") : toujours en €, quel que soit le mode d'affichage courant
+    // (u/€) du PnL -- le volume engage donne l'echelle reelle a cote du PnL
+    // relatif, jamais aussi parlant en unites.
+    const miseDisplay = s.mise > 0 ? `${Math.round(s.mise).toLocaleString('fr-FR')} € misés` : '';
     const sub = s.n === 0
       ? 'Aucun conseil réglé pour l’instant'
-      : `${s.n} réglés · ${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''} · ${s.winrate}% de réussite`;
+      : `${s.n} réglés · ${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''} · ${s.winrate}% de réussite${miseDisplay ? ' · ' + miseDisplay : ''}`;
     return `
       <div class="period-card">
         <div class="period-label">${PERIOD_LABELS[key]}</div>
