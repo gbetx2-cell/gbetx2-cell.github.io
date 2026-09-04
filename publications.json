@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T16:07:19.064918+00:00",
+ "generated_at": "2026-09-04T16:07:21.810293+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -171,32 +171,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1576161",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Arminia Bielefeld – FC St. Pauli",
-   "kickoff_at": "2026-09-04T18:30:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/188.png",
-   "away_logo": "https://media.api-sports.io/football/teams/186.png",
-   "conseil": "Arminia Bielefeld ou Nul",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Grodowski buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1576163",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -255,6 +229,72 @@
    "conseil_cote": 2.3,
    "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576161",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Arminia Bielefeld – FC St. Pauli",
+   "kickoff_at": "2026-09-04T18:30:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/188.png",
+   "away_logo": "https://media.api-sports.io/football/teams/186.png",
+   "conseil": "Arminia Bielefeld ou Nul",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Grodowski buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1494748",
+   "flag": "🇳🇴",
+   "league": "Eliteserien",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aalesund – Start",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 103,
+   "home_logo": "https://media.api-sports.io/football/teams/757.png",
+   "away_logo": "https://media.api-sports.io/football/teams/334.png",
+   "conseil": "Aalesund ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.62,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Christensen buteur",
+     "detail": "cote 3.50",
+     "odd": 3.5,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.48,
+     "mise_eur": 300.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.42,
+     "mise_eur": 400.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1584394",
@@ -337,6 +377,23 @@
    ]
   },
   {
+   "fixture_id": "api_football:1549010",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Viborg – Lyngby",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/2070.png",
+   "away_logo": "https://media.api-sports.io/football/teams/625.png",
+   "conseil": "Viborg gagne",
+   "conseil_cote": 1.82,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1494750",
    "flag": "🇳🇴",
    "league": "Eliteserien",
@@ -367,46 +424,6 @@
      "label": "Plus de 9.5 corners",
      "odd": 1.63,
      "mise_eur": 100.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1494748",
-   "flag": "🇳🇴",
-   "league": "Eliteserien",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Aalesund – Start",
-   "kickoff_at": "2026-09-04T19:00:00+02:00",
-   "published": true,
-   "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/757.png",
-   "away_logo": "https://media.api-sports.io/football/teams/334.png",
-   "conseil": "Aalesund ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.62,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "M. Christensen buteur",
-     "detail": "cote 3.50",
-     "odd": 3.5,
-     "mise_eur": 200.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.48,
-     "mise_eur": 300.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.42,
-     "mise_eur": 400.0
     }
    ]
   },
