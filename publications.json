@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T19:21:26.565824+00:00",
+ "generated_at": "2026-09-04T19:25:15.948944+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -1963,13 +1963,16 @@
    "conseil_cote": 1.39,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1",
    "player_picks": [
     {
      "category": "Buteur",
      "label": "L. Openda buteur",
      "detail": "cote 1.83",
      "odd": 1.83,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ],
    "refonte_value_bets": [
@@ -1994,8 +1997,7 @@
      "mise_eur": 100.0,
      "result": "GAGNE"
     }
-   ],
-   "result": "GAGNE"
+   ]
   },
   {
    "fixture_id": "api_football:1553860",
