@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T18:57:20.337535+00:00",
+ "generated_at": "2026-09-04T19:00:23.740925+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -58,23 +58,6 @@
    "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
    "value_cote": 1.75,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1553860",
-   "flag": "🇷🇸",
-   "league": "Super Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Novi Pazar – Železničar Pančevo",
-   "kickoff_at": "2026-09-04T19:00:00+02:00",
-   "published": true,
-   "league_id": 286,
-   "home_logo": "https://media.api-sports.io/football/teams/2643.png",
-   "away_logo": "https://media.api-sports.io/football/teams/12360.png",
-   "conseil": "Železničar Pančevo ou Nul",
-   "conseil_cote": 1.48,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1494748",
@@ -231,37 +214,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1600330",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Marumo Gallants – Polokwane City",
-   "kickoff_at": "2026-09-04T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/2682.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2693.png",
-   "conseil": "Polokwane City ou Nul",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.35,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.55,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1565239",
    "flag": "🇷🇴",
    "league": "Liga I",
@@ -294,6 +246,37 @@
    "conseil_cote": 2.43,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1600330",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Marumo Gallants – Polokwane City",
+   "kickoff_at": "2026-09-04T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2682.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2693.png",
+   "conseil": "Polokwane City ou Nul",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.35,
+     "mise_eur": 200.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.55,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1603012",
@@ -533,23 +516,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1551096",
-   "flag": "⚽",
-   "league": "First League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Arda Kardzhali – Botev Plovdiv",
-   "kickoff_at": "2026-09-04T20:15:00+02:00",
-   "published": true,
-   "league_id": 172,
-   "home_logo": "https://media.api-sports.io/football/teams/1430.png",
-   "away_logo": "https://media.api-sports.io/football/teams/634.png",
-   "conseil": "Arda Kardzhali gagne",
-   "conseil_cote": 2.27,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1558007",
    "flag": "⚽",
    "league": "1. SNL",
@@ -567,29 +533,38 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1569910",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
+   "fixture_id": "api_football:1551096",
+   "flag": "⚽",
+   "league": "First League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Las Palmas – Leganes",
+   "match": "Arda Kardzhali – Botev Plovdiv",
+   "kickoff_at": "2026-09-04T20:15:00+02:00",
+   "published": true,
+   "league_id": 172,
+   "home_logo": "https://media.api-sports.io/football/teams/1430.png",
+   "away_logo": "https://media.api-sports.io/football/teams/634.png",
+   "conseil": "Arda Kardzhali gagne",
+   "conseil_cote": 2.27,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1553160",
+   "flag": "🇵🇱",
+   "league": "Ekstraklasa",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Piast Gliwice – GKS Katowice",
    "kickoff_at": "2026-09-04T20:30:00+02:00",
    "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/534.png",
-   "away_logo": "https://media.api-sports.io/football/teams/537.png",
-   "conseil": "Leganes ou Nul",
-   "conseil_cote": 1.97,
+   "league_id": 106,
+   "home_logo": "https://media.api-sports.io/football/teams/349.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3484.png",
+   "conseil": "Piast Gliwice ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.76,
    "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.9,
-     "mise_eur": 100.0
-    }
-   ]
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1575149",
@@ -623,20 +598,45 @@
    ]
   },
   {
-   "fixture_id": "api_football:1553160",
-   "flag": "🇵🇱",
-   "league": "Ekstraklasa",
+   "fixture_id": "api_football:1569910",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Piast Gliwice – GKS Katowice",
+   "match": "Las Palmas – Leganes",
    "kickoff_at": "2026-09-04T20:30:00+02:00",
    "published": true,
-   "league_id": 106,
-   "home_logo": "https://media.api-sports.io/football/teams/349.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3484.png",
-   "conseil": "Piast Gliwice ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.76,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/534.png",
+   "away_logo": "https://media.api-sports.io/football/teams/537.png",
+   "conseil": "Leganes ou Nul",
+   "conseil_cote": 1.97,
    "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.9,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1562053",
+   "flag": "⚽",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Larne – Glentoran",
+   "kickoff_at": "2026-09-04T20:45:00+02:00",
+   "published": true,
+   "league_id": 408,
+   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5352.png",
+   "conseil": "Larne ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.75,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -680,23 +680,6 @@
      "mise_eur": 100.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1562053",
-   "flag": "⚽",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Larne – Glentoran",
-   "kickoff_at": "2026-09-04T20:45:00+02:00",
-   "published": true,
-   "league_id": 408,
-   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5352.png",
-   "conseil": "Larne ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.75,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1494754",
@@ -1871,23 +1854,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603011",
-   "flag": "🇸🇦",
-   "league": "Pro League",
+   "fixture_id": "api_football:1603554",
+   "flag": "⚽",
+   "league": "1. Division",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Abha – Al-Ettifaq",
+   "match": "Omonia 29is Maiou – Karmiotissa",
    "kickoff_at": "2026-09-04T18:00:00+02:00",
    "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
-   "conseil": "Al-Ettifaq ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
+   "league_id": 318,
+   "home_logo": "https://media.api-sports.io/football/teams/14126.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3413.png",
+   "conseil": "Omonia 29is Maiou gagne",
+   "conseil_cote": 2.37,
+   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 1"
+   "result": "PERDU",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1551101",
@@ -1918,23 +1901,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603554",
-   "flag": "⚽",
-   "league": "1. Division",
+   "fixture_id": "api_football:1603011",
+   "flag": "🇸🇦",
+   "league": "Pro League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Omonia 29is Maiou – Karmiotissa",
+   "match": "Abha – Al-Ettifaq",
    "kickoff_at": "2026-09-04T18:00:00+02:00",
    "published": true,
-   "league_id": 318,
-   "home_logo": "https://media.api-sports.io/football/teams/14126.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3413.png",
-   "conseil": "Omonia 29is Maiou gagne",
-   "conseil_cote": 2.37,
-   "conseil_mise_eur": 600.0,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
+   "conseil": "Al-Ettifaq ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 2"
+   "result": "GAGNE",
+   "score": "0 - 1"
   },
   {
    "fixture_id": "api_football:1599446",
@@ -2060,6 +2043,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 2"
+  },
+  {
+   "fixture_id": "api_football:1553860",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Novi Pazar – Železničar Pančevo",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/2643.png",
+   "away_logo": "https://media.api-sports.io/football/teams/12360.png",
+   "conseil": "Železničar Pančevo ou Nul",
+   "conseil_cote": 1.48,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 0"
   },
   {
    "fixture_id": "api_football:1549010",
