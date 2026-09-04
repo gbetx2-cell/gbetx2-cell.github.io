@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T17:40:04.683432+00:00",
+ "generated_at": "2026-09-04T17:41:04.766422+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -758,6 +758,37 @@
    "conseil": "Victoire Tomas Martin Etcheverry",
    "conseil_cote": 2.12,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1575149",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfB Stuttgart – 1. FC Köln",
+   "kickoff_at": "2026-09-04T20:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/172.png",
+   "away_logo": "https://media.api-sports.io/football/teams/192.png",
+   "conseil": "1. FC Köln gagne + Plus de 2.5 buts",
+   "conseil_cote": 8.76,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.35,
+     "mise_eur": 400.0
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.59,
+     "mise_eur": 100.0
+    }
+   ]
   }
  ],
  "done": [
