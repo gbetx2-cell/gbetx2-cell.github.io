@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T18:10:03.835438+00:00",
+ "generated_at": "2026-09-04T18:11:04.676747+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -890,6 +890,31 @@
    "conseil_cote": 1.36,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1570365",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Betis – Real Madrid",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/543.png",
+   "away_logo": "https://media.api-sports.io/football/teams/541.png",
+   "conseil": "Real Madrid gagne",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.52,
+     "mise_eur": 100.0
+    }
+   ]
   }
  ],
  "done": [
