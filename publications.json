@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T16:07:22.165021+00:00",
+ "generated_at": "2026-09-04T16:30:05.995345+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -214,23 +214,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1560241",
-   "flag": "⚽",
-   "league": "NB I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Vasas – Nyiregyhaza",
-   "kickoff_at": "2026-09-04T18:30:00+02:00",
-   "published": true,
-   "league_id": 271,
-   "home_logo": "https://media.api-sports.io/football/teams/675.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2403.png",
-   "conseil": "Vasas gagne",
-   "conseil_cote": 2.3,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1576161",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -257,44 +240,21 @@
    ]
   },
   {
-   "fixture_id": "api_football:1494748",
-   "flag": "🇳🇴",
-   "league": "Eliteserien",
+   "fixture_id": "api_football:1560241",
+   "flag": "⚽",
+   "league": "NB I",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Aalesund – Start",
-   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "match": "Vasas – Nyiregyhaza",
+   "kickoff_at": "2026-09-04T18:30:00+02:00",
    "published": true,
-   "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/757.png",
-   "away_logo": "https://media.api-sports.io/football/teams/334.png",
-   "conseil": "Aalesund ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.62,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "M. Christensen buteur",
-     "detail": "cote 3.50",
-     "odd": 3.5,
-     "mise_eur": 200.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.48,
-     "mise_eur": 300.0
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.42,
-     "mise_eur": 400.0
-    }
-   ]
+   "league_id": 271,
+   "home_logo": "https://media.api-sports.io/football/teams/675.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2403.png",
+   "conseil": "Vasas gagne",
+   "conseil_cote": 2.3,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1584394",
@@ -377,6 +337,46 @@
    ]
   },
   {
+   "fixture_id": "api_football:1494748",
+   "flag": "🇳🇴",
+   "league": "Eliteserien",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aalesund – Start",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 103,
+   "home_logo": "https://media.api-sports.io/football/teams/757.png",
+   "away_logo": "https://media.api-sports.io/football/teams/334.png",
+   "conseil": "Aalesund ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.62,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Christensen buteur",
+     "detail": "cote 3.50",
+     "odd": 3.5,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.48,
+     "mise_eur": 300.0
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.42,
+     "mise_eur": 400.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1549010",
    "flag": "🇩🇰",
    "league": "Superliga",
@@ -390,6 +390,23 @@
    "away_logo": "https://media.api-sports.io/football/teams/625.png",
    "conseil": "Viborg gagne",
    "conseil_cote": 1.82,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1553860",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Novi Pazar – Železničar Pančevo",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/2643.png",
+   "away_logo": "https://media.api-sports.io/football/teams/12360.png",
+   "conseil": "Železničar Pančevo ou Nul",
+   "conseil_cote": 1.48,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
