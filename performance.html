@@ -220,7 +220,10 @@ header{
    rotation par matrice) -- meme principe que Cobe/planetary.js/earthjs,
    aucune librairie externe, valide sur un prototype avant integration ici. */
 .globe-panel{background:var(--card-bg,rgba(255,255,255,.03));border:1px solid rgba(156,148,129,.18);border-radius:16px;padding:28px;margin-bottom:32px}
-#globe-section{padding:64px 0 84px}
+/* 04/09/2026 : padding reduit -- le globe est desormais imbrique dans
+   #main juste sous le titre (plus une section pleine largeur a part
+   comme avant), un espacement de section complet serait excessif ici. */
+#globe-section{padding:0 0 40px}
 .globe-stage{position:relative;height:460px;display:flex;align-items:center;justify-content:center}
 .globe-zoom{position:absolute;left:6px;bottom:6px;display:flex;flex-direction:column;gap:4px;z-index:3}
 .globe-zoom button{
@@ -693,47 +696,47 @@ footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
   <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
 </nav>
 
-<!-- ── GLOBE (04/09/2026, demande explicite : "met en haut de la page" +
-     un globe par sport avec des onglets au-dessus -- avant ce jour, un
-     seul globe combinait deja tous les sports (26-28/08/2026, "les autres
-     sports c'est souvent le meme pays donc pas besoin de faire d'autre
-     globe") mais sans separation par onglet, et en bas de page. Meme
-     canvas/rotation/zoom reutilises tels quels (LEAGUE_COUNTRIES porte
-     deja un id par ligue qui encode son sport -- numerique = football,
-     "sport:xxx" = xxx, "tennis:xxx" = tennis -- cf leagueSport() plus bas)
-     : seul le filtrage des points affiches change par onglet, pas de
-     composant duplique par sport. ────────────────────── -->
-<div id="globe-section">
-  <div class="container">
-    <h3 class="perf-sub-title">Nos ligues, pays par pays</h3>
-    <div class="chart-toggle sport-filter" id="globeSportFilter" style="margin-bottom:16px">
-      <button data-sport="football" class="active">⚽ Football</button>
-      <button data-sport="tennis">🎾 Tennis</button>
-      <button data-sport="baseball">⚾ MLB</button>
-      <button data-sport="nba">🏀 NBA</button>
-      <button data-sport="nhl">🏒 NHL</button>
-      <button data-sport="nfl">🏈 NFL</button>
-      <button data-sport="wnba">🏀 WNBA</button>
-    </div>
-    <div class="globe-panel">
-      <div class="globe-stage" id="globeStage">
-        <canvas id="globeCanvas" width="460" height="460" role="img" aria-label="Globe des ligues couvertes, pays par pays"></canvas>
-        <div class="globe-popup" id="globePopup"><button class="globe-popup-close" id="globePopupClose" aria-label="Fermer">✕</button><div id="globePopupBody"></div></div>
-        <div class="globe-tooltip" id="globeTooltip"></div>
-        <div class="globe-zoom" id="globeZoom">
-          <button id="globeZoomIn" aria-label="Zoomer">+</button>
-          <button id="globeZoomOut" aria-label="Dézoomer">−</button>
-        </div>
-      </div>
-      <p class="chart-note" style="text-align:center" id="globeEmptyNote">Faites glisser le globe pour l'orienter, zoomez pour séparer les points collés — chaque point est un pays où une ligue est couverte.</p>
-    </div>
-  </div>
-</div>
-
 <div id="main">
   <div class="container">
     <div class="sec-tag">Performance</div>
     <h2 class="sec-title">Chaque marché est <span class="gold">audité en continu.</span></h2>
+
+    <!-- ── GLOBE (04/09/2026, demande explicite : sous le titre "Chaque
+         marché est audité en continu" -- pas au tout debut de page comme
+         d'abord fait, ni tout en bas comme avant ce jour. Un globe par
+         sport avec des onglets au-dessus (26-28/08/2026, un seul globe
+         combinait deja tous les sports, "les autres sports c'est souvent
+         le meme pays donc pas besoin de faire d'autre globe", mais sans
+         separation par onglet). Meme canvas/rotation/zoom reutilises tels
+         quels (LEAGUE_COUNTRIES porte deja un id par ligue qui encode son
+         sport -- numerique = football, "sport:xxx" = xxx, "tennis:xxx" =
+         tennis -- cf leagueSport() plus bas) : seul le filtrage des
+         points affiches change par onglet, pas de composant duplique par
+         sport. ────────────────────── -->
+    <div id="globe-section">
+      <h3 class="perf-sub-title">Nos ligues, pays par pays</h3>
+      <div class="chart-toggle sport-filter" id="globeSportFilter" style="margin-bottom:16px">
+        <button data-sport="football" class="active">⚽ Football</button>
+        <button data-sport="tennis">🎾 Tennis</button>
+        <button data-sport="baseball">⚾ MLB</button>
+        <button data-sport="nba">🏀 NBA</button>
+        <button data-sport="nhl">🏒 NHL</button>
+        <button data-sport="nfl">🏈 NFL</button>
+        <button data-sport="wnba">🏀 WNBA</button>
+      </div>
+      <div class="globe-panel">
+        <div class="globe-stage" id="globeStage">
+          <canvas id="globeCanvas" width="460" height="460" role="img" aria-label="Globe des ligues couvertes, pays par pays"></canvas>
+          <div class="globe-popup" id="globePopup"><button class="globe-popup-close" id="globePopupClose" aria-label="Fermer">✕</button><div id="globePopupBody"></div></div>
+          <div class="globe-tooltip" id="globeTooltip"></div>
+          <div class="globe-zoom" id="globeZoom">
+            <button id="globeZoomIn" aria-label="Zoomer">+</button>
+            <button id="globeZoomOut" aria-label="Dézoomer">−</button>
+          </div>
+        </div>
+        <p class="chart-note" style="text-align:center" id="globeEmptyNote">Faites glisser le globe pour l'orienter, zoomez pour séparer les points collés — chaque point est un pays où une ligue est couverte.</p>
+      </div>
+    </div>
     <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px">
       <div class="chart-toggle" id="perfPeriodTabs">
         <button data-period="jour" class="active">Aujourd'hui</button>
@@ -1131,7 +1134,18 @@ const LAND_FILL_POINTS=[[-84.0,-171.2],[-84.0,-149.2],[-84.0,-147.0],[-84.0,-144
 const LEAGUE_COUNTRIES=[{name:"Angleterre",flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",lat:52.3,lon:-1.5,leagues:[{id:39,name:"Premier League"},{id:40,name:"Championship"}]},{name:"Ecosse",flag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿",lat:56.5,lon:-4.2,leagues:[{id:179,name:"Scottish Premiership"}]},{name:"Allemagne",flag:"🇩🇪",lat:51.2,lon:10.4,leagues:[{id:79,name:"2. Bundesliga"},{id:78,name:"Bundesliga"}]},{name:"Italie",flag:"🇮🇹",lat:42.8,lon:12.6,leagues:[{id:135,name:"Serie A"},{id:136,name:"Serie B"}]},{name:"Espagne",flag:"🇪🇸",lat:40.4,lon:-3.7,leagues:[{id:140,name:"La Liga"},{id:141,name:"Segunda División"}]},{name:"France",flag:"🇫🇷",lat:46.6,lon:2.2,leagues:[{id:61,name:"Ligue 1"},{id:62,name:"Ligue 2"}]},{name:"Pays-Bas",flag:"🇳🇱",lat:52.1,lon:5.3,leagues:[{id:88,name:"Eredivisie"}]},{name:"Belgique",flag:"🇧🇪",lat:50.5,lon:4.5,leagues:[{id:144,name:"Belgian Pro League"}]},{name:"Portugal",flag:"🇵🇹",lat:39.4,lon:-8.2,leagues:[{id:94,name:"Primeira Liga"}]},{name:"Turquie",flag:"🇹🇷",lat:39.0,lon:35.2,leagues:[{id:203,name:"Süper Lig"}]},{name:"Grece",flag:"🇬🇷",lat:39.1,lon:21.8,leagues:[{id:197,name:"Super League 1"}]},{name:"Bresil",flag:"🇧🇷",lat:-14.2,lon:-51.9,leagues:[{id:71,name:"Serie A"}]},{name:"Chine",flag:"🇨🇳",lat:35.9,lon:104.2,leagues:[{id:169,name:"Super League"}]},{name:"Danemark",flag:"🇩🇰",lat:56.0,lon:9.5,leagues:[{id:119,name:"Superliga"}]},{name:"Japon",flag:"🇯🇵",lat:36.2,lon:138.3,leagues:[{id:98,name:"J1 League"}]},{name:"Mexique",flag:"🇲🇽",lat:23.6,lon:-102.5,leagues:[{id:262,name:"Liga MX"}]},{name:"Norvege",flag:"🇳🇴",lat:60.5,lon:8.5,leagues:[{id:103,name:"Eliteserien"}]},{name:"Roumanie",flag:"🇷🇴",lat:45.9,lon:25.0,leagues:[{id:283,name:"Liga I"}]},{name:"Suede",flag:"🇸🇪",lat:60.1,lon:18.6,leagues:[{id:113,name:"Allsvenskan"}]},{name:"Suisse",flag:"🇨🇭",lat:46.8,lon:8.2,leagues:[{id:207,name:"Swiss Super League"}]},{name:"Etats-Unis",flag:"🇺🇸",lat:39.8,lon:-98.6,leagues:[{id:253,name:"Major League Soccer"},{id:"sport:baseball",name:"MLB"},{id:"sport:wnba",name:"WNBA"},{id:"sport:nba",name:"NBA"},{id:"sport:nfl",name:"NFL"}]},{name:"Paraguay",flag:"🇵🇾",lat:-23.4,lon:-58.4,leagues:[{id:242,name:"Liga Pro"},{id:250,name:"Division Profesional - Apertura"}]},{name:"Chili",flag:"🇨🇱",lat:-35.7,lon:-71.5,leagues:[{id:265,name:"Primera División"}]},{name:"Bolivie",flag:"🇧🇴",lat:-16.3,lon:-63.6,leagues:[{id:344,name:"Primera División"}]},{name:"Argentine",flag:"🇦🇷",lat:-38.4,lon:-63.6,leagues:[{id:128,name:"Liga Profesional Argentina"}]},{name:"Autriche",flag:"🇦🇹",lat:47.5,lon:14.6,leagues:[{id:218,name:"Bundesliga"}]},{name:"Irlande",flag:"🇮🇪",lat:53.1,lon:-8.2,leagues:[{id:357,name:"Premier Division"}]},{name:"Afrique du Sud",flag:"🇿🇦",lat:-29.0,lon:24.0,leagues:[{id:288,name:"Premier Soccer League"}]},{name:"Arabie Saoudite",flag:"🇸🇦",lat:24.0,lon:45.0,leagues:[{id:307,name:"Pro League"}]},{name:"Honduras",flag:"🇭🇳",lat:15.2,lon:-86.2,leagues:[{id:234,name:"Liga Nacional"}]},{name:"Colombie",flag:"🇨🇴",lat:4.6,lon:-74.1,leagues:[{id:239,name:"Primera A"}]},{name:"Australie",flag:"🇦🇺",lat:-25.3,lon:133.8,leagues:[{id:188,name:"A-League"}]},{name:"Azerbaidjan",flag:"🇦🇿",lat:40.1,lon:47.6,leagues:[{id:419,name:"Premyer Liqa"}]},{name:"Bosnie-Herzegovine",flag:"🇧🇦",lat:44.2,lon:17.8,leagues:[{id:315,name:"Premijer Liga"}]},{name:"Bulgarie",flag:"🇧🇬",lat:42.7,lon:25.5,leagues:[{id:172,name:"First League"}]},{name:"Canada",flag:"🇨🇦",lat:56.1,lon:-106.3,leagues:[{id:479,name:"Canadian Premier League"},{id:261,name:"National Division"},{id:"sport:nhl",name:"NHL"}]},{name:"Chypre",flag:"🇨🇾",lat:35.1,lon:33.4,leagues:[{id:318,name:"1. Division"}]},{name:"Coree du Sud",flag:"🇰🇷",lat:37.0,lon:127.5,leagues:[{id:292,name:"K League 1"}]},{name:"Croatie",flag:"🇭🇷",lat:45.1,lon:15.2,leagues:[{id:210,name:"HNL"}]},{name:"Emirats arabes unis",flag:"🇦🇪",lat:23.4,lon:53.8,leagues:[{id:301,name:"Pro League"}]},{name:"Estonie",flag:"🇪🇪",lat:58.6,lon:25.0,leagues:[{id:329,name:"Meistriliiga"}]},{name:"Finlande",flag:"🇫🇮",lat:61.9,lon:25.7,leagues:[{id:244,name:"Veikkausliiga"}]},{name:"Hongrie",flag:"🇭🇺",lat:47.2,lon:19.5,leagues:[{id:271,name:"NB I"}]},{name:"Irlande du Nord",flag:"🇬🇧",lat:54.6,lon:-6.7,leagues:[{id:408,name:"Premiership"}]},{name:"Islande",flag:"🇮🇸",lat:64.9,lon:-19.0,leagues:[{id:164,name:"Úrvalsdeild"}]},{name:"Lettonie",flag:"🇱🇻",lat:56.9,lon:24.6,leagues:[{id:365,name:"Virsliga"}]},{name:"Lituanie",flag:"🇱🇹",lat:55.2,lon:23.9,leagues:[{id:362,name:"A Lyga"}]},{name:"Malte",flag:"🇲🇹",lat:35.9,lon:14.4,leagues:[{id:393,name:"Premier League"}]},{name:"Pologne",flag:"🇵🇱",lat:51.9,lon:19.1,leagues:[{id:106,name:"Ekstraklasa"}]},{name:"Tchequie",flag:"🇨🇿",lat:49.8,lon:15.5,leagues:[{id:345,name:"Czech Liga"}]},{name:"Serbie",flag:"🇷🇸",lat:44.0,lon:21.0,leagues:[{id:286,name:"Super Liga"}]},{name:"Slovaquie",flag:"🇸🇰",lat:48.7,lon:19.7,leagues:[{id:332,name:"Super Liga"}]},{name:"Slovenie",flag:"🇸🇮",lat:46.1,lon:14.8,leagues:[{id:373,name:"1. SNL"}]},{name:"Ukraine",flag:"🇺🇦",lat:48.4,lon:31.2,leagues:[{id:333,name:"Ukrainian Premier League"}]},{name:"UEFA (siège, Nyon)",flag:"🇪🇺",lat:46.38,lon:6.24,continental:true,leagues:[{id:2,name:"UEFA Ligue des Champions"},{id:3,name:"UEFA Ligue Europa"},{id:848,name:"UEFA Ligue Europa Conférence"}]},{name:"CONMEBOL (siège, Luque)",flag:"🌎",lat:-25.27,lon:-57.52,continental:true,leagues:[{id:13,name:"CONMEBOL Copa Libertadores"},{id:11,name:"CONMEBOL Copa Sudamericana"}]},{name:"New York (tennis)",flag:"🇺🇸",lat:40.7128,lon:-74.006,leagues:[{id:"tennis:US Open",name:"US Open"}]},{name:"Philadelphie (tennis)",flag:"🇺🇸",lat:39.9526,lon:-75.1652,leagues:[{id:"tennis:Ennoble Care Philly Open",name:"Ennoble Care Philly Open"}]},{name:"Winston-Salem (tennis)",flag:"🇺🇸",lat:36.0999,lon:-80.2442,leagues:[{id:"tennis:Winston-Salem Open",name:"Winston-Salem Open"}]},{name:"Cincinnati (tennis)",flag:"🇺🇸",lat:39.1031,lon:-84.512,leagues:[{id:"tennis:Cincinnati Open",name:"Cincinnati Open"}]},{name:"Memphis (tennis)",flag:"🇺🇸",lat:35.1495,lon:-90.049,leagues:[{id:"tennis:The Memphis Classic",name:"The Memphis Classic"}]},{name:"Washington (tennis)",flag:"🇺🇸",lat:38.9072,lon:-77.0369,leagues:[{id:"tennis:Mubadala DC Open",name:"Mubadala DC Open"},{id:"tennis:Mubadala Citi DC Open",name:"Mubadala Citi DC Open"}]},{name:"Monterrey (tennis)",flag:"🇲🇽",lat:25.6866,lon:-100.3161,leagues:[{id:"tennis:Abierto GNP Seguros",name:"Abierto GNP Seguros"}]},{name:"Los Cabos (tennis)",flag:"🇲🇽",lat:22.8905,lon:-109.9167,leagues:[{id:"tennis:Mifel Tennis Open by Telcel Oppo",name:"Mifel Tennis Open by Telcel Oppo"}]},{name:"Varsovie (tennis)",flag:"🇵🇱",lat:52.2297,lon:21.0122,leagues:[{id:"tennis:T-Mobile Polish Open",name:"T-Mobile Polish Open"}]},{name:"Vancouver (tennis)",flag:"🇨🇦",lat:49.2827,lon:-123.1207,leagues:[{id:"tennis:Odlum Brown VanOpen",name:"Odlum Brown VanOpen"}]},{name:"Palerme (tennis)",flag:"🇮🇹",lat:38.1157,lon:13.3613,leagues:[{id:"tennis:Palermo Ladies Open",name:"Palermo Ladies Open"}]},{name:"Estoril (tennis)",flag:"🇵🇹",lat:38.7071,lon:-9.397,leagues:[{id:"tennis:Millennium Estoril Open",name:"Millennium Estoril Open"}]},{name:"Hambourg (tennis)",flag:"🇩🇪",lat:53.5511,lon:9.9937,leagues:[{id:"tennis:MSC Hamburg Ladies Open",name:"MSC Hamburg Ladies Open"}]},{name:"Kitzbühel (tennis)",flag:"🇦🇹",lat:47.4467,lon:12.3927,leagues:[{id:"tennis:Generali Open",name:"Generali Open"}]},{name:"Prague (tennis)",flag:"🇨🇿",lat:50.0755,lon:14.4378,leagues:[{id:"tennis:Livesport Prague Open",name:"Livesport Prague Open"}]},{name:"Târgu Mureș (tennis)",flag:"🇷🇴",lat:46.5527,lon:24.5575,leagues:[{id:"tennis:Axeria Open 2026 powered by Intaro Sport",name:"Axeria Open 2026 powered by Intaro Sport"}]}];
 
 (function(){
-  const R = 190, CX = 230, CY = 230, AUTOSPIN = 0.0022;
+  // R reduit de 190 a 120 (04/09/2026, bug confirme en direct : des le
+  // 2e clic sur "+", la sphere (rayon = R*zoom, jusqu'a 190*3.2=608) sort
+  // tellement du cadre fixe du canvas (460x460, donc 230 de rayon visible
+  // max) qu'il ne reste plus que quelques points epars a l'ecran, la
+  // sphere elle-meme entierement hors-cadre -- 190 ne laissait que 40px de
+  // marge avant le bord du canvas des le zoom de repos, aucune place pour
+  // zoomer sans immediatement tout faire disparaitre. Avec R=120, la
+  // sphere (+ halo) reste entierement visible jusqu'a ZOOM_MAX (voir plus
+  // bas), au prix d'un globe par defaut un peu plus petit (plus de marge
+  // noire autour) -- compromis necessaire, le cadre du canvas ne bouge
+  // pas.
+  const R = 120, CX = 230, CY = 230, AUTOSPIN = 0.0022;
   const canvas = document.getElementById('globeCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
@@ -1166,7 +1180,12 @@ const LEAGUE_COUNTRIES=[{name:"Angleterre",flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",l
   // -- molette/pinch + boutons +/-, clampe pour ne jamais reduire sous la
   // taille de base ni exploser hors du canvas.
   let zoom = 1;
-  const ZOOM_MIN = 0.7, ZOOM_MAX = 3.2;
+  // ZOOM_MAX abaisse de 3.2 a 1.9 (04/09/2026, meme fix que R ci-dessus) :
+  // avec R=120, la sphere+halo (rayon R*zoom*1.16) atteint tout juste le
+  // bord du canvas (230) vers zoom=1.65 -- 1.9 laisse un tout petit
+  // depassement du halo (jamais du corps de la sphere ni des reperes) en
+  // zoom max, jamais la disparition totale observee avant ce fix.
+  const ZOOM_MIN = 0.7, ZOOM_MAX = 1.9;
   function setZoom(z){ zoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, z)); }
 
   // Bilan reel par pays = somme des bilans par ligue (LEAGUE_STATS, cle
