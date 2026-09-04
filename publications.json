@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T16:30:05.995345+00:00",
+ "generated_at": "2026-09-04T17:00:05.915980+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182747",
@@ -87,23 +87,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603554",
-   "flag": "⚽",
-   "league": "1. Division",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Omonia 29is Maiou – Karmiotissa",
-   "kickoff_at": "2026-09-04T18:00:00+02:00",
-   "published": true,
-   "league_id": 318,
-   "home_logo": "https://media.api-sports.io/football/teams/14126.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3413.png",
-   "conseil": "Omonia 29is Maiou gagne",
-   "conseil_cote": 2.37,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1551101",
    "flag": "⚽",
    "league": "First League",
@@ -127,6 +110,23 @@
      "mise_eur": 100.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1603554",
+   "flag": "⚽",
+   "league": "1. Division",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Omonia 29is Maiou – Karmiotissa",
+   "kickoff_at": "2026-09-04T18:00:00+02:00",
+   "published": true,
+   "league_id": 318,
+   "home_logo": "https://media.api-sports.io/football/teams/14126.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3413.png",
+   "conseil": "Omonia 29is Maiou gagne",
+   "conseil_cote": 2.37,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1603011",
@@ -337,6 +337,57 @@
    ]
   },
   {
+   "fixture_id": "api_football:1549010",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Viborg – Lyngby",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/2070.png",
+   "away_logo": "https://media.api-sports.io/football/teams/625.png",
+   "conseil": "Viborg gagne",
+   "conseil_cote": 1.82,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1494750",
+   "flag": "🇳🇴",
+   "league": "Eliteserien",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fredrikstad – Bodo/Glimt",
+   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "published": true,
+   "league_id": 103,
+   "home_logo": "https://media.api-sports.io/football/teams/2149.png",
+   "away_logo": "https://media.api-sports.io/football/teams/327.png",
+   "conseil": "Bodo/Glimt ou Nul",
+   "conseil_cote": 1.1,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Helmersen buteur",
+     "detail": "cote 1.62",
+     "odd": 1.62,
+     "mise_eur": 200.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.63,
+     "mise_eur": 100.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1494748",
    "flag": "🇳🇴",
    "league": "Eliteserien",
@@ -377,23 +428,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1549010",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Viborg – Lyngby",
-   "kickoff_at": "2026-09-04T19:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/2070.png",
-   "away_logo": "https://media.api-sports.io/football/teams/625.png",
-   "conseil": "Viborg gagne",
-   "conseil_cote": 1.82,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1553860",
    "flag": "🇷🇸",
    "league": "Super Liga",
@@ -411,38 +445,21 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1494750",
-   "flag": "🇳🇴",
-   "league": "Eliteserien",
+   "fixture_id": "api_football:1565239",
+   "flag": "🇷🇴",
+   "league": "Liga I",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Fredrikstad – Bodo/Glimt",
-   "kickoff_at": "2026-09-04T19:00:00+02:00",
+   "match": "CFR 1907 Cluj – Farul Constanta",
+   "kickoff_at": "2026-09-04T19:30:00+02:00",
    "published": true,
-   "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/2149.png",
-   "away_logo": "https://media.api-sports.io/football/teams/327.png",
-   "conseil": "Bodo/Glimt ou Nul",
-   "conseil_cote": 1.1,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/2246.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2596.png",
+   "conseil": "CFR 1907 Cluj ou Nul",
+   "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Helmersen buteur",
-     "detail": "cote 1.62",
-     "odd": 1.62,
-     "mise_eur": 200.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.63,
-     "mise_eur": 100.0
-    }
-   ]
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "tennis_espn_atp_182740",
@@ -701,6 +718,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1603010",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al Diriyah – Al-Qadisiyah FC",
+   "kickoff_at": "2026-09-03T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/26738.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2933.png",
+   "conseil": "Al-Qadisiyah FC ou Nul",
+   "conseil_cote": 1.16,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
+  },
+  {
    "fixture_id": "api_football:1549009",
    "flag": "🇩🇰",
    "league": "Superliga",
@@ -746,23 +782,42 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603010",
-   "flag": "🇸🇦",
-   "league": "Pro League",
+   "fixture_id": "api_football:1558603",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Al Diriyah – Al-Qadisiyah FC",
-   "kickoff_at": "2026-09-03T20:00:00+02:00",
+   "match": "Gent – OH Leuven",
+   "kickoff_at": "2026-09-03T20:30:00+02:00",
    "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/26738.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2933.png",
-   "conseil": "Al-Qadisiyah FC ou Nul",
-   "conseil_cote": 1.16,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/631.png",
+   "away_logo": "https://media.api-sports.io/football/teams/260.png",
+   "conseil": "Gent gagne",
+   "conseil_cote": 1.75,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1558604",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Anderlecht – Kortrijk",
+   "kickoff_at": "2026-09-03T20:30:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/554.png",
+   "away_logo": "https://media.api-sports.io/football/teams/734.png",
+   "conseil": "Anderlecht ou Nul",
+   "conseil_cote": 1.14,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "0 - 2"
+   "score": "1 - 0"
   },
   {
    "fixture_id": "api_football:1555381",
@@ -784,23 +839,39 @@
    "score": "1 - 2"
   },
   {
-   "fixture_id": "api_football:1558603",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
+   "fixture_id": "api_football:1555382",
+   "flag": "🇨🇭",
+   "league": "Super League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Gent – OH Leuven",
+   "match": "FC Lugano – Servette FC",
    "kickoff_at": "2026-09-03T20:30:00+02:00",
    "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/631.png",
-   "away_logo": "https://media.api-sports.io/football/teams/260.png",
-   "conseil": "Gent gagne",
-   "conseil_cote": 1.75,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/606.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2184.png",
+   "conseil": "FC Lugano gagne",
+   "conseil_cote": 2.1,
    "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 0"
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.62,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.52,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1553140",
@@ -854,60 +925,6 @@
      "label": "Plus de 3.5 cartons",
      "odd": 1.52,
      "mise_eur": 100.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1558604",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Anderlecht – Kortrijk",
-   "kickoff_at": "2026-09-03T20:30:00+02:00",
-   "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/554.png",
-   "away_logo": "https://media.api-sports.io/football/teams/734.png",
-   "conseil": "Anderlecht ou Nul",
-   "conseil_cote": 1.14,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0"
-  },
-  {
-   "fixture_id": "api_football:1555382",
-   "flag": "🇨🇭",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Lugano – Servette FC",
-   "kickoff_at": "2026-09-03T20:30:00+02:00",
-   "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/606.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2184.png",
-   "conseil": "FC Lugano gagne",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.62,
-     "mise_eur": 100.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.52,
-     "mise_eur": 200.0,
      "result": "PERDU"
     }
    ]
@@ -976,25 +993,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1519479",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Universidad Catolica – Aucas",
-   "kickoff_at": "2026-09-03T21:00:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1157.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1156.png",
-   "conseil": "Universidad Catolica ou Nul",
-   "conseil_cote": 1.26,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1570392",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -1012,6 +1010,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1519479",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Universidad Catolica – Aucas",
+   "kickoff_at": "2026-09-03T21:00:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1157.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1156.png",
+   "conseil": "Universidad Catolica ou Nul",
+   "conseil_cote": 1.26,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1549763",
