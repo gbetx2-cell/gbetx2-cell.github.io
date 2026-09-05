@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T11:58:45.731547+00:00",
+ "generated_at": "2026-09-05T11:58:40.958869+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -45,6 +45,23 @@
    "away_logo": "https://media.api-sports.io/football/teams/3627.png",
    "conseil": "Kryvbas KR ou Nul",
    "conseil_cote": 1.6,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1507053",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Jeju United FC – Ulsan Hyundai FC",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2761.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
+   "conseil": "Jeju United FC ou Nul",
+   "conseil_cote": 1.67,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
@@ -2306,25 +2323,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1507053",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Jeju United FC – Ulsan Hyundai FC",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2761.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
-   "conseil": "Jeju United FC ou Nul",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
   }
  ]
 }
