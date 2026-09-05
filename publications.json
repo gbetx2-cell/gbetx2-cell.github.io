@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T02:52:52.021594+00:00",
+ "generated_at": "2026-09-05T02:52:57.942223+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -2614,13 +2614,16 @@
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1",
    "player_picks": [
     {
      "category": "Buteur",
      "label": "J. Larrivey buteur",
      "detail": "cote 2.62",
      "odd": 2.62,
-     "mise_eur": 300.0
+     "mise_eur": 300.0,
+     "result": "PERDU"
     }
    ],
    "refonte_value_bets": [
@@ -2638,8 +2641,7 @@
      "mise_eur": 100.0,
      "result": "PERDU"
     }
-   ],
-   "result": "GAGNE"
+   ]
   },
   {
    "fixture_id": "api_football:1519487",
