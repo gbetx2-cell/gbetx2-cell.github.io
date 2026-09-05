@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T00:02:12.550611+00:00",
+ "generated_at": "2026-09-05T00:10:22.950492+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -29,21 +29,6 @@
    "away_photo": "assets/players/valentin vacherot.png",
    "conseil": "Victoire Frances Tiafoe",
    "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182740",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mariano Navone – Tomas Martin Etcheverry",
-   "kickoff_at": "2026-09-04T20:00Z",
-   "published": true,
-   "home_photo": "assets/players/mariano navone.png",
-   "away_photo": "assets/players/tomas martin etcheverry.png",
-   "conseil": "Victoire Tomas Martin Etcheverry",
-   "conseil_cote": 2.12,
    "conseil_mise_eur": 200.0
   },
   {
@@ -121,17 +106,25 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816801",
+   "fixture_id": "baseball_401816803",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Detroit Tigers",
+   "match": "New York Mets – San Francisco Giants",
    "kickoff_at": "2026-09-04T23:10Z",
    "published": true,
-   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
-   "value_cote": 1.75,
-   "value_mise_eur": 200.0
+   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — New York Mets @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816800",
@@ -161,25 +154,17 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816803",
+   "fixture_id": "baseball_401816801",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – San Francisco Giants",
+   "match": "Cleveland Guardians – Detroit Tigers",
    "kickoff_at": "2026-09-04T23:10Z",
    "published": true,
-   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — New York Mets @ 1.5556",
-     "odd": 1.56,
-     "mise_eur": 200.0
-    }
-   ]
+   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
+   "value_cote": 1.75,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816805",
@@ -1780,23 +1765,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1600331",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
+   "fixture_id": "api_football:1565239",
+   "flag": "🇷🇴",
+   "league": "Liga I",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Richards Bay – Amazulu",
+   "match": "CFR 1907 Cluj – Farul Constanta",
    "kickoff_at": "2026-09-04T19:30:00+02:00",
    "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
-   "conseil": "Amazulu ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.43,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/2246.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2596.png",
+   "conseil": "CFR 1907 Cluj ou Nul",
+   "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 2"
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1600330",
@@ -1834,23 +1819,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1565239",
-   "flag": "🇷🇴",
-   "league": "Liga I",
+   "fixture_id": "api_football:1600331",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "CFR 1907 Cluj – Farul Constanta",
+   "match": "Richards Bay – Amazulu",
    "kickoff_at": "2026-09-04T19:30:00+02:00",
    "published": true,
-   "league_id": 283,
-   "home_logo": "https://media.api-sports.io/football/teams/2246.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2596.png",
-   "conseil": "CFR 1907 Cluj ou Nul",
-   "conseil_cote": 1.32,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
+   "conseil": "Amazulu ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.43,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "0 - 0"
+   "score": "1 - 2"
   },
   {
    "fixture_id": "api_football:1552460",
@@ -2100,6 +2085,23 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182740",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mariano Navone – Tomas Martin Etcheverry",
+   "kickoff_at": "2026-09-04T20:00Z",
+   "published": true,
+   "home_photo": "assets/players/mariano navone.png",
+   "away_photo": "assets/players/tomas martin etcheverry.png",
+   "conseil": "Victoire Tomas Martin Etcheverry",
+   "conseil_cote": 2.12,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "4-6, 4-6, 3-6"
   },
   {
    "fixture_id": "api_football:1558007",
