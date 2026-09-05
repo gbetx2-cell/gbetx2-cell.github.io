@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T12:35:51.803432+00:00",
+ "generated_at": "2026-09-05T12:35:57.577405+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -620,6 +620,49 @@
    "conseil_cote": 4.45,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1575155",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Werder Bremen – RB Leipzig",
+   "kickoff_at": "2026-09-05T15:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/162.png",
+   "away_logo": "https://media.api-sports.io/football/teams/173.png",
+   "conseil": "RB Leipzig gagne + Plus de 1.5 buts",
+   "conseil_cote": 2.03,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1575157",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "SC Paderborn 07 – SC Freiburg",
+   "kickoff_at": "2026-09-05T15:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/185.png",
+   "away_logo": "https://media.api-sports.io/football/teams/160.png",
+   "conseil": "SC Freiburg gagne",
+   "conseil_cote": 2.05,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "I. Matanović buteur",
+     "detail": "cote 2.05",
+     "odd": 2.05,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
