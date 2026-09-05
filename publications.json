@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T13:33:54.044626+00:00",
+ "generated_at": "2026-09-05T13:34:00.439145+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -64,32 +64,6 @@
    "conseil_cote": 1.62,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1523261",
-   "flag": "🇨🇳",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "SHANGHAI SIPG – Beijing Guoan",
-   "kickoff_at": "2026-09-05T13:35:00+02:00",
-   "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/836.png",
-   "away_logo": "https://media.api-sports.io/football/teams/830.png",
-   "conseil": "Beijing Guoan ou Nul",
-   "conseil_cote": 1.7,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Zhang Yuning buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1552463",
@@ -2588,6 +2562,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1523261",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "SHANGHAI SIPG – Beijing Guoan",
+   "kickoff_at": "2026-09-05T13:35:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/836.png",
+   "away_logo": "https://media.api-sports.io/football/teams/830.png",
+   "conseil": "Beijing Guoan ou Nul",
+   "conseil_cote": 1.7,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Zhang Yuning buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
