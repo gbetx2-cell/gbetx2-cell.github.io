@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T10:36:40.190658+00:00",
+ "generated_at": "2026-09-05T10:36:51.071546+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -226,6 +226,32 @@
    "conseil_cote": 1.8,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1563133",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lincoln – Southampton",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/1379.png",
+   "away_logo": "https://media.api-sports.io/football/teams/41.png",
+   "conseil": "Southampton ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "C. Larin buteur",
+     "detail": "cote 2.25",
+     "odd": 2.25,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1557395",
