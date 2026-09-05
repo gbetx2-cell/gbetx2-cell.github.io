@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T09:11:40.262223+00:00",
+ "generated_at": "2026-09-05T09:11:53.297135+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182727",
@@ -30,6 +30,23 @@
    "conseil": "Victoire Alexander Zverev",
    "conseil_cote": 1.18,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1507052",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Bucheon FC 1995 – Daejeon Citizen",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1507053",
@@ -66,20 +83,37 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1507052",
+   "fixture_id": "api_football:1507055",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Bucheon FC 1995 – Daejeon Citizen",
+   "match": "FC Seoul – Incheon United",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.25,
+   "home_logo": "https://media.api-sports.io/football/teams/2766.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
+   "conseil": "FC Seoul ou Nul",
+   "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1556051",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Avispa Fukuoka – Mito Hollyhock",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/316.png",
+   "away_logo": "https://media.api-sports.io/football/teams/305.png",
+   "conseil": "Mito Hollyhock ou Nul",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   }
  ],
