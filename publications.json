@@ -1,21 +1,6 @@
 {
- "generated_at": "2026-09-05T12:34:40.400722+00:00",
+ "generated_at": "2026-09-05T12:35:40.640362+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_182727",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Francisco Cerundolo – Taylor Fritz",
-   "kickoff_at": "2026-09-05T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/francisco cerundolo.png",
-   "away_photo": "assets/players/taylor fritz.png",
-   "conseil": "Victoire Taylor Fritz",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0
-  },
   {
    "fixture_id": "tennis_espn_atp_182699",
    "flag": "🎾",
@@ -29,6 +14,21 @@
    "away_photo": "assets/players/alexander zverev.png",
    "conseil": "Victoire Alexander Zverev",
    "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182727",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Francisco Cerundolo – Taylor Fritz",
+   "kickoff_at": "2026-09-05T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/francisco cerundolo.png",
+   "away_photo": "assets/players/taylor fritz.png",
+   "conseil": "Victoire Taylor Fritz",
+   "conseil_cote": 1.17,
    "conseil_mise_eur": 200.0
   },
   {
@@ -49,23 +49,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1523259",
-   "flag": "🇨🇳",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Wuhan Three Towns – Qingdao Youth Island",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
-   "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/5695.png",
-   "away_logo": "https://media.api-sports.io/football/teams/17265.png",
-   "conseil": "Qingdao Youth Island ou Nul",
-   "conseil_cote": 1.8,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1576166",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -80,23 +63,6 @@
    "conseil": "1. FC Kaiserslautern ou Nul + Moins de 3.5 buts",
    "conseil_cote": 2.07,
    "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1576169",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "VfL Wolfsburg – Energie Cottbus",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/161.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1320.png",
-   "conseil": "VfL Wolfsburg ou Nul",
-   "conseil_cote": 1.08,
-   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -124,6 +90,40 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1523259",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Wuhan Three Towns – Qingdao Youth Island",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/5695.png",
+   "away_logo": "https://media.api-sports.io/football/teams/17265.png",
+   "conseil": "Qingdao Youth Island ou Nul",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576169",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfL Wolfsburg – Energie Cottbus",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/161.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1320.png",
+   "conseil": "VfL Wolfsburg ou Nul",
+   "conseil_cote": 1.08,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1513620",
@@ -568,6 +568,23 @@
    "conseil": "Sigma Olomouc ou Nul",
    "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1575151",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Bayer Leverkusen – Union Berlin",
+   "kickoff_at": "2026-09-05T15:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/168.png",
+   "away_logo": "https://media.api-sports.io/football/teams/182.png",
+   "conseil": "Bayer Leverkusen ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 1.64,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -2008,6 +2025,22 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816801",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Detroit Tigers",
+   "kickoff_at": "2026-09-04T23:10Z",
+   "published": true,
+   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
+   "value_cote": 1.75,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4 - 3"
+  },
+  {
    "fixture_id": "baseball_401816800",
    "flag": "⚾",
    "league": "MLB",
@@ -2038,22 +2071,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "baseball_401816801",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Detroit Tigers",
-   "kickoff_at": "2026-09-04T23:10Z",
-   "published": true,
-   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
-   "value_cote": 1.75,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "4 - 3"
   },
   {
    "fixture_id": "api_football:1618997",
@@ -2274,34 +2291,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1519487",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tecnico Universitario – LDU de Quito",
-   "kickoff_at": "2026-09-05T02:30:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
-   "conseil": "LDU de Quito ou Nul",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.71,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1505515",
    "flag": "🇨🇱",
    "league": "Primera División",
@@ -2347,6 +2336,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1519487",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tecnico Universitario – LDU de Quito",
+   "kickoff_at": "2026-09-05T02:30:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
+   "conseil": "LDU de Quito ou Nul",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.71,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1550949",
    "flag": "🇲🇽",
    "league": "Liga MX",
@@ -2376,23 +2393,42 @@
    ]
   },
   {
-   "fixture_id": "api_football:1507054",
+   "fixture_id": "api_football:1507052",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Jeonbuk Motors – Pohang Steelers",
+   "match": "Bucheon FC 1995 – Daejeon Citizen",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2762.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2764.png",
-   "conseil": "Jeonbuk Motors ou Nul",
-   "conseil_cote": 1.22,
+   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "2 - 0"
+   "score": "0 - 5"
+  },
+  {
+   "fixture_id": "api_football:1565470",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kryvbas KR – Kolos Kovalivka",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/6489.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3627.png",
+   "conseil": "Kryvbas KR ou Nul",
+   "conseil_cote": 1.6,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1507053",
@@ -2433,23 +2469,23 @@
    "score": "1 - 1"
   },
   {
-   "fixture_id": "api_football:1507052",
+   "fixture_id": "api_football:1507054",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Bucheon FC 1995 – Daejeon Citizen",
+   "match": "Jeonbuk Motors – Pohang Steelers",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.25,
+   "home_logo": "https://media.api-sports.io/football/teams/2762.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2764.png",
+   "conseil": "Jeonbuk Motors ou Nul",
+   "conseil_cote": 1.22,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "0 - 5"
+   "score": "2 - 0"
   },
   {
    "fixture_id": "api_football:1507055",
@@ -2469,25 +2505,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 0"
-  },
-  {
-   "fixture_id": "api_football:1565470",
-   "flag": "🇺🇦",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kryvbas KR – Kolos Kovalivka",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/6489.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3627.png",
-   "conseil": "Kryvbas KR ou Nul",
-   "conseil_cote": 1.6,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2"
   }
  ]
 }
