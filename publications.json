@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T12:07:50.567395+00:00",
+ "generated_at": "2026-09-05T12:08:40.333693+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -46,6 +46,23 @@
    "conseil": "FC Kharkiv ou Nul + Moins de 3.5 buts",
    "conseil_cote": 1.42,
    "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576169",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfL Wolfsburg – Energie Cottbus",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/161.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1320.png",
+   "conseil": "VfL Wolfsburg ou Nul",
+   "conseil_cote": 1.08,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -109,66 +126,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1576169",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "VfL Wolfsburg – Energie Cottbus",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/161.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1320.png",
-   "conseil": "VfL Wolfsburg ou Nul",
-   "conseil_cote": 1.08,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1582790",
-   "flag": "⚽",
-   "league": "Premijer Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "BSK Banja Luka – Čelik",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/21736.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3363.png",
-   "conseil": "BSK Banja Luka ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.62,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1513620",
-   "flag": "🇪🇪",
-   "league": "Meistriliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kuressaare – Trans Narva",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 329,
-   "home_logo": "https://media.api-sports.io/football/teams/3526.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2274.png",
-   "conseil": "Kuressaare ou Nul",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Demidov buteur",
-     "detail": "68%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1563133",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -212,6 +169,49 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1563139",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Stoke City – Charlton",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/75.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1335.png",
+   "conseil": "Charlton ou Nul",
+   "conseil_cote": 1.7,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1513620",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kuressaare – Trans Narva",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/3526.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2274.png",
+   "conseil": "Kuressaare ou Nul",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Demidov buteur",
+     "detail": "68%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1557395",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Premier League",
@@ -229,19 +229,19 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1563139",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
+   "fixture_id": "api_football:1582790",
+   "flag": "⚽",
+   "league": "Premijer Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Stoke City – Charlton",
+   "match": "BSK Banja Luka – Čelik",
    "kickoff_at": "2026-09-05T13:30:00+02:00",
    "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/75.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1335.png",
-   "conseil": "Charlton ou Nul",
-   "conseil_cote": 1.7,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/21736.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3363.png",
+   "conseil": "BSK Banja Luka ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.62,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
@@ -289,63 +289,20 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1569912",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
+   "fixture_id": "api_football:1565241",
+   "flag": "🇷🇴",
+   "league": "Liga I",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Real Sociedad II – Tenerife",
+   "match": "FC Botosani – Sepsi OSK Sfantu Gheorghe",
    "kickoff_at": "2026-09-05T14:00:00+02:00",
    "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9585.png",
-   "away_logo": "https://media.api-sports.io/football/teams/719.png",
-   "conseil": "Tenerife ou Nul",
-   "conseil_cote": 1.51,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1552463",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Metz – Rodez",
-   "kickoff_at": "2026-09-05T14:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/112.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1301.png",
-   "conseil": "Metz ou Nul",
-   "conseil_cote": 1.29,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/2581.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2585.png",
+   "conseil": "Sepsi OSK Sfantu Gheorghe ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.25,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "P. Fall buteur",
-     "detail": "cote 2.30",
-     "odd": 2.3,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1552466",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Reims – Guingamp",
-   "kickoff_at": "2026-09-05T14:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/93.png",
-   "away_logo": "https://media.api-sports.io/football/teams/90.png",
-   "conseil": "Reims gagne",
-   "conseil_cote": 1.7,
-   "conseil_mise_eur": 500.0,
    "lineup_source": "flashscore"
   },
   {
@@ -371,6 +328,32 @@
      "detail": "72%",
      "odd": null,
      "mise_eur": null
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1552463",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Metz – Rodez",
+   "kickoff_at": "2026-09-05T14:00:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/112.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1301.png",
+   "conseil": "Metz ou Nul",
+   "conseil_cote": 1.29,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "P. Fall buteur",
+     "detail": "cote 2.30",
+     "odd": 2.3,
+     "mise_eur": 200.0
     }
    ]
   },
@@ -401,20 +384,37 @@
    ]
   },
   {
-   "fixture_id": "api_football:1565241",
-   "flag": "🇷🇴",
-   "league": "Liga I",
+   "fixture_id": "api_football:1569912",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Botosani – Sepsi OSK Sfantu Gheorghe",
+   "match": "Real Sociedad II – Tenerife",
    "kickoff_at": "2026-09-05T14:00:00+02:00",
    "published": true,
-   "league_id": 283,
-   "home_logo": "https://media.api-sports.io/football/teams/2581.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2585.png",
-   "conseil": "Sepsi OSK Sfantu Gheorghe ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.25,
-   "conseil_mise_eur": 200.0,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9585.png",
+   "away_logo": "https://media.api-sports.io/football/teams/719.png",
+   "conseil": "Tenerife ou Nul",
+   "conseil_cote": 1.51,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1552466",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Reims – Guingamp",
+   "kickoff_at": "2026-09-05T14:00:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/93.png",
+   "away_logo": "https://media.api-sports.io/football/teams/90.png",
+   "conseil": "Reims gagne",
+   "conseil_cote": 1.7,
+   "conseil_mise_eur": 500.0,
    "lineup_source": "flashscore"
   },
   {
@@ -435,23 +435,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1550110",
-   "flag": "🇮🇹",
-   "league": "Serie A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Fiorentina – Torino",
-   "kickoff_at": "2026-09-05T15:00:00+02:00",
-   "published": true,
-   "league_id": 135,
-   "home_logo": "https://media.api-sports.io/football/teams/502.png",
-   "away_logo": "https://media.api-sports.io/football/teams/503.png",
-   "conseil": "Torino gagne",
-   "conseil_cote": 4.42,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1601521",
    "flag": "🇮🇹",
    "league": "Serie B",
@@ -465,6 +448,40 @@
    "away_logo": "https://media.api-sports.io/football/teams/1687.png",
    "conseil": "Sudtirol ou Nul",
    "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1494266",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Degerfors IF – Halmstad",
+   "kickoff_at": "2026-09-05T15:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2172.png",
+   "away_logo": "https://media.api-sports.io/football/teams/766.png",
+   "conseil": "Degerfors IF ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1550110",
+   "flag": "🇮🇹",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fiorentina – Torino",
+   "kickoff_at": "2026-09-05T15:00:00+02:00",
+   "published": true,
+   "league_id": 135,
+   "home_logo": "https://media.api-sports.io/football/teams/502.png",
+   "away_logo": "https://media.api-sports.io/football/teams/503.png",
+   "conseil": "Torino gagne",
+   "conseil_cote": 4.42,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   }
@@ -1799,22 +1816,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816798",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Philadelphia Phillies – Atlanta Braves",
-   "kickoff_at": "2026-09-04T22:40Z",
-   "published": true,
-   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2 - 5"
-  },
-  {
    "fixture_id": "baseball_401816797",
    "flag": "⚾",
    "league": "MLB",
@@ -1848,6 +1849,22 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816798",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Philadelphia Phillies – Atlanta Braves",
+   "kickoff_at": "2026-09-04T22:40Z",
+   "published": true,
+   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 5"
+  },
+  {
    "fixture_id": "baseball_401816799",
    "flag": "⚾",
    "league": "MLB",
@@ -1862,6 +1879,38 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "0 - 1"
+  },
+  {
+   "fixture_id": "baseball_401816800",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Miami Marlins – Chicago Cubs",
+   "kickoff_at": "2026-09-04T23:10Z",
+   "published": true,
+   "value_bet": "Miami Marlins Plus de 3,5 @ 2.04",
+   "value_cote": 2.04,
+   "value_mise_eur": 208.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "1 - 6",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Chicago Cubs @ 1.6536",
+     "odd": 1.65,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 7,5 runs @ 1.8",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816801",
@@ -1901,38 +1950,6 @@
      "odd": 1.56,
      "mise_eur": 200.0,
      "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816800",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Miami Marlins – Chicago Cubs",
-   "kickoff_at": "2026-09-04T23:10Z",
-   "published": true,
-   "value_bet": "Miami Marlins Plus de 3,5 @ 2.04",
-   "value_cote": 2.04,
-   "value_mise_eur": 208.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "1 - 6",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Chicago Cubs @ 1.6536",
-     "odd": 1.65,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 7,5 runs @ 1.8",
-     "odd": 1.8,
-     "mise_eur": 200.0,
-     "result": "PERDU"
     }
    ]
   },
@@ -2257,23 +2274,23 @@
    ]
   },
   {
-   "fixture_id": "api_football:1507052",
+   "fixture_id": "api_football:1507055",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Bucheon FC 1995 – Daejeon Citizen",
+   "match": "FC Seoul – Incheon United",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.25,
+   "home_logo": "https://media.api-sports.io/football/teams/2766.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
+   "conseil": "FC Seoul ou Nul",
+   "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "0 - 5"
+   "score": "1 - 0"
   },
   {
    "fixture_id": "api_football:1507054",
@@ -2314,25 +2331,6 @@
    "score": "0 - 0"
   },
   {
-   "fixture_id": "api_football:1556051",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Avispa Fukuoka – Mito Hollyhock",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/316.png",
-   "away_logo": "https://media.api-sports.io/football/teams/305.png",
-   "conseil": "Mito Hollyhock ou Nul",
-   "conseil_cote": 1.8,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1565470",
    "flag": "🇺🇦",
    "league": "Premier League",
@@ -2352,23 +2350,42 @@
    "score": "2 - 2"
   },
   {
-   "fixture_id": "api_football:1507055",
+   "fixture_id": "api_football:1507052",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Seoul – Incheon United",
+   "match": "Bucheon FC 1995 – Daejeon Citizen",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2766.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
-   "conseil": "FC Seoul ou Nul",
-   "conseil_cote": 1.2,
+   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 0"
+   "score": "0 - 5"
+  },
+  {
+   "fixture_id": "api_football:1556051",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Avispa Fukuoka – Mito Hollyhock",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/316.png",
+   "away_logo": "https://media.api-sports.io/football/teams/305.png",
+   "conseil": "Mito Hollyhock ou Nul",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   }
  ]
 }
