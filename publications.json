@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T10:04:40.537629+00:00",
+ "generated_at": "2026-09-05T10:04:53.941723+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182727",
@@ -32,6 +32,23 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "api_football:1556051",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Avispa Fukuoka – Mito Hollyhock",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/316.png",
+   "away_logo": "https://media.api-sports.io/football/teams/305.png",
+   "conseil": "Mito Hollyhock ou Nul",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1507052",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -46,23 +63,6 @@
    "conseil": "Daejeon Citizen ou Nul",
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1507053",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Jeju United FC – Ulsan Hyundai FC",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2761.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
-   "conseil": "Jeju United FC ou Nul",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -83,20 +83,20 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1507055",
+   "fixture_id": "api_football:1507053",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Seoul – Incheon United",
+   "match": "Jeju United FC – Ulsan Hyundai FC",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2766.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
-   "conseil": "FC Seoul ou Nul",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0,
+   "home_logo": "https://media.api-sports.io/football/teams/2761.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
+   "conseil": "Jeju United FC ou Nul",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -134,20 +134,54 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1556051",
-   "flag": "🇯🇵",
-   "league": "J1 League",
+   "fixture_id": "api_football:1507055",
+   "flag": "🇰🇷",
+   "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Avispa Fukuoka – Mito Hollyhock",
+   "match": "FC Seoul – Incheon United",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/316.png",
-   "away_logo": "https://media.api-sports.io/football/teams/305.png",
-   "conseil": "Mito Hollyhock ou Nul",
-   "conseil_cote": 1.8,
-   "conseil_mise_eur": 300.0,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2766.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
+   "conseil": "FC Seoul ou Nul",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576166",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "1. FC Kaiserslautern – SV Darmstadt 98",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/745.png",
+   "away_logo": "https://media.api-sports.io/football/teams/181.png",
+   "conseil": "1. FC Kaiserslautern ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.07,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576169",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfL Wolfsburg – Energie Cottbus",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/161.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1320.png",
+   "conseil": "VfL Wolfsburg ou Nul",
+   "conseil_cote": 1.08,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -1863,34 +1897,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1519487",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tecnico Universitario – LDU de Quito",
-   "kickoff_at": "2026-09-05T02:30:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
-   "conseil": "LDU de Quito ou Nul",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.71,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1505515",
    "flag": "🇨🇱",
    "league": "Primera División",
@@ -1932,6 +1938,34 @@
      "odd": 1.73,
      "mise_eur": 100.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1519487",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tecnico Universitario – LDU de Quito",
+   "kickoff_at": "2026-09-05T02:30:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
+   "conseil": "LDU de Quito ou Nul",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.71,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
     }
    ]
   },
