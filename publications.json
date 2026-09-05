@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T15:28:46.033705+00:00",
+ "generated_at": "2026-09-05T15:28:52.606846+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -30,32 +30,6 @@
    "conseil": "Victoire Taylor Fritz",
    "conseil_cote": 1.17,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1575157",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "SC Paderborn 07 – SC Freiburg",
-   "kickoff_at": "2026-09-05T15:30:00+02:00",
-   "published": true,
-   "league_id": 78,
-   "home_logo": "https://media.api-sports.io/football/teams/185.png",
-   "away_logo": "https://media.api-sports.io/football/teams/160.png",
-   "conseil": "SC Freiburg gagne",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "I. Matanović buteur",
-     "detail": "cote 2.05",
-     "odd": 2.05,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1575155",
@@ -2654,6 +2628,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 0"
+  },
+  {
+   "fixture_id": "api_football:1575157",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "SC Paderborn 07 – SC Freiburg",
+   "kickoff_at": "2026-09-05T15:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/185.png",
+   "away_logo": "https://media.api-sports.io/football/teams/160.png",
+   "conseil": "SC Freiburg gagne",
+   "conseil_cote": 2.05,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "I. Matanović buteur",
+     "detail": "cote 2.05",
+     "odd": 2.05,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1575151",
