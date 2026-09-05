@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T13:09:52.989752+00:00",
+ "generated_at": "2026-09-05T13:23:55.386226+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -47,32 +47,6 @@
    "conseil_cote": 1.42,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1513620",
-   "flag": "🇪🇪",
-   "league": "Meistriliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kuressaare – Trans Narva",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 329,
-   "home_logo": "https://media.api-sports.io/football/teams/3526.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2274.png",
-   "conseil": "Kuressaare ou Nul",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Demidov buteur",
-     "detail": "68%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1563139",
@@ -2574,6 +2548,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "4 - 4"
+  },
+  {
+   "fixture_id": "api_football:1513620",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kuressaare – Trans Narva",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/3526.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2274.png",
+   "conseil": "Kuressaare ou Nul",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Demidov buteur",
+     "detail": "68%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
