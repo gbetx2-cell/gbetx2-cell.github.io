@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T03:31:00.490004+00:00",
+ "generated_at": "2026-09-05T03:31:05.608306+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -62,6 +62,21 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "tennis_espn_atp_182757",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Botic Van De Zandschulp – Zizou Bergs",
+   "kickoff_at": "2026-09-05T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/botic van de zandschulp.png",
+   "away_photo": "assets/players/zizou bergs.png",
+   "conseil": "Victoire Zizou Bergs",
+   "conseil_cote": 2.72,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_182737",
    "flag": "🎾",
    "league": "US Open",
@@ -74,6 +89,21 @@
    "away_photo": "assets/players/luciano darderi.png",
    "conseil": "Victoire Luciano Darderi",
    "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182699",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alejandro Tabilo – Alexander Zverev",
+   "kickoff_at": "2026-09-05T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/alejandro tabilo.png",
+   "away_photo": "assets/players/alexander zverev.png",
+   "conseil": "Victoire Alexander Zverev",
+   "conseil_cote": 1.18,
    "conseil_mise_eur": 200.0
   },
   {
@@ -1523,6 +1553,25 @@
    "score": "1 - 2"
   },
   {
+   "fixture_id": "api_football:1565239",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "CFR 1907 Cluj – Farul Constanta",
+   "kickoff_at": "2026-09-04T19:30:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/2246.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2596.png",
+   "conseil": "CFR 1907 Cluj ou Nul",
+   "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
+  },
+  {
    "fixture_id": "api_football:1600330",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -1558,25 +1607,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1565239",
-   "flag": "🇷🇴",
-   "league": "Liga I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "CFR 1907 Cluj – Farul Constanta",
-   "kickoff_at": "2026-09-04T19:30:00+02:00",
-   "published": true,
-   "league_id": 283,
-   "home_logo": "https://media.api-sports.io/football/teams/2246.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2596.png",
-   "conseil": "CFR 1907 Cluj ou Nul",
-   "conseil_cote": 1.32,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1552465",
    "flag": "🇫🇷",
    "league": "Ligue 2",
@@ -1594,6 +1624,34 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1603012",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Ahli Jeddah – Al Riyadh",
+   "kickoff_at": "2026-09-04T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2929.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10511.png",
+   "conseil": "Al-Ahli Jeddah gagne + Plus de 2.5 buts",
+   "conseil_cote": 2.03,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "5 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.43,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1603013",
@@ -1648,34 +1706,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
-  },
-  {
-   "fixture_id": "api_football:1603012",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Ahli Jeddah – Al Riyadh",
-   "kickoff_at": "2026-09-04T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2929.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10511.png",
-   "conseil": "Al-Ahli Jeddah gagne + Plus de 2.5 buts",
-   "conseil_cote": 2.03,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "5 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.43,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1552153",
@@ -1843,25 +1873,6 @@
    "score": "4-6, 4-6, 3-6"
   },
   {
-   "fixture_id": "api_football:1551096",
-   "flag": "⚽",
-   "league": "First League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Arda Kardzhali – Botev Plovdiv",
-   "kickoff_at": "2026-09-04T20:15:00+02:00",
-   "published": true,
-   "league_id": 172,
-   "home_logo": "https://media.api-sports.io/football/teams/1430.png",
-   "away_logo": "https://media.api-sports.io/football/teams/634.png",
-   "conseil": "Arda Kardzhali gagne",
-   "conseil_cote": 2.27,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 3"
-  },
-  {
    "fixture_id": "api_football:1558007",
    "flag": "⚽",
    "league": "1. SNL",
@@ -1879,6 +1890,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "3 - 1"
+  },
+  {
+   "fixture_id": "api_football:1551096",
+   "flag": "⚽",
+   "league": "First League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Arda Kardzhali – Botev Plovdiv",
+   "kickoff_at": "2026-09-04T20:15:00+02:00",
+   "published": true,
+   "league_id": 172,
+   "home_logo": "https://media.api-sports.io/football/teams/1430.png",
+   "away_logo": "https://media.api-sports.io/football/teams/634.png",
+   "conseil": "Arda Kardzhali gagne",
+   "conseil_cote": 2.27,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 3"
   },
   {
    "fixture_id": "api_football:1575149",
@@ -1963,6 +1993,25 @@
    "score": "3 - 0"
   },
   {
+   "fixture_id": "api_football:1558617",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lommel United – Club Brugge KV",
+   "kickoff_at": "2026-09-04T20:45:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/259.png",
+   "away_logo": "https://media.api-sports.io/football/teams/569.png",
+   "conseil": "Lommel United ou Nul",
+   "conseil_cote": 3.75,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1"
+  },
+  {
    "fixture_id": "api_football:1550112",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -1991,25 +2040,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1558617",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lommel United – Club Brugge KV",
-   "kickoff_at": "2026-09-04T20:45:00+02:00",
-   "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/259.png",
-   "away_logo": "https://media.api-sports.io/football/teams/569.png",
-   "conseil": "Lommel United ou Nul",
-   "conseil_cote": 3.75,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 1"
-  },
-  {
    "fixture_id": "api_football:1562053",
    "flag": "⚽",
    "league": "Premiership",
@@ -2027,6 +2057,34 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1570365",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Betis – Real Madrid",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/543.png",
+   "away_logo": "https://media.api-sports.io/football/teams/541.png",
+   "conseil": "Real Madrid gagne",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.52,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1494754",
@@ -2123,34 +2181,6 @@
      "label": "Les deux équipes marquent",
      "odd": 1.37,
      "mise_eur": 300.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1570365",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Betis – Real Madrid",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/543.png",
-   "away_logo": "https://media.api-sports.io/football/teams/541.png",
-   "conseil": "Real Madrid gagne",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.52,
-     "mise_eur": 100.0,
      "result": "PERDU"
     }
    ]
@@ -2386,31 +2416,6 @@
    "score": "0 - 1"
   },
   {
-   "fixture_id": "baseball_401816803",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – San Francisco Giants",
-   "kickoff_at": "2026-09-04T23:10Z",
-   "published": true,
-   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "10 - 6",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — New York Mets @ 1.5556",
-     "odd": 1.56,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816800",
    "flag": "⚾",
    "league": "MLB",
@@ -2439,6 +2444,31 @@
      "odd": 1.8,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816803",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – San Francisco Giants",
+   "kickoff_at": "2026-09-04T23:10Z",
+   "published": true,
+   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "10 - 6",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — New York Mets @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -2503,48 +2533,6 @@
    "score": "4 - 1"
   },
   {
-   "fixture_id": "api_football:1493115",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Platense – Deportivo Riestra",
-   "kickoff_at": "2026-09-05T00:00:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/1064.png",
-   "away_logo": "https://media.api-sports.io/football/teams/476.png",
-   "conseil": "Deportivo Riestra ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.3,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.49,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.47,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1493109",
    "flag": "🇦🇷",
    "league": "Liga Profesional Argentina",
@@ -2574,6 +2562,48 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.5,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.47,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493115",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Platense – Deportivo Riestra",
+   "kickoff_at": "2026-09-05T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "away_logo": "https://media.api-sports.io/football/teams/476.png",
+   "conseil": "Deportivo Riestra ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.3,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.49,
      "mise_eur": 300.0,
      "result": "PERDU"
     },
