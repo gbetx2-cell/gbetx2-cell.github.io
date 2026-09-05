@@ -501,6 +501,13 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
     # etait la seule source du bug. programme_date (variable Python) reste
     # utilisee plus bas pour la requete Coup du Jour (daily_flags), une table
     # differente, non affectee par ce retrait.
+    # "LIMIT 300" retire le 05/09/2026 (audit demande explicite, confirme en
+    # direct : match Shabab Al Ahli Dubai vs Al-Jazira publie sur Telegram
+    # mais invisible du site -- 538 fixtures dans la fenetre du jour, ce
+    # match 381e par heure de coup d'envoi, donc coupe par la limite). Une
+    # limite fixe redevient fausse des que le volume grossit (nouveaux
+    # sports a venir), sans jamais avertir personne -- retiree plutot que
+    # remontee a une nouvelle valeur arbitraire qui se reperimerait pareil.
     cur.execute(
         f"""
         SELECT fixture_id, home, away, league, kickoff_at, publish_status, sport,
@@ -509,7 +516,6 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
         WHERE sport IN ({placeholders_sport})
           AND {window_where}
         ORDER BY kickoff_at ASC
-        LIMIT 300
         """,
         (*PROGRAMME_SPORTS, *window_params),
     )
