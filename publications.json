@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T13:57:00.640479+00:00",
+ "generated_at": "2026-09-05T13:59:53.288703+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -64,32 +64,6 @@
    "conseil_cote": 1.51,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1552463",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Metz – Rodez",
-   "kickoff_at": "2026-09-05T14:00:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/112.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1301.png",
-   "conseil": "Metz ou Nul",
-   "conseil_cote": 1.29,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "P. Fall buteur",
-     "detail": "cote 2.30",
-     "odd": 2.3,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1565241",
@@ -2365,25 +2339,6 @@
    "score": "3 - 0"
   },
   {
-   "fixture_id": "api_football:1576169",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "VfL Wolfsburg – Energie Cottbus",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/161.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1320.png",
-   "conseil": "VfL Wolfsburg ou Nul",
-   "conseil_cote": 1.08,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "4 - 4"
-  },
-  {
    "fixture_id": "api_football:1576165",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -2413,6 +2368,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1576169",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfL Wolfsburg – Energie Cottbus",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/161.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1320.png",
+   "conseil": "VfL Wolfsburg ou Nul",
+   "conseil_cote": 1.08,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "4 - 4"
+  },
+  {
    "fixture_id": "api_football:1557395",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Premier League",
@@ -2430,6 +2404,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1563139",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Stoke City – Charlton",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/75.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1335.png",
+   "conseil": "Charlton ou Nul",
+   "conseil_cote": 1.7,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 0"
   },
   {
    "fixture_id": "api_football:1563133",
@@ -2478,25 +2471,6 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "3 - 2"
-  },
-  {
-   "fixture_id": "api_football:1563139",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Stoke City – Charlton",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/75.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1335.png",
-   "conseil": "Charlton ou Nul",
-   "conseil_cote": 1.7,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 0"
   },
   {
    "fixture_id": "api_football:1513620",
@@ -2620,6 +2594,35 @@
      "odd": null,
      "mise_eur": null,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1552463",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Metz – Rodez",
+   "kickoff_at": "2026-09-05T14:00:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/112.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1301.png",
+   "conseil": "Metz ou Nul",
+   "conseil_cote": 1.29,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "4 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "P. Fall buteur",
+     "detail": "cote 2.30",
+     "odd": 2.3,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
