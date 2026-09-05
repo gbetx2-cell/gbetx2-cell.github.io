@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T14:48:53.171657+00:00",
+ "generated_at": "2026-09-05T14:55:54.071643+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -63,23 +63,6 @@
    "conseil": "Slovácko ou Nul",
    "conseil_cote": 1.37,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1494266",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Degerfors IF – Halmstad",
-   "kickoff_at": "2026-09-05T15:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2172.png",
-   "away_logo": "https://media.api-sports.io/football/teams/766.png",
-   "conseil": "Degerfors IF ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -2655,6 +2638,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1494266",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Degerfors IF – Halmstad",
+   "kickoff_at": "2026-09-05T15:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2172.png",
+   "away_logo": "https://media.api-sports.io/football/teams/766.png",
+   "conseil": "Degerfors IF ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 0"
   }
  ]
 }
