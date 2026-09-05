@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T14:00:08.170613+00:00",
+ "generated_at": "2026-09-05T14:00:14.240116+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -47,32 +47,6 @@
    "conseil_cote": 1.42,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1523262",
-   "flag": "🇨🇳",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Shandong Luneng – Sichuan Jiuniu",
-   "kickoff_at": "2026-09-05T14:00:00+02:00",
-   "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/844.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5686.png",
-   "conseil": "Shandong Luneng gagne",
-   "conseil_cote": 1.64,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "api_football",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Cryzan buteur",
-     "detail": "cote 1.80",
-     "odd": 1.8,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1553162",
@@ -2648,6 +2622,35 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1523262",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Shandong Luneng – Sichuan Jiuniu",
+   "kickoff_at": "2026-09-05T14:00:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/844.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5686.png",
+   "conseil": "Shandong Luneng gagne",
+   "conseil_cote": 1.64,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "api_football",
+   "result": "PERDU",
+   "score": "1 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Cryzan buteur",
+     "detail": "cote 1.80",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
