@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T02:21:02.929194+00:00",
+ "generated_at": "2026-09-05T02:51:52.049566+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -15,19 +15,6 @@
    "conseil": "Victoire Ben Shelton",
    "conseil_cote": 1.27,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816801",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Detroit Tigers",
-   "kickoff_at": "2026-09-04T23:10Z",
-   "published": true,
-   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
-   "value_cote": 1.75,
-   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816806",
@@ -66,71 +53,6 @@
      "label": "Total — Plus de 8,5 runs @ 1.7692",
      "odd": 1.77,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1505515",
-   "flag": "🇨🇱",
-   "league": "Primera División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Concepción – A. Italiano",
-   "kickoff_at": "2026-09-05T02:30:00+02:00",
-   "published": true,
-   "league_id": 265,
-   "home_logo": "https://media.api-sports.io/football/teams/5635.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2329.png",
-   "conseil": "Concepción ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Larrivey buteur",
-     "detail": "cote 2.62",
-     "odd": 2.62,
-     "mise_eur": 300.0
-    }
-   ],
-   "refonte_value_bets": [
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.88,
-     "mise_eur": 100.0
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.73,
-     "mise_eur": 100.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1519487",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tecnico Universitario – LDU de Quito",
-   "kickoff_at": "2026-09-05T02:30:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
-   "conseil": "LDU de Quito ou Nul",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.71,
-     "mise_eur": 100.0
     }
    ]
   },
@@ -2454,6 +2376,22 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816801",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Detroit Tigers",
+   "kickoff_at": "2026-09-04T23:10Z",
+   "published": true,
+   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
+   "value_cote": 1.75,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4 - 3"
+  },
+  {
    "fixture_id": "baseball_401816800",
    "flag": "⚾",
    "league": "MLB",
@@ -2654,6 +2592,76 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1505515",
+   "flag": "🇨🇱",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Concepción – A. Italiano",
+   "kickoff_at": "2026-09-05T02:30:00+02:00",
+   "published": true,
+   "league_id": 265,
+   "home_logo": "https://media.api-sports.io/football/teams/5635.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2329.png",
+   "conseil": "Concepción ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Larrivey buteur",
+     "detail": "cote 2.62",
+     "odd": 2.62,
+     "mise_eur": 300.0
+    }
+   ],
+   "refonte_value_bets": [
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.88,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.73,
+     "mise_eur": 100.0,
+     "result": "PERDU"
+    }
+   ],
+   "result": "GAGNE"
+  },
+  {
+   "fixture_id": "api_football:1519487",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tecnico Universitario – LDU de Quito",
+   "kickoff_at": "2026-09-05T02:30:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
+   "conseil": "LDU de Quito ou Nul",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.71,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ],
+   "result": "GAGNE"
   }
  ]
 }
