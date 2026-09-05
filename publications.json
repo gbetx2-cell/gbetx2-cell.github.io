@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T11:00:40.387222+00:00",
+ "generated_at": "2026-09-05T11:05:40.467495+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -32,6 +32,23 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "api_football:1507055",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Seoul – Incheon United",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2766.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
+   "conseil": "FC Seoul ou Nul",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1565470",
    "flag": "🇺🇦",
    "league": "Premier League",
@@ -49,37 +66,37 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1507052",
-   "flag": "🇰🇷",
-   "league": "K League 1",
+   "fixture_id": "api_football:1556051",
+   "flag": "🇯🇵",
+   "league": "J1 League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Bucheon FC 1995 – Daejeon Citizen",
+   "match": "Avispa Fukuoka – Mito Hollyhock",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/316.png",
+   "away_logo": "https://media.api-sports.io/football/teams/305.png",
+   "conseil": "Mito Hollyhock ou Nul",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1507055",
-   "flag": "🇰🇷",
-   "league": "K League 1",
+   "fixture_id": "api_football:1565468",
+   "flag": "🇺🇦",
+   "league": "Premier League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Seoul – Incheon United",
+   "match": "FC Kharkiv – Obolon'-Brovar",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2766.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
-   "conseil": "FC Seoul ou Nul",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/3628.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3630.png",
+   "conseil": "FC Kharkiv ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -117,37 +134,20 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1565468",
-   "flag": "🇺🇦",
-   "league": "Premier League",
+   "fixture_id": "api_football:1507052",
+   "flag": "🇰🇷",
+   "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Kharkiv – Obolon'-Brovar",
+   "match": "Bucheon FC 1995 – Daejeon Citizen",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/3628.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3630.png",
-   "conseil": "FC Kharkiv ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1556051",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Avispa Fukuoka – Mito Hollyhock",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/316.png",
-   "away_logo": "https://media.api-sports.io/football/teams/305.png",
-   "conseil": "Mito Hollyhock ou Nul",
-   "conseil_cote": 1.8,
-   "conseil_mise_eur": 300.0,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -166,32 +166,6 @@
    "conseil_cote": 1.08,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1576165",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Holstein Kiel – 1. FC Nürnberg",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/191.png",
-   "away_logo": "https://media.api-sports.io/football/teams/171.png",
-   "conseil": "1. FC Nürnberg gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.62,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "P. Scobel buteur",
-     "detail": "cote 3.25",
-     "odd": 3.25,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1523259",
@@ -226,6 +200,32 @@
    "conseil_cote": 2.07,
    "conseil_mise_eur": 400.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576165",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Holstein Kiel – 1. FC Nürnberg",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/191.png",
+   "away_logo": "https://media.api-sports.io/football/teams/171.png",
+   "conseil": "1. FC Nürnberg gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.62,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "P. Scobel buteur",
+     "detail": "cote 3.25",
+     "odd": 3.25,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1563136",
@@ -327,6 +327,23 @@
    "away_logo": "https://media.api-sports.io/football/teams/35.png",
    "conseil": "Newcastle ou Nul",
    "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1523260",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Dalian Zhixing – Qingdao Jonoon",
+   "kickoff_at": "2026-09-05T13:35:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/21263.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1431.png",
+   "conseil": "Dalian Zhixing ou Nul",
+   "conseil_cote": 1.11,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   }
