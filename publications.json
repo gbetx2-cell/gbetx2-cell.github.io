@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T11:13:39.819652+00:00",
+ "generated_at": "2026-09-05T11:30:40.104534+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -45,6 +45,40 @@
    "away_logo": "https://media.api-sports.io/football/teams/2767.png",
    "conseil": "Jeju United FC ou Nul",
    "conseil_cote": 1.67,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1507052",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Bucheon FC 1995 – Daejeon Citizen",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1565468",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Kharkiv – Obolon'-Brovar",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/3628.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3630.png",
+   "conseil": "FC Kharkiv ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.42,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
@@ -100,40 +134,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1507052",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Bucheon FC 1995 – Daejeon Citizen",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2745.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1565468",
-   "flag": "🇺🇦",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Kharkiv – Obolon'-Brovar",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/3628.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3630.png",
-   "conseil": "FC Kharkiv ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1556051",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -148,6 +148,49 @@
    "conseil": "Mito Hollyhock ou Nul",
    "conseil_cote": 1.8,
    "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576165",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Holstein Kiel – 1. FC Nürnberg",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/191.png",
+   "away_logo": "https://media.api-sports.io/football/teams/171.png",
+   "conseil": "1. FC Nürnberg gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.62,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "P. Scobel buteur",
+     "detail": "cote 3.25",
+     "odd": 3.25,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1523259",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Wuhan Three Towns – Qingdao Youth Island",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/5695.png",
+   "away_logo": "https://media.api-sports.io/football/teams/17265.png",
+   "conseil": "Qingdao Youth Island ou Nul",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -185,47 +228,81 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1523259",
-   "flag": "🇨🇳",
-   "league": "Super League",
+   "fixture_id": "api_football:1582790",
+   "flag": "⚽",
+   "league": "Premijer Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Wuhan Three Towns – Qingdao Youth Island",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "match": "BSK Banja Luka – Čelik",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
    "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/5695.png",
-   "away_logo": "https://media.api-sports.io/football/teams/17265.png",
-   "conseil": "Qingdao Youth Island ou Nul",
-   "conseil_cote": 1.8,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/21736.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3363.png",
+   "conseil": "BSK Banja Luka ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.62,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1576165",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
+   "fixture_id": "api_football:1563136",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Holstein Kiel – 1. FC Nürnberg",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "match": "Preston – Blackburn",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
    "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/191.png",
-   "away_logo": "https://media.api-sports.io/football/teams/171.png",
-   "conseil": "1. FC Nürnberg gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.62,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/59.png",
+   "away_logo": "https://media.api-sports.io/football/teams/67.png",
+   "conseil": "Blackburn ou Nul",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1513620",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kuressaare – Trans Narva",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/3526.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2274.png",
+   "conseil": "Kuressaare ou Nul",
+   "conseil_cote": 1.57,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "P. Scobel buteur",
-     "detail": "cote 3.25",
-     "odd": 3.25,
-     "mise_eur": 200.0
+     "label": "J. Demidov buteur",
+     "detail": "68%",
+     "odd": null,
+     "mise_eur": null
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1563139",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Stoke City – Charlton",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/75.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1335.png",
+   "conseil": "Charlton ou Nul",
+   "conseil_cote": 1.7,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1563133",
@@ -269,83 +346,6 @@
    "conseil_cote": 1.36,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1582790",
-   "flag": "⚽",
-   "league": "Premijer Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "BSK Banja Luka – Čelik",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/21736.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3363.png",
-   "conseil": "BSK Banja Luka ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.62,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1563136",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Preston – Blackburn",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/59.png",
-   "away_logo": "https://media.api-sports.io/football/teams/67.png",
-   "conseil": "Blackburn ou Nul",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1563139",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Stoke City – Charlton",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/75.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1335.png",
-   "conseil": "Charlton ou Nul",
-   "conseil_cote": 1.7,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1513620",
-   "flag": "🇪🇪",
-   "league": "Meistriliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kuressaare – Trans Narva",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 329,
-   "home_logo": "https://media.api-sports.io/football/teams/3526.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2274.png",
-   "conseil": "Kuressaare ou Nul",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Demidov buteur",
-     "detail": "68%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1523261",
@@ -431,6 +431,23 @@
    "conseil": "Tenerife ou Nul",
    "conseil_cote": 1.51,
    "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1565241",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Botosani – Sepsi OSK Sfantu Gheorghe",
+   "kickoff_at": "2026-09-05T14:00:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/2581.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2585.png",
+   "conseil": "Sepsi OSK Sfantu Gheorghe ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.25,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -1781,22 +1798,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816798",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Philadelphia Phillies – Atlanta Braves",
-   "kickoff_at": "2026-09-04T22:40Z",
-   "published": true,
-   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2 - 5"
-  },
-  {
    "fixture_id": "baseball_401816797",
    "flag": "⚾",
    "league": "MLB",
@@ -1830,6 +1831,22 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816798",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Philadelphia Phillies – Atlanta Braves",
+   "kickoff_at": "2026-09-04T22:40Z",
+   "published": true,
+   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 5"
+  },
+  {
    "fixture_id": "baseball_401816799",
    "flag": "⚾",
    "league": "MLB",
@@ -1844,31 +1861,6 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "0 - 1"
-  },
-  {
-   "fixture_id": "baseball_401816803",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – San Francisco Giants",
-   "kickoff_at": "2026-09-04T23:10Z",
-   "published": true,
-   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "10 - 6",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — New York Mets @ 1.5556",
-     "odd": 1.56,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
   },
   {
    "fixture_id": "baseball_401816801",
@@ -1915,6 +1907,31 @@
      "odd": 1.8,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816803",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – San Francisco Giants",
+   "kickoff_at": "2026-09-04T23:10Z",
+   "published": true,
+   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "10 - 6",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — New York Mets @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -2137,6 +2154,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1519487",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tecnico Universitario – LDU de Quito",
+   "kickoff_at": "2026-09-05T02:30:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
+   "conseil": "LDU de Quito ou Nul",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.71,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1505515",
    "flag": "🇨🇱",
    "league": "Primera División",
@@ -2178,34 +2223,6 @@
      "odd": 1.73,
      "mise_eur": 100.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1519487",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tecnico Universitario – LDU de Quito",
-   "kickoff_at": "2026-09-05T02:30:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
-   "conseil": "LDU de Quito ou Nul",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.71,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
     }
    ]
   },
