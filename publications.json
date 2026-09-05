@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T01:50:50.477866+00:00",
+ "generated_at": "2026-09-05T02:03:41.014603+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -65,6 +65,19 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816801",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Detroit Tigers",
+   "kickoff_at": "2026-09-04T23:10Z",
+   "published": true,
+   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
+   "value_cote": 1.75,
+   "value_mise_eur": 200.0
+  },
+  {
    "fixture_id": "baseball_401816803",
    "flag": "⚾",
    "league": "MLB",
@@ -84,19 +97,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "baseball_401816801",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Detroit Tigers",
-   "kickoff_at": "2026-09-04T23:10Z",
-   "published": true,
-   "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
-   "value_cote": 1.75,
-   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816805",
@@ -213,6 +213,32 @@
      "label": "Moins de 9.5 corners",
      "odd": 1.73,
      "mise_eur": 100.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1550949",
+   "flag": "🇲🇽",
+   "league": "Liga MX",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Juarez – CF Pachuca",
+   "kickoff_at": "2026-09-05T05:00:00+02:00",
+   "published": true,
+   "league_id": 262,
+   "home_logo": "https://media.api-sports.io/football/teams/2298.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2292.png",
+   "conseil": "CF Pachuca ou Nul",
+   "conseil_cote": 1.29,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "S. Rondón buteur",
+     "detail": "cote 2.25",
+     "odd": 2.25,
+     "mise_eur": 200.0
     }
    ]
   }
@@ -1185,6 +1211,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1603011",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Abha – Al-Ettifaq",
+   "kickoff_at": "2026-09-04T18:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
+   "conseil": "Al-Ettifaq ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1"
+  },
+  {
    "fixture_id": "api_football:1551101",
    "flag": "⚽",
    "league": "First League",
@@ -1230,25 +1275,6 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "2 - 2"
-  },
-  {
-   "fixture_id": "api_football:1603011",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Abha – Al-Ettifaq",
-   "kickoff_at": "2026-09-04T18:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2951.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2934.png",
-   "conseil": "Al-Ettifaq ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 1"
   },
   {
    "fixture_id": "baseball_401877193",
@@ -1392,46 +1418,39 @@
    ]
   },
   {
-   "fixture_id": "api_football:1494748",
+   "fixture_id": "api_football:1494750",
    "flag": "🇳🇴",
    "league": "Eliteserien",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Aalesund – Start",
+   "match": "Fredrikstad – Bodo/Glimt",
    "kickoff_at": "2026-09-04T19:00:00+02:00",
    "published": true,
    "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/757.png",
-   "away_logo": "https://media.api-sports.io/football/teams/334.png",
-   "conseil": "Aalesund ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.62,
-   "conseil_mise_eur": 300.0,
+   "home_logo": "https://media.api-sports.io/football/teams/2149.png",
+   "away_logo": "https://media.api-sports.io/football/teams/327.png",
+   "conseil": "Bodo/Glimt ou Nul",
+   "conseil_cote": 1.1,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "2 - 0",
+   "score": "1 - 2",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "M. Christensen buteur",
-     "detail": "cote 3.50",
-     "odd": 3.5,
+     "label": "A. Helmersen buteur",
+     "detail": "cote 1.62",
+     "odd": 1.62,
      "mise_eur": 200.0,
-     "result": "GAGNE"
+     "result": "PERDU"
     }
    ],
    "refonte_value_bets": [
     {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.48,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odd": 1.42,
-     "mise_eur": 400.0,
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.63,
+     "mise_eur": 100.0,
      "result": "PERDU"
     }
    ]
@@ -1527,39 +1546,46 @@
    ]
   },
   {
-   "fixture_id": "api_football:1494750",
+   "fixture_id": "api_football:1494748",
    "flag": "🇳🇴",
    "league": "Eliteserien",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Fredrikstad – Bodo/Glimt",
+   "match": "Aalesund – Start",
    "kickoff_at": "2026-09-04T19:00:00+02:00",
    "published": true,
    "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/2149.png",
-   "away_logo": "https://media.api-sports.io/football/teams/327.png",
-   "conseil": "Bodo/Glimt ou Nul",
-   "conseil_cote": 1.1,
-   "conseil_mise_eur": 200.0,
+   "home_logo": "https://media.api-sports.io/football/teams/757.png",
+   "away_logo": "https://media.api-sports.io/football/teams/334.png",
+   "conseil": "Aalesund ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.62,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
-   "score": "1 - 2",
+   "score": "2 - 0",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "A. Helmersen buteur",
-     "detail": "cote 1.62",
-     "odd": 1.62,
+     "label": "M. Christensen buteur",
+     "detail": "cote 3.50",
+     "odd": 3.5,
      "mise_eur": 200.0,
-     "result": "PERDU"
+     "result": "GAGNE"
     }
    ],
    "refonte_value_bets": [
     {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.63,
-     "mise_eur": 100.0,
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.48,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odd": 1.42,
+     "mise_eur": 400.0,
      "result": "PERDU"
     }
    ]
@@ -1603,6 +1629,25 @@
    "score": "0 - 2"
   },
   {
+   "fixture_id": "api_football:1600331",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Richards Bay – Amazulu",
+   "kickoff_at": "2026-09-04T19:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
+   "conseil": "Amazulu ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.43,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
+  },
+  {
    "fixture_id": "api_football:1600330",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -1638,25 +1683,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1600331",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Richards Bay – Amazulu",
-   "kickoff_at": "2026-09-04T19:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/10567.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2669.png",
-   "conseil": "Amazulu ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.43,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 2"
-  },
-  {
    "fixture_id": "api_football:1565239",
    "flag": "🇷🇴",
    "league": "Liga I",
@@ -1670,6 +1696,25 @@
    "away_logo": "https://media.api-sports.io/football/teams/2596.png",
    "conseil": "CFR 1907 Cluj ou Nul",
    "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1548526",
+   "flag": "🇭🇷",
+   "league": "HNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "NK Varazdin – Istra 1961",
+   "kickoff_at": "2026-09-04T20:00:00+02:00",
+   "published": true,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/1483.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1016.png",
+   "conseil": "NK Varazdin ou Nul",
+   "conseil_cote": 1.24,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "GAGNE",
@@ -1723,6 +1768,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1603012",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Ahli Jeddah – Al Riyadh",
+   "kickoff_at": "2026-09-04T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2929.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10511.png",
+   "conseil": "Al-Ahli Jeddah gagne + Plus de 2.5 buts",
+   "conseil_cote": 2.03,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "5 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Plus de 2.5 buts",
+     "odd": 1.43,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1552461",
    "flag": "🇫🇷",
    "league": "Ligue 2",
@@ -1754,34 +1827,6 @@
      "odd": 1.7,
      "mise_eur": 200.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1603012",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Ahli Jeddah – Al Riyadh",
-   "kickoff_at": "2026-09-04T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2929.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10511.png",
-   "conseil": "Al-Ahli Jeddah gagne + Plus de 2.5 buts",
-   "conseil_cote": 2.03,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "5 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Plus de 2.5 buts",
-     "odd": 1.43,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -1906,25 +1951,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1548526",
-   "flag": "🇭🇷",
-   "league": "HNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "NK Varazdin – Istra 1961",
-   "kickoff_at": "2026-09-04T20:00:00+02:00",
-   "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/1483.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1016.png",
-   "conseil": "NK Varazdin ou Nul",
-   "conseil_cote": 1.24,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "tennis_espn_atp_182740",
    "flag": "🎾",
    "league": "US Open",
@@ -1940,25 +1966,6 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "4-6, 4-6, 3-6"
-  },
-  {
-   "fixture_id": "api_football:1558007",
-   "flag": "⚽",
-   "league": "1. SNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Nafta – Radomlje",
-   "kickoff_at": "2026-09-04T20:15:00+02:00",
-   "published": true,
-   "league_id": 373,
-   "home_logo": "https://media.api-sports.io/football/teams/4376.png",
-   "away_logo": "https://media.api-sports.io/football/teams/4378.png",
-   "conseil": "Radomlje ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.0,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1551096",
@@ -1980,6 +1987,25 @@
    "score": "2 - 3"
   },
   {
+   "fixture_id": "api_football:1558007",
+   "flag": "⚽",
+   "league": "1. SNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Nafta – Radomlje",
+   "kickoff_at": "2026-09-04T20:15:00+02:00",
+   "published": true,
+   "league_id": 373,
+   "home_logo": "https://media.api-sports.io/football/teams/4376.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4378.png",
+   "conseil": "Radomlje ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.0,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 1"
+  },
+  {
    "fixture_id": "api_football:1553160",
    "flag": "🇵🇱",
    "league": "Ekstraklasa",
@@ -1997,34 +2023,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 0"
-  },
-  {
-   "fixture_id": "api_football:1569910",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Las Palmas – Leganes",
-   "kickoff_at": "2026-09-04T20:30:00+02:00",
-   "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/534.png",
-   "away_logo": "https://media.api-sports.io/football/teams/537.png",
-   "conseil": "Leganes ou Nul",
-   "conseil_cote": 1.97,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.9,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1575149",
@@ -2056,6 +2054,34 @@
      "market": "Corners O/U 9.5",
      "label": "Plus de 9.5 corners",
      "odd": 1.59,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1569910",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Las Palmas – Leganes",
+   "kickoff_at": "2026-09-04T20:30:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/534.png",
+   "away_logo": "https://media.api-sports.io/football/teams/537.png",
+   "conseil": "Leganes ou Nul",
+   "conseil_cote": 1.97,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.9,
      "mise_eur": 100.0,
      "result": "GAGNE"
     }
@@ -2128,6 +2154,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1557393",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Ipswich – Liverpool",
+   "kickoff_at": "2026-09-04T21:00:00+02:00",
+   "published": true,
+   "league_id": 39,
+   "home_logo": "https://media.api-sports.io/football/teams/57.png",
+   "away_logo": "https://media.api-sports.io/football/teams/40.png",
+   "conseil": "Liverpool ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
+  },
+  {
    "fixture_id": "api_football:1570365",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -2182,25 +2227,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1557393",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Ipswich – Liverpool",
-   "kickoff_at": "2026-09-04T21:00:00+02:00",
-   "published": true,
-   "league_id": 39,
-   "home_logo": "https://media.api-sports.io/football/teams/57.png",
-   "away_logo": "https://media.api-sports.io/football/teams/40.png",
-   "conseil": "Liverpool ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 2"
   },
   {
    "fixture_id": "api_football:1618996",
@@ -2488,48 +2514,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1493115",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Platense – Deportivo Riestra",
-   "kickoff_at": "2026-09-05T00:00:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/1064.png",
-   "away_logo": "https://media.api-sports.io/football/teams/476.png",
-   "conseil": "Deportivo Riestra ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.3,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.49,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.47,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1493109",
    "flag": "🇦🇷",
    "league": "Liga Profesional Argentina",
@@ -2559,6 +2543,48 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.5,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.47,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493115",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Platense – Deportivo Riestra",
+   "kickoff_at": "2026-09-05T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "away_logo": "https://media.api-sports.io/football/teams/476.png",
+   "conseil": "Deportivo Riestra ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.3,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.49,
      "mise_eur": 300.0,
      "result": "PERDU"
     },
