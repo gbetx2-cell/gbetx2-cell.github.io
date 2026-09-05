@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T02:51:52.049566+00:00",
+ "generated_at": "2026-09-05T02:51:58.627592+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -28,33 +28,6 @@
    "value_bet": "Tampa Bay Rays Plus de 3,5 @ 1.6667",
    "value_cote": 1.67,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816804",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Houston Astros – Arizona Diamondbacks",
-   "kickoff_at": "2026-09-05T00:10Z",
-   "published": true,
-   "value_bet": "Houston Astros Plus de 4,5 @ 2.02",
-   "value_cote": 2.02,
-   "value_mise_eur": 204.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Houston Astros @ 1.8",
-     "odd": 1.8,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 8,5 runs @ 1.7692",
-     "odd": 1.77,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1550949",
@@ -2548,6 +2521,38 @@
      "odd": 1.47,
      "mise_eur": 300.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816804",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Houston Astros – Arizona Diamondbacks",
+   "kickoff_at": "2026-09-05T00:10Z",
+   "published": true,
+   "value_bet": "Houston Astros Plus de 4,5 @ 2.02",
+   "value_cote": 2.02,
+   "value_mise_eur": 204.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Houston Astros @ 1.8",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Plus de 8,5 runs @ 1.7692",
+     "odd": 1.77,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
