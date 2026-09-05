@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T10:36:51.071546+00:00",
+ "generated_at": "2026-09-05T10:37:40.116352+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -32,23 +32,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1507054",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Jeonbuk Motors – Pohang Steelers",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2762.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2764.png",
-   "conseil": "Jeonbuk Motors ou Nul",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1507053",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -62,23 +45,6 @@
    "away_logo": "https://media.api-sports.io/football/teams/2767.png",
    "conseil": "Jeju United FC ou Nul",
    "conseil_cote": 1.67,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1565470",
-   "flag": "🇺🇦",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kryvbas KR – Kolos Kovalivka",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/6489.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3627.png",
-   "conseil": "Kryvbas KR ou Nul",
-   "conseil_cote": 1.6,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
@@ -117,19 +83,19 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1565468",
+   "fixture_id": "api_football:1565470",
    "flag": "🇺🇦",
    "league": "Premier League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Kharkiv – Obolon'-Brovar",
+   "match": "Kryvbas KR – Kolos Kovalivka",
    "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
    "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/3628.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3630.png",
-   "conseil": "FC Kharkiv ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.42,
+   "home_logo": "https://media.api-sports.io/football/teams/6489.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3627.png",
+   "conseil": "Kryvbas KR ou Nul",
+   "conseil_cote": 1.6,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
@@ -151,20 +117,37 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1576169",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
+   "fixture_id": "api_football:1507054",
+   "flag": "🇰🇷",
+   "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "VfL Wolfsburg – Energie Cottbus",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "match": "Jeonbuk Motors – Pohang Steelers",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
    "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/161.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1320.png",
-   "conseil": "VfL Wolfsburg ou Nul",
-   "conseil_cote": 1.08,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2762.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2764.png",
+   "conseil": "Jeonbuk Motors ou Nul",
+   "conseil_cote": 1.22,
    "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1565468",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Kharkiv – Obolon'-Brovar",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/3628.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3630.png",
+   "conseil": "FC Kharkiv ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -182,6 +165,23 @@
    "conseil": "1. FC Kaiserslautern ou Nul + Moins de 3.5 buts",
    "conseil_cote": 2.07,
    "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576169",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfL Wolfsburg – Energie Cottbus",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/161.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1320.png",
+   "conseil": "VfL Wolfsburg ou Nul",
+   "conseil_cote": 1.08,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -228,6 +228,40 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1557395",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Newcastle – Bournemouth",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 39,
+   "home_logo": "https://media.api-sports.io/football/teams/34.png",
+   "away_logo": "https://media.api-sports.io/football/teams/35.png",
+   "conseil": "Newcastle ou Nul",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1563139",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Stoke City – Charlton",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/75.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1335.png",
+   "conseil": "Charlton ou Nul",
+   "conseil_cote": 1.7,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1563133",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -252,23 +286,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1557395",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Newcastle – Bournemouth",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 39,
-   "home_logo": "https://media.api-sports.io/football/teams/34.png",
-   "away_logo": "https://media.api-sports.io/football/teams/35.png",
-   "conseil": "Newcastle ou Nul",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   }
  ],
  "done": [
@@ -1601,22 +1618,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816798",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Philadelphia Phillies – Atlanta Braves",
-   "kickoff_at": "2026-09-04T22:40Z",
-   "published": true,
-   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2 - 5"
-  },
-  {
    "fixture_id": "baseball_401816797",
    "flag": "⚾",
    "league": "MLB",
@@ -1648,6 +1649,22 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816798",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Philadelphia Phillies – Atlanta Braves",
+   "kickoff_at": "2026-09-04T22:40Z",
+   "published": true,
+   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 5"
   },
   {
    "fixture_id": "baseball_401816799",
@@ -1957,6 +1974,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1519487",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tecnico Universitario – LDU de Quito",
+   "kickoff_at": "2026-09-05T02:30:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
+   "conseil": "LDU de Quito ou Nul",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.71,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1505515",
    "flag": "🇨🇱",
    "league": "Primera División",
@@ -1998,34 +2043,6 @@
      "odd": 1.73,
      "mise_eur": 100.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1519487",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tecnico Universitario – LDU de Quito",
-   "kickoff_at": "2026-09-05T02:30:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
-   "conseil": "LDU de Quito ou Nul",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.71,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
     }
    ]
   },
