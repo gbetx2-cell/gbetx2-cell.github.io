@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T02:20:51.428979+00:00",
+ "generated_at": "2026-09-05T02:21:02.929194+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182745",
@@ -17,27 +17,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816803",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – San Francisco Giants",
-   "kickoff_at": "2026-09-04T23:10Z",
-   "published": true,
-   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — New York Mets @ 1.5556",
-     "odd": 1.56,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816801",
    "flag": "⚾",
    "league": "MLB",
@@ -48,19 +27,6 @@
    "published": true,
    "value_bet": "Detroit Tigers Plus de 3,5 @ 1.7519",
    "value_cote": 1.75,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816805",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago White Sox – Minnesota Twins",
-   "kickoff_at": "2026-09-04T23:40Z",
-   "published": true,
-   "value_bet": "Minnesota Twins Plus de 4,5 @ 2.0",
-   "value_cote": 2.0,
    "value_mise_eur": 200.0
   },
   {
@@ -2463,6 +2429,31 @@
    "score": "0 - 1"
   },
   {
+   "fixture_id": "baseball_401816803",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – San Francisco Giants",
+   "kickoff_at": "2026-09-04T23:10Z",
+   "published": true,
+   "value_bet": "New York Mets Moins de 4,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "10 - 6",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — New York Mets @ 1.5556",
+     "odd": 1.56,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816800",
    "flag": "⚾",
    "league": "MLB",
@@ -2521,6 +2512,22 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816805",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago White Sox – Minnesota Twins",
+   "kickoff_at": "2026-09-04T23:40Z",
+   "published": true,
+   "value_bet": "Minnesota Twins Plus de 4,5 @ 2.0",
+   "value_cote": 2.0,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4 - 1"
   },
   {
    "fixture_id": "api_football:1493109",
