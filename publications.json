@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T12:07:40.175205+00:00",
+ "generated_at": "2026-09-05T12:07:50.567395+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -49,6 +49,23 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1523259",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Wuhan Three Towns – Qingdao Youth Island",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/5695.png",
+   "away_logo": "https://media.api-sports.io/football/teams/17265.png",
+   "conseil": "Qingdao Youth Island ou Nul",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1576165",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -73,23 +90,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1523259",
-   "flag": "🇨🇳",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Wuhan Three Towns – Qingdao Youth Island",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
-   "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/5695.png",
-   "away_logo": "https://media.api-sports.io/football/teams/17265.png",
-   "conseil": "Qingdao Youth Island ou Nul",
-   "conseil_cote": 1.8,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1576166",
@@ -122,23 +122,6 @@
    "away_logo": "https://media.api-sports.io/football/teams/1320.png",
    "conseil": "VfL Wolfsburg ou Nul",
    "conseil_cote": 1.08,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1563136",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Preston – Blackburn",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/59.png",
-   "away_logo": "https://media.api-sports.io/football/teams/67.png",
-   "conseil": "Blackburn ou Nul",
-   "conseil_cote": 1.55,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
@@ -210,6 +193,23 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1563136",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Preston – Blackburn",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/59.png",
+   "away_logo": "https://media.api-sports.io/football/teams/67.png",
+   "conseil": "Blackburn ou Nul",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1557395",
@@ -289,56 +289,21 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1523262",
-   "flag": "🇨🇳",
-   "league": "Super League",
+   "fixture_id": "api_football:1569912",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Shandong Luneng – Sichuan Jiuniu",
+   "match": "Real Sociedad II – Tenerife",
    "kickoff_at": "2026-09-05T14:00:00+02:00",
    "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/844.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5686.png",
-   "conseil": "Shandong Luneng gagne",
-   "conseil_cote": 1.64,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "api_football",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Cryzan buteur",
-     "detail": "cote 1.80",
-     "odd": 1.8,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1515915",
-   "flag": "🇱🇻",
-   "league": "Virsliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tukums – Ogre United",
-   "kickoff_at": "2026-09-05T14:00:00+02:00",
-   "published": true,
-   "league_id": 365,
-   "home_logo": "https://media.api-sports.io/football/teams/4144.png",
-   "away_logo": "https://media.api-sports.io/football/teams/18936.png",
-   "conseil": "Tukums ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.52,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9585.png",
+   "away_logo": "https://media.api-sports.io/football/teams/719.png",
+   "conseil": "Tenerife ou Nul",
+   "conseil_cote": 1.51,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "I. Pūlis buteur",
-     "detail": "72%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1552463",
@@ -384,6 +349,58 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1515915",
+   "flag": "🇱🇻",
+   "league": "Virsliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tukums – Ogre United",
+   "kickoff_at": "2026-09-05T14:00:00+02:00",
+   "published": true,
+   "league_id": 365,
+   "home_logo": "https://media.api-sports.io/football/teams/4144.png",
+   "away_logo": "https://media.api-sports.io/football/teams/18936.png",
+   "conseil": "Tukums ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "I. Pūlis buteur",
+     "detail": "72%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1523262",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Shandong Luneng – Sichuan Jiuniu",
+   "kickoff_at": "2026-09-05T14:00:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/844.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5686.png",
+   "conseil": "Shandong Luneng gagne",
+   "conseil_cote": 1.64,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "api_football",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Cryzan buteur",
+     "detail": "cote 1.80",
+     "odd": 1.8,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1565241",
    "flag": "🇷🇴",
    "league": "Liga I",
@@ -398,23 +415,6 @@
    "conseil": "Sepsi OSK Sfantu Gheorghe ou Nul + Moins de 3.5 buts",
    "conseil_cote": 2.25,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1569912",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Sociedad II – Tenerife",
-   "kickoff_at": "2026-09-05T14:00:00+02:00",
-   "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9585.png",
-   "away_logo": "https://media.api-sports.io/football/teams/719.png",
-   "conseil": "Tenerife ou Nul",
-   "conseil_cote": 1.51,
-   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -448,6 +448,23 @@
    "away_logo": "https://media.api-sports.io/football/teams/503.png",
    "conseil": "Torino gagne",
    "conseil_cote": 4.42,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1601521",
+   "flag": "🇮🇹",
+   "league": "Serie B",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sudtirol – Catanzaro",
+   "kickoff_at": "2026-09-05T15:00:00+02:00",
+   "published": true,
+   "league_id": 136,
+   "home_logo": "https://media.api-sports.io/football/teams/1578.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1687.png",
+   "conseil": "Sudtirol ou Nul",
+   "conseil_cote": 1.36,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   }
@@ -1782,6 +1799,22 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816798",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Philadelphia Phillies – Atlanta Braves",
+   "kickoff_at": "2026-09-04T22:40Z",
+   "published": true,
+   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
+   "value_cote": 1.7,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 5"
+  },
+  {
    "fixture_id": "baseball_401816797",
    "flag": "⚾",
    "league": "MLB",
@@ -1813,22 +1846,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "baseball_401816798",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Philadelphia Phillies – Atlanta Braves",
-   "kickoff_at": "2026-09-04T22:40Z",
-   "published": true,
-   "value_bet": "Atlanta Braves Moins de 3,5 @ 1.7042",
-   "value_cote": 1.7,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2 - 5"
   },
   {
    "fixture_id": "baseball_401816799",
@@ -1964,48 +1981,6 @@
    "score": "4 - 1"
   },
   {
-   "fixture_id": "api_football:1493109",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Belgrano Cordoba – Huracan",
-   "kickoff_at": "2026-09-05T00:00:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/440.png",
-   "away_logo": "https://media.api-sports.io/football/teams/445.png",
-   "conseil": "Belgrano Cordoba ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1",
-   "refonte_value_bets": [
-    {
-     "market": "Over/Under 2.5",
-     "label": "Moins de 2.5 buts",
-     "odd": 1.35,
-     "mise_eur": 400.0,
-     "result": "GAGNE"
-    },
-    {
-     "market": "BTTS",
-     "label": "Les deux équipes ne marquent pas",
-     "odd": 1.5,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    },
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Moins de 9.5 corners",
-     "odd": 1.47,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1493115",
    "flag": "🇦🇷",
    "league": "Liga Profesional Argentina",
@@ -2035,6 +2010,48 @@
      "market": "BTTS",
      "label": "Les deux équipes ne marquent pas",
      "odd": 1.49,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    },
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Moins de 9.5 corners",
+     "odd": 1.47,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493109",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Belgrano Cordoba – Huracan",
+   "kickoff_at": "2026-09-05T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/440.png",
+   "away_logo": "https://media.api-sports.io/football/teams/445.png",
+   "conseil": "Belgrano Cordoba ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "refonte_value_bets": [
+    {
+     "market": "Over/Under 2.5",
+     "label": "Moins de 2.5 buts",
+     "odd": 1.35,
+     "mise_eur": 400.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes ne marquent pas",
+     "odd": 1.5,
      "mise_eur": 300.0,
      "result": "PERDU"
     },
@@ -2138,6 +2155,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1519487",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tecnico Universitario – LDU de Quito",
+   "kickoff_at": "2026-09-05T02:30:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
+   "conseil": "LDU de Quito ou Nul",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "Corners O/U 9.5",
+     "label": "Plus de 9.5 corners",
+     "odd": 1.71,
+     "mise_eur": 100.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1505515",
    "flag": "🇨🇱",
    "league": "Primera División",
@@ -2179,34 +2224,6 @@
      "odd": 1.73,
      "mise_eur": 100.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1519487",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tecnico Universitario – LDU de Quito",
-   "kickoff_at": "2026-09-05T02:30:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1151.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
-   "conseil": "LDU de Quito ou Nul",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "Corners O/U 9.5",
-     "label": "Plus de 9.5 corners",
-     "odd": 1.71,
-     "mise_eur": 100.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -2278,6 +2295,25 @@
    "score": "2 - 0"
   },
   {
+   "fixture_id": "api_football:1507053",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Jeju United FC – Ulsan Hyundai FC",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2761.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
+   "conseil": "Jeju United FC ou Nul",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
+  },
+  {
    "fixture_id": "api_football:1556051",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -2314,25 +2350,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 2"
-  },
-  {
-   "fixture_id": "api_football:1507053",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Jeju United FC – Ulsan Hyundai FC",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2761.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2767.png",
-   "conseil": "Jeju United FC ou Nul",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1507055",
