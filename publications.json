@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T22:40:59.501387+00:00",
+ "generated_at": "2026-09-05T23:03:02.945246+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -363,23 +363,6 @@
    "value_mise_eur": 400.0
   },
   {
-   "fixture_id": "api_football:1550113",
-   "flag": "🇮🇹",
-   "league": "Serie A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Inter – Napoli",
-   "kickoff_at": "2026-09-05T18:00:00+02:00",
-   "published": true,
-   "league_id": 135,
-   "home_logo": "https://media.api-sports.io/football/teams/505.png",
-   "away_logo": "https://media.api-sports.io/football/teams/492.png",
-   "conseil": "Inter ou Nul",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1494749",
    "flag": "🇳🇴",
    "league": "Eliteserien",
@@ -397,30 +380,21 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1555383",
-   "flag": "🇨🇭",
-   "league": "Super League",
+   "fixture_id": "api_football:1550113",
+   "flag": "🇮🇹",
+   "league": "Serie A",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FC Vaduz – Lausanne",
+   "match": "Inter – Napoli",
    "kickoff_at": "2026-09-05T18:00:00+02:00",
    "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/660.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1014.png",
-   "conseil": "Lausanne ou Nul",
-   "conseil_cote": 1.63,
+   "league_id": 135,
+   "home_logo": "https://media.api-sports.io/football/teams/505.png",
+   "away_logo": "https://media.api-sports.io/football/teams/492.png",
+   "conseil": "Inter ou Nul",
+   "conseil_cote": 1.18,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "F. Mollet buteur",
-     "detail": "35%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1548522",
@@ -471,6 +445,32 @@
      "detail": "cote 1.91",
      "odd": 1.91,
      "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1555383",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Vaduz – Lausanne",
+   "kickoff_at": "2026-09-05T18:00:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/660.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1014.png",
+   "conseil": "Lausanne ou Nul",
+   "conseil_cote": 1.63,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "F. Mollet buteur",
+     "detail": "35%",
+     "odd": null,
+     "mise_eur": null
     }
    ]
   },
@@ -727,33 +727,6 @@
    "conseil_cote": 4.22,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "baseball_401816818",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "New York Mets – San Francisco Giants",
-   "kickoff_at": "2026-09-05T20:10Z",
-   "published": true,
-   "value_bet": "New York Mets Moins de 4,5 @ 1.7576",
-   "value_cote": 1.76,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — New York Mets @ 1.6369",
-     "odd": 1.64,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "totals",
-     "label": "Total — Plus de 7,5 runs @ 1.7692",
-     "odd": 1.77,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "baseball_401816815",
@@ -3679,6 +3652,38 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "4-6, 3-6, 3-6"
+  },
+  {
+   "fixture_id": "baseball_401816818",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "New York Mets – San Francisco Giants",
+   "kickoff_at": "2026-09-05T20:10Z",
+   "published": true,
+   "value_bet": "New York Mets Moins de 4,5 @ 1.7576",
+   "value_cote": 1.76,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "5 - 9",
+   "refonte_value_bets": [
+    {
+     "market": "totals",
+     "label": "Total — Plus de 7,5 runs @ 1.7692",
+     "odd": 1.77,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "winner",
+     "label": "Vainqueur — New York Mets @ 1.6369",
+     "odd": 1.64,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
