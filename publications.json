@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T00:42:03.557892+00:00",
+ "generated_at": "2026-09-06T00:45:59.661701+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -14,21 +14,6 @@
    "away_photo": "assets/players/alexander zverev.png",
    "conseil": "Victoire Alexander Zverev",
    "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182749",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Arthur Gea – Michael Zheng",
-   "kickoff_at": "2026-09-05T18:00Z",
-   "published": true,
-   "home_photo": "assets/players/arthur gea.png",
-   "away_photo": "assets/players/michael zheng.png",
-   "conseil": "Victoire Arthur Gea",
-   "conseil_cote": 2.37,
    "conseil_mise_eur": 200.0
   },
   {
@@ -236,32 +221,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1490448",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Los Angeles Galaxy – New England Revolution",
-   "kickoff_at": "2026-09-06T03:30:00+02:00",
-   "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1605.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1609.png",
-   "conseil": "Los Angeles Galaxy ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Paintsil buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1490447",
    "flag": "🇺🇸",
    "league": "Major League Soccer",
@@ -283,6 +242,32 @@
      "label": "D. Bouanga buteur",
      "detail": "cote 2.00",
      "odd": 2.0,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1490448",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Los Angeles Galaxy – New England Revolution",
+   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1605.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1609.png",
+   "conseil": "Los Angeles Galaxy ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Paintsil buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
      "mise_eur": 200.0
     }
    ]
@@ -3400,25 +3385,6 @@
    "score": "2 - 1"
   },
   {
-   "fixture_id": "api_football:1551552",
-   "flag": "⚽",
-   "league": "Super Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Komárno – Skalica",
-   "kickoff_at": "2026-09-05T18:00:00+02:00",
-   "published": true,
-   "league_id": 332,
-   "home_logo": "https://media.api-sports.io/football/teams/10535.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10542.png",
-   "conseil": "Skalica ou Nul",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1551556",
    "flag": "⚽",
    "league": "Super Liga",
@@ -3436,6 +3402,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 1"
+  },
+  {
+   "fixture_id": "api_football:1551552",
+   "flag": "⚽",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Komárno – Skalica",
+   "kickoff_at": "2026-09-05T18:00:00+02:00",
+   "published": true,
+   "league_id": 332,
+   "home_logo": "https://media.api-sports.io/football/teams/10535.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10542.png",
+   "conseil": "Skalica ou Nul",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
   },
   {
    "fixture_id": "api_football:1494749",
@@ -3733,6 +3718,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "4-6, 3-6, 3-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182749",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Arthur Gea – Michael Zheng",
+   "kickoff_at": "2026-09-05T18:00Z",
+   "published": true,
+   "home_photo": "assets/players/arthur gea.png",
+   "away_photo": "assets/players/michael zheng.png",
+   "conseil": "Victoire Arthur Gea",
+   "conseil_cote": 2.37,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "7-6, 3-6, 4-6, 6-3, 6-2"
   },
   {
    "fixture_id": "api_football:1599449",
