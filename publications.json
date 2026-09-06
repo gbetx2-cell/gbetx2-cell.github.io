@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T15:56:57.142883+00:00",
+ "generated_at": "2026-09-06T16:01:08.130449+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -45,49 +45,6 @@
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1508851",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "KA Akureyri – Breidablik",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/272.png",
-   "away_logo": "https://media.api-sports.io/football/teams/276.png",
-   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.62,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1508854",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Thor Akureyri – FH hafnarfjordur",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/2116.png",
-   "away_logo": "https://media.api-sports.io/football/teams/270.png",
-   "conseil": "FH hafnarfjordur ou Nul",
-   "conseil_cote": 1.33,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "K. Halldórsson buteur",
-     "detail": "70%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1508855",
@@ -225,49 +182,6 @@
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1584395",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Çorum FK – Eyüpspor",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/6343.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3588.png",
-   "conseil": "Çorum FK ou Nul",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1584399",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kasımpaşa – Amed",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/1004.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3579.png",
-   "conseil": "Kasımpaşa ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.79,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Benedyczak buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 300.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1508850",
@@ -4383,6 +4297,54 @@
    "score": "1 - 2"
   },
   {
+   "fixture_id": "api_football:1508851",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KA Akureyri – Breidablik",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/272.png",
+   "away_logo": "https://media.api-sports.io/football/teams/276.png",
+   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.62,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1508854",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Thor Akureyri – FH hafnarfjordur",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/2116.png",
+   "away_logo": "https://media.api-sports.io/football/teams/270.png",
+   "conseil": "FH hafnarfjordur ou Nul",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "K. Halldórsson buteur",
+     "detail": "70%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1513623",
    "flag": "🇪🇪",
    "league": "Meistriliiga",
@@ -4408,6 +4370,54 @@
      "odd": null,
      "mise_eur": null,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1584395",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Çorum FK – Eyüpspor",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/6343.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3588.png",
+   "conseil": "Çorum FK ou Nul",
+   "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 0"
+  },
+  {
+   "fixture_id": "api_football:1584399",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kasımpaşa – Amed",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/1004.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3579.png",
+   "conseil": "Kasımpaşa ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.79,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Benedyczak buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
     }
    ]
   }
