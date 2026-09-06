@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T00:08:55.892638+00:00",
+ "generated_at": "2026-09-06T00:09:09.258661+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -283,32 +283,6 @@
    "conseil_cote": 1.44,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1549011",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Aarhus – Silkeborg",
-   "kickoff_at": "2026-09-05T18:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/406.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2073.png",
-   "conseil": "Aarhus ou Nul",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "T. Bech buteur",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1548522",
@@ -3639,6 +3613,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 2"
+  },
+  {
+   "fixture_id": "api_football:1549011",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aarhus – Silkeborg",
+   "kickoff_at": "2026-09-05T18:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/406.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2073.png",
+   "conseil": "Aarhus ou Nul",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "T. Bech buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1494749",
