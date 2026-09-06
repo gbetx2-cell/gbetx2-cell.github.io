@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T15:00:30.451946+00:00",
+ "generated_at": "2026-09-06T15:05:54.540541+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -30,34 +30,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_185881",
-   "flag": "🎾",
-   "league": "Montreux Nestlé Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Julia Stusek – Martina Trevisan",
-   "kickoff_at": "2026-09-06T13:30Z",
-   "published": true,
-   "home_photo": "assets/players/julia stusek.png",
-   "away_photo": "assets/players/martina trevisan.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.461",
-   "value_cote": 1.46,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Martina Trevisan",
-     "kind": "player",
-     "detail": "cote 1.30",
-     "odd": 1.3,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1601518",
    "flag": "🇮🇹",
    "league": "Serie B",
@@ -73,49 +45,6 @@
    "conseil_cote": 1.75,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1557390",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Everton – Manchester United",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 39,
-   "home_logo": "https://media.api-sports.io/football/teams/45.png",
-   "away_logo": "https://media.api-sports.io/football/teams/33.png",
-   "conseil": "Manchester United ou Nul",
-   "conseil_cote": 1.31,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1550111",
-   "flag": "🇮🇹",
-   "league": "Serie A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Frosinone – Venezia",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 135,
-   "home_logo": "https://media.api-sports.io/football/teams/512.png",
-   "away_logo": "https://media.api-sports.io/football/teams/517.png",
-   "conseil": "Frosinone gagne + Moins de 3.5 buts",
-   "conseil_cote": 4.44,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "G. Kvernadze buteur",
-     "detail": "cote 3.40",
-     "odd": 3.4,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1601519",
@@ -3650,6 +3579,38 @@
    "score": "0 - 3"
   },
   {
+   "fixture_id": "tennis_espn_wta_185881",
+   "flag": "🎾",
+   "league": "Montreux Nestlé Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Julia Stusek – Martina Trevisan",
+   "kickoff_at": "2026-09-06T13:30Z",
+   "published": true,
+   "home_photo": "assets/players/julia stusek.png",
+   "away_photo": "assets/players/martina trevisan.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.461",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "1-6, 0-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Martina Trevisan",
+     "kind": "player",
+     "detail": "cote 1.30",
+     "odd": 1.3,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1523265",
    "flag": "🇨🇳",
    "league": "Super League",
@@ -3964,6 +3925,54 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1557390",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Everton – Manchester United",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 39,
+   "home_logo": "https://media.api-sports.io/football/teams/45.png",
+   "away_logo": "https://media.api-sports.io/football/teams/33.png",
+   "conseil": "Manchester United ou Nul",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1550111",
+   "flag": "🇮🇹",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Frosinone – Venezia",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 135,
+   "home_logo": "https://media.api-sports.io/football/teams/512.png",
+   "away_logo": "https://media.api-sports.io/football/teams/517.png",
+   "conseil": "Frosinone gagne + Moins de 3.5 buts",
+   "conseil_cote": 4.44,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "G. Kvernadze buteur",
+     "detail": "cote 3.40",
+     "odd": 3.4,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1550115",
