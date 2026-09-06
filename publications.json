@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T14:59:57.986580+00:00",
+ "generated_at": "2026-09-06T15:00:30.451946+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -54,32 +54,6 @@
      "detail": "cote 1.30",
      "odd": 1.3,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1560016",
-   "flag": "🇨🇿",
-   "league": "Czech Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Zlin – Teplice",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 345,
-   "home_logo": "https://media.api-sports.io/football/teams/603.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3720.png",
-   "conseil": "Teplice ou Nul",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "L. Mareček buteur",
-     "detail": "43%",
-     "odd": null,
-     "mise_eur": null
     }
    ]
   },
@@ -144,32 +118,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1601517",
-   "flag": "🇮🇹",
-   "league": "Serie B",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Virtus Entella – Vicenza Virtus",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 136,
-   "home_logo": "https://media.api-sports.io/football/teams/527.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1584.png",
-   "conseil": "Virtus Entella ou Nul",
-   "conseil_cote": 1.29,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "espn",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "L. Cuppone buteur",
-     "detail": "cote 3.10",
-     "odd": 3.1,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1601519",
    "flag": "🇮🇹",
    "league": "Serie B",
@@ -183,23 +131,6 @@
    "away_logo": "https://media.api-sports.io/football/teams/528.png",
    "conseil": "Modena ou Nul",
    "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1600336",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Golden Arrows – Mamelodi Sundowns",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/2690.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2699.png",
-   "conseil": "Golden Arrows ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 3.58,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
@@ -862,6 +793,40 @@
    "conseil": "Eintracht Frankfurt ou Nul + Plus de 1.5 buts",
    "conseil_cote": 1.44,
    "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1582793",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Zeljeznicar Sarajevo – Velež",
+   "kickoff_at": "2026-09-06T17:30:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/654.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3381.png",
+   "conseil": "Zeljeznicar Sarajevo ou Nul",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1558006",
+   "flag": "⚽",
+   "league": "1. SNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Maribor – Mura",
+   "kickoff_at": "2026-09-06T17:30:00+02:00",
+   "published": true,
+   "league_id": 373,
+   "home_logo": "https://media.api-sports.io/football/teams/552.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4197.png",
+   "conseil": "Maribor gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.73,
+   "conseil_mise_eur": 400.0,
    "lineup_source": "flashscore"
   },
   {
@@ -3953,6 +3918,35 @@
    "score": "0 - 1"
   },
   {
+   "fixture_id": "api_football:1560016",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Zlin – Teplice",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/603.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3720.png",
+   "conseil": "Teplice ou Nul",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "L. Mareček buteur",
+     "detail": "43%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1547624",
    "flag": "🇱🇹",
    "league": "A Lyga",
@@ -4047,6 +4041,54 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1601517",
+   "flag": "🇮🇹",
+   "league": "Serie B",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Virtus Entella – Vicenza Virtus",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 136,
+   "home_logo": "https://media.api-sports.io/football/teams/527.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1584.png",
+   "conseil": "Virtus Entella ou Nul",
+   "conseil_cote": 1.29,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "espn",
+   "result": "GAGNE",
+   "score": "2 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "L. Cuppone buteur",
+     "detail": "cote 3.10",
+     "odd": 3.1,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1600336",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Golden Arrows – Mamelodi Sundowns",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2690.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2699.png",
+   "conseil": "Golden Arrows ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 3.58,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 2"
   },
   {
    "fixture_id": "api_football:1560010",
