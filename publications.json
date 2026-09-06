@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T01:02:00.087273+00:00",
+ "generated_at": "2026-09-06T01:32:48.301835+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -194,6 +194,32 @@
    ]
   },
   {
+   "fixture_id": "api_football:1490448",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Los Angeles Galaxy – New England Revolution",
+   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1605.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1609.png",
+   "conseil": "Los Angeles Galaxy ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Paintsil buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1549769",
    "flag": "🇨🇴",
    "league": "Primera A",
@@ -237,28 +263,28 @@
    ]
   },
   {
-   "fixture_id": "api_football:1490448",
+   "fixture_id": "api_football:1490449",
    "flag": "🇺🇸",
    "league": "Major League Soccer",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Los Angeles Galaxy – New England Revolution",
-   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "match": "Vancouver Whitecaps – St. Louis City",
+   "kickoff_at": "2026-09-06T04:30:00+02:00",
    "published": true,
    "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1605.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1609.png",
-   "conseil": "Los Angeles Galaxy ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
+   "home_logo": "https://media.api-sports.io/football/teams/1603.png",
+   "away_logo": "https://media.api-sports.io/football/teams/20787.png",
+   "conseil": "Vancouver Whitecaps ou Nul",
+   "conseil_cote": 1.13,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "J. Paintsil buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0
+     "label": "B. White buteur",
+     "detail": "cote 1.80",
+     "odd": 1.8,
+     "mise_eur": 300.0
     }
    ]
   }
@@ -2784,6 +2810,73 @@
    "score": "4 - 0"
   },
   {
+   "fixture_id": "api_football:1575150",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "1899 Hoffenheim – Borussia Dortmund",
+   "kickoff_at": "2026-09-05T15:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/167.png",
+   "away_logo": "https://media.api-sports.io/football/teams/165.png",
+   "conseil": "Borussia Dortmund ou Nul",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 3"
+  },
+  {
+   "fixture_id": "api_football:1575155",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Werder Bremen – RB Leipzig",
+   "kickoff_at": "2026-09-05T15:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/162.png",
+   "away_logo": "https://media.api-sports.io/football/teams/173.png",
+   "conseil": "RB Leipzig gagne + Plus de 1.5 buts",
+   "conseil_cote": 2.03,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 1"
+  },
+  {
+   "fixture_id": "api_football:1575157",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "SC Paderborn 07 – SC Freiburg",
+   "kickoff_at": "2026-09-05T15:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/185.png",
+   "away_logo": "https://media.api-sports.io/football/teams/160.png",
+   "conseil": "SC Freiburg gagne",
+   "conseil_cote": 2.05,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "I. Matanović buteur",
+     "detail": "cote 2.05",
+     "odd": 2.05,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1575151",
    "flag": "🇩🇪",
    "league": "Bundesliga",
@@ -2822,92 +2915,6 @@
    "score": "3 - 4"
   },
   {
-   "fixture_id": "api_football:1575157",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "SC Paderborn 07 – SC Freiburg",
-   "kickoff_at": "2026-09-05T15:30:00+02:00",
-   "published": true,
-   "league_id": 78,
-   "home_logo": "https://media.api-sports.io/football/teams/185.png",
-   "away_logo": "https://media.api-sports.io/football/teams/160.png",
-   "conseil": "SC Freiburg gagne",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "I. Matanović buteur",
-     "detail": "cote 2.05",
-     "odd": 2.05,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1575155",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Werder Bremen – RB Leipzig",
-   "kickoff_at": "2026-09-05T15:30:00+02:00",
-   "published": true,
-   "league_id": 78,
-   "home_logo": "https://media.api-sports.io/football/teams/162.png",
-   "away_logo": "https://media.api-sports.io/football/teams/173.png",
-   "conseil": "RB Leipzig gagne + Plus de 1.5 buts",
-   "conseil_cote": 2.03,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 1"
-  },
-  {
-   "fixture_id": "api_football:1575150",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "1899 Hoffenheim – Borussia Dortmund",
-   "kickoff_at": "2026-09-05T15:30:00+02:00",
-   "published": true,
-   "league_id": 78,
-   "home_logo": "https://media.api-sports.io/football/teams/167.png",
-   "away_logo": "https://media.api-sports.io/football/teams/165.png",
-   "conseil": "Borussia Dortmund ou Nul",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 3"
-  },
-  {
-   "fixture_id": "api_football:1599447",
-   "flag": "🇦🇪",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sharjah FC – Dubai United",
-   "kickoff_at": "2026-09-05T15:45:00+02:00",
-   "published": true,
-   "league_id": 301,
-   "home_logo": "https://media.api-sports.io/football/teams/2874.png",
-   "away_logo": "https://media.api-sports.io/football/teams/22321.png",
-   "conseil": "Dubai United ou Nul",
-   "conseil_cote": 3.0,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "4 - 3"
-  },
-  {
    "fixture_id": "api_football:1599448",
    "flag": "🇦🇪",
    "league": "Pro League",
@@ -2935,6 +2942,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1599447",
+   "flag": "🇦🇪",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sharjah FC – Dubai United",
+   "kickoff_at": "2026-09-05T15:45:00+02:00",
+   "published": true,
+   "league_id": 301,
+   "home_logo": "https://media.api-sports.io/football/teams/2874.png",
+   "away_logo": "https://media.api-sports.io/football/teams/22321.png",
+   "conseil": "Dubai United ou Nul",
+   "conseil_cote": 3.0,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 3"
   },
   {
    "fixture_id": "api_football:1570364",
@@ -2985,23 +3011,33 @@
    ]
   },
   {
-   "fixture_id": "api_football:1575484",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
+   "fixture_id": "api_football:1552154",
+   "flag": "🇳🇱",
+   "league": "Eredivisie",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Estrela – Famalicao",
+   "match": "NEC Nijmegen – Feyenoord",
    "kickoff_at": "2026-09-05T16:30:00+02:00",
    "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/15130.png",
-   "away_logo": "https://media.api-sports.io/football/teams/242.png",
-   "conseil": "Estrela ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
+   "league_id": 88,
+   "home_logo": "https://media.api-sports.io/football/teams/413.png",
+   "away_logo": "https://media.api-sports.io/football/teams/209.png",
+   "conseil": "NEC Nijmegen ou Nul",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2"
+   "result": "PERDU",
+   "score": "1 - 3",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "T. Chery buteur",
+     "detail": "cote 2.88",
+     "odd": 2.88,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1601889",
@@ -3052,33 +3088,23 @@
    "score": "5 - 1"
   },
   {
-   "fixture_id": "api_football:1552154",
-   "flag": "🇳🇱",
-   "league": "Eredivisie",
+   "fixture_id": "api_football:1575484",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "NEC Nijmegen – Feyenoord",
+   "match": "Estrela – Famalicao",
    "kickoff_at": "2026-09-05T16:30:00+02:00",
    "published": true,
-   "league_id": 88,
-   "home_logo": "https://media.api-sports.io/football/teams/413.png",
-   "away_logo": "https://media.api-sports.io/football/teams/209.png",
-   "conseil": "NEC Nijmegen ou Nul",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 200.0,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/15130.png",
+   "away_logo": "https://media.api-sports.io/football/teams/242.png",
+   "conseil": "Estrela ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 3",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "T. Chery buteur",
-     "detail": "cote 2.88",
-     "odd": 2.88,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
+   "result": "GAGNE",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "tennis_espn_atp_182731",
@@ -3165,6 +3191,35 @@
    ]
   },
   {
+   "fixture_id": "api_football:1494272",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Vasteras SK FK – Sirius",
+   "kickoff_at": "2026-09-05T17:30:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2241.png",
+   "away_logo": "https://media.api-sports.io/football/teams/370.png",
+   "conseil": "Sirius ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "I. Bjerkebo buteur",
+     "detail": "cote 2.05",
+     "odd": 2.05,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1558004",
    "flag": "⚽",
    "league": "1. SNL",
@@ -3182,6 +3237,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1560239",
+   "flag": "⚽",
+   "league": "NB I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "MTK Budapest – Kisvarda FC",
+   "kickoff_at": "2026-09-05T17:30:00+02:00",
+   "published": true,
+   "league_id": 271,
+   "home_logo": "https://media.api-sports.io/football/teams/2396.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2394.png",
+   "conseil": "MTK Budapest ou Nul",
+   "conseil_cote": 1.29,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Zalán Márk Kerezsi buteur",
+     "detail": "35%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1553157",
@@ -3220,64 +3304,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
-  },
-  {
-   "fixture_id": "api_football:1560239",
-   "flag": "⚽",
-   "league": "NB I",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "MTK Budapest – Kisvarda FC",
-   "kickoff_at": "2026-09-05T17:30:00+02:00",
-   "published": true,
-   "league_id": 271,
-   "home_logo": "https://media.api-sports.io/football/teams/2396.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2394.png",
-   "conseil": "MTK Budapest ou Nul",
-   "conseil_cote": 1.29,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 2",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Zalán Márk Kerezsi buteur",
-     "detail": "35%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1494272",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Vasteras SK FK – Sirius",
-   "kickoff_at": "2026-09-05T17:30:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2241.png",
-   "away_logo": "https://media.api-sports.io/football/teams/370.png",
-   "conseil": "Sirius ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "I. Bjerkebo buteur",
-     "detail": "cote 2.05",
-     "odd": 2.05,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1603014",
