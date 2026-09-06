@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T13:04:45.447568+00:00",
+ "generated_at": "2026-09-06T13:13:35.002757+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -30,30 +30,21 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1576162",
+   "fixture_id": "api_football:1576168",
    "flag": "🇩🇪",
    "league": "Bundesliga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "SpVgg Greuther Fürth – 1. FC Heidenheim",
+   "match": "VfL Osnabrück – Eintracht Braunschweig",
    "kickoff_at": "2026-09-06T13:30:00+02:00",
    "published": true,
    "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/178.png",
-   "away_logo": "https://media.api-sports.io/football/teams/180.png",
-   "conseil": "SpVgg Greuther Fürth ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 2.37,
+   "home_logo": "https://media.api-sports.io/football/teams/1324.png",
+   "away_logo": "https://media.api-sports.io/football/teams/744.png",
+   "conseil": "Eintracht Braunschweig gagne + Plus de 3.5 buts",
+   "conseil_cote": 8.47,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "F. Klaus buteur",
-     "detail": "cote 3.20",
-     "odd": 3.2,
-     "mise_eur": 200.0
-    }
-   ]
+   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1576164",
@@ -90,21 +81,30 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1576168",
+   "fixture_id": "api_football:1576162",
    "flag": "🇩🇪",
    "league": "Bundesliga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "VfL Osnabrück – Eintracht Braunschweig",
+   "match": "SpVgg Greuther Fürth – 1. FC Heidenheim",
    "kickoff_at": "2026-09-06T13:30:00+02:00",
    "published": true,
    "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/1324.png",
-   "away_logo": "https://media.api-sports.io/football/teams/744.png",
-   "conseil": "Eintracht Braunschweig gagne + Plus de 3.5 buts",
-   "conseil_cote": 8.47,
+   "home_logo": "https://media.api-sports.io/football/teams/178.png",
+   "away_logo": "https://media.api-sports.io/football/teams/180.png",
+   "conseil": "SpVgg Greuther Fürth ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 2.37,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "F. Klaus buteur",
+     "detail": "cote 3.20",
+     "odd": 3.2,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1513622",
@@ -122,6 +122,34 @@
    "conseil_cote": 1.14,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_185881",
+   "flag": "🎾",
+   "league": "Montreux Nestlé Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Julia Stusek – Martina Trevisan",
+   "kickoff_at": "2026-09-06T13:30Z",
+   "published": true,
+   "home_photo": "assets/players/julia stusek.png",
+   "away_photo": "assets/players/martina trevisan.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.461",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Martina Trevisan",
+     "kind": "player",
+     "detail": "cote 1.30",
+     "odd": 1.3,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1523264",
@@ -2942,6 +2970,35 @@
    "score": "1 - 1"
   },
   {
+   "fixture_id": "api_football:1556058",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/310.png",
+   "away_logo": "https://media.api-sports.io/football/teams/282.png",
+   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
+   "conseil_cote": 2.83,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Suzuki buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1556055",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -2965,35 +3022,6 @@
      "label": "Léo Ceará buteur",
      "detail": "cote 1.83",
      "odd": 1.83,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556053",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "JEF United Chiba – Gamba Osaka",
-   "kickoff_at": "2026-09-06T11:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/301.png",
-   "away_logo": "https://media.api-sports.io/football/teams/293.png",
-   "conseil": "Gamba Osaka gagne",
-   "conseil_cote": 2.14,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 0",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "D. Hümmet buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -3029,29 +3057,29 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556058",
+   "fixture_id": "api_football:1556053",
    "flag": "🇯🇵",
    "league": "J1 League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
+   "match": "JEF United Chiba – Gamba Osaka",
    "kickoff_at": "2026-09-06T11:00:00+02:00",
    "published": true,
    "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/310.png",
-   "away_logo": "https://media.api-sports.io/football/teams/282.png",
-   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
-   "conseil_cote": 2.83,
+   "home_logo": "https://media.api-sports.io/football/teams/301.png",
+   "away_logo": "https://media.api-sports.io/football/teams/293.png",
+   "conseil": "Gamba Osaka gagne",
+   "conseil_cote": 2.14,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "PERDU",
-   "score": "3 - 2",
+   "score": "2 - 0",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "A. Suzuki buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
+     "label": "D. Hümmet buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
