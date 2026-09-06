@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T11:00:32.096497+00:00",
+ "generated_at": "2026-09-06T11:03:44.843023+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -103,32 +103,6 @@
      "label": "D. Hümmet buteur",
      "detail": "cote 2.50",
      "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556055",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kashima – Urawa",
-   "kickoff_at": "2026-09-06T11:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/290.png",
-   "away_logo": "https://media.api-sports.io/football/teams/287.png",
-   "conseil": "Kashima ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 2.18,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Léo Ceará buteur",
-     "detail": "cote 1.83",
-     "odd": 1.83,
      "mise_eur": 200.0
     }
    ]
@@ -2761,6 +2735,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1556055",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kashima – Urawa",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/290.png",
+   "away_logo": "https://media.api-sports.io/football/teams/287.png",
+   "conseil": "Kashima ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 2.18,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Léo Ceará buteur",
+     "detail": "cote 1.83",
+     "odd": 1.83,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
