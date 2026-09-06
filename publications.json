@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T04:42:59.485986+00:00",
+ "generated_at": "2026-09-06T04:47:00.574912+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -127,32 +127,6 @@
    "conseil": "Victoire Ilia Simakin",
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1490450",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Portland Timbers – Minnesota United FC",
-   "kickoff_at": "2026-09-06T04:30:00+02:00",
-   "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1617.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1612.png",
-   "conseil": "Minnesota United FC ou Nul",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "K. Yeboah buteur",
-     "detail": "cote 2.40",
-     "odd": 2.4,
-     "mise_eur": 300.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1550954",
@@ -4085,6 +4059,35 @@
      "detail": "cote 2.50",
      "odd": 2.5,
      "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1490450",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Portland Timbers – Minnesota United FC",
+   "kickoff_at": "2026-09-06T04:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1617.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1612.png",
+   "conseil": "Minnesota United FC ou Nul",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "5 - 4",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "K. Yeboah buteur",
+     "detail": "cote 2.40",
+     "odd": 2.4,
+     "mise_eur": 300.0,
      "result": "PERDU"
     }
    ]
