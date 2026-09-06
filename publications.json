@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T13:37:22.975579+00:00",
+ "generated_at": "2026-09-06T13:42:22.967653+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -195,23 +195,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1552160",
-   "flag": "🇳🇱",
-   "league": "Eredivisie",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Telstar – Cambuur",
-   "kickoff_at": "2026-09-06T14:30:00+02:00",
-   "published": true,
-   "league_id": 88,
-   "home_logo": "https://media.api-sports.io/football/teams/427.png",
-   "away_logo": "https://media.api-sports.io/football/teams/420.png",
-   "conseil": "Telstar ou Nul",
-   "conseil_cote": 1.19,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1552159",
    "flag": "🇳🇱",
    "league": "Eredivisie",
@@ -229,6 +212,23 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1552160",
+   "flag": "🇳🇱",
+   "league": "Eredivisie",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Telstar – Cambuur",
+   "kickoff_at": "2026-09-06T14:30:00+02:00",
+   "published": true,
+   "league_id": 88,
+   "home_logo": "https://media.api-sports.io/football/teams/427.png",
+   "away_logo": "https://media.api-sports.io/football/teams/420.png",
+   "conseil": "Telstar ou Nul",
+   "conseil_cote": 1.19,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1553155",
    "flag": "🇵🇱",
    "league": "Ekstraklasa",
@@ -243,23 +243,6 @@
    "conseil": "Gornik Zabrze ou Nul",
    "conseil_cote": 1.53,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1560010",
-   "flag": "🇨🇿",
-   "league": "Czech Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FK Jablonec – Slovan Liberec",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 345,
-   "home_logo": "https://media.api-sports.io/football/teams/1122.png",
-   "away_logo": "https://media.api-sports.io/football/teams/782.png",
-   "conseil": "FK Jablonec ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.92,
-   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore"
   },
   {
@@ -346,6 +329,23 @@
    "conseil": "Golden Arrows ou Nul + Moins de 3.5 buts",
    "conseil_cote": 3.58,
    "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1560010",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FK Jablonec – Slovan Liberec",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/1122.png",
+   "away_logo": "https://media.api-sports.io/football/teams/782.png",
+   "conseil": "FK Jablonec ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.92,
+   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore"
   },
   {
@@ -564,49 +564,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1508851",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "KA Akureyri – Breidablik",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/272.png",
-   "away_logo": "https://media.api-sports.io/football/teams/276.png",
-   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.62,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1508854",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Thor Akureyri – FH hafnarfjordur",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/2116.png",
-   "away_logo": "https://media.api-sports.io/football/teams/270.png",
-   "conseil": "FH hafnarfjordur ou Nul",
-   "conseil_cote": 1.33,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "K. Halldórsson buteur",
-     "detail": "70%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1508855",
    "flag": "🇮🇸",
    "league": "Úrvalsdeild",
@@ -650,57 +607,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556660",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Heart Of Midlothian – Dundee",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/254.png",
-   "away_logo": "https://media.api-sports.io/football/teams/253.png",
-   "conseil": "Heart Of Midlothian ou Nul",
-   "conseil_cote": 1.13,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1558623",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kortrijk – Zulte Waregem",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/734.png",
-   "away_logo": "https://media.api-sports.io/football/teams/600.png",
-   "conseil": "Zulte Waregem gagne",
-   "conseil_cote": 2.26,
-   "conseil_mise_eur": 500.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1601890",
-   "flag": "⚽",
-   "league": "Premyer Liqa",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Turan – Sumqayıt",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 419,
-   "home_logo": "https://media.api-sports.io/football/teams/5499.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5503.png",
-   "conseil": "Turan ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1508850",
    "flag": "🇮🇸",
    "league": "Úrvalsdeild",
@@ -727,6 +633,83 @@
    ]
   },
   {
+   "fixture_id": "api_football:1549013",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Odense – FC Copenhagen",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/405.png",
+   "away_logo": "https://media.api-sports.io/football/teams/400.png",
+   "conseil": "FC Copenhagen ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1508851",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "KA Akureyri – Breidablik",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/272.png",
+   "away_logo": "https://media.api-sports.io/football/teams/276.png",
+   "conseil": "Breidablik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.62,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1508854",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Thor Akureyri – FH hafnarfjordur",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/2116.png",
+   "away_logo": "https://media.api-sports.io/football/teams/270.png",
+   "conseil": "FH hafnarfjordur ou Nul",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "K. Halldórsson buteur",
+     "detail": "70%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1601890",
+   "flag": "⚽",
+   "league": "Premyer Liqa",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Turan – Sumqayıt",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 419,
+   "home_logo": "https://media.api-sports.io/football/teams/5499.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5503.png",
+   "conseil": "Turan ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1584399",
    "flag": "🇹🇷",
    "league": "Süper Lig",
@@ -748,49 +731,6 @@
      "label": "A. Benedyczak buteur",
      "detail": "cote 2.75",
      "odd": 2.75,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1549013",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Odense – FC Copenhagen",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/405.png",
-   "away_logo": "https://media.api-sports.io/football/teams/400.png",
-   "conseil": "FC Copenhagen ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1492363",
-   "flag": "🇧🇷",
-   "league": "Serie A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Coritiba – Mirassol",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 71,
-   "home_logo": "https://media.api-sports.io/football/teams/147.png",
-   "away_logo": "https://media.api-sports.io/football/teams/7848.png",
-   "conseil": "Coritiba ou Nul",
-   "conseil_cote": 1.39,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Pedro Rocha buteur",
-     "detail": "cote 3.00",
-     "odd": 3.0,
      "mise_eur": 300.0
     }
    ]
@@ -856,6 +796,107 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1492363",
+   "flag": "🇧🇷",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Coritiba – Mirassol",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 71,
+   "home_logo": "https://media.api-sports.io/football/teams/147.png",
+   "away_logo": "https://media.api-sports.io/football/teams/7848.png",
+   "conseil": "Coritiba ou Nul",
+   "conseil_cote": 1.39,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Pedro Rocha buteur",
+     "detail": "cote 3.00",
+     "odd": 3.0,
+     "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556660",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Heart Of Midlothian – Dundee",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/254.png",
+   "away_logo": "https://media.api-sports.io/football/teams/253.png",
+   "conseil": "Heart Of Midlothian ou Nul",
+   "conseil_cote": 1.13,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1558623",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kortrijk – Zulte Waregem",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/734.png",
+   "away_logo": "https://media.api-sports.io/football/teams/600.png",
+   "conseil": "Zulte Waregem gagne",
+   "conseil_cote": 2.26,
+   "conseil_mise_eur": 500.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1570371",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Valencia – Barcelona",
+   "kickoff_at": "2026-09-06T16:15:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/532.png",
+   "away_logo": "https://media.api-sports.io/football/teams/529.png",
+   "conseil": "Barcelona gagne",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Raphinha buteur",
+     "detail": "cote 1.83",
+     "odd": 1.83,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182724",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carlos Alcaraz – Tommy Paul",
+   "kickoff_at": "2026-09-06T18:00Z",
+   "published": true,
+   "home_photo": "assets/players/carlos alcaraz.png",
+   "away_photo": "assets/players/tommy paul.png",
+   "conseil": "Victoire Carlos Alcaraz",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_182884",
    "flag": "🎾",
    "league": "US Open",
@@ -880,21 +921,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182724",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Carlos Alcaraz – Tommy Paul",
-   "kickoff_at": "2026-09-06T18:00Z",
-   "published": true,
-   "home_photo": "assets/players/carlos alcaraz.png",
-   "away_photo": "assets/players/tommy paul.png",
-   "conseil": "Victoire Carlos Alcaraz",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_182717",
