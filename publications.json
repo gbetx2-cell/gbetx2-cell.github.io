@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T00:08:04.816061+00:00",
+ "generated_at": "2026-09-06T00:08:16.774167+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -15,49 +15,6 @@
    "conseil": "Victoire Alexander Zverev",
    "conseil_cote": 1.18,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1553157",
-   "flag": "🇵🇱",
-   "league": "Ekstraklasa",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Korona Kielce – Wisla Krakow",
-   "kickoff_at": "2026-09-05T17:30:00+02:00",
-   "published": true,
-   "league_id": 106,
-   "home_logo": "https://media.api-sports.io/football/teams/346.png",
-   "away_logo": "https://media.api-sports.io/football/teams/338.png",
-   "conseil": "Wisla Krakow ou Nul",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1494272",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Vasteras SK FK – Sirius",
-   "kickoff_at": "2026-09-05T17:30:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2241.png",
-   "away_logo": "https://media.api-sports.io/football/teams/370.png",
-   "conseil": "Sirius ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "I. Bjerkebo buteur",
-     "detail": "cote 2.05",
-     "odd": 2.05,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1560239",
@@ -3642,6 +3599,54 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1553157",
+   "flag": "🇵🇱",
+   "league": "Ekstraklasa",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Korona Kielce – Wisla Krakow",
+   "kickoff_at": "2026-09-05T17:30:00+02:00",
+   "published": true,
+   "league_id": 106,
+   "home_logo": "https://media.api-sports.io/football/teams/346.png",
+   "away_logo": "https://media.api-sports.io/football/teams/338.png",
+   "conseil": "Wisla Krakow ou Nul",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1494272",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Vasteras SK FK – Sirius",
+   "kickoff_at": "2026-09-05T17:30:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2241.png",
+   "away_logo": "https://media.api-sports.io/football/teams/370.png",
+   "conseil": "Sirius ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "I. Bjerkebo buteur",
+     "detail": "cote 2.05",
+     "odd": 2.05,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182737",
