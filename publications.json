@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T16:01:08.130449+00:00",
+ "generated_at": "2026-09-06T16:01:29.706547+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -28,40 +28,6 @@
    "conseil": "Victoire Ben Shelton",
    "conseil_cote": 1.38,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1549013",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Odense – FC Copenhagen",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/405.png",
-   "away_logo": "https://media.api-sports.io/football/teams/400.png",
-   "conseil": "FC Copenhagen ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1508855",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Vikingur Reykjavik – Fram Reykjavik",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/278.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2117.png",
-   "conseil": "Vikingur Reykjavik ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.31,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1556660",
@@ -4297,6 +4263,25 @@
    "score": "1 - 2"
   },
   {
+   "fixture_id": "api_football:1549013",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Odense – FC Copenhagen",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/405.png",
+   "away_logo": "https://media.api-sports.io/football/teams/400.png",
+   "conseil": "FC Copenhagen ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 5"
+  },
+  {
    "fixture_id": "api_football:1508851",
    "flag": "🇮🇸",
    "league": "Úrvalsdeild",
@@ -4343,6 +4328,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1508855",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Vikingur Reykjavik – Fram Reykjavik",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/278.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2117.png",
+   "conseil": "Vikingur Reykjavik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1513623",
