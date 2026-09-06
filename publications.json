@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T13:31:06.924463+00:00",
+ "generated_at": "2026-09-06T13:31:23.701957+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -28,23 +28,6 @@
    "conseil": "Victoire Ilia Simakin",
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1513622",
-   "flag": "🇪🇪",
-   "league": "Meistriliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Paide – FC Levadia Tallinn",
-   "kickoff_at": "2026-09-06T13:30:00+02:00",
-   "published": true,
-   "league_id": 329,
-   "home_logo": "https://media.api-sports.io/football/teams/3528.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2273.png",
-   "conseil": "FC Levadia Tallinn ou Nul",
-   "conseil_cote": 1.14,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "tennis_espn_wta_185881",
@@ -766,6 +749,23 @@
    "home_logo": "https://media.api-sports.io/football/teams/275.png",
    "away_logo": "https://media.api-sports.io/football/teams/268.png",
    "conseil": "Stjarnan ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1549013",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Odense – FC Copenhagen",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/405.png",
+   "away_logo": "https://media.api-sports.io/football/teams/400.png",
+   "conseil": "FC Copenhagen ou Nul",
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
@@ -3548,6 +3548,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "3 - 1"
+  },
+  {
+   "fixture_id": "api_football:1513622",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Paide – FC Levadia Tallinn",
+   "kickoff_at": "2026-09-06T13:30:00+02:00",
+   "published": true,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/3528.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2273.png",
+   "conseil": "FC Levadia Tallinn ou Nul",
+   "conseil_cote": 1.14,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
   },
   {
    "fixture_id": "api_football:1576164",
