@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T11:07:34.380953+00:00",
+ "generated_at": "2026-09-06T11:07:30.423890+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -28,6 +28,32 @@
    "conseil": "Victoire Ilia Simakin",
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1556058",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/310.png",
+   "away_logo": "https://media.api-sports.io/football/teams/282.png",
+   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
+   "conseil_cote": 2.83,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Suzuki buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1556057",
@@ -2786,35 +2812,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
-  },
-  {
-   "fixture_id": "api_football:1556058",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
-   "kickoff_at": "2026-09-06T11:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/310.png",
-   "away_logo": "https://media.api-sports.io/football/teams/282.png",
-   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
-   "conseil_cote": 2.83,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 2",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Suzuki buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1556055",
