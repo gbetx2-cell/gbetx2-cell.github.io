@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T14:59:35.938025+00:00",
+ "generated_at": "2026-09-06T14:59:57.986580+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -101,23 +101,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1547624",
-   "flag": "🇱🇹",
-   "league": "A Lyga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "TransINVEST Vilnius – Suduva Marijampole",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 362,
-   "home_logo": "https://media.api-sports.io/football/teams/18878.png",
-   "away_logo": "https://media.api-sports.io/football/teams/612.png",
-   "conseil": "Suduva Marijampole ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1557390",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Premier League",
@@ -156,58 +139,6 @@
      "label": "G. Kvernadze buteur",
      "detail": "cote 3.40",
      "odd": 3.4,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1552755",
-   "flag": "🇫🇷",
-   "league": "Ligue 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Estac Troyes – Strasbourg",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 61,
-   "home_logo": "https://media.api-sports.io/football/teams/110.png",
-   "away_logo": "https://media.api-sports.io/football/teams/95.png",
-   "conseil": "Estac Troyes ou Nul",
-   "conseil_cote": 1.6,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "R. Ripart buteur",
-     "detail": "cote 2.88",
-     "odd": 2.88,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1601515",
-   "flag": "🇮🇹",
-   "league": "Serie B",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Cesena – Mantova",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 136,
-   "home_logo": "https://media.api-sports.io/football/teams/509.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1693.png",
-   "conseil": "Mantova ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "F. Ruocco buteur",
-     "detail": "cote 3.20",
-     "odd": 3.2,
      "mise_eur": 200.0
     }
    ]
@@ -4022,6 +3953,25 @@
    "score": "0 - 1"
   },
   {
+   "fixture_id": "api_football:1547624",
+   "flag": "🇱🇹",
+   "league": "A Lyga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "TransINVEST Vilnius – Suduva Marijampole",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 362,
+   "home_logo": "https://media.api-sports.io/football/teams/18878.png",
+   "away_logo": "https://media.api-sports.io/football/teams/612.png",
+   "conseil": "Suduva Marijampole ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
+  },
+  {
    "fixture_id": "api_football:1550115",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -4039,6 +3989,64 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1552755",
+   "flag": "🇫🇷",
+   "league": "Ligue 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Estac Troyes – Strasbourg",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 61,
+   "home_logo": "https://media.api-sports.io/football/teams/110.png",
+   "away_logo": "https://media.api-sports.io/football/teams/95.png",
+   "conseil": "Estac Troyes ou Nul",
+   "conseil_cote": 1.6,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 6",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "R. Ripart buteur",
+     "detail": "cote 2.88",
+     "odd": 2.88,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1601515",
+   "flag": "🇮🇹",
+   "league": "Serie B",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Cesena – Mantova",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 136,
+   "home_logo": "https://media.api-sports.io/football/teams/509.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1693.png",
+   "conseil": "Mantova ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "F. Ruocco buteur",
+     "detail": "cote 3.20",
+     "odd": 3.2,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1560010",
