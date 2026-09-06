@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T22:16:04.476935+00:00",
+ "generated_at": "2026-09-06T22:38:04.340986+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -672,34 +672,6 @@
    "match": "? – ?",
    "kickoff_at": "2026-09-06T18:00Z",
    "published": true,
-   "conseil": "Total sets Plus de 3.5",
-   "conseil_cote": 2.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Plus de 3.5 @ 1.49",
-   "value_cote": 1.49,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Daniil Medvedev",
-     "kind": "player",
-     "detail": "cote 1.77",
-     "odd": 1.769,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182744",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Frances Tiafoe – Daniil Medvedev",
-   "kickoff_at": "2026-09-06T19:00Z",
-   "published": true,
-   "home_photo": "assets/players/frances tiafoe.png",
-   "away_photo": "assets/players/daniil medvedev.png",
    "conseil": "Total sets Plus de 3.5",
    "conseil_cote": 2.56,
    "conseil_mise_eur": 200.0,
@@ -4757,6 +4729,38 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "8 - 6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182744",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Frances Tiafoe – Daniil Medvedev",
+   "kickoff_at": "2026-09-06T19:00Z",
+   "published": true,
+   "home_photo": "assets/players/frances tiafoe.png",
+   "away_photo": "assets/players/daniil medvedev.png",
+   "conseil": "Total sets Plus de 3.5",
+   "conseil_cote": 2.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Plus de 3.5 @ 1.49",
+   "value_cote": 1.49,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "7-6, 6-4, 7-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Daniil Medvedev",
+     "kind": "player",
+     "detail": "cote 1.77",
+     "odd": 1.769,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
