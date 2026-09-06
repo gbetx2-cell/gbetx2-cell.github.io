@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T16:07:49.013522+00:00",
+ "generated_at": "2026-09-06T16:08:45.612989+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -28,23 +28,6 @@
    "conseil": "Victoire Ben Shelton",
    "conseil_cote": 1.38,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1556660",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Heart Of Midlothian – Dundee",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/254.png",
-   "away_logo": "https://media.api-sports.io/football/teams/253.png",
-   "conseil": "Heart Of Midlothian ou Nul",
-   "conseil_cote": 1.13,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "baseball_401816832",
@@ -4439,6 +4422,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1556660",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Heart Of Midlothian – Dundee",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/254.png",
+   "away_logo": "https://media.api-sports.io/football/teams/253.png",
+   "conseil": "Heart Of Midlothian ou Nul",
+   "conseil_cote": 1.13,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1"
   }
  ]
 }
