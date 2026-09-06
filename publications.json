@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T12:00:43.559141+00:00",
+ "generated_at": "2026-09-06T12:00:50.141317+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -52,32 +52,6 @@
      "detail": "45%",
      "odd": null,
      "mise_eur": null
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556059",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Vissel Kobe – V-varen Nagasaki",
-   "kickoff_at": "2026-09-06T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/289.png",
-   "away_logo": "https://media.api-sports.io/football/teams/285.png",
-   "conseil": "Vissel Kobe ou Nul",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Y. Osako buteur",
-     "detail": "cote 2.30",
-     "odd": 2.3,
-     "mise_eur": 200.0
     }
    ]
   },
@@ -2988,6 +2962,35 @@
      "label": "Y. Koizumi buteur",
      "detail": "cote 4.00",
      "odd": 4.0,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556059",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Vissel Kobe – V-varen Nagasaki",
+   "kickoff_at": "2026-09-06T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/289.png",
+   "away_logo": "https://media.api-sports.io/football/teams/285.png",
+   "conseil": "Vissel Kobe ou Nul",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Y. Osako buteur",
+     "detail": "cote 2.30",
+     "odd": 2.3,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
