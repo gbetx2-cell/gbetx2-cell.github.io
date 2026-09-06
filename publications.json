@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T16:01:29.706547+00:00",
+ "generated_at": "2026-09-06T16:01:36.942878+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -105,32 +105,6 @@
    "conseil_cote": 1.52,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1556662",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "ST Johnstone – Hibernian",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/258.png",
-   "away_logo": "https://media.api-sports.io/football/teams/249.png",
-   "conseil": "Hibernian ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.79,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. McGrath buteur",
-     "detail": "cote 4.33",
-     "odd": 4.33,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1508853",
@@ -4373,6 +4347,35 @@
      "detail": "57%",
      "odd": null,
      "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556662",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "ST Johnstone – Hibernian",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/258.png",
+   "away_logo": "https://media.api-sports.io/football/teams/249.png",
+   "conseil": "Hibernian ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.79,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. McGrath buteur",
+     "detail": "cote 4.33",
+     "odd": 4.33,
+     "mise_eur": 200.0,
      "result": "PERDU"
     }
    ]
