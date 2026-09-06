@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T03:31:12.065204+00:00",
+ "generated_at": "2026-09-06T03:35:00.304176+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -36,23 +36,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1549769",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Junior – Jaguares",
-   "kickoff_at": "2026-09-06T03:30:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1135.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1133.png",
-   "conseil": "Junior ou Nul",
-   "conseil_cote": 1.09,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1490447",
@@ -4102,6 +4085,25 @@
     }
    ],
    "result": "GAGNE"
+  },
+  {
+   "fixture_id": "api_football:1549769",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Junior – Jaguares",
+   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1135.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1133.png",
+   "conseil": "Junior ou Nul",
+   "conseil_cote": 1.09,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 3"
   }
  ]
 }
