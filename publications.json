@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T09:08:02.684042+00:00",
+ "generated_at": "2026-09-06T09:19:47.053358+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -56,32 +56,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556058",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
-   "kickoff_at": "2026-09-06T11:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/310.png",
-   "away_logo": "https://media.api-sports.io/football/teams/282.png",
-   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
-   "conseil_cote": 2.83,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Suzuki buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1556055",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -103,6 +77,32 @@
      "label": "Léo Ceará buteur",
      "detail": "cote 1.83",
      "odd": 1.83,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556058",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/310.png",
+   "away_logo": "https://media.api-sports.io/football/teams/282.png",
+   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
+   "conseil_cote": 2.83,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Suzuki buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
      "mise_eur": 200.0
     }
    ]
@@ -132,75 +132,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1556059",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Vissel Kobe – V-varen Nagasaki",
-   "kickoff_at": "2026-09-06T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/289.png",
-   "away_logo": "https://media.api-sports.io/football/teams/285.png",
-   "conseil": "Vissel Kobe ou Nul",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Y. Osako buteur",
-     "detail": "cote 2.30",
-     "odd": 2.3,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556060",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kawasaki Frontale – Shimizu S-pulse",
-   "kickoff_at": "2026-09-06T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/294.png",
-   "away_logo": "https://media.api-sports.io/football/teams/283.png",
-   "conseil": "Kawasaki Frontale ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Y. Wakizaka buteur",
-     "detail": "45%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1507057",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gimcheon Sangmu FC – Gwangju FC",
-   "kickoff_at": "2026-09-06T12:00:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2768.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2759.png",
-   "conseil": "Gimcheon Sangmu FC ou Nul",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1556052",
@@ -255,6 +186,32 @@
    ]
   },
   {
+   "fixture_id": "api_football:1556059",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Vissel Kobe – V-varen Nagasaki",
+   "kickoff_at": "2026-09-06T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/289.png",
+   "away_logo": "https://media.api-sports.io/football/teams/285.png",
+   "conseil": "Vissel Kobe ou Nul",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Y. Osako buteur",
+     "detail": "cote 2.30",
+     "odd": 2.3,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1507056",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -270,6 +227,81 @@
    "conseil_cote": 1.68,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1556060",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kawasaki Frontale – Shimizu S-pulse",
+   "kickoff_at": "2026-09-06T12:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/294.png",
+   "away_logo": "https://media.api-sports.io/football/teams/283.png",
+   "conseil": "Kawasaki Frontale ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Y. Wakizaka buteur",
+     "detail": "45%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1507057",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gimcheon Sangmu FC – Gwangju FC",
+   "kickoff_at": "2026-09-06T12:00:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2768.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2759.png",
+   "conseil": "Gimcheon Sangmu FC ou Nul",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1552158",
+   "flag": "🇳🇱",
+   "league": "Eredivisie",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Groningen – Twente",
+   "kickoff_at": "2026-09-06T12:15:00+02:00",
+   "published": true,
+   "league_id": 88,
+   "home_logo": "https://media.api-sports.io/football/teams/202.png",
+   "away_logo": "https://media.api-sports.io/football/teams/415.png",
+   "conseil": "Twente ou Nul",
+   "conseil_cote": 1.34,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182724",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carlos Alcaraz – Tommy Paul",
+   "kickoff_at": "2026-09-06T18:00Z",
+   "published": true,
+   "home_photo": "assets/players/carlos alcaraz.png",
+   "away_photo": "assets/players/tommy paul.png",
+   "conseil": "Victoire Carlos Alcaraz",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_182884",
@@ -296,21 +328,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182724",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Carlos Alcaraz – Tommy Paul",
-   "kickoff_at": "2026-09-06T18:00Z",
-   "published": true,
-   "home_photo": "assets/players/carlos alcaraz.png",
-   "away_photo": "assets/players/tommy paul.png",
-   "conseil": "Victoire Carlos Alcaraz",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_182717",
@@ -2303,22 +2320,6 @@
    "score": "3 - 6"
   },
   {
-   "fixture_id": "baseball_401816820",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago White Sox – Minnesota Twins",
-   "kickoff_at": "2026-09-05T23:10Z",
-   "published": true,
-   "value_bet": "Minnesota Twins Plus de 3,5 @ 1.7692",
-   "value_cote": 1.77,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "4 - 6"
-  },
-  {
    "fixture_id": "baseball_401816822",
    "flag": "⚾",
    "league": "MLB",
@@ -2343,6 +2344,22 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816820",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago White Sox – Minnesota Twins",
+   "kickoff_at": "2026-09-05T23:10Z",
+   "published": true,
+   "value_bet": "Minnesota Twins Plus de 3,5 @ 1.7692",
+   "value_cote": 1.77,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "4 - 6"
   },
   {
    "fixture_id": "api_football:1490446",
@@ -2393,6 +2410,25 @@
     }
    ],
    "result": "GAGNE"
+  },
+  {
+   "fixture_id": "api_football:1549769",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Junior – Jaguares",
+   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1135.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1133.png",
+   "conseil": "Junior ou Nul",
+   "conseil_cote": 1.09,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 3"
   },
   {
    "fixture_id": "api_football:1490448",
@@ -2451,25 +2487,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1549769",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Junior – Jaguares",
-   "kickoff_at": "2026-09-06T03:30:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1135.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1133.png",
-   "conseil": "Junior ou Nul",
-   "conseil_cote": 1.09,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "3 - 3"
   },
   {
    "fixture_id": "api_football:1490450",
