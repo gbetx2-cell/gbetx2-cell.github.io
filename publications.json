@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T14:36:34.663372+00:00",
+ "generated_at": "2026-09-06T14:38:37.140311+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -56,23 +56,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1552160",
-   "flag": "🇳🇱",
-   "league": "Eredivisie",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Telstar – Cambuur",
-   "kickoff_at": "2026-09-06T14:30:00+02:00",
-   "published": true,
-   "league_id": 88,
-   "home_logo": "https://media.api-sports.io/football/teams/427.png",
-   "away_logo": "https://media.api-sports.io/football/teams/420.png",
-   "conseil": "Telstar ou Nul",
-   "conseil_cote": 1.19,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1553155",
@@ -3999,6 +3982,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1552160",
+   "flag": "🇳🇱",
+   "league": "Eredivisie",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Telstar – Cambuur",
+   "kickoff_at": "2026-09-06T14:30:00+02:00",
+   "published": true,
+   "league_id": 88,
+   "home_logo": "https://media.api-sports.io/football/teams/427.png",
+   "away_logo": "https://media.api-sports.io/football/teams/420.png",
+   "conseil": "Telstar ou Nul",
+   "conseil_cote": 1.19,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
   }
  ]
 }
