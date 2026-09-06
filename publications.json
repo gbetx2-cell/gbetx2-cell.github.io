@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T22:38:04.340986+00:00",
+ "generated_at": "2026-09-06T22:47:11.266539+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -685,54 +685,6 @@
      "kind": "player",
      "detail": "cote 1.77",
      "odd": 1.769,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816840",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "San Diego Padres – New York Yankees",
-   "kickoff_at": "2026-09-06T20:10Z",
-   "published": true,
-   "value_bet": "New York Yankees Plus de 3,5 @ 2.0",
-   "value_cote": 2.0,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "totals",
-     "label": "Total — Plus de 6,5 runs @ 1.7407",
-     "odd": 1.74,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816839",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Seattle Mariners – Athletics",
-   "kickoff_at": "2026-09-06T20:10Z",
-   "published": true,
-   "value_bet": "Seattle Mariners Moins de 4,5 @ 1.6667",
-   "value_cote": 1.67,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Seattle Mariners @ 1.4808",
-     "odd": 1.48,
-     "mise_eur": 200.0
-    },
-    {
-     "market": "totals",
-     "label": "Total — Moins de 7,5 runs @ 1.7407",
-     "odd": 1.74,
      "mise_eur": 200.0
     }
    ]
@@ -4759,6 +4711,63 @@
      "odd": 1.769,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816840",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "San Diego Padres – New York Yankees",
+   "kickoff_at": "2026-09-06T20:10Z",
+   "published": true,
+   "value_bet": "New York Yankees Plus de 3,5 @ 2.0",
+   "value_cote": 2.0,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "totals",
+     "label": "Total — Plus de 6,5 runs @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816839",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Seattle Mariners – Athletics",
+   "kickoff_at": "2026-09-06T20:10Z",
+   "published": true,
+   "value_bet": "Seattle Mariners Moins de 4,5 @ 1.6667",
+   "value_cote": 1.67,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "2 - 0",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Seattle Mariners @ 1.4808",
+     "odd": 1.48,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "market": "totals",
+     "label": "Total — Moins de 7,5 runs @ 1.7407",
+     "odd": 1.74,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
