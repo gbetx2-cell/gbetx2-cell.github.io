@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T16:01:51.637761+00:00",
+ "generated_at": "2026-09-06T16:05:01.141277+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -47,23 +47,6 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1558623",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kortrijk – Zulte Waregem",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/734.png",
-   "away_logo": "https://media.api-sports.io/football/teams/600.png",
-   "conseil": "Zulte Waregem gagne",
-   "conseil_cote": 2.26,
-   "conseil_mise_eur": 500.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1492363",
    "flag": "🇧🇷",
    "league": "Serie A",
@@ -86,49 +69,6 @@
      "detail": "cote 3.00",
      "odd": 3.0,
      "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1508853",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Stjarnan – IBV Vestmannaeyjar",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/275.png",
-   "away_logo": "https://media.api-sports.io/football/teams/268.png",
-   "conseil": "Stjarnan ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1508850",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "IA Akranes – KR Reykjavik",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/827.png",
-   "away_logo": "https://media.api-sports.io/football/teams/271.png",
-   "conseil": "KR Reykjavik ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.41,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Sigurðarson buteur",
-     "detail": "65%",
-     "odd": null,
-     "mise_eur": null
     }
    ]
   },
@@ -4335,6 +4275,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1558623",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kortrijk – Zulte Waregem",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/734.png",
+   "away_logo": "https://media.api-sports.io/football/teams/600.png",
+   "conseil": "Zulte Waregem gagne",
+   "conseil_cote": 2.26,
+   "conseil_mise_eur": 500.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
+  },
+  {
    "fixture_id": "api_football:1601890",
    "flag": "⚽",
    "league": "Premyer Liqa",
@@ -4383,6 +4342,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1508853",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Stjarnan – IBV Vestmannaeyjar",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/275.png",
+   "away_logo": "https://media.api-sports.io/football/teams/268.png",
+   "conseil": "Stjarnan ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
+  },
+  {
    "fixture_id": "api_football:1584395",
    "flag": "🇹🇷",
    "league": "Süper Lig",
@@ -4427,6 +4405,35 @@
      "odd": 2.75,
      "mise_eur": 300.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1508850",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "IA Akranes – KR Reykjavik",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/827.png",
+   "away_logo": "https://media.api-sports.io/football/teams/271.png",
+   "conseil": "KR Reykjavik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.41,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Sigurðarson buteur",
+     "detail": "65%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
     }
    ]
   }
