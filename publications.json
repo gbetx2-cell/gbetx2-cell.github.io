@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T03:38:59.490137+00:00",
+ "generated_at": "2026-09-06T03:42:00.486462+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -33,32 +33,6 @@
      "market": "winner",
      "label": "Vainqueur — Milwaukee Brewers @ 1.7042",
      "odd": 1.7,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1490448",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Los Angeles Galaxy – New England Revolution",
-   "kickoff_at": "2026-09-06T03:30:00+02:00",
-   "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1605.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1609.png",
-   "conseil": "Los Angeles Galaxy ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Paintsil buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
      "mise_eur": 200.0
     }
    ]
@@ -4105,6 +4079,35 @@
      "odd": 2.0,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1490448",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Los Angeles Galaxy – New England Revolution",
+   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1605.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1609.png",
+   "conseil": "Los Angeles Galaxy ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Paintsil buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
