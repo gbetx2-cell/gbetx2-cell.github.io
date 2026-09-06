@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T12:30:41.037724+00:00",
+ "generated_at": "2026-09-06T12:30:57.853061+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -585,6 +585,49 @@
    "conseil_cote": 3.58,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1560010",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FK Jablonec – Slovan Liberec",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/1122.png",
+   "away_logo": "https://media.api-sports.io/football/teams/782.png",
+   "conseil": "FK Jablonec ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.92,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1560016",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Zlin – Teplice",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/603.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3720.png",
+   "conseil": "Teplice ou Nul",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "L. Mareček buteur",
+     "detail": "43%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182724",
