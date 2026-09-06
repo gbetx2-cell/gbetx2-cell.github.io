@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T00:33:57.042757+00:00",
+ "generated_at": "2026-09-06T00:37:56.571719+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -234,27 +234,24 @@
    ]
   },
   {
-   "fixture_id": "api_football:1490447",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
+   "fixture_id": "api_football:1550953",
+   "flag": "🇲🇽",
+   "league": "Liga MX",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Real Salt Lake – Los Angeles FC",
-   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "match": "Tigres UANL – Necaxa",
+   "kickoff_at": "2026-09-06T03:00:00+02:00",
    "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1606.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1616.png",
-   "conseil": "Los Angeles FC ou Nul",
-   "conseil_cote": 1.4,
-   "conseil_mise_eur": 300.0,
+   "league_id": 262,
+   "home_logo": "https://media.api-sports.io/football/teams/2279.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2288.png",
    "lineup_source": "flashscore",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "D. Bouanga buteur",
-     "detail": "cote 2.00",
-     "odd": 2.0,
+     "label": "R. Aguirre buteur",
+     "detail": "cote 2.25",
+     "odd": 2.25,
      "mise_eur": 200.0
     }
    ]
@@ -281,6 +278,32 @@
      "label": "J. Paintsil buteur",
      "detail": "cote 2.50",
      "odd": 2.5,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1490447",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Salt Lake – Los Angeles FC",
+   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1606.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1616.png",
+   "conseil": "Los Angeles FC ou Nul",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "D. Bouanga buteur",
+     "detail": "cote 2.00",
+     "odd": 2.0,
      "mise_eur": 200.0
     }
    ]
@@ -3398,25 +3421,6 @@
    "score": "2 - 1"
   },
   {
-   "fixture_id": "api_football:1551556",
-   "flag": "⚽",
-   "league": "Super Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Žilina – Podbrezová",
-   "kickoff_at": "2026-09-05T18:00:00+02:00",
-   "published": true,
-   "league_id": 332,
-   "home_logo": "https://media.api-sports.io/football/teams/3554.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3548.png",
-   "conseil": "Žilina gagne + Plus de 1.5 buts",
-   "conseil_cote": 2.19,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "3 - 1"
-  },
-  {
    "fixture_id": "api_football:1551552",
    "flag": "⚽",
    "league": "Super Liga",
@@ -3434,6 +3438,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1551556",
+   "flag": "⚽",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Žilina – Podbrezová",
+   "kickoff_at": "2026-09-05T18:00:00+02:00",
+   "published": true,
+   "league_id": 332,
+   "home_logo": "https://media.api-sports.io/football/teams/3554.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3548.png",
+   "conseil": "Žilina gagne + Plus de 1.5 buts",
+   "conseil_cote": 2.19,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1494749",
