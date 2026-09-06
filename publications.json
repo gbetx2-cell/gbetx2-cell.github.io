@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T04:47:00.574912+00:00",
+ "generated_at": "2026-09-06T05:04:00.804955+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -127,23 +127,6 @@
    "conseil": "Victoire Ilia Simakin",
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1550954",
-   "flag": "🇲🇽",
-   "league": "Liga MX",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Atlas – Atlante FC",
-   "kickoff_at": "2026-09-06T05:00:00+02:00",
-   "published": true,
-   "league_id": 262,
-   "home_logo": "https://media.api-sports.io/football/teams/2283.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2312.png",
-   "conseil": "Atlas ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   }
  ],
  "done": [
@@ -4120,6 +4103,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1550954",
+   "flag": "🇲🇽",
+   "league": "Liga MX",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Atlas – Atlante FC",
+   "kickoff_at": "2026-09-06T05:00:00+02:00",
+   "published": true,
+   "league_id": 262,
+   "home_logo": "https://media.api-sports.io/football/teams/2283.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2312.png",
+   "conseil": "Atlas ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   }
  ]
 }
