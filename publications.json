@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T16:08:45.612989+00:00",
+ "generated_at": "2026-09-06T16:12:46.978942+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -49,23 +49,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1569911",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Oviedo – Burgos",
-   "kickoff_at": "2026-09-06T16:15:00+02:00",
-   "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/718.png",
-   "away_logo": "https://media.api-sports.io/football/teams/9580.png",
-   "conseil": "Oviedo ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.39,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1570371",
@@ -4441,6 +4424,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1569911",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Oviedo – Burgos",
+   "kickoff_at": "2026-09-06T16:15:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/718.png",
+   "away_logo": "https://media.api-sports.io/football/teams/9580.png",
+   "conseil": "Oviedo ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.39,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
   }
  ]
 }
