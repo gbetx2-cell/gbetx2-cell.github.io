@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T13:00:48.117311+00:00",
+ "generated_at": "2026-09-06T13:04:37.977366+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -30,23 +30,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1563131",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Birmingham – Wolves",
-   "kickoff_at": "2026-09-06T13:00:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/54.png",
-   "away_logo": "https://media.api-sports.io/football/teams/39.png",
-   "conseil": "Wolves ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.86,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1523263",
    "flag": "🇨🇳",
    "league": "Super League",
@@ -73,21 +56,30 @@
    ]
   },
   {
-   "fixture_id": "api_football:1558622",
-   "flag": "🇧🇪",
-   "league": "Jupiler Pro League",
+   "fixture_id": "api_football:1576162",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Cercle Brugge – Gent",
+   "match": "SpVgg Greuther Fürth – 1. FC Heidenheim",
    "kickoff_at": "2026-09-06T13:30:00+02:00",
    "published": true,
-   "league_id": 144,
-   "home_logo": "https://media.api-sports.io/football/teams/741.png",
-   "away_logo": "https://media.api-sports.io/football/teams/631.png",
-   "conseil": "Gent ou Nul",
-   "conseil_cote": 1.41,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/178.png",
+   "away_logo": "https://media.api-sports.io/football/teams/180.png",
+   "conseil": "SpVgg Greuther Fürth ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 2.37,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "F. Klaus buteur",
+     "detail": "cote 3.20",
+     "odd": 3.2,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1576164",
@@ -104,6 +96,23 @@
    "conseil": "Hertha BSC gagne",
    "conseil_cote": 1.95,
    "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1558622",
+   "flag": "🇧🇪",
+   "league": "Jupiler Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Cercle Brugge – Gent",
+   "kickoff_at": "2026-09-06T13:30:00+02:00",
+   "published": true,
+   "league_id": 144,
+   "home_logo": "https://media.api-sports.io/football/teams/741.png",
+   "away_logo": "https://media.api-sports.io/football/teams/631.png",
+   "conseil": "Gent ou Nul",
+   "conseil_cote": 1.41,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -141,27 +150,27 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1576162",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
+   "fixture_id": "api_football:1523264",
+   "flag": "🇨🇳",
+   "league": "Super League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "SpVgg Greuther Fürth – 1. FC Heidenheim",
-   "kickoff_at": "2026-09-06T13:30:00+02:00",
+   "match": "Henan Jianye – Chengdu Better City",
+   "kickoff_at": "2026-09-06T13:35:00+02:00",
    "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/178.png",
-   "away_logo": "https://media.api-sports.io/football/teams/180.png",
-   "conseil": "SpVgg Greuther Fürth ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 2.37,
-   "conseil_mise_eur": 200.0,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/840.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5648.png",
+   "conseil": "Chengdu Better City ou Nul",
+   "conseil_cote": 1.51,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "F. Klaus buteur",
-     "detail": "cote 3.20",
-     "odd": 3.2,
+     "label": "Wei Shihao buteur",
+     "detail": "cote 2.62",
+     "odd": 2.62,
      "mise_eur": 200.0
     }
    ]
@@ -188,32 +197,6 @@
      "label": "O. Maritu buteur",
      "detail": "cote 1.73",
      "odd": 1.73,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1523264",
-   "flag": "🇨🇳",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Henan Jianye – Chengdu Better City",
-   "kickoff_at": "2026-09-06T13:35:00+02:00",
-   "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/840.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5648.png",
-   "conseil": "Chengdu Better City ou Nul",
-   "conseil_cote": 1.51,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Wei Shihao buteur",
-     "detail": "cote 2.62",
-     "odd": 2.62,
      "mise_eur": 200.0
     }
    ]
@@ -3014,29 +2997,29 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556058",
+   "fixture_id": "api_football:1556053",
    "flag": "🇯🇵",
    "league": "J1 League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
+   "match": "JEF United Chiba – Gamba Osaka",
    "kickoff_at": "2026-09-06T11:00:00+02:00",
    "published": true,
    "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/310.png",
-   "away_logo": "https://media.api-sports.io/football/teams/282.png",
-   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
-   "conseil_cote": 2.83,
+   "home_logo": "https://media.api-sports.io/football/teams/301.png",
+   "away_logo": "https://media.api-sports.io/football/teams/293.png",
+   "conseil": "Gamba Osaka gagne",
+   "conseil_cote": 2.14,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "PERDU",
-   "score": "3 - 2",
+   "score": "2 - 0",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "A. Suzuki buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
+     "label": "D. Hümmet buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -3072,29 +3055,29 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556053",
+   "fixture_id": "api_football:1556058",
    "flag": "🇯🇵",
    "league": "J1 League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "JEF United Chiba – Gamba Osaka",
+   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
    "kickoff_at": "2026-09-06T11:00:00+02:00",
    "published": true,
    "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/301.png",
-   "away_logo": "https://media.api-sports.io/football/teams/293.png",
-   "conseil": "Gamba Osaka gagne",
-   "conseil_cote": 2.14,
+   "home_logo": "https://media.api-sports.io/football/teams/310.png",
+   "away_logo": "https://media.api-sports.io/football/teams/282.png",
+   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
+   "conseil_cote": 2.83,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore",
    "result": "PERDU",
-   "score": "2 - 0",
+   "score": "3 - 2",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "D. Hümmet buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
+     "label": "A. Suzuki buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -3320,6 +3303,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1563131",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Birmingham – Wolves",
+   "kickoff_at": "2026-09-06T13:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/54.png",
+   "away_logo": "https://media.api-sports.io/football/teams/39.png",
+   "conseil": "Wolves ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.86,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1560012",
