@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T10:30:40.694002+00:00",
+ "generated_at": "2026-09-06T10:36:29.853623+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -82,32 +82,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556057",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Nagoya Grampus – Machida Zelvia",
-   "kickoff_at": "2026-09-06T11:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/288.png",
-   "away_logo": "https://media.api-sports.io/football/teams/303.png",
-   "conseil": "Machida Zelvia gagne",
-   "conseil_cote": 2.19,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Y. Soma buteur",
-     "detail": "cote 3.10",
-     "odd": 3.1,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1556055",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -129,6 +103,32 @@
      "label": "Léo Ceará buteur",
      "detail": "cote 1.83",
      "odd": 1.83,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556057",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Nagoya Grampus – Machida Zelvia",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/288.png",
+   "away_logo": "https://media.api-sports.io/football/teams/303.png",
+   "conseil": "Machida Zelvia gagne",
+   "conseil_cote": 2.19,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Y. Soma buteur",
+     "detail": "cote 3.10",
+     "odd": 3.1,
      "mise_eur": 200.0
     }
    ]
@@ -332,23 +332,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1563131",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Birmingham – Wolves",
-   "kickoff_at": "2026-09-06T13:00:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/54.png",
-   "away_logo": "https://media.api-sports.io/football/teams/39.png",
-   "conseil": "Wolves ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.86,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1523263",
    "flag": "🇨🇳",
    "league": "Super League",
@@ -390,6 +373,49 @@
    "conseil_cote": 1.36,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1563131",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Birmingham – Wolves",
+   "kickoff_at": "2026-09-06T13:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/54.png",
+   "away_logo": "https://media.api-sports.io/football/teams/39.png",
+   "conseil": "Wolves ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.86,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1576162",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "SpVgg Greuther Fürth – 1. FC Heidenheim",
+   "kickoff_at": "2026-09-06T13:30:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/178.png",
+   "away_logo": "https://media.api-sports.io/football/teams/180.png",
+   "conseil": "SpVgg Greuther Fürth ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 2.37,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "F. Klaus buteur",
+     "detail": "cote 3.20",
+     "odd": 3.2,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182724",
