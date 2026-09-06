@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T20:35:10.977882+00:00",
+ "generated_at": "2026-09-06T20:48:24.873578+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -430,69 +430,6 @@
    "conseil_cote": 1.58,
    "conseil_mise_eur": 500.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "baseball_401816829",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Baltimore Orioles – Boston Red Sox",
-   "kickoff_at": "2026-09-06T17:35Z",
-   "published": true,
-   "value_bet": "Boston Red Sox Plus de 3,5 @ 1.7576",
-   "value_cote": 1.76,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Boston Red Sox @ 1.7874",
-     "odd": 1.79,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816830",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Miami Marlins – Chicago Cubs",
-   "kickoff_at": "2026-09-06T17:40Z",
-   "published": true,
-   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.9615",
-   "value_cote": 1.96,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Chicago Cubs @ 1.7143",
-     "odd": 1.71,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816831",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Detroit Tigers",
-   "kickoff_at": "2026-09-06T17:40Z",
-   "published": true,
-   "value_bet": "Cleveland Guardians Plus de 3,5 @ 1.8333",
-   "value_cote": 1.83,
-   "value_mise_eur": 200.0,
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Cleveland Guardians @ 1.6452",
-     "odd": 1.65,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1547625",
@@ -4666,6 +4603,81 @@
      "market": "winner",
      "label": "Vainqueur — Pittsburgh Pirates @ 1.5263",
      "odd": 1.53,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816829",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Baltimore Orioles – Boston Red Sox",
+   "kickoff_at": "2026-09-06T17:35Z",
+   "published": true,
+   "value_bet": "Boston Red Sox Plus de 3,5 @ 1.7576",
+   "value_cote": 1.76,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "1 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Boston Red Sox @ 1.7874",
+     "odd": 1.79,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816830",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Miami Marlins – Chicago Cubs",
+   "kickoff_at": "2026-09-06T17:40Z",
+   "published": true,
+   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.9615",
+   "value_cote": 1.96,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "10 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Chicago Cubs @ 1.7143",
+     "odd": 1.71,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816831",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Detroit Tigers",
+   "kickoff_at": "2026-09-06T17:40Z",
+   "published": true,
+   "value_bet": "Cleveland Guardians Plus de 3,5 @ 1.8333",
+   "value_cote": 1.83,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Cleveland Guardians @ 1.6452",
+     "odd": 1.65,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
