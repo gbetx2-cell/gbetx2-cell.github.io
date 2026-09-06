@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T14:02:37.074280+00:00",
+ "generated_at": "2026-09-06T14:02:42.570831+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -72,23 +72,6 @@
    "conseil": "Granada CF gagne",
    "conseil_cote": 3.75,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1555386",
-   "flag": "🇨🇭",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Servette FC – FC ST. Gallen",
-   "kickoff_at": "2026-09-06T14:00:00+02:00",
-   "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/2184.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1011.png",
-   "conseil": "FC ST. Gallen ou Nul",
-   "conseil_cote": 1.68,
-   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -3835,6 +3818,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1555386",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Servette FC – FC ST. Gallen",
+   "kickoff_at": "2026-09-06T14:00:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/2184.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1011.png",
+   "conseil": "FC ST. Gallen ou Nul",
+   "conseil_cote": 1.68,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
   },
   {
    "fixture_id": "api_football:1549012",
