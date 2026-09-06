@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T00:09:54.458256+00:00",
+ "generated_at": "2026-09-06T00:10:14.542086+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -154,49 +154,6 @@
    "conseil_cote": 2.19,
    "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1582263",
-   "flag": "⚽",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Balzan FC – Birzebbuga",
-   "kickoff_at": "2026-09-05T18:00:00+02:00",
-   "published": true,
-   "league_id": 393,
-   "home_logo": "https://media.api-sports.io/football/teams/696.png",
-   "away_logo": "https://media.api-sports.io/football/teams/16533.png",
-   "conseil": "Balzan FC ou Nul",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1548522",
-   "flag": "🇭🇷",
-   "league": "HNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dinamo Zagreb – HNK Gorica",
-   "kickoff_at": "2026-09-05T18:00:00+02:00",
-   "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/620.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1068.png",
-   "conseil": "Dinamo Zagreb gagne",
-   "conseil_cote": 1.13,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "D. Beljo buteur",
-     "detail": "57%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182749",
@@ -3592,6 +3549,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1582263",
+   "flag": "⚽",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Balzan FC – Birzebbuga",
+   "kickoff_at": "2026-09-05T18:00:00+02:00",
+   "published": true,
+   "league_id": 393,
+   "home_logo": "https://media.api-sports.io/football/teams/696.png",
+   "away_logo": "https://media.api-sports.io/football/teams/16533.png",
+   "conseil": "Balzan FC ou Nul",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 0"
+  },
+  {
    "fixture_id": "api_football:1550113",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -3657,6 +3633,35 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1548522",
+   "flag": "🇭🇷",
+   "league": "HNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Dinamo Zagreb – HNK Gorica",
+   "kickoff_at": "2026-09-05T18:00:00+02:00",
+   "published": true,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/620.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1068.png",
+   "conseil": "Dinamo Zagreb gagne",
+   "conseil_cote": 1.13,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "D. Beljo buteur",
+     "detail": "57%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182737",
