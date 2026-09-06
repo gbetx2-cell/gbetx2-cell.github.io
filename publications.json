@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T15:21:34.642950+00:00",
+ "generated_at": "2026-09-06T15:22:22.882694+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -776,6 +776,40 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1600335",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kaizer Chiefs – Siwelele",
+   "kickoff_at": "2026-09-06T17:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2691.png",
+   "away_logo": "https://media.api-sports.io/football/teams/26299.png",
+   "conseil": "Kaizer Chiefs ou Nul",
+   "conseil_cote": 1.13,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1582791",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FK Sarajevo – Borac Banja Luka",
+   "kickoff_at": "2026-09-06T17:30:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/679.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3364.png",
+   "conseil": "Borac Banja Luka ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1582793",
    "flag": "⚽",
    "league": "Premijer Liga",
@@ -789,6 +823,49 @@
    "away_logo": "https://media.api-sports.io/football/teams/3381.png",
    "conseil": "Zeljeznicar Sarajevo ou Nul",
    "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1547625",
+   "flag": "🇱🇹",
+   "league": "A Lyga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kauno Žalgiris – Džiugas Telšiai",
+   "kickoff_at": "2026-09-06T17:45:00+02:00",
+   "published": true,
+   "league_id": 362,
+   "home_logo": "https://media.api-sports.io/football/teams/3872.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3860.png",
+   "conseil": "Kauno Žalgiris ou Nul",
+   "conseil_cote": 1.1,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "T. Švedkauskas buteur",
+     "detail": "36%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1560237",
+   "flag": "⚽",
+   "league": "NB I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Ferencvarosi TC – Ujpest",
+   "kickoff_at": "2026-09-06T17:45:00+02:00",
+   "published": true,
+   "league_id": 271,
+   "home_logo": "https://media.api-sports.io/football/teams/651.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2255.png",
+   "conseil": "Ferencvarosi TC ou Nul",
+   "conseil_cote": 1.1,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
