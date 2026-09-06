@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T22:00:51.566527+00:00",
+ "generated_at": "2026-09-06T22:07:05.410614+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -159,23 +159,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1515914",
-   "flag": "🇱🇻",
-   "league": "Virsliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Auda – Grobiņa",
-   "kickoff_at": "2026-09-06T17:00:00+02:00",
-   "published": true,
-   "league_id": 365,
-   "home_logo": "https://media.api-sports.io/football/teams/4135.png",
-   "away_logo": "https://media.api-sports.io/football/teams/4138.png",
-   "conseil": "Auda ou Nul",
-   "conseil_cote": 1.1,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1565467",
    "flag": "🇺🇦",
    "league": "Premier League",
@@ -253,6 +236,23 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1515914",
+   "flag": "🇱🇻",
+   "league": "Virsliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Auda – Grobiņa",
+   "kickoff_at": "2026-09-06T17:00:00+02:00",
+   "published": true,
+   "league_id": 365,
+   "home_logo": "https://media.api-sports.io/football/teams/4135.png",
+   "away_logo": "https://media.api-sports.io/football/teams/4138.png",
+   "conseil": "Auda ou Nul",
+   "conseil_cote": 1.1,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1601522",
    "flag": "🇮🇹",
    "league": "Serie B",
@@ -296,6 +296,23 @@
    ]
   },
   {
+   "fixture_id": "api_football:1582793",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Zeljeznicar Sarajevo – Velež",
+   "kickoff_at": "2026-09-06T17:30:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/654.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3381.png",
+   "conseil": "Zeljeznicar Sarajevo ou Nul",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1558006",
    "flag": "⚽",
    "league": "1. SNL",
@@ -327,23 +344,6 @@
    "conseil": "Borac Banja Luka ou Nul + Moins de 3.5 buts",
    "conseil_cote": 1.52,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1582793",
-   "flag": "⚽",
-   "league": "Premijer Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Zeljeznicar Sarajevo – Velež",
-   "kickoff_at": "2026-09-06T17:30:00+02:00",
-   "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/654.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3381.png",
-   "conseil": "Zeljeznicar Sarajevo ou Nul",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -638,32 +638,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182884",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-09-06T18:00Z",
-   "published": true,
-   "conseil": "Total sets Plus de 3.5",
-   "conseil_cote": 2.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Plus de 3.5 @ 1.49",
-   "value_cote": 1.49,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Daniil Medvedev",
-     "kind": "player",
-     "detail": "cote 1.77",
-     "odd": 1.769,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_182886",
    "flag": "🎾",
    "league": "US Open",
@@ -690,19 +664,30 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182717",
+   "fixture_id": "tennis_espn_atp_182884",
    "flag": "🎾",
    "league": "US Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Tomas Martin Etcheverry – Alex Michelsen",
-   "kickoff_at": "2026-09-06T18:30Z",
+   "match": "? – ?",
+   "kickoff_at": "2026-09-06T18:00Z",
    "published": true,
-   "home_photo": "assets/players/tomas martin etcheverry.png",
-   "away_photo": "assets/players/alex michelsen.png",
-   "conseil": "Victoire Tomas Martin Etcheverry",
-   "conseil_cote": 3.68,
-   "conseil_mise_eur": 200.0
+   "conseil": "Total sets Plus de 3.5",
+   "conseil_cote": 2.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Plus de 3.5 @ 1.49",
+   "value_cote": 1.49,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Daniil Medvedev",
+     "kind": "player",
+     "detail": "cote 1.77",
+     "odd": 1.769,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816836",
@@ -4571,31 +4556,6 @@
    "score": "4 - 5"
   },
   {
-   "fixture_id": "baseball_401816827",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Pittsburgh Pirates – Los Angeles Angels",
-   "kickoff_at": "2026-09-06T17:35Z",
-   "published": true,
-   "value_bet": "Pittsburgh Pirates Plus de 3,5 @ 1.6897",
-   "value_cote": 1.69,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "1 - 0",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Pittsburgh Pirates @ 1.5263",
-     "odd": 1.53,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816829",
    "flag": "⚾",
    "league": "MLB",
@@ -4621,25 +4581,25 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816831",
+   "fixture_id": "baseball_401816827",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Detroit Tigers",
-   "kickoff_at": "2026-09-06T17:40Z",
+   "match": "Pittsburgh Pirates – Los Angeles Angels",
+   "kickoff_at": "2026-09-06T17:35Z",
    "published": true,
-   "value_bet": "Cleveland Guardians Plus de 3,5 @ 1.8333",
-   "value_cote": 1.83,
+   "value_bet": "Pittsburgh Pirates Plus de 3,5 @ 1.6897",
+   "value_cote": 1.69,
    "value_mise_eur": 200.0,
    "value_result": "PERDU",
    "result": "PERDU",
-   "score": "3 - 2",
+   "score": "1 - 0",
    "refonte_value_bets": [
     {
      "market": "winner",
-     "label": "Vainqueur — Cleveland Guardians @ 1.6452",
-     "odd": 1.65,
+     "label": "Vainqueur — Pittsburgh Pirates @ 1.5263",
+     "odd": 1.53,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
@@ -4692,6 +4652,31 @@
      "odd": 1.71,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816831",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Detroit Tigers",
+   "kickoff_at": "2026-09-06T17:40Z",
+   "published": true,
+   "value_bet": "Cleveland Guardians Plus de 3,5 @ 1.8333",
+   "value_cote": 1.83,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 2",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Cleveland Guardians @ 1.6452",
+     "odd": 1.65,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -4752,6 +4737,23 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "6 - 1"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182717",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tomas Martin Etcheverry – Alex Michelsen",
+   "kickoff_at": "2026-09-06T18:30Z",
+   "published": true,
+   "home_photo": "assets/players/tomas martin etcheverry.png",
+   "away_photo": "assets/players/alex michelsen.png",
+   "conseil": "Victoire Tomas Martin Etcheverry",
+   "conseil_cote": 3.68,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-7, 4-6, 4-6"
   }
  ]
 }
