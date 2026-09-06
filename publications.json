@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T00:03:48.308401+00:00",
+ "generated_at": "2026-09-06T00:07:00.285490+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -41,23 +41,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1570364",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Athletic Club – Atletico Madrid",
-   "kickoff_at": "2026-09-05T16:15:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/531.png",
-   "away_logo": "https://media.api-sports.io/football/teams/530.png",
-   "conseil": "Atletico Madrid gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1552154",
@@ -840,19 +823,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816821",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Texas Rangers – Tampa Bay Rays",
-   "kickoff_at": "2026-09-05T23:05Z",
-   "published": true,
-   "value_bet": "Texas Rangers Moins de 3,5 @ 1.6897",
-   "value_cote": 1.69,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "baseball_401816814",
    "flag": "⚾",
    "league": "MLB",
@@ -872,6 +842,19 @@
      "mise_eur": 230.0
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816821",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Texas Rangers – Tampa Bay Rays",
+   "kickoff_at": "2026-09-05T23:05Z",
+   "published": true,
+   "value_bet": "Texas Rangers Moins de 3,5 @ 1.6897",
+   "value_cote": 1.69,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816822",
@@ -2755,44 +2738,6 @@
    "score": "1 - 1"
   },
   {
-   "fixture_id": "api_football:1507055",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Seoul – Incheon United",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2766.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
-   "conseil": "FC Seoul ou Nul",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0"
-  },
-  {
-   "fixture_id": "api_football:1565468",
-   "flag": "🇺🇦",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Kharkiv – Obolon'-Brovar",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/3628.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3630.png",
-   "conseil": "FC Kharkiv ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "5 - 0"
-  },
-  {
    "fixture_id": "api_football:1507053",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -2810,25 +2755,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
-  },
-  {
-   "fixture_id": "api_football:1565470",
-   "flag": "🇺🇦",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kryvbas KR – Kolos Kovalivka",
-   "kickoff_at": "2026-09-05T12:00:00+02:00",
-   "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/6489.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3627.png",
-   "conseil": "Kryvbas KR ou Nul",
-   "conseil_cote": 1.6,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1507054",
@@ -2850,6 +2776,44 @@
    "score": "2 - 0"
   },
   {
+   "fixture_id": "api_football:1565470",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kryvbas KR – Kolos Kovalivka",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/6489.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3627.png",
+   "conseil": "Kryvbas KR ou Nul",
+   "conseil_cote": 1.6,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1507055",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Seoul – Incheon United",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2766.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2763.png",
+   "conseil": "FC Seoul ou Nul",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
+  },
+  {
    "fixture_id": "api_football:1507052",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -2867,6 +2831,63 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 5"
+  },
+  {
+   "fixture_id": "api_football:1565468",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Kharkiv – Obolon'-Brovar",
+   "kickoff_at": "2026-09-05T12:00:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/3628.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3630.png",
+   "conseil": "FC Kharkiv ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "5 - 0"
+  },
+  {
+   "fixture_id": "api_football:1576166",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "1. FC Kaiserslautern – SV Darmstadt 98",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 79,
+   "home_logo": "https://media.api-sports.io/football/teams/745.png",
+   "away_logo": "https://media.api-sports.io/football/teams/181.png",
+   "conseil": "1. FC Kaiserslautern ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.07,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 0"
+  },
+  {
+   "fixture_id": "api_football:1523259",
+   "flag": "🇨🇳",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Wuhan Three Towns – Qingdao Youth Island",
+   "kickoff_at": "2026-09-05T13:00:00+02:00",
+   "published": true,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/5695.png",
+   "away_logo": "https://media.api-sports.io/football/teams/17265.png",
+   "conseil": "Qingdao Youth Island ou Nul",
+   "conseil_cote": 1.8,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1576165",
@@ -2915,44 +2936,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "4 - 4"
-  },
-  {
-   "fixture_id": "api_football:1523259",
-   "flag": "🇨🇳",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Wuhan Three Towns – Qingdao Youth Island",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
-   "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/5695.png",
-   "away_logo": "https://media.api-sports.io/football/teams/17265.png",
-   "conseil": "Qingdao Youth Island ou Nul",
-   "conseil_cote": 1.8,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2"
-  },
-  {
-   "fixture_id": "api_football:1576166",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "1. FC Kaiserslautern – SV Darmstadt 98",
-   "kickoff_at": "2026-09-05T13:00:00+02:00",
-   "published": true,
-   "league_id": 79,
-   "home_logo": "https://media.api-sports.io/football/teams/745.png",
-   "away_logo": "https://media.api-sports.io/football/teams/181.png",
-   "conseil": "1. FC Kaiserslautern ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.07,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "3 - 0"
   },
   {
    "fixture_id": "api_football:1563139",
@@ -3022,25 +3005,6 @@
    "score": "3 - 2"
   },
   {
-   "fixture_id": "api_football:1563136",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Preston – Blackburn",
-   "kickoff_at": "2026-09-05T13:30:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/59.png",
-   "away_logo": "https://media.api-sports.io/football/teams/67.png",
-   "conseil": "Blackburn ou Nul",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 1"
-  },
-  {
    "fixture_id": "api_football:1563133",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -3087,6 +3051,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1563136",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Preston – Blackburn",
+   "kickoff_at": "2026-09-05T13:30:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/59.png",
+   "away_logo": "https://media.api-sports.io/football/teams/67.png",
+   "conseil": "Blackburn ou Nul",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 1"
   },
   {
    "fixture_id": "api_football:1523260",
@@ -3185,54 +3168,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1515915",
-   "flag": "🇱🇻",
-   "league": "Virsliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tukums – Ogre United",
-   "kickoff_at": "2026-09-05T14:00:00+02:00",
-   "published": true,
-   "league_id": 365,
-   "home_logo": "https://media.api-sports.io/football/teams/4144.png",
-   "away_logo": "https://media.api-sports.io/football/teams/18936.png",
-   "conseil": "Tukums ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "I. Pūlis buteur",
-     "detail": "72%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1569912",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Sociedad II – Tenerife",
-   "kickoff_at": "2026-09-05T14:00:00+02:00",
-   "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9585.png",
-   "away_logo": "https://media.api-sports.io/football/teams/719.png",
-   "conseil": "Tenerife ou Nul",
-   "conseil_cote": 1.51,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1552463",
    "flag": "🇫🇷",
    "league": "Ligue 2",
@@ -3262,6 +3197,35 @@
    ]
   },
   {
+   "fixture_id": "api_football:1515915",
+   "flag": "🇱🇻",
+   "league": "Virsliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Tukums – Ogre United",
+   "kickoff_at": "2026-09-05T14:00:00+02:00",
+   "published": true,
+   "league_id": 365,
+   "home_logo": "https://media.api-sports.io/football/teams/4144.png",
+   "away_logo": "https://media.api-sports.io/football/teams/18936.png",
+   "conseil": "Tukums ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "I. Pūlis buteur",
+     "detail": "72%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1552466",
    "flag": "🇫🇷",
    "league": "Ligue 2",
@@ -3279,6 +3243,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1569912",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Sociedad II – Tenerife",
+   "kickoff_at": "2026-09-05T14:00:00+02:00",
+   "published": true,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9585.png",
+   "away_logo": "https://media.api-sports.io/football/teams/719.png",
+   "conseil": "Tenerife ou Nul",
+   "conseil_cote": 1.51,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1553162",
@@ -3605,6 +3588,25 @@
    "score": "4 - 3"
   },
   {
+   "fixture_id": "api_football:1570364",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Athletic Club – Atletico Madrid",
+   "kickoff_at": "2026-09-05T16:15:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/531.png",
+   "away_logo": "https://media.api-sports.io/football/teams/530.png",
+   "conseil": "Atletico Madrid gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.17,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 0"
+  },
+  {
    "fixture_id": "tennis_espn_atp_182731",
    "flag": "🎾",
    "league": "US Open",
@@ -3656,31 +3658,6 @@
    "score": "3-6, 2-6, 4-6"
   },
   {
-   "fixture_id": "baseball_401816815",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Miami Marlins – Chicago Cubs",
-   "kickoff_at": "2026-09-05T20:10Z",
-   "published": true,
-   "value_bet": "Miami Marlins Plus de 3,5 @ 1.7692",
-   "value_cote": 1.77,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "5 - 6",
-   "refonte_value_bets": [
-    {
-     "market": "totals",
-     "label": "Total — Plus de 8,0 runs @ 1.8333",
-     "odd": 1.83,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "baseball_401816818",
    "flag": "⚾",
    "league": "MLB",
@@ -3709,6 +3686,31 @@
      "odd": 1.64,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "baseball_401816815",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Miami Marlins – Chicago Cubs",
+   "kickoff_at": "2026-09-05T20:10Z",
+   "published": true,
+   "value_bet": "Miami Marlins Plus de 3,5 @ 1.7692",
+   "value_cote": 1.77,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "5 - 6",
+   "refonte_value_bets": [
+    {
+     "market": "totals",
+     "label": "Total — Plus de 8,0 runs @ 1.8333",
+     "odd": 1.83,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
