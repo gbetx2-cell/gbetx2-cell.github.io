@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T03:35:00.304176+00:00",
+ "generated_at": "2026-09-06T03:38:59.490137+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -33,32 +33,6 @@
      "market": "winner",
      "label": "Vainqueur — Milwaukee Brewers @ 1.7042",
      "odd": 1.7,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1490447",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Salt Lake – Los Angeles FC",
-   "kickoff_at": "2026-09-06T03:30:00+02:00",
-   "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1606.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1616.png",
-   "conseil": "Los Angeles FC ou Nul",
-   "conseil_cote": 1.4,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "D. Bouanga buteur",
-     "detail": "cote 2.00",
-     "odd": 2.0,
      "mise_eur": 200.0
     }
    ]
@@ -4104,6 +4078,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 3"
+  },
+  {
+   "fixture_id": "api_football:1490447",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Salt Lake – Los Angeles FC",
+   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1606.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1616.png",
+   "conseil": "Los Angeles FC ou Nul",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "D. Bouanga buteur",
+     "detail": "cote 2.00",
+     "odd": 2.0,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
