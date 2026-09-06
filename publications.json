@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T08:02:58.498735+00:00",
+ "generated_at": "2026-09-06T08:03:46.887170+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -30,27 +30,27 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1556055",
+   "fixture_id": "api_football:1556057",
    "flag": "🇯🇵",
    "league": "J1 League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Kashima – Urawa",
+   "match": "Nagoya Grampus – Machida Zelvia",
    "kickoff_at": "2026-09-06T11:00:00+02:00",
    "published": true,
    "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/290.png",
-   "away_logo": "https://media.api-sports.io/football/teams/287.png",
-   "conseil": "Kashima ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 2.18,
+   "home_logo": "https://media.api-sports.io/football/teams/288.png",
+   "away_logo": "https://media.api-sports.io/football/teams/303.png",
+   "conseil": "Machida Zelvia gagne",
+   "conseil_cote": 2.19,
    "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore",
    "player_picks": [
     {
      "category": "Buteur",
-     "label": "Léo Ceará buteur",
-     "detail": "cote 1.83",
-     "odd": 1.83,
+     "label": "Y. Soma buteur",
+     "detail": "cote 3.10",
+     "odd": 3.1,
      "mise_eur": 200.0
     }
    ]
@@ -82,6 +82,73 @@
    ]
   },
   {
+   "fixture_id": "api_football:1556055",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kashima – Urawa",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/290.png",
+   "away_logo": "https://media.api-sports.io/football/teams/287.png",
+   "conseil": "Kashima ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 2.18,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Léo Ceará buteur",
+     "detail": "cote 1.83",
+     "odd": 1.83,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556058",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/310.png",
+   "away_logo": "https://media.api-sports.io/football/teams/282.png",
+   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
+   "conseil_cote": 2.83,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Suzuki buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182724",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carlos Alcaraz – Tommy Paul",
+   "kickoff_at": "2026-09-06T18:00Z",
+   "published": true,
+   "home_photo": "assets/players/carlos alcaraz.png",
+   "away_photo": "assets/players/tommy paul.png",
+   "conseil": "Victoire Carlos Alcaraz",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_182884",
    "flag": "🎾",
    "league": "US Open",
@@ -106,21 +173,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182724",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Carlos Alcaraz – Tommy Paul",
-   "kickoff_at": "2026-09-06T18:00Z",
-   "published": true,
-   "home_photo": "assets/players/carlos alcaraz.png",
-   "away_photo": "assets/players/tommy paul.png",
-   "conseil": "Victoire Carlos Alcaraz",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_182717",
