@@ -1,6 +1,19 @@
 {
- "generated_at": "2026-09-06T11:10:45.129528+00:00",
+ "generated_at": "2026-09-06T11:30:41.006256+00:00",
  "live": [
+  {
+   "fixture_id": "tennis_espn_atp_182873",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-09-06T04:00Z",
+   "published": true,
+   "conseil": "Victoire Ilia Simakin",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0
+  },
   {
    "fixture_id": "tennis_espn_atp_182722",
    "flag": "🎾",
@@ -17,51 +30,30 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_182873",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "TBD – TBD",
-   "kickoff_at": "2026-09-06T04:00Z",
+   "fixture_id": "api_football:1556060",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kawasaki Frontale – Shimizu S-pulse",
+   "kickoff_at": "2026-09-06T12:00:00+02:00",
    "published": true,
-   "conseil": "Victoire Ilia Simakin",
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/294.png",
+   "away_logo": "https://media.api-sports.io/football/teams/283.png",
+   "conseil": "Kawasaki Frontale ou Nul",
    "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1565466",
-   "flag": "🇺🇦",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dynamo Kyiv – LNZ Cherkasy",
-   "kickoff_at": "2026-09-06T12:00:00+02:00",
-   "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/572.png",
-   "away_logo": "https://media.api-sports.io/football/teams/17161.png",
-   "conseil": "Dynamo Kyiv ou Nul",
-   "conseil_cote": 1.27,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1507056",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Anyang – Gangwon FC",
-   "kickoff_at": "2026-09-06T12:00:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2746.png",
-   "conseil": "FC Anyang ou Nul",
-   "conseil_cote": 1.68,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Y. Wakizaka buteur",
+     "detail": "45%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1556052",
@@ -90,6 +82,23 @@
    ]
   },
   {
+   "fixture_id": "api_football:1507056",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Anyang – Gangwon FC",
+   "kickoff_at": "2026-09-06T12:00:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2748.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2746.png",
+   "conseil": "FC Anyang ou Nul",
+   "conseil_cote": 1.68,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1507057",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -103,6 +112,23 @@
    "away_logo": "https://media.api-sports.io/football/teams/2759.png",
    "conseil": "Gimcheon Sangmu FC ou Nul",
    "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1565466",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Dynamo Kyiv – LNZ Cherkasy",
+   "kickoff_at": "2026-09-06T12:00:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/572.png",
+   "away_logo": "https://media.api-sports.io/football/teams/17161.png",
+   "conseil": "Dynamo Kyiv ou Nul",
+   "conseil_cote": 1.27,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
@@ -155,32 +181,6 @@
      "detail": "cote 2.30",
      "odd": 2.3,
      "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1556060",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kawasaki Frontale – Shimizu S-pulse",
-   "kickoff_at": "2026-09-06T12:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/294.png",
-   "away_logo": "https://media.api-sports.io/football/teams/283.png",
-   "conseil": "Kawasaki Frontale ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Y. Wakizaka buteur",
-     "detail": "45%",
-     "odd": null,
-     "mise_eur": null
     }
    ]
   },
@@ -474,6 +474,23 @@
    "conseil": "Granada CF gagne",
    "conseil_cote": 3.75,
    "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1565244",
+   "flag": "🇷🇴",
+   "league": "Liga I",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Petrolul Ploiesti – Corvinul Hunedoara",
+   "kickoff_at": "2026-09-06T14:00:00+02:00",
+   "published": true,
+   "league_id": 283,
+   "home_logo": "https://media.api-sports.io/football/teams/2598.png",
+   "away_logo": "https://media.api-sports.io/football/teams/20034.png",
+   "conseil": "Petrolul Ploiesti ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.81,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -2663,6 +2680,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1549769",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Junior – Jaguares",
+   "kickoff_at": "2026-09-06T03:30:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1135.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1133.png",
+   "conseil": "Junior ou Nul",
+   "conseil_cote": 1.09,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 3"
+  },
+  {
    "fixture_id": "api_football:1490447",
    "flag": "🇺🇸",
    "league": "Major League Soccer",
@@ -2690,25 +2726,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1549769",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Junior – Jaguares",
-   "kickoff_at": "2026-09-06T03:30:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1135.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1133.png",
-   "conseil": "Junior ou Nul",
-   "conseil_cote": 1.09,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "3 - 3"
   },
   {
    "fixture_id": "api_football:1490449",
@@ -2788,35 +2805,6 @@
    "score": "1 - 1"
   },
   {
-   "fixture_id": "api_football:1556055",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kashima – Urawa",
-   "kickoff_at": "2026-09-06T11:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/290.png",
-   "away_logo": "https://media.api-sports.io/football/teams/287.png",
-   "conseil": "Kashima ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 2.18,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Léo Ceará buteur",
-     "detail": "cote 1.83",
-     "odd": 1.83,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1556058",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -2840,6 +2828,35 @@
      "label": "A. Suzuki buteur",
      "detail": "cote 2.75",
      "odd": 2.75,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556055",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kashima – Urawa",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/290.png",
+   "away_logo": "https://media.api-sports.io/football/teams/287.png",
+   "conseil": "Kashima ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 2.18,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Léo Ceará buteur",
+     "detail": "cote 1.83",
+     "odd": 1.83,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
