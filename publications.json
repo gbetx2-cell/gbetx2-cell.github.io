@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T00:07:39.061802+00:00",
+ "generated_at": "2026-09-06T00:07:45.046678+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182699",
@@ -32,32 +32,6 @@
    "conseil_cote": 1.19,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1552749",
-   "flag": "🇫🇷",
-   "league": "Ligue 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lens – Lorient",
-   "kickoff_at": "2026-09-05T17:15:00+02:00",
-   "published": true,
-   "league_id": 61,
-   "home_logo": "https://media.api-sports.io/football/teams/116.png",
-   "away_logo": "https://media.api-sports.io/football/teams/97.png",
-   "conseil": "Lens gagne",
-   "conseil_cote": 1.6,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "F. Thauvin buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1601513",
@@ -3635,6 +3609,35 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "7-6, 3-6, 0-6, 3-6"
+  },
+  {
+   "fixture_id": "api_football:1552749",
+   "flag": "🇫🇷",
+   "league": "Ligue 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lens – Lorient",
+   "kickoff_at": "2026-09-05T17:15:00+02:00",
+   "published": true,
+   "league_id": 61,
+   "home_logo": "https://media.api-sports.io/football/teams/116.png",
+   "away_logo": "https://media.api-sports.io/football/teams/97.png",
+   "conseil": "Lens gagne",
+   "conseil_cote": 1.6,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "F. Thauvin buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182737",
