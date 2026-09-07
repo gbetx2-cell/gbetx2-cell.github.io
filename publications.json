@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T17:49:50.822431+00:00",
+ "generated_at": "2026-09-07T17:50:51.391704+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183546",
@@ -135,6 +135,75 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1549015",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Midtjylland – FC Nordsjaelland",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/397.png",
+   "away_logo": "https://media.api-sports.io/football/teams/398.png",
+   "conseil": "FC Midtjylland ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Cho Gue-Sung buteur",
+     "detail": "cote 2.62",
+     "odd": 2.62,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1494270",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Mjallby AIF – IFK Goteborg",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2240.png",
+   "away_logo": "https://media.api-sports.io/football/teams/366.png",
+   "conseil": "Mjallby AIF ou Nul",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Bergström buteur",
+     "detail": "cote 2.88",
+     "odd": 2.88,
+     "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1584398",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Göztepe – Gaziantep FK",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/994.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3573.png",
+   "conseil": "Göztepe ou Nul",
+   "conseil_cote": 1.28,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1570368",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -247,92 +316,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1549015",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Midtjylland – FC Nordsjaelland",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/397.png",
-   "away_logo": "https://media.api-sports.io/football/teams/398.png",
-   "conseil": "FC Midtjylland ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Cho Gue-Sung buteur",
-     "detail": "cote 2.62",
-     "odd": 2.62,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1494270",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Mjallby AIF – IFK Goteborg",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2240.png",
-   "away_logo": "https://media.api-sports.io/football/teams/366.png",
-   "conseil": "Mjallby AIF ou Nul",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Bergström buteur",
-     "detail": "cote 2.88",
-     "odd": 2.88,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1584398",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Göztepe – Gaziantep FK",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/994.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3573.png",
-   "conseil": "Göztepe ou Nul",
-   "conseil_cote": 1.28,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1551097",
-   "flag": "⚽",
-   "league": "First League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dunav Ruse – Slavia Sofia",
-   "kickoff_at": "2026-09-07T19:30:00+02:00",
-   "published": true,
-   "league_id": 172,
-   "home_logo": "https://media.api-sports.io/football/teams/683.png",
-   "away_logo": "https://media.api-sports.io/football/teams/854.png",
-   "conseil": "Slavia Sofia ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1565245",
    "flag": "🇷🇴",
    "league": "Liga I",
@@ -359,20 +342,20 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603018",
-   "flag": "🇸🇦",
-   "league": "Pro League",
+   "fixture_id": "api_football:1551097",
+   "flag": "⚽",
+   "league": "First League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Al-Hilal Saudi FC – NEOM",
-   "kickoff_at": "2026-09-07T20:00:00+02:00",
+   "match": "Dunav Ruse – Slavia Sofia",
+   "kickoff_at": "2026-09-07T19:30:00+02:00",
    "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2932.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10513.png",
-   "conseil": "Al-Hilal Saudi FC ou Nul",
-   "conseil_cote": 1.06,
-   "conseil_mise_eur": 200.0,
+   "league_id": 172,
+   "home_logo": "https://media.api-sports.io/football/teams/683.png",
+   "away_logo": "https://media.api-sports.io/football/teams/854.png",
+   "conseil": "Slavia Sofia ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -393,20 +376,37 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1569913",
-   "flag": "🇪🇸",
-   "league": "Segunda División",
+   "fixture_id": "api_football:1603018",
+   "flag": "🇸🇦",
+   "league": "Pro League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Sabadell – Cordoba",
+   "match": "Al-Hilal Saudi FC – NEOM",
+   "kickoff_at": "2026-09-07T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2932.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10513.png",
+   "conseil": "Al-Hilal Saudi FC ou Nul",
+   "conseil_cote": 1.06,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1553161",
+   "flag": "🇵🇱",
+   "league": "Ekstraklasa",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Pogon Szczecin – Wisla Plock",
    "kickoff_at": "2026-09-07T20:30:00+02:00",
    "published": true,
-   "league_id": 141,
-   "home_logo": "https://media.api-sports.io/football/teams/9593.png",
-   "away_logo": "https://media.api-sports.io/football/teams/713.png",
-   "conseil": "Sabadell ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
+   "league_id": 106,
+   "home_logo": "https://media.api-sports.io/football/teams/348.png",
+   "away_logo": "https://media.api-sports.io/football/teams/341.png",
+   "conseil": "Pogon Szczecin gagne",
+   "conseil_cote": 1.95,
+   "conseil_mise_eur": 400.0,
    "lineup_source": "flashscore"
   },
   {
@@ -436,20 +436,20 @@
    ]
   },
   {
-   "fixture_id": "api_football:1553161",
-   "flag": "🇵🇱",
-   "league": "Ekstraklasa",
+   "fixture_id": "api_football:1569913",
+   "flag": "🇪🇸",
+   "league": "Segunda División",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Pogon Szczecin – Wisla Plock",
+   "match": "Sabadell – Cordoba",
    "kickoff_at": "2026-09-07T20:30:00+02:00",
    "published": true,
-   "league_id": 106,
-   "home_logo": "https://media.api-sports.io/football/teams/348.png",
-   "away_logo": "https://media.api-sports.io/football/teams/341.png",
-   "conseil": "Pogon Szczecin gagne",
-   "conseil_cote": 1.95,
-   "conseil_mise_eur": 400.0,
+   "league_id": 141,
+   "home_logo": "https://media.api-sports.io/football/teams/9593.png",
+   "away_logo": "https://media.api-sports.io/football/teams/713.png",
+   "conseil": "Sabadell ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -466,6 +466,23 @@
    "away_logo": "https://media.api-sports.io/football/teams/487.png",
    "conseil": "Lazio ou Nul + Moins de 3.5 buts",
    "conseil_cote": 1.85,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1552464",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Nantes – Nancy",
+   "kickoff_at": "2026-09-07T20:45:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/83.png",
+   "away_logo": "https://media.api-sports.io/football/teams/102.png",
+   "conseil": "Nancy ou Nul",
+   "conseil_cote": 1.93,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   }
