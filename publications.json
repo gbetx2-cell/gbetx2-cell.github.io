@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T00:08:00.265991+00:00",
+ "generated_at": "2026-09-07T00:08:33.230973+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -30,49 +30,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1582791",
-   "flag": "⚽",
-   "league": "Premijer Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FK Sarajevo – Borac Banja Luka",
-   "kickoff_at": "2026-09-06T17:30:00+02:00",
-   "published": true,
-   "league_id": 315,
-   "home_logo": "https://media.api-sports.io/football/teams/679.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3364.png",
-   "conseil": "Borac Banja Luka ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1547625",
-   "flag": "🇱🇹",
-   "league": "A Lyga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kauno Žalgiris – Džiugas Telšiai",
-   "kickoff_at": "2026-09-06T17:45:00+02:00",
-   "published": true,
-   "league_id": 362,
-   "home_logo": "https://media.api-sports.io/football/teams/3872.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3860.png",
-   "conseil": "Kauno Žalgiris ou Nul",
-   "conseil_cote": 1.1,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "T. Švedkauskas buteur",
-     "detail": "36%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1551099",
    "flag": "⚽",
    "league": "First League",
@@ -88,32 +45,6 @@
    "conseil_cote": 1.44,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1548524",
-   "flag": "🇭🇷",
-   "league": "HNL",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rudes – HNK Hajduk Split",
-   "kickoff_at": "2026-09-06T18:00:00+02:00",
-   "published": true,
-   "league_id": 210,
-   "home_logo": "https://media.api-sports.io/football/teams/1019.png",
-   "away_logo": "https://media.api-sports.io/football/teams/608.png",
-   "conseil": "HNK Hajduk Split gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.49,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "M. Šego buteur",
-     "detail": "36%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1603550",
@@ -156,23 +87,6 @@
    "conseil": "Sparta Praha ou Nul",
    "conseil_cote": 1.33,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1603553",
-   "flag": "⚽",
-   "league": "1. Division",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Nea Salamis – AEK Larnaca",
-   "kickoff_at": "2026-09-06T18:00:00+02:00",
-   "published": true,
-   "league_id": 318,
-   "home_logo": "https://media.api-sports.io/football/teams/3401.png",
-   "away_logo": "https://media.api-sports.io/football/teams/614.png",
-   "conseil": "AEK Larnaca ou Nul + Plus de 2.5 buts",
-   "conseil_cote": 2.28,
-   "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore"
   },
   {
@@ -4338,6 +4252,25 @@
    "score": "1 - 1"
   },
   {
+   "fixture_id": "api_football:1582791",
+   "flag": "⚽",
+   "league": "Premijer Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FK Sarajevo – Borac Banja Luka",
+   "kickoff_at": "2026-09-06T17:30:00+02:00",
+   "published": true,
+   "league_id": 315,
+   "home_logo": "https://media.api-sports.io/football/teams/679.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3364.png",
+   "conseil": "Borac Banja Luka ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0"
+  },
+  {
    "fixture_id": "api_football:1582793",
    "flag": "⚽",
    "league": "Premijer Liga",
@@ -4596,6 +4529,35 @@
    "score": "2 - 2"
   },
   {
+   "fixture_id": "api_football:1547625",
+   "flag": "🇱🇹",
+   "league": "A Lyga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kauno Žalgiris – Džiugas Telšiai",
+   "kickoff_at": "2026-09-06T17:45:00+02:00",
+   "published": true,
+   "league_id": 362,
+   "home_logo": "https://media.api-sports.io/football/teams/3872.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3860.png",
+   "conseil": "Kauno Žalgiris ou Nul",
+   "conseil_cote": 1.1,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "5 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "T. Švedkauskas buteur",
+     "detail": "36%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1550108",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -4615,6 +4577,35 @@
    "score": "2 - 2"
   },
   {
+   "fixture_id": "api_football:1548524",
+   "flag": "🇭🇷",
+   "league": "HNL",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rudes – HNK Hajduk Split",
+   "kickoff_at": "2026-09-06T18:00:00+02:00",
+   "published": true,
+   "league_id": 210,
+   "home_logo": "https://media.api-sports.io/football/teams/1019.png",
+   "away_logo": "https://media.api-sports.io/football/teams/608.png",
+   "conseil": "HNK Hajduk Split gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.49,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 4",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Šego buteur",
+     "detail": "36%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1549014",
    "flag": "🇩🇰",
    "league": "Superliga",
@@ -4632,6 +4623,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "0 - 3"
+  },
+  {
+   "fixture_id": "api_football:1603553",
+   "flag": "⚽",
+   "league": "1. Division",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Nea Salamis – AEK Larnaca",
+   "kickoff_at": "2026-09-06T18:00:00+02:00",
+   "published": true,
+   "league_id": 318,
+   "home_logo": "https://media.api-sports.io/football/teams/3401.png",
+   "away_logo": "https://media.api-sports.io/football/teams/614.png",
+   "conseil": "AEK Larnaca ou Nul + Plus de 2.5 buts",
+   "conseil_cote": 2.28,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 4"
   },
   {
    "fixture_id": "api_football:1593304",
