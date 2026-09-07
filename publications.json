@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T20:40:40.215982+00:00",
+ "generated_at": "2026-09-07T20:47:36.493692+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182738",
@@ -71,23 +71,6 @@
    "conseil": "Victoire Botic Van De Zandschulp",
    "conseil_cote": 1.62,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1550116",
-   "flag": "🇮🇹",
-   "league": "Serie A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Udinese – Lazio",
-   "kickoff_at": "2026-09-07T20:45:00+02:00",
-   "published": true,
-   "league_id": 135,
-   "home_logo": "https://media.api-sports.io/football/teams/494.png",
-   "away_logo": "https://media.api-sports.io/football/teams/487.png",
-   "conseil": "Lazio ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.85,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1517342",
@@ -3559,25 +3542,6 @@
    "score": "Walkover"
   },
   {
-   "fixture_id": "api_football:1553161",
-   "flag": "🇵🇱",
-   "league": "Ekstraklasa",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Pogon Szczecin – Wisla Plock",
-   "kickoff_at": "2026-09-07T20:30:00+02:00",
-   "published": true,
-   "league_id": 106,
-   "home_logo": "https://media.api-sports.io/football/teams/348.png",
-   "away_logo": "https://media.api-sports.io/football/teams/341.png",
-   "conseil": "Pogon Szczecin gagne",
-   "conseil_cote": 1.95,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1569913",
    "flag": "🇪🇸",
    "league": "Segunda División",
@@ -3595,6 +3559,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 2"
+  },
+  {
+   "fixture_id": "api_football:1553161",
+   "flag": "🇵🇱",
+   "league": "Ekstraklasa",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Pogon Szczecin – Wisla Plock",
+   "kickoff_at": "2026-09-07T20:30:00+02:00",
+   "published": true,
+   "league_id": 106,
+   "home_logo": "https://media.api-sports.io/football/teams/348.png",
+   "away_logo": "https://media.api-sports.io/football/teams/341.png",
+   "conseil": "Pogon Szczecin gagne",
+   "conseil_cote": 1.95,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1601520",
@@ -3643,6 +3626,25 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1550116",
+   "flag": "🇮🇹",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Udinese – Lazio",
+   "kickoff_at": "2026-09-07T20:45:00+02:00",
+   "published": true,
+   "league_id": 135,
+   "home_logo": "https://media.api-sports.io/football/teams/494.png",
+   "away_logo": "https://media.api-sports.io/football/teams/487.png",
+   "conseil": "Lazio ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.85,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
   }
  ]
 }
