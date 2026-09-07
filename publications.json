@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T18:52:43.527491+00:00",
+ "generated_at": "2026-09-07T18:56:35.634839+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183546",
@@ -194,32 +194,6 @@
    "conseil_cote": 2.07,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1494268",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kalmar FF – Djurgardens IF",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/374.png",
-   "away_logo": "https://media.api-sports.io/football/teams/364.png",
-   "conseil": "Djurgardens IF ou Nul",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "K. Lien buteur",
-     "detail": "cote 2.00",
-     "odd": 2.0,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1551097",
@@ -3527,6 +3501,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 1"
+  },
+  {
+   "fixture_id": "api_football:1494268",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kalmar FF – Djurgardens IF",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/374.png",
+   "away_logo": "https://media.api-sports.io/football/teams/364.png",
+   "conseil": "Djurgardens IF ou Nul",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "K. Lien buteur",
+     "detail": "cote 2.00",
+     "odd": 2.0,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182873",
