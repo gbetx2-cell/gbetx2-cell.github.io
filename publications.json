@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T01:40:51.163900+00:00",
+ "generated_at": "2026-09-07T02:35:03.701372+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182873",
@@ -99,23 +99,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1493116",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Racing Club – Atletico Tucuman",
-   "kickoff_at": "2026-09-07T02:30:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/436.png",
-   "away_logo": "https://media.api-sports.io/football/teams/455.png",
-   "conseil": "Racing Club ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.43,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
   }
  ],
  "done": [
@@ -4885,6 +4868,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1493116",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Racing Club – Atletico Tucuman",
+   "kickoff_at": "2026-09-07T02:30:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/436.png",
+   "away_logo": "https://media.api-sports.io/football/teams/455.png",
+   "conseil": "Racing Club ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.43,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 2"
   }
  ]
 }
