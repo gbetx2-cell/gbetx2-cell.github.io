@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T23:44:37.227524+00:00",
+ "generated_at": "2026-09-07T23:56:36.004928+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182692",
@@ -32,20 +32,20 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1493108",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
+   "fixture_id": "api_football:1549729",
+   "flag": "🇨🇴",
+   "league": "Primera A",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Barracas Central – Argentinos JRS",
-   "kickoff_at": "2026-09-08T00:00:00+02:00",
+   "match": "Llaneros – Deportes Tolima",
+   "kickoff_at": "2026-09-08T01:00:00+02:00",
    "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/2432.png",
-   "away_logo": "https://media.api-sports.io/football/teams/458.png",
-   "conseil": "Argentinos JRS ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.43,
-   "conseil_mise_eur": 200.0,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1464.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1142.png",
+   "conseil": "Deportes Tolima ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -63,23 +63,6 @@
    "conseil": "Deportes Limache ou Nul",
    "conseil_cote": 1.19,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1549729",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Llaneros – Deportes Tolima",
-   "kickoff_at": "2026-09-08T01:00:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1464.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1142.png",
-   "conseil": "Deportes Tolima ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -226,35 +209,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556058",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
-   "kickoff_at": "2026-09-06T11:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/310.png",
-   "away_logo": "https://media.api-sports.io/football/teams/282.png",
-   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
-   "conseil_cote": 2.83,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 2",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Suzuki buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1556057",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -278,6 +232,35 @@
      "label": "Y. Soma buteur",
      "detail": "cote 3.10",
      "odd": 3.1,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556058",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/310.png",
+   "away_logo": "https://media.api-sports.io/football/teams/282.png",
+   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
+   "conseil_cote": 2.83,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Suzuki buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -3825,6 +3808,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1493108",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Barracas Central – Argentinos JRS",
+   "kickoff_at": "2026-09-08T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/2432.png",
+   "away_logo": "https://media.api-sports.io/football/teams/458.png",
+   "conseil": "Argentinos JRS ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.43,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
   }
  ]
 }
