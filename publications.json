@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T00:08:33.230973+00:00",
+ "generated_at": "2026-09-07T00:08:59.970724+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -28,66 +28,6 @@
    "conseil": "Victoire Ilia Simakin",
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1551099",
-   "flag": "⚽",
-   "league": "First League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lokomotiv Plovdiv – Cherno More Varna",
-   "kickoff_at": "2026-09-06T18:00:00+02:00",
-   "published": true,
-   "league_id": 172,
-   "home_logo": "https://media.api-sports.io/football/teams/858.png",
-   "away_logo": "https://media.api-sports.io/football/teams/851.png",
-   "conseil": "Cherno More Varna ou Nul",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1603550",
-   "flag": "⚽",
-   "league": "1. Division",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Apoel Nicosia – AEL",
-   "kickoff_at": "2026-09-06T18:00:00+02:00",
-   "published": true,
-   "league_id": 318,
-   "home_logo": "https://media.api-sports.io/football/teams/2247.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3396.png",
-   "conseil": "AEL ou Nul",
-   "conseil_cote": 1.94,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "L. Singh buteur",
-     "detail": "54%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1560009",
-   "flag": "🇨🇿",
-   "league": "Czech Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Hradec Králové – Sparta Praha",
-   "kickoff_at": "2026-09-06T18:00:00+02:00",
-   "published": true,
-   "league_id": 345,
-   "home_logo": "https://media.api-sports.io/football/teams/3723.png",
-   "away_logo": "https://media.api-sports.io/football/teams/628.png",
-   "conseil": "Sparta Praha ou Nul",
-   "conseil_cote": 1.33,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "tennis_espn_atp_182886",
@@ -4577,6 +4517,25 @@
    "score": "2 - 2"
   },
   {
+   "fixture_id": "api_football:1551099",
+   "flag": "⚽",
+   "league": "First League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lokomotiv Plovdiv – Cherno More Varna",
+   "kickoff_at": "2026-09-06T18:00:00+02:00",
+   "published": true,
+   "league_id": 172,
+   "home_logo": "https://media.api-sports.io/football/teams/858.png",
+   "away_logo": "https://media.api-sports.io/football/teams/851.png",
+   "conseil": "Cherno More Varna ou Nul",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0"
+  },
+  {
    "fixture_id": "api_football:1548524",
    "flag": "🇭🇷",
    "league": "HNL",
@@ -4604,6 +4563,54 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1603550",
+   "flag": "⚽",
+   "league": "1. Division",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Apoel Nicosia – AEL",
+   "kickoff_at": "2026-09-06T18:00:00+02:00",
+   "published": true,
+   "league_id": 318,
+   "home_logo": "https://media.api-sports.io/football/teams/2247.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3396.png",
+   "conseil": "AEL ou Nul",
+   "conseil_cote": 1.94,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "6 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "L. Singh buteur",
+     "detail": "54%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1560009",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Hradec Králové – Sparta Praha",
+   "kickoff_at": "2026-09-06T18:00:00+02:00",
+   "published": true,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/3723.png",
+   "away_logo": "https://media.api-sports.io/football/teams/628.png",
+   "conseil": "Sparta Praha ou Nul",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 1"
   },
   {
    "fixture_id": "api_football:1549014",
