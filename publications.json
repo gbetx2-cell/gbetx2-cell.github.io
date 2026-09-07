@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T23:30:25.234574+00:00",
+ "generated_at": "2026-09-07T23:30:36.337862+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182692",
@@ -62,6 +62,23 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1505519",
+   "flag": "🇨🇱",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Deportes Limache – Cobresal",
+   "kickoff_at": "2026-09-08T01:00:00+02:00",
+   "published": true,
+   "league_id": 265,
+   "home_logo": "https://media.api-sports.io/football/teams/16730.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2331.png",
+   "conseil": "Deportes Limache ou Nul",
+   "conseil_cote": 1.19,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1492369",
    "flag": "🇧🇷",
    "league": "Serie A",
@@ -105,21 +122,30 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1505519",
-   "flag": "🇨🇱",
-   "league": "Primera División",
+   "fixture_id": "api_football:1519483",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Deportes Limache – Cobresal",
-   "kickoff_at": "2026-09-08T01:00:00+02:00",
+   "match": "Emelec – Manta FC",
+   "kickoff_at": "2026-09-08T02:00:00+02:00",
    "published": true,
-   "league_id": 265,
-   "home_logo": "https://media.api-sports.io/football/teams/16730.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2331.png",
-   "conseil": "Deportes Limache ou Nul",
-   "conseil_cote": 1.19,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1148.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1980.png",
+   "conseil": "Emelec ou Nul",
+   "conseil_cote": 1.17,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Ruíz buteur",
+     "detail": "38%",
+     "odd": null,
+     "mise_eur": null
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1519486",
