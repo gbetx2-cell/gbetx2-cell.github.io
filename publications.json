@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T18:56:35.634839+00:00",
+ "generated_at": "2026-09-07T18:59:50.775873+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183546",
@@ -110,49 +110,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1549015",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Midtjylland – FC Nordsjaelland",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/397.png",
-   "away_logo": "https://media.api-sports.io/football/teams/398.png",
-   "conseil": "FC Midtjylland ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.1,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Cho Gue-Sung buteur",
-     "detail": "cote 2.62",
-     "odd": 2.62,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1584398",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Göztepe – Gaziantep FK",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/994.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3573.png",
-   "conseil": "Göztepe ou Nul",
-   "conseil_cote": 1.28,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
    "fixture_id": "api_football:1570368",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -177,23 +134,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1603552",
-   "flag": "⚽",
-   "league": "1. Division",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Aris – Omonia Nicosia",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 318,
-   "home_logo": "https://media.api-sports.io/football/teams/3408.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3402.png",
-   "conseil": "Omonia Nicosia ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.07,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1551097",
@@ -3455,6 +3395,35 @@
    "score": "1 - 0"
   },
   {
+   "fixture_id": "api_football:1549015",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Midtjylland – FC Nordsjaelland",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/397.png",
+   "away_logo": "https://media.api-sports.io/football/teams/398.png",
+   "conseil": "FC Midtjylland ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Cho Gue-Sung buteur",
+     "detail": "cote 2.62",
+     "odd": 2.62,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1494270",
    "flag": "🇸🇪",
    "league": "Allsvenskan",
@@ -3482,6 +3451,44 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1584398",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Göztepe – Gaziantep FK",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/994.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3573.png",
+   "conseil": "Göztepe ou Nul",
+   "conseil_cote": 1.28,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 4"
+  },
+  {
+   "fixture_id": "api_football:1603552",
+   "flag": "⚽",
+   "league": "1. Division",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aris – Omonia Nicosia",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 318,
+   "home_logo": "https://media.api-sports.io/football/teams/3408.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3402.png",
+   "conseil": "Omonia Nicosia ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.07,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 4"
   },
   {
    "fixture_id": "api_football:1584401",
