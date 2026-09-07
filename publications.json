@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T19:02:37.112704+00:00",
+ "generated_at": "2026-09-07T19:06:35.581039+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183546",
@@ -69,32 +69,6 @@
    "value_bet": "Baltimore Orioles @ 1.7692",
    "value_cote": 1.77,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1570368",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Getafe – Celta Vigo",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/546.png",
-   "away_logo": "https://media.api-sports.io/football/teams/538.png",
-   "conseil": "Getafe ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "E. Ünal buteur",
-     "detail": "cote 4.00",
-     "odd": 4.0,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1551097",
@@ -3476,6 +3450,35 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "2 - 4"
+  },
+  {
+   "fixture_id": "api_football:1570368",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Getafe – Celta Vigo",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/546.png",
+   "away_logo": "https://media.api-sports.io/football/teams/538.png",
+   "conseil": "Getafe ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "E. Ünal buteur",
+     "detail": "cote 4.00",
+     "odd": 4.0,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1603552",
