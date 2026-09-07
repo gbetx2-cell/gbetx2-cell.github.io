@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T18:33:24.338598+00:00",
+ "generated_at": "2026-09-07T18:52:43.527491+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183546",
@@ -136,32 +136,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1494270",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Mjallby AIF – IFK Goteborg",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/2240.png",
-   "away_logo": "https://media.api-sports.io/football/teams/366.png",
-   "conseil": "Mjallby AIF ou Nul",
-   "conseil_cote": 1.42,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Bergström buteur",
-     "detail": "cote 2.88",
-     "odd": 2.88,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1584398",
    "flag": "🇹🇷",
    "league": "Süper Lig",
@@ -219,23 +193,6 @@
    "conseil": "Omonia Nicosia ou Nul + Moins de 3.5 buts",
    "conseil_cote": 2.07,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1584401",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rizespor – Alanyaspor",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/1007.png",
-   "away_logo": "https://media.api-sports.io/football/teams/996.png",
-   "conseil": "Alanyaspor ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.62,
-   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -1231,6 +1188,25 @@
    "score": "0 - 2"
   },
   {
+   "fixture_id": "api_football:1565472",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Veres Rivne – Zorya Luhansk",
+   "kickoff_at": "2026-09-06T14:30:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/6501.png",
+   "away_logo": "https://media.api-sports.io/football/teams/599.png",
+   "conseil": "Zorya Luhansk gagne",
+   "conseil_cote": 2.37,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1552160",
    "flag": "🇳🇱",
    "league": "Eredivisie",
@@ -1267,25 +1243,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 3"
-  },
-  {
-   "fixture_id": "api_football:1565472",
-   "flag": "🇺🇦",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Veres Rivne – Zorya Luhansk",
-   "kickoff_at": "2026-09-06T14:30:00+02:00",
-   "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/6501.png",
-   "away_logo": "https://media.api-sports.io/football/teams/599.png",
-   "conseil": "Zorya Luhansk gagne",
-   "conseil_cote": 2.37,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1553155",
@@ -2345,6 +2302,25 @@
    "score": "5 - 0"
   },
   {
+   "fixture_id": "api_football:1575152",
+   "flag": "🇩🇪",
+   "league": "Bundesliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Eintracht Frankfurt – FC Augsburg",
+   "kickoff_at": "2026-09-06T17:30:00+02:00",
+   "published": true,
+   "league_id": 78,
+   "home_logo": "https://media.api-sports.io/football/teams/169.png",
+   "away_logo": "https://media.api-sports.io/football/teams/170.png",
+   "conseil": "Eintracht Frankfurt ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 4"
+  },
+  {
    "fixture_id": "api_football:1557387",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Premier League",
@@ -2440,25 +2416,6 @@
    "score": "1 - 0"
   },
   {
-   "fixture_id": "api_football:1575152",
-   "flag": "🇩🇪",
-   "league": "Bundesliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Eintracht Frankfurt – FC Augsburg",
-   "kickoff_at": "2026-09-06T17:30:00+02:00",
-   "published": true,
-   "league_id": 78,
-   "home_logo": "https://media.api-sports.io/football/teams/169.png",
-   "away_logo": "https://media.api-sports.io/football/teams/170.png",
-   "conseil": "Eintracht Frankfurt ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 4"
-  },
-  {
    "fixture_id": "api_football:1600335",
    "flag": "🇿🇦",
    "league": "Premier Soccer League",
@@ -2547,6 +2504,31 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816830",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Miami Marlins – Chicago Cubs",
+   "kickoff_at": "2026-09-06T17:40Z",
+   "published": true,
+   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.9615",
+   "value_cote": 1.96,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "10 - 3",
+   "refonte_value_bets": [
+    {
+     "market": "winner",
+     "label": "Vainqueur — Chicago Cubs @ 1.7143",
+     "odd": 1.71,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "baseball_401816831",
    "flag": "⚾",
    "league": "MLB",
@@ -2593,31 +2575,6 @@
      "odd": 1.65,
      "mise_eur": 200.0,
      "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "baseball_401816830",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Miami Marlins – Chicago Cubs",
-   "kickoff_at": "2026-09-06T17:40Z",
-   "published": true,
-   "value_bet": "Chicago Cubs Plus de 4,5 @ 1.9615",
-   "value_cote": 1.96,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "10 - 3",
-   "refonte_value_bets": [
-    {
-     "market": "winner",
-     "label": "Vainqueur — Chicago Cubs @ 1.7143",
-     "odd": 1.71,
-     "mise_eur": 200.0,
-     "result": "PERDU"
     }
    ]
   },
@@ -3522,6 +3479,54 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1494270",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Mjallby AIF – IFK Goteborg",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/2240.png",
+   "away_logo": "https://media.api-sports.io/football/teams/366.png",
+   "conseil": "Mjallby AIF ou Nul",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 4",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Bergström buteur",
+     "detail": "cote 2.88",
+     "odd": 2.88,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1584401",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rizespor – Alanyaspor",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/1007.png",
+   "away_logo": "https://media.api-sports.io/football/teams/996.png",
+   "conseil": "Alanyaspor ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.62,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1"
   },
   {
    "fixture_id": "tennis_espn_atp_182873",
