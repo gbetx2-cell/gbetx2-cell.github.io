@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T00:07:27.360312+00:00",
+ "generated_at": "2026-09-07T00:07:53.936734+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -44,40 +44,6 @@
    "conseil": "Borac Banja Luka ou Nul + Moins de 3.5 buts",
    "conseil_cote": 1.52,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1505518",
-   "flag": "🇨🇱",
-   "league": "Primera División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "D. La Serena – Nublense",
-   "kickoff_at": "2026-09-06T17:30:00+02:00",
-   "published": true,
-   "league_id": 265,
-   "home_logo": "https://media.api-sports.io/football/teams/2341.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2337.png",
-   "conseil": "Nublense ou Nul",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1600335",
-   "flag": "🇿🇦",
-   "league": "Premier Soccer League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kaizer Chiefs – Siwelele",
-   "kickoff_at": "2026-09-06T17:30:00+02:00",
-   "published": true,
-   "league_id": 288,
-   "home_logo": "https://media.api-sports.io/football/teams/2691.png",
-   "away_logo": "https://media.api-sports.io/football/teams/26299.png",
-   "conseil": "Kaizer Chiefs ou Nul",
-   "conseil_cote": 1.13,
-   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -225,32 +191,6 @@
    "conseil_cote": 2.28,
    "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1593304",
-   "flag": "🇬🇷",
-   "league": "Super League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Atromitos – Kalamata",
-   "kickoff_at": "2026-09-06T18:00:00+02:00",
-   "published": true,
-   "league_id": 197,
-   "home_logo": "https://media.api-sports.io/football/teams/12260.png",
-   "away_logo": "https://media.api-sports.io/football/teams/5046.png",
-   "conseil": "Atromitos ou Nul",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "S. Zuber buteur",
-     "detail": "cote 3.60",
-     "odd": 3.6,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182886",
@@ -4491,6 +4431,44 @@
    "score": "2 - 1"
   },
   {
+   "fixture_id": "api_football:1505518",
+   "flag": "🇨🇱",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "D. La Serena – Nublense",
+   "kickoff_at": "2026-09-06T17:30:00+02:00",
+   "published": true,
+   "league_id": 265,
+   "home_logo": "https://media.api-sports.io/football/teams/2341.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2337.png",
+   "conseil": "Nublense ou Nul",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1600335",
+   "flag": "🇿🇦",
+   "league": "Premier Soccer League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kaizer Chiefs – Siwelele",
+   "kickoff_at": "2026-09-06T17:30:00+02:00",
+   "published": true,
+   "league_id": 288,
+   "home_logo": "https://media.api-sports.io/football/teams/2691.png",
+   "away_logo": "https://media.api-sports.io/football/teams/26299.png",
+   "conseil": "Kaizer Chiefs ou Nul",
+   "conseil_cote": 1.13,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 2"
+  },
+  {
    "fixture_id": "baseball_401816827",
    "flag": "⚾",
    "league": "MLB",
@@ -4652,6 +4630,35 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "0 - 3"
+  },
+  {
+   "fixture_id": "api_football:1593304",
+   "flag": "🇬🇷",
+   "league": "Super League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Atromitos – Kalamata",
+   "kickoff_at": "2026-09-06T18:00:00+02:00",
+   "published": true,
+   "league_id": 197,
+   "home_logo": "https://media.api-sports.io/football/teams/12260.png",
+   "away_logo": "https://media.api-sports.io/football/teams/5046.png",
+   "conseil": "Atromitos ou Nul",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "S. Zuber buteur",
+     "detail": "cote 3.60",
+     "odd": 3.6,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182724",
