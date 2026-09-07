@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T17:05:51.855541+00:00",
+ "generated_at": "2026-09-07T17:07:50.497659+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183595",
@@ -109,6 +109,19 @@
    "published": true,
    "value_bet": "Boston Red Sox @ 1.5814",
    "value_cote": 1.58,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816844",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Baltimore Orioles – Cleveland Guardians",
+   "kickoff_at": "2026-09-07T17:35Z",
+   "published": true,
+   "value_bet": "Baltimore Orioles @ 1.7692",
+   "value_cote": 1.77,
    "value_mise_eur": 200.0
   },
   {
@@ -401,6 +414,23 @@
    "conseil": "Slavia Sofia ou Nul",
    "conseil_cote": 1.5,
    "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1603018",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Hilal Saudi FC – NEOM",
+   "kickoff_at": "2026-09-07T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2932.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10513.png",
+   "conseil": "Al-Hilal Saudi FC ou Nul",
+   "conseil_cote": 1.06,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   }
  ],
