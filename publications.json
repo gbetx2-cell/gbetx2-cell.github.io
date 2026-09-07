@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T00:04:51.235643+00:00",
+ "generated_at": "2026-09-07T00:05:21.639466+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -28,109 +28,6 @@
    "conseil": "Victoire Ilia Simakin",
    "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1570371",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Valencia – Barcelona",
-   "kickoff_at": "2026-09-06T16:15:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/532.png",
-   "away_logo": "https://media.api-sports.io/football/teams/529.png",
-   "conseil": "Barcelona gagne",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Raphinha buteur",
-     "detail": "cote 1.83",
-     "odd": 1.83,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1555388",
-   "flag": "🇨🇭",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Sion – FC Thun",
-   "kickoff_at": "2026-09-06T16:30:00+02:00",
-   "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/630.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1012.png",
-   "conseil": "FC Thun ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.41,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1494265",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "IF Brommapojkarna – IF Elfsborg",
-   "kickoff_at": "2026-09-06T16:30:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/371.png",
-   "away_logo": "https://media.api-sports.io/football/teams/372.png",
-   "conseil": "IF Elfsborg ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1555387",
-   "flag": "🇨🇭",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Basel 1893 – FC Lugano",
-   "kickoff_at": "2026-09-06T16:30:00+02:00",
-   "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/551.png",
-   "away_logo": "https://media.api-sports.io/football/teams/606.png",
-   "conseil": "FC Lugano ou Nul",
-   "conseil_cote": 1.41,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1575488",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Santa Clara – Rio Ave",
-   "kickoff_at": "2026-09-06T16:30:00+02:00",
-   "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/227.png",
-   "away_logo": "https://media.api-sports.io/football/teams/226.png",
-   "conseil": "Santa Clara ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Gonçalo Paciência buteur",
-     "detail": "cote 2.20",
-     "odd": 2.2,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1552161",
@@ -4449,6 +4346,35 @@
    ]
   },
   {
+   "fixture_id": "api_football:1570371",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Valencia – Barcelona",
+   "kickoff_at": "2026-09-06T16:15:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/532.png",
+   "away_logo": "https://media.api-sports.io/football/teams/529.png",
+   "conseil": "Barcelona gagne",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 5",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Raphinha buteur",
+     "detail": "cote 1.83",
+     "odd": 1.83,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1569911",
    "flag": "🇪🇸",
    "league": "Segunda División",
@@ -4466,6 +4392,92 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1555388",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Sion – FC Thun",
+   "kickoff_at": "2026-09-06T16:30:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/630.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1012.png",
+   "conseil": "FC Thun ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.41,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 2"
+  },
+  {
+   "fixture_id": "api_football:1494265",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "IF Brommapojkarna – IF Elfsborg",
+   "kickoff_at": "2026-09-06T16:30:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/371.png",
+   "away_logo": "https://media.api-sports.io/football/teams/372.png",
+   "conseil": "IF Elfsborg ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1555387",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Basel 1893 – FC Lugano",
+   "kickoff_at": "2026-09-06T16:30:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/551.png",
+   "away_logo": "https://media.api-sports.io/football/teams/606.png",
+   "conseil": "FC Lugano ou Nul",
+   "conseil_cote": 1.41,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 3"
+  },
+  {
+   "fixture_id": "api_football:1575488",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Santa Clara – Rio Ave",
+   "kickoff_at": "2026-09-06T16:30:00+02:00",
+   "published": true,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/227.png",
+   "away_logo": "https://media.api-sports.io/football/teams/226.png",
+   "conseil": "Santa Clara ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Gonçalo Paciência buteur",
+     "detail": "cote 2.20",
+     "odd": 2.2,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "baseball_401816828",
