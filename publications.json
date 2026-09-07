@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T17:19:03.220388+00:00",
+ "generated_at": "2026-09-07T17:31:01.815573+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183546",
@@ -56,32 +56,6 @@
    "value_bet": "Miami Marlins @ 1.7692",
    "value_cote": 1.77,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1603017",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al Khaleej Saihat – Al Riyadh",
-   "kickoff_at": "2026-09-07T17:30:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2928.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10511.png",
-   "conseil": "Al Riyadh gagne",
-   "conseil_cote": 3.1,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "T. Okou buteur",
-     "detail": "cote 5.00",
-     "odd": 5.0,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "baseball_401816842",
@@ -415,6 +389,23 @@
    "away_logo": "https://media.api-sports.io/football/teams/10513.png",
    "conseil": "Al-Hilal Saudi FC ou Nul",
    "conseil_cote": 1.06,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1553861",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "OFK Beograd – IMT Novi Beograd",
+   "kickoff_at": "2026-09-07T20:00:00+02:00",
+   "published": true,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/2633.png",
+   "away_logo": "https://media.api-sports.io/football/teams/12316.png",
+   "conseil": "OFK Beograd ou Nul",
+   "conseil_cote": 1.38,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   }
@@ -3340,6 +3331,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "0 - 2"
+  },
+  {
+   "fixture_id": "api_football:1603017",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al Khaleej Saihat – Al Riyadh",
+   "kickoff_at": "2026-09-07T17:30:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2928.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10511.png",
+   "conseil": "Al Riyadh gagne",
+   "conseil_cote": 3.1,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "T. Okou buteur",
+     "detail": "cote 5.00",
+     "odd": 5.0,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182873",
