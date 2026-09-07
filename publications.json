@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T00:05:21.639466+00:00",
+ "generated_at": "2026-09-07T00:05:47.443100+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182722",
@@ -30,32 +30,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1552161",
-   "flag": "🇳🇱",
-   "league": "Eredivisie",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "ADO Den Haag – Fortuna Sittard",
-   "kickoff_at": "2026-09-06T16:45:00+02:00",
-   "published": true,
-   "league_id": 88,
-   "home_logo": "https://media.api-sports.io/football/teams/198.png",
-   "away_logo": "https://media.api-sports.io/football/teams/205.png",
-   "conseil": "Fortuna Sittard gagne + Plus de 1.5 buts",
-   "conseil_cote": 3.9,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "M. Ihattaren buteur",
-     "detail": "cote 3.25",
-     "odd": 3.25,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1551553",
    "flag": "⚽",
    "league": "Super Liga",
@@ -69,23 +43,6 @@
    "away_logo": "https://media.api-sports.io/football/teams/10533.png",
    "conseil": "FK Košice gagne",
    "conseil_cote": 1.56,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1494755",
-   "flag": "🇳🇴",
-   "league": "Eliteserien",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sarpsborg 08 FF – Valerenga",
-   "kickoff_at": "2026-09-06T17:00:00+02:00",
-   "published": true,
-   "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/333.png",
-   "away_logo": "https://media.api-sports.io/football/teams/326.png",
-   "conseil": "Valerenga ou Nul",
-   "conseil_cote": 1.91,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
@@ -105,32 +62,6 @@
    "conseil_cote": 2.2,
    "conseil_mise_eur": 600.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1494752",
-   "flag": "🇳🇴",
-   "league": "Eliteserien",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Molde – KFUM Oslo",
-   "kickoff_at": "2026-09-06T17:00:00+02:00",
-   "published": true,
-   "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/329.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2143.png",
-   "conseil": "Molde gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "E. Breivik buteur",
-     "detail": "cote 2.10",
-     "odd": 2.1,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1515914",
@@ -4474,6 +4405,83 @@
      "label": "Gonçalo Paciência buteur",
      "detail": "cote 2.20",
      "odd": 2.2,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1552161",
+   "flag": "🇳🇱",
+   "league": "Eredivisie",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "ADO Den Haag – Fortuna Sittard",
+   "kickoff_at": "2026-09-06T16:45:00+02:00",
+   "published": true,
+   "league_id": 88,
+   "home_logo": "https://media.api-sports.io/football/teams/198.png",
+   "away_logo": "https://media.api-sports.io/football/teams/205.png",
+   "conseil": "Fortuna Sittard gagne + Plus de 1.5 buts",
+   "conseil_cote": 3.9,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 3",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Ihattaren buteur",
+     "detail": "cote 3.25",
+     "odd": 3.25,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1494755",
+   "flag": "🇳🇴",
+   "league": "Eliteserien",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sarpsborg 08 FF – Valerenga",
+   "kickoff_at": "2026-09-06T17:00:00+02:00",
+   "published": true,
+   "league_id": 103,
+   "home_logo": "https://media.api-sports.io/football/teams/333.png",
+   "away_logo": "https://media.api-sports.io/football/teams/326.png",
+   "conseil": "Valerenga ou Nul",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1494752",
+   "flag": "🇳🇴",
+   "league": "Eliteserien",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Molde – KFUM Oslo",
+   "kickoff_at": "2026-09-06T17:00:00+02:00",
+   "published": true,
+   "league_id": 103,
+   "home_logo": "https://media.api-sports.io/football/teams/329.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2143.png",
+   "conseil": "Molde gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "E. Breivik buteur",
+     "detail": "cote 2.10",
+     "odd": 2.1,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
