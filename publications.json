@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T20:47:36.493692+00:00",
+ "generated_at": "2026-09-07T21:03:24.458370+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182738",
@@ -15,19 +15,6 @@
    "conseil": "Victoire Francisco Cerundolo",
    "conseil_cote": 2.35,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816844",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Baltimore Orioles – Cleveland Guardians",
-   "kickoff_at": "2026-09-07T17:35Z",
-   "published": true,
-   "value_bet": "Baltimore Orioles @ 1.7692",
-   "value_cote": 1.77,
-   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_182827",
@@ -144,6 +131,23 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1493108",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Barracas Central – Argentinos JRS",
+   "kickoff_at": "2026-09-08T00:00:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/2432.png",
+   "away_logo": "https://media.api-sports.io/football/teams/458.png",
+   "conseil": "Argentinos JRS ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.43,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
   }
  ],
  "done": [
@@ -3163,6 +3167,22 @@
    "score": "5 - 2"
   },
   {
+   "fixture_id": "baseball_401816844",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Baltimore Orioles – Cleveland Guardians",
+   "kickoff_at": "2026-09-07T17:35Z",
+   "published": true,
+   "value_bet": "Baltimore Orioles @ 1.7692",
+   "value_cote": 1.77,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 4"
+  },
+  {
    "fixture_id": "api_football:1547627",
    "flag": "🇱🇹",
    "league": "A Lyga",
@@ -3239,6 +3259,44 @@
    "score": "1 - 0"
   },
   {
+   "fixture_id": "api_football:1603552",
+   "flag": "⚽",
+   "league": "1. Division",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Aris – Omonia Nicosia",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 318,
+   "home_logo": "https://media.api-sports.io/football/teams/3408.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3402.png",
+   "conseil": "Omonia Nicosia ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.07,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 4"
+  },
+  {
+   "fixture_id": "api_football:1584401",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Rizespor – Alanyaspor",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/1007.png",
+   "away_logo": "https://media.api-sports.io/football/teams/996.png",
+   "conseil": "Alanyaspor ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.62,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1"
+  },
+  {
    "fixture_id": "api_football:1494269",
    "flag": "🇸🇪",
    "league": "Allsvenskan",
@@ -3262,6 +3320,83 @@
      "label": "E. Botheim buteur",
      "detail": "cote 1.91",
      "odd": 1.91,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1570368",
+   "flag": "🇪🇸",
+   "league": "Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Getafe – Celta Vigo",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 140,
+   "home_logo": "https://media.api-sports.io/football/teams/546.png",
+   "away_logo": "https://media.api-sports.io/football/teams/538.png",
+   "conseil": "Getafe ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "E. Ünal buteur",
+     "detail": "cote 4.00",
+     "odd": 4.0,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1584398",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Göztepe – Gaziantep FK",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/994.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3573.png",
+   "conseil": "Göztepe ou Nul",
+   "conseil_cote": 1.28,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 4"
+  },
+  {
+   "fixture_id": "api_football:1494268",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kalmar FF – Djurgardens IF",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/374.png",
+   "away_logo": "https://media.api-sports.io/football/teams/364.png",
+   "conseil": "Djurgardens IF ou Nul",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "K. Lien buteur",
+     "detail": "cote 2.00",
+     "odd": 2.0,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -3321,121 +3456,6 @@
      "detail": "cote 2.88",
      "odd": 2.88,
      "mise_eur": 300.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1584398",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Göztepe – Gaziantep FK",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/994.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3573.png",
-   "conseil": "Göztepe ou Nul",
-   "conseil_cote": 1.28,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 4"
-  },
-  {
-   "fixture_id": "api_football:1570368",
-   "flag": "🇪🇸",
-   "league": "Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Getafe – Celta Vigo",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 140,
-   "home_logo": "https://media.api-sports.io/football/teams/546.png",
-   "away_logo": "https://media.api-sports.io/football/teams/538.png",
-   "conseil": "Getafe ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "E. Ünal buteur",
-     "detail": "cote 4.00",
-     "odd": 4.0,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1603552",
-   "flag": "⚽",
-   "league": "1. Division",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Aris – Omonia Nicosia",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 318,
-   "home_logo": "https://media.api-sports.io/football/teams/3408.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3402.png",
-   "conseil": "Omonia Nicosia ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.07,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 4"
-  },
-  {
-   "fixture_id": "api_football:1584401",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Rizespor – Alanyaspor",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/1007.png",
-   "away_logo": "https://media.api-sports.io/football/teams/996.png",
-   "conseil": "Alanyaspor ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.62,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 1"
-  },
-  {
-   "fixture_id": "api_football:1494268",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kalmar FF – Djurgardens IF",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/374.png",
-   "away_logo": "https://media.api-sports.io/football/teams/364.png",
-   "conseil": "Djurgardens IF ou Nul",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "K. Lien buteur",
-     "detail": "cote 2.00",
-     "odd": 2.0,
-     "mise_eur": 200.0,
      "result": "PERDU"
     }
    ]
