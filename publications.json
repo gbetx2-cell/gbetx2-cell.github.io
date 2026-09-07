@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T20:30:50.134550+00:00",
+ "generated_at": "2026-09-07T20:37:35.876049+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182738",
@@ -73,32 +73,6 @@
    "conseil_cote": 1.3,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1601520",
-   "flag": "🇮🇹",
-   "league": "Serie B",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Palermo – Sampdoria",
-   "kickoff_at": "2026-09-07T20:30:00+02:00",
-   "published": true,
-   "league_id": 136,
-   "home_logo": "https://media.api-sports.io/football/teams/522.png",
-   "away_logo": "https://media.api-sports.io/football/teams/498.png",
-   "conseil": "Palermo ou Nul",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Pohjanpalo buteur",
-     "detail": "cote 2.10",
-     "odd": 2.1,
-     "mise_eur": 300.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182688",
@@ -3623,6 +3597,35 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1601520",
+   "flag": "🇮🇹",
+   "league": "Serie B",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Palermo – Sampdoria",
+   "kickoff_at": "2026-09-07T20:30:00+02:00",
+   "published": true,
+   "league_id": 136,
+   "home_logo": "https://media.api-sports.io/football/teams/522.png",
+   "away_logo": "https://media.api-sports.io/football/teams/498.png",
+   "conseil": "Palermo ou Nul",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Pohjanpalo buteur",
+     "detail": "cote 2.10",
+     "odd": 2.1,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
