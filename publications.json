@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T19:00:07.285021+00:00",
+ "generated_at": "2026-09-07T19:02:37.112704+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183546",
@@ -69,32 +69,6 @@
    "value_bet": "Baltimore Orioles @ 1.7692",
    "value_cote": 1.77,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1494269",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Malmo FF – AIK Stockholm",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/375.png",
-   "away_logo": "https://media.api-sports.io/football/teams/377.png",
-   "conseil": "Malmo FF ou Nul",
-   "conseil_cote": 1.24,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "E. Botheim buteur",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1570368",
@@ -3396,6 +3370,35 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1494269",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Malmo FF – AIK Stockholm",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/375.png",
+   "away_logo": "https://media.api-sports.io/football/teams/377.png",
+   "conseil": "Malmo FF ou Nul",
+   "conseil_cote": 1.24,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "E. Botheim buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1549015",
