@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T17:31:01.815573+00:00",
+ "generated_at": "2026-09-07T17:34:50.752469+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183546",
@@ -376,6 +376,23 @@
    "lineup_source": "flashscore"
   },
   {
+   "fixture_id": "api_football:1553861",
+   "flag": "🇷🇸",
+   "league": "Super Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "OFK Beograd – IMT Novi Beograd",
+   "kickoff_at": "2026-09-07T20:00:00+02:00",
+   "published": true,
+   "league_id": 286,
+   "home_logo": "https://media.api-sports.io/football/teams/2633.png",
+   "away_logo": "https://media.api-sports.io/football/teams/12316.png",
+   "conseil": "OFK Beograd ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore"
+  },
+  {
    "fixture_id": "api_football:1603018",
    "flag": "🇸🇦",
    "league": "Pro League",
@@ -393,21 +410,30 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1553861",
-   "flag": "🇷🇸",
-   "league": "Super Liga",
+   "fixture_id": "api_football:1601520",
+   "flag": "🇮🇹",
+   "league": "Serie B",
    "sport": "football",
    "sport_label": "Football",
-   "match": "OFK Beograd – IMT Novi Beograd",
-   "kickoff_at": "2026-09-07T20:00:00+02:00",
+   "match": "Palermo – Sampdoria",
+   "kickoff_at": "2026-09-07T20:30:00+02:00",
    "published": true,
-   "league_id": 286,
-   "home_logo": "https://media.api-sports.io/football/teams/2633.png",
-   "away_logo": "https://media.api-sports.io/football/teams/12316.png",
-   "conseil": "OFK Beograd ou Nul",
-   "conseil_cote": 1.38,
+   "league_id": 136,
+   "home_logo": "https://media.api-sports.io/football/teams/522.png",
+   "away_logo": "https://media.api-sports.io/football/teams/498.png",
+   "conseil": "Palermo ou Nul",
+   "conseil_cote": 1.17,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Pohjanpalo buteur",
+     "detail": "cote 2.10",
+     "odd": 2.1,
+     "mise_eur": 300.0
+    }
+   ]
   }
  ],
  "done": [
