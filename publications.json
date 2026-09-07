@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T20:40:24.397426+00:00",
+ "generated_at": "2026-09-07T20:40:40.215982+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182738",
@@ -71,23 +71,6 @@
    "conseil": "Victoire Botic Van De Zandschulp",
    "conseil_cote": 1.62,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1552464",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Nantes – Nancy",
-   "kickoff_at": "2026-09-07T20:45:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/83.png",
-   "away_logo": "https://media.api-sports.io/football/teams/102.png",
-   "conseil": "Nancy ou Nul",
-   "conseil_cote": 1.93,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1550116",
@@ -3641,6 +3624,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1552464",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Nantes – Nancy",
+   "kickoff_at": "2026-09-07T20:45:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/83.png",
+   "away_logo": "https://media.api-sports.io/football/teams/102.png",
+   "conseil": "Nancy ou Nul",
+   "conseil_cote": 1.93,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0"
   }
  ]
 }
