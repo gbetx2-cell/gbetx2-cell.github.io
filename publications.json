@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T02:06:37.251829+00:00",
+ "generated_at": "2026-09-08T02:10:43.438554+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816849",
@@ -13,49 +13,6 @@
    "value_bet": "Los Angeles Dodgers @ 1.565",
    "value_cote": 1.56,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1519486",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Orense SC – Guayaquil City FC",
-   "kickoff_at": "2026-09-08T02:00:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1992.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1159.png",
-   "conseil": "Guayaquil City FC ou Nul",
-   "conseil_cote": 1.87,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1519483",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Emelec – Manta FC",
-   "kickoff_at": "2026-09-08T02:00:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1148.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1980.png",
-   "conseil": "Emelec ou Nul",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "J. Ruíz buteur",
-     "detail": "38%",
-     "odd": null,
-     "mise_eur": null
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1493120",
@@ -3836,6 +3793,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1519486",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Orense SC – Guayaquil City FC",
+   "kickoff_at": "2026-09-08T02:00:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1992.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1159.png",
+   "conseil": "Guayaquil City FC ou Nul",
+   "conseil_cote": 1.87,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "4 - 3"
+  },
+  {
    "fixture_id": "api_football:1519485",
    "flag": "🇵🇾",
    "league": "Liga Pro",
@@ -3853,6 +3829,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1519483",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Emelec – Manta FC",
+   "kickoff_at": "2026-09-08T02:00:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1148.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1980.png",
+   "conseil": "Emelec ou Nul",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "J. Ruíz buteur",
+     "detail": "38%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
