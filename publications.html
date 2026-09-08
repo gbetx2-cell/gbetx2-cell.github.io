@@ -873,15 +873,25 @@ function countdownLabel(kickoffIso){
   // "qu'il decompte les secondes" : la seconde est desormais toujours
   // affichee, meme au-dela d'1h (avant : minutes arrondies au-dela d'1h,
   // seule la derniere heure tiquait vraiment).
+  //
+  // 08/09/2026 (2e demande explicite, tennis : "je ne veux pas de coup
+  // d'envoi ... soit le match commence ... soit un decompte sur l'heure
+  // decalee") : avant ce fix, une fois l'heure de coup d'envoi depassee
+  // sans score live synchronise (retard reel du match, tres frequent en
+  // tennis -- match precedent sur le meme court qui deborde), le texte
+  // restait fige sur "Coup d'envoi" indefiniment, sans aucune information.
+  // Bascule desormais sur un decompte qui continue de tourner en "retard"
+  // (temps ecoule depuis l'heure prevue) -- jamais de texte mort tant que
+  // le score live n'est pas arrive.
   const diffMs = new Date(kickoffIso).getTime() - Date.now();
-  if (diffMs <= 0) return 'Coup d’envoi';
-  const totalSec = Math.floor(diffMs / 1000);
+  const totalSec = Math.floor(Math.abs(diffMs) / 1000);
   const h = Math.floor(totalSec / 3600);
   const m = Math.floor((totalSec % 3600) / 60);
   const s = totalSec % 60;
-  if (h > 0) return `Coup d’envoi dans ${h}h ${String(m).padStart(2, '0')}min ${String(s).padStart(2, '0')}s`;
-  if (totalSec >= 60) return `Coup d’envoi dans ${m}:${String(s).padStart(2, '0')}`;
-  return `Coup d’envoi dans ${s}s`;
+  const timeStr = h > 0
+    ? `${h}h ${String(m).padStart(2, '0')}min ${String(s).padStart(2, '0')}s`
+    : (totalSec >= 60 ? `${m}:${String(s).padStart(2, '0')}` : `${s}s`);
+  return diffMs <= 0 ? `Retard : ${timeStr}` : `Coup d’envoi dans ${timeStr}`;
 }
 
 // Tique chaque seconde (05/08/2026) : met a jour uniquement le texte des
@@ -1010,7 +1020,7 @@ function tennisAvatarHtml(name, photo){
 function tennisMatchHeadHtml(f, live){
   const [homeName, awayName] = (f.match || '').split('–').map(s => (s || '').trim());
 
-  let score, clock;
+  let score, clock, clockHtml = null;
   if (f.result){
     score = f.score || '- - -';
     clock = 'Terminé';
@@ -1022,10 +1032,23 @@ function tennisMatchHeadHtml(f, live){
     // decompte soit le score" -- meme principe que footballMatchHeadHtml :
     // tant que le score live tennis n'est pas dispo (ESPN scoreboard pas
     // encore synchro, ou heure decalee), le decompte reste affiche
-    // (countdownLabel gere deja "Coup d'envoi" si l'heure est deja passee)
-    // plutot qu'un "En cours" vide sans score ni decompte.
+    // (countdownLabel gere desormais "Retard : ..." si l'heure est deja
+    // passee, jamais de texte fige) plutot qu'un "En cours" vide sans score
+    // ni decompte.
+    //
+    // 08/09/2026 : branche desormais sur le meme mecanisme countdown-live/
+    // data-kickoff que footballMatchHeadHtml et le rendu generique (NBA/MLB/...)
+    // -- avant ce fix, le tennis n'etait jamais cible par tickCountdowns()
+    // (setInterval 1s), donc ce texte ne se rafraichissait qu'au cycle de
+    // poll complet (20s), jamais vraiment "seconde par seconde" comme
+    // demande, et ne beneficiait pas non plus du re-render immediat des
+    // qu'un decompte atteint 0 (bascule vers le score live des que
+    // disponible, au lieu d'attendre jusqu'a 20s).
     score = '- - -';
-    clock = countdownLabel(f.kickoff_at);
+    const soonMs = new Date(f.kickoff_at).getTime() - Date.now();
+    const dotDisplay = soonMs <= 5 * 60000 ? '' : 'display:none';
+    clockHtml = `<span class="dot countdown-dot" style="${dotDisplay}"></span> ` +
+      `<span class="countdown-live" data-kickoff="${f.kickoff_at}">${countdownLabel(f.kickoff_at)}</span>`;
   } else {
     score = '- - -';
     clock = '';
@@ -1063,7 +1086,7 @@ function tennisMatchHeadHtml(f, live){
     <div style="padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--border)">
       <div style="display:flex;align-items:center;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-bottom:14px">
         <span>${f.flag} ${f.league}</span>
-        <span style="color:var(--gold-2);font-weight:700;display:flex;align-items:center;gap:6px">${clock ? `<span class="dot"></span> ${clock}` : ''}</span>
+        <span style="color:var(--gold-2);font-weight:700;display:flex;align-items:center;gap:6px">${clockHtml || (clock ? `<span class="dot"></span> ${clock}` : '')}</span>
       </div>
       <div style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:start;gap:10px">
         <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-width:0">
