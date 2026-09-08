@@ -1,50 +1,6 @@
 {
- "generated_at": "2026-09-08T18:44:49.830163+00:00",
+ "generated_at": "2026-09-08T19:30:39.600401+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1635609",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "AEK Athens FC – Lask Linz",
-   "kickoff_at": "2026-09-08T18:45:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/575.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1026.png",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "B. Varga — buteur",
-     "detail": "cote 2.38",
-     "odd": 2.38,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1635643",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Club Brugge KV – Aston Villa",
-   "kickoff_at": "2026-09-08T18:45:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/569.png",
-   "away_logo": "https://media.api-sports.io/football/teams/66.png",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "N. Tresoldi — buteur",
-     "detail": "cote 2.50",
-     "odd": 2.5,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "api_football:1603021",
    "flag": "🇸🇦",
@@ -87,6 +43,19 @@
    "conseil_cote": 1.36,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182861",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-09-08T20:00Z",
+   "published": true,
+   "conseil": "Victoire Frances Tiafoe",
+   "conseil_cote": 1.71,
+   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "api_football:1562031",
@@ -1613,6 +1582,54 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1635609",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "AEK Athens FC – Lask Linz",
+   "kickoff_at": "2026-09-08T18:45:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/575.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1026.png",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "B. Varga — buteur",
+     "detail": "cote 2.38",
+     "odd": 2.38,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    }
+   ],
+   "result": "PERDU"
+  },
+  {
+   "fixture_id": "api_football:1635643",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Club Brugge KV – Aston Villa",
+   "kickoff_at": "2026-09-08T18:45:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/569.png",
+   "away_logo": "https://media.api-sports.io/football/teams/66.png",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "N. Tresoldi — buteur",
+     "detail": "cote 2.50",
+     "odd": 2.5,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ],
+   "result": "GAGNE"
   },
   {
    "fixture_id": "api_football:1552136",
