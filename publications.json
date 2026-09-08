@@ -1,21 +1,6 @@
 {
- "generated_at": "2026-09-08T01:07:36.743645+00:00",
+ "generated_at": "2026-09-08T01:41:36.604508+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_182692",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Learner Tien – Karen Khachanov",
-   "kickoff_at": "2026-09-07T20:00Z",
-   "published": true,
-   "home_photo": "assets/players/learner tien.png",
-   "away_photo": "assets/players/karen khachanov.png",
-   "conseil": "Victoire Learner Tien",
-   "conseil_cote": 1.65,
-   "conseil_mise_eur": 200.0
-  },
   {
    "fixture_id": "tennis_espn_atp_182688",
    "flag": "🎾",
@@ -162,35 +147,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1556058",
-   "flag": "🇯🇵",
-   "league": "J1 League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
-   "kickoff_at": "2026-09-06T11:00:00+02:00",
-   "published": true,
-   "league_id": 98,
-   "home_logo": "https://media.api-sports.io/football/teams/310.png",
-   "away_logo": "https://media.api-sports.io/football/teams/282.png",
-   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
-   "conseil_cote": 2.83,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 2",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Suzuki buteur",
-     "detail": "cote 2.75",
-     "odd": 2.75,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1556057",
    "flag": "🇯🇵",
    "league": "J1 League",
@@ -214,6 +170,35 @@
      "label": "Y. Soma buteur",
      "detail": "cote 3.10",
      "odd": 3.1,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1556058",
+   "flag": "🇯🇵",
+   "league": "J1 League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fagiano Okayama – Sanfrecce Hiroshima",
+   "kickoff_at": "2026-09-06T11:00:00+02:00",
+   "published": true,
+   "league_id": 98,
+   "home_logo": "https://media.api-sports.io/football/teams/310.png",
+   "away_logo": "https://media.api-sports.io/football/teams/282.png",
+   "conseil": "Sanfrecce Hiroshima gagne + Moins de 3.5 buts",
+   "conseil_cote": 2.83,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Suzuki buteur",
+     "detail": "cote 2.75",
+     "odd": 2.75,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -1000,6 +985,63 @@
    ]
   },
   {
+   "fixture_id": "api_football:1601519",
+   "flag": "🇮🇹",
+   "league": "Serie B",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Modena – Avellino",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 136,
+   "home_logo": "https://media.api-sports.io/football/teams/899.png",
+   "away_logo": "https://media.api-sports.io/football/teams/528.png",
+   "conseil": "Modena ou Nul",
+   "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 1"
+  },
+  {
+   "fixture_id": "api_football:1557390",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Everton – Manchester United",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 39,
+   "home_logo": "https://media.api-sports.io/football/teams/45.png",
+   "away_logo": "https://media.api-sports.io/football/teams/33.png",
+   "conseil": "Manchester United ou Nul",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1547624",
+   "flag": "🇱🇹",
+   "league": "A Lyga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "TransINVEST Vilnius – Suduva Marijampole",
+   "kickoff_at": "2026-09-06T15:00:00+02:00",
+   "published": true,
+   "league_id": 362,
+   "home_logo": "https://media.api-sports.io/football/teams/18878.png",
+   "away_logo": "https://media.api-sports.io/football/teams/612.png",
+   "conseil": "Suduva Marijampole ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
+  },
+  {
    "fixture_id": "api_football:1601517",
    "flag": "🇮🇹",
    "league": "Serie B",
@@ -1027,63 +1069,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1557390",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Everton – Manchester United",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 39,
-   "home_logo": "https://media.api-sports.io/football/teams/45.png",
-   "away_logo": "https://media.api-sports.io/football/teams/33.png",
-   "conseil": "Manchester United ou Nul",
-   "conseil_cote": 1.31,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2"
-  },
-  {
-   "fixture_id": "api_football:1601519",
-   "flag": "🇮🇹",
-   "league": "Serie B",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Modena – Avellino",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 136,
-   "home_logo": "https://media.api-sports.io/football/teams/899.png",
-   "away_logo": "https://media.api-sports.io/football/teams/528.png",
-   "conseil": "Modena ou Nul",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "0 - 1"
-  },
-  {
-   "fixture_id": "api_football:1547624",
-   "flag": "🇱🇹",
-   "league": "A Lyga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "TransINVEST Vilnius – Suduva Marijampole",
-   "kickoff_at": "2026-09-06T15:00:00+02:00",
-   "published": true,
-   "league_id": 362,
-   "home_logo": "https://media.api-sports.io/football/teams/18878.png",
-   "away_logo": "https://media.api-sports.io/football/teams/612.png",
-   "conseil": "Suduva Marijampole ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 2"
   },
   {
    "fixture_id": "api_football:1601515",
@@ -1527,35 +1512,6 @@
    "score": "0 - 5"
   },
   {
-   "fixture_id": "api_football:1508850",
-   "flag": "🇮🇸",
-   "league": "Úrvalsdeild",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "IA Akranes – KR Reykjavik",
-   "kickoff_at": "2026-09-06T16:00:00+02:00",
-   "published": true,
-   "league_id": 164,
-   "home_logo": "https://media.api-sports.io/football/teams/827.png",
-   "away_logo": "https://media.api-sports.io/football/teams/271.png",
-   "conseil": "KR Reykjavik ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 1.41,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "3 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Sigurðarson buteur",
-     "detail": "65%",
-     "odd": null,
-     "mise_eur": null,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1584399",
    "flag": "🇹🇷",
    "league": "Süper Lig",
@@ -1581,6 +1537,35 @@
      "odd": 2.75,
      "mise_eur": 300.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1508850",
+   "flag": "🇮🇸",
+   "league": "Úrvalsdeild",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "IA Akranes – KR Reykjavik",
+   "kickoff_at": "2026-09-06T16:00:00+02:00",
+   "published": true,
+   "league_id": 164,
+   "home_logo": "https://media.api-sports.io/football/teams/827.png",
+   "away_logo": "https://media.api-sports.io/football/teams/271.png",
+   "conseil": "KR Reykjavik ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 1.41,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Sigurðarson buteur",
+     "detail": "65%",
+     "odd": null,
+     "mise_eur": null,
+     "result": "PERDU"
     }
    ]
   },
@@ -1696,25 +1681,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1494265",
-   "flag": "🇸🇪",
-   "league": "Allsvenskan",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "IF Brommapojkarna – IF Elfsborg",
-   "kickoff_at": "2026-09-06T16:30:00+02:00",
-   "published": true,
-   "league_id": 113,
-   "home_logo": "https://media.api-sports.io/football/teams/371.png",
-   "away_logo": "https://media.api-sports.io/football/teams/372.png",
-   "conseil": "IF Elfsborg ou Nul",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 1"
-  },
-  {
    "fixture_id": "api_football:1555388",
    "flag": "🇨🇭",
    "league": "Super League",
@@ -1782,6 +1748,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1494265",
+   "flag": "🇸🇪",
+   "league": "Allsvenskan",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "IF Brommapojkarna – IF Elfsborg",
+   "kickoff_at": "2026-09-06T16:30:00+02:00",
+   "published": true,
+   "league_id": 113,
+   "home_logo": "https://media.api-sports.io/football/teams/371.png",
+   "away_logo": "https://media.api-sports.io/football/teams/372.png",
+   "conseil": "IF Elfsborg ou Nul",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 1"
+  },
+  {
    "fixture_id": "api_football:1552161",
    "flag": "🇳🇱",
    "league": "Eredivisie",
@@ -1811,25 +1796,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1565467",
-   "flag": "🇺🇦",
-   "league": "Premier League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Epitsentr Dunayivtsi – Bukovyna",
-   "kickoff_at": "2026-09-06T17:00:00+02:00",
-   "published": true,
-   "league_id": 333,
-   "home_logo": "https://media.api-sports.io/football/teams/14434.png",
-   "away_logo": "https://media.api-sports.io/football/teams/6486.png",
-   "conseil": "Epitsentr Dunayivtsi ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.2,
-   "conseil_mise_eur": 600.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 0"
-  },
-  {
    "fixture_id": "api_football:1551553",
    "flag": "⚽",
    "league": "Super Liga",
@@ -1847,25 +1813,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 0"
-  },
-  {
-   "fixture_id": "api_football:1494755",
-   "flag": "🇳🇴",
-   "league": "Eliteserien",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sarpsborg 08 FF – Valerenga",
-   "kickoff_at": "2026-09-06T17:00:00+02:00",
-   "published": true,
-   "league_id": 103,
-   "home_logo": "https://media.api-sports.io/football/teams/333.png",
-   "away_logo": "https://media.api-sports.io/football/teams/326.png",
-   "conseil": "Valerenga ou Nul",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1494752",
@@ -1897,6 +1844,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1494755",
+   "flag": "🇳🇴",
+   "league": "Eliteserien",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sarpsborg 08 FF – Valerenga",
+   "kickoff_at": "2026-09-06T17:00:00+02:00",
+   "published": true,
+   "league_id": 103,
+   "home_logo": "https://media.api-sports.io/football/teams/333.png",
+   "away_logo": "https://media.api-sports.io/football/teams/326.png",
+   "conseil": "Valerenga ou Nul",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
+  },
+  {
    "fixture_id": "api_football:1515914",
    "flag": "🇱🇻",
    "league": "Virsliga",
@@ -1914,6 +1880,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1565467",
+   "flag": "🇺🇦",
+   "league": "Premier League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Epitsentr Dunayivtsi – Bukovyna",
+   "kickoff_at": "2026-09-06T17:00:00+02:00",
+   "published": true,
+   "league_id": 333,
+   "home_logo": "https://media.api-sports.io/football/teams/14434.png",
+   "away_logo": "https://media.api-sports.io/football/teams/6486.png",
+   "conseil": "Epitsentr Dunayivtsi ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.2,
+   "conseil_mise_eur": 600.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 0"
   },
   {
    "fixture_id": "baseball_401816828",
@@ -3560,6 +3545,23 @@
    "score": "1 - 1"
   },
   {
+   "fixture_id": "tennis_espn_atp_182692",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Learner Tien – Karen Khachanov",
+   "kickoff_at": "2026-09-07T20:00Z",
+   "published": true,
+   "home_photo": "assets/players/learner tien.png",
+   "away_photo": "assets/players/karen khachanov.png",
+   "conseil": "Victoire Learner Tien",
+   "conseil_cote": 1.65,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "5-7, 6-4, 7-6, 1-6, 4-6"
+  },
+  {
    "fixture_id": "tennis_espn_atp_182873",
    "flag": "🎾",
    "league": "US Open",
@@ -3782,25 +3784,6 @@
    "score": "0 - 0"
   },
   {
-   "fixture_id": "api_football:1549729",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Llaneros – Deportes Tolima",
-   "kickoff_at": "2026-09-08T01:00:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1464.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1142.png",
-   "conseil": "Deportes Tolima ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 2"
-  },
-  {
    "fixture_id": "api_football:1505519",
    "flag": "🇨🇱",
    "league": "Primera División",
@@ -3818,6 +3801,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 0"
+  },
+  {
+   "fixture_id": "api_football:1549729",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Llaneros – Deportes Tolima",
+   "kickoff_at": "2026-09-08T01:00:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1464.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1142.png",
+   "conseil": "Deportes Tolima ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
   },
   {
    "fixture_id": "api_football:1492369",
