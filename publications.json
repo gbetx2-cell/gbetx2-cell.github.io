@@ -1,6 +1,24 @@
 {
- "generated_at": "2026-09-08T13:01:11.692763+00:00",
- "live": [],
+ "generated_at": "2026-09-08T14:00:25.433402+00:00",
+ "live": [
+  {
+   "fixture_id": "api_football:1513625",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Trans Narva – Flora Tallinn",
+   "kickoff_at": "2026-09-08T16:30:00+02:00",
+   "published": true,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/2274.png",
+   "away_logo": "https://media.api-sports.io/football/teams/687.png",
+   "conseil": "Flora Tallinn gagne",
+   "conseil_cote": 1.62,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  }
+ ],
  "done": [
   {
    "fixture_id": "api_football:1565242",
@@ -1025,25 +1043,6 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
-   "fixture_id": "api_football:1507059",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Ulsan Hyundai FC – FC Seoul",
-   "kickoff_at": "2026-09-08T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2767.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2766.png",
-   "conseil": "FC Seoul gagne",
-   "conseil_cote": 2.0,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 0"
-  },
-  {
    "fixture_id": "api_football:1507058",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -1061,6 +1060,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1507059",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Ulsan Hyundai FC – FC Seoul",
+   "kickoff_at": "2026-09-08T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2767.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2766.png",
+   "conseil": "FC Seoul gagne",
+   "conseil_cote": 2.0,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0"
   },
   {
    "fixture_id": "api_football:1552155",
