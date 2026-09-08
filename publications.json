@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T02:02:37.287892+00:00",
+ "generated_at": "2026-09-08T02:06:37.251829+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816849",
@@ -29,23 +29,6 @@
    "conseil": "Guayaquil City FC ou Nul",
    "conseil_cote": 1.87,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1519485",
-   "flag": "🇵🇾",
-   "league": "Liga Pro",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Mushuc Runa SC – Leones del Norte",
-   "kickoff_at": "2026-09-08T02:00:00+02:00",
-   "published": true,
-   "league_id": 242,
-   "home_logo": "https://media.api-sports.io/football/teams/1162.png",
-   "away_logo": "https://media.api-sports.io/football/teams/19034.png",
-   "conseil": "Leones del Norte ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.23,
-   "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
   {
@@ -3851,6 +3834,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1519485",
+   "flag": "🇵🇾",
+   "league": "Liga Pro",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Mushuc Runa SC – Leones del Norte",
+   "kickoff_at": "2026-09-08T02:00:00+02:00",
+   "published": true,
+   "league_id": 242,
+   "home_logo": "https://media.api-sports.io/football/teams/1162.png",
+   "away_logo": "https://media.api-sports.io/football/teams/19034.png",
+   "conseil": "Leones del Norte ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.23,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 1"
   }
  ]
 }
