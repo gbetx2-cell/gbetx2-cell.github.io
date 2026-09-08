@@ -1,32 +1,6 @@
 {
- "generated_at": "2026-09-08T19:31:51.525064+00:00",
+ "generated_at": "2026-09-08T20:01:51.148597+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1603021",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Ittihad FC – Al-Fayha",
-   "kickoff_at": "2026-09-08T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2938.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2944.png",
-   "conseil": "Al-Ittihad FC ou Nul",
-   "conseil_cote": 1.12,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "S. Bergwijn buteur",
-     "detail": "cote 2.38",
-     "odd": 2.38,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "api_football:1603022",
    "flag": "🇸🇦",
@@ -1636,6 +1610,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1603021",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Ittihad FC – Al-Fayha",
+   "kickoff_at": "2026-09-08T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2938.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2944.png",
+   "conseil": "Al-Ittihad FC ou Nul",
+   "conseil_cote": 1.12,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "S. Bergwijn buteur",
+     "detail": "cote 2.38",
+     "odd": 2.38,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182861",
