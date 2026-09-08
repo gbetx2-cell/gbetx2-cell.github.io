@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T03:30:24.652583+00:00",
+ "generated_at": "2026-09-08T03:30:44.605694+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816849",
@@ -13,6 +13,58 @@
    "value_bet": "Los Angeles Dodgers @ 1.565",
    "value_cote": 1.56,
    "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182791",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-09-08T04:00Z",
+   "published": true,
+   "conseil": "Victoire Stefano Travaglia",
+   "conseil_cote": 1.61,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182794",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-09-08T04:00Z",
+   "published": true,
+   "conseil": "Victoire Vilius Gaubas",
+   "conseil_cote": 1.59,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182799",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-09-08T04:00Z",
+   "published": true,
+   "conseil": "Victoire Frances Tiafoe",
+   "conseil_cote": 1.71,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182851",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "TBD – TBD",
+   "kickoff_at": "2026-09-08T04:00Z",
+   "published": true,
+   "conseil": "Victoire Martin Landaluce",
+   "conseil_cote": 1.73,
+   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_182777",
@@ -650,42 +702,33 @@
    "score": "2 - 0"
   },
   {
-   "fixture_id": "api_football:1549012",
-   "flag": "🇩🇰",
-   "league": "Superliga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sonderjyske – AC Horsens",
-   "kickoff_at": "2026-09-06T14:00:00+02:00",
-   "published": true,
-   "league_id": 119,
-   "home_logo": "https://media.api-sports.io/football/teams/396.png",
-   "away_logo": "https://media.api-sports.io/football/teams/404.png",
-   "conseil": "AC Horsens ou Nul",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 5"
-  },
-  {
-   "fixture_id": "api_football:1555386",
-   "flag": "🇨🇭",
+   "fixture_id": "api_football:1523266",
+   "flag": "🇨🇳",
    "league": "Super League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Servette FC – FC ST. Gallen",
+   "match": "Tianjin Teda – Hangzhou Greentown",
    "kickoff_at": "2026-09-06T14:00:00+02:00",
    "published": true,
-   "league_id": 207,
-   "home_logo": "https://media.api-sports.io/football/teams/2184.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1011.png",
-   "conseil": "FC ST. Gallen ou Nul",
-   "conseil_cote": 1.68,
+   "league_id": 169,
+   "home_logo": "https://media.api-sports.io/football/teams/837.png",
+   "away_logo": "https://media.api-sports.io/football/teams/848.png",
+   "conseil": "Tianjin Teda ou Nul",
+   "conseil_cote": 1.51,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
+   "lineup_source": "api_football",
    "result": "GAGNE",
-   "score": "0 - 2"
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Alberto Quiles buteur",
+     "detail": "cote 2.30",
+     "odd": 2.3,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "api_football:1494271",
@@ -717,35 +760,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1523266",
-   "flag": "🇨🇳",
-   "league": "Super League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Tianjin Teda – Hangzhou Greentown",
-   "kickoff_at": "2026-09-06T14:00:00+02:00",
-   "published": true,
-   "league_id": 169,
-   "home_logo": "https://media.api-sports.io/football/teams/837.png",
-   "away_logo": "https://media.api-sports.io/football/teams/848.png",
-   "conseil": "Tianjin Teda ou Nul",
-   "conseil_cote": 1.51,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "2 - 1",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Alberto Quiles buteur",
-     "detail": "cote 2.30",
-     "odd": 2.3,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1569907",
    "flag": "🇪🇸",
    "league": "Segunda División",
@@ -763,6 +777,44 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "3 - 0"
+  },
+  {
+   "fixture_id": "api_football:1555386",
+   "flag": "🇨🇭",
+   "league": "Super League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Servette FC – FC ST. Gallen",
+   "kickoff_at": "2026-09-06T14:00:00+02:00",
+   "published": true,
+   "league_id": 207,
+   "home_logo": "https://media.api-sports.io/football/teams/2184.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1011.png",
+   "conseil": "FC ST. Gallen ou Nul",
+   "conseil_cote": 1.68,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 2"
+  },
+  {
+   "fixture_id": "api_football:1549012",
+   "flag": "🇩🇰",
+   "league": "Superliga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sonderjyske – AC Horsens",
+   "kickoff_at": "2026-09-06T14:00:00+02:00",
+   "published": true,
+   "league_id": 119,
+   "home_logo": "https://media.api-sports.io/football/teams/396.png",
+   "away_logo": "https://media.api-sports.io/football/teams/404.png",
+   "conseil": "AC Horsens ou Nul",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 5"
   },
   {
    "fixture_id": "api_football:1552160",
