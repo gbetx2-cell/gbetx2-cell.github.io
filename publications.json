@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T14:31:38.438494+00:00",
+ "generated_at": "2026-09-08T14:33:25.486512+00:00",
  "live": [
   {
    "fixture_id": "api_football:1513625",
@@ -15,23 +15,6 @@
    "away_logo": "https://media.api-sports.io/football/teams/687.png",
    "conseil": "Flora Tallinn gagne",
    "conseil_cote": 1.62,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1638079",
-   "flag": "🇫🇮",
-   "league": "Veikkausliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Turku PS – SJK",
-   "kickoff_at": "2026-09-08T17:00:00+02:00",
-   "published": true,
-   "league_id": 244,
-   "home_logo": "https://media.api-sports.io/football/teams/1168.png",
-   "away_logo": "https://media.api-sports.io/football/teams/689.png",
-   "conseil": "Turku PS ou Nul",
-   "conseil_cote": 1.57,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
@@ -70,20 +53,20 @@
    "lineup_source": "flashscore"
   },
   {
-   "fixture_id": "api_football:1513624",
-   "flag": "🇪🇪",
-   "league": "Meistriliiga",
+   "fixture_id": "api_football:1638079",
+   "flag": "🇫🇮",
+   "league": "Veikkausliiga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Kalju Nomme – Nõmme United",
+   "match": "Turku PS – SJK",
    "kickoff_at": "2026-09-08T17:00:00+02:00",
    "published": true,
-   "league_id": 329,
-   "home_logo": "https://media.api-sports.io/football/teams/662.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10059.png",
-   "conseil": "Kalju Nomme gagne",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 400.0,
+   "league_id": 244,
+   "home_logo": "https://media.api-sports.io/football/teams/1168.png",
+   "away_logo": "https://media.api-sports.io/football/teams/689.png",
+   "conseil": "Turku PS ou Nul",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
   },
   {
@@ -102,6 +85,49 @@
    "conseil_cote": 1.78,
    "conseil_mise_eur": 300.0,
    "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1513624",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kalju Nomme – Nõmme United",
+   "kickoff_at": "2026-09-08T17:00:00+02:00",
+   "published": true,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/662.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10059.png",
+   "conseil": "Kalju Nomme gagne",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1603019",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Ettifaq – Al-Faisaly FC",
+   "kickoff_at": "2026-09-08T17:30:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2934.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2930.png",
+   "conseil": "Al-Ettifaq gagne + Plus de 1.5 buts",
+   "conseil_cote": 2.44,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Dembélé buteur",
+     "detail": "cote 2.38",
+     "odd": 2.38,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -384,25 +410,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1584398",
-   "flag": "🇹🇷",
-   "league": "Süper Lig",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Göztepe – Gaziantep FK",
-   "kickoff_at": "2026-09-07T19:00:00+02:00",
-   "published": true,
-   "league_id": 203,
-   "home_logo": "https://media.api-sports.io/football/teams/994.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3573.png",
-   "conseil": "Göztepe ou Nul",
-   "conseil_cote": 1.28,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 4"
-  },
-  {
    "fixture_id": "api_football:1570368",
    "flag": "🇪🇸",
    "league": "Liga",
@@ -557,6 +564,44 @@
    ]
   },
   {
+   "fixture_id": "api_football:1584398",
+   "flag": "🇹🇷",
+   "league": "Süper Lig",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Göztepe – Gaziantep FK",
+   "kickoff_at": "2026-09-07T19:00:00+02:00",
+   "published": true,
+   "league_id": 203,
+   "home_logo": "https://media.api-sports.io/football/teams/994.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3573.png",
+   "conseil": "Göztepe ou Nul",
+   "conseil_cote": 1.28,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 4"
+  },
+  {
+   "fixture_id": "api_football:1551097",
+   "flag": "⚽",
+   "league": "First League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Dunav Ruse – Slavia Sofia",
+   "kickoff_at": "2026-09-07T19:30:00+02:00",
+   "published": true,
+   "league_id": 172,
+   "home_logo": "https://media.api-sports.io/football/teams/683.png",
+   "away_logo": "https://media.api-sports.io/football/teams/854.png",
+   "conseil": "Slavia Sofia ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "0 - 1"
+  },
+  {
    "fixture_id": "api_football:1565245",
    "flag": "🇷🇴",
    "league": "Liga I",
@@ -584,25 +629,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1551097",
-   "flag": "⚽",
-   "league": "First League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Dunav Ruse – Slavia Sofia",
-   "kickoff_at": "2026-09-07T19:30:00+02:00",
-   "published": true,
-   "league_id": 172,
-   "home_logo": "https://media.api-sports.io/football/teams/683.png",
-   "away_logo": "https://media.api-sports.io/football/teams/854.png",
-   "conseil": "Slavia Sofia ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "0 - 1"
   },
   {
    "fixture_id": "api_football:1553861",
@@ -643,21 +669,6 @@
    "score": "0 - 2"
   },
   {
-   "fixture_id": "tennis_espn_atp_182873",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "? – ?",
-   "kickoff_at": "2026-09-07T20:00Z",
-   "published": true,
-   "conseil": "Victoire Ilia Simakin",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Walkover"
-  },
-  {
    "fixture_id": "tennis_espn_atp_182692",
    "flag": "🎾",
    "league": "US Open",
@@ -673,6 +684,40 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "5-7, 6-4, 7-6, 1-6, 4-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182873",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "? – ?",
+   "kickoff_at": "2026-09-07T20:00Z",
+   "published": true,
+   "conseil": "Victoire Ilia Simakin",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Walkover"
+  },
+  {
+   "fixture_id": "api_football:1553161",
+   "flag": "🇵🇱",
+   "league": "Ekstraklasa",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Pogon Szczecin – Wisla Plock",
+   "kickoff_at": "2026-09-07T20:30:00+02:00",
+   "published": true,
+   "league_id": 106,
+   "home_logo": "https://media.api-sports.io/football/teams/348.png",
+   "away_logo": "https://media.api-sports.io/football/teams/341.png",
+   "conseil": "Pogon Szczecin gagne",
+   "conseil_cote": 1.95,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1601520",
@@ -702,25 +747,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1553161",
-   "flag": "🇵🇱",
-   "league": "Ekstraklasa",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Pogon Szczecin – Wisla Plock",
-   "kickoff_at": "2026-09-07T20:30:00+02:00",
-   "published": true,
-   "league_id": 106,
-   "home_logo": "https://media.api-sports.io/football/teams/348.png",
-   "away_logo": "https://media.api-sports.io/football/teams/341.png",
-   "conseil": "Pogon Szczecin gagne",
-   "conseil_cote": 1.95,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1569913",
@@ -759,25 +785,6 @@
    "score": "3-6, 6-7, 7-6, 7-6, 6-4"
   },
   {
-   "fixture_id": "api_football:1552464",
-   "flag": "🇫🇷",
-   "league": "Ligue 2",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Nantes – Nancy",
-   "kickoff_at": "2026-09-07T20:45:00+02:00",
-   "published": true,
-   "league_id": 62,
-   "home_logo": "https://media.api-sports.io/football/teams/83.png",
-   "away_logo": "https://media.api-sports.io/football/teams/102.png",
-   "conseil": "Nancy ou Nul",
-   "conseil_cote": 1.93,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 0"
-  },
-  {
    "fixture_id": "api_football:1550116",
    "flag": "🇮🇹",
    "league": "Serie A",
@@ -795,6 +802,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1552464",
+   "flag": "🇫🇷",
+   "league": "Ligue 2",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Nantes – Nancy",
+   "kickoff_at": "2026-09-07T20:45:00+02:00",
+   "published": true,
+   "league_id": 62,
+   "home_logo": "https://media.api-sports.io/football/teams/83.png",
+   "away_logo": "https://media.api-sports.io/football/teams/102.png",
+   "conseil": "Nancy ou Nul",
+   "conseil_cote": 1.93,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0"
   },
   {
    "fixture_id": "api_football:1517342",
@@ -899,25 +925,6 @@
    "score": "0 - 0"
   },
   {
-   "fixture_id": "api_football:1505519",
-   "flag": "🇨🇱",
-   "league": "Primera División",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Deportes Limache – Cobresal",
-   "kickoff_at": "2026-09-08T01:00:00+02:00",
-   "published": true,
-   "league_id": 265,
-   "home_logo": "https://media.api-sports.io/football/teams/16730.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2331.png",
-   "conseil": "Deportes Limache ou Nul",
-   "conseil_cote": 1.19,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "3 - 0"
-  },
-  {
    "fixture_id": "api_football:1492369",
    "flag": "🇧🇷",
    "league": "Serie A",
@@ -964,6 +971,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1505519",
+   "flag": "🇨🇱",
+   "league": "Primera División",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Deportes Limache – Cobresal",
+   "kickoff_at": "2026-09-08T01:00:00+02:00",
+   "published": true,
+   "league_id": 265,
+   "home_logo": "https://media.api-sports.io/football/teams/16730.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2331.png",
+   "conseil": "Deportes Limache ou Nul",
+   "conseil_cote": 1.19,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 0"
   },
   {
    "fixture_id": "baseball_401816849",
@@ -1078,23 +1104,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182851",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Dusan Lajovic – Martin Landaluce",
-   "kickoff_at": "2026-09-08T04:00:00Z",
-   "published": true,
-   "home_photo": "assets/players/dusan lajovic.png",
-   "away_photo": "assets/players/martin landaluce.png",
-   "conseil": "Victoire Martin Landaluce",
-   "conseil_cote": 1.73,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_atp_182791",
    "flag": "🎾",
    "league": "US Open",
@@ -1123,6 +1132,23 @@
    "home_photo": "assets/players/vilius gaubas.png",
    "conseil": "Victoire Vilius Gaubas",
    "conseil_cote": 1.59,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182851",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Dusan Lajovic – Martin Landaluce",
+   "kickoff_at": "2026-09-08T04:00:00Z",
+   "published": true,
+   "home_photo": "assets/players/dusan lajovic.png",
+   "away_photo": "assets/players/martin landaluce.png",
+   "conseil": "Victoire Martin Landaluce",
+   "conseil_cote": 1.73,
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Match jamais termine chez ESPN (jamais résolu)"
