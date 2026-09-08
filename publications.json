@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T12:31:37.109966+00:00",
+ "generated_at": "2026-09-08T12:35:37.508585+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182791",
@@ -44,32 +44,6 @@
    "conseil": "Victoire Vilius Gaubas",
    "conseil_cote": 1.59,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1552155",
-   "flag": "🇳🇱",
-   "league": "Eredivisie",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Utrecht – GO Ahead Eagles",
-   "kickoff_at": "2026-09-08T14:00:00+02:00",
-   "published": true,
-   "league_id": 88,
-   "home_logo": "https://media.api-sports.io/football/teams/207.png",
-   "away_logo": "https://media.api-sports.io/football/teams/410.png",
-   "conseil": "GO Ahead Eagles gagne + Plus de 2.5 buts",
-   "conseil_cote": 4.97,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "M. Suray buteur",
-     "detail": "cote 3.75",
-     "odd": 3.75,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182777",
@@ -1110,6 +1084,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1552155",
+   "flag": "🇳🇱",
+   "league": "Eredivisie",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Utrecht – GO Ahead Eagles",
+   "kickoff_at": "2026-09-08T14:00:00+02:00",
+   "published": true,
+   "league_id": 88,
+   "home_logo": "https://media.api-sports.io/football/teams/207.png",
+   "away_logo": "https://media.api-sports.io/football/teams/410.png",
+   "conseil": "GO Ahead Eagles gagne + Plus de 2.5 buts",
+   "conseil_cote": 4.97,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 3",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Suray buteur",
+     "detail": "cote 3.75",
+     "odd": 3.75,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
