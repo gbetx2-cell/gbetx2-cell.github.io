@@ -1,23 +1,6 @@
 {
- "generated_at": "2026-09-08T20:41:04.990183+00:00",
+ "generated_at": "2026-09-08T20:44:55.597524+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1562031",
-   "flag": "⚽",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Larne – Bangor",
-   "kickoff_at": "2026-09-08T20:45:00+02:00",
-   "published": true,
-   "league_id": 408,
-   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
-   "away_logo": "https://media.api-sports.io/football/teams/11112.png",
-   "conseil": "Larne gagne",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
   {
    "fixture_id": "api_football:1563154",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
@@ -43,23 +26,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1563148",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Southampton – Swansea",
-   "kickoff_at": "2026-09-08T20:45:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/41.png",
-   "away_logo": "https://media.api-sports.io/football/teams/76.png",
-   "conseil": "Southampton ou Nul",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   },
   {
    "fixture_id": "api_football:1635654",
@@ -1613,6 +1579,25 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
+   "fixture_id": "api_football:1562031",
+   "flag": "⚽",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Larne – Bangor",
+   "kickoff_at": "2026-09-08T20:45:00+02:00",
+   "published": true,
+   "league_id": 408,
+   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
+   "away_logo": "https://media.api-sports.io/football/teams/11112.png",
+   "conseil": "Larne gagne",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
+  },
+  {
    "fixture_id": "api_football:1563149",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -1678,6 +1663,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1563148",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Southampton – Swansea",
+   "kickoff_at": "2026-09-08T20:45:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/41.png",
+   "away_logo": "https://media.api-sports.io/football/teams/76.png",
+   "conseil": "Southampton ou Nul",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "3 - 1"
   },
   {
    "fixture_id": "tennis_espn_atp_182856",
