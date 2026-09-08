@@ -1,106 +1,6 @@
 {
- "generated_at": "2026-09-08T21:00:40.446622+00:00",
+ "generated_at": "2026-09-08T21:02:09.721709+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1635654",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FC Porto – Manchester City",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/212.png",
-   "away_logo": "https://media.api-sports.io/football/teams/50.png",
-   "conseil": "FC Porto ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "E. Haaland — buteur",
-     "detail": "cote 1.73",
-     "odd": 1.73,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1635714",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Madrid – Inter",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/541.png",
-   "away_logo": "https://media.api-sports.io/football/teams/505.png",
-   "conseil": "Real Madrid ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Kylian Mbappé — buteur",
-     "detail": "cote 1.57",
-     "odd": 1.57,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1635652",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Borussia Dortmund – Villarreal",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/165.png",
-   "away_logo": "https://media.api-sports.io/football/teams/533.png",
-   "conseil": "Borussia Dortmund gagne",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 300.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "S. Guirassy — buteur",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1635683",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Lille – Real Betis",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/79.png",
-   "away_logo": "https://media.api-sports.io/football/teams/543.png",
-   "conseil": "Lille ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "H. Haraldsson — buteur",
-     "detail": "cote 3.25",
-     "odd": 3.25,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_182847",
    "flag": "🎾",
@@ -113,6 +13,31 @@
    "conseil": "Victoire Stefano Travaglia",
    "conseil_cote": 1.61,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1630777",
+   "flag": "🌎",
+   "league": "CONMEBOL Libertadores",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Fluminense – Platense",
+   "kickoff_at": "2026-09-09T00:00:00+02:00",
+   "published": true,
+   "league_id": 13,
+   "home_logo": "https://media.api-sports.io/football/teams/124.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1064.png",
+   "conseil": "Fluminense gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 400.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Hulk — buteur",
+     "detail": "cote 3.10",
+     "odd": 3.1,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -910,6 +835,25 @@
    "score": "0 - 0"
   },
   {
+   "fixture_id": "api_football:1549729",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Llaneros – Deportes Tolima",
+   "kickoff_at": "2026-09-08T01:00:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1464.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1142.png",
+   "conseil": "Deportes Tolima ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 2"
+  },
+  {
    "fixture_id": "api_football:1492369",
    "flag": "🇧🇷",
    "league": "Serie A",
@@ -956,25 +900,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 0"
-  },
-  {
-   "fixture_id": "api_football:1549729",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Llaneros – Deportes Tolima",
-   "kickoff_at": "2026-09-08T01:00:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1464.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1142.png",
-   "conseil": "Deportes Tolima ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 2"
   },
   {
    "fixture_id": "baseball_401816849",
@@ -1404,28 +1329,23 @@
    "score": "1 - 1"
   },
   {
-   "fixture_id": "api_football:1635609",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
+   "fixture_id": "api_football:1552136",
+   "flag": "🇳🇱",
+   "league": "Eredivisie",
    "sport": "football",
    "sport_label": "Football",
-   "match": "AEK Athens FC – Lask Linz",
+   "match": "NEC Nijmegen – Excelsior",
    "kickoff_at": "2026-09-08T18:45:00+02:00",
    "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/575.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1026.png",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "B. Varga — buteur",
-     "detail": "cote 2.38",
-     "odd": 2.38,
-     "mise_eur": 300.0,
-     "result": "PERDU"
-    }
-   ],
-   "result": "PERDU"
+   "league_id": 88,
+   "home_logo": "https://media.api-sports.io/football/teams/413.png",
+   "away_logo": "https://media.api-sports.io/football/teams/196.png",
+   "conseil": "Excelsior ou Nul",
+   "conseil_cote": 2.38,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 2"
   },
   {
    "fixture_id": "api_football:1635643",
@@ -1452,23 +1372,28 @@
    "result": "GAGNE"
   },
   {
-   "fixture_id": "api_football:1552136",
-   "flag": "🇳🇱",
-   "league": "Eredivisie",
+   "fixture_id": "api_football:1635609",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
    "sport": "football",
    "sport_label": "Football",
-   "match": "NEC Nijmegen – Excelsior",
+   "match": "AEK Athens FC – Lask Linz",
    "kickoff_at": "2026-09-08T18:45:00+02:00",
    "published": true,
-   "league_id": 88,
-   "home_logo": "https://media.api-sports.io/football/teams/413.png",
-   "away_logo": "https://media.api-sports.io/football/teams/196.png",
-   "conseil": "Excelsior ou Nul",
-   "conseil_cote": 2.38,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 2"
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/575.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1026.png",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "B. Varga — buteur",
+     "detail": "cote 2.38",
+     "odd": 2.38,
+     "mise_eur": 300.0,
+     "result": "PERDU"
+    }
+   ],
+   "result": "PERDU"
   },
   {
    "fixture_id": "api_football:1603021",
@@ -1549,25 +1474,6 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
-   "fixture_id": "api_football:1562031",
-   "flag": "⚽",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Larne – Bangor",
-   "kickoff_at": "2026-09-08T20:45:00+02:00",
-   "published": true,
-   "league_id": 408,
-   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
-   "away_logo": "https://media.api-sports.io/football/teams/11112.png",
-   "conseil": "Larne gagne",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0"
-  },
-  {
    "fixture_id": "api_football:1563149",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -1585,6 +1491,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1562031",
+   "flag": "⚽",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Larne – Bangor",
+   "kickoff_at": "2026-09-08T20:45:00+02:00",
+   "published": true,
+   "league_id": 408,
+   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
+   "away_logo": "https://media.api-sports.io/football/teams/11112.png",
+   "conseil": "Larne gagne",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
   },
   {
    "fixture_id": "api_football:1563154",
@@ -1700,6 +1625,114 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "2 - 3"
+  },
+  {
+   "fixture_id": "api_football:1635652",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Borussia Dortmund – Villarreal",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/165.png",
+   "away_logo": "https://media.api-sports.io/football/teams/533.png",
+   "conseil": "Borussia Dortmund gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 300.0,
+   "result": "GAGNE",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "S. Guirassy — buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 300.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1635654",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FC Porto – Manchester City",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/212.png",
+   "away_logo": "https://media.api-sports.io/football/teams/50.png",
+   "conseil": "FC Porto ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "0 - 2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "E. Haaland — buteur",
+     "detail": "cote 1.73",
+     "odd": 1.73,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1635683",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lille – Real Betis",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/79.png",
+   "away_logo": "https://media.api-sports.io/football/teams/543.png",
+   "conseil": "Lille ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "2 - 3",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "H. Haraldsson — buteur",
+     "detail": "cote 3.25",
+     "odd": 3.25,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1635714",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Madrid – Inter",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/541.png",
+   "away_logo": "https://media.api-sports.io/football/teams/505.png",
+   "conseil": "Real Madrid ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Kylian Mbappé — buteur",
+     "detail": "cote 1.57",
+     "odd": 1.57,
+     "mise_eur": 300.0
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182856",
