@@ -1,32 +1,6 @@
 {
- "generated_at": "2026-09-08T17:21:38.605241+00:00",
+ "generated_at": "2026-09-08T17:31:51.906855+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1603019",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Ettifaq – Al-Faisaly FC",
-   "kickoff_at": "2026-09-08T17:30:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2934.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2930.png",
-   "conseil": "Al-Ettifaq gagne + Plus de 1.5 buts",
-   "conseil_cote": 2.44,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "M. Dembélé buteur",
-     "detail": "cote 2.38",
-     "odd": 2.38,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "api_football:1603020",
    "flag": "🇸🇦",
@@ -1386,6 +1360,35 @@
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "api_football:1603019",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Ettifaq – Al-Faisaly FC",
+   "kickoff_at": "2026-09-08T17:30:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2934.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2930.png",
+   "conseil": "Al-Ettifaq gagne + Plus de 1.5 buts",
+   "conseil_cote": 2.44,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "0 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "M. Dembélé buteur",
+     "detail": "cote 2.38",
+     "odd": 2.38,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182799",
