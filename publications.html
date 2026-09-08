@@ -869,16 +869,17 @@ function renderPick(f, kind, text, cote, result, prefix, mise){
 function countdownLabel(kickoffIso){
   // Decompte en secondes reelles (05/08/2026, demande explicite : "une
   // animation fluide et un decompte" plutot qu'un texte fige recalcule
-  // seulement toutes les 60s) -- au-dela d'1h, minutes arrondies (pas
-  // besoin de la seconde pres) ; sous 1h, MM:SS qui tique reellement
-  // chaque seconde (tickCountdowns()) ; sous 1 min, secondes seules.
+  // seulement toutes les 60s -- etendu le 08/09/2026, demande explicite
+  // "qu'il decompte les secondes" : la seconde est desormais toujours
+  // affichee, meme au-dela d'1h (avant : minutes arrondies au-dela d'1h,
+  // seule la derniere heure tiquait vraiment).
   const diffMs = new Date(kickoffIso).getTime() - Date.now();
   if (diffMs <= 0) return 'Coup d’envoi';
   const totalSec = Math.floor(diffMs / 1000);
   const h = Math.floor(totalSec / 3600);
   const m = Math.floor((totalSec % 3600) / 60);
   const s = totalSec % 60;
-  if (h > 0) return `Coup d’envoi dans ${h}h ${String(m).padStart(2, '0')}min`;
+  if (h > 0) return `Coup d’envoi dans ${h}h ${String(m).padStart(2, '0')}min ${String(s).padStart(2, '0')}s`;
   if (totalSec >= 60) return `Coup d’envoi dans ${m}:${String(s).padStart(2, '0')}`;
   return `Coup d’envoi dans ${s}s`;
 }
@@ -1013,7 +1014,7 @@ function tennisMatchHeadHtml(f, live){
   if (f.result){
     score = f.score || '- - -';
     clock = 'Terminé';
-  } else if (live && live.home != null){
+  } else if (live && live.home != null && live.started){
     score = `${live.home} - ${live.away}`;
     clock = live.statusDetail || '';
   } else if (f.kickoff_at){
@@ -1045,10 +1046,14 @@ function tennisMatchHeadHtml(f, live){
   // n'est jamais nettoye) -- affichait a tort "Set 2" sous un score final
   // deja regle ("Termine"). Ces deux champs ne s'appliquent qu'a un match
   // reellement en cours.
-  const isLiveNow = !f.result && live && !live.finished;
+  const isLiveNow = !f.result && live && !live.finished && live.started;
   const currentSetGame = isLiveNow && live.currentSetGame ? live.currentSetGame : '';
   const setNumber = isLiveNow && live.setNumber ? live.setNumber : null;
   const serving = isLiveNow && live.serving ? live.serving : '';
+  // Tableau des sets (08/09/2026, demande explicite) : uniquement pendant
+  // un match reellement en cours, meme garde-fou isLiveNow que le reste de
+  // ce bloc (jamais affiche sur un match termine/pas commence).
+  const setScores = isLiveNow && live.setScores && live.setScores.length ? live.setScores : null;
   const homeRank = live && live.homeRank ? live.homeRank : null;
   const awayRank = live && live.awayRank ? live.awayRank : null;
   const serveDot = `<span title="Au service" style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 6px var(--gold-2);margin-left:5px;vertical-align:middle"></span>`;
@@ -1081,6 +1086,19 @@ function tennisMatchHeadHtml(f, live){
           </div>
         </div>
       </div>
+      ${setScores ? `
+      <div style="overflow-x:auto;margin-top:14px">
+        <table style="margin:0 auto;border-collapse:collapse;font-size:.82rem">
+          <tr>
+            <td style="padding:3px 10px;text-align:left;color:var(--muted);max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${homeName}</td>
+            ${setScores.map(s => `<td style="padding:3px 10px;text-align:center;font-weight:${s.home > s.away ? '800' : '500'};color:${s.current ? 'var(--gold-2)' : 'var(--text)'}">${s.home}</td>`).join('')}
+          </tr>
+          <tr>
+            <td style="padding:3px 10px;text-align:left;color:var(--muted);max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${awayName}</td>
+            ${setScores.map(s => `<td style="padding:3px 10px;text-align:center;font-weight:${s.away > s.home ? '800' : '500'};color:${s.current ? 'var(--gold-2)' : 'var(--text)'}">${s.away}</td>`).join('')}
+          </tr>
+        </table>
+      </div>` : ''}
     </div>`;
 }
 
@@ -1371,6 +1389,26 @@ async function fetchTennisLiveScoreboard(f){
         const statusType = (c.status && c.status.type) || {};
         const homeCur = home.linescores && home.linescores.length ? home.linescores[home.linescores.length - 1].value : null;
         const awayCur = away.linescores && away.linescores.length ? away.linescores[away.linescores.length - 1].value : null;
+        // Tableau des sets (08/09/2026, demande explicite "un tableau des
+        // sets juste en bas du score") : home.linescores/away.linescores
+        // sont deja recuperes ci-dessus pour le score courant, mais
+        // jamais exposes en entier -- un tableau parallele, un set par
+        // ligne. Le set EN COURS (statusType.state==='in') est inclus
+        // seulement s'il a deja au moins un jeu joue des deux cotes (pas
+        // de ligne "0-0" vide en debut de set). N'affiche jamais un
+        // set si l'un des deux cotes n'a pas de valeur (donnee ESPN
+        // incomplete, jamais inventee).
+        const homeLines = home.linescores || [];
+        const awayLines = away.linescores || [];
+        const setScores = [];
+        for (let i = 0; i < Math.max(homeLines.length, awayLines.length); i++){
+          const hv = homeLines[i] ? homeLines[i].value : null;
+          const av = awayLines[i] ? awayLines[i].value : null;
+          if (hv == null || av == null) continue;
+          const isCurrentSet = i === homeLines.length - 1 && statusType.state === 'in';
+          if (isCurrentSet && hv === 0 && av === 0) continue;
+          setScores.push({home: hv, away: av, current: isCurrentSet});
+        }
         // Classement ATP/WTA (27/08/2026, demande explicite : reprendre le
         // visuel type FlashScore) : curatedRank.current, present UNIQUEMENT
         // pour les joueurs "curates" par ESPN (verifie en direct : un
@@ -1379,6 +1417,7 @@ async function fetchTennisLiveScoreboard(f){
         const rankOf = comp => (comp.curatedRank && comp.curatedRank.current) || null;
         return {
           home: setsWon(home), away: setsWon(away),
+          setScores,
           currentSetGame: (statusType.state === 'in' && homeCur != null && awayCur != null) ? `${homeCur} - ${awayCur}` : '',
           // Numero du set en cours (27/08/2026) : c.status.period donne
           // directement le numero (2 = 2e set), plus fiable que de parser
@@ -1388,6 +1427,14 @@ async function fetchTennisLiveScoreboard(f){
           serving: home.possession ? 'home' : (away.possession ? 'away' : ''),
           statusDetail: statusType.shortDetail || statusType.detail || '',
           finished: !!statusType.completed,
+          // 08/09/2026 (demande explicite "un decompte pour chaque
+          // publication") : ESPN publie deja la fiche du match (statut
+          // "pre") bien avant le coup d'envoi reel -- sans ce champ,
+          // tennisMatchHeadHtml affichait la date/heure statique d'ESPN
+          // (statusDetail, ex. "9/8 - 5:30 PM EDT") au lieu du decompte
+          // qui tique, des que la fiche existait, meme heures avant le
+          // debut reel.
+          started: statusType.state === 'in' || !!statusType.completed,
         };
       }
     }
