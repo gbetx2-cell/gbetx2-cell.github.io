@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T16:28:37.856879+00:00",
+ "generated_at": "2026-09-08T16:57:45.308979+00:00",
  "live": [
   {
    "fixture_id": "api_football:1638092",
@@ -16,23 +16,6 @@
    "conseil": "AC Oulu ou Nul",
    "conseil_cote": 1.78,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1513624",
-   "flag": "🇪🇪",
-   "league": "Meistriliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kalju Nomme – Nõmme United",
-   "kickoff_at": "2026-09-08T17:00:00+02:00",
-   "published": true,
-   "league_id": 329,
-   "home_logo": "https://media.api-sports.io/football/teams/662.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10059.png",
-   "conseil": "Kalju Nomme gagne",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 400.0,
    "lineup_source": "flashscore"
   },
   {
@@ -66,23 +49,6 @@
    "away_logo": "https://media.api-sports.io/football/teams/587.png",
    "conseil": "Lahti ou Nul",
    "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
-  },
-  {
-   "fixture_id": "api_football:1638077",
-   "flag": "🇫🇮",
-   "league": "Veikkausliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Ilves – FF Jaro",
-   "kickoff_at": "2026-09-08T17:00:00+02:00",
-   "published": true,
-   "league_id": 244,
-   "home_logo": "https://media.api-sports.io/football/teams/1163.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2075.png",
-   "conseil": "Ilves ou Nul",
-   "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0,
    "lineup_source": "flashscore"
   },
@@ -1316,6 +1282,44 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "2 - 2"
+  },
+  {
+   "fixture_id": "api_football:1513624",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kalju Nomme – Nõmme United",
+   "kickoff_at": "2026-09-08T17:00:00+02:00",
+   "published": true,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/662.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10059.png",
+   "conseil": "Kalju Nomme gagne",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1638077",
+   "flag": "🇫🇮",
+   "league": "Veikkausliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Ilves – FF Jaro",
+   "kickoff_at": "2026-09-08T17:00:00+02:00",
+   "published": true,
+   "league_id": 244,
+   "home_logo": "https://media.api-sports.io/football/teams/1163.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2075.png",
+   "conseil": "Ilves ou Nul",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 0"
   },
   {
    "fixture_id": "tennis_espn_atp_182777",
