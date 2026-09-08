@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T02:10:43.438554+00:00",
+ "generated_at": "2026-09-08T02:18:36.050990+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816849",
@@ -13,32 +13,6 @@
    "value_bet": "Los Angeles Dodgers @ 1.565",
    "value_cote": 1.56,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1493120",
-   "flag": "🇦🇷",
-   "league": "Liga Profesional Argentina",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Union Santa Fe – Instituto Cordoba",
-   "kickoff_at": "2026-09-08T02:15:00+02:00",
-   "published": true,
-   "league_id": 128,
-   "home_logo": "https://media.api-sports.io/football/teams/441.png",
-   "away_logo": "https://media.api-sports.io/football/teams/478.png",
-   "conseil": "Union Santa Fe ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.81,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "C. Tarragona buteur",
-     "detail": "cote 3.60",
-     "odd": 3.6,
-     "mise_eur": 200.0
-    }
-   ]
   }
  ],
  "done": [
@@ -3856,6 +3830,35 @@
      "odd": null,
      "mise_eur": null,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1493120",
+   "flag": "🇦🇷",
+   "league": "Liga Profesional Argentina",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Union Santa Fe – Instituto Cordoba",
+   "kickoff_at": "2026-09-08T02:15:00+02:00",
+   "published": true,
+   "league_id": 128,
+   "home_logo": "https://media.api-sports.io/football/teams/441.png",
+   "away_logo": "https://media.api-sports.io/football/teams/478.png",
+   "conseil": "Union Santa Fe ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.81,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "C. Tarragona buteur",
+     "detail": "cote 3.60",
+     "odd": 3.6,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
