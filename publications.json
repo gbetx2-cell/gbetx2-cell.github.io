@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T20:47:50.947642+00:00",
+ "generated_at": "2026-09-08T20:58:52.277704+00:00",
  "live": [
   {
    "fixture_id": "api_football:1635654",
@@ -100,23 +100,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1563144",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Bolton – West Ham",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/68.png",
-   "away_logo": "https://media.api-sports.io/football/teams/48.png",
-   "conseil": "Bolton ou Nul",
-   "conseil_cote": 2.37,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore"
   }
  ],
  "done": [
@@ -1685,6 +1668,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 1"
+  },
+  {
+   "fixture_id": "api_football:1563144",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Bolton – West Ham",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/68.png",
+   "away_logo": "https://media.api-sports.io/football/teams/48.png",
+   "conseil": "Bolton ou Nul",
+   "conseil_cote": 2.37,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 3"
   },
   {
    "fixture_id": "tennis_espn_atp_182856",
