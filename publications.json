@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T01:03:35.439696+00:00",
+ "generated_at": "2026-09-08T01:07:36.743645+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_182692",
@@ -30,32 +30,6 @@
    "conseil": "Victoire Botic Van De Zandschulp",
    "conseil_cote": 1.62,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1492369",
-   "flag": "🇧🇷",
-   "league": "Serie A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Vitoria – Gremio",
-   "kickoff_at": "2026-09-08T01:00:00+02:00",
-   "published": true,
-   "league_id": 71,
-   "home_logo": "https://media.api-sports.io/football/teams/136.png",
-   "away_logo": "https://media.api-sports.io/football/teams/130.png",
-   "conseil": "Gremio ou Nul",
-   "conseil_cote": 1.75,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "flashscore",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "Carlos Vinícius buteur",
-     "detail": "cote 3.10",
-     "odd": 3.1,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "baseball_401816849",
@@ -3844,6 +3818,35 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "3 - 0"
+  },
+  {
+   "fixture_id": "api_football:1492369",
+   "flag": "🇧🇷",
+   "league": "Serie A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Vitoria – Gremio",
+   "kickoff_at": "2026-09-08T01:00:00+02:00",
+   "published": true,
+   "league_id": 71,
+   "home_logo": "https://media.api-sports.io/football/teams/136.png",
+   "away_logo": "https://media.api-sports.io/football/teams/130.png",
+   "conseil": "Gremio ou Nul",
+   "conseil_cote": 1.75,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "1 - 0",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "Carlos Vinícius buteur",
+     "detail": "cote 3.10",
+     "odd": 3.1,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
