@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T14:00:25.433402+00:00",
+ "generated_at": "2026-09-08T14:30:25.305419+00:00",
  "live": [
   {
    "fixture_id": "api_football:1513625",
@@ -16,6 +16,23 @@
    "conseil": "Flora Tallinn gagne",
    "conseil_cote": 1.62,
    "conseil_mise_eur": 300.0,
+   "lineup_source": "flashscore"
+  },
+  {
+   "fixture_id": "api_football:1513624",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Kalju Nomme – Nõmme United",
+   "kickoff_at": "2026-09-08T17:00:00+02:00",
+   "published": true,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/662.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10059.png",
+   "conseil": "Kalju Nomme gagne",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 400.0,
    "lineup_source": "flashscore"
   }
  ],
@@ -993,23 +1010,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182791",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Stefano Napolitano – Stefano Travaglia",
-   "kickoff_at": "2026-09-08T04:00:00Z",
-   "published": true,
-   "home_photo": "assets/players/stefano napolitano.png",
-   "away_photo": "assets/players/stefano travaglia.png",
-   "conseil": "Victoire Stefano Travaglia",
-   "conseil_cote": 1.61,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_atp_182851",
    "flag": "🎾",
    "league": "US Open",
@@ -1022,6 +1022,23 @@
    "away_photo": "assets/players/martin landaluce.png",
    "conseil": "Victoire Martin Landaluce",
    "conseil_cote": 1.73,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182791",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Stefano Napolitano – Stefano Travaglia",
+   "kickoff_at": "2026-09-08T04:00:00Z",
+   "published": true,
+   "home_photo": "assets/players/stefano napolitano.png",
+   "away_photo": "assets/players/stefano travaglia.png",
+   "conseil": "Victoire Stefano Travaglia",
+   "conseil_cote": 1.61,
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Match jamais termine chez ESPN (jamais résolu)"
