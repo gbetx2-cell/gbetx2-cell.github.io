@@ -1,6 +1,19 @@
 {
- "generated_at": "2026-09-08T21:02:24.154274+00:00",
+ "generated_at": "2026-09-08T22:10:38.283058+00:00",
  "live": [
+  {
+   "fixture_id": "baseball_401816857",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Detroit Tigers – Minnesota Twins",
+   "kickoff_at": "2026-09-08T22:40Z",
+   "published": true,
+   "value_bet": "Detroit Tigers @ 1.7692",
+   "value_cote": 1.77,
+   "value_mise_eur": 200.0
+  },
   {
    "fixture_id": "api_football:1630777",
    "flag": "🌎",
@@ -1614,33 +1627,6 @@
    "score": "2 - 3"
   },
   {
-   "fixture_id": "api_football:1635652",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Borussia Dortmund – Villarreal",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/165.png",
-   "away_logo": "https://media.api-sports.io/football/teams/533.png",
-   "conseil": "Borussia Dortmund gagne",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 300.0,
-   "result": "GAGNE",
-   "score": "3 - 2",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "S. Guirassy — buteur",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 300.0
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1635654",
    "flag": "🇪🇺",
    "league": "Ligue des Champions",
@@ -1663,7 +1649,36 @@
      "label": "E. Haaland — buteur",
      "detail": "cote 1.73",
      "odd": 1.73,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1635652",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Borussia Dortmund – Villarreal",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/165.png",
+   "away_logo": "https://media.api-sports.io/football/teams/533.png",
+   "conseil": "Borussia Dortmund gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 300.0,
+   "result": "GAGNE",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "S. Guirassy — buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
     }
    ]
   },
@@ -1690,7 +1705,8 @@
      "label": "H. Haraldsson — buteur",
      "detail": "cote 3.25",
      "odd": 3.25,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -1717,7 +1733,8 @@
      "label": "Kylian Mbappé — buteur",
      "detail": "cote 1.57",
      "odd": 1.57,
-     "mise_eur": 300.0
+     "mise_eur": 300.0,
+     "result": "GAGNE"
     }
    ]
   },
