@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T21:03:27.250973+00:00",
+ "generated_at": "2026-09-09T21:47:11.525484+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816882",
@@ -15,30 +15,20 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1575469",
-   "flag": "🇵🇹",
-   "league": "Primeira Liga",
+   "fixture_id": "api_football:1631507",
+   "flag": "🌎",
+   "league": "CONMEBOL Libertadores",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Moreirense – Benfica",
-   "kickoff_at": "2026-09-09T21:45:00+02:00",
+   "match": "Palmeiras – LDU de Quito",
+   "kickoff_at": "2026-09-10T00:00:00+02:00",
    "published": true,
-   "league_id": 94,
-   "home_logo": "https://media.api-sports.io/football/teams/215.png",
-   "away_logo": "https://media.api-sports.io/football/teams/211.png",
-   "conseil": "Benfica gagne + Plus de 2.5 buts",
-   "conseil_cote": 1.74,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "api_football",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "V. Pavlidis buteur",
-     "detail": "cote 1.50",
-     "odd": 1.5,
-     "mise_eur": 200.0
-    }
-   ]
+   "league_id": 13,
+   "home_logo": "https://media.api-sports.io/football/teams/121.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1158.png",
+   "conseil": "Palmeiras gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -539,34 +529,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1635714",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Madrid – Inter",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/541.png",
-   "away_logo": "https://media.api-sports.io/football/teams/505.png",
-   "conseil": "Real Madrid ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "2 - 1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Kylian Mbappé — buteur",
-     "detail": "cote 1.57",
-     "odd": 1.57,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1635654",
    "flag": "🇪🇺",
    "league": "Ligue des Champions",
@@ -593,6 +555,25 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1563144",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Bolton – West Ham",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/68.png",
+   "away_logo": "https://media.api-sports.io/football/teams/48.png",
+   "conseil": "Bolton ou Nul",
+   "conseil_cote": 2.37,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 3"
   },
   {
    "fixture_id": "api_football:1635652",
@@ -651,23 +632,32 @@
    ]
   },
   {
-   "fixture_id": "api_football:1563144",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
+   "fixture_id": "api_football:1635714",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Bolton – West Ham",
+   "match": "Real Madrid – Inter",
    "kickoff_at": "2026-09-08T21:00:00+02:00",
    "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/68.png",
-   "away_logo": "https://media.api-sports.io/football/teams/48.png",
-   "conseil": "Bolton ou Nul",
-   "conseil_cote": 2.37,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/541.png",
+   "away_logo": "https://media.api-sports.io/football/teams/505.png",
+   "conseil": "Real Madrid ou Nul",
+   "conseil_cote": 1.38,
    "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 3"
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Kylian Mbappé — buteur",
+     "detail": "cote 1.57",
+     "odd": 1.57,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182856",
@@ -1571,6 +1561,35 @@
      "detail": "cote 2.11",
      "odd": 2.11,
      "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1575469",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Moreirense – Benfica",
+   "kickoff_at": "2026-09-09T21:45:00+02:00",
+   "published": true,
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/215.png",
+   "away_logo": "https://media.api-sports.io/football/teams/211.png",
+   "conseil": "Benfica gagne + Plus de 2.5 buts",
+   "conseil_cote": 1.74,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "0 - 4",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "V. Pavlidis buteur",
+     "detail": "cote 1.50",
+     "odd": 1.5,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   },
