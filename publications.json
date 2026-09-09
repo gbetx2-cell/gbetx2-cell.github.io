@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T19:32:15.240762+00:00",
+ "generated_at": "2026-09-09T19:34:12.971895+00:00",
  "live": [
   {
    "fixture_id": "api_football:1603025",
@@ -43,33 +43,6 @@
    "conseil_cote": 2.04,
    "conseil_mise_eur": 400.0,
    "lineup_source": "espn"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183626",
-   "flag": "🎾",
-   "league": "Kia Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Carol Young Suh Lee – Emiliana Arango",
-   "kickoff_at": "2026-09-09T20:00Z",
-   "published": true,
-   "away_photo": "assets/players/emiliana arango.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.581",
-   "value_cote": 1.58,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Emiliana Arango",
-     "kind": "player",
-     "detail": "cote 2.15",
-     "odd": 2.15,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "api_football:1556644",
@@ -1472,6 +1445,36 @@
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183626",
+   "flag": "🎾",
+   "league": "Kia Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Carol Young Suh Lee – Emiliana Arango",
+   "kickoff_at": "2026-09-09T20:00Z",
+   "published": true,
+   "away_photo": "assets/players/emiliana arango.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.581",
+   "value_cote": 1.58,
+   "value_mise_eur": 200.0,
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Emiliana Arango",
+     "kind": "player",
+     "detail": "cote 2.15",
+     "odd": 2.15,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182798",
