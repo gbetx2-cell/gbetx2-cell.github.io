@@ -1,23 +1,6 @@
 {
- "generated_at": "2026-09-09T17:39:59.072886+00:00",
+ "generated_at": "2026-09-09T17:54:12.206856+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1603023",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al Kholood – Al Shabab",
-   "kickoff_at": "2026-09-09T17:55:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/10509.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2940.png",
-   "conseil": "Al Kholood ou Nul",
-   "conseil_cote": 1.6,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football"
-  },
   {
    "fixture_id": "api_football:1635628",
    "flag": "🇪🇺",
@@ -33,6 +16,22 @@
    "conseil": "Barcelona gagne",
    "conseil_cote": 1.54,
    "conseil_mise_eur": 300.0
+  },
+  {
+   "fixture_id": "api_football:1635741",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfB Stuttgart – Viking",
+   "kickoff_at": "2026-09-09T18:45:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/172.png",
+   "away_logo": "https://media.api-sports.io/football/teams/759.png",
+   "conseil": "VfB Stuttgart ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "api_football:1552142",
@@ -52,22 +51,6 @@
    "lineup_source": "espn"
   },
   {
-   "fixture_id": "api_football:1635741",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "VfB Stuttgart – Viking",
-   "kickoff_at": "2026-09-09T18:45:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/172.png",
-   "away_logo": "https://media.api-sports.io/football/teams/759.png",
-   "conseil": "VfB Stuttgart ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "api_football:1559993",
    "flag": "🇨🇿",
    "league": "Czech Liga",
@@ -83,23 +66,6 @@
    "conseil_cote": 1.74,
    "conseil_mise_eur": 400.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "api_football:1603024",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Fateh – Al Diriyah",
-   "kickoff_at": "2026-09-09T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2931.png",
-   "away_logo": "https://media.api-sports.io/football/teams/26738.png",
-   "conseil": "Al Diriyah ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.04,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "espn"
   },
   {
    "fixture_id": "api_football:1603025",
@@ -126,6 +92,23 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1603024",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Fateh – Al Diriyah",
+   "kickoff_at": "2026-09-09T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2931.png",
+   "away_logo": "https://media.api-sports.io/football/teams/26738.png",
+   "conseil": "Al Diriyah ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.04,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "espn"
   }
  ],
  "done": [
@@ -1083,6 +1066,25 @@
    "score": "4-6, 6-3, 6-1"
   },
   {
+   "fixture_id": "api_football:1507061",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gangwon FC – Jeonbuk Motors",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2746.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2762.png",
+   "conseil": "Jeonbuk Motors ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
    "fixture_id": "api_football:1507062",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -1121,25 +1123,6 @@
    "score": "3 - 2"
   },
   {
-   "fixture_id": "api_football:1507061",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gangwon FC – Jeonbuk Motors",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2746.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2762.png",
-   "conseil": "Jeonbuk Motors ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1507063",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -1176,6 +1159,25 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
+   "fixture_id": "api_football:1559994",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FK Jablonec – Baník Ostrava",
+   "kickoff_at": "2026-09-09T17:00:00+02:00",
+   "published": true,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/1122.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3713.png",
+   "conseil": "FK Jablonec ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "3 - 0"
+  },
+  {
    "fixture_id": "api_football:1638094",
    "flag": "🇫🇮",
    "league": "Veikkausliiga",
@@ -1195,23 +1197,23 @@
    "score": "2 - 1"
   },
   {
-   "fixture_id": "api_football:1559994",
-   "flag": "🇨🇿",
-   "league": "Czech Liga",
+   "fixture_id": "api_football:1603023",
+   "flag": "🇸🇦",
+   "league": "Pro League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "FK Jablonec – Baník Ostrava",
-   "kickoff_at": "2026-09-09T17:00:00+02:00",
+   "match": "Al Kholood – Al Shabab",
+   "kickoff_at": "2026-09-09T17:55:00+02:00",
    "published": true,
-   "league_id": 345,
-   "home_logo": "https://media.api-sports.io/football/teams/1122.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3713.png",
-   "conseil": "FK Jablonec ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/10509.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2940.png",
+   "conseil": "Al Kholood ou Nul",
+   "conseil_cote": 1.6,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "api_football",
    "result": "GAGNE",
-   "score": "3 - 0"
+   "score": "2 - 1"
   },
   {
    "fixture_id": "tennis_espn_atp_182770",
