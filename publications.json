@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T23:10:59.678230+00:00",
+ "generated_at": "2026-09-09T23:11:09.627130+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816882",
@@ -40,6 +40,19 @@
    "published": true,
    "value_bet": "Philadelphia Phillies @ 1.6667",
    "value_cote": 1.67,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816876",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Milwaukee Brewers – Chicago Cubs",
+   "kickoff_at": "2026-09-09T23:40Z",
+   "published": true,
+   "value_bet": "Milwaukee Brewers @ 1.7407",
+   "value_cote": 1.74,
    "value_mise_eur": 200.0
   },
   {
@@ -1112,44 +1125,6 @@
    "score": "4-6, 6-3, 6-1"
   },
   {
-   "fixture_id": "api_football:1507062",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gwangju FC – Jeju United FC",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
-   "conseil": "Jeju United FC ou Nul",
-   "conseil_cote": 1.28,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "0 - 1"
-  },
-  {
-   "fixture_id": "api_football:1507061",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gangwon FC – Jeonbuk Motors",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2746.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2762.png",
-   "conseil": "Jeonbuk Motors ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "1 - 1"
-  },
-  {
    "fixture_id": "api_football:1507063",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -1169,6 +1144,25 @@
    "score": "0 - 0"
   },
   {
+   "fixture_id": "api_football:1507062",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gwangju FC – Jeju United FC",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
+   "conseil": "Jeju United FC ou Nul",
+   "conseil_cote": 1.28,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "0 - 1"
+  },
+  {
    "fixture_id": "api_football:1507060",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -1186,6 +1180,25 @@
    "lineup_source": "api_football",
    "result": "GAGNE",
    "score": "3 - 2"
+  },
+  {
+   "fixture_id": "api_football:1507061",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gangwon FC – Jeonbuk Motors",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2746.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2762.png",
+   "conseil": "Jeonbuk Motors ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "tennis_espn_wta_183586",
@@ -1293,24 +1306,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1635741",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "VfB Stuttgart – Viking",
-   "kickoff_at": "2026-09-09T18:45:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/172.png",
-   "away_logo": "https://media.api-sports.io/football/teams/759.png",
-   "conseil": "VfB Stuttgart ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "3 - 1"
-  },
-  {
    "fixture_id": "api_football:1552142",
    "flag": "🇳🇱",
    "league": "Eredivisie",
@@ -1328,6 +1323,24 @@
    "lineup_source": "espn",
    "result": "GAGNE",
    "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1635741",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfB Stuttgart – Viking",
+   "kickoff_at": "2026-09-09T18:45:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/172.png",
+   "away_logo": "https://media.api-sports.io/football/teams/759.png",
+   "conseil": "VfB Stuttgart ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1635628",
@@ -1367,6 +1380,25 @@
    "score": "0 - 0"
   },
   {
+   "fixture_id": "api_football:1603024",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Fateh – Al Diriyah",
+   "kickoff_at": "2026-09-09T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2931.png",
+   "away_logo": "https://media.api-sports.io/football/teams/26738.png",
+   "conseil": "Al Diriyah ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.04,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "espn",
+   "result": "GAGNE",
+   "score": "1 - 2"
+  },
+  {
    "fixture_id": "api_football:1603025",
    "flag": "🇸🇦",
    "league": "Pro League",
@@ -1394,25 +1426,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1603024",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Fateh – Al Diriyah",
-   "kickoff_at": "2026-09-09T20:00:00+02:00",
-   "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2931.png",
-   "away_logo": "https://media.api-sports.io/football/teams/26738.png",
-   "conseil": "Al Diriyah ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.04,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "espn",
-   "result": "GAGNE",
-   "score": "1 - 2"
   },
   {
    "fixture_id": "tennis_espn_wta_183622",
