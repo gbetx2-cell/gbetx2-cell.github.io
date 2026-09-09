@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T18:58:12.659692+00:00",
+ "generated_at": "2026-09-09T19:18:59.502983+00:00",
  "live": [
   {
    "fixture_id": "api_football:1603024",
@@ -96,39 +96,6 @@
    "lineup_source": "api_football"
   },
   {
-   "fixture_id": "api_football:1635686",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Liverpool – Atletico Madrid",
-   "kickoff_at": "2026-09-09T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/40.png",
-   "away_logo": "https://media.api-sports.io/football/teams/530.png",
-   "conseil": "Liverpool gagne",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1563151",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Charlton – QPR",
-   "kickoff_at": "2026-09-09T21:00:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/1335.png",
-   "away_logo": "https://media.api-sports.io/football/teams/72.png",
-   "conseil": "QPR ou Nul",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "api_football"
-  },
-  {
    "fixture_id": "api_football:1556645",
    "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
    "league": "Premiership",
@@ -162,6 +129,55 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "api_football:1635705",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Paris Saint Germain – Slovan Bratislava",
+   "kickoff_at": "2026-09-09T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/85.png",
+   "away_logo": "https://media.api-sports.io/football/teams/656.png",
+   "conseil": "Paris Saint Germain gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 400.0
+  },
+  {
+   "fixture_id": "api_football:1635686",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Liverpool – Atletico Madrid",
+   "kickoff_at": "2026-09-09T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/40.png",
+   "away_logo": "https://media.api-sports.io/football/teams/530.png",
+   "conseil": "Liverpool gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "api_football:1563151",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Charlton – QPR",
+   "kickoff_at": "2026-09-09T21:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/1335.png",
+   "away_logo": "https://media.api-sports.io/football/teams/72.png",
+   "conseil": "QPR ou Nul",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football"
+  },
+  {
    "fixture_id": "api_football:1635698",
    "flag": "🇪🇺",
    "league": "Ligue des Champions",
@@ -178,20 +194,30 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1635705",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
+   "fixture_id": "api_football:1575469",
+   "flag": "🇵🇹",
+   "league": "Primeira Liga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Paris Saint Germain – Slovan Bratislava",
-   "kickoff_at": "2026-09-09T21:00:00+02:00",
+   "match": "Moreirense – Benfica",
+   "kickoff_at": "2026-09-09T21:45:00+02:00",
    "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/85.png",
-   "away_logo": "https://media.api-sports.io/football/teams/656.png",
-   "conseil": "Paris Saint Germain gagne",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 400.0
+   "league_id": 94,
+   "home_logo": "https://media.api-sports.io/football/teams/215.png",
+   "away_logo": "https://media.api-sports.io/football/teams/211.png",
+   "conseil": "Benfica gagne + Plus de 2.5 buts",
+   "conseil_cote": 1.74,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "api_football",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "V. Pavlidis buteur",
+     "detail": "cote 1.50",
+     "odd": 1.5,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -1017,23 +1043,6 @@
    "score": "4-6, 6-3, 6-1"
   },
   {
-   "fixture_id": "tennis_espn_wta_183599",
-   "flag": "🎾",
-   "league": "Montreux Nestlé Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Barbora Palicova – Fiona Ferro",
-   "kickoff_at": "2026-09-09T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/barbora palicova.png",
-   "away_photo": "assets/players/fiona ferro.png",
-   "conseil": "Victoire Fiona Ferro",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183598",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -1117,6 +1126,23 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_wta_183599",
+   "flag": "🎾",
+   "league": "Montreux Nestlé Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Barbora Palicova – Fiona Ferro",
+   "kickoff_at": "2026-09-09T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/barbora palicova.png",
+   "away_photo": "assets/players/fiona ferro.png",
+   "conseil": "Victoire Fiona Ferro",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183549",
    "flag": "🎾",
    "league": "ATIK Antalya Open",
@@ -1168,6 +1194,25 @@
    "score": "0 - 0"
   },
   {
+   "fixture_id": "api_football:1507062",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gwangju FC – Jeju United FC",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
+   "conseil": "Jeju United FC ou Nul",
+   "conseil_cote": 1.28,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "0 - 1"
+  },
+  {
    "fixture_id": "api_football:1507060",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -1204,25 +1249,6 @@
    "lineup_source": "api_football",
    "result": "GAGNE",
    "score": "1 - 1"
-  },
-  {
-   "fixture_id": "api_football:1507062",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gwangju FC – Jeju United FC",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
-   "conseil": "Jeju United FC ou Nul",
-   "conseil_cote": 1.28,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "0 - 1"
   },
   {
    "fixture_id": "tennis_espn_wta_183586",
@@ -1330,6 +1356,25 @@
    ]
   },
   {
+   "fixture_id": "api_football:1552142",
+   "flag": "🇳🇱",
+   "league": "Eredivisie",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Twente – Telstar",
+   "kickoff_at": "2026-09-09T18:45:00+02:00",
+   "published": true,
+   "league_id": 88,
+   "home_logo": "https://media.api-sports.io/football/teams/415.png",
+   "away_logo": "https://media.api-sports.io/football/teams/427.png",
+   "conseil": "Twente ou Nul",
+   "conseil_cote": 1.07,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "espn",
+   "result": "GAGNE",
+   "score": "1 - 0"
+  },
+  {
    "fixture_id": "api_football:1635741",
    "flag": "🇪🇺",
    "league": "Ligue des Champions",
@@ -1364,25 +1409,6 @@
    "conseil_mise_eur": 300.0,
    "result": "GAGNE",
    "score": "5 - 1"
-  },
-  {
-   "fixture_id": "api_football:1552142",
-   "flag": "🇳🇱",
-   "league": "Eredivisie",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Twente – Telstar",
-   "kickoff_at": "2026-09-09T18:45:00+02:00",
-   "published": true,
-   "league_id": 88,
-   "home_logo": "https://media.api-sports.io/football/teams/415.png",
-   "away_logo": "https://media.api-sports.io/football/teams/427.png",
-   "conseil": "Twente ou Nul",
-   "conseil_cote": 1.07,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "espn",
-   "result": "GAGNE",
-   "score": "1 - 0"
   },
   {
    "fixture_id": "api_football:1559993",
