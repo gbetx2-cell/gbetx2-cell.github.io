@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T19:31:12.700903+00:00",
+ "generated_at": "2026-09-09T19:32:15.240762+00:00",
  "live": [
   {
    "fixture_id": "api_football:1603025",
@@ -43,21 +43,6 @@
    "conseil_cote": 2.04,
    "conseil_mise_eur": 400.0,
    "lineup_source": "espn"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183622",
-   "flag": "🎾",
-   "league": "Kia Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sara Sorribes Tormo – Kaitlin Quevedo",
-   "kickoff_at": "2026-09-09T20:00Z",
-   "published": true,
-   "home_photo": "assets/players/sara sorribes tormo.png",
-   "away_photo": "assets/players/kaitlin quevedo.png",
-   "conseil": "Victoire Kaitlin Quevedo",
-   "conseil_cote": 1.77,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_183626",
@@ -1470,6 +1455,23 @@
    "lineup_source": "api_football",
    "result": "PERDU",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183622",
+   "flag": "🎾",
+   "league": "Kia Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Sara Sorribes Tormo – Kaitlin Quevedo",
+   "kickoff_at": "2026-09-09T20:00Z",
+   "published": true,
+   "home_photo": "assets/players/sara sorribes tormo.png",
+   "away_photo": "assets/players/kaitlin quevedo.png",
+   "conseil": "Victoire Kaitlin Quevedo",
+   "conseil_cote": 1.77,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
    "fixture_id": "tennis_espn_atp_182798",
