@@ -1,6 +1,23 @@
 {
- "generated_at": "2026-09-09T19:34:12.971895+00:00",
+ "generated_at": "2026-09-09T19:41:00.530223+00:00",
  "live": [
+  {
+   "fixture_id": "api_football:1603024",
+   "flag": "🇸🇦",
+   "league": "Pro League",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Al-Fateh – Al Diriyah",
+   "kickoff_at": "2026-09-09T20:00:00+02:00",
+   "published": true,
+   "league_id": 307,
+   "home_logo": "https://media.api-sports.io/football/teams/2931.png",
+   "away_logo": "https://media.api-sports.io/football/teams/26738.png",
+   "conseil": "Al Diriyah ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 2.04,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "espn"
+  },
   {
    "fixture_id": "api_football:1603025",
    "flag": "🇸🇦",
@@ -28,21 +45,17 @@
    ]
   },
   {
-   "fixture_id": "api_football:1603024",
-   "flag": "🇸🇦",
-   "league": "Pro League",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Al-Fateh – Al Diriyah",
-   "kickoff_at": "2026-09-09T20:00:00+02:00",
+   "fixture_id": "baseball_401816882",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "San Diego Padres – Washington Nationals",
+   "kickoff_at": "2026-09-09T20:10Z",
    "published": true,
-   "league_id": 307,
-   "home_logo": "https://media.api-sports.io/football/teams/2931.png",
-   "away_logo": "https://media.api-sports.io/football/teams/26738.png",
-   "conseil": "Al Diriyah ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 2.04,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "espn"
+   "value_bet": "San Diego Padres @ 1.5882",
+   "value_cote": 1.59,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "api_football:1556644",
@@ -96,6 +109,22 @@
    "lineup_source": "api_football"
   },
   {
+   "fixture_id": "api_football:1635686",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Liverpool – Atletico Madrid",
+   "kickoff_at": "2026-09-09T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/40.png",
+   "away_logo": "https://media.api-sports.io/football/teams/530.png",
+   "conseil": "Liverpool gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "api_football:1635698",
    "flag": "🇪🇺",
    "league": "Ligue des Champions",
@@ -109,22 +138,6 @@
    "away_logo": "https://media.api-sports.io/football/teams/42.png",
    "conseil": "Arsenal ou Nul",
    "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1635736",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sporting CP – Galatasaray",
-   "kickoff_at": "2026-09-09T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/228.png",
-   "away_logo": "https://media.api-sports.io/football/teams/645.png",
-   "conseil": "Sporting CP gagne",
-   "conseil_cote": 1.54,
    "conseil_mise_eur": 200.0
   },
   {
@@ -161,22 +174,6 @@
    "lineup_source": "api_football"
   },
   {
-   "fixture_id": "api_football:1635686",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Liverpool – Atletico Madrid",
-   "kickoff_at": "2026-09-09T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/40.png",
-   "away_logo": "https://media.api-sports.io/football/teams/530.png",
-   "conseil": "Liverpool gagne",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "api_football:1556645",
    "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
    "league": "Premiership",
@@ -192,6 +189,22 @@
    "conseil_cote": 1.76,
    "conseil_mise_eur": 400.0,
    "lineup_source": "espn"
+  },
+  {
+   "fixture_id": "api_football:1635736",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sporting CP – Galatasaray",
+   "kickoff_at": "2026-09-09T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/228.png",
+   "away_logo": "https://media.api-sports.io/football/teams/645.png",
+   "conseil": "Sporting CP gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "api_football:1575469",
@@ -327,23 +340,23 @@
    "score": "1 - 0"
   },
   {
-   "fixture_id": "api_football:1638078",
-   "flag": "🇫🇮",
-   "league": "Veikkausliiga",
+   "fixture_id": "api_football:1513624",
+   "flag": "🇪🇪",
+   "league": "Meistriliiga",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Lahti – Mariehamn",
+   "match": "Kalju Nomme – Nõmme United",
    "kickoff_at": "2026-09-08T17:00:00+02:00",
    "published": true,
-   "league_id": 244,
-   "home_logo": "https://media.api-sports.io/football/teams/1166.png",
-   "away_logo": "https://media.api-sports.io/football/teams/587.png",
-   "conseil": "Lahti ou Nul",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
+   "league_id": 329,
+   "home_logo": "https://media.api-sports.io/football/teams/662.png",
+   "away_logo": "https://media.api-sports.io/football/teams/10059.png",
+   "conseil": "Kalju Nomme gagne",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 400.0,
    "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "2 - 1"
+   "result": "PERDU",
+   "score": "1 - 2"
   },
   {
    "fixture_id": "api_football:1638079",
@@ -365,6 +378,25 @@
    "score": "0 - 0"
   },
   {
+   "fixture_id": "api_football:1638078",
+   "flag": "🇫🇮",
+   "league": "Veikkausliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Lahti – Mariehamn",
+   "kickoff_at": "2026-09-08T17:00:00+02:00",
+   "published": true,
+   "league_id": 244,
+   "home_logo": "https://media.api-sports.io/football/teams/1166.png",
+   "away_logo": "https://media.api-sports.io/football/teams/587.png",
+   "conseil": "Lahti ou Nul",
+   "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "2 - 1"
+  },
+  {
    "fixture_id": "api_football:1638077",
    "flag": "🇫🇮",
    "league": "Veikkausliiga",
@@ -382,25 +414,6 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 0"
-  },
-  {
-   "fixture_id": "api_football:1513624",
-   "flag": "🇪🇪",
-   "league": "Meistriliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Kalju Nomme – Nõmme United",
-   "kickoff_at": "2026-09-08T17:00:00+02:00",
-   "published": true,
-   "league_id": 329,
-   "home_logo": "https://media.api-sports.io/football/teams/662.png",
-   "away_logo": "https://media.api-sports.io/football/teams/10059.png",
-   "conseil": "Kalju Nomme gagne",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "1 - 2"
   },
   {
    "fixture_id": "tennis_espn_atp_182777",
@@ -554,7 +567,7 @@
    "score": "3 - 2"
   },
   {
-   "fixture_id": "tennis_espn_atp_182861",
+   "fixture_id": "tennis_espn_atp_182799",
    "flag": "🎾",
    "league": "US Open",
    "sport": "tennis",
@@ -569,7 +582,7 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
-   "fixture_id": "tennis_espn_atp_182799",
+   "fixture_id": "tennis_espn_atp_182861",
    "flag": "🎾",
    "league": "US Open",
    "sport": "tennis",
@@ -651,25 +664,6 @@
    "score": "3 - 1"
   },
   {
-   "fixture_id": "api_football:1562031",
-   "flag": "⚽",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Larne – Bangor",
-   "kickoff_at": "2026-09-08T20:45:00+02:00",
-   "published": true,
-   "league_id": 408,
-   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
-   "away_logo": "https://media.api-sports.io/football/teams/11112.png",
-   "conseil": "Larne gagne",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "GAGNE",
-   "score": "1 - 0"
-  },
-  {
    "fixture_id": "api_football:1563149",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -687,6 +681,25 @@
    "lineup_source": "flashscore",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1562031",
+   "flag": "⚽",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Larne – Bangor",
+   "kickoff_at": "2026-09-08T20:45:00+02:00",
+   "published": true,
+   "league_id": 408,
+   "home_logo": "https://media.api-sports.io/football/teams/5354.png",
+   "away_logo": "https://media.api-sports.io/football/teams/11112.png",
+   "conseil": "Larne gagne",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "GAGNE",
+   "score": "1 - 0"
   },
   {
    "fixture_id": "api_football:1563154",
@@ -718,25 +731,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1563144",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Bolton – West Ham",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/68.png",
-   "away_logo": "https://media.api-sports.io/football/teams/48.png",
-   "conseil": "Bolton ou Nul",
-   "conseil_cote": 2.37,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "flashscore",
-   "result": "PERDU",
-   "score": "2 - 3"
-  },
-  {
    "fixture_id": "api_football:1635714",
    "flag": "🇪🇺",
    "league": "Ligue des Champions",
@@ -759,34 +753,6 @@
      "label": "Kylian Mbappé — buteur",
      "detail": "cote 1.57",
      "odd": 1.57,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1635652",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Borussia Dortmund – Villarreal",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/165.png",
-   "away_logo": "https://media.api-sports.io/football/teams/533.png",
-   "conseil": "Borussia Dortmund gagne",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 300.0,
-   "result": "GAGNE",
-   "score": "3 - 2",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "S. Guirassy — buteur",
-     "detail": "cote 1.91",
-     "odd": 1.91,
      "mise_eur": 300.0,
      "result": "GAGNE"
     }
@@ -821,6 +787,34 @@
    ]
   },
   {
+   "fixture_id": "api_football:1635652",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Borussia Dortmund – Villarreal",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/165.png",
+   "away_logo": "https://media.api-sports.io/football/teams/533.png",
+   "conseil": "Borussia Dortmund gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 300.0,
+   "result": "GAGNE",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "S. Guirassy — buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1635683",
    "flag": "🇪🇺",
    "league": "Ligue des Champions",
@@ -847,6 +841,25 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1563144",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Bolton – West Ham",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/68.png",
+   "away_logo": "https://media.api-sports.io/football/teams/48.png",
+   "conseil": "Bolton ou Nul",
+   "conseil_cote": 2.37,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "flashscore",
+   "result": "PERDU",
+   "score": "2 - 3"
   },
   {
    "fixture_id": "tennis_espn_atp_182856",
@@ -895,22 +908,6 @@
    "score": "2 - 3"
   },
   {
-   "fixture_id": "baseball_401816862",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago White Sox – Pittsburgh Pirates",
-   "kickoff_at": "2026-09-08T23:40Z",
-   "published": true,
-   "value_bet": "Chicago White Sox @ 1.7407",
-   "value_cote": 1.74,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "3 - 9"
-  },
-  {
    "fixture_id": "baseball_401816861",
    "flag": "⚾",
    "league": "MLB",
@@ -931,6 +928,22 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816862",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago White Sox – Pittsburgh Pirates",
+   "kickoff_at": "2026-09-08T23:40Z",
+   "published": true,
+   "value_bet": "Chicago White Sox @ 1.7407",
+   "value_cote": 1.74,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 9"
   },
   {
    "fixture_id": "api_football:1630777",
@@ -1011,21 +1024,6 @@
    "score": "1 - 0"
   },
   {
-   "fixture_id": "tennis_espn_wta_183539",
-   "flag": "🎾",
-   "league": "ATIK Antalya Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Miriam Bulgaru – Irene Burillo",
-   "kickoff_at": "2026-09-09T04:00Z",
-   "published": true,
-   "conseil": "Victoire Irene Burillo",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183599",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -1043,21 +1041,19 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
-   "fixture_id": "tennis_espn_wta_183537",
+   "fixture_id": "tennis_espn_wta_183539",
    "flag": "🎾",
    "league": "ATIK Antalya Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Elizara Yaneva – Zhibek Kulambayeva",
+   "match": "Miriam Bulgaru – Irene Burillo",
    "kickoff_at": "2026-09-09T04:00Z",
    "published": true,
-   "home_photo": "assets/players/elizara yaneva.png",
-   "away_photo": "assets/players/zhibek kulambayeva.png",
-   "conseil": "Victoire Elizara Yaneva",
-   "conseil_cote": 1.34,
+   "conseil": "Victoire Irene Burillo",
+   "conseil_cote": 1.53,
    "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 3-6, 6-4"
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
    "fixture_id": "tennis_espn_wta_183549",
@@ -1092,6 +1088,40 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_wta_183537",
+   "flag": "🎾",
+   "league": "ATIK Antalya Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elizara Yaneva – Zhibek Kulambayeva",
+   "kickoff_at": "2026-09-09T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/elizara yaneva.png",
+   "away_photo": "assets/players/zhibek kulambayeva.png",
+   "conseil": "Victoire Elizara Yaneva",
+   "conseil_cote": 1.34,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 3-6, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183551",
+   "flag": "🎾",
+   "league": "ATIK Antalya Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Aurora Zantedeschi – Lina Gjorcheska",
+   "kickoff_at": "2026-09-09T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/aurora zantedeschi.png",
+   "away_photo": "assets/players/lina gjorcheska.png",
+   "conseil": "Victoire Lina Gjorcheska",
+   "conseil_cote": 2.1,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "4-6, 6-3, 6-1"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183584",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -1124,23 +1154,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183596",
-   "flag": "🎾",
-   "league": "Montreux Nestlé Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasiia Sobolieva – Andrea Lazaro Garcia",
-   "kickoff_at": "2026-09-09T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/anastasiia sobolieva.png",
-   "away_photo": "assets/players/andrea lazaro garcia.png",
-   "conseil": "Victoire Andrea Lazaro Garcia",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183598",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -1158,40 +1171,21 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
-   "fixture_id": "tennis_espn_wta_183551",
+   "fixture_id": "tennis_espn_wta_183596",
    "flag": "🎾",
-   "league": "ATIK Antalya Open",
+   "league": "Montreux Nestlé Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Aurora Zantedeschi – Lina Gjorcheska",
+   "match": "Anastasiia Sobolieva – Andrea Lazaro Garcia",
    "kickoff_at": "2026-09-09T04:00Z",
    "published": true,
-   "home_photo": "assets/players/aurora zantedeschi.png",
-   "away_photo": "assets/players/lina gjorcheska.png",
-   "conseil": "Victoire Lina Gjorcheska",
-   "conseil_cote": 2.1,
+   "home_photo": "assets/players/anastasiia sobolieva.png",
+   "away_photo": "assets/players/andrea lazaro garcia.png",
+   "conseil": "Victoire Andrea Lazaro Garcia",
+   "conseil_cote": 1.91,
    "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "4-6, 6-3, 6-1"
-  },
-  {
-   "fixture_id": "api_football:1507063",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Pohang Steelers – Gimcheon Sangmu FC",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2764.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2768.png",
-   "conseil": "Gimcheon Sangmu FC ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.93,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "0 - 0"
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
    "fixture_id": "api_football:1507061",
@@ -1213,25 +1207,6 @@
    "score": "1 - 1"
   },
   {
-   "fixture_id": "api_football:1507062",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gwangju FC – Jeju United FC",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
-   "conseil": "Jeju United FC ou Nul",
-   "conseil_cote": 1.28,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "0 - 1"
-  },
-  {
    "fixture_id": "api_football:1507060",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -1251,6 +1226,44 @@
    "score": "3 - 2"
   },
   {
+   "fixture_id": "api_football:1507063",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Pohang Steelers – Gimcheon Sangmu FC",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2764.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2768.png",
+   "conseil": "Gimcheon Sangmu FC ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.93,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1507062",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gwangju FC – Jeju United FC",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
+   "conseil": "Jeju United FC ou Nul",
+   "conseil_cote": 1.28,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "0 - 1"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183586",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -1266,25 +1279,6 @@
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
-   "fixture_id": "api_football:1638094",
-   "flag": "🇫🇮",
-   "league": "Veikkausliiga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "HJK Helsinki – Inter Turku",
-   "kickoff_at": "2026-09-09T17:00:00+02:00",
-   "published": true,
-   "league_id": 244,
-   "home_logo": "https://media.api-sports.io/football/teams/649.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1164.png",
-   "conseil": "Inter Turku ou Nul",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football",
-   "result": "PERDU",
-   "score": "2 - 1"
   },
   {
    "fixture_id": "api_football:1559994",
@@ -1304,6 +1298,25 @@
    "lineup_source": "api_football",
    "result": "GAGNE",
    "score": "3 - 0"
+  },
+  {
+   "fixture_id": "api_football:1638094",
+   "flag": "🇫🇮",
+   "league": "Veikkausliiga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "HJK Helsinki – Inter Turku",
+   "kickoff_at": "2026-09-09T17:00:00+02:00",
+   "published": true,
+   "league_id": 244,
+   "home_logo": "https://media.api-sports.io/football/teams/649.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1164.png",
+   "conseil": "Inter Turku ou Nul",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football",
+   "result": "PERDU",
+   "score": "2 - 1"
   },
   {
    "fixture_id": "api_football:1603023",
@@ -1356,24 +1369,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1635741",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "VfB Stuttgart – Viking",
-   "kickoff_at": "2026-09-09T18:45:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/172.png",
-   "away_logo": "https://media.api-sports.io/football/teams/759.png",
-   "conseil": "VfB Stuttgart ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "3 - 1"
-  },
-  {
    "fixture_id": "api_football:1552142",
    "flag": "🇳🇱",
    "league": "Eredivisie",
@@ -1391,6 +1386,24 @@
    "lineup_source": "espn",
    "result": "GAGNE",
    "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1635741",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "VfB Stuttgart – Viking",
+   "kickoff_at": "2026-09-09T18:45:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/172.png",
+   "away_logo": "https://media.api-sports.io/football/teams/759.png",
+   "conseil": "VfB Stuttgart ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "3 - 1"
   },
   {
    "fixture_id": "api_football:1635628",
