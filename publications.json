@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T01:14:50.551404+00:00",
+ "generated_at": "2026-09-09T02:32:50.426011+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816862",
@@ -61,22 +61,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "api_football:1629830",
-   "flag": "🌎",
-   "league": "CONMEBOL Sudamericana",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Boca Juniors – Sao Paulo",
-   "kickoff_at": "2026-09-09T02:30:00+02:00",
-   "published": true,
-   "league_id": 11,
-   "home_logo": "https://media.api-sports.io/football/teams/451.png",
-   "away_logo": "https://media.api-sports.io/football/teams/126.png",
-   "conseil": "Boca Juniors ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -1435,7 +1419,7 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_182861",
+   "fixture_id": "tennis_espn_atp_182799",
    "flag": "🎾",
    "league": "US Open",
    "sport": "tennis",
@@ -1450,7 +1434,7 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
-   "fixture_id": "tennis_espn_atp_182799",
+   "fixture_id": "tennis_espn_atp_182861",
    "flag": "🎾",
    "league": "US Open",
    "sport": "tennis",
@@ -1599,34 +1583,6 @@
    "score": "3 - 1"
   },
   {
-   "fixture_id": "api_football:1635652",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Borussia Dortmund – Villarreal",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/165.png",
-   "away_logo": "https://media.api-sports.io/football/teams/533.png",
-   "conseil": "Borussia Dortmund gagne",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 300.0,
-   "result": "GAGNE",
-   "score": "3 - 2",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "S. Guirassy — buteur",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "api_football:1635683",
    "flag": "🇪🇺",
    "league": "Ligue des Champions",
@@ -1651,34 +1607,6 @@
      "odd": 3.25,
      "mise_eur": 200.0,
      "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1635714",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Real Madrid – Inter",
-   "kickoff_at": "2026-09-08T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/541.png",
-   "away_logo": "https://media.api-sports.io/football/teams/505.png",
-   "conseil": "Real Madrid ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "2 - 1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Kylian Mbappé — buteur",
-     "detail": "cote 1.57",
-     "odd": 1.57,
-     "mise_eur": 300.0,
-     "result": "GAGNE"
     }
    ]
   },
@@ -1728,6 +1656,62 @@
    "lineup_source": "flashscore",
    "result": "PERDU",
    "score": "2 - 3"
+  },
+  {
+   "fixture_id": "api_football:1635652",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Borussia Dortmund – Villarreal",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/165.png",
+   "away_logo": "https://media.api-sports.io/football/teams/533.png",
+   "conseil": "Borussia Dortmund gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 300.0,
+   "result": "GAGNE",
+   "score": "3 - 2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "S. Guirassy — buteur",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "api_football:1635714",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Real Madrid – Inter",
+   "kickoff_at": "2026-09-08T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/541.png",
+   "away_logo": "https://media.api-sports.io/football/teams/505.png",
+   "conseil": "Real Madrid ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "2 - 1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Kylian Mbappé — buteur",
+     "detail": "cote 1.57",
+     "odd": 1.57,
+     "mise_eur": 300.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182856",
@@ -1802,6 +1786,24 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "api_football:1629830",
+   "flag": "🌎",
+   "league": "CONMEBOL Sudamericana",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Boca Juniors – Sao Paulo",
+   "kickoff_at": "2026-09-09T02:30:00+02:00",
+   "published": true,
+   "league_id": 11,
+   "home_logo": "https://media.api-sports.io/football/teams/451.png",
+   "away_logo": "https://media.api-sports.io/football/teams/126.png",
+   "conseil": "Boca Juniors ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "1 - 0"
   }
  ]
 }
