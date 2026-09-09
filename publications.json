@@ -1,19 +1,6 @@
 {
- "generated_at": "2026-09-09T12:36:29.201187+00:00",
+ "generated_at": "2026-09-09T13:00:42.801227+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_wta_183539",
-   "flag": "🎾",
-   "league": "ATIK Antalya Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Miriam Bulgaru – Irene Burillo",
-   "kickoff_at": "2026-09-09T04:00Z",
-   "published": true,
-   "conseil": "Victoire Irene Burillo",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0
-  },
   {
    "fixture_id": "tennis_espn_wta_183598",
    "flag": "🎾",
@@ -27,21 +14,6 @@
    "away_photo": "assets/players/lucija ciric bagaric.png",
    "conseil": "Victoire Lucie Havlickova",
    "conseil_cote": 1.44,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183596",
-   "flag": "🎾",
-   "league": "Montreux Nestlé Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasiia Sobolieva – Andrea Lazaro Garcia",
-   "kickoff_at": "2026-09-09T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/anastasiia sobolieva.png",
-   "away_photo": "assets/players/andrea lazaro garcia.png",
-   "conseil": "Victoire Andrea Lazaro Garcia",
-   "conseil_cote": 1.91,
    "conseil_mise_eur": 200.0
   },
   {
@@ -116,21 +88,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_183586",
-   "flag": "🎾",
-   "league": "Montreux Nestlé Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Noma Noha Akugue – Alina Granwehr",
-   "kickoff_at": "2026-09-09T16:30Z",
-   "published": true,
-   "home_photo": "assets/players/noma noha akugue.png",
-   "away_photo": "assets/players/alina granwehr.png",
-   "conseil": "Victoire Noma Noha Akugue",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_182770",
    "flag": "🎾",
    "league": "US Open",
@@ -185,22 +142,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182772",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Botic Van De Zandschulp – Alexander Zverev",
-   "kickoff_at": "2026-09-09T23:30Z",
-   "published": true,
-   "home_photo": "assets/players/botic van de zandschulp.png",
-   "away_photo": "assets/players/alexander zverev.png",
-   "coup": true,
-   "conseil": "Victoire Alexander Zverev",
-   "conseil_cote": 1.14,
-   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -994,6 +935,38 @@
    "score": "1 - 0"
   },
   {
+   "fixture_id": "tennis_espn_wta_183539",
+   "flag": "🎾",
+   "league": "ATIK Antalya Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Miriam Bulgaru – Irene Burillo",
+   "kickoff_at": "2026-09-09T04:00Z",
+   "published": true,
+   "conseil": "Victoire Irene Burillo",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183596",
+   "flag": "🎾",
+   "league": "Montreux Nestlé Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasiia Sobolieva – Andrea Lazaro Garcia",
+   "kickoff_at": "2026-09-09T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/anastasiia sobolieva.png",
+   "away_photo": "assets/players/andrea lazaro garcia.png",
+   "conseil": "Victoire Andrea Lazaro Garcia",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183537",
    "flag": "🎾",
    "league": "ATIK Antalya Open",
@@ -1102,6 +1075,41 @@
    "lineup_source": "api_football",
    "result": "GAGNE",
    "score": "0 - 1"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183586",
+   "flag": "🎾",
+   "league": "Montreux Nestlé Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Noma Noha Akugue – Alina Granwehr",
+   "kickoff_at": "2026-09-09T16:30Z",
+   "published": true,
+   "home_photo": "assets/players/noma noha akugue.png",
+   "away_photo": "assets/players/alina granwehr.png",
+   "conseil": "Victoire Noma Noha Akugue",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182772",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Botic Van De Zandschulp – Alexander Zverev",
+   "kickoff_at": "2026-09-09T23:30Z",
+   "published": true,
+   "home_photo": "assets/players/botic van de zandschulp.png",
+   "away_photo": "assets/players/alexander zverev.png",
+   "coup": true,
+   "conseil": "Victoire Alexander Zverev",
+   "conseil_cote": 1.14,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
   }
  ]
 }
