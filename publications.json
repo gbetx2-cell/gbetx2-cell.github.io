@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T11:46:27.447162+00:00",
+ "generated_at": "2026-09-09T12:28:28.757658+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183539",
@@ -116,23 +116,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1507063",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Pohang Steelers – Gimcheon Sangmu FC",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2764.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2768.png",
-   "conseil": "Gimcheon Sangmu FC ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.93,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football"
-  },
-  {
    "fixture_id": "api_football:1507061",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -163,23 +146,6 @@
    "away_logo": "https://media.api-sports.io/football/teams/2748.png",
    "conseil": "Daejeon Citizen ou Nul",
    "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "api_football:1507062",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gwangju FC – Jeju United FC",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
-   "conseil": "Jeju United FC ou Nul",
-   "conseil_cote": 1.28,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
   },
@@ -1094,6 +1060,44 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "4-6, 6-3, 6-1"
+  },
+  {
+   "fixture_id": "api_football:1507063",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Pohang Steelers – Gimcheon Sangmu FC",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2764.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2768.png",
+   "conseil": "Gimcheon Sangmu FC ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.93,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1507062",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gwangju FC – Jeju United FC",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
+   "conseil": "Jeju United FC ou Nul",
+   "conseil_cote": 1.28,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "0 - 1"
   }
  ]
 }
