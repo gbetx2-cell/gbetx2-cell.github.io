@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T02:08:59.383719+00:00",
+ "generated_at": "2026-09-10T02:17:11.311375+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183630",
@@ -41,23 +41,6 @@
    "value_bet": "Milwaukee Brewers @ 1.7407",
    "value_cote": 1.74,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1490455",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "New York City FC – New England Revolution",
-   "kickoff_at": "2026-09-10T02:00:00+02:00",
-   "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1604.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1609.png",
-   "conseil": "New England Revolution ou Nul",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "espn"
   },
   {
    "fixture_id": "api_football:1490458",
@@ -1975,6 +1958,25 @@
    "lineup_source": "espn",
    "result": "GAGNE",
    "score": "5 - 0"
+  },
+  {
+   "fixture_id": "api_football:1490455",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "New York City FC – New England Revolution",
+   "kickoff_at": "2026-09-10T02:00:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1604.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1609.png",
+   "conseil": "New England Revolution ou Nul",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "espn",
+   "result": "GAGNE",
+   "score": "1 - 2"
   }
  ]
 }
