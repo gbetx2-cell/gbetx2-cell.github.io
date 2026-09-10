@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T02:17:11.311375+00:00",
+ "generated_at": "2026-09-10T02:33:11.005218+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183630",
@@ -58,22 +58,6 @@
    "conseil_cote": 2.27,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "api_football:1631506",
-   "flag": "🌎",
-   "league": "CONMEBOL Libertadores",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Estudiantes L.P. – Corinthians",
-   "kickoff_at": "2026-09-10T02:30:00+02:00",
-   "published": true,
-   "league_id": 13,
-   "home_logo": "https://media.api-sports.io/football/teams/450.png",
-   "away_logo": "https://media.api-sports.io/football/teams/131.png",
-   "conseil": "Estudiantes L.P. ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "api_football:1490457",
@@ -1977,6 +1961,24 @@
    "lineup_source": "espn",
    "result": "GAGNE",
    "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1631506",
+   "flag": "🌎",
+   "league": "CONMEBOL Libertadores",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Estudiantes L.P. – Corinthians",
+   "kickoff_at": "2026-09-10T02:30:00+02:00",
+   "published": true,
+   "league_id": 13,
+   "home_logo": "https://media.api-sports.io/football/teams/450.png",
+   "away_logo": "https://media.api-sports.io/football/teams/131.png",
+   "conseil": "Estudiantes L.P. ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "1 - 1"
   }
  ]
 }
