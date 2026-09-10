@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T00:02:09.766771+00:00",
+ "generated_at": "2026-09-10T01:37:59.547315+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183630",
@@ -82,21 +82,21 @@
    ]
   },
   {
-   "fixture_id": "api_football:1490454",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
+   "fixture_id": "api_football:1517343",
+   "flag": "🇨🇦",
+   "league": "Premier League",
    "sport": "football",
    "sport_label": "Football",
-   "match": "DC United – Columbus Crew",
+   "match": "York United – Pacific FC",
    "kickoff_at": "2026-09-10T01:30:00+02:00",
    "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1615.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1613.png",
-   "conseil": "Columbus Crew ou Nul",
-   "conseil_cote": 1.55,
+   "league_id": 479,
+   "home_logo": "https://media.api-sports.io/football/teams/2623.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2622.png",
+   "conseil": "York United ou Nul",
+   "conseil_cote": 1.47,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "espn"
+   "lineup_source": "api_football"
   },
   {
    "fixture_id": "api_football:1490453",
@@ -133,21 +133,21 @@
    "lineup_source": "espn"
   },
   {
-   "fixture_id": "api_football:1517343",
-   "flag": "🇨🇦",
-   "league": "Premier League",
+   "fixture_id": "api_football:1490454",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
    "sport": "football",
    "sport_label": "Football",
-   "match": "York United – Pacific FC",
+   "match": "DC United – Columbus Crew",
    "kickoff_at": "2026-09-10T01:30:00+02:00",
    "published": true,
-   "league_id": 479,
-   "home_logo": "https://media.api-sports.io/football/teams/2623.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2622.png",
-   "conseil": "York United ou Nul",
-   "conseil_cote": 1.47,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1615.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1613.png",
+   "conseil": "Columbus Crew ou Nul",
+   "conseil_cote": 1.55,
    "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football"
+   "lineup_source": "espn"
   },
   {
    "fixture_id": "api_football:1490451",
@@ -235,6 +235,23 @@
    "lineup_source": "espn"
   },
   {
+   "fixture_id": "api_football:1490459",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Austin – Colorado Rapids",
+   "kickoff_at": "2026-09-10T02:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/16489.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1610.png",
+   "conseil": "Austin ou Nul",
+   "conseil_cote": 1.48,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football"
+  },
+  {
    "fixture_id": "api_football:1631506",
    "flag": "🌎",
    "league": "CONMEBOL Libertadores",
@@ -251,21 +268,21 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1490459",
+   "fixture_id": "api_football:1490462",
    "flag": "🇺🇸",
    "league": "Major League Soccer",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Austin – Colorado Rapids",
-   "kickoff_at": "2026-09-10T02:30:00+02:00",
+   "match": "Vancouver Whitecaps – Los Angeles Galaxy",
+   "kickoff_at": "2026-09-10T04:30:00+02:00",
    "published": true,
    "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/16489.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1610.png",
-   "conseil": "Austin ou Nul",
-   "conseil_cote": 1.48,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football"
+   "home_logo": "https://media.api-sports.io/football/teams/1603.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1605.png",
+   "conseil": "Vancouver Whitecaps gagne",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "espn"
   }
  ],
  "done": [
@@ -943,6 +960,22 @@
    "score": "2 - 3"
   },
   {
+   "fixture_id": "baseball_401816862",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago White Sox – Pittsburgh Pirates",
+   "kickoff_at": "2026-09-08T23:40Z",
+   "published": true,
+   "value_bet": "Chicago White Sox @ 1.7407",
+   "value_cote": 1.74,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 9"
+  },
+  {
    "fixture_id": "baseball_401816861",
    "flag": "⚾",
    "league": "MLB",
@@ -963,22 +996,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "baseball_401816862",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago White Sox – Pittsburgh Pirates",
-   "kickoff_at": "2026-09-08T23:40Z",
-   "published": true,
-   "value_bet": "Chicago White Sox @ 1.7407",
-   "value_cote": 1.74,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "3 - 9"
   },
   {
    "fixture_id": "api_football:1630777",
@@ -1223,25 +1240,6 @@
    "score": "4-6, 6-3, 6-1"
   },
   {
-   "fixture_id": "api_football:1507060",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Daejeon Citizen – FC Anyang",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2748.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "3 - 2"
-  },
-  {
    "fixture_id": "api_football:1507062",
    "flag": "🇰🇷",
    "league": "K League 1",
@@ -1259,25 +1257,6 @@
    "lineup_source": "api_football",
    "result": "GAGNE",
    "score": "0 - 1"
-  },
-  {
-   "fixture_id": "api_football:1507061",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gangwon FC – Jeonbuk Motors",
-   "kickoff_at": "2026-09-09T12:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2746.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2762.png",
-   "conseil": "Jeonbuk Motors ou Nul",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "1 - 1"
   },
   {
    "fixture_id": "api_football:1507063",
@@ -1299,6 +1278,44 @@
    "score": "0 - 0"
   },
   {
+   "fixture_id": "api_football:1507061",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gangwon FC – Jeonbuk Motors",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2746.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2762.png",
+   "conseil": "Jeonbuk Motors ou Nul",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "1 - 1"
+  },
+  {
+   "fixture_id": "api_football:1507060",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Daejeon Citizen – FC Anyang",
+   "kickoff_at": "2026-09-09T12:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2748.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "3 - 2"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183586",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -1314,25 +1331,6 @@
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
-   "fixture_id": "api_football:1559994",
-   "flag": "🇨🇿",
-   "league": "Czech Liga",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "FK Jablonec – Baník Ostrava",
-   "kickoff_at": "2026-09-09T17:00:00+02:00",
-   "published": true,
-   "league_id": 345,
-   "home_logo": "https://media.api-sports.io/football/teams/1122.png",
-   "away_logo": "https://media.api-sports.io/football/teams/3713.png",
-   "conseil": "FK Jablonec ou Nul",
-   "conseil_cote": 1.25,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "3 - 0"
   },
   {
    "fixture_id": "api_football:1638094",
@@ -1352,6 +1350,25 @@
    "lineup_source": "api_football",
    "result": "PERDU",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1559994",
+   "flag": "🇨🇿",
+   "league": "Czech Liga",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "FK Jablonec – Baník Ostrava",
+   "kickoff_at": "2026-09-09T17:00:00+02:00",
+   "published": true,
+   "league_id": 345,
+   "home_logo": "https://media.api-sports.io/football/teams/1122.png",
+   "away_logo": "https://media.api-sports.io/football/teams/3713.png",
+   "conseil": "FK Jablonec ou Nul",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "3 - 0"
   },
   {
    "fixture_id": "api_football:1603023",
@@ -1526,23 +1543,6 @@
    "score": "1 - 2"
   },
   {
-   "fixture_id": "tennis_espn_wta_183622",
-   "flag": "🎾",
-   "league": "Kia Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sara Sorribes Tormo – Kaitlin Quevedo",
-   "kickoff_at": "2026-09-09T20:00Z",
-   "published": true,
-   "home_photo": "assets/players/sara sorribes tormo.png",
-   "away_photo": "assets/players/kaitlin quevedo.png",
-   "conseil": "Victoire Kaitlin Quevedo",
-   "conseil_cote": 1.77,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183626",
    "flag": "🎾",
    "league": "Kia Open",
@@ -1571,6 +1571,23 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183622",
+   "flag": "🎾",
+   "league": "Kia Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Sara Sorribes Tormo – Kaitlin Quevedo",
+   "kickoff_at": "2026-09-09T20:00Z",
+   "published": true,
+   "home_photo": "assets/players/sara sorribes tormo.png",
+   "away_photo": "assets/players/kaitlin quevedo.png",
+   "conseil": "Victoire Kaitlin Quevedo",
+   "conseil_cote": 1.77,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
    "fixture_id": "baseball_401816882",
@@ -1646,61 +1663,6 @@
    "score": "0 - 1"
   },
   {
-   "fixture_id": "api_football:1556645",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "ST Johnstone – Celtic",
-   "kickoff_at": "2026-09-09T21:00:00+02:00",
-   "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/258.png",
-   "away_logo": "https://media.api-sports.io/football/teams/247.png",
-   "conseil": "Celtic gagne + Plus de 1.5 buts",
-   "conseil_cote": 1.76,
-   "conseil_mise_eur": 400.0,
-   "lineup_source": "espn",
-   "result": "PERDU",
-   "score": "0 - 1"
-  },
-  {
-   "fixture_id": "api_football:1635698",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Napoli – Arsenal",
-   "kickoff_at": "2026-09-09T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/492.png",
-   "away_logo": "https://media.api-sports.io/football/teams/42.png",
-   "conseil": "Arsenal ou Nul",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "0 - 1"
-  },
-  {
-   "fixture_id": "api_football:1635736",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Sporting CP – Galatasaray",
-   "kickoff_at": "2026-09-09T21:00:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/228.png",
-   "away_logo": "https://media.api-sports.io/football/teams/645.png",
-   "conseil": "Sporting CP gagne",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "3 - 1"
-  },
-  {
    "fixture_id": "api_football:1635686",
    "flag": "🇪🇺",
    "league": "Ligue des Champions",
@@ -1737,6 +1699,42 @@
    "score": "6 - 1"
   },
   {
+   "fixture_id": "api_football:1635736",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Sporting CP – Galatasaray",
+   "kickoff_at": "2026-09-09T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/228.png",
+   "away_logo": "https://media.api-sports.io/football/teams/645.png",
+   "conseil": "Sporting CP gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "3 - 1"
+  },
+  {
+   "fixture_id": "api_football:1635698",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Napoli – Arsenal",
+   "kickoff_at": "2026-09-09T21:00:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/492.png",
+   "away_logo": "https://media.api-sports.io/football/teams/42.png",
+   "conseil": "Arsenal ou Nul",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "0 - 1"
+  },
+  {
    "fixture_id": "api_football:1563151",
    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
    "league": "Championship",
@@ -1754,6 +1752,25 @@
    "lineup_source": "api_football",
    "result": "GAGNE",
    "score": "0 - 0"
+  },
+  {
+   "fixture_id": "api_football:1556645",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "ST Johnstone – Celtic",
+   "kickoff_at": "2026-09-09T21:00:00+02:00",
+   "published": true,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/258.png",
+   "away_logo": "https://media.api-sports.io/football/teams/247.png",
+   "conseil": "Celtic gagne + Plus de 1.5 buts",
+   "conseil_cote": 1.76,
+   "conseil_mise_eur": 400.0,
+   "lineup_source": "espn",
+   "result": "PERDU",
+   "score": "0 - 1"
   },
   {
    "fixture_id": "tennis_espn_atp_182798",
