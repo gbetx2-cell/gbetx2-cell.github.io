@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T02:00:59.695252+00:00",
+ "generated_at": "2026-09-10T02:05:09.708762+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183630",
@@ -17,19 +17,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816875",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Kansas City Royals – Arizona Diamondbacks",
-   "kickoff_at": "2026-09-09T23:40Z",
-   "published": true,
-   "value_bet": "Kansas City Royals @ 2.02",
-   "value_cote": 2.02,
-   "value_mise_eur": 204.0
-  },
-  {
    "fixture_id": "baseball_401816876",
    "flag": "⚾",
    "league": "MLB",
@@ -43,47 +30,17 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1490452",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Atlanta United FC – Orlando City SC",
-   "kickoff_at": "2026-09-10T01:30:00+02:00",
+   "fixture_id": "baseball_401816875",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Kansas City Royals – Arizona Diamondbacks",
+   "kickoff_at": "2026-09-09T23:40Z",
    "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1608.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1598.png",
-   "conseil": "Orlando City SC ou Nul",
-   "conseil_cote": 1.74,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "espn",
-   "player_picks": [
-    {
-     "category": "Buteur",
-     "label": "A. Griezmann buteur",
-     "detail": "cote 2.20",
-     "odd": 2.2,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "api_football:1490451",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Philadelphia Union – FC Cincinnati",
-   "kickoff_at": "2026-09-10T01:45:00+02:00",
-   "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1599.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2242.png",
-   "conseil": "Philadelphia Union ou Nul",
-   "conseil_cote": 1.23,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "espn"
+   "value_bet": "Kansas City Royals @ 2.02",
+   "value_cote": 2.02,
+   "value_mise_eur": 204.0
   },
   {
    "fixture_id": "api_football:1490455",
@@ -103,19 +60,19 @@
    "lineup_source": "espn"
   },
   {
-   "fixture_id": "api_football:1490460",
+   "fixture_id": "api_football:1490458",
    "flag": "🇺🇸",
    "league": "Major League Soccer",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Houston Dynamo – Real Salt Lake",
+   "match": "Minnesota United FC – FC Dallas",
    "kickoff_at": "2026-09-10T02:30:00+02:00",
    "published": true,
    "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1600.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1606.png",
-   "conseil": "Houston Dynamo ou Nul",
-   "conseil_cote": 1.3,
+   "home_logo": "https://media.api-sports.io/football/teams/1612.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1597.png",
+   "conseil": "FC Dallas ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.27,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
   },
@@ -136,20 +93,37 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "api_football:1490458",
+   "fixture_id": "api_football:1490460",
    "flag": "🇺🇸",
    "league": "Major League Soccer",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Minnesota United FC – FC Dallas",
+   "match": "Houston Dynamo – Real Salt Lake",
    "kickoff_at": "2026-09-10T02:30:00+02:00",
    "published": true,
    "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1612.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1597.png",
-   "conseil": "FC Dallas ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.27,
+   "home_logo": "https://media.api-sports.io/football/teams/1600.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1606.png",
+   "conseil": "Houston Dynamo ou Nul",
+   "conseil_cote": 1.3,
    "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football"
+  },
+  {
+   "fixture_id": "api_football:1490459",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Austin – Colorado Rapids",
+   "kickoff_at": "2026-09-10T02:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/16489.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1610.png",
+   "conseil": "Austin ou Nul",
+   "conseil_cote": 1.48,
+   "conseil_mise_eur": 300.0,
    "lineup_source": "api_football"
   },
   {
@@ -168,23 +142,6 @@
    "conseil_cote": 1.59,
    "conseil_mise_eur": 300.0,
    "lineup_source": "espn"
-  },
-  {
-   "fixture_id": "api_football:1490459",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Austin – Colorado Rapids",
-   "kickoff_at": "2026-09-10T02:30:00+02:00",
-   "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/16489.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1610.png",
-   "conseil": "Austin ou Nul",
-   "conseil_cote": 1.48,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football"
   },
   {
    "fixture_id": "api_football:1490465",
@@ -219,6 +176,32 @@
    "conseil_cote": 1.33,
    "conseil_mise_eur": 200.0,
    "lineup_source": "espn"
+  },
+  {
+   "fixture_id": "api_football:1490461",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Los Angeles FC – New York Red Bulls",
+   "kickoff_at": "2026-09-10T04:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1616.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1602.png",
+   "conseil": "Los Angeles FC ou Nul",
+   "conseil_cote": 1.12,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "D. Bouanga buteur",
+     "detail": "cote 1.50",
+     "odd": 1.5,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -896,6 +879,22 @@
    "score": "2 - 3"
   },
   {
+   "fixture_id": "baseball_401816862",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago White Sox – Pittsburgh Pirates",
+   "kickoff_at": "2026-09-08T23:40Z",
+   "published": true,
+   "value_bet": "Chicago White Sox @ 1.7407",
+   "value_cote": 1.74,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 9"
+  },
+  {
    "fixture_id": "baseball_401816861",
    "flag": "⚾",
    "league": "MLB",
@@ -916,22 +915,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "baseball_401816862",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago White Sox – Pittsburgh Pirates",
-   "kickoff_at": "2026-09-08T23:40Z",
-   "published": true,
-   "value_bet": "Chicago White Sox @ 1.7407",
-   "value_cote": 1.74,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "3 - 9"
   },
   {
    "fixture_id": "api_football:1630777",
@@ -1108,23 +1091,6 @@
    "score": "6-3, 3-6, 6-4"
   },
   {
-   "fixture_id": "tennis_espn_wta_183596",
-   "flag": "🎾",
-   "league": "Montreux Nestlé Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasiia Sobolieva – Andrea Lazaro Garcia",
-   "kickoff_at": "2026-09-09T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/anastasiia sobolieva.png",
-   "away_photo": "assets/players/andrea lazaro garcia.png",
-   "conseil": "Victoire Andrea Lazaro Garcia",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183598",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -1154,6 +1120,23 @@
    "away_photo": "assets/players/fiona ferro.png",
    "conseil": "Victoire Fiona Ferro",
    "conseil_cote": 1.57,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183596",
+   "flag": "🎾",
+   "league": "Montreux Nestlé Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasiia Sobolieva – Andrea Lazaro Garcia",
+   "kickoff_at": "2026-09-09T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/anastasiia sobolieva.png",
+   "away_photo": "assets/players/andrea lazaro garcia.png",
+   "conseil": "Victoire Andrea Lazaro Garcia",
+   "conseil_cote": 1.91,
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Match jamais termine chez ESPN (jamais résolu)"
@@ -1195,23 +1178,23 @@
    "score": "0 - 0"
   },
   {
-   "fixture_id": "api_football:1507060",
+   "fixture_id": "api_football:1507062",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Daejeon Citizen – FC Anyang",
+   "match": "Gwangju FC – Jeju United FC",
    "kickoff_at": "2026-09-09T12:30:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2748.png",
-   "conseil": "Daejeon Citizen ou Nul",
-   "conseil_cote": 1.17,
+   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
+   "conseil": "Jeju United FC ou Nul",
+   "conseil_cote": 1.28,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football",
    "result": "GAGNE",
-   "score": "3 - 2"
+   "score": "0 - 1"
   },
   {
    "fixture_id": "api_football:1507061",
@@ -1233,23 +1216,23 @@
    "score": "1 - 1"
   },
   {
-   "fixture_id": "api_football:1507062",
+   "fixture_id": "api_football:1507060",
    "flag": "🇰🇷",
    "league": "K League 1",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Gwangju FC – Jeju United FC",
+   "match": "Daejeon Citizen – FC Anyang",
    "kickoff_at": "2026-09-09T12:30:00+02:00",
    "published": true,
    "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2759.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2761.png",
-   "conseil": "Jeju United FC ou Nul",
-   "conseil_cote": 1.28,
+   "home_logo": "https://media.api-sports.io/football/teams/2750.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2748.png",
+   "conseil": "Daejeon Citizen ou Nul",
+   "conseil_cote": 1.17,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football",
    "result": "GAGNE",
-   "score": "0 - 1"
+   "score": "3 - 2"
   },
   {
    "fixture_id": "tennis_espn_wta_183586",
@@ -1357,24 +1340,6 @@
    ]
   },
   {
-   "fixture_id": "api_football:1635628",
-   "flag": "🇪🇺",
-   "league": "Ligue des Champions",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Barcelona – Feyenoord",
-   "kickoff_at": "2026-09-09T18:45:00+02:00",
-   "published": true,
-   "league_id": 2,
-   "home_logo": "https://media.api-sports.io/football/teams/529.png",
-   "away_logo": "https://media.api-sports.io/football/teams/209.png",
-   "conseil": "Barcelona gagne",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 300.0,
-   "result": "GAGNE",
-   "score": "5 - 1"
-  },
-  {
    "fixture_id": "api_football:1552142",
    "flag": "🇳🇱",
    "league": "Eredivisie",
@@ -1392,6 +1357,24 @@
    "lineup_source": "espn",
    "result": "GAGNE",
    "score": "1 - 0"
+  },
+  {
+   "fixture_id": "api_football:1635628",
+   "flag": "🇪🇺",
+   "league": "Ligue des Champions",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Barcelona – Feyenoord",
+   "kickoff_at": "2026-09-09T18:45:00+02:00",
+   "published": true,
+   "league_id": 2,
+   "home_logo": "https://media.api-sports.io/football/teams/529.png",
+   "away_logo": "https://media.api-sports.io/football/teams/209.png",
+   "conseil": "Barcelona gagne",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 300.0,
+   "result": "GAGNE",
+   "score": "5 - 1"
   },
   {
    "fixture_id": "api_football:1635741",
@@ -1543,23 +1526,23 @@
    "score": "9 - 2"
   },
   {
-   "fixture_id": "api_football:1563153",
-   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   "league": "Championship",
+   "fixture_id": "api_football:1556644",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "league": "Premiership",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Norwich – Birmingham",
+   "match": "Rangers – ST Mirren",
    "kickoff_at": "2026-09-09T20:45:00+02:00",
    "published": true,
-   "league_id": 40,
-   "home_logo": "https://media.api-sports.io/football/teams/71.png",
-   "away_logo": "https://media.api-sports.io/football/teams/54.png",
-   "conseil": "Birmingham ou Nul",
-   "conseil_cote": 1.93,
-   "conseil_mise_eur": 200.0,
+   "league_id": 179,
+   "home_logo": "https://media.api-sports.io/football/teams/257.png",
+   "away_logo": "https://media.api-sports.io/football/teams/251.png",
+   "conseil": "Rangers ou Nul + Moins de 3.5 buts",
+   "conseil_cote": 1.87,
+   "conseil_mise_eur": 500.0,
    "lineup_source": "api_football",
-   "result": "PERDU",
-   "score": "2 - 1"
+   "result": "GAGNE",
+   "score": "1 - 0"
   },
   {
    "fixture_id": "api_football:1563152",
@@ -1581,23 +1564,23 @@
    "score": "0 - 1"
   },
   {
-   "fixture_id": "api_football:1556644",
-   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-   "league": "Premiership",
+   "fixture_id": "api_football:1563153",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "league": "Championship",
    "sport": "football",
    "sport_label": "Football",
-   "match": "Rangers – ST Mirren",
+   "match": "Norwich – Birmingham",
    "kickoff_at": "2026-09-09T20:45:00+02:00",
    "published": true,
-   "league_id": 179,
-   "home_logo": "https://media.api-sports.io/football/teams/257.png",
-   "away_logo": "https://media.api-sports.io/football/teams/251.png",
-   "conseil": "Rangers ou Nul + Moins de 3.5 buts",
-   "conseil_cote": 1.87,
-   "conseil_mise_eur": 500.0,
+   "league_id": 40,
+   "home_logo": "https://media.api-sports.io/football/teams/71.png",
+   "away_logo": "https://media.api-sports.io/football/teams/54.png",
+   "conseil": "Birmingham ou Nul",
+   "conseil_cote": 1.93,
+   "conseil_mise_eur": 200.0,
    "lineup_source": "api_football",
-   "result": "GAGNE",
-   "score": "1 - 0"
+   "result": "PERDU",
+   "score": "2 - 1"
   },
   {
    "fixture_id": "api_football:1556645",
@@ -1710,37 +1693,6 @@
    "score": "0 - 1"
   },
   {
-   "fixture_id": "tennis_espn_atp_182798",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Karen Khachanov – Alexander Blockx",
-   "kickoff_at": "2026-09-09T21:30Z",
-   "published": true,
-   "home_photo": "assets/players/karen khachanov.png",
-   "away_photo": "assets/players/alexander blockx.png",
-   "conseil": "Total sets Plus de 3.5",
-   "conseil_cote": 2.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Plus de 3.5 @ 1.469",
-   "value_cote": 1.47,
-   "value_mise_eur": 200.0,
-   "value_result": "REMBOURSE",
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Alexander Blockx",
-     "kind": "player",
-     "detail": "cote 2.11",
-     "odd": 2.11,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_183628",
    "flag": "🎾",
    "league": "Kia Open",
@@ -1767,6 +1719,37 @@
      "kind": "player",
      "detail": "cote 1.44",
      "odd": 1.444,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182798",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Karen Khachanov – Alexander Blockx",
+   "kickoff_at": "2026-09-09T21:30Z",
+   "published": true,
+   "home_photo": "assets/players/karen khachanov.png",
+   "away_photo": "assets/players/alexander blockx.png",
+   "conseil": "Total sets Plus de 3.5",
+   "conseil_cote": 2.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Plus de 3.5 @ 1.469",
+   "value_cote": 1.47,
+   "value_mise_eur": 200.0,
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Alexander Blockx",
+     "kind": "player",
+     "detail": "cote 2.11",
+     "odd": 2.11,
      "mise_eur": 200.0
     }
    ]
@@ -1853,6 +1836,54 @@
    "score": "1 - 0"
   },
   {
+   "fixture_id": "api_football:1490454",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "DC United – Columbus Crew",
+   "kickoff_at": "2026-09-10T01:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1615.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1613.png",
+   "conseil": "Columbus Crew ou Nul",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "espn",
+   "result": "PERDU",
+   "score": "2 - 1"
+  },
+  {
+   "fixture_id": "api_football:1490452",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Atlanta United FC – Orlando City SC",
+   "kickoff_at": "2026-09-10T01:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1608.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1598.png",
+   "conseil": "Orlando City SC ou Nul",
+   "conseil_cote": 1.74,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "espn",
+   "result": "GAGNE",
+   "score": "2 - 3",
+   "player_picks": [
+    {
+     "category": "Buteur",
+     "label": "A. Griezmann buteur",
+     "detail": "cote 2.20",
+     "odd": 2.2,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1490456",
    "flag": "🇺🇸",
    "league": "Major League Soccer",
@@ -1891,25 +1922,6 @@
    "score": "2 - 1"
   },
   {
-   "fixture_id": "api_football:1490454",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "DC United – Columbus Crew",
-   "kickoff_at": "2026-09-10T01:30:00+02:00",
-   "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1615.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1613.png",
-   "conseil": "Columbus Crew ou Nul",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "espn",
-   "result": "PERDU",
-   "score": "2 - 1"
-  },
-  {
    "fixture_id": "api_football:1517343",
    "flag": "🇨🇦",
    "league": "Premier League",
@@ -1927,6 +1939,25 @@
    "lineup_source": "api_football",
    "result": "GAGNE",
    "score": "3 - 3"
+  },
+  {
+   "fixture_id": "api_football:1490451",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Philadelphia Union – FC Cincinnati",
+   "kickoff_at": "2026-09-10T01:45:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1599.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2242.png",
+   "conseil": "Philadelphia Union ou Nul",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "espn",
+   "result": "GAGNE",
+   "score": "5 - 0"
   }
  ]
 }
