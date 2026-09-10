@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T02:33:11.005218+00:00",
+ "generated_at": "2026-09-10T02:40:12.331069+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183630",
@@ -41,23 +41,6 @@
    "value_bet": "Milwaukee Brewers @ 1.7407",
    "value_cote": 1.74,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "api_football:1490458",
-   "flag": "🇺🇸",
-   "league": "Major League Soccer",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Minnesota United FC – FC Dallas",
-   "kickoff_at": "2026-09-10T02:30:00+02:00",
-   "published": true,
-   "league_id": 253,
-   "home_logo": "https://media.api-sports.io/football/teams/1612.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1597.png",
-   "conseil": "FC Dallas ou Nul + Plus de 1.5 buts",
-   "conseil_cote": 2.27,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "api_football"
   },
   {
    "fixture_id": "api_football:1490457",
@@ -1959,6 +1942,25 @@
    "conseil_cote": 1.57,
    "conseil_mise_eur": 300.0,
    "lineup_source": "espn",
+   "result": "GAGNE",
+   "score": "1 - 2"
+  },
+  {
+   "fixture_id": "api_football:1490458",
+   "flag": "🇺🇸",
+   "league": "Major League Soccer",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Minnesota United FC – FC Dallas",
+   "kickoff_at": "2026-09-10T02:30:00+02:00",
+   "published": true,
+   "league_id": 253,
+   "home_logo": "https://media.api-sports.io/football/teams/1612.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1597.png",
+   "conseil": "FC Dallas ou Nul + Plus de 1.5 buts",
+   "conseil_cote": 2.27,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
    "result": "GAGNE",
    "score": "1 - 2"
   },
