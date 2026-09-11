@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T22:46:40.563967+00:00",
+ "generated_at": "2026-09-11T23:10:27.981875+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549730",
@@ -95,6 +95,19 @@
    "value_bet": "Atlanta Braves @ 1.5291",
    "value_cote": 1.53,
    "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816897",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Milwaukee Brewers – Cincinnati Reds",
+   "kickoff_at": "2026-09-11T23:40Z",
+   "published": true,
+   "value_bet": "Milwaukee Brewers @ 1.5128",
+   "value_cote": 1.51,
+   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -152,6 +165,23 @@
    "score": "1 - 1"
   },
   {
+   "fixture_id": "tennis_espn_wta_183545",
+   "flag": "🎾",
+   "league": "ATIK Antalya Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Eva Bennemann – Cagla Buyukakcay",
+   "kickoff_at": "2026-09-10T16:30Z",
+   "published": true,
+   "home_photo": "assets/players/eva bennemann.png",
+   "away_photo": "assets/players/cagla buyukakcay.png",
+   "conseil": "Victoire Eva Bennemann",
+   "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183590",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -182,23 +212,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183545",
-   "flag": "🎾",
-   "league": "ATIK Antalya Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Eva Bennemann – Cagla Buyukakcay",
-   "kickoff_at": "2026-09-10T16:30Z",
-   "published": true,
-   "home_photo": "assets/players/eva bennemann.png",
-   "away_photo": "assets/players/cagla buyukakcay.png",
-   "conseil": "Victoire Eva Bennemann",
-   "conseil_cote": 1.32,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
    "fixture_id": "baseball_401816884",
@@ -284,23 +297,6 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
-   "fixture_id": "tennis_espn_wta_183554",
-   "flag": "🎾",
-   "league": "ATIK Antalya Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alevtina Ibragimova – Aurora Zantedeschi",
-   "kickoff_at": "2026-09-11T12:30Z",
-   "published": true,
-   "home_photo": "assets/players/alevtina ibragimova.png",
-   "away_photo": "assets/players/aurora zantedeschi.png",
-   "conseil": "Victoire Alevtina Ibragimova",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183603",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -331,6 +327,23 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183554",
+   "flag": "🎾",
+   "league": "ATIK Antalya Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alevtina Ibragimova – Aurora Zantedeschi",
+   "kickoff_at": "2026-09-11T12:30Z",
+   "published": true,
+   "home_photo": "assets/players/alevtina ibragimova.png",
+   "away_photo": "assets/players/aurora zantedeschi.png",
+   "conseil": "Victoire Alevtina Ibragimova",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
    "fixture_id": "tennis_espn_wta_183600",
