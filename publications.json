@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T18:31:39.867938+00:00",
+ "generated_at": "2026-09-11T20:52:30.338267+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549730",
@@ -30,6 +30,34 @@
    "value_bet": "Chicago Cubs @ 1.5263",
    "value_cote": 1.53,
    "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183642",
+   "flag": "🎾",
+   "league": "Kia Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Claire Liu – Leolia Jeanjean",
+   "kickoff_at": "2026-09-11T21:00Z",
+   "published": true,
+   "home_photo": "assets/players/claire liu.png",
+   "away_photo": "assets/players/leolia jeanjean.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.676",
+   "value_cote": 1.68,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Claire Liu",
+     "kind": "player",
+     "detail": "cote 1.63",
+     "odd": 1.633,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -219,23 +247,6 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
-   "fixture_id": "tennis_espn_wta_183554",
-   "flag": "🎾",
-   "league": "ATIK Antalya Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alevtina Ibragimova – Aurora Zantedeschi",
-   "kickoff_at": "2026-09-11T12:30Z",
-   "published": true,
-   "home_photo": "assets/players/alevtina ibragimova.png",
-   "away_photo": "assets/players/aurora zantedeschi.png",
-   "conseil": "Victoire Alevtina Ibragimova",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183603",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -266,6 +277,23 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183554",
+   "flag": "🎾",
+   "league": "ATIK Antalya Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alevtina Ibragimova – Aurora Zantedeschi",
+   "kickoff_at": "2026-09-11T12:30Z",
+   "published": true,
+   "home_photo": "assets/players/alevtina ibragimova.png",
+   "away_photo": "assets/players/aurora zantedeschi.png",
+   "conseil": "Victoire Alevtina Ibragimova",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
    "fixture_id": "tennis_espn_wta_183600",
