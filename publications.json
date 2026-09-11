@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T20:55:41.135981+00:00",
+ "generated_at": "2026-09-11T21:25:40.004579+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549730",
@@ -17,19 +17,6 @@
    "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "baseball_401816899",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Pittsburgh Pirates",
-   "kickoff_at": "2026-09-11T18:20Z",
-   "published": true,
-   "value_bet": "Chicago Cubs @ 1.5263",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -298,6 +285,22 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "baseball_401816899",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Pittsburgh Pirates",
+   "kickoff_at": "2026-09-11T18:20Z",
+   "published": true,
+   "value_bet": "Chicago Cubs @ 1.5263",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "12 - 2"
   },
   {
    "fixture_id": "tennis_espn_atp_182768",
