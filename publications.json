@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T12:03:40.807202+00:00",
+ "generated_at": "2026-09-11T13:00:56.134000+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549730",
@@ -17,35 +17,6 @@
    "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183555",
-   "flag": "🎾",
-   "league": "ATIK Antalya Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elizara Yaneva – Irene Burillo",
-   "kickoff_at": "2026-09-11T11:00Z",
-   "published": true,
-   "home_photo": "assets/players/elizara yaneva.png",
-   "conseil": "Victoire Elizara Yaneva",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183554",
-   "flag": "🎾",
-   "league": "ATIK Antalya Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alevtina Ibragimova – Aurora Zantedeschi",
-   "kickoff_at": "2026-09-11T12:30Z",
-   "published": true,
-   "home_photo": "assets/players/alevtina ibragimova.png",
-   "away_photo": "assets/players/aurora zantedeschi.png",
-   "conseil": "Victoire Alevtina Ibragimova",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_183603",
@@ -102,21 +73,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_182766",
-   "flag": "🎾",
-   "league": "US Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Ben Shelton – Frances Tiafoe",
-   "kickoff_at": "2026-09-11T23:00Z",
-   "published": true,
-   "home_photo": "assets/players/ben shelton.png",
-   "away_photo": "assets/players/frances tiafoe.png",
-   "conseil": "Victoire Ben Shelton",
-   "conseil_cote": 1.38,
-   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -288,6 +244,56 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-1, 7-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183555",
+   "flag": "🎾",
+   "league": "ATIK Antalya Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elizara Yaneva – Irene Burillo",
+   "kickoff_at": "2026-09-11T11:00Z",
+   "published": true,
+   "home_photo": "assets/players/elizara yaneva.png",
+   "conseil": "Victoire Elizara Yaneva",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183554",
+   "flag": "🎾",
+   "league": "ATIK Antalya Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alevtina Ibragimova – Aurora Zantedeschi",
+   "kickoff_at": "2026-09-11T12:30Z",
+   "published": true,
+   "home_photo": "assets/players/alevtina ibragimova.png",
+   "away_photo": "assets/players/aurora zantedeschi.png",
+   "conseil": "Victoire Alevtina Ibragimova",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182766",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Ben Shelton – Frances Tiafoe",
+   "kickoff_at": "2026-09-11T23:00Z",
+   "published": true,
+   "home_photo": "assets/players/ben shelton.png",
+   "away_photo": "assets/players/frances tiafoe.png",
+   "conseil": "Victoire Ben Shelton",
+   "conseil_cote": 1.38,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
   }
  ]
 }
