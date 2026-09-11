@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T13:00:56.134000+00:00",
+ "generated_at": "2026-09-11T13:02:48.829076+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549730",
@@ -17,62 +17,6 @@
    "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183603",
-   "flag": "🎾",
-   "league": "Montreux Nestlé Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lucie Havlickova – Fiona Ferro",
-   "kickoff_at": "2026-09-11T12:30Z",
-   "published": true,
-   "home_photo": "assets/players/lucie havlickova.png",
-   "away_photo": "assets/players/fiona ferro.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.556",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Fiona Ferro",
-     "kind": "player",
-     "detail": "cote 1.41",
-     "odd": 1.41,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183600",
-   "flag": "🎾",
-   "league": "Montreux Nestlé Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Dalma Galfi – Simona Waltert",
-   "kickoff_at": "2026-09-11T16:00Z",
-   "published": true,
-   "home_photo": "assets/players/dalma galfi.png",
-   "away_photo": "assets/players/simona waltert.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.629",
-   "value_cote": 1.63,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Simona Waltert",
-     "kind": "player",
-     "detail": "cote 1.61",
-     "odd": 1.613,
-     "mise_eur": 200.0
-    }
-   ]
   }
  ],
  "done": [
@@ -277,6 +221,68 @@
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183603",
+   "flag": "🎾",
+   "league": "Montreux Nestlé Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lucie Havlickova – Fiona Ferro",
+   "kickoff_at": "2026-09-11T12:30Z",
+   "published": true,
+   "home_photo": "assets/players/lucie havlickova.png",
+   "away_photo": "assets/players/fiona ferro.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.556",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Fiona Ferro",
+     "kind": "player",
+     "detail": "cote 1.41",
+     "odd": 1.41,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183600",
+   "flag": "🎾",
+   "league": "Montreux Nestlé Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Dalma Galfi – Simona Waltert",
+   "kickoff_at": "2026-09-11T16:00Z",
+   "published": true,
+   "home_photo": "assets/players/dalma galfi.png",
+   "away_photo": "assets/players/simona waltert.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.629",
+   "value_cote": 1.63,
+   "value_mise_eur": 200.0,
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Simona Waltert",
+     "kind": "player",
+     "detail": "cote 1.61",
+     "odd": 1.613,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_182766",
