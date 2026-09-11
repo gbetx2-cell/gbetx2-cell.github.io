@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T16:02:42.091348+00:00",
+ "generated_at": "2026-09-11T17:50:28.167588+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549730",
@@ -17,6 +17,19 @@
    "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
+  },
+  {
+   "fixture_id": "baseball_401816899",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Pittsburgh Pirates",
+   "kickoff_at": "2026-09-11T18:20Z",
+   "published": true,
+   "value_bet": "Chicago Cubs @ 1.5263",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -206,23 +219,6 @@
    "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
-   "fixture_id": "tennis_espn_wta_183554",
-   "flag": "🎾",
-   "league": "ATIK Antalya Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alevtina Ibragimova – Aurora Zantedeschi",
-   "kickoff_at": "2026-09-11T12:30Z",
-   "published": true,
-   "home_photo": "assets/players/alevtina ibragimova.png",
-   "away_photo": "assets/players/aurora zantedeschi.png",
-   "conseil": "Victoire Alevtina Ibragimova",
-   "conseil_cote": 1.67,
-   "conseil_mise_eur": 200.0,
-   "result": "REMBOURSE",
-   "score": "Match jamais termine chez ESPN (jamais résolu)"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183603",
    "flag": "🎾",
    "league": "Montreux Nestlé Open",
@@ -253,6 +249,23 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183554",
+   "flag": "🎾",
+   "league": "ATIK Antalya Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alevtina Ibragimova – Aurora Zantedeschi",
+   "kickoff_at": "2026-09-11T12:30Z",
+   "published": true,
+   "home_photo": "assets/players/alevtina ibragimova.png",
+   "away_photo": "assets/players/aurora zantedeschi.png",
+   "conseil": "Victoire Alevtina Ibragimova",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 200.0,
+   "result": "REMBOURSE",
+   "score": "Match jamais termine chez ESPN (jamais résolu)"
   },
   {
    "fixture_id": "tennis_espn_wta_183600",
