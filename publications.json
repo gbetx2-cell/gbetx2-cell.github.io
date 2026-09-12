@@ -1,23 +1,6 @@
 {
- "generated_at": "2026-09-11T23:10:27.981875+00:00",
+ "generated_at": "2026-09-12T00:07:40.023570+00:00",
  "live": [
-  {
-   "fixture_id": "api_football:1549730",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Millonarios – Deportivo Cali",
-   "kickoff_at": "2026-09-11T03:00:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1125.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1127.png",
-   "conseil": "Millonarios ou Nul",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "api_football"
-  },
   {
    "fixture_id": "baseball_401816890",
    "flag": "⚾",
@@ -58,19 +41,6 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816891",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – Houston Astros",
-   "kickoff_at": "2026-09-11T23:10Z",
-   "published": true,
-   "value_bet": "Tampa Bay Rays @ 1.5882",
-   "value_cote": 1.59,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "baseball_401816892",
    "flag": "⚾",
    "league": "MLB",
@@ -81,6 +51,19 @@
    "published": true,
    "value_bet": "Boston Red Sox @ 1.5",
    "value_cote": 1.5,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816891",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – Houston Astros",
+   "kickoff_at": "2026-09-11T23:10Z",
+   "published": true,
+   "value_bet": "Tampa Bay Rays @ 1.5882",
+   "value_cote": 1.59,
    "value_mise_eur": 200.0
   },
   {
@@ -262,6 +245,25 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-2, 6-2"
+  },
+  {
+   "fixture_id": "api_football:1549730",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Millonarios – Deportivo Cali",
+   "kickoff_at": "2026-09-11T03:00:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1125.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1127.png",
+   "conseil": "Millonarios ou Nul",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "tennis_espn_wta_183602",
