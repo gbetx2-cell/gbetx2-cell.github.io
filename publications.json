@@ -1,19 +1,6 @@
 {
- "generated_at": "2026-09-12T00:07:40.023570+00:00",
+ "generated_at": "2026-09-12T01:46:45.900763+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816890",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Detroit Tigers – Colorado Rockies",
-   "kickoff_at": "2026-09-11T22:40Z",
-   "published": true,
-   "value_bet": "Detroit Tigers @ 1.5405",
-   "value_cote": 1.54,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "baseball_401816888",
    "flag": "⚾",
@@ -51,19 +38,6 @@
    "published": true,
    "value_bet": "Boston Red Sox @ 1.5",
    "value_cote": 1.5,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816891",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Tampa Bay Rays – Houston Astros",
-   "kickoff_at": "2026-09-11T23:10Z",
-   "published": true,
-   "value_bet": "Tampa Bay Rays @ 1.5882",
-   "value_cote": 1.59,
    "value_mise_eur": 200.0
   },
   {
@@ -445,6 +419,22 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816890",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Detroit Tigers – Colorado Rockies",
+   "kickoff_at": "2026-09-11T22:40Z",
+   "published": true,
+   "value_bet": "Detroit Tigers @ 1.5405",
+   "value_cote": 1.54,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 2"
+  },
+  {
    "fixture_id": "tennis_espn_atp_182766",
    "flag": "🎾",
    "league": "US Open",
@@ -460,6 +450,22 @@
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Match jamais termine chez ESPN (jamais résolu)"
+  },
+  {
+   "fixture_id": "baseball_401816891",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – Houston Astros",
+   "kickoff_at": "2026-09-11T23:10Z",
+   "published": true,
+   "value_bet": "Tampa Bay Rays @ 1.5882",
+   "value_cote": 1.59,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "3 - 1"
   }
  ]
 }
