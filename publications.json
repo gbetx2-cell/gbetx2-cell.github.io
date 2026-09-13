@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-13T17:15:20.614737+00:00",
+ "generated_at": "2026-09-13T17:30:34.517533+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507068",
@@ -77,21 +77,6 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_185903",
-   "flag": "🎾",
-   "league": "SP Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Cadence Brace – Hayu Kinoshita",
-   "kickoff_at": "2026-09-13T16:30Z",
-   "published": true,
-   "home_photo": "assets/players/cadence brace.png",
-   "away_photo": "assets/players/hayu kinoshita.png",
-   "conseil": "Victoire Hayu Kinoshita",
-   "conseil_cote": 2.04,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_wta_185905",
    "flag": "🎾",
    "league": "SP Open",
@@ -107,30 +92,19 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "nfl_401872660",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Houston Texans – Buffalo Bills",
-   "kickoff_at": "2026-09-13T17:00Z",
+   "fixture_id": "tennis_espn_wta_185903",
+   "flag": "🎾",
+   "league": "SP Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Cadence Brace – Hayu Kinoshita",
+   "kickoff_at": "2026-09-13T16:30Z",
    "published": true,
-   "value_bet": "Moins de 44.5 @ 1.9259",
-   "value_cote": 1.93,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "nfl_401872659",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Indianapolis Colts – Baltimore Ravens",
-   "kickoff_at": "2026-09-13T17:00Z",
-   "published": true,
-   "value_bet": "Moins de 48.5 @ 1.8475",
-   "value_cote": 1.85,
-   "value_mise_eur": 200.0
+   "home_photo": "assets/players/cadence brace.png",
+   "away_photo": "assets/players/hayu kinoshita.png",
+   "conseil": "Victoire Hayu Kinoshita",
+   "conseil_cote": 2.04,
+   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "nfl_401872925",
@@ -159,6 +133,32 @@
    "value_mise_eur": 200.0
   },
   {
+   "fixture_id": "nfl_401872659",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Indianapolis Colts – Baltimore Ravens",
+   "kickoff_at": "2026-09-13T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 48.5 @ 1.8475",
+   "value_cote": 1.85,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "nfl_401872660",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Houston Texans – Buffalo Bills",
+   "kickoff_at": "2026-09-13T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 44.5 @ 1.9259",
+   "value_cote": 1.93,
+   "value_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_wta_185915",
    "flag": "🎾",
    "league": "Guadalajara Open presentado por Santander",
@@ -174,16 +174,16 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816918",
+   "fixture_id": "baseball_401816924",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Los Angeles Angels",
+   "match": "New York Yankees – New York Mets",
    "kickoff_at": "2026-09-13T17:35Z",
    "published": true,
-   "value_bet": "Washington Nationals @ 1.7937",
-   "value_cote": 1.79,
+   "value_bet": "New York Yankees @ 1.5714",
+   "value_cote": 1.57,
    "value_mise_eur": 200.0
   },
   {
@@ -200,16 +200,16 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816924",
+   "fixture_id": "baseball_401816918",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "New York Yankees – New York Mets",
+   "match": "Washington Nationals – Los Angeles Angels",
    "kickoff_at": "2026-09-13T17:35Z",
    "published": true,
-   "value_bet": "New York Yankees @ 1.5714",
-   "value_cote": 1.57,
+   "value_bet": "Washington Nationals @ 1.7937",
+   "value_cote": 1.79,
    "value_mise_eur": 200.0
   },
   {
@@ -224,6 +224,21 @@
    "value_bet": "Toronto Blue Jays @ 1.6711",
    "value_cote": 1.67,
    "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_182677",
+   "flag": "🎾",
+   "league": "US Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Ben Shelton – Alexander Zverev",
+   "kickoff_at": "2026-09-13T18:00Z",
+   "published": true,
+   "home_photo": "assets/players/ben shelton.png",
+   "away_photo": "assets/players/alexander zverev.png",
+   "conseil": "Victoire Alexander Zverev",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
