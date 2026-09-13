@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-13T19:15:43.047201+00:00",
+ "generated_at": "2026-09-13T19:55:31.473283+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507068",
@@ -64,16 +64,16 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "nfl_401872659",
+   "fixture_id": "nfl_401872925",
    "flag": "🏈",
    "league": "NFL",
    "sport": "nfl",
    "sport_label": "Football US (NFL)",
-   "match": "Indianapolis Colts – Baltimore Ravens",
+   "match": "Cincinnati Bengals – Tampa Bay Buccaneers",
    "kickoff_at": "2026-09-13T17:00Z",
    "published": true,
-   "value_bet": "Moins de 48.5 @ 1.8475",
-   "value_cote": 1.85,
+   "value_bet": "Moins de 50.5 @ 1.9091",
+   "value_cote": 1.91,
    "value_mise_eur": 200.0
   },
   {
@@ -90,29 +90,16 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "nfl_401872925",
+   "fixture_id": "nfl_401872659",
    "flag": "🏈",
    "league": "NFL",
    "sport": "nfl",
    "sport_label": "Football US (NFL)",
-   "match": "Cincinnati Bengals – Tampa Bay Buccaneers",
+   "match": "Indianapolis Colts – Baltimore Ravens",
    "kickoff_at": "2026-09-13T17:00Z",
    "published": true,
-   "value_bet": "Moins de 50.5 @ 1.9091",
-   "value_cote": 1.91,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401816925",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Atlanta Braves – Philadelphia Phillies",
-   "kickoff_at": "2026-09-13T17:35Z",
-   "published": true,
-   "value_bet": "Atlanta Braves @ 1.7692",
-   "value_cote": 1.77,
+   "value_bet": "Moins de 48.5 @ 1.8475",
+   "value_cote": 1.85,
    "value_mise_eur": 200.0
   },
   {
@@ -139,6 +126,19 @@
    "published": true,
    "value_bet": "New York Yankees @ 1.5714",
    "value_cote": 1.57,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816925",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Atlanta Braves – Philadelphia Phillies",
+   "kickoff_at": "2026-09-13T17:35Z",
+   "published": true,
+   "value_bet": "Atlanta Braves @ 1.7692",
+   "value_cote": 1.77,
    "value_mise_eur": 200.0
   },
   {
@@ -170,6 +170,19 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "baseball_401816927",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Milwaukee Brewers – Cincinnati Reds",
+   "kickoff_at": "2026-09-13T18:10Z",
+   "published": true,
+   "value_bet": "Milwaukee Brewers @ 1.5263",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0
+  },
+  {
    "fixture_id": "baseball_401816928",
    "flag": "⚾",
    "league": "MLB",
@@ -183,16 +196,16 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816927",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Milwaukee Brewers – Cincinnati Reds",
-   "kickoff_at": "2026-09-13T18:10Z",
+   "fixture_id": "nfl_401872928",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Las Vegas Raiders – Miami Dolphins",
+   "kickoff_at": "2026-09-13T20:25Z",
    "published": true,
-   "value_bet": "Milwaukee Brewers @ 1.5263",
-   "value_cote": 1.53,
+   "value_bet": "Moins de 40.5 @ 1.8333",
+   "value_cote": 1.83,
    "value_mise_eur": 200.0
   }
  ],
@@ -406,23 +419,6 @@
    "score": "6-3, 6-2"
   },
   {
-   "fixture_id": "tennis_espn_wta_185916",
-   "flag": "🎾",
-   "league": "Guadalajara Open presentado por Santander",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Caroline Dolehide – Sara Sorribes Tormo",
-   "kickoff_at": "2026-09-13T16:00Z",
-   "published": true,
-   "home_photo": "assets/players/caroline dolehide.png",
-   "away_photo": "assets/players/sara sorribes tormo.png",
-   "conseil": "Victoire Sara Sorribes Tormo",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "4-6, 6-3, 7-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_185917",
    "flag": "🎾",
    "league": "Guadalajara Open presentado por Santander",
@@ -438,6 +434,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-7, 7-6, 2-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_185916",
+   "flag": "🎾",
+   "league": "Guadalajara Open presentado por Santander",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Caroline Dolehide – Sara Sorribes Tormo",
+   "kickoff_at": "2026-09-13T16:00Z",
+   "published": true,
+   "home_photo": "assets/players/caroline dolehide.png",
+   "away_photo": "assets/players/sara sorribes tormo.png",
+   "conseil": "Victoire Sara Sorribes Tormo",
+   "conseil_cote": 2.05,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "4-6, 6-3, 7-6"
   },
   {
    "fixture_id": "baseball_401816920",
