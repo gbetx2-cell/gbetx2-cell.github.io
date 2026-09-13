@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-13T21:16:49.987850+00:00",
+ "generated_at": "2026-09-13T21:39:42.421268+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507068",
@@ -34,21 +34,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_185905",
-   "flag": "🎾",
-   "league": "SP Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasia Tikhonova – Whitney Osuigwe",
-   "kickoff_at": "2026-09-13T16:30Z",
-   "published": true,
-   "home_photo": "assets/players/anastasia tikhonova.png",
-   "away_photo": "assets/players/whitney osuigwe.png",
-   "conseil": "Victoire Whitney Osuigwe",
-   "conseil_cote": 1.73,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_182677",
    "flag": "🎾",
    "league": "US Open",
@@ -64,19 +49,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "nfl_401872927",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Minnesota Vikings – Green Bay Packers",
-   "kickoff_at": "2026-09-13T20:25Z",
-   "published": true,
-   "value_bet": "Green Bay Packers +2.0 @ 1.9091",
-   "value_cote": 1.91,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "nfl_401872928",
    "flag": "🏈",
    "league": "NFL",
@@ -87,6 +59,19 @@
    "published": true,
    "value_bet": "Moins de 40.5 @ 1.8333",
    "value_cote": 1.83,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "nfl_401872927",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Minnesota Vikings – Green Bay Packers",
+   "kickoff_at": "2026-09-13T20:25Z",
+   "published": true,
+   "value_bet": "Green Bay Packers +2.0 @ 1.9091",
+   "value_cote": 1.91,
    "value_mise_eur": 200.0
   }
  ],
@@ -317,23 +302,6 @@
    "score": "6-3, 6-4"
   },
   {
-   "fixture_id": "tennis_espn_wta_185916",
-   "flag": "🎾",
-   "league": "Guadalajara Open presentado por Santander",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Caroline Dolehide – Sara Sorribes Tormo",
-   "kickoff_at": "2026-09-13T16:00Z",
-   "published": true,
-   "home_photo": "assets/players/caroline dolehide.png",
-   "away_photo": "assets/players/sara sorribes tormo.png",
-   "conseil": "Victoire Sara Sorribes Tormo",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "4-6, 6-3, 7-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_185917",
    "flag": "🎾",
    "league": "Guadalajara Open presentado por Santander",
@@ -349,6 +317,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-7, 7-6, 2-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_185916",
+   "flag": "🎾",
+   "league": "Guadalajara Open presentado por Santander",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Caroline Dolehide – Sara Sorribes Tormo",
+   "kickoff_at": "2026-09-13T16:00Z",
+   "published": true,
+   "home_photo": "assets/players/caroline dolehide.png",
+   "away_photo": "assets/players/sara sorribes tormo.png",
+   "conseil": "Victoire Sara Sorribes Tormo",
+   "conseil_cote": 2.05,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "4-6, 6-3, 7-6"
   },
   {
    "fixture_id": "baseball_401816920",
@@ -367,20 +352,37 @@
    "score": "8 - 1"
   },
   {
-   "fixture_id": "nfl_401872659",
+   "fixture_id": "tennis_espn_wta_185905",
+   "flag": "🎾",
+   "league": "SP Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasia Tikhonova – Whitney Osuigwe",
+   "kickoff_at": "2026-09-13T16:30Z",
+   "published": true,
+   "home_photo": "assets/players/anastasia tikhonova.png",
+   "away_photo": "assets/players/whitney osuigwe.png",
+   "conseil": "Victoire Whitney Osuigwe",
+   "conseil_cote": 1.73,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "2-6, 2-6"
+  },
+  {
+   "fixture_id": "nfl_401872925",
    "flag": "🏈",
    "league": "NFL",
    "sport": "nfl",
    "sport_label": "Football US (NFL)",
-   "match": "Indianapolis Colts – Baltimore Ravens",
+   "match": "Cincinnati Bengals – Tampa Bay Buccaneers",
    "kickoff_at": "2026-09-13T17:00Z",
    "published": true,
-   "value_bet": "Moins de 48.5 @ 1.8475",
-   "value_cote": 1.85,
+   "value_bet": "Moins de 50.5 @ 1.9091",
+   "value_cote": 1.91,
    "value_mise_eur": 200.0,
    "value_result": "PERDU",
    "result": "PERDU",
-   "score": "23 - 41 (en cours)"
+   "score": "33 - 27 (en cours)"
   },
   {
    "fixture_id": "nfl_401872660",
@@ -399,20 +401,20 @@
    "score": "21 - 24 (en cours)"
   },
   {
-   "fixture_id": "nfl_401872925",
+   "fixture_id": "nfl_401872659",
    "flag": "🏈",
    "league": "NFL",
    "sport": "nfl",
    "sport_label": "Football US (NFL)",
-   "match": "Cincinnati Bengals – Tampa Bay Buccaneers",
+   "match": "Indianapolis Colts – Baltimore Ravens",
    "kickoff_at": "2026-09-13T17:00Z",
    "published": true,
-   "value_bet": "Moins de 50.5 @ 1.9091",
-   "value_cote": 1.91,
+   "value_bet": "Moins de 48.5 @ 1.8475",
+   "value_cote": 1.85,
    "value_mise_eur": 200.0,
    "value_result": "PERDU",
    "result": "PERDU",
-   "score": "33 - 27 (en cours)"
+   "score": "23 - 41 (en cours)"
   },
   {
    "fixture_id": "nfl_401872923",
@@ -448,6 +450,22 @@
    "score": "Abandon"
   },
   {
+   "fixture_id": "baseball_401816925",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Atlanta Braves – Philadelphia Phillies",
+   "kickoff_at": "2026-09-13T17:35Z",
+   "published": true,
+   "value_bet": "Atlanta Braves @ 1.7692",
+   "value_cote": 1.77,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4 - 9"
+  },
+  {
    "fixture_id": "baseball_401816924",
    "flag": "⚾",
    "league": "MLB",
@@ -478,22 +496,6 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "6 - 5"
-  },
-  {
-   "fixture_id": "baseball_401816925",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Atlanta Braves – Philadelphia Phillies",
-   "kickoff_at": "2026-09-13T17:35Z",
-   "published": true,
-   "value_bet": "Atlanta Braves @ 1.7692",
-   "value_cote": 1.77,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "4 - 9"
   },
   {
    "fixture_id": "baseball_401816919",
