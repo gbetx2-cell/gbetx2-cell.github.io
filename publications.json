@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-13T17:41:23.202684+00:00",
+ "generated_at": "2026-09-13T18:33:46.983112+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507068",
@@ -107,6 +107,19 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "nfl_401872659",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Indianapolis Colts – Baltimore Ravens",
+   "kickoff_at": "2026-09-13T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 48.5 @ 1.8475",
+   "value_cote": 1.85,
+   "value_mise_eur": 200.0
+  },
+  {
    "fixture_id": "nfl_401872925",
    "flag": "🏈",
    "league": "NFL",
@@ -133,32 +146,6 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "nfl_401872659",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Indianapolis Colts – Baltimore Ravens",
-   "kickoff_at": "2026-09-13T17:00Z",
-   "published": true,
-   "value_bet": "Moins de 48.5 @ 1.8475",
-   "value_cote": 1.85,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "nfl_401872660",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Houston Texans – Buffalo Bills",
-   "kickoff_at": "2026-09-13T17:00Z",
-   "published": true,
-   "value_bet": "Moins de 44.5 @ 1.9259",
-   "value_cote": 1.93,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_wta_185915",
    "flag": "🎾",
    "league": "Guadalajara Open presentado por Santander",
@@ -174,16 +161,16 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816924",
+   "fixture_id": "baseball_401816918",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "New York Yankees – New York Mets",
+   "match": "Washington Nationals – Los Angeles Angels",
    "kickoff_at": "2026-09-13T17:35Z",
    "published": true,
-   "value_bet": "New York Yankees @ 1.5714",
-   "value_cote": 1.57,
+   "value_bet": "Washington Nationals @ 1.7937",
+   "value_cote": 1.79,
    "value_mise_eur": 200.0
   },
   {
@@ -200,16 +187,16 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816918",
+   "fixture_id": "baseball_401816924",
    "flag": "⚾",
    "league": "MLB",
    "sport": "baseball",
    "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Los Angeles Angels",
+   "match": "New York Yankees – New York Mets",
    "kickoff_at": "2026-09-13T17:35Z",
    "published": true,
-   "value_bet": "Washington Nationals @ 1.7937",
-   "value_cote": 1.79,
+   "value_bet": "New York Yankees @ 1.5714",
+   "value_cote": 1.57,
    "value_mise_eur": 200.0
   },
   {
@@ -241,19 +228,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816928",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Minnesota Twins – Cleveland Guardians",
-   "kickoff_at": "2026-09-13T18:10Z",
-   "published": true,
-   "value_bet": "Minnesota Twins @ 1.7576",
-   "value_cote": 1.76,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "baseball_401816927",
    "flag": "⚾",
    "league": "MLB",
@@ -264,6 +238,19 @@
    "published": true,
    "value_bet": "Milwaukee Brewers @ 1.5263",
    "value_cote": 1.53,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816928",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Minnesota Twins – Cleveland Guardians",
+   "kickoff_at": "2026-09-13T18:10Z",
+   "published": true,
+   "value_bet": "Minnesota Twins @ 1.7576",
+   "value_cote": 1.76,
    "value_mise_eur": 200.0
   }
  ],
@@ -475,6 +462,22 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-3, 6-2"
+  },
+  {
+   "fixture_id": "nfl_401872660",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Houston Texans – Buffalo Bills",
+   "kickoff_at": "2026-09-13T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 44.5 @ 1.9259",
+   "value_cote": 1.93,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "21 - 24 (en cours)"
   }
  ]
 }
