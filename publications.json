@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-13T15:30:50.575196+00:00",
+ "generated_at": "2026-09-13T15:34:44.659649+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507068",
@@ -34,34 +34,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_185992",
-   "flag": "🎾",
-   "league": "Caldas da Rainha Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Reese Brantmeier – Oceane Dodin",
-   "kickoff_at": "2026-09-13T13:30Z",
-   "published": true,
-   "home_photo": "assets/players/reese brantmeier.png",
-   "away_photo": "assets/players/oceane dodin.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.521",
-   "value_cote": 1.52,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Oceane Dodin",
-     "kind": "player",
-     "detail": "cote 3.10",
-     "odd": 3.1,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_185904",
    "flag": "🎾",
    "league": "SP Open",
@@ -77,21 +49,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_185916",
-   "flag": "🎾",
-   "league": "Guadalajara Open presentado por Santander",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Caroline Dolehide – Sara Sorribes Tormo",
-   "kickoff_at": "2026-09-13T16:00Z",
-   "published": true,
-   "home_photo": "assets/players/caroline dolehide.png",
-   "away_photo": "assets/players/sara sorribes tormo.png",
-   "conseil": "Victoire Sara Sorribes Tormo",
-   "conseil_cote": 2.05,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_wta_185917",
    "flag": "🎾",
    "league": "Guadalajara Open presentado por Santander",
@@ -104,6 +61,21 @@
    "away_photo": "assets/players/carole monnet.png",
    "conseil": "Victoire Carole Monnet",
    "conseil_cote": 2.54,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_185916",
+   "flag": "🎾",
+   "league": "Guadalajara Open presentado por Santander",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Caroline Dolehide – Sara Sorribes Tormo",
+   "kickoff_at": "2026-09-13T16:00Z",
+   "published": true,
+   "home_photo": "assets/players/caroline dolehide.png",
+   "away_photo": "assets/players/sara sorribes tormo.png",
+   "conseil": "Victoire Sara Sorribes Tormo",
+   "conseil_cote": 2.05,
    "conseil_mise_eur": 200.0
   }
  ],
@@ -266,6 +238,38 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-4, 6-2"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_185992",
+   "flag": "🎾",
+   "league": "Caldas da Rainha Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Reese Brantmeier – Oceane Dodin",
+   "kickoff_at": "2026-09-13T13:30Z",
+   "published": true,
+   "home_photo": "assets/players/reese brantmeier.png",
+   "away_photo": "assets/players/oceane dodin.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.521",
+   "value_cote": 1.52,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-4, 5-7, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Oceane Dodin",
+     "kind": "player",
+     "detail": "cote 3.10",
+     "odd": 3.1,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
