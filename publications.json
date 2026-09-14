@@ -1,24 +1,6 @@
 {
- "generated_at": "2026-09-14T00:11:43.378952+00:00",
- "live": [
-  {
-   "fixture_id": "api_football:1507068",
-   "flag": "🇰🇷",
-   "league": "K League 1",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Gimcheon Sangmu FC – Gangwon FC",
-   "kickoff_at": "2026-09-13T09:30:00+02:00",
-   "published": true,
-   "league_id": 292,
-   "home_logo": "https://media.api-sports.io/football/teams/2768.png",
-   "away_logo": "https://media.api-sports.io/football/teams/2746.png",
-   "conseil": "Gangwon FC ou Nul",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 300.0,
-   "lineup_source": "api_football"
-  }
- ],
+ "generated_at": "2026-09-14T00:21:43.349873+00:00",
+ "live": [],
  "done": [
   {
    "fixture_id": "tennis_espn_wta_183558",
@@ -146,6 +128,25 @@
    "score": "5-7, 4-6"
   },
   {
+   "fixture_id": "api_football:1507068",
+   "flag": "🇰🇷",
+   "league": "K League 1",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Gimcheon Sangmu FC – Gangwon FC",
+   "kickoff_at": "2026-09-13T09:30:00+02:00",
+   "published": true,
+   "league_id": 292,
+   "home_logo": "https://media.api-sports.io/football/teams/2768.png",
+   "away_logo": "https://media.api-sports.io/football/teams/2746.png",
+   "conseil": "Gangwon FC ou Nul",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 300.0,
+   "lineup_source": "api_football",
+   "result": "GAGNE",
+   "score": "2 - 2"
+  },
+  {
    "fixture_id": "tennis_espn_wta_185979",
    "flag": "🎾",
    "league": "BBVA Open Internacional De Valencia",
@@ -180,23 +181,6 @@
    "score": "6-4, 6-2"
   },
   {
-   "fixture_id": "tennis_espn_wta_185993",
-   "flag": "🎾",
-   "league": "Caldas da Rainha Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Malaika Rapolu – Zhibek Kulambayeva",
-   "kickoff_at": "2026-09-13T13:30Z",
-   "published": true,
-   "home_photo": "assets/players/malaika rapolu.png",
-   "away_photo": "assets/players/zhibek kulambayeva.png",
-   "conseil": "Victoire Malaika Rapolu",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 6-2"
-  },
-  {
    "fixture_id": "tennis_espn_wta_185992",
    "flag": "🎾",
    "league": "Caldas da Rainha Ladies Open",
@@ -229,6 +213,23 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_wta_185993",
+   "flag": "🎾",
+   "league": "Caldas da Rainha Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Malaika Rapolu – Zhibek Kulambayeva",
+   "kickoff_at": "2026-09-13T13:30Z",
+   "published": true,
+   "home_photo": "assets/players/malaika rapolu.png",
+   "away_photo": "assets/players/zhibek kulambayeva.png",
+   "conseil": "Victoire Malaika Rapolu",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 6-2"
+  },
+  {
    "fixture_id": "tennis_espn_wta_185904",
    "flag": "🎾",
    "league": "SP Open",
@@ -244,23 +245,6 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-3, 6-4"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_185917",
-   "flag": "🎾",
-   "league": "Guadalajara Open presentado por Santander",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Katrina Scott – Carole Monnet",
-   "kickoff_at": "2026-09-13T16:00Z",
-   "published": true,
-   "home_photo": "assets/players/katrina scott.png",
-   "away_photo": "assets/players/carole monnet.png",
-   "conseil": "Victoire Carole Monnet",
-   "conseil_cote": 2.54,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-7, 7-6, 2-6"
   },
   {
    "fixture_id": "tennis_espn_wta_185916",
@@ -280,6 +264,23 @@
    "score": "4-6, 6-3, 7-6"
   },
   {
+   "fixture_id": "tennis_espn_wta_185917",
+   "flag": "🎾",
+   "league": "Guadalajara Open presentado por Santander",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Katrina Scott – Carole Monnet",
+   "kickoff_at": "2026-09-13T16:00Z",
+   "published": true,
+   "home_photo": "assets/players/katrina scott.png",
+   "away_photo": "assets/players/carole monnet.png",
+   "conseil": "Victoire Carole Monnet",
+   "conseil_cote": 2.54,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-7, 7-6, 2-6"
+  },
+  {
    "fixture_id": "baseball_401816920",
    "flag": "⚾",
    "league": "MLB",
@@ -294,6 +295,23 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "8 - 1"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_185903",
+   "flag": "🎾",
+   "league": "SP Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Cadence Brace – Hayu Kinoshita",
+   "kickoff_at": "2026-09-13T16:30Z",
+   "published": true,
+   "home_photo": "assets/players/cadence brace.png",
+   "away_photo": "assets/players/hayu kinoshita.png",
+   "conseil": "Victoire Hayu Kinoshita",
+   "conseil_cote": 2.04,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "7-5, 7-6"
   },
   {
    "fixture_id": "tennis_espn_wta_185905",
@@ -313,21 +331,20 @@
    "score": "2-6, 2-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_185903",
-   "flag": "🎾",
-   "league": "SP Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Cadence Brace – Hayu Kinoshita",
-   "kickoff_at": "2026-09-13T16:30Z",
+   "fixture_id": "nfl_401872659",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Indianapolis Colts – Baltimore Ravens",
+   "kickoff_at": "2026-09-13T17:00Z",
    "published": true,
-   "home_photo": "assets/players/cadence brace.png",
-   "away_photo": "assets/players/hayu kinoshita.png",
-   "conseil": "Victoire Hayu Kinoshita",
-   "conseil_cote": 2.04,
-   "conseil_mise_eur": 200.0,
+   "value_bet": "Moins de 48.5 @ 1.8475",
+   "value_cote": 1.85,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
    "result": "PERDU",
-   "score": "7-5, 7-6"
+   "score": "23 - 41 (en cours)"
   },
   {
    "fixture_id": "nfl_401872660",
@@ -378,22 +395,6 @@
    "score": "31 - 24 (en cours)"
   },
   {
-   "fixture_id": "nfl_401872659",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Indianapolis Colts – Baltimore Ravens",
-   "kickoff_at": "2026-09-13T17:00Z",
-   "published": true,
-   "value_bet": "Moins de 48.5 @ 1.8475",
-   "value_cote": 1.85,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "23 - 41 (en cours)"
-  },
-  {
    "fixture_id": "tennis_espn_wta_185915",
    "flag": "🎾",
    "league": "Guadalajara Open presentado por Santander",
@@ -409,22 +410,6 @@
    "conseil_mise_eur": 200.0,
    "result": "REMBOURSE",
    "score": "Abandon"
-  },
-  {
-   "fixture_id": "baseball_401816918",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Washington Nationals – Los Angeles Angels",
-   "kickoff_at": "2026-09-13T17:35Z",
-   "published": true,
-   "value_bet": "Washington Nationals @ 1.7937",
-   "value_cote": 1.79,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "6 - 5"
   },
   {
    "fixture_id": "baseball_401816924",
@@ -457,6 +442,22 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "4 - 9"
+  },
+  {
+   "fixture_id": "baseball_401816918",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Washington Nationals – Los Angeles Angels",
+   "kickoff_at": "2026-09-13T17:35Z",
+   "published": true,
+   "value_bet": "Washington Nationals @ 1.7937",
+   "value_cote": 1.79,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 5"
   },
   {
    "fixture_id": "baseball_401816919",
@@ -524,22 +525,6 @@
    "score": "2 - 9"
   },
   {
-   "fixture_id": "nfl_401872927",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Minnesota Vikings – Green Bay Packers",
-   "kickoff_at": "2026-09-13T20:25Z",
-   "published": true,
-   "value_bet": "Green Bay Packers +2.0 @ 1.9091",
-   "value_cote": 1.91,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "39 - 22"
-  },
-  {
    "fixture_id": "nfl_401872928",
    "flag": "🏈",
    "league": "NFL",
@@ -554,6 +539,22 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "27 - 13"
+  },
+  {
+   "fixture_id": "nfl_401872927",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Minnesota Vikings – Green Bay Packers",
+   "kickoff_at": "2026-09-13T20:25Z",
+   "published": true,
+   "value_bet": "Green Bay Packers +2.0 @ 1.9091",
+   "value_cote": 1.91,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "39 - 22"
   }
  ]
 }
