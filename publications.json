@@ -1,19 +1,6 @@
 {
- "generated_at": "2026-09-16T00:59:35.518690+00:00",
+ "generated_at": "2026-09-16T02:34:36.685252+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816950",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago Cubs – Atlanta Braves",
-   "kickoff_at": "2026-09-15T23:40Z",
-   "published": true,
-   "value_bet": "Chicago Cubs @ 1.7143",
-   "value_cote": 1.71,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "baseball_401816954",
    "flag": "⚾",
@@ -395,6 +382,23 @@
    "score": "7-5, 6-4"
   },
   {
+   "fixture_id": "tennis_espn_wta_183751",
+   "flag": "🎾",
+   "league": "BBVA Open Internacional De Valencia",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Martina Trevisan – Leyre Romero Gormaz",
+   "kickoff_at": "2026-09-15T12:30Z",
+   "published": true,
+   "home_photo": "assets/players/martina trevisan.png",
+   "away_photo": "assets/players/leyre romero gormaz.png",
+   "conseil": "Victoire Leyre Romero Gormaz",
+   "conseil_cote": 1.91,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "1-6, 6-2, 6-4"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183746",
    "flag": "🎾",
    "league": "BBVA Open Internacional De Valencia",
@@ -427,21 +431,20 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183751",
-   "flag": "🎾",
-   "league": "BBVA Open Internacional De Valencia",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Martina Trevisan – Leyre Romero Gormaz",
-   "kickoff_at": "2026-09-15T12:30Z",
+   "fixture_id": "baseball_401816950",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago Cubs – Atlanta Braves",
+   "kickoff_at": "2026-09-15T23:40Z",
    "published": true,
-   "home_photo": "assets/players/martina trevisan.png",
-   "away_photo": "assets/players/leyre romero gormaz.png",
-   "conseil": "Victoire Leyre Romero Gormaz",
-   "conseil_cote": 1.91,
-   "conseil_mise_eur": 200.0,
+   "value_bet": "Chicago Cubs @ 1.7143",
+   "value_cote": 1.71,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
    "result": "PERDU",
-   "score": "1-6, 6-2, 6-4"
+   "score": "3 - 6"
   }
  ]
 }
