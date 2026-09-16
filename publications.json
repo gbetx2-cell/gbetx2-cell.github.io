@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T20:04:36.262944+00:00",
+ "generated_at": "2026-09-16T20:42:35.060625+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183799",
@@ -67,34 +67,6 @@
      "kind": "player",
      "detail": "cote 1.89",
      "odd": 1.885,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183800",
-   "flag": "🎾",
-   "league": "Guadalajara Open presentado por Santander",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Caroline Dolehide – Magdalena Frech",
-   "kickoff_at": "2026-09-16T19:00Z",
-   "published": true,
-   "home_photo": "assets/players/caroline dolehide.png",
-   "away_photo": "assets/players/magdalena frech.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.592",
-   "value_cote": 1.59,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Magdalena Frech",
-     "kind": "player",
-     "detail": "cote 1.48",
-     "odd": 1.481,
      "mise_eur": 200.0
     }
    ]
@@ -505,6 +477,38 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "6 - 3"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183800",
+   "flag": "🎾",
+   "league": "Guadalajara Open presentado por Santander",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Caroline Dolehide – Magdalena Frech",
+   "kickoff_at": "2026-09-16T19:00Z",
+   "published": true,
+   "home_photo": "assets/players/caroline dolehide.png",
+   "away_photo": "assets/players/magdalena frech.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.592",
+   "value_cote": 1.59,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "4-6, 3-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Magdalena Frech",
+     "kind": "player",
+     "detail": "cote 1.48",
+     "odd": 1.481,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
