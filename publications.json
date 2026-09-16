@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T10:30:27.695648+00:00",
+ "generated_at": "2026-09-16T11:21:38.161010+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183799",
@@ -73,49 +73,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_183668",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Laura Samson – Weronika Falkowska",
-   "kickoff_at": "2026-09-16T09:30Z",
-   "published": true,
-   "home_photo": "assets/players/laura samson.png",
-   "away_photo": "assets/players/weronika falkowska.png",
-   "conseil": "Victoire Laura Samson",
-   "conseil_cote": 1.23,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183672",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mona Barthel – Francesca Jones",
-   "kickoff_at": "2026-09-16T09:30Z",
-   "published": true,
-   "home_photo": "assets/players/mona barthel.png",
-   "away_photo": "assets/players/francesca jones.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Francesca Jones",
-     "kind": "player",
-     "detail": "cote 1.28",
-     "odd": 1.282,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_183658",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
@@ -144,17 +101,33 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183675",
+   "fixture_id": "tennis_espn_wta_183668",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Mia Ristic – Miriam Bulgaru",
+   "match": "Laura Samson – Weronika Falkowska",
+   "kickoff_at": "2026-09-16T09:30Z",
+   "published": true,
+   "home_photo": "assets/players/laura samson.png",
+   "away_photo": "assets/players/weronika falkowska.png",
+   "conseil": "Victoire Laura Samson",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183654",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Dalma Galfi – Alice Tubello",
    "kickoff_at": "2026-09-16T11:00Z",
    "published": true,
-   "home_photo": "assets/players/mia ristic.png",
-   "conseil": "Victoire Mia Ristic",
-   "conseil_cote": 1.25,
+   "home_photo": "assets/players/dalma galfi.png",
+   "away_photo": "assets/players/alice tubello.png",
+   "conseil": "Victoire Dalma Galfi",
+   "conseil_cote": 1.42,
    "conseil_mise_eur": 200.0
   },
   {
@@ -173,18 +146,17 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_183654",
+   "fixture_id": "tennis_espn_wta_183675",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Dalma Galfi – Alice Tubello",
+   "match": "Mia Ristic – Miriam Bulgaru",
    "kickoff_at": "2026-09-16T11:00Z",
    "published": true,
-   "home_photo": "assets/players/dalma galfi.png",
-   "away_photo": "assets/players/alice tubello.png",
-   "conseil": "Victoire Dalma Galfi",
-   "conseil_cote": 1.42,
+   "home_photo": "assets/players/mia ristic.png",
+   "conseil": "Victoire Mia Ristic",
+   "conseil_cote": 1.25,
    "conseil_mise_eur": 200.0
   },
   {
@@ -453,6 +425,38 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "5-7, 4-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183672",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mona Barthel – Francesca Jones",
+   "kickoff_at": "2026-09-16T09:30Z",
+   "published": true,
+   "home_photo": "assets/players/mona barthel.png",
+   "away_photo": "assets/players/francesca jones.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-0, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Francesca Jones",
+     "kind": "player",
+     "detail": "cote 1.28",
+     "odd": 1.282,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
