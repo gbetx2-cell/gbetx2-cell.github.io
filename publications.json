@@ -1,6 +1,36 @@
 {
- "generated_at": "2026-09-16T08:30:25.338440+00:00",
+ "generated_at": "2026-09-16T09:00:31.419239+00:00",
  "live": [
+  {
+   "fixture_id": "tennis_espn_wta_183660",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Julie Struplova – Noemi Basiletti",
+   "kickoff_at": "2026-09-16T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/julie struplova.png",
+   "away_photo": "assets/players/noemi basiletti.png",
+   "conseil": "Victoire Julie Struplova",
+   "conseil_cote": 2.31,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183656",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Samira De Stefano – Barbora Palicova",
+   "kickoff_at": "2026-09-16T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/samira de stefano.png",
+   "away_photo": "assets/players/barbora palicova.png",
+   "conseil": "Victoire Barbora Palicova",
+   "conseil_cote": 1.69,
+   "conseil_mise_eur": 200.0
+  },
   {
    "fixture_id": "tennis_espn_wta_183799",
    "flag": "🎾",
@@ -28,36 +58,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183656",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Samira De Stefano – Barbora Palicova",
-   "kickoff_at": "2026-09-16T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/samira de stefano.png",
-   "away_photo": "assets/players/barbora palicova.png",
-   "conseil": "Victoire Barbora Palicova",
-   "conseil_cote": 1.69,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183660",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Julie Struplova – Noemi Basiletti",
-   "kickoff_at": "2026-09-16T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/julie struplova.png",
-   "away_photo": "assets/players/noemi basiletti.png",
-   "conseil": "Victoire Julie Struplova",
-   "conseil_cote": 2.31,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_183805",
@@ -115,6 +115,34 @@
    "conseil": "Victoire Despina Papamichail",
    "conseil_cote": 2.93,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183672",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mona Barthel – Francesca Jones",
+   "kickoff_at": "2026-09-16T09:30Z",
+   "published": true,
+   "home_photo": "assets/players/mona barthel.png",
+   "away_photo": "assets/players/francesca jones.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Francesca Jones",
+     "kind": "player",
+     "detail": "cote 1.28",
+     "odd": 1.282,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_183687",
@@ -217,23 +245,6 @@
  ],
  "done": [
   {
-   "fixture_id": "tennis_espn_wta_183753",
-   "flag": "🎾",
-   "league": "BBVA Open Internacional De Valencia",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Eva Vedder – Jennifer Ruggeri",
-   "kickoff_at": "2026-09-15T09:30Z",
-   "published": true,
-   "home_photo": "assets/players/eva vedder.png",
-   "away_photo": "assets/players/jennifer ruggeri.png",
-   "conseil": "Victoire Eva Vedder",
-   "conseil_cote": 1.89,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "7-5, 6-7, 1-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183754",
    "flag": "🎾",
    "league": "BBVA Open Internacional De Valencia",
@@ -249,6 +260,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-2, 5-7, 5-7"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183753",
+   "flag": "🎾",
+   "league": "BBVA Open Internacional De Valencia",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Eva Vedder – Jennifer Ruggeri",
+   "kickoff_at": "2026-09-15T09:30Z",
+   "published": true,
+   "home_photo": "assets/players/eva vedder.png",
+   "away_photo": "assets/players/jennifer ruggeri.png",
+   "conseil": "Victoire Eva Vedder",
+   "conseil_cote": 1.89,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "7-5, 6-7, 1-6"
   },
   {
    "fixture_id": "tennis_espn_wta_183744",
