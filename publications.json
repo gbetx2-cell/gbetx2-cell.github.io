@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T19:59:37.696828+00:00",
+ "generated_at": "2026-09-16T20:04:36.262944+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183799",
@@ -70,19 +70,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "baseball_401816960",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Chicago White Sox",
-   "kickoff_at": "2026-09-16T17:00Z",
-   "published": true,
-   "value_bet": "Cleveland Guardians @ 1.6803",
-   "value_cote": 1.68,
-   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_183800",
@@ -405,23 +392,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183668",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Laura Samson – Weronika Falkowska",
-   "kickoff_at": "2026-09-16T09:30Z",
-   "published": true,
-   "home_photo": "assets/players/laura samson.png",
-   "away_photo": "assets/players/weronika falkowska.png",
-   "conseil": "Victoire Laura Samson",
-   "conseil_cote": 1.23,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-7, 6-0, 6-3"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183672",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
@@ -452,6 +422,23 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183668",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Laura Samson – Weronika Falkowska",
+   "kickoff_at": "2026-09-16T09:30Z",
+   "published": true,
+   "home_photo": "assets/players/laura samson.png",
+   "away_photo": "assets/players/weronika falkowska.png",
+   "conseil": "Victoire Laura Samson",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-7, 6-0, 6-3"
   },
   {
    "fixture_id": "tennis_espn_wta_183675",
@@ -502,6 +489,22 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "7-6, 3-6, 4-6"
+  },
+  {
+   "fixture_id": "baseball_401816960",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Chicago White Sox",
+   "kickoff_at": "2026-09-16T17:00Z",
+   "published": true,
+   "value_bet": "Cleveland Guardians @ 1.6803",
+   "value_cote": 1.68,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 3"
   }
  ]
 }
