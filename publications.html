@@ -791,9 +791,9 @@ function computeCurrentValue(f, live, cls){
 
 /* ── Rendu ────────────────────────────────────────────────────────── */
 const SPORT_META = {
-  football: {icon:'⚽', label:''}, tennis: {icon:'🎾', label:''},
-  baseball: {icon:'⚾', label:''}, nba: {icon:'🏀', label:''},
-  nhl: {icon:'🏒', label:''}, hockey: {icon:'🏒', label:''}, nfl: {icon:'🏈', label:''}, wnba: {icon:'🏀', label:''},
+  football: {icon:'⚽', label:'Football'}, tennis: {icon:'🎾', label:'Tennis'},
+  baseball: {icon:'⚾', label:'Baseball (MLB)'}, nba: {icon:'🏀', label:'NBA'},
+  nhl: {icon:'🏒', label:'NHL'}, hockey: {icon:'🏒', label:'Hockey'}, nfl: {icon:'🏈', label:'NFL'}, wnba: {icon:'🏀', label:'WNBA'},
 };
 
 function gaugeHtml(state, currentVal, thresholdVal, scaleMax, overTag){
@@ -1268,7 +1268,7 @@ function renderCard(f){
           <span class="flag">${f.flag}</span>
           <div>
             <div class="match-name">${f.match}</div>
-            <div class="league">${f.sport && f.sport !== 'football' ? ((SPORT_META[f.sport] || {icon:'🏅'}).icon) + ' · ' : ''}${f.league}</div>
+            <div class="league">${f.sport && f.sport !== 'football' ? f.sport_label + ' · ' : ''}${f.league}</div>
           </div>
         </div>
         ${scoreHtml}
@@ -1293,8 +1293,8 @@ function render(){
     const order = ['tennis','baseball','nba','nhl','nfl','wnba'];
     const sports = Object.keys(bySport).sort((a,b) => order.indexOf(a) - order.indexOf(b));
     el.innerHTML = sports.map(sp => {
-      const meta = SPORT_META[sp] || {icon:'🏅', label:''};
-      return `<div class="sport-sep">${meta.icon}</div>` + bySport[sp].map(renderCard).join('');
+      const meta = SPORT_META[sp] || {icon:'🏅', label:sp};
+      return `<div class="sport-sep">${meta.icon} ${meta.label}</div>` + bySport[sp].map(renderCard).join('');
     }).join('');
   }
 }
