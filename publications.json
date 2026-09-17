@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T22:46:11.417387+00:00",
+ "generated_at": "2026-09-17T23:00:04.863231+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183687",
@@ -130,6 +130,19 @@
    ]
   },
   {
+   "fixture_id": "baseball_401816979",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Houston Astros – Kansas City Royals",
+   "kickoff_at": "2026-09-17T23:15Z",
+   "published": true,
+   "value_bet": "Houston Astros @ 1.6897",
+   "value_cote": 1.69,
+   "value_mise_eur": 200.0
+  },
+  {
    "fixture_id": "baseball_401816976",
    "flag": "⚾",
    "league": "MLB",
@@ -143,17 +156,32 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "baseball_401816979",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Houston Astros – Kansas City Royals",
-   "kickoff_at": "2026-09-17T23:15Z",
+   "fixture_id": "wnba_401857190",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Atlanta Dream – Connecticut Sun",
+   "kickoff_at": "2026-09-17T23:30Z",
    "published": true,
-   "value_bet": "Houston Astros @ 1.6897",
-   "value_cote": 1.69,
-   "value_mise_eur": 200.0
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "DeWanna Bonner — Points Plus de 7.5",
+     "kind": "player",
+     "detail": "cote 1.95",
+     "odd": 1.95,
+     "mise_eur": 200.0
+    },
+    {
+     "category": "Player pick",
+     "label": "DeWanna Bonner — Rebonds Plus de 4.5",
+     "kind": "player",
+     "detail": "cote 2.34",
+     "odd": 2.34,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -191,6 +219,23 @@
    "score": "6-1, 6-7, 7-5"
   },
   {
+   "fixture_id": "tennis_espn_wta_183668",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Laura Samson – Weronika Falkowska",
+   "kickoff_at": "2026-09-16T09:30Z",
+   "published": true,
+   "home_photo": "assets/players/laura samson.png",
+   "away_photo": "assets/players/weronika falkowska.png",
+   "conseil": "Victoire Laura Samson",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-7, 6-0, 6-3"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183672",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
@@ -221,23 +266,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183668",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Laura Samson – Weronika Falkowska",
-   "kickoff_at": "2026-09-16T09:30Z",
-   "published": true,
-   "home_photo": "assets/players/laura samson.png",
-   "away_photo": "assets/players/weronika falkowska.png",
-   "conseil": "Victoire Laura Samson",
-   "conseil_cote": 1.23,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-7, 6-0, 6-3"
   },
   {
    "fixture_id": "tennis_espn_wta_183658",
