@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T23:00:04.863231+00:00",
+ "generated_at": "2026-09-17T23:30:03.940194+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183687",
@@ -72,21 +72,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183677",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mia Ristic – Mona Barthel",
-   "kickoff_at": "2026-09-17T08:00Z",
-   "published": true,
-   "home_photo": "assets/players/mia ristic.png",
-   "away_photo": "assets/players/mona barthel.png",
-   "conseil": "Victoire Mia Ristic",
-   "conseil_cote": 1.95,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_wta_183679",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
@@ -99,6 +84,21 @@
    "away_photo": "assets/players/anastasiia sobolieva.png",
    "conseil": "Victoire Laura Samson",
    "conseil_cote": 1.81,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183677",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mia Ristic – Mona Barthel",
+   "kickoff_at": "2026-09-17T08:00Z",
+   "published": true,
+   "home_photo": "assets/players/mia ristic.png",
+   "away_photo": "assets/players/mona barthel.png",
+   "conseil": "Victoire Mia Ristic",
+   "conseil_cote": 1.95,
    "conseil_mise_eur": 200.0
   },
   {
@@ -182,6 +182,26 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "wnba_401857191",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Chicago Sky – Washington Mystics",
+   "kickoff_at": "2026-09-18T00:00Z",
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Cloud — Points Plus de 8.5",
+     "kind": "player",
+     "detail": "cote 1.88",
+     "odd": 1.88,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -217,23 +237,6 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-1, 6-7, 7-5"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183668",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Laura Samson – Weronika Falkowska",
-   "kickoff_at": "2026-09-16T09:30Z",
-   "published": true,
-   "home_photo": "assets/players/laura samson.png",
-   "away_photo": "assets/players/weronika falkowska.png",
-   "conseil": "Victoire Laura Samson",
-   "conseil_cote": 1.23,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-7, 6-0, 6-3"
   },
   {
    "fixture_id": "tennis_espn_wta_183672",
@@ -298,6 +301,23 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183668",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Laura Samson – Weronika Falkowska",
+   "kickoff_at": "2026-09-16T09:30Z",
+   "published": true,
+   "home_photo": "assets/players/laura samson.png",
+   "away_photo": "assets/players/weronika falkowska.png",
+   "conseil": "Victoire Laura Samson",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-7, 6-0, 6-3"
   },
   {
    "fixture_id": "tennis_espn_wta_183675",
