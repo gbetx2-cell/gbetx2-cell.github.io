@@ -1104,14 +1104,15 @@ let _lastBankrollTotal = null;
 
 /* ── Filtre par sport (Résultats) ── */
 const SPORT_META = {
-  tennis:   {label:"Tennis",   flag:"🎾"},
-  mlb:      {label:"MLB",      flag:"⚾"},
-  baseball: {label:"MLB",      flag:"⚾"}, // PERIOD_SERIES.by_sport utilise "baseball" (cf export_site_results.py), pas "mlb"
-  wnba:     {label:"WNBA",     flag:"🏀"},
-  nba:      {label:"NBA",      flag:"🏀"},
-  nhl:      {label:"NHL",      flag:"🏒"},
-  nfl:      {label:"NFL",      flag:"🏈"},
-  football: {label:"Football", flag:"⚽"},
+  tennis:   {label:"",   flag:"🎾"},
+  mlb:      {label:"",      flag:"⚾"},
+  baseball: {label:"",      flag:"⚾"}, // PERIOD_SERIES.by_sport utilise "baseball" (cf export_site_results.py), pas "mlb"
+  wnba:     {label:"",     flag:"🏀"},
+  nba:      {label:"",      flag:"🏀"},
+  nhl:      {label:"",      flag:"🏒"},
+  nfl:      {label:"",      flag:"🏈"},
+  football: {label:"", flag:"⚽"},
+  hockey:   {label:"", flag:"🏒"}, // regles hockey multi-ligues (17/09/2026)
 };
 // paris.sport vaut "baseball" pour les paris reels mais "mlb" pour les
 // sport_player_picks, meme sport (cf betting_rules.py) -- normalise en "mlb"
@@ -1174,7 +1175,7 @@ function setupSportFilter(){
   if (!bar) return;
   const sports = ALL_SPORTS_CLIENT;
   sports.forEach(s=>{
-    const meta = SPORT_META[s] || {label:s, flag:''};
+    const meta = SPORT_META[s] || {label:'', flag:'🏅'};
     const btn = document.createElement('button');
     btn.dataset.sport = s;
     btn.textContent = `${meta.flag} ${meta.label}`.trim();
@@ -1233,7 +1234,7 @@ function setupPeriodSportFilter(){
   if (!bar) return;
   const sports = ALL_SPORTS_SERVER;
   sports.forEach(s=>{
-    const meta = SPORT_META[s] || {label:s, flag:''};
+    const meta = SPORT_META[s] || {label:'', flag:'🏅'};
     const btn = document.createElement('button');
     btn.dataset.sport = s;
     btn.textContent = `${meta.flag} ${meta.label}`.trim();
@@ -1320,7 +1321,7 @@ function drawChart(){
     ? `${up?'+':''}${(total*MISE_PAR_UNITE).toFixed(0)} €`
     : `${up?'+':''}${total.toFixed(2)} u`;
   const n = filteredResultats().length;
-  const scope = currentSportFilter === "all" ? "derniers picks" : `derniers picks ${SPORT_META[currentSportFilter]?.label || currentSportFilter}`;
+  const scope = currentSportFilter === "all" ? "derniers picks" : `derniers picks ${SPORT_META[currentSportFilter]?.flag || '🏅'}`;
   d.innerHTML = `${totalDisplay} <small>sur les ${n} ${scope} (conseil/value/player pick) · 1 u = ${MISE_PAR_UNITE} €</small>`;
 }
 
