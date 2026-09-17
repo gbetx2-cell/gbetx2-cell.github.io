@@ -190,7 +190,7 @@ details p+p{margin-top:8px}
 .gate-check{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin:2px 0 14px}
 .gate-check input{width:auto;margin:0;accent-color:var(--gold)}
 .gate-err{color:var(--loss);font-size:14px;margin:0 0 10px}
-body.locked main,body.locked #top-offer{filter:blur(6px);pointer-events:none;user-select:none}
+#gate[hidden]{display:none}
 
 footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--muted);font-size:12px}
 .dock{display:none}
@@ -209,7 +209,7 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
 @media (prefers-reduced-motion:reduce){.clock::before{animation:none}.track-x{scroll-behavior:auto}}
 </style>
 </head>
-<body class="locked">
+<body>
 
 <header>
   <div class="wrap bar">
@@ -220,6 +220,7 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
       <button aria-selected="false" data-page="mise">Ma mise</button>
       <button aria-selected="false" data-page="aide">Aide</button>
     </nav>
+    <button class="cta ghost" type="button" id="btn-login">Se connecter</button>
     <a class="cta" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre sur Telegram</a>
   </div>
 </header>
@@ -385,16 +386,16 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
   </div>
   <div class="chat-body" id="chat-body"></div>
   <form class="chat-foot" id="chat-form">
-    <input id="chat-input" placeholder="Écrire un message…" autocomplete="off" maxlength="300">
+    <input id="chat-input" placeholder="Écrire un message… (connexion requise)" autocomplete="off" maxlength="300">
     <button class="cta" type="submit">Envoyer</button>
   </form>
 </section>
 
-<div id="gate" aria-label="Connexion">
+<div id="gate" aria-label="Connexion" hidden>
   <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gate-t">
     <div class="logo" style="margin:0 0 6px">G-<b>BET</b></div>
     <h2 id="gate-t" style="margin:0 0 4px">Bienvenue</h2>
-    <p class="gain" style="margin:0 0 16px">Un compte est nécessaire pour voir les paris et la discussion.</p>
+    <p class="gain" style="margin:0 0 16px">Le compte sert uniquement à écrire dans les discussions.</p>
     <div class="gate-tabs" id="gate-tabs">
       <button type="button" data-mode="in" aria-selected="true">Se connecter</button>
       <button type="button" data-mode="up" aria-selected="false">Créer un compte</button>
@@ -436,8 +437,8 @@ async function api(path, opts){
 /* ─────────────────────────── Compte ─────────────────────────── */
 let ME = store.get("gbet-user") || null;
 function majCompte(){
-  document.body.classList.toggle("locked", !ME);
-  $("#gate").hidden = !!ME;
+  $("#gate").hidden = true;
+  $("#btn-login").hidden = !!ME;
   let chip = $("#me-chip");
   if (ME){
     if (!chip){ chip = document.createElement("span"); chip.className = "me-chip"; chip.id = "me-chip"; document.querySelector(".bar").append(chip); }
@@ -454,6 +455,9 @@ $("#gate-tabs").addEventListener("click", e => {
   $("#gate-pass").autocomplete = gateMode === "up" ? "new-password" : "current-password";
   $("#gate-err").hidden = true;
 });
+$("#btn-login").addEventListener("click", () => { $("#gate").hidden = false; $("#gate-user").focus(); });
+$("#gate").addEventListener("click", e => { if (e.target.id === "gate") $("#gate").hidden = true; });
+addEventListener("keydown", e => { if (e.key === "Escape") $("#gate").hidden = true; });
 $("#gate-form").addEventListener("submit", async e => {
   e.preventDefault();
   const username = $("#gate-user").value.trim(), password = $("#gate-pass").value;
@@ -742,6 +746,7 @@ $("#chat-back").addEventListener("click", fermerChat);
 addEventListener("keydown", e => { if (e.key === "Escape") fermerChat(); });
 $("#chat-form").addEventListener("submit", async e => {
   e.preventDefault();
+  if (!ME){ $("#gate").hidden = false; $("#gate-user").focus(); return; }
   const i = $("#chat-input"); if (!i.value.trim()) return;
   const txt = i.value.trim(); i.value = "";
   try {
@@ -761,7 +766,6 @@ document.querySelector("nav").addEventListener("click", e => {
 });
 
 async function charger(){
-  if (!ME) return;
   try {
     const [pub, live, res] = await Promise.all([api("/api/publications"), api("/api/live-scores"), api("/api/results")]);
     PUBS = pub; SCORES = (live && live.scores) || {}; RES = res;
