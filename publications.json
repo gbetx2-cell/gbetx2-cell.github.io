@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T09:00:27.794210+00:00",
+ "generated_at": "2026-09-17T20:15:44.812934+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183687",
@@ -130,34 +130,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183807",
-   "flag": "🎾",
-   "league": "Guadalajara Open presentado por Santander",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sara Bejlek – Cristina Bucsa",
-   "kickoff_at": "2026-09-17T19:00Z",
-   "published": true,
-   "home_photo": "assets/players/sara bejlek.png",
-   "away_photo": "assets/players/cristina bucsa.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.654",
-   "value_cote": 1.65,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Sara Bejlek",
-     "kind": "player",
-     "detail": "cote 1.50",
-     "odd": 1.505,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_183806",
    "flag": "🎾",
    "league": "Guadalajara Open presentado por Santander",
@@ -221,21 +193,36 @@
    "score": "6-1, 6-7, 7-5"
   },
   {
-   "fixture_id": "tennis_espn_wta_183668",
+   "fixture_id": "tennis_espn_wta_183672",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Laura Samson – Weronika Falkowska",
+   "match": "Mona Barthel – Francesca Jones",
    "kickoff_at": "2026-09-16T09:30Z",
    "published": true,
-   "home_photo": "assets/players/laura samson.png",
-   "away_photo": "assets/players/weronika falkowska.png",
-   "conseil": "Victoire Laura Samson",
-   "conseil_cote": 1.23,
+   "home_photo": "assets/players/mona barthel.png",
+   "away_photo": "assets/players/francesca jones.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
    "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "6-7, 6-0, 6-3"
+   "score": "6-0, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Francesca Jones",
+     "kind": "player",
+     "detail": "cote 1.28",
+     "odd": 1.282,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_183658",
@@ -270,52 +257,21 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183672",
+   "fixture_id": "tennis_espn_wta_183668",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Mona Barthel – Francesca Jones",
+   "match": "Laura Samson – Weronika Falkowska",
    "kickoff_at": "2026-09-16T09:30Z",
    "published": true,
-   "home_photo": "assets/players/mona barthel.png",
-   "away_photo": "assets/players/francesca jones.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-0, 6-4",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Francesca Jones",
-     "kind": "player",
-     "detail": "cote 1.28",
-     "odd": 1.282,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183675",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mia Ristic – Miriam Bulgaru",
-   "kickoff_at": "2026-09-16T11:00Z",
-   "published": true,
-   "home_photo": "assets/players/mia ristic.png",
-   "conseil": "Victoire Mia Ristic",
-   "conseil_cote": 1.25,
+   "home_photo": "assets/players/laura samson.png",
+   "away_photo": "assets/players/weronika falkowska.png",
+   "conseil": "Victoire Laura Samson",
+   "conseil_cote": 1.23,
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
-   "score": "6-3, 6-3"
+   "score": "6-7, 6-0, 6-3"
   },
   {
    "fixture_id": "tennis_espn_wta_183654",
@@ -333,6 +289,22 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "3-6, 4-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183675",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mia Ristic – Miriam Bulgaru",
+   "kickoff_at": "2026-09-16T11:00Z",
+   "published": true,
+   "home_photo": "assets/players/mia ristic.png",
+   "conseil": "Victoire Mia Ristic",
+   "conseil_cote": 1.25,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 6-3"
   },
   {
    "fixture_id": "tennis_espn_wta_183765",
@@ -478,6 +450,38 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "2 - 5"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183807",
+   "flag": "🎾",
+   "league": "Guadalajara Open presentado por Santander",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Sara Bejlek – Cristina Bucsa",
+   "kickoff_at": "2026-09-17T19:00Z",
+   "published": true,
+   "home_photo": "assets/players/sara bejlek.png",
+   "away_photo": "assets/players/cristina bucsa.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.654",
+   "value_cote": 1.65,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "0-6, 4-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Sara Bejlek",
+     "kind": "player",
+     "detail": "cote 1.50",
+     "odd": 1.505,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
