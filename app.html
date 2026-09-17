@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>G-BET Bot — Paris du jour, résultats, bilan</title>
+<meta name="description" content="Paris publiés avant le coup d'envoi, résultats complets réglés automatiquement, et calcul de ce que ça donne avec votre mise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  --ink:#100f0c; --surface:#1a1813; --raise:#24211a; --line:#2f2b22;
+  --text:#f3efe6; --muted:#a39c8c; --gold:#e3b341; --gold-ink:#1b1606;
+  --win:#43b97f; --loss:#e2665d; --push:#8f8a7e;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--ink);margin:0}
+body{color:var(--text);font:16px/1.5 var(--body);padding-inline:16px;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.wrap{max-width:1000px;margin-inline:auto}
+button,input{font:inherit;color:inherit}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.pos{color:var(--win)} .neg{color:var(--loss)}
+[hidden]{display:none!important}
+
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--ink) 92%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.logo{font:800 22px/1 var(--display);letter-spacing:-.02em;margin-right:auto}
+.logo b{color:var(--gold)}
+nav{display:flex;gap:2px;flex-wrap:wrap}
+nav button{background:none;border:0;padding:8px 12px;border-radius:999px;color:var(--muted);cursor:pointer;font-weight:600}
+nav button[aria-selected="true"]{background:var(--raise);color:var(--text)}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--gold-ink);
+  font-weight:700;text-decoration:none;padding:10px 16px;border-radius:999px;white-space:nowrap;border:0;cursor:pointer}
+.ghost{background:var(--raise);color:var(--text)}
+.me-chip{display:inline-flex;align-items:center;gap:8px;background:var(--raise);border:1px solid var(--line);
+  border-radius:999px;padding:4px 6px 4px 12px;font-size:14px;font-weight:600}
+.me-chip button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:13px;padding:2px 6px}
+
+main{padding-block:20px 110px}
+h1{font:800 clamp(28px,5.5vw,42px)/1.05 var(--display);letter-spacing:-.03em;margin:0;text-wrap:balance}
+h2{font:600 19px/1.2 var(--display);margin:0 0 12px}
+h3{font:600 16px/1.3 var(--display);margin:18px 0 6px}
+.head{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.gain{font-size:12px;color:var(--muted)}
+.offer{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:12px;
+  padding:10px 16px;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:14px}
+
+.summary{display:grid;grid-template-columns:repeat(3,1fr) 1.4fr;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin-bottom:14px}
+.kpi{background:var(--surface);padding:14px 16px}
+.kpi span{display:block;color:var(--muted);font-size:13px}
+.kpi strong{font:700 clamp(20px,3.6vw,28px)/1.2 var(--mono);font-variant-numeric:tabular-nums}
+.form{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
+.dot{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font:700 11px var(--mono);color:var(--ink);cursor:default}
+.dot.w{background:var(--win)} .dot.l{background:var(--loss)} .dot.p{background:var(--push)}
+.yday{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:10px 14px;margin-bottom:20px;font-size:14px}
+.streak{color:var(--win);font-weight:700}
+
+.filters{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px;cursor:pointer;
+  font-weight:600;font-size:14px;color:var(--muted)}
+.chips button[aria-pressed="true"]{border-color:var(--gold);color:var(--text)}
+.chips small{font-family:var(--mono);margin-left:4px;opacity:.7}
+
+.list{display:grid;gap:10px}
+.pick{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  display:grid;grid-template-columns:70px 1fr;gap:14px}
+.pick.is-live{border-color:#5b2a26}
+.when{font:700 15px/1.2 var(--mono);font-variant-numeric:tabular-nums}
+.meta{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.talk{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--raise);color:var(--text);
+  cursor:pointer;font-size:15px;display:grid;place-items:center;margin-left:auto}
+.talk:hover{border-color:var(--gold)}
+.teams{display:grid;gap:6px;margin:6px 0 2px}
+.team{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center}
+.team .badge{width:30px;height:30px;border-radius:50%;background:var(--raise);border:1px solid var(--line);
+  object-fit:cover;display:grid;place-items:center;font:700 11px/1 var(--body);color:var(--muted)}
+.team .tname{font-weight:600;font-size:16px;overflow-wrap:anywhere}
+.team .tev{font-size:12px;color:var(--muted);font-weight:400;margin-left:8px}
+.team .tscore{font:700 18px/1 var(--mono);font-variant-numeric:tabular-nums;color:var(--muted)}
+.team.win .tname{color:var(--text)} .team.win .tscore{color:var(--gold)}
+.state{display:flex;gap:10px;align-items:center;font-size:12px;margin-top:2px}
+.clock{display:inline-flex;align-items:center;gap:6px;font:700 12px var(--body);color:var(--loss)}
+.clock::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--loss);animation:pulse 1.4s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.kick{font:600 12px var(--mono);color:var(--gold)}
+.bets{display:grid;gap:8px;margin-top:10px}
+.betline{display:grid;grid-template-columns:1fr auto auto auto auto;gap:12px;align-items:center;background:var(--raise);
+  border-radius:8px;padding:10px 12px}
+.bet{color:var(--gold);font-weight:600;font-size:15px}
+.mise,.odd-box,.net{display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1.1}
+.mise b,.odd-box b{font:700 17px/1 var(--mono);font-variant-numeric:tabular-nums}
+.net b{font:700 20px/1 var(--mono);font-variant-numeric:tabular-nums}
+.mise span,.odd-box span,.net span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.net{min-width:74px}
+.tag{font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.tag.w{color:var(--win)} .tag.l{color:var(--loss)} .tag.p{color:var(--push)} .tag.s{color:var(--muted)}
+.gauge{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);margin-top:8px;grid-column:1 / -1}
+.gauge .track{flex:1;height:6px;background:var(--surface);border-radius:999px;overflow:hidden}
+.gauge .fill{height:100%;background:var(--gold);border-radius:999px}
+.gauge.ok .fill{background:var(--win)}
+.gauge.danger .fill{background:var(--loss)}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:20px;text-align:center;color:var(--muted)}
+.empty b{color:var(--text)}
+
+.rail{display:flex;align-items:center;gap:8px}
+.rail button{background:var(--surface);border:1px solid var(--line);border-radius:999px;width:34px;height:34px;flex:none;
+  cursor:pointer;color:var(--text);font-size:16px}
+.rail button[disabled]{opacity:.35;cursor:default}
+.track-x{display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:2px}
+.track-x::-webkit-scrollbar{display:none}
+.block{flex:0 0 152px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);
+  border-radius:10px;padding:10px 12px}
+.block.up{border-left-color:var(--win)} .block.down{border-left-color:var(--loss)} .block.flat{border-left-color:var(--push)}
+.block span{display:block;font-size:12px;color:var(--muted)}
+.block b{font:700 18px var(--mono);font-variant-numeric:tabular-nums}
+#floattip{position:fixed;z-index:60;max-width:min(300px,86vw);background:var(--raise);border:1px solid var(--line);
+  border-radius:10px;padding:9px 11px;font:400 12px/1.45 var(--body);color:var(--text);box-shadow:0 8px 24px #0008;
+  pointer-events:none;display:none}
+#floattip b{font-family:var(--mono)}
+#floattip em{display:block;color:var(--muted);font-style:normal;font-size:11px}
+
+.grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-bottom:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:20px}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.panel-head h2{margin:0}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font:11px var(--mono)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{font-size:12px;color:var(--muted);font-weight:600;text-align:right;padding:6px 4px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+td{padding:9px 4px;text-align:right;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:14px}
+td:first-child{font-family:var(--body);font-weight:600}
+tr:last-child td{border-bottom:0}
+
+.stakebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px;margin-bottom:18px}
+.stakebar input{width:104px;background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:8px 10px;
+  text-align:right;font-family:var(--mono);font-size:18px}
+.big{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin-bottom:20px}
+.big div{background:var(--surface);padding:16px}
+.big span{display:block;color:var(--muted);font-size:13px}
+.big strong{font:700 clamp(20px,3.6vw,28px)/1.2 var(--mono);font-variant-numeric:tabular-nums}
+
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+details+details{margin-top:8px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+details p+p{margin-top:8px}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.promise div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:600}
+.promise div span{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+
+#chat{position:fixed;inset:0;z-index:80;background:var(--ink);display:none;flex-direction:column}
+#chat.on{display:flex}
+.chat-head{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:env(safe-area-inset-top,0px) solid transparent;
+  border-bottom:1px solid var(--line)}
+.chat-back{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--raise);color:var(--text);
+  font-size:18px;cursor:pointer;flex:none}
+.chat-title{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chat-title span{display:block;font:400 12px var(--body);color:var(--muted)}
+.chat-score{margin-left:auto;font:700 22px/1 var(--mono);font-variant-numeric:tabular-nums}
+.chat-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:min(560px,86%);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:15px}
+.msg u{display:block;font:600 12px var(--body);color:var(--gold);text-decoration:none;margin-bottom:2px}
+.msg time{font-size:11px;color:var(--muted);margin-left:8px}
+.msg.me{align-self:flex-end;background:var(--raise);border-color:#4a3b14}
+.chat-foot{display:flex;gap:8px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.chat-foot input{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:10px 14px}
+
+#gate{position:fixed;inset:0;z-index:90;background:#000000cc;backdrop-filter:blur(4px);display:grid;place-items:center;padding:16px;overflow:auto}
+.gate-card{width:min(400px,100%);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.gate-card .cta{width:100%;margin-bottom:10px}
+.gate-card input{width:100%;background:var(--raise);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0 10px}
+.gate-tabs{display:flex;gap:4px;background:var(--raise);border-radius:999px;padding:4px;margin-bottom:16px}
+.gate-tabs button{flex:1;background:none;border:0;border-radius:999px;padding:8px;cursor:pointer;color:var(--muted);font-weight:600}
+.gate-tabs button[aria-selected="true"]{background:var(--surface);color:var(--text)}
+.gate-check{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin:2px 0 14px}
+.gate-check input{width:auto;margin:0;accent-color:var(--gold)}
+.gate-err{color:var(--loss);font-size:14px;margin:0 0 10px}
+body.locked main,body.locked #top-offer{filter:blur(6px);pointer-events:none;user-select:none}
+
+footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--muted);font-size:12px}
+.dock{display:none}
+@media (max-width:760px){
+  .summary{grid-template-columns:repeat(3,1fr)} .summary .kpi:last-child{grid-column:1 / -1}
+  .grid2,.promise{grid-template-columns:1fr}
+  .big{grid-template-columns:repeat(2,1fr)}
+  .pick{grid-template-columns:52px 1fr}
+  .betline{grid-template-columns:1fr auto auto;row-gap:8px}
+  .betline .bet{grid-column:1 / -1}
+  header .cta{display:none}
+  .dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:10px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--ink);border-top:1px solid var(--line)}
+  .dock .cta{flex:1}
+}
+@media (prefers-reduced-motion:reduce){.clock::before{animation:none}.track-x{scroll-behavior:auto}}
+</style>
+</head>
+<body class="locked">
+
+<header>
+  <div class="wrap bar">
+    <div class="logo">G-<b>BET</b></div>
+    <nav aria-label="Pages">
+      <button aria-selected="true" data-page="jour">Paris du jour</button>
+      <button aria-selected="false" data-page="res">Résultats</button>
+      <button aria-selected="false" data-page="mise">Ma mise</button>
+      <button aria-selected="false" data-page="aide">Aide</button>
+    </nav>
+    <a class="cta" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre sur Telegram</a>
+  </div>
+</header>
+
+<div class="wrap offer" id="top-offer">
+  <span>Pas de compte bookmaker ? Offre de bienvenue Winamax, code <b>GBEUVP</b>.</span>
+  <a class="cta ghost" href="https://www.winamax.fr/" target="_blank" rel="noopener sponsored">Voir l'offre</a>
+</div>
+
+<main class="wrap">
+
+  <section id="p-jour">
+    <div class="head"><h1>Paris du jour</h1><span class="gain" id="jour-maj"></span></div>
+    <div class="filters">
+      <div class="chips" id="state-chips"></div>
+      <div class="chips" id="sport-chips"></div>
+    </div>
+    <div class="list" id="list"><div class="empty">Chargement…</div></div>
+  </section>
+
+  <section id="p-res" hidden>
+    <div class="head"><h1>Résultats</h1><span class="gain">Tous les paris publiés · rien n'est supprimé</span></div>
+    <div class="summary" id="res-summary"></div>
+    <div class="yday" id="res-streak"></div>
+
+    <div class="panel">
+      <div class="panel-head"><h2>Bilan détaillé</h2>
+        <div class="chips" id="period-chips">
+          <button type="button" aria-pressed="true" data-p="jour">Par jour</button>
+          <button type="button" aria-pressed="false" data-p="semaine">Par semaine</button>
+          <button type="button" aria-pressed="false" data-p="mois">Par mois</button>
+          <button type="button" aria-pressed="false" data-p="annee">Par année</button>
+        </div>
+      </div>
+      <div class="rail">
+        <button type="button" data-rail="rail-track" data-dir="-1" aria-label="Voir avant">‹</button>
+        <div class="track-x" id="rail-track"></div>
+        <button type="button" data-rail="rail-track" data-dir="1" aria-label="Voir après">›</button>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel" style="margin:0"><h2>Bénéfice cumulé</h2><div id="chart-u"></div></div>
+      <div class="panel" style="margin:0">
+        <div class="panel-head"><h2>Détail</h2>
+          <div class="chips" id="split"><button type="button" aria-pressed="true" data-split="sport">Sport</button>
+            <button type="button" aria-pressed="false" data-split="ligue">Ligue</button></div>
+        </div>
+        <div style="overflow-x:auto"><table><thead><tr><th id="split-col">Sport</th><th>Paris</th><th>Réussite</th><th>Bénéfice</th></tr></thead>
+          <tbody id="split-body"></tbody></table></div>
+      </div>
+    </div>
+
+    <h2>Derniers paris</h2>
+    <div class="list" id="list-res"></div>
+  </section>
+
+  <section id="p-mise" hidden>
+    <div class="head"><h1>Ma mise</h1><span class="gain">Le même bilan, converti dans votre mise</span></div>
+    <div class="stakebar">
+      <label for="stake">Valeur de 1 u</label>
+      <input id="stake" type="number" min="1" step="1" value="10"> €
+      <div class="chips" id="stake-presets">
+        <button type="button" data-v="5">5 €</button><button type="button" data-v="10">10 €</button>
+        <button type="button" data-v="20">20 €</button><button type="button" data-v="50">50 €</button>
+      </div>
+      <span class="gain">Le bot mise de 0,75 u à 3 u selon sa confiance.</span>
+    </div>
+    <div class="big">
+      <div><span>Total misé</span><strong id="m-mise">—</strong><span id="m-mise-u"></span></div>
+      <div><span>Bénéfice</span><strong id="m-benef">—</strong></div>
+      <div><span>Retour</span><strong id="m-retour">—</strong></div>
+      <div><span>Paris réglés</span><strong id="m-n">—</strong></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Bilan détaillé</h2>
+        <div class="chips" id="m-period-chips">
+          <button type="button" aria-pressed="true" data-p="jour">Par jour</button>
+          <button type="button" aria-pressed="false" data-p="semaine">Par semaine</button>
+          <button type="button" aria-pressed="false" data-p="mois">Par mois</button>
+          <button type="button" aria-pressed="false" data-p="annee">Par année</button>
+        </div>
+      </div>
+      <div class="rail">
+        <button type="button" data-rail="m-track" data-dir="-1" aria-label="Voir avant">‹</button>
+        <div class="track-x" id="m-track"></div>
+        <button type="button" data-rail="m-track" data-dir="1" aria-label="Voir après">›</button>
+      </div>
+    </div>
+    <div class="panel"><h2>Bénéfice cumulé</h2><div id="chart-e"></div></div>
+    <div class="panel"><h2>Par sport</h2><div style="overflow-x:auto">
+      <table><thead><tr><th>Sport</th><th>Paris</th><th>Misé</th><th>Bénéfice</th></tr></thead><tbody id="m-body"></tbody></table>
+    </div></div>
+    <h2>Derniers paris avec votre mise</h2>
+    <div class="list" id="m-list" style="margin-bottom:20px"></div>
+  </section>
+
+  <section id="p-aide" hidden>
+    <div class="head"><h1>Aide</h1></div>
+    <div class="promise">
+      <div>Publié avant le match<span>Jamais après le coup d'envoi</span></div>
+      <div>Réglé automatiquement<span>Depuis le score officiel</span></div>
+      <div>Jamais supprimé<span>Les paris perdus restent affichés</span></div>
+    </div>
+
+    <h3>Comprendre les chiffres</h3>
+    <details open><summary>C'est quoi une unité (u) ?</summary>
+      <p>Une unité est une mise de référence, exprimée en pourcentage de votre capital de jeu plutôt qu'en euros, pour que le suivi vaille quel que soit votre budget. L'usage courant est de fixer 1 u entre 1 % et 3 % de ce capital.</p>
+      <p>Exemple : avec 500 € de capital et 1 u = 2 %, une unité vaut 10 €. Un pari noté 1,5 u correspond alors à 15 €. L'onglet Ma mise fait ce calcul pour vous.</p></details>
+    <details><summary>Pourquoi les mises changent d'un pari à l'autre ?</summary>
+      <p>La mise dépend de l'écart entre notre estimation et la cote proposée : plus cet écart est net, plus la mise est élevée. Elle va de 0,75 u à 3 u, avec un plafond par match pour ne jamais concentrer le risque sur une seule rencontre.</p></details>
+    <details><summary>Bénéfice et retour, quelle différence ?</summary>
+      <p>Le bénéfice est ce que le suivi a rapporté, en unités. Le retour rapporte ce bénéfice au total misé : +6 u de bénéfice pour 1 400 u misées donnent un retour de 0,4 %.</p>
+      <p>Sur la durée, un retour durablement compris entre 3 % et 8 % est déjà considéré comme très bon dans le milieu. Méfiez-vous des annonces à 30 % ou 50 % : elles ne tiennent jamais sur un gros volume de paris.</p></details>
+    <details><summary>Un taux de réussite élevé veut-il dire rentable ?</summary>
+      <p>Non. Gagner 70 % de ses paris à la cote 1,30 fait perdre de l'argent, car il faut 77 % de réussite pour rentrer dans ses frais à cette cote. Le seul chiffre qui tranche est le bénéfice rapporté au total misé.</p></details>
+
+    <h3>Comment ça marche</h3>
+    <details><summary>Combien de paris par jour ?</summary>
+      <p>Cela dépend du programme et des critères remplis : certains jours plusieurs paris, d'autres aucun. Un jour sans pari est un jour normal, pas une panne.</p></details>
+    <details><summary>Quand les paris sont-ils publiés ?</summary>
+      <p>Avant le coup d'envoi, une fois les compositions vérifiées quand elles existent. La cote affichée est celle relevée au moment de la publication.</p></details>
+    <details><summary>Et si la cote a bougé quand je veux parier ?</summary>
+      <p>Jouez seulement si vous obtenez une cote égale ou supérieure. En dessous, l'avantage estimé disparaît : il vaut mieux passer ce pari.</p></details>
+    <details><summary>Plusieurs paris sur le même match ?</summary>
+      <p>Oui, ils sont regroupés sur la même carte, chacun avec sa mise. Ce sont des paris séparés, à jouer séparément : ce n'est pas un combiné.</p></details>
+    <details><summary>Qui décide qu'un pari est gagné ou perdu ?</summary>
+      <p>Le règlement est automatique, à partir du score officiel récupéré après le match. Aucune intervention manuelle, aucun pari effacé, y compris les perdus.</p></details>
+    <details><summary>D'où viennent les données ?</summary>
+      <p>Les rencontres, compositions et statistiques viennent de fournisseurs de données sportives professionnels. Les cotes affichées sont des cotes réelles de bookmakers, relevées à la publication.</p></details>
+
+    <h3>Votre compte</h3>
+    <details><summary>Pourquoi créer un compte ?</summary>
+      <p>Le compte sert à suivre les paris du jour et à participer aux discussions sous chaque match, avec votre pseudo.</p></details>
+    <details><summary>Le service est-il payant ?</summary>
+      <p>Non. Le canal et le site sont gratuits. Le site contient des liens vers un bookmaker partenaire, signalés comme tels.</p></details>
+
+    <h3>Avant de parier</h3>
+    <details><summary>Est-ce que les gains sont garantis ?</summary>
+      <p>Non, et personne ne peut le garantir. Les performances passées ne préjugent pas des résultats futurs. Des séries de défaites arrivent, même quand la méthode est bonne.</p></details>
+    <details><summary>Combien miser ?</summary>
+      <p>Ne misez que de l'argent dont vous n'avez pas besoin. La règle la plus répandue est de ne jamais engager plus de 1 à 3 % de votre capital sur un pari, et de ne jamais dépasser 5 %.</p>
+      <p>Ne tentez pas de « rattraper » une perte en augmentant la mise suivante : c'est la manière la plus rapide de perdre tout son capital.</p></details>
+    <details><summary>Je pense jouer trop, que faire ?</summary>
+      <p>Les paris sont interdits aux mineurs et peuvent rendre dépendant. Vous pouvez demander votre exclusion des jeux d'argent auprès de l'Autorité nationale des jeux, et fixer des limites de dépôt chez votre bookmaker.</p>
+      <p>Pour en parler : <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener">joueurs-info-service.fr</a> ou le 09 74 75 13 13, appel non surtaxé, 7 jours sur 7 de 8 h à 2 h.</p></details>
+  </section>
+
+</main>
+
+<footer><div class="wrap">18+ · Jouer comporte des risques : endettement, isolement, dépendance. Les jeux d'argent sont interdits aux mineurs.
+  G-BET Bot publie des analyses statistiques à titre informatif : aucun gain n'est garanti et les performances passées ne préjugent pas des
+  résultats futurs. Pour être aidé : 09 74 75 13 13 (appel non surtaxé) ou <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener">joueurs-info-service.fr</a>.</div></footer>
+
+<div class="dock"><a class="cta" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre sur Telegram</a></div>
+<div id="floattip" role="status"></div>
+
+<section id="chat" aria-label="Discussion du match">
+  <div class="chat-head">
+    <button class="chat-back" type="button" id="chat-back" aria-label="Revenir">←</button>
+    <div class="chat-title"><span id="chat-name">Match</span><span id="chat-league"></span></div>
+    <div class="chat-score" id="chat-score"></div>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+  <form class="chat-foot" id="chat-form">
+    <input id="chat-input" placeholder="Écrire un message…" autocomplete="off" maxlength="300">
+    <button class="cta" type="submit">Envoyer</button>
+  </form>
+</section>
+
+<div id="gate" aria-label="Connexion">
+  <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gate-t">
+    <div class="logo" style="margin:0 0 6px">G-<b>BET</b></div>
+    <h2 id="gate-t" style="margin:0 0 4px">Bienvenue</h2>
+    <p class="gain" style="margin:0 0 16px">Un compte est nécessaire pour voir les paris et la discussion.</p>
+    <div class="gate-tabs" id="gate-tabs">
+      <button type="button" data-mode="in" aria-selected="true">Se connecter</button>
+      <button type="button" data-mode="up" aria-selected="false">Créer un compte</button>
+    </div>
+    <form id="gate-form">
+      <label class="gain" for="gate-user">Pseudo</label>
+      <input id="gate-user" autocomplete="username" maxlength="24" required>
+      <label class="gain" for="gate-pass">Mot de passe</label>
+      <input id="gate-pass" type="password" autocomplete="current-password" minlength="8" required>
+      <label class="gate-check"><input id="gate-stay" type="checkbox" checked> Rester connecté sur cet appareil</label>
+      <p class="gate-err" id="gate-err" hidden></p>
+      <button class="cta" type="submit" id="gate-submit">Se connecter</button>
+    </form>
+    <p class="gain" style="margin:10px 0 0;font-size:11px">Votre pseudo est visible dans les discussions. 18+.</p>
+  </div>
+</div>
+
+<script>
+const API = location.hostname.includes("89.168.57.74") ? "" : "https://api-89-168-57-74.nip.io";
+const $ = s => document.querySelector(s);
+const fmt = (n, d = 2) => (n === null || n === undefined || isNaN(n) ? "—" : Number(n).toFixed(d).replace(".", ",").replace("-", "−"));
+const unit = u => (u > 0 ? "+" : "") + fmt(u, 2) + " u";
+const eur = v => (v > 0 ? "+" : "") + fmt(v, 0) + " €";
+const esc = t => String(t ?? "").replace(/[<>&]/g, c => ({"<": "&lt;", ">": "&gt;", "&": "&amp;"}[c]));
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } },
+  set(k, v){ try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+/* Les routes de lecture publique repondent Access-Control-Allow-Origin: * :
+   on n'envoie le cookie de session que sur les routes de compte. */
+const AUTHENT = /^\/api\/(login|signup|chat\/post|me)/;
+async function api(path, opts){
+  const o = Object.assign({}, opts || {});
+  if (AUTHENT.test(path)) o.credentials = "include";
+  const r = await fetch(API + path, o);
+  return r.json();
+}
+
+/* ─────────────────────────── Compte ─────────────────────────── */
+let ME = store.get("gbet-user") || null;
+function majCompte(){
+  document.body.classList.toggle("locked", !ME);
+  $("#gate").hidden = !!ME;
+  let chip = $("#me-chip");
+  if (ME){
+    if (!chip){ chip = document.createElement("span"); chip.className = "me-chip"; chip.id = "me-chip"; document.querySelector(".bar").append(chip); }
+    chip.innerHTML = `${esc(ME)} <button type="button" id="me-out">Quitter</button>`;
+    $("#me-out").onclick = () => { ME = null; store.set("gbet-user", null); majCompte(); };
+  } else if (chip) chip.remove();
+}
+let gateMode = "in";
+$("#gate-tabs").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  gateMode = b.dataset.mode;
+  document.querySelectorAll("#gate-tabs button").forEach(x => x.setAttribute("aria-selected", x === b));
+  $("#gate-submit").textContent = gateMode === "up" ? "Créer mon compte" : "Se connecter";
+  $("#gate-pass").autocomplete = gateMode === "up" ? "new-password" : "current-password";
+  $("#gate-err").hidden = true;
+});
+$("#gate-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const username = $("#gate-user").value.trim(), password = $("#gate-pass").value;
+  const err = $("#gate-err");
+  try {
+    const res = await api(gateMode === "up" ? "/api/signup" : "/api/login", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({username, password}),
+    });
+    if (!res.ok){ err.textContent = res.reason || "Connexion impossible"; err.hidden = false; return; }
+    ME = res.username;
+    if ($("#gate-stay").checked) store.set("gbet-user", ME);
+    majCompte();
+    charger();
+  } catch (_){ err.textContent = "Serveur injoignable, réessayez dans un instant."; err.hidden = false; }
+});
+
+/* ─────────────────────────── Paris ─────────────────────────── */
+let PUBS = {live: [], done: []}, SCORES = {}, RES = null, stateFilter = "Tous", sportFilter = "Tous";
+const SEUIL = /(plus de|moins de|total|écart|over|under)/i, UNDER = /(moins de|under)/i;
+
+function jauge(label, now, need, under){
+  const pct = Math.max(0, Math.min(100, now / need * 100));
+  const cls = under ? (now >= need ? "danger" : "") : (now >= need ? "ok" : "");
+  return `<div class="gauge ${cls}"><span>${esc(label)}</span><div class="track"><div class="fill" style="width:${pct}%"></div></div>
+    <span class="num">${now} / ${need}</span></div>`;
+}
+function jaugeDe(texte, score){
+  if (!SEUIL.test(texte)) return "";
+  const m = texte.match(/(\d+(?:[.,]\d+)?)/); if (!m) return "";
+  const seuil = parseFloat(m[1].replace(",", ".")), need = Math.floor(seuil) + 1;
+  const total = score ? (Number(score.home_score) || 0) + (Number(score.away_score) || 0) : 0;
+  const under = UNDER.test(texte);
+  const mot = /buts|goals/i.test(texte) ? "Buts" : /points/i.test(texte) ? "Points" : /runs/i.test(texte) ? "Runs"
+    : /sets/i.test(texte) ? "Sets" : "Progression";
+  return jauge(under ? `${mot} (max ${need - 1})` : mot, total, need, under);
+}
+const etatDe = r => r === "GAGNE" ? "w" : r === "PERDU" ? "l" : r === "REMBOURSE" ? "p" : "s";
+const LIB = {w: "Gagné", l: "Perdu", p: "Remboursé", s: "En attente"};
+
+function paris(p){
+  const out = [];
+  if (p.conseil) out.push({bet: p.conseil, odd: p.conseil_cote, mise: p.conseil_mise_eur, r: etatDe(p.result)});
+  if (p.value_bet) out.push({bet: p.value_bet.split("@")[0].trim(), odd: p.value_cote, mise: p.value_mise_eur, r: etatDe(p.value_result)});
+  (p.player_picks || []).forEach(x => out.push({bet: x.label.replace(/^Player pick\s*:\s*/, ""), odd: x.odd, mise: x.mise_eur, r: etatDe(x.result)}));
+  return out;
+}
+function carte(p, euros, valeurU){
+  const sc = SCORES[p.fixture_id] || null;
+  const live = sc && !sc.finished && sc.status_short && sc.status_short !== "NS";
+  const [home, away] = String(p.match).split("–").map(t => (t || "").trim());
+  const ini = n => (n || "?").split(/[ .-]+/).slice(0, 2).map(w => w[0] || "").join("").toUpperCase();
+  const logo = (url, n) => url && /^https?:/.test(url) ? `<img class="badge" src="${esc(url)}" alt="" loading="lazy">`
+    : `<span class="badge">${esc(ini(n))}</span>`;
+  const hs = sc ? sc.home_score : null, as = sc ? sc.away_score : null;
+  const gagnant = hs !== null && hs !== as ? (hs > as ? "h" : "a") : null;
+  const fini = sc && sc.finished;
+  const ligne = (n, url, side, score) => `<div class="team ${fini && gagnant === side ? "win" : ""}">${logo(url, n)}
+    <span class="tname">${esc(n)}</span><span class="tscore">${score ?? ""}</span></div>`;
+  const ko = p.kickoff_at ? new Date(p.kickoff_at) : null;
+  const heure = ko ? ko.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
+  const etat = live ? `<span class="clock">${esc(sc.status_long || "En direct")}${sc.elapsed ? " · " + sc.elapsed + "'" : ""}</span>`
+    : fini ? `<span class="gain">Terminé</span>`
+    : ko && ko > new Date() ? `<span class="kick" data-ko="${p.kickoff_at}">${compte(ko)}</span>` : `<span class="tag s">À venir</span>`;
+
+  const lignes = paris(p).map(b => {
+    const mise = valeurU ? (b.mise || 200) / 200 : (b.mise || 200) / 200;
+    const miseTxt = euros ? eur(mise * valeurU).replace("+", "") : fmt(mise, 2) + " u";
+    const g = b.r === "w" ? mise * ((b.odd || 1) - 1) : b.r === "l" ? -mise : 0;
+    const gainTxt = b.r === "s" ? "—" : (euros ? eur(g * valeurU) : unit(g));
+    return `<div class="betline"><span class="bet">${esc(b.bet)}</span>
+      <span class="mise"><b>${miseTxt}</b><span>mise</span></span>
+      <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
+      <span class="tag ${b.r}">${b.r === "s" && live ? "En cours" : LIB[b.r]}</span>
+      <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
+      ${jaugeDe(b.bet, sc)}</div>`;
+  }).join("");
+
+  return `<article class="pick ${live ? "is-live" : ""}">
+    <div class="when">${heure}</div>
+    <div>
+      <div class="meta">${esc(p.sport_label || p.sport || "")} · ${esc(p.league || "")}
+        <button class="talk" type="button" data-fix="${esc(p.fixture_id)}" data-match="${esc(p.match)}"
+          data-league="${esc(p.league || "")}" data-score="${hs !== null && hs !== undefined ? hs + " - " + as : ""}"
+          title="Discussion" aria-label="Ouvrir la discussion">💬</button></div>
+      <div class="teams">${ligne(home, p.home_logo || p.home_photo, "h", hs)}${ligne(away, p.away_logo || p.away_photo, "a", as)}</div>
+      <div class="state">${etat}</div>
+      <div class="bets">${lignes}</div>
+    </div>
+  </article>`;
+}
+function compte(d){
+  const sec = Math.max(0, Math.round((d - new Date()) / 1000));
+  const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60);
+  return h ? `dans ${h} h ${String(m).padStart(2, "0")}` : `dans ${m} min ${String(sec % 60).padStart(2, "0")} s`;
+}
+const groupe = p => {
+  const sc = SCORES[p.fixture_id];
+  if (sc && !sc.finished && sc.status_short && sc.status_short !== "NS") return "En direct";
+  return p.result || (sc && sc.finished) ? "Terminés" : "À venir";
+};
+function duJour(){
+  const jour = new Date().toDateString();
+  return [...(PUBS.live || []), ...(PUBS.done || [])]
+    .filter(p => p.kickoff_at && new Date(p.kickoff_at).toDateString() === jour)
+    .sort((a, b) => new Date(a.kickoff_at) - new Date(b.kickoff_at));
+}
+function dessineJour(){
+  const tout = duJour();
+  const etats = ["Tous", "En direct", "À venir", "Terminés"];
+  $("#state-chips").innerHTML = etats.map(g => {
+    const n = g === "Tous" ? tout.length : tout.filter(p => groupe(p) === g).length;
+    return `<button type="button" aria-pressed="${g === stateFilter}" data-state="${g}">${g}<small>${n}</small></button>`;
+  }).join("");
+  const sports = ["Tous", ...new Set(tout.map(p => p.sport_label || p.sport))];
+  $("#sport-chips").innerHTML = sports.map(s =>
+    `<button type="button" aria-pressed="${s === sportFilter}" data-sport="${esc(s)}">${s === "Tous" ? "Tous sports" : esc(s)}</button>`).join("");
+  const vus = tout.filter(p => stateFilter === "Tous" || groupe(p) === stateFilter)
+                  .filter(p => sportFilter === "Tous" || (p.sport_label || p.sport) === sportFilter);
+  const suivant = tout.find(p => new Date(p.kickoff_at) > new Date());
+  $("#list").innerHTML = vus.map(p => carte(p)).join("") ||
+    `<div class="empty"><b>Aucun pari ici pour l'instant.</b><br>${suivant
+      ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) + "."
+      : "Rien de publié aujourd'hui : c'est normal les jours sans match filtré."}</div>`;
+}
+$("#state-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stateFilter = b.dataset.state; dessineJour(); } });
+$("#sport-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ sportFilter = b.dataset.sport; dessineJour(); } });
+setInterval(() => document.querySelectorAll("[data-ko]").forEach(el => el.textContent = compte(new Date(el.dataset.ko))), 1000);
+
+/* ─────────────────────────── Résultats ─────────────────────────── */
+function courbe(points, conv){
+  if (!points || !points.length) return `<p class="gain">Pas encore de données.</p>`;
+  const vals = points.map(p => conv(p.pnl));
+  const max = Math.max(1, ...vals), min = Math.min(0, ...vals);
+  const x = i => 50 + i * (460 / Math.max(1, points.length - 1));
+  const y = v => 190 - (v - min) / (max - min || 1) * 170;
+  const d = points.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)} ${y(vals[i]).toFixed(1)}`).join(" ");
+  const grille = [0, .5, 1].map(f => { const v = min + (max - min) * f; return `<line x1="50" y1="${y(v)}" x2="510" y2="${y(v)}" stroke="#2f2b22"/>
+    <text x="44" y="${y(v) + 4}" text-anchor="end">${conv === Number ? fmt(v, 1) : fmt(v, 0)}</text>`; }).join("");
+  return `<svg class="chart" viewBox="0 0 520 215" role="img" aria-label="Bénéfice cumulé">
+    ${grille}<path d="${d} L${x(points.length - 1)} ${y(min)} L50 ${y(min)} Z" fill="#e3b341" fill-opacity=".12"/>
+    <path d="${d}" fill="none" stroke="#e3b341" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="${x(points.length - 1)}" cy="${y(vals[vals.length - 1])}" r="4.5" fill="#e3b341"/>
+    <text x="50" y="210">${esc(points[0].label)}</text><text x="510" y="210" text-anchor="end">${esc(points[points.length - 1].label)}</text></svg>`;
+}
+function resumeResultats(){
+  const ps = RES.period_stats || {}, an = ps.annee || {}, j = ps.jour || {};
+  const derniers = (RES.results || []).slice(0, 10);
+  $("#res-summary").innerHTML = `
+    <div class="kpi"><span>Réussite depuis le début</span><strong>${an.winrate ?? "—"} %</strong></div>
+    <div class="kpi"><span>Bénéfice depuis le début</span><strong class="${(an.pnl || 0) >= 0 ? "pos" : "neg"}">${unit(an.pnl || 0)}</strong></div>
+    <div class="kpi"><span>Aujourd'hui</span><strong class="${(j.pnl || 0) >= 0 ? "pos" : "neg"}">${unit(j.pnl || 0)}</strong></div>
+    <div class="kpi"><span>10 derniers</span><div class="form">${derniers.map(r => {
+      const cls = r.r === "G" ? "w" : r.r === "P" ? "l" : "p";
+      const tip = `<b>${esc(r.match)}</b><em>${esc(r.pick)}</em><em>cote ${fmt(r.cote)} · ${unit(r.pnl || 0)}</em>`;
+      return `<span class="dot ${cls}" tabindex="0" data-tip="${encodeURIComponent(tip)}">${r.r}</span>`;
+    }).join("")}</div></div>`;
+  $("#chart-u").innerHTML = courbe((RES.period_series || {}).annee || (RES.period_series || {}).mois, v => Number(v));
+  $("#list-res").innerHTML = (PUBS.done || []).slice(0, 8).map(p => carte(p)).join("") || `<p class="gain">Rien à afficher.</p>`;
+  const bySport = (RES.period_stats || {}).by_sport || {};
+  SPLIT.sport = Object.entries(bySport).map(([s, v]) => [s, (v.annee || {}).n || 0, (v.annee || {}).winrate ?? "—", (v.annee || {}).pnl || 0])
+    .filter(r => r[1]).sort((a, b) => b[3] - a[3]);
+  const lg = RES.league_stats || {};
+  SPLIT.ligue = Object.entries(lg).map(([n, v]) => [v.name || n, v.n || 0, v.winrate ?? "—", v.pnl || 0])
+    .filter(r => r[1] >= 5).sort((a, b) => b[3] - a[3]).slice(0, 12);
+  dessineSplit(splitKey);
+}
+const SPLIT = {sport: [], ligue: []};
+let splitKey = "sport";
+function dessineSplit(k){
+  splitKey = k;
+  $("#split-col").textContent = k === "sport" ? "Sport" : "Ligue";
+  document.querySelectorAll("#split button").forEach(b => b.setAttribute("aria-pressed", b.dataset.split === k));
+  $("#split-body").innerHTML = (SPLIT[k] || []).map(([n, c, w, u]) =>
+    `<tr><td>${esc(n)}</td><td>${c}</td><td>${w}${w === "—" ? "" : " %"}</td>
+     <td class="${u > 0 ? "pos" : u < 0 ? "neg" : ""}">${unit(u)}</td></tr>`).join("") || `<tr><td colspan="4">—</td></tr>`;
+}
+$("#split").addEventListener("click", e => { const b = e.target.closest("button"); if (b) dessineSplit(b.dataset.split); });
+
+/* Bilans par période : /api/results/history?period&offset (du plus récent au plus ancien) */
+const CACHE = {};
+async function blocs(periode, n = 8){
+  const key = periode + ":" + n;
+  if (CACHE[key]) return CACHE[key];
+  const out = [];
+  for (let o = 0; o > -n; o--){
+    try {
+      const d = await api(`/api/results/history?period=${periode}&offset=${o}`);
+      out.push({label: d.label_range || "", pnl: d.pnl_total || 0, sports: d.by_sport || {},
+                n: (d.points || []).length});
+    } catch (_){ break; }
+  }
+  CACHE[key] = out;
+  return out;
+}
+async function dessineBlocs(trackId, chipsId, periode, euros, valeurU){
+  document.querySelectorAll(`#${chipsId} button`).forEach(b => b.setAttribute("aria-pressed", b.dataset.p === periode));
+  const el = document.getElementById(trackId);
+  el.innerHTML = `<div class="block flat"><span>Chargement…</span></div>`;
+  const data = await blocs(periode);
+  el.innerHTML = data.map(b => {
+    const v = euros ? b.pnl * valeurU : b.pnl;
+    const detail = `<b>${esc(b.label)}</b>` + (Object.entries(b.sports).length
+      ? Object.entries(b.sports).map(([s, x]) => `<em>${esc(s)} · ${euros ? eur((x.pnl || 0) * valeurU) : unit(x.pnl || 0)}</em>`).join("")
+      : `<em>Aucun pari sur cette période.</em>`);
+    return `<div class="block ${b.pnl > 0 ? "up" : b.pnl < 0 ? "down" : "flat"}" tabindex="0" data-tip="${encodeURIComponent(detail)}">
+      <span>${esc(b.label)}</span><b class="${b.pnl > 0 ? "pos" : b.pnl < 0 ? "neg" : ""}">${euros ? eur(v) : unit(v)}</b>
+      <span>${Object.keys(b.sports).length ? Object.keys(b.sports).length + " sport(s)" : "aucun pari"}</span></div>`;
+  }).join("") || `<div class="block flat"><span>Pas de données</span></div>`;
+}
+let periode = "jour", mPeriode = "jour";
+$("#period-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ periode = b.dataset.p; dessineBlocs("rail-track", "period-chips", periode, false); } });
+$("#m-period-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ mPeriode = b.dataset.p; dessineBlocs("m-track", "m-period-chips", mPeriode, true, valeurU()); } });
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-rail]"); if (!b) return;
+  const t = document.getElementById(b.dataset.rail);
+  t.scrollBy({left: Number(b.dataset.dir) * t.clientWidth * .8});
+});
+
+/* Infobulles flottantes */
+const ftip = $("#floattip");
+function montreTip(el){
+  ftip.innerHTML = decodeURIComponent(el.dataset.tip);
+  ftip.style.display = "block";
+  const b = el.getBoundingClientRect(), t = ftip.getBoundingClientRect();
+  ftip.style.left = Math.max(8, Math.min(innerWidth - t.width - 8, b.left + b.width / 2 - t.width / 2)) + "px";
+  ftip.style.top = (b.top - t.height - 8 > 8 ? b.top - t.height - 8 : b.bottom + 8) + "px";
+}
+document.addEventListener("mouseover", e => {
+  const el = e.target.closest("[data-tip]");
+  if (el) montreTip(el); else ftip.style.display = "none";
+});
+document.addEventListener("focusin", e => { const el = e.target.closest("[data-tip]"); if (el) montreTip(el); });
+addEventListener("scroll", () => { ftip.style.display = "none"; }, true);
+
+/* ─────────────────────────── Ma mise ─────────────────────────── */
+const valeurU = () => Math.max(1, Number($("#stake").value) || 10);
+function dessineMise(){
+  const s = valeurU(), ps = (RES && RES.period_stats) || {}, an = ps.annee || {};
+  const miseU = (an.mise || 0) / 200;
+  $("#m-mise").textContent = Math.round(miseU * s).toLocaleString("fr-FR") + " €";
+  $("#m-mise-u").textContent = `${fmt(miseU, 1)} u sur ${an.n || 0} paris`;
+  const benef = (an.pnl || 0) * s;
+  $("#m-benef").textContent = eur(benef);
+  $("#m-benef").className = benef >= 0 ? "pos" : "neg";
+  $("#m-retour").textContent = miseU ? fmt((an.pnl || 0) / miseU * 100, 1) + " %" : "—";
+  $("#m-n").textContent = an.n || 0;
+  $("#m-body").innerHTML = (SPLIT.sport || []).map(([n, c, w, u]) =>
+    `<tr><td>${esc(n)}</td><td>${c}</td><td>${Math.round(c * 1.35 * s).toLocaleString("fr-FR")} €</td>
+     <td class="${u > 0 ? "pos" : "neg"}">${eur(u * s)}</td></tr>`).join("") || `<tr><td colspan="4">—</td></tr>`;
+  $("#chart-e").innerHTML = courbe((RES.period_series || {}).annee || (RES.period_series || {}).mois, v => v * s);
+  $("#m-list").innerHTML = (PUBS.done || []).slice(0, 6).map(p => carte(p, true, s)).join("");
+  dessineBlocs("m-track", "m-period-chips", mPeriode, true, s);
+}
+$("#stake").addEventListener("input", dessineMise);
+$("#stake-presets").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ $("#stake").value = b.dataset.v; dessineMise(); } });
+
+/* ─────────────────────────── Discussion ─────────────────────────── */
+let chatFix = null, chatTimer = null;
+async function ouvrirChat(btn){
+  chatFix = btn.dataset.fix;
+  $("#chat-name").textContent = btn.dataset.match;
+  $("#chat-league").textContent = btn.dataset.league;
+  $("#chat-score").textContent = btn.dataset.score || "";
+  $("#chat").classList.add("on");
+  document.body.style.overflow = "hidden";
+  await majChat();
+  chatTimer = setInterval(majChat, 15000);
+  $("#chat-back").focus();
+}
+async function majChat(){
+  try {
+    const d = await api(`/api/chat?fixture_id=${encodeURIComponent(chatFix)}`);
+    const msgs = d.messages || [];
+    $("#chat-body").innerHTML = msgs.length ? msgs.map(m => {
+      const moi = ME && m.username === ME;
+      const h = m.created_at ? new Date(m.created_at).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
+      return `<div class="msg ${moi ? "me" : ""}"><u>${esc(m.username)}<time>${h}</time></u>${esc(m.message)}</div>`;
+    }).join("") : `<p class="gain">Aucun message pour l'instant. Lancez la discussion.</p>`;
+    $("#chat-body").scrollTop = $("#chat-body").scrollHeight;
+  } catch (_){}
+}
+function fermerChat(){ $("#chat").classList.remove("on"); document.body.style.overflow = ""; clearInterval(chatTimer); }
+document.addEventListener("click", e => { const b = e.target.closest(".talk"); if (b) ouvrirChat(b); });
+$("#chat-back").addEventListener("click", fermerChat);
+addEventListener("keydown", e => { if (e.key === "Escape") fermerChat(); });
+$("#chat-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const i = $("#chat-input"); if (!i.value.trim()) return;
+  const txt = i.value.trim(); i.value = "";
+  try {
+    const res = await api("/api/chat/post", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({fixture_id: chatFix, message: txt})});
+    if (!res.ok) alert(res.reason || "Message refusé");
+  } catch (_){}
+  majChat();
+});
+
+/* ─────────────────────────── Navigation & chargement ─────────────────────────── */
+document.querySelector("nav").addEventListener("click", e => {
+  const b = e.target.closest("button[data-page]"); if (!b) return;
+  document.querySelectorAll("nav button").forEach(x => x.setAttribute("aria-selected", x === b));
+  ["jour", "res", "mise", "aide"].forEach(k => document.getElementById("p-" + k).hidden = k !== b.dataset.page);
+  scrollTo({top: 0});
+});
+
+async function charger(){
+  if (!ME) return;
+  try {
+    const [pub, live, res] = await Promise.all([api("/api/publications"), api("/api/live-scores"), api("/api/results")]);
+    PUBS = pub; SCORES = (live && live.scores) || {}; RES = res;
+    $("#jour-maj").textContent = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
+    dessineJour(); resumeResultats(); dessineMise();
+    dessineBlocs("rail-track", "period-chips", periode, false);
+    const st = RES.period_stats || {};
+    $("#res-streak").innerHTML = `<span class="streak">${(st.semaine || {}).winrate ?? "—"} % de réussite cette semaine</span>
+      <span class="gain">${(st.semaine || {}).n || 0} paris réglés · ${unit((st.semaine || {}).pnl || 0)} sur 7 jours ·
+      ${(st.mois || {}).n || 0} paris ce mois-ci</span>`;
+  } catch (_){
+    $("#list").innerHTML = `<div class="empty"><b>Données indisponibles.</b><br>Le serveur ne répond pas, réessayez dans un instant.</div>`;
+  }
+}
+majCompte();
+charger();
+setInterval(charger, 60000);
+</script>
+</body>
+</html>
