@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T16:52:16.274086+00:00",
+ "generated_at": "2026-09-18T17:50:17.317868+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183810",
@@ -43,34 +43,6 @@
    "conseil": "Victoire Andrea Lazaro Garcia",
    "conseil_cote": 1.69,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183833",
-   "flag": "🎾",
-   "league": "SP Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Kaitlin Quevedo – Teodora Kostovic",
-   "kickoff_at": "2026-09-18T16:00Z",
-   "published": true,
-   "home_photo": "assets/players/kaitlin quevedo.png",
-   "away_photo": "assets/players/teodora kostovic.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.625",
-   "value_cote": 1.62,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Kaitlin Quevedo",
-     "kind": "player",
-     "detail": "cote 1.78",
-     "odd": 1.781,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_wta_183845",
@@ -276,22 +248,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816979",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Houston Astros – Kansas City Royals",
-   "kickoff_at": "2026-09-17T23:15Z",
-   "published": true,
-   "value_bet": "Houston Astros @ 1.6897",
-   "value_cote": 1.69,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "6 - 2"
-  },
-  {
    "fixture_id": "baseball_401816976",
    "flag": "⚾",
    "league": "MLB",
@@ -306,6 +262,22 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "0 - 3"
+  },
+  {
+   "fixture_id": "baseball_401816979",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Houston Astros – Kansas City Royals",
+   "kickoff_at": "2026-09-17T23:15Z",
+   "published": true,
+   "value_bet": "Houston Astros @ 1.6897",
+   "value_cote": 1.69,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 2"
   },
   {
    "fixture_id": "wnba_401857190",
@@ -339,28 +311,6 @@
    ]
   },
   {
-   "fixture_id": "wnba_401857191",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Chicago Sky – Washington Mystics",
-   "kickoff_at": "2026-09-18T00:00Z",
-   "published": true,
-   "result": "PERDU",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Natasha Cloud — Points Plus de 8.5",
-     "kind": "player",
-     "detail": "cote 1.88",
-     "odd": 1.88,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "wnba_401857192",
    "flag": "🏀",
    "league": "WNBA",
@@ -379,6 +329,28 @@
      "odd": 1.88,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "wnba_401857191",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Chicago Sky – Washington Mystics",
+   "kickoff_at": "2026-09-18T00:00Z",
+   "published": true,
+   "result": "PERDU",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Cloud — Points Plus de 8.5",
+     "kind": "player",
+     "detail": "cote 1.88",
+     "odd": 1.88,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -480,6 +452,38 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-2, 6-1"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183833",
+   "flag": "🎾",
+   "league": "SP Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Kaitlin Quevedo – Teodora Kostovic",
+   "kickoff_at": "2026-09-18T16:00Z",
+   "published": true,
+   "home_photo": "assets/players/kaitlin quevedo.png",
+   "away_photo": "assets/players/teodora kostovic.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.625",
+   "value_cote": 1.62,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-3, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Kaitlin Quevedo",
+     "kind": "player",
+     "detail": "cote 1.78",
+     "odd": 1.781,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
