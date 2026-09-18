@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T01:51:16.348217+00:00",
+ "generated_at": "2026-09-18T02:03:19.235592+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183687",
@@ -141,46 +141,6 @@
    "value_bet": "New York Mets @ 1.7812",
    "value_cote": 1.78,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "wnba_401857191",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Chicago Sky – Washington Mystics",
-   "kickoff_at": "2026-09-18T00:00Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Natasha Cloud — Points Plus de 8.5",
-     "kind": "player",
-     "detail": "cote 1.88",
-     "odd": 1.88,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "wnba_401857192",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Dallas Wings – Los Angeles Sparks",
-   "kickoff_at": "2026-09-18T00:00Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Dearica Hamby — Points Plus de 11.5",
-     "kind": "player",
-     "detail": "cote 1.88",
-     "odd": 1.88,
-     "mise_eur": 200.0
-    }
-   ]
   }
  ],
  "done": [
@@ -582,6 +542,50 @@
      "kind": "player",
      "detail": "cote 2.34",
      "odd": 2.34,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "wnba_401857191",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Chicago Sky – Washington Mystics",
+   "kickoff_at": "2026-09-18T00:00Z",
+   "published": true,
+   "result": "PERDU",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Cloud — Points Plus de 8.5",
+     "kind": "player",
+     "detail": "cote 1.88",
+     "odd": 1.88,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "wnba_401857192",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Dallas Wings – Los Angeles Sparks",
+   "kickoff_at": "2026-09-18T00:00Z",
+   "published": true,
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Dearica Hamby — Points Plus de 11.5",
+     "kind": "player",
+     "detail": "cote 1.88",
+     "odd": 1.88,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
