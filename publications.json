@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T15:08:17.209737+00:00",
+ "generated_at": "2026-09-18T15:55:17.169244+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183810",
@@ -43,34 +43,6 @@
    "conseil": "Victoire Jeline Vandromme",
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183768",
-   "flag": "🎾",
-   "league": "BBVA Open Internacional De Valencia",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Despina Papamichail – Yasmine Kabbaj",
-   "kickoff_at": "2026-09-18T14:00Z",
-   "published": true,
-   "home_photo": "assets/players/despina papamichail.png",
-   "away_photo": "assets/players/yasmine kabbaj.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.588",
-   "value_cote": 1.59,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Despina Papamichail",
-     "kind": "player",
-     "detail": "cote 2.26",
-     "odd": 2.26,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_wta_183773",
@@ -472,6 +444,38 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-2, 1-6, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183768",
+   "flag": "🎾",
+   "league": "BBVA Open Internacional De Valencia",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Despina Papamichail – Yasmine Kabbaj",
+   "kickoff_at": "2026-09-18T14:00Z",
+   "published": true,
+   "home_photo": "assets/players/despina papamichail.png",
+   "away_photo": "assets/players/yasmine kabbaj.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.588",
+   "value_cote": 1.59,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "1-6, 5-7",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Despina Papamichail",
+     "kind": "player",
+     "detail": "cote 2.26",
+     "odd": 2.26,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
