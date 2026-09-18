@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T19:15:16.213367+00:00",
+ "generated_at": "2026-09-18T19:58:15.850569+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183810",
@@ -25,34 +25,6 @@
      "kind": "player",
      "detail": "cote 1.28",
      "odd": 1.277,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183845",
-   "flag": "🎾",
-   "league": "SP Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alina Charaeva – Anna Blinkova",
-   "kickoff_at": "2026-09-18T17:30Z",
-   "published": true,
-   "home_photo": "assets/players/alina charaeva.png",
-   "away_photo": "assets/players/anna blinkova.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.568",
-   "value_cote": 1.57,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Anna Blinkova",
-     "kind": "player",
-     "detail": "cote 1.64",
-     "odd": 1.641,
      "mise_eur": 200.0
     }
    ]
@@ -486,6 +458,38 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-3, 2-6, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183845",
+   "flag": "🎾",
+   "league": "SP Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alina Charaeva – Anna Blinkova",
+   "kickoff_at": "2026-09-18T17:30Z",
+   "published": true,
+   "home_photo": "assets/players/alina charaeva.png",
+   "away_photo": "assets/players/anna blinkova.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.568",
+   "value_cote": 1.57,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "4-6, 5-7",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Anna Blinkova",
+     "kind": "player",
+     "detail": "cote 1.64",
+     "odd": 1.641,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
