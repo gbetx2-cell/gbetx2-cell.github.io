@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T04:35:17.334202+00:00",
+ "generated_at": "2026-09-18T04:44:18.062884+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183687",
@@ -39,34 +39,6 @@
      "kind": "player",
      "detail": "cote 1.89",
      "odd": 1.885,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183808",
-   "flag": "🎾",
-   "league": "Guadalajara Open presentado por Santander",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sloane Stephens – Peyton Stearns",
-   "kickoff_at": "2026-09-17T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/sloane stephens.png",
-   "away_photo": "assets/players/peyton stearns.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.621",
-   "value_cote": 1.62,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Peyton Stearns",
-     "kind": "player",
-     "detail": "cote 1.60",
-     "odd": 1.599,
      "mise_eur": 200.0
     }
    ]
@@ -510,6 +482,36 @@
    "score": "2 - 5"
   },
   {
+   "fixture_id": "tennis_espn_wta_183808",
+   "flag": "🎾",
+   "league": "Guadalajara Open presentado por Santander",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Sloane Stephens – Peyton Stearns",
+   "kickoff_at": "2026-09-17T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/sloane stephens.png",
+   "away_photo": "assets/players/peyton stearns.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.621",
+   "value_cote": 1.62,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Peyton Stearns",
+     "kind": "player",
+     "detail": "cote 1.60",
+     "odd": 1.599,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ],
+   "result": "GAGNE"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183807",
    "flag": "🎾",
    "league": "Guadalajara Open presentado por Santander",
@@ -574,22 +576,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816979",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Houston Astros – Kansas City Royals",
-   "kickoff_at": "2026-09-17T23:15Z",
-   "published": true,
-   "value_bet": "Houston Astros @ 1.6897",
-   "value_cote": 1.69,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "6 - 2"
-  },
-  {
    "fixture_id": "baseball_401816976",
    "flag": "⚾",
    "league": "MLB",
@@ -604,6 +590,22 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "0 - 3"
+  },
+  {
+   "fixture_id": "baseball_401816979",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Houston Astros – Kansas City Royals",
+   "kickoff_at": "2026-09-17T23:15Z",
+   "published": true,
+   "value_bet": "Houston Astros @ 1.6897",
+   "value_cote": 1.69,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 2"
   },
   {
    "fixture_id": "wnba_401857190",
