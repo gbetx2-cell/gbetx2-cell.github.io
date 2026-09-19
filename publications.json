@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T16:30:46.524395+00:00",
+ "generated_at": "2026-09-19T16:41:00.946964+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507070",
@@ -32,6 +32,19 @@
    "conseil": "Victoire Paula Badosa",
    "conseil_cote": 1.23,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401817004",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago White Sox – Detroit Tigers",
+   "kickoff_at": "2026-09-19T18:10Z",
+   "published": true,
+   "value_bet": "Chicago White Sox @ 1.7812",
+   "value_cote": 1.78,
+   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -384,23 +397,6 @@
    "score": "3-6, 2-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_183682",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Laura Samson – Samira De Stefano",
-   "kickoff_at": "2026-09-19T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/laura samson.png",
-   "away_photo": "assets/players/samira de stefano.png",
-   "conseil": "Victoire Laura Samson",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "3-6, 6-1, 4-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183723",
    "flag": "🎾",
    "league": "Caldas da Rainha Ladies Open",
@@ -416,6 +412,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "7-5, 5-7, 6-3"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183682",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Laura Samson – Samira De Stefano",
+   "kickoff_at": "2026-09-19T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/laura samson.png",
+   "away_photo": "assets/players/samira de stefano.png",
+   "conseil": "Victoire Laura Samson",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "3-6, 6-1, 4-6"
   },
   {
    "fixture_id": "tennis_espn_wta_183681",
