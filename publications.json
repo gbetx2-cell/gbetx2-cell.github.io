@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T12:47:13.996416+00:00",
+ "generated_at": "2026-09-19T13:45:14.644067+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507070",
@@ -17,34 +17,6 @@
    "conseil_cote": 1.4,
    "conseil_mise_eur": 300.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183681",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Noemi Basiletti – Mona Barthel",
-   "kickoff_at": "2026-09-19T11:30Z",
-   "published": true,
-   "home_photo": "assets/players/noemi basiletti.png",
-   "away_photo": "assets/players/mona barthel.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 2.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.641",
-   "value_cote": 1.64,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Mona Barthel",
-     "kind": "player",
-     "detail": "cote 1.63",
-     "odd": 1.633,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_wta_183858",
@@ -412,6 +384,23 @@
    "score": "3-6, 2-6"
   },
   {
+   "fixture_id": "tennis_espn_wta_183723",
+   "flag": "🎾",
+   "league": "Caldas da Rainha Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Gabriela Knutson – Mia Pohankova",
+   "kickoff_at": "2026-09-19T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/gabriela knutson.png",
+   "away_photo": "assets/players/mia pohankova.png",
+   "conseil": "Victoire Gabriela Knutson",
+   "conseil_cote": 2.07,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "7-5, 5-7, 6-3"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183682",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
@@ -429,21 +418,36 @@
    "score": "3-6, 6-1, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_183723",
+   "fixture_id": "tennis_espn_wta_183681",
    "flag": "🎾",
-   "league": "Caldas da Rainha Ladies Open",
+   "league": "Zavarovalnica Triglav Ljubljana",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Gabriela Knutson – Mia Pohankova",
-   "kickoff_at": "2026-09-19T10:00Z",
+   "match": "Noemi Basiletti – Mona Barthel",
+   "kickoff_at": "2026-09-19T11:30Z",
    "published": true,
-   "home_photo": "assets/players/gabriela knutson.png",
-   "away_photo": "assets/players/mia pohankova.png",
-   "conseil": "Victoire Gabriela Knutson",
-   "conseil_cote": 2.07,
+   "home_photo": "assets/players/noemi basiletti.png",
+   "away_photo": "assets/players/mona barthel.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 2.36,
    "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.641",
+   "value_cote": 1.64,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "7-5, 5-7, 6-3"
+   "score": "4-6, 0-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Mona Barthel",
+     "kind": "player",
+     "detail": "cote 1.63",
+     "odd": 1.633,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
