@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T19:01:15.723568+00:00",
+ "generated_at": "2026-09-19T19:41:01.407478+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507070",
@@ -44,6 +44,19 @@
    "published": true,
    "value_bet": "Chicago White Sox @ 1.7812",
    "value_cote": 1.78,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401816998",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Tampa Bay Rays – Boston Red Sox",
+   "kickoff_at": "2026-09-19T20:10Z",
+   "published": true,
+   "value_bet": "Tampa Bay Rays @ 1.6711",
+   "value_cote": 1.67,
    "value_mise_eur": 200.0
   }
  ],
@@ -277,6 +290,28 @@
    "score": "8 - 5"
   },
   {
+   "fixture_id": "wnba_401857195",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Toronto Tempo – Indiana Fever",
+   "kickoff_at": "2026-09-18T23:30Z",
+   "published": true,
+   "result": "PERDU",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Sophie Cunningham — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.92",
+     "odd": 1.92,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "wnba_401857196",
    "flag": "🏀",
    "league": "WNBA",
@@ -304,28 +339,6 @@
      "odd": 1.85,
      "mise_eur": 200.0,
      "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "wnba_401857195",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – Indiana Fever",
-   "kickoff_at": "2026-09-18T23:30Z",
-   "published": true,
-   "result": "PERDU",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Sophie Cunningham — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.92",
-     "odd": 1.92,
-     "mise_eur": 200.0,
-     "result": "PERDU"
     }
    ]
   },
