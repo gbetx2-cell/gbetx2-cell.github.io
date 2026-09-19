@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T20:15:23.156985+00:00",
+ "generated_at": "2026-09-19T20:18:13.500018+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507070",
@@ -17,21 +17,6 @@
    "conseil_cote": 1.4,
    "conseil_mise_eur": 300.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183858",
-   "flag": "🎾",
-   "league": "SP Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Paula Badosa – Nadia Podoroska",
-   "kickoff_at": "2026-09-19T17:00Z",
-   "published": true,
-   "home_photo": "assets/players/paula badosa.png",
-   "away_photo": "assets/players/nadia podoroska.png",
-   "conseil": "Victoire Paula Badosa",
-   "conseil_cote": 1.23,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401817004",
@@ -474,6 +459,23 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183858",
+   "flag": "🎾",
+   "league": "SP Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Paula Badosa – Nadia Podoroska",
+   "kickoff_at": "2026-09-19T17:00Z",
+   "published": true,
+   "home_photo": "assets/players/paula badosa.png",
+   "away_photo": "assets/players/nadia podoroska.png",
+   "conseil": "Victoire Paula Badosa",
+   "conseil_cote": 1.23,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "3-6, 4-6"
   }
  ]
 }
