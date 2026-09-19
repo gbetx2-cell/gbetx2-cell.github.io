@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T01:30:02.882914+00:00",
+ "generated_at": "2026-09-19T01:33:14.122267+00:00",
  "live": [
   {
    "fixture_id": "baseball_401816985",
@@ -13,34 +13,6 @@
    "value_bet": "Pittsburgh Pirates @ 1.5263",
    "value_cote": 1.53,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "wnba_401857196",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Minnesota Lynx – New York Liberty",
-   "kickoff_at": "2026-09-18T23:30Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Natasha Howard — Points Plus de 11.5",
-     "kind": "player",
-     "detail": "cote 1.89",
-     "odd": 1.89,
-     "mise_eur": 200.0
-    },
-    {
-     "category": "Player pick",
-     "label": "Pauline Astier — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.85",
-     "odd": 1.85,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "wnba_401857195",
@@ -448,23 +420,6 @@
    "score": "6-2, 6-1"
   },
   {
-   "fixture_id": "tennis_espn_wta_183769",
-   "flag": "🎾",
-   "league": "BBVA Open Internacional De Valencia",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Joelle Lilly Sophie Steur – Andrea Lazaro Garcia",
-   "kickoff_at": "2026-09-18T16:00Z",
-   "published": true,
-   "home_photo": "assets/players/joelle lilly sophie steur.png",
-   "away_photo": "assets/players/andrea lazaro garcia.png",
-   "conseil": "Victoire Andrea Lazaro Garcia",
-   "conseil_cote": 1.69,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-3, 2-6, 6-4"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183833",
    "flag": "🎾",
    "league": "SP Open",
@@ -495,6 +450,23 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183769",
+   "flag": "🎾",
+   "league": "BBVA Open Internacional De Valencia",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Joelle Lilly Sophie Steur – Andrea Lazaro Garcia",
+   "kickoff_at": "2026-09-18T16:00Z",
+   "published": true,
+   "home_photo": "assets/players/joelle lilly sophie steur.png",
+   "away_photo": "assets/players/andrea lazaro garcia.png",
+   "conseil": "Victoire Andrea Lazaro Garcia",
+   "conseil_cote": 1.69,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-3, 2-6, 6-4"
   },
   {
    "fixture_id": "tennis_espn_wta_183845",
@@ -574,6 +546,36 @@
      "odd": 2.0,
      "mise_eur": 200.0,
      "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "wnba_401857196",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Minnesota Lynx – New York Liberty",
+   "kickoff_at": "2026-09-18T23:30Z",
+   "published": true,
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Howard — Points Plus de 11.5",
+     "kind": "player",
+     "detail": "cote 1.89",
+     "odd": 1.89,
+     "mise_eur": 200.0
+    },
+    {
+     "category": "Player pick",
+     "label": "Pauline Astier — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.85",
+     "odd": 1.85,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     }
    ]
   }
