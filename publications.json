@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T21:41:00.845055+00:00",
+ "generated_at": "2026-09-19T22:41:00.699462+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507070",
@@ -42,6 +42,19 @@
    "published": true,
    "value_bet": "Cleveland Guardians @ 1.5618",
    "value_cote": 1.56,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "baseball_401817003",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Houston Astros – Atlanta Braves",
+   "kickoff_at": "2026-09-19T23:10Z",
+   "published": true,
+   "value_bet": "Houston Astros @ 1.7692",
+   "value_cote": 1.77,
    "value_mise_eur": 200.0
   }
  ],
@@ -275,6 +288,28 @@
    "score": "8 - 5"
   },
   {
+   "fixture_id": "wnba_401857195",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Toronto Tempo – Indiana Fever",
+   "kickoff_at": "2026-09-18T23:30Z",
+   "published": true,
+   "result": "PERDU",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Sophie Cunningham — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.92",
+     "odd": 1.92,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "wnba_401857196",
    "flag": "🏀",
    "league": "WNBA",
@@ -302,28 +337,6 @@
      "odd": 1.85,
      "mise_eur": 200.0,
      "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "wnba_401857195",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – Indiana Fever",
-   "kickoff_at": "2026-09-18T23:30Z",
-   "published": true,
-   "result": "PERDU",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Sophie Cunningham — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.92",
-     "odd": 1.92,
-     "mise_eur": 200.0,
-     "result": "PERDU"
     }
    ]
   },
