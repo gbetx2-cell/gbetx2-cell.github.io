@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T04:01:03.260380+00:00",
+ "generated_at": "2026-09-19T04:35:02.997235+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_186072",
@@ -178,22 +178,6 @@
    ]
   },
   {
-   "fixture_id": "baseball_401816979",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Houston Astros – Kansas City Royals",
-   "kickoff_at": "2026-09-17T23:15Z",
-   "published": true,
-   "value_bet": "Houston Astros @ 1.6897",
-   "value_cote": 1.69,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "6 - 2"
-  },
-  {
    "fixture_id": "baseball_401816976",
    "flag": "⚾",
    "league": "MLB",
@@ -208,6 +192,22 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "0 - 3"
+  },
+  {
+   "fixture_id": "baseball_401816979",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Houston Astros – Kansas City Royals",
+   "kickoff_at": "2026-09-17T23:15Z",
+   "published": true,
+   "value_bet": "Houston Astros @ 1.6897",
+   "value_cote": 1.69,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "6 - 2"
   },
   {
    "fixture_id": "wnba_401857190",
@@ -416,6 +416,23 @@
    "score": "6-2, 6-1"
   },
   {
+   "fixture_id": "tennis_espn_wta_183769",
+   "flag": "🎾",
+   "league": "BBVA Open Internacional De Valencia",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Joelle Lilly Sophie Steur – Andrea Lazaro Garcia",
+   "kickoff_at": "2026-09-18T16:00Z",
+   "published": true,
+   "home_photo": "assets/players/joelle lilly sophie steur.png",
+   "away_photo": "assets/players/andrea lazaro garcia.png",
+   "conseil": "Victoire Andrea Lazaro Garcia",
+   "conseil_cote": 1.69,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-3, 2-6, 6-4"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183833",
    "flag": "🎾",
    "league": "SP Open",
@@ -446,23 +463,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183769",
-   "flag": "🎾",
-   "league": "BBVA Open Internacional De Valencia",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Joelle Lilly Sophie Steur – Andrea Lazaro Garcia",
-   "kickoff_at": "2026-09-18T16:00Z",
-   "published": true,
-   "home_photo": "assets/players/joelle lilly sophie steur.png",
-   "away_photo": "assets/players/andrea lazaro garcia.png",
-   "conseil": "Victoire Andrea Lazaro Garcia",
-   "conseil_cote": 1.69,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-3, 2-6, 6-4"
   },
   {
    "fixture_id": "tennis_espn_wta_183845",
@@ -562,28 +562,6 @@
    "score": "8 - 5"
   },
   {
-   "fixture_id": "wnba_401857195",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – Indiana Fever",
-   "kickoff_at": "2026-09-18T23:30Z",
-   "published": true,
-   "result": "PERDU",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Sophie Cunningham — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.92",
-     "odd": 1.92,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "wnba_401857196",
    "flag": "🏀",
    "league": "WNBA",
@@ -611,6 +589,28 @@
      "odd": 1.85,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "wnba_401857195",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Toronto Tempo – Indiana Fever",
+   "kickoff_at": "2026-09-18T23:30Z",
+   "published": true,
+   "result": "PERDU",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Sophie Cunningham — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.92",
+     "odd": 1.92,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
