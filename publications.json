@@ -1,26 +1,6 @@
 {
- "generated_at": "2026-09-19T01:45:13.979556+00:00",
+ "generated_at": "2026-09-19T02:03:14.543549+00:00",
  "live": [
-  {
-   "fixture_id": "wnba_401857195",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – Indiana Fever",
-   "kickoff_at": "2026-09-18T23:30Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Sophie Cunningham — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.92",
-     "odd": 1.92,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_wta_186072",
    "flag": "🎾",
@@ -553,6 +533,28 @@
    "score": "8 - 5"
   },
   {
+   "fixture_id": "wnba_401857195",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Toronto Tempo – Indiana Fever",
+   "kickoff_at": "2026-09-18T23:30Z",
+   "published": true,
+   "result": "PERDU",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Sophie Cunningham — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.92",
+     "odd": 1.92,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "wnba_401857196",
    "flag": "🏀",
    "league": "WNBA",
@@ -569,7 +571,8 @@
      "kind": "player",
      "detail": "cote 1.89",
      "odd": 1.89,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "category": "Player pick",
