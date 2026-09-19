@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T20:18:13.500018+00:00",
+ "generated_at": "2026-09-19T21:14:13.785597+00:00",
  "live": [
   {
    "fixture_id": "api_football:1507070",
@@ -17,19 +17,6 @@
    "conseil_cote": 1.4,
    "conseil_mise_eur": 300.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "baseball_401817004",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Chicago White Sox – Detroit Tigers",
-   "kickoff_at": "2026-09-19T18:10Z",
-   "published": true,
-   "value_bet": "Chicago White Sox @ 1.7812",
-   "value_cote": 1.78,
-   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "baseball_401816998",
@@ -275,28 +262,6 @@
    "score": "8 - 5"
   },
   {
-   "fixture_id": "wnba_401857195",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – Indiana Fever",
-   "kickoff_at": "2026-09-18T23:30Z",
-   "published": true,
-   "result": "PERDU",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Sophie Cunningham — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.92",
-     "odd": 1.92,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "wnba_401857196",
    "flag": "🏀",
    "league": "WNBA",
@@ -324,6 +289,28 @@
      "odd": 1.85,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "wnba_401857195",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Toronto Tempo – Indiana Fever",
+   "kickoff_at": "2026-09-18T23:30Z",
+   "published": true,
+   "result": "PERDU",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Sophie Cunningham — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.92",
+     "odd": 1.92,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -395,23 +382,6 @@
    "score": "3-6, 2-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_183723",
-   "flag": "🎾",
-   "league": "Caldas da Rainha Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Gabriela Knutson – Mia Pohankova",
-   "kickoff_at": "2026-09-19T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/gabriela knutson.png",
-   "away_photo": "assets/players/mia pohankova.png",
-   "conseil": "Victoire Gabriela Knutson",
-   "conseil_cote": 2.07,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "7-5, 5-7, 6-3"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183682",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
@@ -427,6 +397,23 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "3-6, 6-1, 4-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183723",
+   "flag": "🎾",
+   "league": "Caldas da Rainha Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Gabriela Knutson – Mia Pohankova",
+   "kickoff_at": "2026-09-19T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/gabriela knutson.png",
+   "away_photo": "assets/players/mia pohankova.png",
+   "conseil": "Victoire Gabriela Knutson",
+   "conseil_cote": 2.07,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "7-5, 5-7, 6-3"
   },
   {
    "fixture_id": "tennis_espn_wta_183681",
@@ -476,6 +463,22 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "3-6, 4-6"
+  },
+  {
+   "fixture_id": "baseball_401817004",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Chicago White Sox – Detroit Tigers",
+   "kickoff_at": "2026-09-19T18:10Z",
+   "published": true,
+   "value_bet": "Chicago White Sox @ 1.7812",
+   "value_cote": 1.78,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "3 - 1"
   }
  ]
 }
