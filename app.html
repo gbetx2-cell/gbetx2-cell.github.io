@@ -502,11 +502,37 @@ function jaugeDe(texte, score){
 const etatDe = r => r === "GAGNE" ? "w" : r === "PERDU" ? "l" : r === "REMBOURSE" ? "p" : "s";
 const LIB = {w: "Gagné", l: "Perdu", p: "Remboursé", s: "En attente"};
 
+/* Un meme pari est parfois enregistre deux fois : une ligne "conseil" et une
+   ligne "value bet" (hockey, baseball, basket, NFL : le conseil n'y est qu'un
+   miroir). On ne garde qu'une ligne par pari reel -- sinon la mise et le gain
+   apparaissent en double. */
+function coeur(txt){
+  return String(txt || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+    .replace(/@.*$/, "")
+    .replace(/\b(victoire|vainqueur|du match|prol\.? incluse|prolongation incluse|player pick|value bet)\b/g, "")
+    .replace(/[^a-z0-9]+/g, " ").trim();
+}
+function memePari(a, b){
+  const x = coeur(a.bet), y = coeur(b.bet);
+  if (!x || !y) return false;
+  if (x === y) return true;                                  // meme pari, meme si la cote diffe
+  const oa = Number(a.odd) || 0, ob = Number(b.odd) || 0;
+  if (oa && ob && Math.abs(oa - ob) > 0.011) return false;    // cotes connues et differentes
+  return x.includes(y) || y.includes(x);
+}
 function paris(p){
   const out = [];
-  if (p.conseil) out.push({bet: p.conseil, odd: p.conseil_cote, mise: p.conseil_mise_eur, r: etatDe(p.result)});
-  if (p.value_bet) out.push({bet: p.value_bet.split("@")[0].trim(), odd: p.value_cote, mise: p.value_mise_eur, r: etatDe(p.value_result)});
-  (p.player_picks || []).forEach(x => out.push({bet: x.label.replace(/^Player pick\s*:\s*/, ""), odd: x.odd, mise: x.mise_eur, r: etatDe(x.result)}));
+  /* rang : 1 = cote reelle du bookmaker (value/player), 2 = conseil (parfois
+     une cote interne estimee) -- en cas de doublon on garde la cote reelle. */
+  const ajoute = e => {
+    if (!e.bet) return;
+    const j = out.findIndex(o => memePari(o, e));
+    if (j < 0) { out.push(e); return; }
+    if (e.rang < out[j].rang) out[j] = e;
+  };
+  if (p.conseil) ajoute({bet: p.conseil, odd: p.conseil_cote, mise: p.conseil_mise_eur, r: etatDe(p.result), rang: 2});
+  if (p.value_bet) ajoute({bet: p.value_bet.split("@")[0].trim(), odd: p.value_cote, mise: p.value_mise_eur, r: etatDe(p.value_result || p.result), rang: 1});
+  (p.player_picks || []).forEach(x => ajoute({bet: x.label.replace(/^Player pick\s*:\s*/, ""), odd: x.odd, mise: x.mise_eur, r: etatDe(x.result), rang: 1}));
   return out;
 }
 function carte(p, euros, valeurU){
