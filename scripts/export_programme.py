@@ -204,8 +204,12 @@ COMPETITION_FLAGS = {
 # programme_fixtures comme les autres sports.
 # Le "football" garde son drapeau par ligue ; les autres ont une icone
 # fixe par sport.
-PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "nfl", "tennis", "wnba")
-SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀"}
+# "hockey" ajoute le 20/09/2026 : les regles multi-ligues publient sous ce
+# sport (distinct de "nhl", module ESPN) -- sans lui, les paris hockey
+# etaient absents de Publications / "Paris du jour" alors qu'ils comptaient
+# bien dans les Resultats.
+PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba")
+SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀"}
 
 # Sports ou paris.conseil n'est jamais une info independante : c'est soit un
 # mirroir du value bet ("Victoire X"), soit un mirroir du player pick ("Total
@@ -253,8 +257,8 @@ RESULTAT_GAGNE = ("GAGNE", "GAGNÉ")
 # ("review", ni vert ni rouge) -- jamais confondu avec un vrai GAGNE/PERDU.
 RESULTAT_TERMINAL = RESULTAT_GAGNE + ("PERDU", "REMBOURSE", "A_VERIFIER")
 SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
-               "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "nfl": "Football US (NFL)",
-               "tennis": "Tennis", "wnba": "Basketball (WNBA)"}
+               "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "hockey": "Hockey",
+               "nfl": "Football US (NFL)", "tennis": "Tennis", "wnba": "Basketball (WNBA)"}
 
 # Libelle FR par categorie de player pick, tous sports confondus (football:
 # buteur/passeur/decisif : baseball/basket/hockey/NFL ont leurs propres

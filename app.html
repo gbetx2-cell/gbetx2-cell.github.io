@@ -633,8 +633,21 @@ function resumeResultats(){
     }).join("")}</div></div>`;
   $("#chart-u").innerHTML = courbe((RES.period_series || {}).annee || (RES.period_series || {}).mois, v => Number(v));
   $("#list-res").innerHTML = (PUBS.done || []).slice(0, 8).map(p => carte(p)).join("") || `<p class="gain">Rien à afficher.</p>`;
+  /* Noms lisibles + fusion mlb/baseball et nhl/hockey (memes paris, deux
+     etiquettes historiques cote base). */
+  const NOM_SPORT = {football: "Football", baseball: "Baseball (MLB)", mlb: "Baseball (MLB)",
+                     tennis: "Tennis", hockey: "Hockey", nhl: "Hockey", nfl: "Football US (NFL)",
+                     nba: "Basket (NBA)", wnba: "Basket (WNBA)"};
   const bySport = (RES.period_stats || {}).by_sport || {};
-  SPLIT.sport = Object.entries(bySport).map(([s, v]) => [s, (v.annee || {}).n || 0, (v.annee || {}).winrate ?? "—", (v.annee || {}).pnl || 0])
+  const fusion = {};
+  Object.entries(bySport).forEach(([s, v]) => {
+    const nom = NOM_SPORT[s] || (s.charAt(0).toUpperCase() + s.slice(1));
+    const an = v.annee || {};
+    const f = fusion[nom] || (fusion[nom] = {n: 0, g: 0, pnl: 0});
+    f.n += an.n || 0; f.g += an.g || 0; f.pnl += an.pnl || 0;
+  });
+  SPLIT.sport = Object.entries(fusion).map(([nom, f]) =>
+      [nom, f.n, f.n ? Math.round(f.g / f.n * 100) : "—", f.pnl])
     .filter(r => r[1]).sort((a, b) => b[3] - a[3]);
   const lg = RES.league_stats || {};
   SPLIT.ligue = Object.entries(lg).map(([n, v]) => [v.name || n, v.n || 0, v.winrate ?? "—", v.pnl || 0])
