@@ -430,7 +430,7 @@ const store = {
 };
 /* Les routes de lecture publique repondent Access-Control-Allow-Origin: * :
    on n'envoie le cookie de session que sur les routes de compte. */
-const AUTHENT = /^\/api\/(login|signup|chat\/post|me)/;
+const AUTHENT = /^\/api\/(login|signup|logout|chat\/post|me)/;
 async function api(path, opts){
   const o = Object.assign({}, opts || {});
   if (AUTHENT.test(path)) o.credentials = "include";
@@ -447,8 +447,34 @@ function majCompte(){
   if (ME){
     if (!chip){ chip = document.createElement("span"); chip.className = "me-chip"; chip.id = "me-chip"; document.querySelector(".bar").append(chip); }
     chip.innerHTML = `${esc(ME)} <button type="button" id="me-out">Quitter</button>`;
-    $("#me-out").onclick = () => { ME = null; store.set("gbet-user", null); majCompte(); };
+    /* Deconnexion reelle (21/09/2026) : on efface aussi le cookie cote
+       serveur. Avant, "Quitter" n'oubliait que le pseudo dans le navigateur
+       et la session restait ouverte 30 jours -- sur un ordinateur partage, la
+       personne suivante pouvait ecrire sous ce compte. L'interface se met a
+       jour meme si l'appel echoue : on ne laisse jamais quelqu'un coince
+       dans un etat "connecte" qu'il vient de refuser. */
+    $("#me-out").onclick = async () => {
+      ME = null; store.set("gbet-user", null); majCompte();
+      try { await api("/api/logout", {method: "POST"}); } catch (_){}
+      charger();
+    };
   } else if (chip) chip.remove();
+}
+/* C'est le serveur qui dit qui est connecte (21/09/2026). Le pseudo garde
+   dans le navigateur ne sert plus qu'a afficher quelque chose tout de suite,
+   avant la reponse : le cookie, lui, expire au bout de 30 jours, et sans
+   cette verification le site affichait encore la personne comme identifiee
+   alors que chacun de ses messages partait en 401 "Connexion requise". */
+async function verifierSession(){
+  try {
+    const r = await api("/api/me");
+    const vrai = r && r.ok && r.username ? r.username : null;
+    if (vrai !== ME){
+      ME = vrai;
+      store.set("gbet-user", vrai);       // null efface l'entree perimee
+      majCompte();
+    }
+  } catch (_){ /* serveur injoignable : on garde l'affichage en cours */ }
 }
 let gateMode = "in";
 $("#gate-tabs").addEventListener("click", e => {
@@ -469,7 +495,11 @@ $("#gate-form").addEventListener("submit", async e => {
   try {
     const res = await api(gateMode === "up" ? "/api/signup" : "/api/login", {
       method: "POST", headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({username, password}),
+      /* "stay" pilote la duree du cookie cote serveur (21/09/2026) : decochee,
+         la session meurt a la fermeture du navigateur. Avant, la case
+         n'oubliait que le pseudo et le cookie durait 30 jours dans tous les
+         cas -- on etait reconnecte malgre soi. */
+      body: JSON.stringify({username, password, stay: $("#gate-stay").checked}),
     });
     if (!res.ok){ err.textContent = res.reason || "Connexion impossible"; err.hidden = false; return; }
     ME = res.username;
@@ -858,6 +888,7 @@ async function charger(){
   }
 }
 majCompte();
+verifierSession();   /* 21/09/2026 : l'etat de connexion vient du serveur */
 charger();
 setInterval(charger, 60000);
 </script>
