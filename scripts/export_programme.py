@@ -609,7 +609,8 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
             cur.execute(
                 """SELECT conseil, COALESCE(NULLIF(cote_reelle,0), cote_interne),
                           value_bet, value_cote, resultat, score, value_result,
-                          lineup_source, COALESCE(mise,0), COALESCE(value_stake_eur,0)
+                          lineup_source, COALESCE(mise,0), COALESCE(value_stake_eur,0),
+                          COALESCE(result_updated_at,'')
                    FROM paris WHERE fixture_id = %s
                    ORDER BY created_at DESC LIMIT 1""",
                 (fixture_id,),
@@ -617,7 +618,14 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
             row = cur.fetchone()
             if row:
                 (conseil, cote, value_bet, value_cote, resultat, score, value_result,
-                 lineup_source, conseil_mise, value_mise) = row
+                 lineup_source, conseil_mise, value_mise, result_updated_at) = row
+                # Heure de reglement (21/09/2026) : le site classait "Derniers
+                # paris" par heure de coup d'envoi croissante et n'en gardait
+                # que les 8 premiers -- il montrait donc les PLUS ANCIENS, et
+                # jamais ce qui venait d'etre regle. Sans cette colonne, aucun
+                # tri par date de reglement n'etait possible cote client.
+                if result_updated_at:
+                    item["result_updated_at"] = str(result_updated_at)
                 if conseil and sport not in SPORTS_CONSEIL_IS_MIRROR:
                     item["conseil"] = _short_pick(conseil)
                     item["conseil_cote"] = round(float(cote or 0), 2)

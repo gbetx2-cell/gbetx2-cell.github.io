@@ -60,6 +60,14 @@ h3{font:600 16px/1.3 var(--display);margin:18px 0 6px}
 .kpi span{display:block;color:var(--muted);font-size:13px}
 .kpi strong{font:700 clamp(20px,3.6vw,28px)/1.2 var(--mono);font-variant-numeric:tabular-nums}
 .form{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
+/* Flamme "serie de jours positifs" (21/09/2026) : remplace les 10 pastilles
+   G/P. Eteinte tant qu'on n'a pas 2 journees positives d'affilee. */
+.flamme{display:flex;align-items:center;gap:8px;margin-top:4px}
+.flamme b{font:800 clamp(20px,3.6vw,28px)/1 var(--mono);font-variant-numeric:tabular-nums}
+.flamme span{font-size:12px;color:var(--muted);line-height:1.25}
+.flamme::before{content:"🔥";font-size:22px;line-height:1;filter:grayscale(1);opacity:.35}
+.flamme.on::before{filter:none;opacity:1}
+.flamme.on b{color:var(--gold)}
 .dot{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font:700 11px var(--mono);color:var(--ink);cursor:default}
 .dot.w{background:var(--win)} .dot.l{background:var(--loss)} .dot.p{background:var(--push)}
 .yday{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);
@@ -84,6 +92,10 @@ h3{font:600 16px/1.3 var(--display);margin:18px 0 6px}
 .talk:hover{border-color:var(--gold)}
 .teams{display:grid;gap:6px;margin:6px 0 2px}
 .team{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center}
+/* Sets tennis en colonnes, alignes d'une ligne a l'autre. */
+.jeux{display:flex;gap:6px;margin-left:auto;font:600 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.jeux i{font-style:normal;min-width:14px;text-align:center}
+.team.win .jeux{color:var(--text)}
 .team .badge{width:34px;height:34px;border-radius:50%;background:var(--raise);border:1px solid var(--line);
   object-fit:cover;display:grid;place-items:center;font:700 11px/1 var(--body);color:var(--muted);flex:none}
 img.badge[src*="media.api-sports"],img.badge[src*="espncdn"]{object-fit:contain;background:transparent;border-color:transparent}
@@ -611,11 +623,22 @@ function carte(p, euros, valeurU){
   const spn = sp.match(/^(\d+)\s*[-–]\s*(\d+)$/);
   const hs = sc ? sc.home_score : (spn ? Number(spn[1]) : null);
   const as = sc ? sc.away_score : (spn ? Number(spn[2]) : null);
-  const detail = sp && !spn ? sp : "";
+  /* Score par set affiche en colonnes, sur la ligne de chaque joueur, comme
+     les buts d'une equipe (21/09/2026). "3-6, 2-6" ou "6-0, 3-6, 6-1" devient
+     3 2 / 6 6 : on lit le match comme un tableau, au lieu d'une chaine collee
+     a cote de l'etat. La source est soit le score du pari regle, soit le score
+     en direct ESPN (events_json, cf jobs/tennis_live.py). */
+  const brutSets = sc ? String(sc.events_json || "") : sp;
+  const sets = !spn && /\d+\s*[-–]\s*\d+/.test(brutSets)
+    ? brutSets.split(",").map(x => x.trim().match(/^(\d+)\s*[-–]\s*(\d+)$/)).filter(Boolean)
+    : [];
+  const colonnes = c => sets.length
+    ? `<span class="jeux">${sets.map(m => `<i>${m[c]}</i>`).join("")}</span>` : "";
+  const detail = !sets.length && sp && !spn ? sp : "";
   const gagnant = hs !== null && hs !== as ? (hs > as ? "h" : "a") : null;
   const fini = sc && sc.finished;
   const ligne = (n, url, side, score) => `<div class="team ${fini && gagnant === side ? "win" : ""}">${logo(url, n)}
-    <span class="tname">${esc(n)}</span><span class="tscore">${score ?? ""}</span></div>`;
+    <span class="tname">${esc(n)}</span>${colonnes(side === "h" ? 1 : 2)}<span class="tscore">${score ?? ""}</span></div>`;
   const ko = p.kickoff_at ? new Date(p.kickoff_at) : null;
   const heure = ko ? ko.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
   /* Le resultat publie prime sur le cache de score en direct (21/09/2026) :
@@ -664,6 +687,15 @@ const groupe = p => {
   if (sc && !sc.finished && sc.status_short && sc.status_short !== "NS") return "En direct";
   return p.result || (sc && sc.finished) ? "Terminés" : "À venir";
 };
+/* Les paris regles, du plus recemment regle au plus ancien (21/09/2026).
+   Le site prenait les 8 premiers d'une liste classee par coup d'envoi
+   CROISSANT : il montrait donc les plus vieux, et jamais ce qui venait
+   d'etre regle. On trie sur l'heure de reglement, avec le coup d'envoi en
+   repli pour les lignes anterieures a l'ajout de cette colonne. */
+function reglesRecents(){
+  const quand = p => new Date(p.result_updated_at || p.kickoff_at || 0).getTime() || 0;
+  return [...(PUBS.done || [])].sort((x, y) => quand(y) - quand(x));
+}
 function duJour(){
   /* Les paris du jour, PLUS ceux d'hier qui ne sont pas encore regles
      (21/09/2026). Le filtre ne gardait que les coups d'envoi du jour
@@ -722,20 +754,50 @@ function courbe(points, conv){
     <circle cx="${x(points.length - 1)}" cy="${y(vals[vals.length - 1])}" r="4.5" fill="#e3b341"/>
     <text x="50" y="210">${esc(points[0].label)}</text><text x="510" y="210" text-anchor="end">${esc(points[points.length - 1].label)}</text></svg>`;
 }
+/* Serie de jours positifs d'affilee (21/09/2026, en remplacement des "10
+   derniers" G/P). La flamme s'allume a partir de 2 jours consecutifs dans le
+   vert et s'eteint des qu'un jour est perdant. Un jour SANS pari ne casse
+   rien -- c'est un jour normal (cf l'aide : "un jour sans pari n'est pas une
+   panne"), il est simplement ignore. On repart du jour le plus recent qui
+   porte au moins un pari regle. */
+function serieJoursPositifs(jours){
+  let serie = 0;
+  for (const j of jours){                 // deja classes du plus recent au plus ancien
+    /* "Aucun pari ce jour-la" se lit sur les sports presents, PAS sur le
+       nombre de points de la courbe : celle-ci compte 24 points horaires
+       meme un jour vide, ce qui faisait passer la journee en cours pour une
+       journee a 0 et eteignait la flamme a tort. */
+    if (!Object.keys(j.sports || {}).length) continue;
+    if (j.pnl > 0) serie++;
+    else if (j.pnl < 0) break;            // journee perdante : la flamme s'eteint
+    // journee a l'equilibre (tout rembourse) : ni l'un ni l'autre, on continue
+  }
+  return serie;
+}
+async function dessineFlamme(){
+  const el = $("#res-flamme"); if (!el) return;
+  let jours = [];
+  try { jours = await blocs("jour", 14); } catch (_){ return; }
+  const n = serieJoursPositifs(jours);
+  const vivante = n >= 2;
+  el.className = "flamme " + (vivante ? "on" : "off");
+  el.innerHTML = vivante
+    ? `<b>${n}</b><span>jours positifs d'affilée</span>`
+    : `<span>${jours.some(j => Object.keys(j.sports || {}).length) ? "Série interrompue" : "Pas encore de série"}</span>`;
+  el.setAttribute("data-tip", encodeURIComponent(
+    `<b>Série en cours</b><em>${vivante ? n + " journées consécutives dans le vert." : "La flamme s'allume à partir de 2 journées positives d'affilée."}</em>` +
+    `<em>Une journée sans pari ne casse pas la série.</em>`));
+}
 function resumeResultats(){
   const ps = RES.period_stats || {}, an = ps.annee || {}, j = ps.jour || {};
-  const derniers = (RES.results || []).slice(0, 10);
   $("#res-summary").innerHTML = `
     <div class="kpi"><span>Réussite depuis le début</span><strong>${an.winrate ?? "—"} %</strong></div>
     <div class="kpi"><span>Bénéfice depuis le début</span><strong class="${(an.pnl || 0) >= 0 ? "pos" : "neg"}">${unit(an.pnl || 0)}</strong></div>
     <div class="kpi"><span>Aujourd'hui</span><strong class="${(j.pnl || 0) >= 0 ? "pos" : "neg"}">${unit(j.pnl || 0)}</strong></div>
-    <div class="kpi"><span>10 derniers</span><div class="form">${derniers.map(r => {
-      const cls = r.r === "G" ? "w" : r.r === "P" ? "l" : "p";
-      const tip = `<b>${esc(r.match)}</b><em>${esc(r.pick)}</em><em>cote ${fmt(r.cote)} · ${unit(r.pnl || 0)}</em>`;
-      return `<span class="dot ${cls}" tabindex="0" data-tip="${encodeURIComponent(tip)}">${r.r}</span>`;
-    }).join("")}</div></div>`;
+    <div class="kpi"><span>Série en cours</span><div id="res-flamme" class="flamme off"><span>—</span></div></div>`;
+  dessineFlamme();
   $("#chart-u").innerHTML = courbe((RES.period_series || {}).annee || (RES.period_series || {}).mois, v => Number(v));
-  $("#list-res").innerHTML = (PUBS.done || []).slice(0, 8).map(p => carte(p)).join("") || `<p class="gain">Rien à afficher.</p>`;
+  $("#list-res").innerHTML = reglesRecents().slice(0, 8).map(p => carte(p)).join("") || `<p class="gain">Rien à afficher.</p>`;
   /* Noms lisibles + fusion mlb/baseball et nhl/hockey (memes paris, deux
      etiquettes historiques cote base). */
   const NOM_SPORT = {football: "Football", baseball: "Baseball (MLB)", mlb: "Baseball (MLB)",
@@ -771,6 +833,17 @@ $("#split").addEventListener("click", e => { const b = e.target.closest("button"
 
 /* Bilans par période : /api/results/history?period&offset (du plus récent au plus ancien) */
 const CACHE = {};
+/* Le total d'un sport sur la periode. "pnl_total" est la cle du serveur ;
+   les deux replis couvrent un ancien format et une serie cumulative. */
+const pnlSport = x => {
+  if (!x) return 0;
+  if (typeof x.pnl_total === "number") return x.pnl_total;
+  if (typeof x.pnl === "number") return x.pnl;
+  const pts = x.points || [];
+  return pts.length ? (Number(pts[pts.length - 1].pnl) || 0) : 0;
+};
+const SPORT_FR = {football: "Football", tennis: "Tennis", hockey: "Hockey", nfl: "Football US",
+                  baseball: "Baseball", wnba: "Basket (WNBA)", basketball: "Basket"};
 async function blocs(periode, n = 8){
   const key = periode + ":" + n;
   if (CACHE[key]) return CACHE[key];
@@ -793,7 +866,10 @@ async function dessineBlocs(trackId, chipsId, periode, euros, valeurU){
   el.innerHTML = data.map(b => {
     const v = euros ? b.pnl * valeurU : b.pnl;
     const detail = `<b>${esc(b.label)}</b>` + (Object.entries(b.sports).length
-      ? Object.entries(b.sports).map(([s, x]) => `<em>${esc(s)} · ${euros ? eur((x.pnl || 0) * valeurU) : unit(x.pnl || 0)}</em>`).join("")
+      /* 21/09/2026 : l'infobulle n'affichait que des 0. Le serveur envoie
+         "pnl_total" par sport (cf export_site_results.py), le site lisait
+         "pnl" -- une cle qui n'existe pas, donc undefined || 0. */
+      ? Object.entries(b.sports).map(([s, x]) => `<em>${esc(SPORT_FR[s] || s)} · ${euros ? eur(pnlSport(x) * valeurU) : unit(pnlSport(x))}</em>`).join("")
       : `<em>Aucun pari sur cette période.</em>`);
     return `<div class="block ${b.pnl > 0 ? "up" : b.pnl < 0 ? "down" : "flat"}" tabindex="0" data-tip="${encodeURIComponent(detail)}">
       <span>${esc(b.label)}</span><b class="${b.pnl > 0 ? "pos" : b.pnl < 0 ? "neg" : ""}">${euros ? eur(v) : unit(v)}</b>
@@ -858,7 +934,7 @@ function dessineMise(){
     `<tr><td>${esc(n)}</td><td>${c}</td><td>${Math.round(c * 1.35 * s).toLocaleString("fr-FR")} €</td>
      <td class="${u > 0 ? "pos" : "neg"}">${eur(u * s)}</td></tr>`).join("") || `<tr><td colspan="4">—</td></tr>`;
   $("#chart-e").innerHTML = courbe((RES.period_series || {}).annee || (RES.period_series || {}).mois, v => v * s);
-  $("#m-list").innerHTML = (PUBS.done || []).slice(0, 6).map(p => carte(p, true, s)).join("");
+  $("#m-list").innerHTML = reglesRecents().slice(0, 6).map(p => carte(p, true, s)).join("");
   dessineBlocs("m-track", "m-period-chips", mPeriode, true, s);
 }
 $("#stake").addEventListener("input", dessineMise);
