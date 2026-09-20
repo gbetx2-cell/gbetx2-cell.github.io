@@ -295,7 +295,8 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
     <div class="big">
       <div><span>Total misé</span><strong id="m-mise">—</strong><span id="m-mise-u"></span></div>
       <div><span>Bénéfice</span><strong id="m-benef">—</strong></div>
-      <div><span>Retour sur les sommes misées</span><strong id="m-retour">—</strong><span>bénéfice ÷ total misé</span></div>
+      <div><span>Retour · tous les paris</span><strong id="m-retour">—</strong><span id="m-retour-n">bénéfice ÷ total misé</span></div>
+      <div><span>Retour · paris à cote bookmaker</span><strong id="m-retour-reel">—</strong><span id="m-retour-reel-n">cote relevée chez un bookmaker</span></div>
       <div><span>Paris réglés</span><strong id="m-n">—</strong></div>
     </div>
     <div class="panel">
@@ -338,6 +339,11 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
     <details><summary>Bénéfice et retour, quelle différence ?</summary>
       <p>Le bénéfice est ce que le suivi a rapporté, en unités. Le retour rapporte ce bénéfice au total misé : +6 u de bénéfice pour 1 400 u misées donnent un retour de 0,4 %.</p>
       <p>Sur la durée, un retour durablement compris entre 3 % et 8 % est déjà considéré comme très bon dans le milieu. Méfiez-vous des annonces à 30 % ou 50 % : elles ne tiennent jamais sur un gros volume de paris.</p></details>
+    <details><summary>Pourquoi deux chiffres de retour ?</summary>
+      <p>Parce qu'ils ne portent pas sur les mêmes paris, et qu'en montrer un seul reviendrait à choisir celui qui arrange.</p>
+      <p><b>Tous les paris</b> compte chaque pari publié, y compris ceux dont la cote n'a jamais pu être relevée chez un bookmaker au moment de la publication. Le gain de ceux-là est calculé sur une cote estimée : le chiffre est complet, mais moins fiable.</p>
+      <p><b>Paris à cote bookmaker</b> ne garde que les paris dont la cote a réellement été relevée. Moins de paris, mais chaque euro est vérifiable — c'est le chiffre sur lequel le bot est piloté en interne.</p>
+      <p>L'écart entre les deux ne se lit pas comme une bonne nouvelle : il indique surtout que les paris sans cote relevée tirent le bilan vers le bas. Le deuxième chiffre est le plus juste, le premier le plus prudent.</p></details>
     <details><summary>Un taux de réussite élevé veut-il dire rentable ?</summary>
       <p>Non. Gagner 70 % de ses paris à la cote 1,30 fait perdre de l'argent, car il faut 77 % de réussite pour rentrer dans ses frais à cette cote. Le seul chiffre qui tranche est le bénéfice rapporté au total misé.</p></details>
 
@@ -829,7 +835,24 @@ function dessineMise(){
   const benef = (an.pnl || 0) * s;
   $("#m-benef").textContent = eur(benef);
   $("#m-benef").className = benef >= 0 ? "pos" : "neg";
+  /* Deux perimetres affiches cote a cote (21/09/2026, demande explicite).
+     "Tous les paris" inclut ceux dont la cote n'a jamais ete relevee chez un
+     bookmaker : leur gain est alors calcule sur une cote estimee, ce qui pese
+     sur le rendement. "Cote bookmaker" est le perimetre du bilan officiel du
+     bot -- moins de paris, mais chaque euro est verifiable. Montrer les deux
+     evite de choisir le chiffre qui arrange. */
   $("#m-retour").textContent = miseU ? fmt((an.pnl || 0) / miseU * 100, 1) + " %" : "—";
+  $("#m-retour").className = (an.pnl || 0) >= 0 ? "pos" : "neg";
+  $("#m-retour-n").textContent = `${an.n || 0} paris · bénéfice ÷ total misé`;
+  const re = (RES.perf_stats || {}).global_cote_reelle;
+  if (re && re.n){
+    $("#m-retour-reel").textContent = fmt(re.roi, 1) + " %";
+    $("#m-retour-reel").className = re.roi >= 0 ? "pos" : "neg";
+    $("#m-retour-reel-n").textContent = `${re.n} paris · ${unit(re.pnl)} · ${re.winrate} % de réussite`;
+  } else {
+    $("#m-retour-reel").textContent = "—";
+    $("#m-retour-reel-n").textContent = "cote relevée chez un bookmaker";
+  }
   $("#m-n").textContent = an.n || 0;
   $("#m-body").innerHTML = (SPLIT.sport || []).map(([n, c, w, u]) =>
     `<tr><td>${esc(n)}</td><td>${c}</td><td>${Math.round(c * 1.35 * s).toLocaleString("fr-FR")} €</td>
