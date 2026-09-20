@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-20T20:38:09.519040+00:00",
+ "generated_at": "2026-09-20T20:50:06.807729+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_186116",
@@ -27,19 +27,6 @@
    "published": true,
    "value_bet": "Houston Astros @ 1.6757",
    "value_cote": 1.68,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "baseball_401817021",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "St. Louis Cardinals – Washington Nationals",
-   "kickoff_at": "2026-09-20T18:15Z",
-   "published": true,
-   "value_bet": "St. Louis Cardinals @ 1.7692",
-   "value_cote": 1.77,
    "value_mise_eur": 200.0
   },
   {
@@ -104,19 +91,6 @@
    ]
   },
   {
-   "fixture_id": "nfl_401872940",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Denver Broncos – Jacksonville Jaguars",
-   "kickoff_at": "2026-09-20T20:05Z",
-   "published": true,
-   "value_bet": "Moins de 45.5 @ 1.9091",
-   "value_cote": 1.91,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "nfl_401872941",
    "flag": "🏈",
    "league": "NFL",
@@ -127,6 +101,19 @@
    "published": true,
    "value_bet": "Las Vegas Raiders +6.5 @ 1.9804",
    "value_cote": 1.98,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "nfl_401872940",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Denver Broncos – Jacksonville Jaguars",
+   "kickoff_at": "2026-09-20T20:05Z",
+   "published": true,
+   "value_bet": "Moins de 45.5 @ 1.9091",
+   "value_cote": 1.91,
    "value_mise_eur": 200.0
   }
  ],
@@ -168,23 +155,6 @@
    "score": "0 - 2"
   },
   {
-   "fixture_id": "tennis_espn_wta_183682",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Laura Samson – Samira De Stefano",
-   "kickoff_at": "2026-09-19T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/laura samson.png",
-   "away_photo": "assets/players/samira de stefano.png",
-   "conseil": "Victoire Laura Samson",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "3-6, 6-1, 4-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183723",
    "flag": "🎾",
    "league": "Caldas da Rainha Ladies Open",
@@ -200,6 +170,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "7-5, 5-7, 6-3"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183682",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Laura Samson – Samira De Stefano",
+   "kickoff_at": "2026-09-19T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/laura samson.png",
+   "away_photo": "assets/players/samira de stefano.png",
+   "conseil": "Victoire Laura Samson",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "3-6, 6-1, 4-6"
   },
   {
    "fixture_id": "tennis_espn_wta_183681",
@@ -253,25 +240,6 @@
    "score": "4 - 5"
   },
   {
-   "fixture_id": "hockey_428007",
-   "flag": "🏒",
-   "league": "Mestis (Finland)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "IPK – RoKi",
-   "kickoff_at": "2026-09-19T14:00:00+00:00",
-   "published": true,
-   "conseil": "Victoire IPK",
-   "conseil_cote": 1.3,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — IPK @ 1.3",
-   "value_cote": 1.3,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "3 - 2"
-  },
-  {
    "fixture_id": "hockey_425756",
    "flag": "🏒",
    "league": "Liiga (Finland)",
@@ -289,6 +257,25 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "hockey_428007",
+   "flag": "🏒",
+   "league": "Mestis (Finland)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "IPK – RoKi",
+   "kickoff_at": "2026-09-19T14:00:00+00:00",
+   "published": true,
+   "conseil": "Victoire IPK",
+   "conseil_cote": 1.3,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — IPK @ 1.3",
+   "value_cote": 1.3,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "3 - 2"
   },
   {
    "fixture_id": "hockey_427379",
@@ -346,6 +333,25 @@
    "score": "1 - 3"
   },
   {
+   "fixture_id": "hockey_428769",
+   "flag": "🏒",
+   "league": "National League (Switzerland)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Zurich – Servette",
+   "kickoff_at": "2026-09-19T17:45:00+00:00",
+   "published": true,
+   "conseil": "Victoire Zurich",
+   "conseil_cote": 1.41,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Zurich @ 1.41",
+   "value_cote": 1.41,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "3 - 0"
+  },
+  {
    "fixture_id": "hockey_428767",
    "flag": "🏒",
    "league": "National League (Switzerland)",
@@ -382,25 +388,6 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "2 - 6"
-  },
-  {
-   "fixture_id": "hockey_428769",
-   "flag": "🏒",
-   "league": "National League (Switzerland)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Zurich – Servette",
-   "kickoff_at": "2026-09-19T17:45:00+00:00",
-   "published": true,
-   "conseil": "Victoire Zurich",
-   "conseil_cote": 1.41,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Zurich @ 1.41",
-   "value_cote": 1.41,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "3 - 0"
   },
   {
    "fixture_id": "baseball_401817004",
@@ -484,23 +471,6 @@
    "score": "4-6, 3-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_186115",
-   "flag": "🎾",
-   "league": "Eupago Porto Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maria Martinez Vaquero – Sahaja Yamalapalli",
-   "kickoff_at": "2026-09-20T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/maria martinez vaquero.png",
-   "away_photo": "assets/players/sahaja yamalapalli.png",
-   "conseil": "Victoire Sahaja Yamalapalli",
-   "conseil_cote": 1.77,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "0-6, 3-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_186085",
    "flag": "🎾",
    "league": "Singapore Tennis Open presented by BNP Paribas",
@@ -533,6 +503,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-1, 6-0"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_186115",
+   "flag": "🎾",
+   "league": "Eupago Porto Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maria Martinez Vaquero – Sahaja Yamalapalli",
+   "kickoff_at": "2026-09-20T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/maria martinez vaquero.png",
+   "away_photo": "assets/players/sahaja yamalapalli.png",
+   "conseil": "Victoire Sahaja Yamalapalli",
+   "conseil_cote": 1.77,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "0-6, 3-6"
   },
   {
    "fixture_id": "tennis_espn_wta_186075",
@@ -622,25 +609,6 @@
    "score": "6 - 2"
   },
   {
-   "fixture_id": "hockey_433616",
-   "flag": "🏒",
-   "league": "DEL (Germany)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "ERC Ingolstadt – Nurnberg Ice Tigers",
-   "kickoff_at": "2026-09-20T12:00:00+00:00",
-   "published": true,
-   "conseil": "Victoire ERC Ingolstadt",
-   "conseil_cote": 1.31,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — ERC Ingolstadt @ 1.31",
-   "value_cote": 1.31,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2 - 6"
-  },
-  {
    "fixture_id": "hockey_433618",
    "flag": "🏒",
    "league": "DEL (Germany)",
@@ -660,6 +628,25 @@
    "score": "2 - 1"
   },
   {
+   "fixture_id": "hockey_433616",
+   "flag": "🏒",
+   "league": "DEL (Germany)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "ERC Ingolstadt – Nurnberg Ice Tigers",
+   "kickoff_at": "2026-09-20T12:00:00+00:00",
+   "published": true,
+   "conseil": "Victoire ERC Ingolstadt",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — ERC Ingolstadt @ 1.31",
+   "value_cote": 1.31,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 6"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183728",
    "flag": "🎾",
    "league": "Caldas da Rainha Ladies Open",
@@ -675,25 +662,6 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-4, 6-2"
-  },
-  {
-   "fixture_id": "hockey_436006",
-   "flag": "🏒",
-   "league": "Extraliga (Slovakia)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Slovan Bratislava – Kosice",
-   "kickoff_at": "2026-09-20T14:00:00+00:00",
-   "published": true,
-   "conseil": "Victoire Slovan Bratislava",
-   "conseil_cote": 1.46,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Slovan Bratislava @ 1.46",
-   "value_cote": 1.46,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "3 - 4"
   },
   {
    "fixture_id": "hockey_430463",
@@ -715,6 +683,25 @@
    "score": "0 - 5"
   },
   {
+   "fixture_id": "hockey_436006",
+   "flag": "🏒",
+   "league": "Extraliga (Slovakia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Slovan Bratislava – Kosice",
+   "kickoff_at": "2026-09-20T14:00:00+00:00",
+   "published": true,
+   "conseil": "Victoire Slovan Bratislava",
+   "conseil_cote": 1.46,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Slovan Bratislava @ 1.46",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 4"
+  },
+  {
    "fixture_id": "hockey_435750",
    "flag": "🏒",
    "league": "Extraliga (Slovakia)",
@@ -728,25 +715,6 @@
    "conseil_mise_eur": 200.0,
    "value_bet": "Vainqueur (prol. incluse) — Zilina @ 1.16",
    "value_cote": 1.16,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "5 - 2"
-  },
-  {
-   "fixture_id": "hockey_426275",
-   "flag": "🏒",
-   "league": "Extraliga (Czech-Republic)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Pardubice – Karlovy Vary",
-   "kickoff_at": "2026-09-20T15:00:00+00:00",
-   "published": true,
-   "conseil": "Victoire Pardubice",
-   "conseil_cote": 1.31,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Pardubice @ 1.31",
-   "value_cote": 1.31,
    "value_mise_eur": 200.0,
    "value_result": "GAGNE",
    "result": "GAGNE",
@@ -772,6 +740,25 @@
    "score": "3 - 2"
   },
   {
+   "fixture_id": "hockey_426275",
+   "flag": "🏒",
+   "league": "Extraliga (Czech-Republic)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Pardubice – Karlovy Vary",
+   "kickoff_at": "2026-09-20T15:00:00+00:00",
+   "published": true,
+   "conseil": "Victoire Pardubice",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Pardubice @ 1.31",
+   "value_cote": 1.31,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "5 - 2"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183774",
    "flag": "🎾",
    "league": "BBVA Open Internacional De Valencia",
@@ -789,6 +776,28 @@
    "score": "4-6, 6-0, 6-2"
   },
   {
+   "fixture_id": "wnba_401857201",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Connecticut Sun – Minnesota Lynx",
+   "kickoff_at": "2026-09-20T17:00Z",
+   "published": true,
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Howard — Points Plus de 11.5",
+     "kind": "player",
+     "detail": "cote 1.90",
+     "odd": 1.9,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "nfl_401872938",
    "flag": "🏈",
    "league": "NFL",
@@ -803,22 +812,6 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "17 - 24"
-  },
-  {
-   "fixture_id": "nfl_401872937",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Chicago Bears – Minnesota Vikings",
-   "kickoff_at": "2026-09-20T17:00Z",
-   "published": true,
-   "value_bet": "Minnesota Vikings +4.5 @ 1.9524",
-   "value_cote": 1.95,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "3 - 9"
   },
   {
    "fixture_id": "nfl_401872935",
@@ -869,26 +862,20 @@
    "score": "20 - 3"
   },
   {
-   "fixture_id": "wnba_401857201",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Connecticut Sun – Minnesota Lynx",
+   "fixture_id": "nfl_401872937",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Chicago Bears – Minnesota Vikings",
    "kickoff_at": "2026-09-20T17:00Z",
    "published": true,
-   "result": "GAGNE",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Natasha Howard — Points Plus de 11.5",
-     "kind": "player",
-     "detail": "cote 1.90",
-     "odd": 1.9,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
+   "value_bet": "Minnesota Vikings +4.5 @ 1.9524",
+   "value_cote": 1.95,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "3 - 9"
   },
   {
    "fixture_id": "nfl_401872939",
@@ -921,6 +908,22 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "5 - 1"
+  },
+  {
+   "fixture_id": "baseball_401817021",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "St. Louis Cardinals – Washington Nationals",
+   "kickoff_at": "2026-09-20T18:15Z",
+   "published": true,
+   "value_bet": "St. Louis Cardinals @ 1.7692",
+   "value_cote": 1.77,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "5 - 3"
   }
  ]
 }
