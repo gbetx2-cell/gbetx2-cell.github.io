@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-20T18:35:09.512256+00:00",
+ "generated_at": "2026-09-20T19:35:55.566581+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_186116",
@@ -17,6 +17,19 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "nfl_401872938",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Baltimore Ravens – New Orleans Saints",
+   "kickoff_at": "2026-09-20T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 45.5 @ 1.9091",
+   "value_cote": 1.91,
+   "value_mise_eur": 200.0
+  },
+  {
    "fixture_id": "nfl_401872946",
    "flag": "🏈",
    "league": "NFL",
@@ -27,19 +40,6 @@
    "published": true,
    "value_bet": "Moins de 41.5 @ 1.9091",
    "value_cote": 1.91,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "nfl_401872939",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Tennessee Titans – Philadelphia Eagles",
-   "kickoff_at": "2026-09-20T17:00Z",
-   "published": true,
-   "value_bet": "Moins de 39.5 @ 1.9259",
-   "value_cote": 1.93,
    "value_mise_eur": 200.0
   },
   {
@@ -56,32 +56,6 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "nfl_401872937",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Chicago Bears – Minnesota Vikings",
-   "kickoff_at": "2026-09-20T17:00Z",
-   "published": true,
-   "value_bet": "Minnesota Vikings +4.5 @ 1.9524",
-   "value_cote": 1.95,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "nfl_401872938",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Baltimore Ravens – New Orleans Saints",
-   "kickoff_at": "2026-09-20T17:00Z",
-   "published": true,
-   "value_bet": "Moins de 45.5 @ 1.9091",
-   "value_cote": 1.91,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "nfl_401872935",
    "flag": "🏈",
    "league": "NFL",
@@ -92,6 +66,32 @@
    "published": true,
    "value_bet": "Moins de 41.5 @ 1.8929",
    "value_cote": 1.89,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "nfl_401872939",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Tennessee Titans – Philadelphia Eagles",
+   "kickoff_at": "2026-09-20T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 39.5 @ 1.9259",
+   "value_cote": 1.93,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "nfl_401872937",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Chicago Bears – Minnesota Vikings",
+   "kickoff_at": "2026-09-20T17:00Z",
+   "published": true,
+   "value_bet": "Minnesota Vikings +4.5 @ 1.9524",
+   "value_cote": 1.95,
    "value_mise_eur": 200.0
   },
   {
@@ -193,6 +193,19 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "nfl_401872940",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Denver Broncos – Jacksonville Jaguars",
+   "kickoff_at": "2026-09-20T20:05Z",
+   "published": true,
+   "value_bet": "Moins de 45.5 @ 1.9091",
+   "value_cote": 1.91,
+   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -233,23 +246,6 @@
    "score": "0 - 2"
   },
   {
-   "fixture_id": "tennis_espn_wta_183723",
-   "flag": "🎾",
-   "league": "Caldas da Rainha Ladies Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Gabriela Knutson – Mia Pohankova",
-   "kickoff_at": "2026-09-19T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/gabriela knutson.png",
-   "away_photo": "assets/players/mia pohankova.png",
-   "conseil": "Victoire Gabriela Knutson",
-   "conseil_cote": 2.07,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "7-5, 5-7, 6-3"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183682",
    "flag": "🎾",
    "league": "Zavarovalnica Triglav Ljubljana",
@@ -265,6 +261,23 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "3-6, 6-1, 4-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183723",
+   "flag": "🎾",
+   "league": "Caldas da Rainha Ladies Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Gabriela Knutson – Mia Pohankova",
+   "kickoff_at": "2026-09-19T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/gabriela knutson.png",
+   "away_photo": "assets/players/mia pohankova.png",
+   "conseil": "Victoire Gabriela Knutson",
+   "conseil_cote": 2.07,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "7-5, 5-7, 6-3"
   },
   {
    "fixture_id": "tennis_espn_wta_183681",
@@ -318,25 +331,6 @@
    "score": "4 - 5"
   },
   {
-   "fixture_id": "hockey_425756",
-   "flag": "🏒",
-   "league": "Liiga (Finland)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "SaiPa – KooKoo",
-   "kickoff_at": "2026-09-19T14:00:00+00:00",
-   "published": true,
-   "conseil": "Victoire SaiPa",
-   "conseil_cote": 1.44,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — SaiPa @ 1.44",
-   "value_cote": 1.44,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "2 - 1"
-  },
-  {
    "fixture_id": "hockey_428007",
    "flag": "🏒",
    "league": "Mestis (Finland)",
@@ -354,6 +348,25 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "3 - 2"
+  },
+  {
+   "fixture_id": "hockey_425756",
+   "flag": "🏒",
+   "league": "Liiga (Finland)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "SaiPa – KooKoo",
+   "kickoff_at": "2026-09-19T14:00:00+00:00",
+   "published": true,
+   "conseil": "Victoire SaiPa",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — SaiPa @ 1.44",
+   "value_cote": 1.44,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "2 - 1"
   },
   {
    "fixture_id": "hockey_427379",
@@ -411,23 +424,23 @@
    "score": "1 - 3"
   },
   {
-   "fixture_id": "hockey_428769",
+   "fixture_id": "hockey_428767",
    "flag": "🏒",
    "league": "National League (Switzerland)",
    "sport": "hockey",
    "sport_label": "Hockey",
-   "match": "Zurich – Servette",
+   "match": "Lausanne – Ambri-Piotta",
    "kickoff_at": "2026-09-19T17:45:00+00:00",
    "published": true,
-   "conseil": "Victoire Zurich",
-   "conseil_cote": 1.41,
+   "conseil": "Victoire Lausanne",
+   "conseil_cote": 1.38,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Zurich @ 1.41",
-   "value_cote": 1.41,
+   "value_bet": "Vainqueur (prol. incluse) — Lausanne @ 1.38",
+   "value_cote": 1.38,
    "value_mise_eur": 200.0,
    "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "3 - 0"
+   "score": "4 - 1"
   },
   {
    "fixture_id": "hockey_428766",
@@ -449,23 +462,23 @@
    "score": "2 - 6"
   },
   {
-   "fixture_id": "hockey_428767",
+   "fixture_id": "hockey_428769",
    "flag": "🏒",
    "league": "National League (Switzerland)",
    "sport": "hockey",
    "sport_label": "Hockey",
-   "match": "Lausanne – Ambri-Piotta",
+   "match": "Zurich – Servette",
    "kickoff_at": "2026-09-19T17:45:00+00:00",
    "published": true,
-   "conseil": "Victoire Lausanne",
-   "conseil_cote": 1.38,
+   "conseil": "Victoire Zurich",
+   "conseil_cote": 1.41,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Lausanne @ 1.38",
-   "value_cote": 1.38,
+   "value_bet": "Vainqueur (prol. incluse) — Zurich @ 1.41",
+   "value_cote": 1.41,
    "value_mise_eur": 200.0,
    "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "4 - 1"
+   "score": "3 - 0"
   },
   {
    "fixture_id": "baseball_401817004",
@@ -549,23 +562,6 @@
    "score": "4-6, 3-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_186115",
-   "flag": "🎾",
-   "league": "Eupago Porto Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maria Martinez Vaquero – Sahaja Yamalapalli",
-   "kickoff_at": "2026-09-20T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/maria martinez vaquero.png",
-   "away_photo": "assets/players/sahaja yamalapalli.png",
-   "conseil": "Victoire Sahaja Yamalapalli",
-   "conseil_cote": 1.77,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "0-6, 3-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_186085",
    "flag": "🎾",
    "league": "Singapore Tennis Open presented by BNP Paribas",
@@ -600,6 +596,23 @@
    "score": "6-1, 6-0"
   },
   {
+   "fixture_id": "tennis_espn_wta_186115",
+   "flag": "🎾",
+   "league": "Eupago Porto Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maria Martinez Vaquero – Sahaja Yamalapalli",
+   "kickoff_at": "2026-09-20T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/maria martinez vaquero.png",
+   "away_photo": "assets/players/sahaja yamalapalli.png",
+   "conseil": "Victoire Sahaja Yamalapalli",
+   "conseil_cote": 1.77,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "0-6, 3-6"
+  },
+  {
    "fixture_id": "tennis_espn_wta_186075",
    "flag": "🎾",
    "league": "Korea Open",
@@ -617,23 +630,6 @@
    "score": "5-7, 2-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_186087",
-   "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Kyoka Okamura – Mei Yamaguchi",
-   "kickoff_at": "2026-09-20T05:30Z",
-   "published": true,
-   "home_photo": "assets/players/kyoka okamura.png",
-   "away_photo": "assets/players/mei yamaguchi.png",
-   "conseil": "Victoire Mei Yamaguchi",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-1, 6-1"
-  },
-  {
    "fixture_id": "tennis_espn_wta_186086",
    "flag": "🎾",
    "league": "Singapore Tennis Open presented by BNP Paribas",
@@ -649,6 +645,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "4-6, 3-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_186087",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Kyoka Okamura – Mei Yamaguchi",
+   "kickoff_at": "2026-09-20T05:30Z",
+   "published": true,
+   "home_photo": "assets/players/kyoka okamura.png",
+   "away_photo": "assets/players/mei yamaguchi.png",
+   "conseil": "Victoire Mei Yamaguchi",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-1, 6-1"
   },
   {
    "fixture_id": "tennis_espn_wta_183680",
@@ -687,25 +700,6 @@
    "score": "6 - 2"
   },
   {
-   "fixture_id": "hockey_433618",
-   "flag": "🏒",
-   "league": "DEL (Germany)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Bremerhaven – Iserlohn Roosters",
-   "kickoff_at": "2026-09-20T12:00:00+00:00",
-   "published": true,
-   "conseil": "Victoire Bremerhaven",
-   "conseil_cote": 1.37,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Bremerhaven @ 1.37",
-   "value_cote": 1.37,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "2 - 1"
-  },
-  {
    "fixture_id": "hockey_433616",
    "flag": "🏒",
    "league": "DEL (Germany)",
@@ -723,6 +717,25 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "2 - 6"
+  },
+  {
+   "fixture_id": "hockey_433618",
+   "flag": "🏒",
+   "league": "DEL (Germany)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Bremerhaven – Iserlohn Roosters",
+   "kickoff_at": "2026-09-20T12:00:00+00:00",
+   "published": true,
+   "conseil": "Victoire Bremerhaven",
+   "conseil_cote": 1.37,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Bremerhaven @ 1.37",
+   "value_cote": 1.37,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "2 - 1"
   },
   {
    "fixture_id": "tennis_espn_wta_183728",
@@ -780,25 +793,6 @@
    "score": "0 - 5"
   },
   {
-   "fixture_id": "hockey_435750",
-   "flag": "🏒",
-   "league": "Extraliga (Slovakia)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Zilina – Presov",
-   "kickoff_at": "2026-09-20T15:00:00+00:00",
-   "published": true,
-   "conseil": "Victoire Zilina",
-   "conseil_cote": 1.16,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Zilina @ 1.16",
-   "value_cote": 1.16,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "5 - 2"
-  },
-  {
    "fixture_id": "hockey_426275",
    "flag": "🏒",
    "league": "Extraliga (Czech-Republic)",
@@ -835,6 +829,25 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "3 - 2"
+  },
+  {
+   "fixture_id": "hockey_435750",
+   "flag": "🏒",
+   "league": "Extraliga (Slovakia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Zilina – Presov",
+   "kickoff_at": "2026-09-20T15:00:00+00:00",
+   "published": true,
+   "conseil": "Victoire Zilina",
+   "conseil_cote": 1.16,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Zilina @ 1.16",
+   "value_cote": 1.16,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "5 - 2"
   },
   {
    "fixture_id": "tennis_espn_wta_183774",
