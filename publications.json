@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-20T20:50:06.807729+00:00",
+ "generated_at": "2026-09-20T21:05:08.573411+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_186116",
@@ -69,26 +69,6 @@
    "value_bet": "Texas Rangers @ 1.6024",
    "value_cote": 1.6,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "wnba_401857202",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – New York Liberty",
-   "kickoff_at": "2026-09-20T19:00Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Marine Johannes — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "nfl_401872941",
@@ -924,6 +904,28 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "5 - 3"
+  },
+  {
+   "fixture_id": "wnba_401857202",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Toronto Tempo – New York Liberty",
+   "kickoff_at": "2026-09-20T19:00Z",
+   "published": true,
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Marine Johannes — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
