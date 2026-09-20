@@ -1,19 +1,6 @@
 {
- "generated_at": "2026-09-20T00:08:14.374861+00:00",
+ "generated_at": "2026-09-20T01:17:12.846605+00:00",
  "live": [
-  {
-   "fixture_id": "baseball_401816997",
-   "flag": "⚾",
-   "league": "MLB",
-   "sport": "baseball",
-   "sport_label": "Baseball (MLB)",
-   "match": "Cleveland Guardians – Athletics",
-   "kickoff_at": "2026-09-19T22:10Z",
-   "published": true,
-   "value_bet": "Cleveland Guardians @ 1.5618",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "baseball_401817003",
    "flag": "⚾",
@@ -112,6 +99,23 @@
    "score": "6-2, 6-1"
   },
   {
+   "fixture_id": "tennis_espn_wta_183769",
+   "flag": "🎾",
+   "league": "BBVA Open Internacional De Valencia",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Joelle Lilly Sophie Steur – Andrea Lazaro Garcia",
+   "kickoff_at": "2026-09-18T16:00Z",
+   "published": true,
+   "home_photo": "assets/players/joelle lilly sophie steur.png",
+   "away_photo": "assets/players/andrea lazaro garcia.png",
+   "conseil": "Victoire Andrea Lazaro Garcia",
+   "conseil_cote": 1.69,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-3, 2-6, 6-4"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183833",
    "flag": "🎾",
    "league": "SP Open",
@@ -142,23 +146,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183769",
-   "flag": "🎾",
-   "league": "BBVA Open Internacional De Valencia",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Joelle Lilly Sophie Steur – Andrea Lazaro Garcia",
-   "kickoff_at": "2026-09-18T16:00Z",
-   "published": true,
-   "home_photo": "assets/players/joelle lilly sophie steur.png",
-   "away_photo": "assets/players/andrea lazaro garcia.png",
-   "conseil": "Victoire Andrea Lazaro Garcia",
-   "conseil_cote": 1.69,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-3, 2-6, 6-4"
   },
   {
    "fixture_id": "tennis_espn_wta_183845",
@@ -258,28 +245,6 @@
    "score": "8 - 5"
   },
   {
-   "fixture_id": "wnba_401857195",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Toronto Tempo – Indiana Fever",
-   "kickoff_at": "2026-09-18T23:30Z",
-   "published": true,
-   "result": "PERDU",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Sophie Cunningham — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.92",
-     "odd": 1.92,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "wnba_401857196",
    "flag": "🏀",
    "league": "WNBA",
@@ -307,6 +272,28 @@
      "odd": 1.85,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "wnba_401857195",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Toronto Tempo – Indiana Fever",
+   "kickoff_at": "2026-09-18T23:30Z",
+   "published": true,
+   "result": "PERDU",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Sophie Cunningham — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.92",
+     "odd": 1.92,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
@@ -397,23 +384,6 @@
    "score": "0 - 2"
   },
   {
-   "fixture_id": "tennis_espn_wta_183682",
-   "flag": "🎾",
-   "league": "Zavarovalnica Triglav Ljubljana",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Laura Samson – Samira De Stefano",
-   "kickoff_at": "2026-09-19T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/laura samson.png",
-   "away_photo": "assets/players/samira de stefano.png",
-   "conseil": "Victoire Laura Samson",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "3-6, 6-1, 4-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183723",
    "flag": "🎾",
    "league": "Caldas da Rainha Ladies Open",
@@ -429,6 +399,23 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "7-5, 5-7, 6-3"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183682",
+   "flag": "🎾",
+   "league": "Zavarovalnica Triglav Ljubljana",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Laura Samson – Samira De Stefano",
+   "kickoff_at": "2026-09-19T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/laura samson.png",
+   "away_photo": "assets/players/samira de stefano.png",
+   "conseil": "Victoire Laura Samson",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "3-6, 6-1, 4-6"
   },
   {
    "fixture_id": "tennis_espn_wta_183681",
@@ -510,6 +497,22 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "baseball_401816997",
+   "flag": "⚾",
+   "league": "MLB",
+   "sport": "baseball",
+   "sport_label": "Baseball (MLB)",
+   "match": "Cleveland Guardians – Athletics",
+   "kickoff_at": "2026-09-19T22:10Z",
+   "published": true,
+   "value_bet": "Cleveland Guardians @ 1.5618",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "12 - 6"
   }
  ]
 }
