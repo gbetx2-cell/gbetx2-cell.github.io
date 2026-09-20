@@ -573,6 +573,14 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                 item["home_logo"] = f"https://media.api-sports.io/football/teams/{int(home_team_id)}.png"
             if away_team_id:
                 item["away_logo"] = f"https://media.api-sports.io/football/teams/{int(away_team_id)}.png"
+        elif sport == "hockey":
+            # Logos hockey (20/09/2026, demande explicite "ajoute les logos du
+            # hockey europeen") : memes ids api-sports que le reste du module
+            # hockey, enregistres a la publication -- aucun appel API en plus.
+            if home_team_id:
+                item["home_logo"] = f"https://media.api-sports.io/hockey/teams/{int(home_team_id)}.png"
+            if away_team_id:
+                item["away_logo"] = f"https://media.api-sports.io/hockey/teams/{int(away_team_id)}.png"
         elif sport == "tennis":
             # Photos joueurs (13/08/2026, demande explicite "recupere celle
             # d'ESPN le maximum et installe un systeme pour completer... avec
