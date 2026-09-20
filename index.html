@@ -1,1105 +1,865 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Umami Cloud (29/07/2026, demande explicite) : analytics respectueux
-     de la vie privee, sans cookie, aucune donnee personnelle collectee. -->
-<script defer src="https://cloud.umami.is/script.js" data-website-id="1898b001-076e-4422-a322-25b16662f25b"></script>
-<title>G-BET Bot — Pronostics football analysés par machine, publiés avec discipline</title>
-<meta name="description" content="Analyses football automatisées 24/7 : compositions officielles vérifiées, cotes réelles multi-bookmakers, bilan public chaque jour. Aucun conseil forcé.">
-<!-- Aperçu riche quand le lien est partagé (Telegram, WhatsApp, réseaux sociaux) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="G-BET Bot — Des pronostics publiés seulement quand les données le méritent">
-<meta property="og:description" content="Compositions officielles vérifiées 22/22, cotes réelles multi-bookmakers, bilan public chaque jour. Si les critères ne passent pas, rien n'est publié.">
-<meta property="og:image" content="https://gbetx2-cell.github.io/assets/logo.jpg">
-<meta property="og:locale" content="fr_FR">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="G-BET Bot — Analyses football automatisées">
-<meta name="twitter:description" content="Compositions vérifiées, cotes réelles, bilan public quotidien. Aucun conseil forcé.">
-<link rel="icon" href="assets/logo.jpg">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>G-BET Bot — Paris du jour, résultats, bilan</title>
+<meta name="description" content="Paris publiés avant le coup d'envoi, résultats complets réglés automatiquement, et calcul de ce que ça donne avec votre mise.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
 :root{
-  --bg:#070706;
-  --bg-2:#0c0b09;
-  --card:#12110e;
-  --card-2:#1a1813;
-  --border:rgba(240,185,11,.14);
-  --border-strong:rgba(240,185,11,.32);
-  --text:#f2ede1;
-  --muted:#9c9481;
-  --gold:#f0b90b;
-  --gold-2:#f7ca3e;
-  --gold-dark:#b8860b;
-  --green:#22c55e;
-  --red:#ef4444;
-  --radius:18px;
+  --ink:#100f0c; --surface:#1a1813; --raise:#24211a; --line:#2f2b22;
+  --text:#f3efe6; --muted:#a39c8c; --gold:#e3b341; --gold-ink:#1b1606;
+  --win:#43b97f; --loss:#e2665d; --push:#8f8a7e;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Inter',system-ui,sans-serif;
-  line-height:1.6;
-  overflow-x:hidden;
-}
-h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15}
-a{color:inherit;text-decoration:none}
-.container{max-width:1120px;margin:0 auto;padding:0 24px}
-.gold{color:var(--gold-2)}
+*{box-sizing:border-box}
+html,body{background:var(--ink);margin:0}
+body{color:var(--text);font:16px/1.5 var(--body);padding-inline:16px;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.wrap{max-width:1000px;margin-inline:auto}
+button,input{font:inherit;color:inherit}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.pos{color:var(--win)} .neg{color:var(--loss)}
+[hidden]{display:none!important}
 
-/* ── Header (avec le jeton qui tourne, en haut à gauche) ── */
-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(7,7,6,.85);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:12px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.5px}
-.logo .g{color:var(--gold-2)}
-.coin-sm-wrap{perspective:400px}
-.coin-sm{
-  width:42px;height:42px;position:relative;
-  transform-style:preserve-3d;
-  animation:coinspin 5s linear infinite;
-  /* Force sa propre couche de composition : evite le gel de l'animation 3D
-     observe sur Safari/WebKit mobile quand l'ancetre est en position:sticky
-     (le header l'est) -- bug WebKit connu, pas un souci de nos donnees. */
-  will-change:transform;
-  transform:translateZ(0);
-  -webkit-transform:translateZ(0);
-}
-.coin-sm .face{
-  position:absolute;inset:0;border-radius:50%;
-  backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;
-  border:2px solid var(--gold);
-  box-shadow:0 0 12px rgba(240,185,11,.4);
-}
-.coin-sm .face img{width:100%;height:100%;object-fit:cover;display:block}
-.coin-sm .face.back{transform:rotateY(180deg)}
-@keyframes coinspin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
-.nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
-.nav-links a{position:relative;padding-bottom:4px;transition:color .15s}
-.nav-links a:hover{color:var(--gold-2)}
-.nav-links a.active{color:var(--gold-2);font-weight:600}
-.nav-links a.active::after{
-  content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;
-  background:linear-gradient(90deg,var(--gold-dark),var(--gold-2));border-radius:2px;
-}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:12px 22px;border-radius:12px;
-  font-weight:700;font-size:.95rem;
-  transition:transform .15s ease, box-shadow .15s ease;
-  cursor:pointer;border:none;
-}
-.btn-primary{
-  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
-  color:#141005;
-  box-shadow:0 4px 24px rgba(240,185,11,.35);
-}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 34px rgba(240,185,11,.5)}
-.btn-ghost{border:1px solid var(--border-strong);color:var(--text);background:transparent}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
-.btn-sm{padding:9px 16px;font-size:.88rem}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--ink) 92%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.logo{font:800 22px/1 var(--display);letter-spacing:-.02em;margin-right:auto}
+.logo b{color:var(--gold)}
+nav{display:flex;gap:2px;flex-wrap:wrap}
+nav button{background:none;border:0;padding:8px 12px;border-radius:999px;color:var(--muted);cursor:pointer;font-weight:600}
+nav button[aria-selected="true"]{background:var(--raise);color:var(--text)}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--gold-ink);
+  font-weight:700;text-decoration:none;padding:10px 16px;border-radius:999px;white-space:nowrap;border:0;cursor:pointer}
+.ghost{background:var(--raise);color:var(--text)}
+.me-chip{display:inline-flex;align-items:center;gap:8px;background:var(--raise);border:1px solid var(--line);
+  border-radius:999px;padding:4px 6px 4px 12px;font-size:14px;font-weight:600}
+.me-chip button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:13px;padding:2px 6px}
 
-/* ── Hero ───────────────────────────────── */
-.hero{
-  position:relative;
-  padding:84px 0 64px;
-  background:
-    radial-gradient(ellipse 58% 48% at 72% 8%, rgba(240,185,11,.10), transparent),
-    radial-gradient(ellipse 40% 34% at 12% 18%, rgba(240,185,11,.05), transparent);
-}
-.hero-grid{display:grid;grid-template-columns:1fr;gap:52px;align-items:center;max-width:640px}
-.badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:7px 14px;border-radius:99px;
-  background:rgba(240,185,11,.09);
-  border:1px solid var(--border-strong);
-  color:var(--gold-2);font-size:.82rem;font-weight:600;
-  margin-bottom:22px;
-}
-.badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-size:clamp(2.05rem,4.5vw,3.3rem);font-weight:800;margin-bottom:20px}
-.hero h1 .hl{
-  background:linear-gradient(120deg,var(--gold-dark),var(--gold-2),var(--gold-dark));
-  background-size:200% auto;
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:shine 5s linear infinite;
-}
-@keyframes shine{to{background-position:200% center}}
-.hero p.lead{color:var(--muted);font-size:1.1rem;max-width:520px;margin-bottom:30px}
-.hero p.lead strong{color:var(--text)}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.check{color:var(--gold-2)}
+main{padding-block:20px 110px}
+h1{font:800 clamp(28px,5.5vw,42px)/1.05 var(--display);letter-spacing:-.03em;margin:0;text-wrap:balance}
+h2{font:600 19px/1.2 var(--display);margin:0 0 12px}
+h3{font:600 16px/1.3 var(--display);margin:18px 0 6px}
+.head{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.gain{font-size:12px;color:var(--muted)}
+.offer{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:12px;
+  padding:10px 16px;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:14px}
 
-/* ── Avis clients (07/08/2026, demande explicite : "au tout debut du
-   site", puis "beaucoup d'avis" + "un avis par un avis change avec une
-   animation") -- temoignages fictifs, generes pour illustrer le format
-   tant qu'aucun vrai retour client n'est collecte. Carrousel : un seul
-   avis affiche a la fois, defile automatiquement (fondu + glissement),
-   jamais tous en meme temps. ── */
-.reviews{border-block:1px solid var(--border);background:var(--bg-2);padding:44px 0}
-.reviews-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:24px}
-.reviews-head h2{font-size:1.3rem;font-weight:800}
-.reviews-disclaimer{color:var(--muted);font-size:.78rem}
-.reviews-carousel{max-width:560px;margin:0 auto;position:relative;min-height:190px}
-.review-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;
-  position:absolute;inset:0;
-  opacity:0;transform:translateX(24px);
-  transition:opacity .5s ease,transform .5s ease;
-  pointer-events:none;
-}
-.review-card.active{opacity:1;transform:translateX(0);pointer-events:auto}
-.review-card.leaving{transform:translateX(-24px)}
-.review-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.review-avatar{
-  width:40px;height:40px;border-radius:50%;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--gold),var(--gold-2));
-  color:var(--bg);font-weight:800;font-size:.85rem;
-}
-.review-name{font-weight:700;font-size:.92rem}
-.review-date{color:var(--muted);font-size:.74rem}
-.review-stars{color:var(--gold-2);font-size:.85rem;letter-spacing:2px;margin-bottom:10px}
-.review-text{color:var(--muted);font-size:.9rem;line-height:1.55}
-.reviews-dots{display:flex;justify-content:center;gap:7px;margin-top:18px}
-.reviews-dots .dot{width:7px;height:7px;border-radius:50%;background:var(--border-strong);border:none;padding:0;cursor:pointer;transition:background .3s ease,transform .3s ease}
-.reviews-dots .dot.active{background:var(--gold);transform:scale(1.3)}
-@media (prefers-reduced-motion: reduce){
-  .review-card{transition:opacity .01s linear;transform:none}
-}
+.summary{display:grid;grid-template-columns:repeat(3,1fr) 1.4fr;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin-bottom:14px}
+.kpi{background:var(--surface);padding:14px 16px}
+.kpi span{display:block;color:var(--muted);font-size:13px}
+.kpi strong{font:700 clamp(20px,3.6vw,28px)/1.2 var(--mono);font-variant-numeric:tabular-nums}
+.form{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
+.dot{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font:700 11px var(--mono);color:var(--ink);cursor:default}
+.dot.w{background:var(--win)} .dot.l{background:var(--loss)} .dot.p{background:var(--push)}
+.yday{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:10px 14px;margin-bottom:20px;font-size:14px}
+.streak{color:var(--win);font-weight:700}
 
-/* ── Ticker ligues ──────────────────────── */
-.ticker{
-  border-block:1px solid var(--border);
-  background:var(--bg-2);
-  overflow:hidden;white-space:nowrap;
-  padding:13px 0;
-}
-.ticker-inner{display:inline-block;animation:ticker 38s linear infinite}
-.ticker:hover .ticker-inner{animation-play-state:paused}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ticker span{
-  display:inline-flex;align-items:center;gap:8px;
-  margin:0 26px;color:var(--muted);font-size:.88rem;font-weight:500;
-}
-.ticker b{color:var(--gold-2);font-weight:700}
+.filters{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px;cursor:pointer;
+  font-weight:600;font-size:14px;color:var(--muted)}
+.chips button[aria-pressed="true"]{border-color:var(--gold);color:var(--text)}
+.chips small{font-family:var(--mono);margin-left:4px;opacity:.7}
 
-/* ── Stats strip ────────────────────────── */
-.stats{border-bottom:1px solid var(--border);background:var(--bg-2)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:34px 20px;text-align:center;border-right:1px solid var(--border)}
-.stat:last-child{border-right:none}
-.stat .n{font-family:'Sora';font-weight:800;font-size:2.15rem;color:var(--gold-2)}
-.stat .l{color:var(--muted);font-size:.85rem;margin-top:4px}
+.list{display:grid;gap:10px}
+.pick{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  display:grid;grid-template-columns:70px 1fr;gap:14px}
+.pick.is-live{border-color:#5b2a26}
+.when{font:700 15px/1.2 var(--mono);font-variant-numeric:tabular-nums}
+.meta{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.talk{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--raise);color:var(--text);
+  cursor:pointer;font-size:15px;display:grid;place-items:center;margin-left:auto}
+.talk:hover{border-color:var(--gold)}
+.teams{display:grid;gap:6px;margin:6px 0 2px}
+.team{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center}
+.team .badge{width:34px;height:34px;border-radius:50%;background:var(--raise);border:1px solid var(--line);
+  object-fit:cover;display:grid;place-items:center;font:700 11px/1 var(--body);color:var(--muted);flex:none}
+img.badge[src*="media.api-sports"],img.badge[src*="espncdn"]{object-fit:contain;background:transparent;border-color:transparent}
+.team .tname{font-weight:600;font-size:16px;overflow-wrap:anywhere}
+.team .tev{font-size:12px;color:var(--muted);font-weight:400;margin-left:8px}
+.team .tscore{font:700 18px/1 var(--mono);font-variant-numeric:tabular-nums;color:var(--muted)}
+.team.win .tname{color:var(--text)} .team.win .tscore{color:var(--gold)}
+.state{display:flex;gap:10px;align-items:center;font-size:12px;margin-top:2px}
+.clock{display:inline-flex;align-items:center;gap:6px;font:700 12px var(--body);color:var(--loss)}
+.clock::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--loss);animation:pulse 1.4s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.kick{font:600 12px var(--mono);color:var(--gold)}
+.bets{display:grid;gap:8px;margin-top:10px}
+.betline{display:grid;grid-template-columns:1fr auto auto auto auto;gap:12px;align-items:center;background:var(--raise);
+  border-radius:8px;padding:10px 12px}
+.bet{color:var(--gold);font-weight:600;font-size:15px}
+.mise,.odd-box,.net{display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1.1}
+.mise b,.odd-box b{font:700 17px/1 var(--mono);font-variant-numeric:tabular-nums}
+.net b{font:700 20px/1 var(--mono);font-variant-numeric:tabular-nums}
+.mise span,.odd-box span,.net span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.net{min-width:74px}
+.tag{font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.tag.w{color:var(--win)} .tag.l{color:var(--loss)} .tag.p{color:var(--push)} .tag.s{color:var(--muted)}
+.gauge{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);margin-top:8px;grid-column:1 / -1}
+.gauge .track{flex:1;height:6px;background:var(--surface);border-radius:999px;overflow:hidden}
+.gauge .fill{height:100%;background:var(--gold);border-radius:999px}
+.gauge.ok .fill{background:var(--win)}
+.gauge.danger .fill{background:var(--loss)}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:20px;text-align:center;color:var(--muted)}
+.empty b{color:var(--text)}
 
-/* ── Compteurs live ─────────────────────── */
-.live-strip{background:var(--bg);padding:56px 0 8px}
-.live-grid{display:grid;grid-template-columns:1fr;max-width:460px;margin:0 auto;gap:20px}
-.live-card{
-  background:linear-gradient(160deg,var(--card-2),var(--card));
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:26px 30px;
-  display:flex;align-items:center;justify-content:space-between;gap:18px;
-}
-.live-card .lc-label{color:var(--muted);font-size:.86rem;margin-bottom:4px}
-.live-card .lc-title{font-family:'Sora';font-weight:700;font-size:1.06rem}
-.live-card .timer{
-  font-family:'Sora';font-weight:800;font-size:2rem;
-  color:var(--gold-2);font-variant-numeric:tabular-nums;
-  text-shadow:0 0 22px rgba(240,185,11,.35);
-  white-space:nowrap;
-}
+.rail{display:flex;align-items:center;gap:8px}
+.rail button{background:var(--surface);border:1px solid var(--line);border-radius:999px;width:34px;height:34px;flex:none;
+  cursor:pointer;color:var(--text);font-size:16px}
+.rail button[disabled]{opacity:.35;cursor:default}
+.track-x{display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:2px}
+.track-x::-webkit-scrollbar{display:none}
+.block{flex:0 0 152px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);
+  border-radius:10px;padding:10px 12px}
+.block.up{border-left-color:var(--win)} .block.down{border-left-color:var(--loss)} .block.flat{border-left-color:var(--push)}
+.block span{display:block;font-size:12px;color:var(--muted)}
+.block b{font:700 18px var(--mono);font-variant-numeric:tabular-nums}
+#floattip{position:fixed;z-index:60;max-width:min(300px,86vw);background:var(--raise);border:1px solid var(--line);
+  border-radius:10px;padding:9px 11px;font:400 12px/1.45 var(--body);color:var(--text);box-shadow:0 8px 24px #0008;
+  pointer-events:none;display:none}
+#floattip b{font-family:var(--mono)}
+#floattip em{display:block;color:var(--muted);font-style:normal;font-size:11px}
 
-/* ── Bilan jour / semaine / mois ────────── */
-.period-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
-.period-grid.has-5{grid-template-columns:repeat(5,1fr)}
-.perf-sub-title{font-size:1.05rem;color:var(--text);margin:0 0 12px}
-.period-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:22px 24px;
-}
-.period-label{color:var(--muted);font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
-.period-pnl{font-family:'Sora';font-weight:800;font-size:1.7rem;margin-bottom:6px}
-.period-pnl.up{color:var(--green)}
-.period-pnl.down{color:var(--red)}
-.period-pnl.flat{color:var(--muted)}
-.period-sub{color:var(--muted);font-size:.84rem}
+.grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-bottom:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:20px}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.panel-head h2{margin:0}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font:11px var(--mono)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{font-size:12px;color:var(--muted);font-weight:600;text-align:right;padding:6px 4px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+td{padding:9px 4px;text-align:right;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:14px}
+td:first-child{font-family:var(--body);font-weight:600}
+tr:last-child td{border-bottom:0}
 
-/* ── Tableau performance par marché ─────── */
-.perf-table-wrap{overflow-x:auto}
-.perf-table{width:100%;border-collapse:collapse;font-size:.88rem}
-.perf-table th{
-  text-align:left;color:var(--muted);font-weight:600;font-size:.78rem;
-  text-transform:uppercase;letter-spacing:.05em;
-  padding:10px 12px;border-bottom:1px solid var(--border-strong);
-}
-.perf-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
-.perf-table tr:last-child td{border-bottom:none}
-.perf-table .num{font-variant-numeric:tabular-nums;text-align:right}
-.perf-table th.num{text-align:right}
-.perf-table .up{color:var(--green);font-weight:600}
-.perf-table .down{color:var(--red);font-weight:600}
-.badge-blocked{
-  display:inline-block;margin-left:8px;padding:2px 8px;border-radius:6px;
-  font-size:.78rem;font-weight:700;letter-spacing:.04em;
-  color:var(--red);border:1px solid rgba(239,68,68,.4);background:rgba(239,68,68,.08);
-}
+.stakebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px;margin-bottom:18px}
+.stakebar input{width:104px;background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:8px 10px;
+  text-align:right;font-family:var(--mono);font-size:18px}
+.big{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin-bottom:20px}
+.big div{background:var(--surface);padding:16px}
+.big span{display:block;color:var(--muted);font-size:13px}
+.big strong{font:700 clamp(20px,3.6vw,28px)/1.2 var(--mono);font-variant-numeric:tabular-nums}
 
-/* ── Graphique bankroll ─────────────────── */
-.chart-sec{padding-top:56px}
-.chart-card{
-  background:linear-gradient(170deg,var(--card-2),var(--card));
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:34px;
-}
-.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:20px}
-.chart-head h3{font-size:1.2rem}
-.chart-toggle{display:inline-flex;border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;margin-top:8px}
-.chart-toggle button{
-  background:transparent;border:none;color:var(--muted);
-  padding:8px 18px;font-family:'Sora';font-weight:700;font-size:.85rem;
-  cursor:pointer;transition:all .15s;
-}
-.chart-toggle button.active{
-  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
-  color:#141005;
-}
-.chart-head .delta{font-family:'Sora';font-weight:800;font-size:1.5rem;text-align:right}
-.chart-head .delta.up{color:var(--green)}
-.chart-head .delta.down{color:var(--red)}
-.chart-head .delta small{display:block;font-family:'Inter';font-weight:500;font-size:.78rem;color:var(--muted)}
-#bkChart,#periodChart,#bankrollChart{width:100%;height:auto;display:block}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+details+details{margin-top:8px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+details p+p{margin-top:8px}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.promise div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:600}
+.promise div span{display:block;font-weight:400;font-size:13px;color:var(--muted)}
 
-/* Flash directionnel sur mouvement de courbe (06/08/2026, demande
-   explicite : "a chaque mouvement dans les graphique une animation quand
-   ca descend ou baisse") -- se declenche uniquement quand la valeur change
-   reellement entre deux rafraichissements, jamais au premier rendu. */
-@keyframes flashUpGlow{0%{filter:drop-shadow(0 0 0 rgba(34,197,94,0))}30%{filter:drop-shadow(0 0 10px rgba(34,197,94,.95))}100%{filter:drop-shadow(0 0 0 rgba(34,197,94,0))}}
-@keyframes flashDownGlow{0%{filter:drop-shadow(0 0 0 rgba(239,68,68,0))}30%{filter:drop-shadow(0 0 10px rgba(239,68,68,.95))}100%{filter:drop-shadow(0 0 0 rgba(239,68,68,0))}}
-@keyframes flashUpText{0%{transform:translateY(0)}25%{transform:translateY(-4px)}60%{transform:translateY(0)}}
-@keyframes flashDownText{0%{transform:translateY(0)}25%{transform:translateY(4px)}60%{transform:translateY(0)}}
-.flash-up{animation:flashUpGlow 1.2s ease}
-.flash-down{animation:flashDownGlow 1.2s ease}
-.chart-head .delta.flash-up{animation:flashUpText .5s ease}
-.chart-head .delta.flash-down{animation:flashDownText .5s ease}
+#chat{position:fixed;inset:0;z-index:80;background:var(--ink);display:none;flex-direction:column}
+#chat.on{display:flex}
+.chat-head{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:env(safe-area-inset-top,0px) solid transparent;
+  border-bottom:1px solid var(--line)}
+.chat-back{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--raise);color:var(--text);
+  font-size:18px;cursor:pointer;flex:none}
+.chat-title{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chat-title span{display:block;font:400 12px var(--body);color:var(--muted)}
+.chat-score{margin-left:auto;font:700 22px/1 var(--mono);font-variant-numeric:tabular-nums}
+.chat-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:min(560px,86%);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:15px}
+.msg u{display:block;font:600 12px var(--body);color:var(--gold);text-decoration:none;margin-bottom:2px}
+.msg time{font-size:11px;color:var(--muted);margin-left:8px}
+.msg.me{align-self:flex-end;background:var(--raise);border-color:#4a3b14}
+.chat-foot{display:flex;gap:8px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.chat-foot input{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:10px 14px}
 
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;align-items:center}
-.chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px;width:100%}
-.chip{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:6px 10px;border-radius:9px;
-  font-weight:800;font-size:.78rem;font-family:'Sora';
-  cursor:default;position:relative;
-  opacity:0;transform:scale(.4);
-}
-.chip.visible{animation:chipin .35s ease forwards}
-@keyframes chipin{to{opacity:1;transform:scale(1)}}
-.chip.g{background:rgba(34,197,94,.14);color:var(--green);border:1px solid rgba(34,197,94,.4)}
-.chip.p{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.35)}
-.chip.r{background:rgba(156,148,129,.12);color:var(--muted);border:1px solid rgba(156,148,129,.3)}
-.chip .flag{font-size:1rem}
-/* Tooltip du chip : le pronostic donné */
-.chip .tip{
-  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) scale(.92);
-  background:#1e1b12;border:1px solid var(--border-strong);
-  border-radius:10px;padding:10px 14px;
-  font-family:'Inter';font-weight:500;font-size:.8rem;color:var(--text);
-  white-space:nowrap;pointer-events:none;
-  opacity:0;transition:opacity .15s ease,transform .15s ease;
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
-  z-index:10;
-}
-.chip .tip b{color:var(--gold-2);font-weight:700}
-.chip .tip .res-g{color:var(--green);font-weight:700}
-.chip .tip .res-p{color:var(--red);font-weight:700}
-.chip .tip .res-r{color:var(--muted);font-weight:700}
-.chip .tip::after{
-  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
-  border:6px solid transparent;border-top-color:var(--border-strong);
-}
-.chip:hover .tip{opacity:1;transform:translateX(-50%) scale(1)}
-.chart-note{color:var(--muted);font-size:.8rem;margin-top:18px}
-.pub-link{
-  display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--gold-2);
-  border:1px solid var(--border-strong);padding:6px 12px;border-radius:8px;margin-top:14px;
-  text-decoration:none;
-}
-.pub-link:hover{background:rgba(240,185,11,.08)}
-.type-filter{flex-wrap:wrap}
-.highlight-link{display:block;margin-top:8px;font-size:.78rem;color:var(--gold-2);text-decoration:none}
-.highlight-link:hover{text-decoration:underline}
+#gate{position:fixed;inset:0;z-index:90;background:#000000cc;backdrop-filter:blur(4px);display:grid;place-items:center;padding:16px;overflow:auto}
+.gate-card{width:min(400px,100%);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.gate-card .cta{width:100%;margin-bottom:10px}
+.gate-card input{width:100%;background:var(--raise);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0 10px}
+.gate-tabs{display:flex;gap:4px;background:var(--raise);border-radius:999px;padding:4px;margin-bottom:16px}
+.gate-tabs button{flex:1;background:none;border:0;border-radius:999px;padding:8px;cursor:pointer;color:var(--muted);font-weight:600}
+.gate-tabs button[aria-selected="true"]{background:var(--surface);color:var(--text)}
+.gate-check{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin:2px 0 14px}
+.gate-check input{width:auto;margin:0;accent-color:var(--gold)}
+.gate-err{color:var(--loss);font-size:14px;margin:0 0 10px}
+#gate[hidden]{display:none}
 
-/* ── Sections ───────────────────────────── */
-section{padding:84px 0}
-.sec-tag{color:var(--gold-2);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
-.sec-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;margin-bottom:16px}
-.sec-sub{color:var(--muted);max-width:640px;margin-bottom:48px}
-
-
-
-/* Transparence */
-.transp{background:var(--bg-2);border-block:1px solid var(--border)}
-.transp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.t-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--radius);padding:28px;
+footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--muted);font-size:12px}
+.dock{display:none}
+@media (max-width:760px){
+  .summary{grid-template-columns:repeat(3,1fr)} .summary .kpi:last-child{grid-column:1 / -1}
+  .grid2,.promise{grid-template-columns:1fr}
+  .big{grid-template-columns:repeat(2,1fr)}
+  .pick{grid-template-columns:52px 1fr}
+  .betline{grid-template-columns:1fr auto auto;row-gap:8px}
+  .betline .bet{grid-column:1 / -1}
+  header .cta{display:none}
+  .dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:10px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--ink);border-top:1px solid var(--line)}
+  .dock .cta{flex:1}
 }
-.t-card .big{font-family:'Sora';font-weight:800;font-size:1.35rem;margin-bottom:8px}
-.t-card p{color:var(--muted);font-size:.9rem}
-.t-card .ok{color:var(--gold-2)}
-.t-card .ko{color:var(--red)}
-
-/* FAQ */
-.faq-item{
-  border:1px solid var(--border);border-radius:14px;
-  margin-bottom:12px;background:var(--card);
-  overflow:hidden;
-}
-.faq-item summary{
-  padding:20px 24px;cursor:pointer;font-weight:600;
-  list-style:none;display:flex;justify-content:space-between;align-items:center;
-  font-size:.98rem;
-}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';color:var(--gold-2);font-size:1.3rem;font-weight:400}
-.faq-item[open] summary::after{content:'−'}
-.faq-item .a{padding:0 24px 20px;color:var(--muted);font-size:.93rem}
-
-/* CTA final */
-.cta-final{
-  text-align:center;
-  background:radial-gradient(ellipse 50% 62% at 50% 100%, rgba(240,185,11,.13), transparent);
-}
-.cta-final .coin-mini{
-  width:92px;height:92px;border-radius:50%;overflow:hidden;
-  border:3px solid var(--gold);margin:0 auto 26px;
-  box-shadow:0 0 34px rgba(240,185,11,.4);
-  animation:float 4s ease-in-out infinite;
-}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.cta-final .coin-mini img{width:100%;height:100%;object-fit:cover}
-.cta-final h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;margin-bottom:16px}
-.cta-final p{color:var(--muted);max-width:520px;margin:0 auto 32px}
-
-/* Bouton Telegram flottant */
-.fab{
-  position:fixed;right:22px;bottom:22px;z-index:60;
-  width:58px;height:58px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;
-  box-shadow:0 8px 30px rgba(240,185,11,.45);
-  transition:transform .15s ease;
-}
-.fab:hover{transform:scale(1.1)}
-.fab::after{
-  content:'';position:absolute;inset:-6px;border-radius:50%;
-  border:2px solid rgba(240,185,11,.4);
-  animation:fabpulse 2.2s ease-out infinite;
-}
-@keyframes fabpulse{from{transform:scale(.8);opacity:1}to{transform:scale(1.35);opacity:0}}
-
-/* Footer */
-footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
-.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
-.foot-brand{max-width:300px}
-.foot-brand .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--gold)}
-.foot-brand p{color:var(--muted);font-size:.85rem;margin-top:10px}
-.legal{
-  border-top:1px solid var(--border);padding-top:24px;
-  color:var(--muted);font-size:.78rem;line-height:1.7;
-}
-.legal strong{color:#d8d0bd}
-.age{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:38px;height:38px;border-radius:50%;
-  border:2px solid var(--red);color:var(--red);
-  font-weight:800;font-size:.8rem;margin-right:12px;flex-shrink:0;
-}
-.legal-flex{display:flex;align-items:flex-start;gap:4px}
-
-/* Reveal animation */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
-
-/* ── Responsive ─────────────────────────── */
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:44px}
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(2){border-right:none}
-  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--border)}
-  .transp-grid{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .live-grid{grid-template-columns:1fr}
-  .chart-card{padding:22px}
-  .chip .tip{white-space:normal;width:220px}
-  .period-grid{grid-template-columns:repeat(2,1fr)}
-}
-
-/* ── Accessibilité : focus clavier visible ─ */
-:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
-:focus:not(:focus-visible){outline:none}
-
-/* ── Skip link ──────────────────────────── */
-.skip-link{
-  position:fixed;top:-60px;left:12px;z-index:200;
-  background:var(--gold-2);color:#141005;font-weight:700;font-size:.9rem;
-  padding:12px 20px;border-radius:10px;transition:top .2s ease;
-}
-.skip-link:focus{top:12px}
-
-/* ── Icônes SVG (remplacent les émojis fonctionnels) ── */
-.icon{width:1.15em;height:1.15em;display:inline-block;vertical-align:-0.2em;flex-shrink:0;
-  stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.ic .icon{width:22px;height:22px;color:var(--gold-2)}
-
-/* ── Réduction de mouvement ────────────────── */
-@media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{
-    animation-duration:.001ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.001ms !important;
-    scroll-behavior:auto !important;
-  }
-}
-
-/* ── Menu mobile ────────────────────────── */
-.icon-btn{
-  background:transparent;border:1px solid var(--border-strong);border-radius:10px;
-  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
-  color:var(--text);cursor:pointer;flex-shrink:0;
-}
-.icon-btn:hover{border-color:var(--gold);color:var(--gold-2)}
-.menu-toggle{display:none}
-.header-right{display:flex;align-items:center;gap:10px}
-.mobile-backdrop{
-  position:fixed;inset:0;background:rgba(0,0,0,.55);
-  opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:64;
-}
-.mobile-backdrop.open{opacity:1;pointer-events:auto}
-.mobile-nav{
-  position:fixed;top:0;right:0;height:100vh;width:min(320px,82vw);
-  background:var(--bg-2);border-left:1px solid var(--border);
-  transform:translateX(100%);transition:transform .25s ease;
-  z-index:70;padding:20px 22px;display:flex;flex-direction:column;gap:4px;
-  overflow-y:auto;
-}
-.mobile-nav.open{transform:translateX(0)}
-.mobile-nav-head{display:flex;justify-content:flex-end;margin-bottom:14px}
-.mobile-nav a{padding:15px 4px;font-size:1.05rem;color:var(--text);font-weight:600;
-  border-bottom:1px solid var(--border);}
-.mobile-nav a.active{color:var(--gold-2)}
-.mobile-nav .btn{margin-top:18px;justify-content:center}
-@media(max-width:900px){
-  .menu-toggle{display:flex}
-}
-
-/* ── Transition de page : logo qui tourne (07/08/2026, demande explicite :
-   "quand le client clique sur une page il y a une animation mon logo qui
-   tourne et apres il tombe sur sa page") -- affichee brievement a chaque
-   navigation vers Publications ou vers une section (Resultats/Performance/
-   FAQ), jamais un saut instantane. ── */
-.page-loader{
-  position:fixed;inset:0;z-index:999;background:var(--bg);
-  display:flex;align-items:center;justify-content:center;
-  transition:opacity .45s ease,visibility .45s ease;
-}
-.page-loader.hide{opacity:0;visibility:hidden;pointer-events:none}
-.loader-logo{
-  width:64px;height:64px;border-radius:50%;
-  border:3px solid var(--gold);
-  animation:loaderSpin 1s linear infinite;
-  box-shadow:0 0 30px rgba(240,185,11,.45);
-}
-@keyframes loaderSpin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion: reduce){.loader-logo{animation:none}}
-
-/* ── Pop-up partenaire (07/08/2026, demande explicite) ── */
-.promo-overlay{
-  position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.65);
-  display:flex;align-items:center;justify-content:center;padding:20px;
-  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
-}
-.promo-overlay.show{opacity:1;visibility:visible}
-.promo-modal{
-  position:relative;background:var(--card);border:1px solid var(--border-strong);
-  border-radius:var(--radius);padding:32px 28px 26px;max-width:420px;
-  box-shadow:0 30px 90px rgba(0,0,0,.6);text-align:center;
-  transform:translateY(14px);transition:transform .3s ease;
-}
-.promo-overlay.show .promo-modal{transform:translateY(0)}
-.promo-close{
-  position:absolute;top:10px;right:12px;background:none;border:none;
-  color:var(--muted);font-size:1.6rem;line-height:1;cursor:pointer;padding:6px;
-}
-.promo-close:hover{color:var(--text)}
-.promo-tag{
-  display:inline-block;padding:5px 12px;border-radius:99px;
-  background:rgba(240,185,11,.12);border:1px solid var(--border-strong);
-  color:var(--gold-2);font-size:.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:.04em;margin-bottom:14px;
-}
-.promo-modal h3{font-size:1.2rem;margin-bottom:10px}
-.promo-modal p{color:var(--muted);font-size:.9rem;line-height:1.5;margin-bottom:18px}
-.promo-cta{width:100%;justify-content:center}
-.promo-legal{font-size:.68rem;color:var(--muted);opacity:.8;margin-top:16px;margin-bottom:0;line-height:1.4}
+@media (prefers-reduced-motion:reduce){.clock::before{animation:none}.track-x{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<div id="pageLoader" class="page-loader" aria-hidden="true">
-  <img src="assets/logo.jpg" alt="" class="loader-logo">
-</div>
-
-<div id="promoOverlay" class="promo-overlay" aria-hidden="true">
-  <div class="promo-modal" role="dialog" aria-modal="true" aria-label="Offre partenaire Winamax">
-    <button class="promo-close" id="promoClose" aria-label="Fermer">&times;</button>
-    <div class="promo-tag">Offre partenaire</div>
-    <h3>Envie de jouer vos pronostics ?</h3>
-    <p>Winamax propose une offre de bienvenue aux nouveaux inscrits avec le code parrain <b>GBEUVP</b>.</p>
-    <a class="btn btn-primary promo-cta" href="https://www.winamax.fr/parrain?code=GBEUVP" target="_blank" rel="noopener sponsored">Voir l'offre Winamax</a>
-    <p class="promo-legal">18+ · Jouer comporte des risques : endettement, isolement, dépendance. Ne pariez que ce que vous pouvez vous permettre de perdre. Pour être aidé : 09 74 75 13 13 (appel non surtaxé) ou joueurs-info-service.fr.</p>
-  </div>
-</div>
-
-<a href="#main" class="skip-link">Aller au contenu</a>
-
-<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
-<defs>
-<symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7 2.5 2.5 7L21 3Z"/><path d="M12.5 13.5 21 3"/></symbol>
-<symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5.5"/></symbol>
-<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></symbol>
-<symbol id="i-trend-up" viewBox="0 0 24 24"><path d="M3 17 10 10l4 4 7-7"/><path d="M15 6h6v6"/></symbol>
-<symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5 15.5 10l-1.3 4H9.8L8.5 10Z"/><path d="M12 7.5V4M15.5 10l3-1.4M14.2 14l2 2.8M9.8 14l-2 2.8M8.5 10l-3-1.4"/></symbol>
-<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18 6l-1.7 1.7M7.7 16.3 6 18M18 18l-1.7-1.7M7.7 7.7 6 6"/></symbol>
-<symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M8 11h8M8 15h5"/></symbol>
-<symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
-<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10Z"/><path d="M10 19a2 2 0 0 0 4 0"/></symbol>
-<symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12"/><path d="M7 3c0 4.5 3 5.5 5 7.2C10 12 7 13 7 17.5M17 3c0 4.5-3 5.5-5 7.2 2 1.8 5 2.8 5 7.5"/></symbol>
-<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
-</defs>
-</svg>
-
 <header>
-  <div class="container nav">
-    <div class="logo">
-      <div class="coin-sm-wrap">
-        <div class="coin-sm">
-          <div class="face front"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
-          <div class="face back"><img src="assets/logo.jpg" alt=""></div>
-        </div>
-      </div>
-      <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
-    </div>
-    <nav class="nav-links">
-      <a href="publications.html">Publications</a>
-      <a href="resultats.html">Résultats</a>
-      <a href="performance.html">Performance</a>
-      <a href="faq.html">FAQ</a>
+  <div class="wrap bar">
+    <div class="logo">G-<b>BET</b></div>
+    <nav aria-label="Pages">
+      <button aria-selected="true" data-page="jour">Paris du jour</button>
+      <button aria-selected="false" data-page="res">Résultats</button>
+      <button aria-selected="false" data-page="mise">Ma mise</button>
+      <button aria-selected="false" data-page="aide">Aide</button>
     </nav>
-    <div class="header-right">
-      <a class="btn btn-primary btn-sm" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
-      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
-        <svg class="icon" style="width:20px;height:20px"><use href="#i-menu"></use></svg>
-      </button>
-    </div>
+    <button class="cta ghost" type="button" id="btn-login">Se connecter</button>
+    <a class="cta" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre sur Telegram</a>
   </div>
 </header>
 
-<div class="mobile-backdrop" id="mobileBackdrop"></div>
-<nav class="mobile-nav" id="mobileNav" aria-label="Menu principal">
-  <div class="mobile-nav-head">
-    <button class="icon-btn" id="menuClose" aria-label="Fermer le menu">
-      <svg class="icon" style="width:18px;height:18px"><use href="#i-x"></use></svg>
-    </button>
-  </div>
-  <a href="publications.html">Publications</a>
-  <a href="resultats.html">Résultats</a>
-  <a href="performance.html">Performance</a>
-  <a href="faq.html">FAQ</a>
-  <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
-</nav>
-
-<!-- ── HERO ─────────────────────────────── -->
-<div class="hero" id="main">
-  <div class="container hero-grid">
-    <div>
-      <div class="badge"><span class="pulse"></span> Bot actif — analyses en continu, 7j/7</div>
-      <h1>Des pronostics publiés <span class="hl">seulement quand les données le méritent.</span></h1>
-      <p class="lead">
-        G-BET Bot est une machine d'analyse football qui travaille 24h/24 :
-        compositions officielles vérifiées joueur par joueur, cotes réelles
-        multi-bookmakers, et une règle simple — si les critères ne passent pas,
-        <strong>rien n'est publié</strong>.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener"><svg class="icon"><use href="#i-plane"></use></svg> Recevoir les analyses sur Telegram</a>
-        <a class="btn btn-ghost" href="resultats.html">Voir les résultats</a>
-      </div>
-    </div>
-
-  </div>
+<div class="wrap offer" id="top-offer">
+  <span>Pas de compte bookmaker ? Offre de bienvenue Winamax, code <b>GBEUVP</b>.</span>
+  <a class="cta ghost" href="https://www.winamax.fr/" target="_blank" rel="noopener sponsored">Voir l'offre</a>
 </div>
 
-<!-- ── AVIS CLIENTS ─────────────────────── -->
-<section class="reviews">
-  <div class="container">
-    <div class="reviews-head">
-      <h2>Ce qu'en disent les abonnés du canal.</h2>
-      <span class="reviews-disclaimer">Avis illustratifs — en attente des premiers retours réels du canal.</span>
+<main class="wrap">
+
+  <section id="p-jour">
+    <div class="head"><h1>Paris du jour</h1><span class="gain" id="jour-maj"></span></div>
+    <div class="filters">
+      <div class="chips" id="state-chips"></div>
+      <div class="chips" id="sport-chips"></div>
     </div>
-    <div class="reviews-carousel" id="reviewsCarousel"></div>
-    <div class="reviews-dots" id="reviewsDots"></div>
-  </div>
-</section>
+    <div class="list" id="list"><div class="empty">Chargement…</div></div>
+  </section>
 
-<!-- ── TICKER LIGUES ────────────────────── -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-inner" id="tickerInner">
-    <span>🏴󠁧󠁢󠁥󠁮󠁧󠁿 <b>Premier League</b></span><span>🇪🇸 <b>La Liga</b></span><span>🇮🇹 <b>Serie A</b></span><span>🇩🇪 <b>Bundesliga</b></span><span>🇫🇷 <b>Ligue 1</b></span><span>🇪🇺 <b>Champions League</b></span><span>🇧🇷 <b>Brasileirão</b></span><span>🇦🇷 <b>Liga Profesional</b></span><span>🇺🇸 <b>MLS</b></span><span>🇸🇦 <b>Saudi Pro League</b></span><span>🇯🇵 <b>J1 League</b></span><span>🇲🇽 <b>Liga MX</b></span><span>🇳🇱 <b>Eredivisie</b></span><span>🇵🇹 <b>Primeira Liga</b></span><span>🇹🇷 <b>Süper Lig</b></span><span>+ 98 autres ligues vérifiées</span>
-  </div>
-</div>
+  <section id="p-res" hidden>
+    <div class="head"><h1>Résultats</h1><span class="gain">Tous les paris publiés · rien n'est supprimé</span></div>
+    <div class="summary" id="res-summary"></div>
+    <div class="yday" id="res-streak"></div>
 
-<!-- ── STATS ────────────────────────────── -->
-<div class="stats">
-  <div class="container stats-grid">
-    <div class="stat reveal"><div class="n" data-count="113">0</div><div class="l">ligues couvertes, vérifiées une par une</div></div>
-    <div class="stat reveal"><div class="n"><span data-count="22">0</span>/22</div><div class="l">titulaires confirmés avant chaque publication</div></div>
-    <div class="stat reveal"><div class="n" data-count="2">0</div><div class="l">sources croisées pour chaque composition</div></div>
-    <div class="stat reveal"><div class="n" data-count="0">0</div><div class="l">conseil forcé — jamais de pari « pour publier »</div></div>
-  </div>
-</div>
-
-<!-- ── COMPTEURS LIVE ───────────────────── -->
-<div class="live-strip">
-  <div class="container live-grid">
-    <div class="live-card reveal">
-      <div>
-        <div class="lc-label"><svg class="icon"><use href="#i-gear"></use></svg> Moteur d'analyse</div>
-        <div class="lc-title">Prochain scan des matchs</div>
-      </div>
-      <div class="timer" id="scanTimer">--:--</div>
-    </div>
-  </div>
-</div>
-
-<!-- ── TRANSPARENCE ─────────────────────── -->
-<section id="transparence" class="transp">
-  <div class="container">
-    <div class="sec-tag">Transparence</div>
-    <h2 class="sec-title">On assume tout, y compris les défaites.</h2>
-    <p class="sec-sub">
-      La plupart des canaux effacent leurs pertes. Ici, le bilan est généré
-      automatiquement par la machine — impossible à maquiller.
-    </p>
-    <div class="transp-grid">
-      <div class="t-card reveal">
-        <div class="big">Bilan <span class="ok">quotidien</span></div>
-        <p>Chaque jour, le canal publie le récapitulatif complet de la veille :
-        paris gagnés, perdus et remboursés, avec les cotes réelles de chaque pick.</p>
-      </div>
-      <div class="t-card reveal">
-        <div class="big">Résultats <span class="ok">vérifiés machine</span></div>
-        <p>Le règlement des paris est automatique, depuis les résultats officiels.
-        Aucune intervention manuelle entre le coup de sifflet final et le bilan.</p>
-      </div>
-      <div class="t-card reveal">
-        <div class="big">Zéro <span class="ko">réécriture</span></div>
-        <p>Un pari publié reste publié. Les messages ne sont ni supprimés ni
-        modifiés après le coup d'envoi — l'historique du canal fait foi.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA FINAL ────────────────────────── -->
-<section class="cta-final">
-  <div class="container">
-    <div class="coin-mini"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
-    <h2>Laissez la machine filtrer.<br>Gardez votre bankroll pour les bons matchs.</h2>
-    <p>Les analyses tombent directement sur Telegram, 30 minutes avant le coup d'envoi,
-    compositions confirmées.</p>
-    <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener"><svg class="icon"><use href="#i-plane"></use></svg> Rejoindre le canal Telegram</a>
-  </div>
-</section>
-
-<!-- ── FOOTER ───────────────────────────── -->
-<footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <div class="logo">
-          <img src="assets/logo.jpg" alt="">
-          <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
-        </div>
-        <p>Analyses football automatisées. Données officielles, cotes réelles,
-        bilan public quotidien.</p>
-      </div>
-      <nav class="nav-links" style="display:flex;flex-direction:column;gap:10px">
-        <a href="publications.html">Publications</a>
-        <a href="resultats.html">Résultats</a>
-        <a href="performance.html">Performance</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
-    </div>
-    <div class="legal">
-      <div class="legal-flex">
-        <span class="age">18+</span>
-        <div>
-          <strong>Jouer comporte des risques : endettement, isolement, dépendance.</strong>
-          Les jeux d'argent et de hasard sont interdits aux mineurs. G-BET Bot fournit des
-          analyses statistiques à titre informatif — aucun gain n'est garanti et les
-          performances passées ne préjugent pas des résultats futurs. Ne pariez que ce que
-          vous pouvez vous permettre de perdre.
-          Pour être aidé, appelez le <strong>09&nbsp;74&nbsp;75&nbsp;13&nbsp;13</strong>
-          (appel non surtaxé) ou consultez
-          <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener" style="text-decoration:underline">joueurs-info-service.fr</a>.
+    <div class="panel">
+      <div class="panel-head"><h2>Bilan détaillé</h2>
+        <div class="chips" id="period-chips">
+          <button type="button" aria-pressed="true" data-p="jour">Par jour</button>
+          <button type="button" aria-pressed="false" data-p="semaine">Par semaine</button>
+          <button type="button" aria-pressed="false" data-p="mois">Par mois</button>
+          <button type="button" aria-pressed="false" data-p="annee">Par année</button>
         </div>
       </div>
+      <div class="rail">
+        <button type="button" data-rail="rail-track" data-dir="-1" aria-label="Voir avant">‹</button>
+        <div class="track-x" id="rail-track"></div>
+        <button type="button" data-rail="rail-track" data-dir="1" aria-label="Voir après">›</button>
+      </div>
     </div>
-  </div>
-</footer>
 
-<a class="fab" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener" aria-label="Rejoindre le canal Telegram"><svg class="icon" style="width:24px;height:24px;color:#141005"><use href="#i-plane"></use></svg></a>
+    <div class="grid2">
+      <div class="panel" style="margin:0"><h2>Bénéfice cumulé</h2><div id="chart-u"></div></div>
+      <div class="panel" style="margin:0">
+        <div class="panel-head"><h2>Détail</h2>
+          <div class="chips" id="split"><button type="button" aria-pressed="true" data-split="sport">Sport</button>
+            <button type="button" aria-pressed="false" data-split="ligue">Ligue</button></div>
+        </div>
+        <div style="overflow-x:auto"><table><thead><tr><th id="split-col">Sport</th><th>Paris</th><th>Réussite</th><th>Bénéfice</th></tr></thead>
+          <tbody id="split-body"></tbody></table></div>
+      </div>
+    </div>
+
+    <h2>Derniers paris</h2>
+    <div class="list" id="list-res"></div>
+  </section>
+
+  <section id="p-mise" hidden>
+    <div class="head"><h1>Ma mise</h1><span class="gain">Le même bilan, converti dans votre mise</span></div>
+    <div class="stakebar">
+      <label for="stake">Valeur de 1 u</label>
+      <input id="stake" type="number" min="1" step="1" value="10"> €
+      <div class="chips" id="stake-presets">
+        <button type="button" data-v="5">5 €</button><button type="button" data-v="10">10 €</button>
+        <button type="button" data-v="20">20 €</button><button type="button" data-v="50">50 €</button>
+      </div>
+      <span class="gain">Le bot mise de 0,75 u à 3 u selon sa confiance.</span>
+    </div>
+    <div class="big">
+      <div><span>Total misé</span><strong id="m-mise">—</strong><span id="m-mise-u"></span></div>
+      <div><span>Bénéfice</span><strong id="m-benef">—</strong></div>
+      <div><span>Retour</span><strong id="m-retour">—</strong></div>
+      <div><span>Paris réglés</span><strong id="m-n">—</strong></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Bilan détaillé</h2>
+        <div class="chips" id="m-period-chips">
+          <button type="button" aria-pressed="true" data-p="jour">Par jour</button>
+          <button type="button" aria-pressed="false" data-p="semaine">Par semaine</button>
+          <button type="button" aria-pressed="false" data-p="mois">Par mois</button>
+          <button type="button" aria-pressed="false" data-p="annee">Par année</button>
+        </div>
+      </div>
+      <div class="rail">
+        <button type="button" data-rail="m-track" data-dir="-1" aria-label="Voir avant">‹</button>
+        <div class="track-x" id="m-track"></div>
+        <button type="button" data-rail="m-track" data-dir="1" aria-label="Voir après">›</button>
+      </div>
+    </div>
+    <div class="panel"><h2>Bénéfice cumulé</h2><div id="chart-e"></div></div>
+    <div class="panel"><h2>Par sport</h2><div style="overflow-x:auto">
+      <table><thead><tr><th>Sport</th><th>Paris</th><th>Misé</th><th>Bénéfice</th></tr></thead><tbody id="m-body"></tbody></table>
+    </div></div>
+    <h2>Derniers paris avec votre mise</h2>
+    <div class="list" id="m-list" style="margin-bottom:20px"></div>
+  </section>
+
+  <section id="p-aide" hidden>
+    <div class="head"><h1>Aide</h1></div>
+    <div class="promise">
+      <div>Publié avant le match<span>Jamais après le coup d'envoi</span></div>
+      <div>Réglé automatiquement<span>Depuis le score officiel</span></div>
+      <div>Jamais supprimé<span>Les paris perdus restent affichés</span></div>
+    </div>
+
+    <h3>Comprendre les chiffres</h3>
+    <details open><summary>C'est quoi une unité (u) ?</summary>
+      <p>Une unité est une mise de référence, exprimée en pourcentage de votre capital de jeu plutôt qu'en euros, pour que le suivi vaille quel que soit votre budget. L'usage courant est de fixer 1 u entre 1 % et 3 % de ce capital.</p>
+      <p>Exemple : avec 500 € de capital et 1 u = 2 %, une unité vaut 10 €. Un pari noté 1,5 u correspond alors à 15 €. L'onglet Ma mise fait ce calcul pour vous.</p></details>
+    <details><summary>Pourquoi les mises changent d'un pari à l'autre ?</summary>
+      <p>La mise dépend de l'écart entre notre estimation et la cote proposée : plus cet écart est net, plus la mise est élevée. Elle va de 0,75 u à 3 u, avec un plafond par match pour ne jamais concentrer le risque sur une seule rencontre.</p></details>
+    <details><summary>Bénéfice et retour, quelle différence ?</summary>
+      <p>Le bénéfice est ce que le suivi a rapporté, en unités. Le retour rapporte ce bénéfice au total misé : +6 u de bénéfice pour 1 400 u misées donnent un retour de 0,4 %.</p>
+      <p>Sur la durée, un retour durablement compris entre 3 % et 8 % est déjà considéré comme très bon dans le milieu. Méfiez-vous des annonces à 30 % ou 50 % : elles ne tiennent jamais sur un gros volume de paris.</p></details>
+    <details><summary>Un taux de réussite élevé veut-il dire rentable ?</summary>
+      <p>Non. Gagner 70 % de ses paris à la cote 1,30 fait perdre de l'argent, car il faut 77 % de réussite pour rentrer dans ses frais à cette cote. Le seul chiffre qui tranche est le bénéfice rapporté au total misé.</p></details>
+
+    <h3>Comment ça marche</h3>
+    <details><summary>Combien de paris par jour ?</summary>
+      <p>Cela dépend du programme et des critères remplis : certains jours plusieurs paris, d'autres aucun. Un jour sans pari est un jour normal, pas une panne.</p></details>
+    <details><summary>Quand les paris sont-ils publiés ?</summary>
+      <p>Avant le coup d'envoi, une fois les compositions vérifiées quand elles existent. La cote affichée est celle relevée au moment de la publication.</p></details>
+    <details><summary>Et si la cote a bougé quand je veux parier ?</summary>
+      <p>Jouez seulement si vous obtenez une cote égale ou supérieure. En dessous, l'avantage estimé disparaît : il vaut mieux passer ce pari.</p></details>
+    <details><summary>Plusieurs paris sur le même match ?</summary>
+      <p>Oui, ils sont regroupés sur la même carte, chacun avec sa mise. Ce sont des paris séparés, à jouer séparément : ce n'est pas un combiné.</p></details>
+    <details><summary>Qui décide qu'un pari est gagné ou perdu ?</summary>
+      <p>Le règlement est automatique, à partir du score officiel récupéré après le match. Aucune intervention manuelle, aucun pari effacé, y compris les perdus.</p></details>
+    <details><summary>D'où viennent les données ?</summary>
+      <p>Les rencontres, compositions et statistiques viennent de fournisseurs de données sportives professionnels. Les cotes affichées sont des cotes réelles de bookmakers, relevées à la publication.</p></details>
+
+    <h3>Votre compte</h3>
+    <details><summary>Pourquoi créer un compte ?</summary>
+      <p>Le compte sert à suivre les paris du jour et à participer aux discussions sous chaque match, avec votre pseudo.</p></details>
+    <details><summary>Le service est-il payant ?</summary>
+      <p>Non. Le canal et le site sont gratuits. Le site contient des liens vers un bookmaker partenaire, signalés comme tels.</p></details>
+
+    <h3>Avant de parier</h3>
+    <details><summary>Est-ce que les gains sont garantis ?</summary>
+      <p>Non, et personne ne peut le garantir. Les performances passées ne préjugent pas des résultats futurs. Des séries de défaites arrivent, même quand la méthode est bonne.</p></details>
+    <details><summary>Combien miser ?</summary>
+      <p>Ne misez que de l'argent dont vous n'avez pas besoin. La règle la plus répandue est de ne jamais engager plus de 1 à 3 % de votre capital sur un pari, et de ne jamais dépasser 5 %.</p>
+      <p>Ne tentez pas de « rattraper » une perte en augmentant la mise suivante : c'est la manière la plus rapide de perdre tout son capital.</p></details>
+    <details><summary>Je pense jouer trop, que faire ?</summary>
+      <p>Les paris sont interdits aux mineurs et peuvent rendre dépendant. Vous pouvez demander votre exclusion des jeux d'argent auprès de l'Autorité nationale des jeux, et fixer des limites de dépôt chez votre bookmaker.</p>
+      <p>Pour en parler : <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener">joueurs-info-service.fr</a> ou le 09 74 75 13 13, appel non surtaxé, 7 jours sur 7 de 8 h à 2 h.</p></details>
+  </section>
+
+</main>
+
+<footer><div class="wrap">18+ · Jouer comporte des risques : endettement, isolement, dépendance. Les jeux d'argent sont interdits aux mineurs.
+  G-BET Bot publie des analyses statistiques à titre informatif : aucun gain n'est garanti et les performances passées ne préjugent pas des
+  résultats futurs. Pour être aidé : 09 74 75 13 13 (appel non surtaxé) ou <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener">joueurs-info-service.fr</a>.</div></footer>
+
+<div class="dock"><a class="cta" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre sur Telegram</a></div>
+<div id="floattip" role="status"></div>
+
+<section id="chat" aria-label="Discussion du match">
+  <div class="chat-head">
+    <button class="chat-back" type="button" id="chat-back" aria-label="Revenir">←</button>
+    <div class="chat-title"><span id="chat-name">Match</span><span id="chat-league"></span></div>
+    <div class="chat-score" id="chat-score"></div>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+  <form class="chat-foot" id="chat-form">
+    <input id="chat-input" placeholder="Écrire un message… (connexion requise)" autocomplete="off" maxlength="300">
+    <button class="cta" type="submit">Envoyer</button>
+  </form>
+</section>
+
+<div id="gate" aria-label="Connexion" hidden>
+  <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gate-t">
+    <div class="logo" style="margin:0 0 6px">G-<b>BET</b></div>
+    <h2 id="gate-t" style="margin:0 0 4px">Bienvenue</h2>
+    <p class="gain" style="margin:0 0 16px">Le compte sert uniquement à écrire dans les discussions.</p>
+    <div class="gate-tabs" id="gate-tabs">
+      <button type="button" data-mode="in" aria-selected="true">Se connecter</button>
+      <button type="button" data-mode="up" aria-selected="false">Créer un compte</button>
+    </div>
+    <form id="gate-form">
+      <label class="gain" for="gate-user">Pseudo</label>
+      <input id="gate-user" autocomplete="username" maxlength="24" required>
+      <label class="gain" for="gate-pass">Mot de passe</label>
+      <input id="gate-pass" type="password" autocomplete="current-password" minlength="8" required>
+      <label class="gate-check"><input id="gate-stay" type="checkbox" checked> Rester connecté sur cet appareil</label>
+      <p class="gate-err" id="gate-err" hidden></p>
+      <button class="cta" type="submit" id="gate-submit">Se connecter</button>
+    </form>
+    <p class="gain" style="margin:10px 0 0;font-size:11px">Votre pseudo est visible dans les discussions. 18+.</p>
+  </div>
+</div>
 
 <script>
-/* ── Compteurs animés (stats) ── */
-function countUp(el){
-  const target = parseInt(el.dataset.count,10);
-  const dur = 1400, t0 = performance.now();
-  (function tick(t){
-    const p = Math.min((t-t0)/dur, 1);
-    el.textContent = Math.round(target * (1-Math.pow(1-p,3)));
-    if(p<1) requestAnimationFrame(tick);
-  })(t0);
+const API = location.hostname.includes("89.168.57.74") ? "" : "https://api-89-168-57-74.nip.io";
+/* Logos officiels des equipes (ESPN) : cle "<sport>|<nom normalise>". */
+const LOGOS = {"baseball|angels": "https://a.espncdn.com/i/teamlogos/mlb/500/laa.png", "baseball|arizonadiamondbacks": "https://a.espncdn.com/i/teamlogos/mlb/500/ari.png", "baseball|astros": "https://a.espncdn.com/i/teamlogos/mlb/500/hou.png", "baseball|athletics": "https://a.espncdn.com/i/teamlogos/mlb/500/ath.png", "baseball|atlantabraves": "https://a.espncdn.com/i/teamlogos/mlb/500/atl.png", "baseball|baltimoreorioles": "https://a.espncdn.com/i/teamlogos/mlb/500/bal.png", "baseball|bluejays": "https://a.espncdn.com/i/teamlogos/mlb/500/tor.png", "baseball|bostonredsox": "https://a.espncdn.com/i/teamlogos/mlb/500/bos.png", "baseball|braves": "https://a.espncdn.com/i/teamlogos/mlb/500/atl.png", "baseball|brewers": "https://a.espncdn.com/i/teamlogos/mlb/500/mil.png", "baseball|cardinals": "https://a.espncdn.com/i/teamlogos/mlb/500/stl.png", "baseball|chicagocubs": "https://a.espncdn.com/i/teamlogos/mlb/500/chc.png", "baseball|chicagowhitesox": "https://a.espncdn.com/i/teamlogos/mlb/500/chw.png", "baseball|cincinnatireds": "https://a.espncdn.com/i/teamlogos/mlb/500/cin.png", "baseball|clevelandguardians": "https://a.espncdn.com/i/teamlogos/mlb/500/cle.png", "baseball|coloradorockies": "https://a.espncdn.com/i/teamlogos/mlb/500/col.png", "baseball|cubs": "https://a.espncdn.com/i/teamlogos/mlb/500/chc.png", "baseball|detroittigers": "https://a.espncdn.com/i/teamlogos/mlb/500/det.png", "baseball|diamondbacks": "https://a.espncdn.com/i/teamlogos/mlb/500/ari.png", "baseball|dodgers": "https://a.espncdn.com/i/teamlogos/mlb/500/lad.png", "baseball|giants": "https://a.espncdn.com/i/teamlogos/mlb/500/sf.png", "baseball|guardians": "https://a.espncdn.com/i/teamlogos/mlb/500/cle.png", "baseball|houstonastros": "https://a.espncdn.com/i/teamlogos/mlb/500/hou.png", "baseball|kansascityroyals": "https://a.espncdn.com/i/teamlogos/mlb/500/kc.png", "baseball|losangelesangels": "https://a.espncdn.com/i/teamlogos/mlb/500/laa.png", "baseball|losangelesdodgers": "https://a.espncdn.com/i/teamlogos/mlb/500/lad.png", "baseball|mariners": "https://a.espncdn.com/i/teamlogos/mlb/500/sea.png", "baseball|marlins": "https://a.espncdn.com/i/teamlogos/mlb/500/mia.png", "baseball|mets": "https://a.espncdn.com/i/teamlogos/mlb/500/nym.png", "baseball|miamimarlins": "https://a.espncdn.com/i/teamlogos/mlb/500/mia.png", "baseball|milwaukeebrewers": "https://a.espncdn.com/i/teamlogos/mlb/500/mil.png", "baseball|minnesotatwins": "https://a.espncdn.com/i/teamlogos/mlb/500/min.png", "baseball|nationals": "https://a.espncdn.com/i/teamlogos/mlb/500/wsh.png", "baseball|newyorkmets": "https://a.espncdn.com/i/teamlogos/mlb/500/nym.png", "baseball|newyorkyankees": "https://a.espncdn.com/i/teamlogos/mlb/500/nyy.png", "baseball|orioles": "https://a.espncdn.com/i/teamlogos/mlb/500/bal.png", "baseball|padres": "https://a.espncdn.com/i/teamlogos/mlb/500/sd.png", "baseball|philadelphiaphillies": "https://a.espncdn.com/i/teamlogos/mlb/500/phi.png", "baseball|phillies": "https://a.espncdn.com/i/teamlogos/mlb/500/phi.png", "baseball|pirates": "https://a.espncdn.com/i/teamlogos/mlb/500/pit.png", "baseball|pittsburghpirates": "https://a.espncdn.com/i/teamlogos/mlb/500/pit.png", "baseball|rangers": "https://a.espncdn.com/i/teamlogos/mlb/500/tex.png", "baseball|rays": "https://a.espncdn.com/i/teamlogos/mlb/500/tb.png", "baseball|reds": "https://a.espncdn.com/i/teamlogos/mlb/500/cin.png", "baseball|redsox": "https://a.espncdn.com/i/teamlogos/mlb/500/bos.png", "baseball|rockies": "https://a.espncdn.com/i/teamlogos/mlb/500/col.png", "baseball|royals": "https://a.espncdn.com/i/teamlogos/mlb/500/kc.png", "baseball|sandiegopadres": "https://a.espncdn.com/i/teamlogos/mlb/500/sd.png", "baseball|sanfranciscogiants": "https://a.espncdn.com/i/teamlogos/mlb/500/sf.png", "baseball|seattlemariners": "https://a.espncdn.com/i/teamlogos/mlb/500/sea.png", "baseball|stlouiscardinals": "https://a.espncdn.com/i/teamlogos/mlb/500/stl.png", "baseball|tampabayrays": "https://a.espncdn.com/i/teamlogos/mlb/500/tb.png", "baseball|texasrangers": "https://a.espncdn.com/i/teamlogos/mlb/500/tex.png", "baseball|tigers": "https://a.espncdn.com/i/teamlogos/mlb/500/det.png", "baseball|torontobluejays": "https://a.espncdn.com/i/teamlogos/mlb/500/tor.png", "baseball|twins": "https://a.espncdn.com/i/teamlogos/mlb/500/min.png", "baseball|washingtonnationals": "https://a.espncdn.com/i/teamlogos/mlb/500/wsh.png", "baseball|whitesox": "https://a.espncdn.com/i/teamlogos/mlb/500/chw.png", "baseball|yankees": "https://a.espncdn.com/i/teamlogos/mlb/500/nyy.png", "hockey|anaheimducks": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png", "hockey|avalanche": "https://a.espncdn.com/i/teamlogos/nhl/500/col.png", "hockey|blackhawks": "https://a.espncdn.com/i/teamlogos/nhl/500/chi.png", "hockey|bluejackets": "https://a.espncdn.com/i/teamlogos/nhl/500/cbj.png", "hockey|blues": "https://a.espncdn.com/i/teamlogos/nhl/500/stl.png", "hockey|bostonbruins": "https://a.espncdn.com/i/teamlogos/nhl/500/bos.png", "hockey|bruins": "https://a.espncdn.com/i/teamlogos/nhl/500/bos.png", "hockey|buffalosabres": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png", "hockey|calgaryflames": "https://a.espncdn.com/i/teamlogos/nhl/500/cgy.png", "hockey|canadiens": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png", "hockey|canucks": "https://a.espncdn.com/i/teamlogos/nhl/500/van.png", "hockey|capitals": "https://a.espncdn.com/i/teamlogos/nhl/500/wsh.png", "hockey|carolinahurricanes": "https://a.espncdn.com/i/teamlogos/nhl/500/car.png", "hockey|chicagoblackhawks": "https://a.espncdn.com/i/teamlogos/nhl/500/chi.png", "hockey|coloradoavalanche": "https://a.espncdn.com/i/teamlogos/nhl/500/col.png", "hockey|columbusbluejackets": "https://a.espncdn.com/i/teamlogos/nhl/500/cbj.png", "hockey|dallasstars": "https://a.espncdn.com/i/teamlogos/nhl/500/dal.png", "hockey|detroitredwings": "https://a.espncdn.com/i/teamlogos/nhl/500/det.png", "hockey|devils": "https://a.espncdn.com/i/teamlogos/nhl/500/nj.png", "hockey|ducks": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png", "hockey|edmontonoilers": "https://a.espncdn.com/i/teamlogos/nhl/500/edm.png", "hockey|flames": "https://a.espncdn.com/i/teamlogos/nhl/500/cgy.png", "hockey|floridapanthers": "https://a.espncdn.com/i/teamlogos/nhl/500/fla.png", "hockey|flyers": "https://a.espncdn.com/i/teamlogos/nhl/500/phi.png", "hockey|goldenknights": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png", "hockey|hurricanes": "https://a.espncdn.com/i/teamlogos/nhl/500/car.png", "hockey|islanders": "https://a.espncdn.com/i/teamlogos/nhl/500/nyi.png", "hockey|jets": "https://a.espncdn.com/i/teamlogos/nhl/500/wpg.png", "hockey|kings": "https://a.espncdn.com/i/teamlogos/nhl/500/la.png", "hockey|kraken": "https://a.espncdn.com/i/teamlogos/nhl/500/sea.png", "hockey|lightning": "https://a.espncdn.com/i/teamlogos/nhl/500/tb.png", "hockey|losangeleskings": "https://a.espncdn.com/i/teamlogos/nhl/500/la.png", "hockey|mammoth": "https://a.espncdn.com/i/teamlogos/nhl/500/utah.png", "hockey|mapleleafs": "https://a.espncdn.com/i/teamlogos/nhl/500/tor.png", "hockey|minnesotawild": "https://a.espncdn.com/i/teamlogos/nhl/500/min.png", "hockey|montrealcanadiens": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png", "hockey|nashvillepredators": "https://a.espncdn.com/i/teamlogos/nhl/500/nsh.png", "hockey|newjerseydevils": "https://a.espncdn.com/i/teamlogos/nhl/500/nj.png", "hockey|newyorkislanders": "https://a.espncdn.com/i/teamlogos/nhl/500/nyi.png", "hockey|newyorkrangers": "https://a.espncdn.com/i/teamlogos/nhl/500/nyr.png", "hockey|oilers": "https://a.espncdn.com/i/teamlogos/nhl/500/edm.png", "hockey|ottawasenators": "https://a.espncdn.com/i/teamlogos/nhl/500/ott.png", "hockey|panthers": "https://a.espncdn.com/i/teamlogos/nhl/500/fla.png", "hockey|penguins": "https://a.espncdn.com/i/teamlogos/nhl/500/pit.png", "hockey|philadelphiaflyers": "https://a.espncdn.com/i/teamlogos/nhl/500/phi.png", "hockey|pittsburghpenguins": "https://a.espncdn.com/i/teamlogos/nhl/500/pit.png", "hockey|predators": "https://a.espncdn.com/i/teamlogos/nhl/500/nsh.png", "hockey|rangers": "https://a.espncdn.com/i/teamlogos/nhl/500/nyr.png", "hockey|redwings": "https://a.espncdn.com/i/teamlogos/nhl/500/det.png", "hockey|sabres": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png", "hockey|sanjosesharks": "https://a.espncdn.com/i/teamlogos/nhl/500/sj.png", "hockey|seattlekraken": "https://a.espncdn.com/i/teamlogos/nhl/500/sea.png", "hockey|senators": "https://a.espncdn.com/i/teamlogos/nhl/500/ott.png", "hockey|sharks": "https://a.espncdn.com/i/teamlogos/nhl/500/sj.png", "hockey|stars": "https://a.espncdn.com/i/teamlogos/nhl/500/dal.png", "hockey|stlouisblues": "https://a.espncdn.com/i/teamlogos/nhl/500/stl.png", "hockey|tampabaylightning": "https://a.espncdn.com/i/teamlogos/nhl/500/tb.png", "hockey|torontomapleleafs": "https://a.espncdn.com/i/teamlogos/nhl/500/tor.png", "hockey|utahmammoth": "https://a.espncdn.com/i/teamlogos/nhl/500/utah.png", "hockey|vancouvercanucks": "https://a.espncdn.com/i/teamlogos/nhl/500/van.png", "hockey|vegasgoldenknights": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png", "hockey|washingtoncapitals": "https://a.espncdn.com/i/teamlogos/nhl/500/wsh.png", "hockey|wild": "https://a.espncdn.com/i/teamlogos/nhl/500/min.png", "hockey|winnipegjets": "https://a.espncdn.com/i/teamlogos/nhl/500/wpg.png", "nba|76ers": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png", "nba|atlantahawks": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png", "nba|bostonceltics": "https://a.espncdn.com/i/teamlogos/nba/500/bos.png", "nba|brooklynnets": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png", "nba|bucks": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png", "nba|bulls": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png", "nba|cavaliers": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png", "nba|celtics": "https://a.espncdn.com/i/teamlogos/nba/500/bos.png", "nba|charlottehornets": "https://a.espncdn.com/i/teamlogos/nba/500/cha.png", "nba|chicagobulls": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png", "nba|clevelandcavaliers": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png", "nba|clippers": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png", "nba|dallasmavericks": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png", "nba|denvernuggets": "https://a.espncdn.com/i/teamlogos/nba/500/den.png", "nba|detroitpistons": "https://a.espncdn.com/i/teamlogos/nba/500/det.png", "nba|goldenstatewarriors": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png", "nba|grizzlies": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png", "nba|hawks": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png", "nba|heat": "https://a.espncdn.com/i/teamlogos/nba/500/mia.png", "nba|hornets": "https://a.espncdn.com/i/teamlogos/nba/500/cha.png", "nba|houstonrockets": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png", "nba|indianapacers": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png", "nba|jazz": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png", "nba|kings": "https://a.espncdn.com/i/teamlogos/nba/500/sac.png", "nba|knicks": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png", "nba|laclippers": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png", "nba|lakers": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png", "nba|losangeleslakers": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png", "nba|magic": "https://a.espncdn.com/i/teamlogos/nba/500/orl.png", "nba|mavericks": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png", "nba|memphisgrizzlies": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png", "nba|miamiheat": "https://a.espncdn.com/i/teamlogos/nba/500/mia.png", "nba|milwaukeebucks": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png", "nba|minnesotatimberwolves": "https://a.espncdn.com/i/teamlogos/nba/500/min.png", "nba|nets": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png", "nba|neworleanspelicans": "https://a.espncdn.com/i/teamlogos/nba/500/no.png", "nba|newyorkknicks": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png", "nba|nuggets": "https://a.espncdn.com/i/teamlogos/nba/500/den.png", "nba|oklahomacitythunder": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png", "nba|orlandomagic": "https://a.espncdn.com/i/teamlogos/nba/500/orl.png", "nba|pacers": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png", "nba|pelicans": "https://a.espncdn.com/i/teamlogos/nba/500/no.png", "nba|philadelphia76ers": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png", "nba|phoenixsuns": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png", "nba|pistons": "https://a.espncdn.com/i/teamlogos/nba/500/det.png", "nba|portlandtrailblazers": "https://a.espncdn.com/i/teamlogos/nba/500/por.png", "nba|raptors": "https://a.espncdn.com/i/teamlogos/nba/500/tor.png", "nba|rockets": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png", "nba|sacramentokings": "https://a.espncdn.com/i/teamlogos/nba/500/sac.png", "nba|sanantoniospurs": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png", "nba|spurs": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png", "nba|suns": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png", "nba|thunder": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png", "nba|timberwolves": "https://a.espncdn.com/i/teamlogos/nba/500/min.png", "nba|torontoraptors": "https://a.espncdn.com/i/teamlogos/nba/500/tor.png", "nba|trailblazers": "https://a.espncdn.com/i/teamlogos/nba/500/por.png", "nba|utahjazz": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png", "nba|warriors": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png", "nba|washingtonwizards": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png", "nba|wizards": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png", "nfl|49ers": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png", "nfl|arizonacardinals": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png", "nfl|atlantafalcons": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png", "nfl|baltimoreravens": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png", "nfl|bears": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png", "nfl|bengals": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png", "nfl|bills": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png", "nfl|broncos": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png", "nfl|browns": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png", "nfl|buccaneers": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png", "nfl|buffalobills": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png", "nfl|cardinals": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png", "nfl|carolinapanthers": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png", "nfl|chargers": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png", "nfl|chicagobears": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png", "nfl|chiefs": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png", "nfl|cincinnatibengals": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png", "nfl|clevelandbrowns": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png", "nfl|colts": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png", "nfl|commanders": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png", "nfl|cowboys": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png", "nfl|dallascowboys": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png", "nfl|denverbroncos": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png", "nfl|detroitlions": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png", "nfl|dolphins": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png", "nfl|eagles": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png", "nfl|falcons": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png", "nfl|giants": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png", "nfl|greenbaypackers": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png", "nfl|houstontexans": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png", "nfl|indianapoliscolts": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png", "nfl|jacksonvillejaguars": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png", "nfl|jaguars": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png", "nfl|jets": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png", "nfl|kansascitychiefs": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png", "nfl|lasvegasraiders": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png", "nfl|lions": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png", "nfl|losangeleschargers": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png", "nfl|losangelesrams": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png", "nfl|miamidolphins": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png", "nfl|minnesotavikings": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png", "nfl|newenglandpatriots": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png", "nfl|neworleanssaints": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png", "nfl|newyorkgiants": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png", "nfl|newyorkjets": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png", "nfl|packers": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png", "nfl|panthers": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png", "nfl|patriots": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png", "nfl|philadelphiaeagles": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png", "nfl|pittsburghsteelers": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png", "nfl|raiders": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png", "nfl|rams": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png", "nfl|ravens": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png", "nfl|saints": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png", "nfl|sanfrancisco49ers": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png", "nfl|seahawks": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png", "nfl|seattleseahawks": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png", "nfl|steelers": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png", "nfl|tampabaybuccaneers": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png", "nfl|tennesseetitans": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png", "nfl|texans": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png", "nfl|titans": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png", "nfl|vikings": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png", "nfl|washingtoncommanders": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png", "nhl|anaheimducks": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png", "nhl|avalanche": "https://a.espncdn.com/i/teamlogos/nhl/500/col.png", "nhl|blackhawks": "https://a.espncdn.com/i/teamlogos/nhl/500/chi.png", "nhl|bluejackets": "https://a.espncdn.com/i/teamlogos/nhl/500/cbj.png", "nhl|blues": "https://a.espncdn.com/i/teamlogos/nhl/500/stl.png", "nhl|bostonbruins": "https://a.espncdn.com/i/teamlogos/nhl/500/bos.png", "nhl|bruins": "https://a.espncdn.com/i/teamlogos/nhl/500/bos.png", "nhl|buffalosabres": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png", "nhl|calgaryflames": "https://a.espncdn.com/i/teamlogos/nhl/500/cgy.png", "nhl|canadiens": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png", "nhl|canucks": "https://a.espncdn.com/i/teamlogos/nhl/500/van.png", "nhl|capitals": "https://a.espncdn.com/i/teamlogos/nhl/500/wsh.png", "nhl|carolinahurricanes": "https://a.espncdn.com/i/teamlogos/nhl/500/car.png", "nhl|chicagoblackhawks": "https://a.espncdn.com/i/teamlogos/nhl/500/chi.png", "nhl|coloradoavalanche": "https://a.espncdn.com/i/teamlogos/nhl/500/col.png", "nhl|columbusbluejackets": "https://a.espncdn.com/i/teamlogos/nhl/500/cbj.png", "nhl|dallasstars": "https://a.espncdn.com/i/teamlogos/nhl/500/dal.png", "nhl|detroitredwings": "https://a.espncdn.com/i/teamlogos/nhl/500/det.png", "nhl|devils": "https://a.espncdn.com/i/teamlogos/nhl/500/nj.png", "nhl|ducks": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png", "nhl|edmontonoilers": "https://a.espncdn.com/i/teamlogos/nhl/500/edm.png", "nhl|flames": "https://a.espncdn.com/i/teamlogos/nhl/500/cgy.png", "nhl|floridapanthers": "https://a.espncdn.com/i/teamlogos/nhl/500/fla.png", "nhl|flyers": "https://a.espncdn.com/i/teamlogos/nhl/500/phi.png", "nhl|goldenknights": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png", "nhl|hurricanes": "https://a.espncdn.com/i/teamlogos/nhl/500/car.png", "nhl|islanders": "https://a.espncdn.com/i/teamlogos/nhl/500/nyi.png", "nhl|jets": "https://a.espncdn.com/i/teamlogos/nhl/500/wpg.png", "nhl|kings": "https://a.espncdn.com/i/teamlogos/nhl/500/la.png", "nhl|kraken": "https://a.espncdn.com/i/teamlogos/nhl/500/sea.png", "nhl|lightning": "https://a.espncdn.com/i/teamlogos/nhl/500/tb.png", "nhl|losangeleskings": "https://a.espncdn.com/i/teamlogos/nhl/500/la.png", "nhl|mammoth": "https://a.espncdn.com/i/teamlogos/nhl/500/utah.png", "nhl|mapleleafs": "https://a.espncdn.com/i/teamlogos/nhl/500/tor.png", "nhl|minnesotawild": "https://a.espncdn.com/i/teamlogos/nhl/500/min.png", "nhl|montrealcanadiens": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png", "nhl|nashvillepredators": "https://a.espncdn.com/i/teamlogos/nhl/500/nsh.png", "nhl|newjerseydevils": "https://a.espncdn.com/i/teamlogos/nhl/500/nj.png", "nhl|newyorkislanders": "https://a.espncdn.com/i/teamlogos/nhl/500/nyi.png", "nhl|newyorkrangers": "https://a.espncdn.com/i/teamlogos/nhl/500/nyr.png", "nhl|oilers": "https://a.espncdn.com/i/teamlogos/nhl/500/edm.png", "nhl|ottawasenators": "https://a.espncdn.com/i/teamlogos/nhl/500/ott.png", "nhl|panthers": "https://a.espncdn.com/i/teamlogos/nhl/500/fla.png", "nhl|penguins": "https://a.espncdn.com/i/teamlogos/nhl/500/pit.png", "nhl|philadelphiaflyers": "https://a.espncdn.com/i/teamlogos/nhl/500/phi.png", "nhl|pittsburghpenguins": "https://a.espncdn.com/i/teamlogos/nhl/500/pit.png", "nhl|predators": "https://a.espncdn.com/i/teamlogos/nhl/500/nsh.png", "nhl|rangers": "https://a.espncdn.com/i/teamlogos/nhl/500/nyr.png", "nhl|redwings": "https://a.espncdn.com/i/teamlogos/nhl/500/det.png", "nhl|sabres": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png", "nhl|sanjosesharks": "https://a.espncdn.com/i/teamlogos/nhl/500/sj.png", "nhl|seattlekraken": "https://a.espncdn.com/i/teamlogos/nhl/500/sea.png", "nhl|senators": "https://a.espncdn.com/i/teamlogos/nhl/500/ott.png", "nhl|sharks": "https://a.espncdn.com/i/teamlogos/nhl/500/sj.png", "nhl|stars": "https://a.espncdn.com/i/teamlogos/nhl/500/dal.png", "nhl|stlouisblues": "https://a.espncdn.com/i/teamlogos/nhl/500/stl.png", "nhl|tampabaylightning": "https://a.espncdn.com/i/teamlogos/nhl/500/tb.png", "nhl|torontomapleleafs": "https://a.espncdn.com/i/teamlogos/nhl/500/tor.png", "nhl|utahmammoth": "https://a.espncdn.com/i/teamlogos/nhl/500/utah.png", "nhl|vancouvercanucks": "https://a.espncdn.com/i/teamlogos/nhl/500/van.png", "nhl|vegasgoldenknights": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png", "nhl|washingtoncapitals": "https://a.espncdn.com/i/teamlogos/nhl/500/wsh.png", "nhl|wild": "https://a.espncdn.com/i/teamlogos/nhl/500/min.png", "nhl|winnipegjets": "https://a.espncdn.com/i/teamlogos/nhl/500/wpg.png", "wnba|aces": "https://a.espncdn.com/i/teamlogos/wnba/500/lv.png", "wnba|atlantadream": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png", "wnba|chicagosky": "https://a.espncdn.com/i/teamlogos/wnba/500/chi.png", "wnba|connecticutsun": "https://a.espncdn.com/i/teamlogos/wnba/500/con.png", "wnba|dallaswings": "https://a.espncdn.com/i/teamlogos/wnba/500/dal.png", "wnba|dream": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png", "wnba|fever": "https://a.espncdn.com/i/teamlogos/wnba/500/ind.png", "wnba|fire": "https://a.espncdn.com/i/teamlogos/wnba/500/por.png", "wnba|goldenstatevalkyries": "https://a.espncdn.com/i/teamlogos/wnba/500/gs.png", "wnba|indianafever": "https://a.espncdn.com/i/teamlogos/wnba/500/ind.png", "wnba|lasvegasaces": "https://a.espncdn.com/i/teamlogos/wnba/500/lv.png", "wnba|liberty": "https://a.espncdn.com/i/teamlogos/wnba/500/ny.png", "wnba|losangelessparks": "https://a.espncdn.com/i/teamlogos/wnba/500/la.png", "wnba|lynx": "https://a.espncdn.com/i/teamlogos/wnba/500/min.png", "wnba|mercury": "https://a.espncdn.com/i/teamlogos/wnba/500/phx.png", "wnba|minnesotalynx": "https://a.espncdn.com/i/teamlogos/wnba/500/min.png", "wnba|mystics": "https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png", "wnba|newyorkliberty": "https://a.espncdn.com/i/teamlogos/wnba/500/ny.png", "wnba|phoenixmercury": "https://a.espncdn.com/i/teamlogos/wnba/500/phx.png", "wnba|portlandfire": "https://a.espncdn.com/i/teamlogos/wnba/500/por.png", "wnba|seattlestorm": "https://a.espncdn.com/i/teamlogos/wnba/500/sea.png", "wnba|sky": "https://a.espncdn.com/i/teamlogos/wnba/500/chi.png", "wnba|sparks": "https://a.espncdn.com/i/teamlogos/wnba/500/la.png", "wnba|storm": "https://a.espncdn.com/i/teamlogos/wnba/500/sea.png", "wnba|sun": "https://a.espncdn.com/i/teamlogos/wnba/500/con.png", "wnba|tempo": "https://a.espncdn.com/i/teamlogos/wnba/500/tor.png", "wnba|torontotempo": "https://a.espncdn.com/i/teamlogos/wnba/500/tor.png", "wnba|valkyries": "https://a.espncdn.com/i/teamlogos/wnba/500/gs.png", "wnba|washingtonmystics": "https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png", "wnba|wings": "https://a.espncdn.com/i/teamlogos/wnba/500/dal.png"};
+const SITE = location.hostname.includes("89.168.57.74") ? "https://gbetx2-cell.github.io/" : "";
+const $ = s => document.querySelector(s);
+const fmt = (n, d = 2) => (n === null || n === undefined || isNaN(n) ? "—" : Number(n).toFixed(d).replace(".", ",").replace("-", "−"));
+const unit = u => (u > 0 ? "+" : "") + fmt(u, 2) + " u";
+const eur = v => (v > 0 ? "+" : "") + fmt(v, 0) + " €";
+const esc = t => String(t ?? "").replace(/[<>&]/g, c => ({"<": "&lt;", ">": "&gt;", "&": "&amp;"}[c]));
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } },
+  set(k, v){ try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+/* Les routes de lecture publique repondent Access-Control-Allow-Origin: * :
+   on n'envoie le cookie de session que sur les routes de compte. */
+const AUTHENT = /^\/api\/(login|signup|chat\/post|me)/;
+async function api(path, opts){
+  const o = Object.assign({}, opts || {});
+  if (AUTHENT.test(path)) o.credentials = "include";
+  const r = await fetch(API + path, o);
+  return r.json();
 }
-document.querySelectorAll('[data-count]').forEach(el=>{
-  new IntersectionObserver((e,o)=>{
-    if(e[0].isIntersecting){ countUp(el); o.disconnect(); }
-  },{threshold:.6}).observe(el);
+
+/* ─────────────────────────── Compte ─────────────────────────── */
+let ME = store.get("gbet-user") || null;
+function majCompte(){
+  $("#gate").hidden = true;
+  $("#btn-login").hidden = !!ME;
+  let chip = $("#me-chip");
+  if (ME){
+    if (!chip){ chip = document.createElement("span"); chip.className = "me-chip"; chip.id = "me-chip"; document.querySelector(".bar").append(chip); }
+    chip.innerHTML = `${esc(ME)} <button type="button" id="me-out">Quitter</button>`;
+    $("#me-out").onclick = () => { ME = null; store.set("gbet-user", null); majCompte(); };
+  } else if (chip) chip.remove();
+}
+let gateMode = "in";
+$("#gate-tabs").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  gateMode = b.dataset.mode;
+  document.querySelectorAll("#gate-tabs button").forEach(x => x.setAttribute("aria-selected", x === b));
+  $("#gate-submit").textContent = gateMode === "up" ? "Créer mon compte" : "Se connecter";
+  $("#gate-pass").autocomplete = gateMode === "up" ? "new-password" : "current-password";
+  $("#gate-err").hidden = true;
+});
+$("#btn-login").addEventListener("click", () => { $("#gate").hidden = false; $("#gate-user").focus(); });
+$("#gate").addEventListener("click", e => { if (e.target.id === "gate") $("#gate").hidden = true; });
+addEventListener("keydown", e => { if (e.key === "Escape") $("#gate").hidden = true; });
+$("#gate-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const username = $("#gate-user").value.trim(), password = $("#gate-pass").value;
+  const err = $("#gate-err");
+  try {
+    const res = await api(gateMode === "up" ? "/api/signup" : "/api/login", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({username, password}),
+    });
+    if (!res.ok){ err.textContent = res.reason || "Connexion impossible"; err.hidden = false; return; }
+    ME = res.username;
+    if ($("#gate-stay").checked) store.set("gbet-user", ME);
+    majCompte();
+    charger();
+  } catch (_){ err.textContent = "Serveur injoignable, réessayez dans un instant."; err.hidden = false; }
 });
 
-/* ── Minuteurs live ── */
-function pad(n){ return String(n).padStart(2,'0'); }
-function tickTimers(){
-  const now = new Date();
-  // Prochain scan d'analyse : le moteur tourne toutes les 5 minutes
-  const secIntoCycle = (now.getMinutes()%5)*60 + now.getSeconds();
-  const scanLeft = 5*60 - secIntoCycle;
-  document.getElementById('scanTimer').textContent = `${pad(Math.floor(scanLeft/60))}:${pad(scanLeft%60)}`;
+/* ─────────────────────────── Paris ─────────────────────────── */
+let PUBS = {live: [], done: []}, SCORES = {}, RES = null, stateFilter = "Tous", sportFilter = "Tous";
+const SEUIL = /(plus de|moins de|total|écart|over|under)/i, UNDER = /(moins de|under)/i;
+
+function jauge(label, now, need, under){
+  const pct = Math.max(0, Math.min(100, now / need * 100));
+  const cls = under ? (now >= need ? "danger" : "") : (now >= need ? "ok" : "");
+  return `<div class="gauge ${cls}"><span>${esc(label)}</span><div class="track"><div class="fill" style="width:${pct}%"></div></div>
+    <span class="num">${now} / ${need}</span></div>`;
 }
-tickTimers();
-setInterval(tickTimers, 1000);
+function jaugeDe(texte, score){
+  if (!SEUIL.test(texte)) return "";
+  const m = texte.match(/(\d+(?:[.,]\d+)?)/); if (!m) return "";
+  const seuil = parseFloat(m[1].replace(",", ".")), need = Math.floor(seuil) + 1;
+  const total = score ? (Number(score.home_score) || 0) + (Number(score.away_score) || 0) : 0;
+  const under = UNDER.test(texte);
+  const mot = /buts|goals/i.test(texte) ? "Buts" : /points/i.test(texte) ? "Points" : /runs/i.test(texte) ? "Runs"
+    : /sets/i.test(texte) ? "Sets" : "Progression";
+  return jauge(under ? `${mot} (max ${need - 1})` : mot, total, need, under);
+}
+const etatDe = r => r === "GAGNE" ? "w" : r === "PERDU" ? "l" : r === "REMBOURSE" ? "p" : "s";
+const LIB = {w: "Gagné", l: "Perdu", p: "Remboursé", s: "En attente"};
 
-/* ── Avis clients : carrousel (07/08/2026, demande explicite : "beaucoup
-   d'avis" + "un avis par un avis change avec une animation") -- fictifs,
-   remplacer par de vrais retours des que le canal en collecte. Un seul
-   avis visible a la fois, defile automatiquement, jamais tous ensemble. */
-const REVIEWS = [
-  {initials:"TM", name:"Thomas M.", since:"Abonné depuis 3 mois", stars:5,
-   text:"Ce que j'apprécie surtout c'est qu'il n'y a rien certains jours — pas de pari juste pour publier quelque chose. Ça change des canaux qui spamment."},
-  {initials:"SL", name:"Sarah L.", since:"Abonnée depuis 6 mois", stars:4,
-   text:"Le bilan public m'a convaincue, même les mauvaises séquences sont affichées sans les cacher. Ça ne gagne pas à tous les coups mais au moins c'est transparent."},
-  {initials:"KB", name:"Karim B.", since:"Abonné depuis 1 mois", stars:5,
-   text:"Les compositions vérifiées avant publication, c'est le détail qui fait la différence pour moi. Avant je perdais du temps à checker ça moi-même."},
-  {initials:"EP", name:"Élodie P.", since:"Abonnée depuis 4 mois", stars:4,
-   text:"J'aime bien pouvoir revoir chaque pronostic exact sur la page Résultats, avec la cote réelle. Pas de \"on avait raison\" invérifiable."},
-  {initials:"MD", name:"Mathieu D.", since:"Abonné depuis 8 mois", stars:5,
-   text:"J'ai testé plusieurs canaux avant, celui-ci est le seul où je peux voir le détail marché par marché du bilan. Ça compte pour moi."},
-  {initials:"CR", name:"Camille R.", since:"Abonnée depuis 2 mois", stars:4,
-   text:"Bonne surprise sur le tennis, les picks joueurs sont bien expliqués avec la cote réelle utilisée. Le foot reste mon préféré cela dit."},
-  {initials:"YN", name:"Yanis N.", since:"Abonné depuis 5 mois", stars:5,
-   text:"Le fait que le bot ne publie rien quand les compositions ne sont pas encore sorties, ça évite les picks bâclés. J'ai vu la différence avec d'autres services."},
-  {initials:"AL", name:"Anaïs L.", since:"Abonné depuis 7 mois", stars:3,
-   text:"Correct dans l'ensemble, il y a eu une mauvaise période en juillet mais le canal l'a annoncée clairement au lieu de disparaître. J'ai apprécié l'honnêteté."},
-  {initials:"JB", name:"Julien B.", since:"Abonné depuis 2 semaines", stars:5,
-   text:"Nouveau sur le canal, ce qui m'a le plus marqué c'est le récap quotidien avec toutes les cotes réelles. Rien n'est caché."},
-  {initials:"NG", name:"Nadia G.", since:"Abonnée depuis 9 mois", stars:4,
-   text:"Le suivi MLB et WNBA en plus du foot est un vrai plus, je ne trouvais pas ça ailleurs avec ce niveau de détail sur les joueurs."},
-  {initials:"HR", name:"Hugo R.", since:"Abonné depuis 3 mois", stars:5,
-   text:"Le fait de pouvoir revoir chaque match sur la page Publications avec le score en direct et la progression du pari, c'est très clair."},
-  {initials:"LF", name:"Léa F.", since:"Abonnée depuis 5 mois", stars:4,
-   text:"J'aime la discipline du bot — pas de pari forcé pour remplir le canal. On sent que c'est la même règle tous les jours."},
-];
+/* Un meme pari est parfois enregistre deux fois : une ligne "conseil" et une
+   ligne "value bet" (hockey, baseball, basket, NFL : le conseil n'y est qu'un
+   miroir). On ne garde qu'une ligne par pari reel -- sinon la mise et le gain
+   apparaissent en double. */
+function coeur(txt){
+  return String(txt || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+    .replace(/@.*$/, "")
+    .replace(/\b(victoire|vainqueur|du match|prol\.? incluse|prolongation incluse|player pick|value bet)\b/g, "")
+    .replace(/[^a-z0-9]+/g, " ").trim();
+}
+function memePari(a, b){
+  const x = coeur(a.bet), y = coeur(b.bet);
+  if (!x || !y) return false;
+  if (x === y) return true;                                  // meme pari, meme si la cote diffe
+  const oa = Number(a.odd) || 0, ob = Number(b.odd) || 0;
+  if (oa && ob && Math.abs(oa - ob) > 0.011) return false;    // cotes connues et differentes
+  return x.includes(y) || y.includes(x);
+}
+function paris(p){
+  const out = [];
+  /* rang : 1 = cote reelle du bookmaker (value/player), 2 = conseil (parfois
+     une cote interne estimee) -- en cas de doublon on garde la cote reelle. */
+  const ajoute = e => {
+    if (!e.bet) return;
+    const j = out.findIndex(o => memePari(o, e));
+    if (j < 0) { out.push(e); return; }
+    if (e.rang < out[j].rang) out[j] = e;
+  };
+  if (p.conseil) ajoute({bet: p.conseil, odd: p.conseil_cote, mise: p.conseil_mise_eur, r: etatDe(p.result), rang: 2});
+  if (p.value_bet) ajoute({bet: p.value_bet.split("@")[0].trim(), odd: p.value_cote, mise: p.value_mise_eur, r: etatDe(p.value_result || p.result), rang: 1});
+  (p.player_picks || []).forEach(x => ajoute({bet: x.label.replace(/^Player pick\s*:\s*/, ""), odd: x.odd, mise: x.mise_eur, r: etatDe(x.result), rang: 1}));
+  return out;
+}
+function carte(p, euros, valeurU){
+  const sc = SCORES[p.fixture_id] || null;
+  /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
+     reste bloque sur un statut en cours (21/09/2026). */
+  const live = !p.result && sc && !sc.finished && sc.status_short && sc.status_short !== "NS";
+  const [home, away] = String(p.match).split("–").map(t => (t || "").trim());
+  const ini = n => (n || "?").split(/[ .-]+/).slice(0, 2).map(w => w[0] || "").join("").toUpperCase();
+  const cle = n => String(n || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  function image(url, nom){
+    if (url && /^https?:/.test(url)) return url;                 // logo club (football)
+    if (url) return SITE + url;                                  // photo joueur (tennis), chemin relatif
+    const sp = p.sport || "";
+    const k = cle(nom);
+    return LOGOS[`${sp}|${k}`]                                   // nom complet
+      || LOGOS[`${sp}|${k.split(" ").pop()}`]
+      || Object.entries(LOGOS).find(([kk]) => kk.startsWith(sp + "|") && (kk.endsWith("|" + k) || k.endsWith(kk.split("|")[1])))?.[1]
+      || "";
+  }
+  const logo = (url, n) => { const src = image(url, n);
+    return src ? `<img class="badge" src="${esc(src)}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'badge',textContent:'${esc(ini(n))}'}))">`
+               : `<span class="badge">${esc(ini(n))}</span>`; };
+  const hs = sc ? sc.home_score : null, as = sc ? sc.away_score : null;
+  const gagnant = hs !== null && hs !== as ? (hs > as ? "h" : "a") : null;
+  const fini = sc && sc.finished;
+  const ligne = (n, url, side, score) => `<div class="team ${fini && gagnant === side ? "win" : ""}">${logo(url, n)}
+    <span class="tname">${esc(n)}</span><span class="tscore">${score ?? ""}</span></div>`;
+  const ko = p.kickoff_at ? new Date(p.kickoff_at) : null;
+  const heure = ko ? ko.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
+  /* Le resultat publie prime sur le cache de score en direct (21/09/2026) :
+     ce cache ne couvre pas tous les sports -- le tennis n'y est pas -- et une
+     carte reglee "Gagne +1,07 u" s'affichait quand meme "A venir", ou restait
+     figee sur "First Half 15'". Des qu'un pari porte un resultat, le match est
+     termine, quoi qu'en dise le cache. */
+  const regle = !!p.result;
+  const etat = regle || fini ? `<span class="gain">Terminé</span>`
+    : live ? `<span class="clock">${esc(sc.status_long || "En direct")}${sc.elapsed ? " · " + sc.elapsed + "'" : ""}</span>`
+    : ko && ko > new Date() ? `<span class="kick" data-ko="${p.kickoff_at}">${compte(ko)}</span>` : `<span class="tag s">À venir</span>`;
 
-const _carousel = document.getElementById('reviewsCarousel');
-const _dotsHost = document.getElementById('reviewsDots');
-let _reviewIdx = 0;
-let _reviewTimer = null;
+  const lignes = paris(p).map(b => {
+    const mise = valeurU ? (b.mise || 200) / 200 : (b.mise || 200) / 200;
+    const miseTxt = euros ? eur(mise * valeurU).replace("+", "") : fmt(mise, 2) + " u";
+    const g = b.r === "w" ? mise * ((b.odd || 1) - 1) : b.r === "l" ? -mise : 0;
+    const gainTxt = b.r === "s" ? "—" : (euros ? eur(g * valeurU) : unit(g));
+    return `<div class="betline"><span class="bet">${esc(b.bet)}</span>
+      <span class="mise"><b>${miseTxt}</b><span>mise</span></span>
+      <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
+      <span class="tag ${b.r}">${b.r === "s" && live ? "En cours" : LIB[b.r]}</span>
+      <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
+      ${jaugeDe(b.bet, sc)}</div>`;
+  }).join("");
 
-function _starsHtml(n){ return '★'.repeat(n) + '☆'.repeat(5 - n); }
-
-function _renderReviewCard(r, extraClass){
-  const el = document.createElement('div');
-  el.className = 'review-card' + (extraClass ? ' ' + extraClass : '');
-  el.innerHTML = `
-    <div class="review-top">
-      <div class="review-avatar">${r.initials}</div>
-      <div>
-        <div class="review-name">${r.name}</div>
-        <div class="review-date">${r.since}</div>
-      </div>
+  return `<article class="pick ${live ? "is-live" : ""}">
+    <div class="when">${heure}</div>
+    <div>
+      <div class="meta">${esc(p.sport_label || p.sport || "")} · ${esc(p.league || "")}
+        <button class="talk" type="button" data-fix="${esc(p.fixture_id)}" data-match="${esc(p.match)}"
+          data-league="${esc(p.league || "")}" data-score="${hs !== null && hs !== undefined ? hs + " - " + as : ""}"
+          title="Discussion" aria-label="Ouvrir la discussion">💬</button></div>
+      <div class="teams">${ligne(home, p.home_logo || p.home_photo, "h", hs)}${ligne(away, p.away_logo || p.away_photo, "a", as)}</div>
+      <div class="state">${etat}</div>
+      <div class="bets">${lignes}</div>
     </div>
-    <div class="review-stars">${_starsHtml(r.stars)}</div>
-    <p class="review-text">${r.text}</p>`;
-  return el;
+  </article>`;
 }
-
-function _goToReview(i){
-  _reviewIdx = (i + REVIEWS.length) % REVIEWS.length;
-  const outgoing = _carousel.querySelector('.review-card.active');
-  const incoming = _renderReviewCard(REVIEWS[_reviewIdx]);
-  _carousel.appendChild(incoming);
-  requestAnimationFrame(()=> incoming.classList.add('active'));
-  if (outgoing){
-    outgoing.classList.remove('active');
-    outgoing.classList.add('leaving');
-    setTimeout(()=> outgoing.remove(), 550);
-  }
-  _dotsHost.querySelectorAll('.dot').forEach((d,i2)=> d.classList.toggle('active', i2 === _reviewIdx));
+function compte(d){
+  const sec = Math.max(0, Math.round((d - new Date()) / 1000));
+  const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60);
+  return h ? `dans ${h} h ${String(m).padStart(2, "0")}` : `dans ${m} min ${String(sec % 60).padStart(2, "0")} s`;
 }
-
-function _restartReviewTimer(){
-  clearInterval(_reviewTimer);
-  _reviewTimer = setInterval(()=> _goToReview(_reviewIdx + 1), 5500);
+const groupe = p => {
+  const sc = SCORES[p.fixture_id];
+  if (sc && !sc.finished && sc.status_short && sc.status_short !== "NS") return "En direct";
+  return p.result || (sc && sc.finished) ? "Terminés" : "À venir";
+};
+function duJour(){
+  /* Les paris du jour, PLUS ceux d'hier qui ne sont pas encore regles
+     (21/09/2026). Le filtre ne gardait que les coups d'envoi du jour
+     calendaire : a minuit, un pari encore en jeu disparaissait du site. Les
+     matchs americains commencent a 22h05 heure de Paris et s'evaporaient donc
+     en plein milieu -- 4 paris vivants etaient invisibles au moment du
+     controle. Seuls les paris TERMINES s'effacent a minuit, comme demande. */
+  const jour = new Date().toDateString();
+  const hier = new Date(Date.now() - 864e5).toDateString();
+  return [...(PUBS.live || []), ...(PUBS.done || [])]
+    .filter(p => {
+      if (!p.kickoff_at) return false;
+      const j = new Date(p.kickoff_at).toDateString();
+      if (j === jour) return true;
+      const sc = SCORES[p.fixture_id];
+      const termine = !!p.result || (sc && sc.finished);
+      return j === hier && !termine;          // encore en jeu : on le garde visible
+    })
+    .sort((a, b) => new Date(a.kickoff_at) - new Date(b.kickoff_at));
 }
+function dessineJour(){
+  const tout = duJour();
+  const etats = ["Tous", "En direct", "À venir", "Terminés"];
+  $("#state-chips").innerHTML = etats.map(g => {
+    const n = g === "Tous" ? tout.length : tout.filter(p => groupe(p) === g).length;
+    return `<button type="button" aria-pressed="${g === stateFilter}" data-state="${g}">${g}<small>${n}</small></button>`;
+  }).join("");
+  const sports = ["Tous", ...new Set(tout.map(p => p.sport_label || p.sport))];
+  $("#sport-chips").innerHTML = sports.map(s =>
+    `<button type="button" aria-pressed="${s === sportFilter}" data-sport="${esc(s)}">${s === "Tous" ? "Tous sports" : esc(s)}</button>`).join("");
+  const vus = tout.filter(p => stateFilter === "Tous" || groupe(p) === stateFilter)
+                  .filter(p => sportFilter === "Tous" || (p.sport_label || p.sport) === sportFilter);
+  const suivant = tout.find(p => new Date(p.kickoff_at) > new Date());
+  $("#list").innerHTML = vus.map(p => carte(p)).join("") ||
+    `<div class="empty"><b>Aucun pari ici pour l'instant.</b><br>${suivant
+      ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) + "."
+      : "Rien de publié aujourd'hui : c'est normal les jours sans match filtré."}</div>`;
+}
+$("#state-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stateFilter = b.dataset.state; dessineJour(); } });
+$("#sport-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ sportFilter = b.dataset.sport; dessineJour(); } });
+setInterval(() => document.querySelectorAll("[data-ko]").forEach(el => el.textContent = compte(new Date(el.dataset.ko))), 1000);
 
-if (_carousel && _dotsHost){
-  REVIEWS.forEach((_, i)=>{
-    const dot = document.createElement('button');
-    dot.className = 'dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', `Avis ${i + 1}`);
-    dot.addEventListener('click', ()=>{ _goToReview(i); _restartReviewTimer(); });
-    _dotsHost.appendChild(dot);
+/* ─────────────────────────── Résultats ─────────────────────────── */
+function courbe(points, conv){
+  if (!points || !points.length) return `<p class="gain">Pas encore de données.</p>`;
+  const vals = points.map(p => conv(p.pnl));
+  const max = Math.max(1, ...vals), min = Math.min(0, ...vals);
+  const x = i => 50 + i * (460 / Math.max(1, points.length - 1));
+  const y = v => 190 - (v - min) / (max - min || 1) * 170;
+  const d = points.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)} ${y(vals[i]).toFixed(1)}`).join(" ");
+  const grille = [0, .5, 1].map(f => { const v = min + (max - min) * f; return `<line x1="50" y1="${y(v)}" x2="510" y2="${y(v)}" stroke="#2f2b22"/>
+    <text x="44" y="${y(v) + 4}" text-anchor="end">${conv === Number ? fmt(v, 1) : fmt(v, 0)}</text>`; }).join("");
+  return `<svg class="chart" viewBox="0 0 520 215" role="img" aria-label="Bénéfice cumulé">
+    ${grille}<path d="${d} L${x(points.length - 1)} ${y(min)} L50 ${y(min)} Z" fill="#e3b341" fill-opacity=".12"/>
+    <path d="${d}" fill="none" stroke="#e3b341" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="${x(points.length - 1)}" cy="${y(vals[vals.length - 1])}" r="4.5" fill="#e3b341"/>
+    <text x="50" y="210">${esc(points[0].label)}</text><text x="510" y="210" text-anchor="end">${esc(points[points.length - 1].label)}</text></svg>`;
+}
+function resumeResultats(){
+  const ps = RES.period_stats || {}, an = ps.annee || {}, j = ps.jour || {};
+  const derniers = (RES.results || []).slice(0, 10);
+  $("#res-summary").innerHTML = `
+    <div class="kpi"><span>Réussite depuis le début</span><strong>${an.winrate ?? "—"} %</strong></div>
+    <div class="kpi"><span>Bénéfice depuis le début</span><strong class="${(an.pnl || 0) >= 0 ? "pos" : "neg"}">${unit(an.pnl || 0)}</strong></div>
+    <div class="kpi"><span>Aujourd'hui</span><strong class="${(j.pnl || 0) >= 0 ? "pos" : "neg"}">${unit(j.pnl || 0)}</strong></div>
+    <div class="kpi"><span>10 derniers</span><div class="form">${derniers.map(r => {
+      const cls = r.r === "G" ? "w" : r.r === "P" ? "l" : "p";
+      const tip = `<b>${esc(r.match)}</b><em>${esc(r.pick)}</em><em>cote ${fmt(r.cote)} · ${unit(r.pnl || 0)}</em>`;
+      return `<span class="dot ${cls}" tabindex="0" data-tip="${encodeURIComponent(tip)}">${r.r}</span>`;
+    }).join("")}</div></div>`;
+  $("#chart-u").innerHTML = courbe((RES.period_series || {}).annee || (RES.period_series || {}).mois, v => Number(v));
+  $("#list-res").innerHTML = (PUBS.done || []).slice(0, 8).map(p => carte(p)).join("") || `<p class="gain">Rien à afficher.</p>`;
+  /* Noms lisibles + fusion mlb/baseball et nhl/hockey (memes paris, deux
+     etiquettes historiques cote base). */
+  const NOM_SPORT = {football: "Football", baseball: "Baseball (MLB)", mlb: "Baseball (MLB)",
+                     tennis: "Tennis", hockey: "Hockey", nhl: "Hockey", nfl: "Football US (NFL)",
+                     nba: "Basket (NBA)", wnba: "Basket (WNBA)"};
+  const bySport = (RES.period_stats || {}).by_sport || {};
+  const fusion = {};
+  Object.entries(bySport).forEach(([s, v]) => {
+    const nom = NOM_SPORT[s] || (s.charAt(0).toUpperCase() + s.slice(1));
+    const an = v.annee || {};
+    const f = fusion[nom] || (fusion[nom] = {n: 0, g: 0, pnl: 0});
+    f.n += an.n || 0; f.g += an.g || 0; f.pnl += an.pnl || 0;
   });
-  const firstCard = _renderReviewCard(REVIEWS[0], 'active');
-  _carousel.appendChild(firstCard);
-  _restartReviewTimer();
-  _carousel.addEventListener('mouseenter', ()=> clearInterval(_reviewTimer));
-  _carousel.addEventListener('mouseleave', _restartReviewTimer);
+  SPLIT.sport = Object.entries(fusion).map(([nom, f]) =>
+      [nom, f.n, f.n ? Math.round(f.g / f.n * 100) : "—", f.pnl])
+    .filter(r => r[1]).sort((a, b) => b[3] - a[3]);
+  const lg = RES.league_stats || {};
+  SPLIT.ligue = Object.entries(lg).map(([n, v]) => [v.name || n, v.n || 0, v.winrate ?? "—", v.pnl || 0])
+    .filter(r => r[1] >= 5).sort((a, b) => b[3] - a[3]).slice(0, 12);
+  dessineSplit(splitKey);
 }
+const SPLIT = {sport: [], ligue: []};
+let splitKey = "sport";
+function dessineSplit(k){
+  splitKey = k;
+  $("#split-col").textContent = k === "sport" ? "Sport" : "Ligue";
+  document.querySelectorAll("#split button").forEach(b => b.setAttribute("aria-pressed", b.dataset.split === k));
+  $("#split-body").innerHTML = (SPLIT[k] || []).map(([n, c, w, u]) =>
+    `<tr><td>${esc(n)}</td><td>${c}</td><td>${w}${w === "—" ? "" : " %"}</td>
+     <td class="${u > 0 ? "pos" : u < 0 ? "neg" : ""}">${unit(u)}</td></tr>`).join("") || `<tr><td colspan="4">—</td></tr>`;
+}
+$("#split").addEventListener("click", e => { const b = e.target.closest("button"); if (b) dessineSplit(b.dataset.split); });
 
-/* ── Ticker : dupliquer le contenu pour la boucle infinie ── */
-const ti = document.getElementById('tickerInner');
-ti.innerHTML += ti.innerHTML;
-
-/* ── Apparition douce au scroll ── */
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* ── Menu mobile (drawer) ── */
-(function(){
-  const toggle = document.getElementById('menuToggle');
-  const close = document.getElementById('menuClose');
-  const nav = document.getElementById('mobileNav');
-  const backdrop = document.getElementById('mobileBackdrop');
-  function openMenu(){
-    nav.classList.add('open'); backdrop.classList.add('open');
-    toggle.setAttribute('aria-expanded','true');
-    document.body.style.overflow = 'hidden';
+/* Bilans par période : /api/results/history?period&offset (du plus récent au plus ancien) */
+const CACHE = {};
+async function blocs(periode, n = 8){
+  const key = periode + ":" + n;
+  if (CACHE[key]) return CACHE[key];
+  const out = [];
+  for (let o = 0; o > -n; o--){
+    try {
+      const d = await api(`/api/results/history?period=${periode}&offset=${o}`);
+      out.push({label: d.label_range || "", pnl: d.pnl_total || 0, sports: d.by_sport || {},
+                n: (d.points || []).length});
+    } catch (_){ break; }
   }
-  function closeMenu(){
-    nav.classList.remove('open'); backdrop.classList.remove('open');
-    toggle.setAttribute('aria-expanded','false');
-    document.body.style.overflow = '';
+  CACHE[key] = out;
+  return out;
+}
+async function dessineBlocs(trackId, chipsId, periode, euros, valeurU){
+  document.querySelectorAll(`#${chipsId} button`).forEach(b => b.setAttribute("aria-pressed", b.dataset.p === periode));
+  const el = document.getElementById(trackId);
+  el.innerHTML = `<div class="block flat"><span>Chargement…</span></div>`;
+  const data = await blocs(periode);
+  el.innerHTML = data.map(b => {
+    const v = euros ? b.pnl * valeurU : b.pnl;
+    const detail = `<b>${esc(b.label)}</b>` + (Object.entries(b.sports).length
+      ? Object.entries(b.sports).map(([s, x]) => `<em>${esc(s)} · ${euros ? eur((x.pnl || 0) * valeurU) : unit(x.pnl || 0)}</em>`).join("")
+      : `<em>Aucun pari sur cette période.</em>`);
+    return `<div class="block ${b.pnl > 0 ? "up" : b.pnl < 0 ? "down" : "flat"}" tabindex="0" data-tip="${encodeURIComponent(detail)}">
+      <span>${esc(b.label)}</span><b class="${b.pnl > 0 ? "pos" : b.pnl < 0 ? "neg" : ""}">${euros ? eur(v) : unit(v)}</b>
+      <span>${Object.keys(b.sports).length ? Object.keys(b.sports).length + " sport(s)" : "aucun pari"}</span></div>`;
+  }).join("") || `<div class="block flat"><span>Pas de données</span></div>`;
+}
+let periode = "jour", mPeriode = "jour";
+$("#period-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ periode = b.dataset.p; dessineBlocs("rail-track", "period-chips", periode, false); } });
+$("#m-period-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ mPeriode = b.dataset.p; dessineBlocs("m-track", "m-period-chips", mPeriode, true, valeurU()); } });
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-rail]"); if (!b) return;
+  const t = document.getElementById(b.dataset.rail);
+  t.scrollBy({left: Number(b.dataset.dir) * t.clientWidth * .8});
+});
+
+/* Infobulles flottantes */
+const ftip = $("#floattip");
+function montreTip(el){
+  ftip.innerHTML = decodeURIComponent(el.dataset.tip);
+  ftip.style.display = "block";
+  const b = el.getBoundingClientRect(), t = ftip.getBoundingClientRect();
+  ftip.style.left = Math.max(8, Math.min(innerWidth - t.width - 8, b.left + b.width / 2 - t.width / 2)) + "px";
+  ftip.style.top = (b.top - t.height - 8 > 8 ? b.top - t.height - 8 : b.bottom + 8) + "px";
+}
+document.addEventListener("mouseover", e => {
+  const el = e.target.closest("[data-tip]");
+  if (el) montreTip(el); else ftip.style.display = "none";
+});
+document.addEventListener("focusin", e => { const el = e.target.closest("[data-tip]"); if (el) montreTip(el); });
+addEventListener("scroll", () => { ftip.style.display = "none"; }, true);
+
+/* ─────────────────────────── Ma mise ─────────────────────────── */
+const valeurU = () => Math.max(1, Number($("#stake").value) || 10);
+function dessineMise(){
+  const s = valeurU(), ps = (RES && RES.period_stats) || {}, an = ps.annee || {};
+  const miseU = (an.mise || 0) / 200;
+  $("#m-mise").textContent = Math.round(miseU * s).toLocaleString("fr-FR") + " €";
+  $("#m-mise-u").textContent = `${fmt(miseU, 1)} u sur ${an.n || 0} paris`;
+  const benef = (an.pnl || 0) * s;
+  $("#m-benef").textContent = eur(benef);
+  $("#m-benef").className = benef >= 0 ? "pos" : "neg";
+  $("#m-retour").textContent = miseU ? fmt((an.pnl || 0) / miseU * 100, 1) + " %" : "—";
+  $("#m-n").textContent = an.n || 0;
+  $("#m-body").innerHTML = (SPLIT.sport || []).map(([n, c, w, u]) =>
+    `<tr><td>${esc(n)}</td><td>${c}</td><td>${Math.round(c * 1.35 * s).toLocaleString("fr-FR")} €</td>
+     <td class="${u > 0 ? "pos" : "neg"}">${eur(u * s)}</td></tr>`).join("") || `<tr><td colspan="4">—</td></tr>`;
+  $("#chart-e").innerHTML = courbe((RES.period_series || {}).annee || (RES.period_series || {}).mois, v => v * s);
+  $("#m-list").innerHTML = (PUBS.done || []).slice(0, 6).map(p => carte(p, true, s)).join("");
+  dessineBlocs("m-track", "m-period-chips", mPeriode, true, s);
+}
+$("#stake").addEventListener("input", dessineMise);
+$("#stake-presets").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ $("#stake").value = b.dataset.v; dessineMise(); } });
+
+/* ─────────────────────────── Discussion ─────────────────────────── */
+let chatFix = null, chatTimer = null;
+async function ouvrirChat(btn){
+  chatFix = btn.dataset.fix;
+  $("#chat-name").textContent = btn.dataset.match;
+  $("#chat-league").textContent = btn.dataset.league;
+  $("#chat-score").textContent = btn.dataset.score || "";
+  $("#chat").classList.add("on");
+  document.body.style.overflow = "hidden";
+  await majChat();
+  chatTimer = setInterval(majChat, 15000);
+  $("#chat-back").focus();
+}
+async function majChat(){
+  try {
+    const d = await api(`/api/chat?fixture_id=${encodeURIComponent(chatFix)}`);
+    const msgs = d.messages || [];
+    $("#chat-body").innerHTML = msgs.length ? msgs.map(m => {
+      const moi = ME && m.username === ME;
+      const h = m.created_at ? new Date(m.created_at).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
+      return `<div class="msg ${moi ? "me" : ""}"><u>${esc(m.username)}<time>${h}</time></u>${esc(m.message)}</div>`;
+    }).join("") : `<p class="gain">Aucun message pour l'instant. Lancez la discussion.</p>`;
+    $("#chat-body").scrollTop = $("#chat-body").scrollHeight;
+  } catch (_){}
+}
+function fermerChat(){ $("#chat").classList.remove("on"); document.body.style.overflow = ""; clearInterval(chatTimer); }
+document.addEventListener("click", e => { const b = e.target.closest(".talk"); if (b) ouvrirChat(b); });
+$("#chat-back").addEventListener("click", fermerChat);
+addEventListener("keydown", e => { if (e.key === "Escape") fermerChat(); });
+$("#chat-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!ME){ $("#gate").hidden = false; $("#gate-user").focus(); return; }
+  const i = $("#chat-input"); if (!i.value.trim()) return;
+  const txt = i.value.trim(); i.value = "";
+  try {
+    const res = await api("/api/chat/post", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({fixture_id: chatFix, message: txt})});
+    if (!res.ok) alert(res.reason || "Message refusé");
+  } catch (_){}
+  majChat();
+});
+
+/* ─────────────────────────── Navigation & chargement ─────────────────────────── */
+document.querySelector("nav").addEventListener("click", e => {
+  const b = e.target.closest("button[data-page]"); if (!b) return;
+  document.querySelectorAll("nav button").forEach(x => x.setAttribute("aria-selected", x === b));
+  ["jour", "res", "mise", "aide"].forEach(k => document.getElementById("p-" + k).hidden = k !== b.dataset.page);
+  scrollTo({top: 0});
+});
+
+async function charger(){
+  try {
+    const [pub, live, res] = await Promise.all([api("/api/publications"), api("/api/live-scores"), api("/api/results")]);
+    PUBS = pub; SCORES = (live && live.scores) || {}; RES = res;
+    $("#jour-maj").textContent = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
+    dessineJour(); resumeResultats(); dessineMise();
+    dessineBlocs("rail-track", "period-chips", periode, false);
+    const st = RES.period_stats || {};
+    $("#res-streak").innerHTML = `<span class="streak">${(st.semaine || {}).winrate ?? "—"} % de réussite cette semaine</span>
+      <span class="gain">${(st.semaine || {}).n || 0} paris réglés · ${unit((st.semaine || {}).pnl || 0)} sur 7 jours ·
+      ${(st.mois || {}).n || 0} paris ce mois-ci</span>`;
+  } catch (_){
+    $("#list").innerHTML = `<div class="empty"><b>Données indisponibles.</b><br>Le serveur ne répond pas, réessayez dans un instant.</div>`;
   }
-  toggle.addEventListener('click', () => nav.classList.contains('open') ? closeMenu() : openMenu());
-  close.addEventListener('click', closeMenu);
-  backdrop.addEventListener('click', closeMenu);
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-})();
-
-/* ── Transition de page : logo qui tourne (07/08/2026, demande explicite)
-   -- au clic sur Publications/Résultats/Performance/FAQ, affiche le loader
-   plutot qu'un saut instantane ; si on ARRIVE sur la page avec un hash
-   dans l'URL (page ouverte directement sur une ancre), le
-   loader reste visible le temps de scroller jusqu'a la section. ── */
-(function(){
-  const loader = document.getElementById('pageLoader');
-  if (!loader) return;
-  const showLoader = () => loader.classList.remove('hide');
-  const hideLoader = () => loader.classList.add('hide');
-
-  window.addEventListener('load', () => {
-    const target = location.hash ? document.querySelector(location.hash) : null;
-    if (target){
-      setTimeout(() => {
-        target.scrollIntoView({block: 'start'});
-        setTimeout(hideLoader, 250);
-      }, 500);
-    } else {
-      setTimeout(hideLoader, 500);
-    }
-  });
-
-  document.querySelectorAll('a[href]').forEach(a => {
-    const href = a.getAttribute('href');
-    if (!href || a.target === '_blank' || /^https?:\/\//i.test(href)) return;
-    const [path, hash] = href.split('#');
-    const currentFile = location.pathname.split('/').pop();
-    const samePage = !path || path === currentFile;
-    if (samePage && hash){
-      a.addEventListener('click', (e) => {
-        const dest = document.getElementById(hash);
-        if (!dest) return;
-        e.preventDefault();
-        showLoader();
-        setTimeout(() => {
-          dest.scrollIntoView({block: 'start'});
-          setTimeout(hideLoader, 250);
-        }, 350);
-      });
-    } else if (path && path.endsWith('.html') && !samePage){
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        showLoader();
-        setTimeout(() => { window.location.href = href; }, 350);
-      });
-    }
-  });
-})();
-
-/* ── Pop-up partenaire Winamax (07/08/2026, demande explicite) -- une
-   seule fois par session (sessionStorage), jamais reaffiche en boucle a
-   chaque page/rechargement. Laisse le temps a la transition du logo de
-   se terminer avant d'apparaitre. ── */
-(function(){
-  const overlay = document.getElementById('promoOverlay');
-  if (!overlay) return;
-  const closeBtn = document.getElementById('promoClose');
-  function closePromo(){
-    overlay.classList.remove('show');
-    sessionStorage.setItem('gbet_promo_seen', '1');
-  }
-  if (!sessionStorage.getItem('gbet_promo_seen')){
-    window.addEventListener('load', () => {
-      setTimeout(() => overlay.classList.add('show'), 1400);
-    });
-  }
-  closeBtn.addEventListener('click', closePromo);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePromo(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('show')) closePromo(); });
-  overlay.querySelector('.promo-cta')?.addEventListener('click', closePromo);
-})();
-const RESULTATS = [
-  {flag:"⚾", match:"Los Angeles Angels – Milwaukee Brewers", pick:"Vainqueur — Milwaukee Brewers @ 1.625", cote:1.62, r:"G", mise:1.50, pnl:0.94, type:"value", sport:"baseball"},
-  {flag:"🎾", match:"Denis Shapovalov – Cameron Norrie", pick:"Vainqueur — Cameron Norrie @ 1.917", cote:1.92, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"tennis"},
-  {flag:"🎾", match:"Laura Samson – Lucia Bronzetti", pick:"Laura Samson vs Lucia Bronzetti — Total sets Plus de 2.5", cote:2.45, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"tennis"},
-  {flag:"🎾", match:"Elvina Kalieva – Kristina Liutova", pick:"Vainqueur — Elvina Kalieva @ 2.57", cote:2.57, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"tennis"},
-  {flag:"🎾", match:"Elvina Kalieva – Kristina Liutova", pick:"Elvina Kalieva vs Kristina Liutova — Total sets Plus de 2.5", cote:2.48, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"tennis"},
-  {flag:"🏀", match:"Chicago Sky – Las Vegas Aces", pick:"Sydney Taylor — Points Moins de 16.5", cote:1.92, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"Phoenix Mercury – New York Liberty", pick:"Rebecca Allen — Points Moins de 6.5", cote:1.74, r:"G", mise:1.00, pnl:0.74, type:"player", sport:"wnba"},
-  {flag:"🎾", match:"Renata Zarazua – Darja Vidmanova", pick:"Vainqueur — Renata Zarazua @ 2.2", cote:2.20, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"tennis"},
-  {flag:"🎾", match:"Renata Zarazua – Darja Vidmanova", pick:"Renata Zarazua vs Darja Vidmanova — Total sets Plus de 2.5", cote:2.40, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"tennis"},
-  {flag:"⚾", match:"Cincinnati Reds – Cleveland Guardians", pick:"Elly De La Cruz — Coups sûrs Plus de 1.5", cote:2.85, r:"G", mise:1.00, pnl:1.85, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Baltimore Orioles – Atlanta Braves", pick:"Michael Harris II — Coups sûrs Plus de 1.5", cote:2.76, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Atlanta Braves – San Diego Padres", pick:"Dominic Smith — Buts totaux Moins de 0.5", cote:2.40, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Baltimore Orioles – Atlanta Braves", pick:"Ozzie Albies — Coups sûrs Plus de 1.5", cote:2.88, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🏀", match:"Seattle Storm – Indiana Fever", pick:"Awa Fam — Points Moins de 13.5", cote:1.80, r:"G", mise:1.00, pnl:0.80, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"Minnesota Lynx – Toronto Tempo", pick:"Natasha Howard — Points Plus de 12.5", cote:1.94, r:"G", mise:1.00, pnl:0.94, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Minnesota Twins – Kansas City Royals", pick:"Byron Buxton — Coups sûrs Plus de 1.5", cote:2.73, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🏀", match:"Phoenix Mercury – Golden State Valkyries", pick:"Kaila Charles — Points Moins de 8.5", cote:1.81, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Philadelphia Phillies – Los Angeles Dodgers", pick:"Shohei Ohtani — Coups sûrs Plus de 1.5", cote:2.80, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Philadelphia Phillies – Los Angeles Dodgers", pick:"Trea Turner — Coups sûrs Plus de 1.5", cote:2.85, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Philadelphia Phillies – Los Angeles Dodgers", pick:"Alec Bohm — Coups sûrs Moins de 0.5", cote:2.90, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Tampa Bay Rays – Texas Rangers", pick:"Chandler Simpson — Coups sûrs Plus de 1.5", cote:2.95, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🏀", match:"Los Angeles Sparks – New York Liberty", pick:"Sabrina Ionescu — Points Moins de 18.5", cote:1.91, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Toronto Blue Jays – St. Louis Cardinals", pick:"Vainqueur — St. Louis Cardinals @ 2.42", cote:2.42, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Tampa Bay Rays – Chicago White Sox", pick:"Vainqueur — Chicago White Sox @ 2.46", cote:2.46, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Tampa Bay Rays – Chicago White Sox", pick:"Yandy Díaz — Coups sûrs Plus de 1.5", cote:2.75, r:"G", mise:1.00, pnl:1.75, type:"player", sport:"baseball"},
-  {flag:"🎾", match:"Taylah Preston – Maddison Inglis", pick:"Taylah Preston vs Maddison Inglis — Total sets Plus de 2.5", cote:2.54, r:"P", mise:1.50, pnl:-1.50, type:"player", sport:"tennis"},
-  {flag:"⚾", match:"New York Mets – Miami Marlins", pick:"Vainqueur — New York Mets @ 1.8197", cote:1.82, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Seattle Mariners – Minnesota Twins", pick:"Vainqueur — Minnesota Twins @ 2.48", cote:2.48, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Atlanta Braves – Washington Nationals", pick:"Vainqueur — Washington Nationals @ 2.5", cote:2.50, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Houston Astros – Texas Rangers", pick:"Vainqueur — Texas Rangers @ 1.8333", cote:1.83, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Chicago Cubs – New York Yankees", pick:"Vainqueur — New York Yankees @ 2.08", cote:2.08, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cleveland Guardians – Arizona Diamondbacks", pick:"Vainqueur — Cleveland Guardians @ 1.5814", cote:1.58, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Pittsburgh Pirates", pick:"Vainqueur — Pittsburgh Pirates @ 1.8475", cote:1.85, r:"G", mise:1.50, pnl:1.27, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Pittsburgh Pirates", pick:"Jake Mangum — Coups sûrs Plus de 1.5", cote:2.90, r:"G", mise:1.00, pnl:1.90, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Los Angeles Dodgers – Boston Red Sox", pick:"Vainqueur — Boston Red Sox @ 2.62", cote:2.62, r:"G", mise:1.50, pnl:2.43, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Kansas City Royals", pick:"Hunter Goodman — Coups sûrs Plus de 1.5", cote:2.90, r:"G", mise:1.00, pnl:1.90, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"San Diego Padres – San Francisco Giants", pick:"Vainqueur — San Francisco Giants @ 2.34", cote:2.34, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"San Diego Padres – San Francisco Giants", pick:"Luis Arraez — Coups sûrs Plus de 1.5", cote:2.69, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🎾", match:"Denis Shapovalov – Arthur Gea", pick:"Total sets — Plus de 2.5 @ 2.36", cote:2.36, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"tennis"},
-  {flag:"🏀", match:"Minnesota Lynx – Indiana Fever", pick:"Natasha Howard — Points Plus de 12.5", cote:2.12, r:"G", mise:1.00, pnl:1.12, type:"player", sport:"wnba"},
-  {flag:"🎾", match:"Darja Vidmanova – Kristina Liutova", pick:"Total sets — Plus de 2.5 @ 2.61", cote:2.61, r:"G", mise:1.00, pnl:1.61, type:"value", sport:"tennis"},
-  {flag:"⚾", match:"Toronto Blue Jays – St. Louis Cardinals", pick:"Vainqueur — St. Louis Cardinals @ 2.16", cote:2.16, r:"G", mise:1.50, pnl:1.74, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Toronto Blue Jays – St. Louis Cardinals", pick:"Vladimir Guerrero Jr. — Coups sûrs Plus de 1.5", cote:2.89, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Atlanta Braves – Washington Nationals", pick:"Vainqueur — Washington Nationals @ 2.18", cote:2.18, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"New York Mets – Miami Marlins", pick:"Vainqueur — Miami Marlins @ 1.8929", cote:1.89, r:"G", mise:1.00, pnl:0.89, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"New York Mets – Miami Marlins", pick:"Otto Lopez — Coups sûrs Plus de 1.5", cote:2.70, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Tampa Bay Rays – Chicago White Sox", pick:"Yandy Díaz — Coups sûrs Plus de 1.5", cote:2.80, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Pittsburgh Pirates", pick:"Vainqueur — Pittsburgh Pirates @ 2.26", cote:2.26, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Houston Astros – Texas Rangers", pick:"Vainqueur — Texas Rangers @ 2.2", cote:2.20, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Chicago Cubs – New York Yankees", pick:"Vainqueur — New York Yankees @ 1.8621", cote:1.86, r:"G", mise:1.50, pnl:1.29, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Kansas City Royals", pick:"Vainqueur — Colorado Rockies @ 1.8333", cote:1.83, r:"G", mise:1.00, pnl:0.83, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Kansas City Royals", pick:"Troy Johnston — Coups sûrs Plus de 1.5", cote:2.90, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Cleveland Guardians – Arizona Diamondbacks", pick:"Vainqueur — Cleveland Guardians @ 1.6098", cote:1.61, r:"G", mise:1.00, pnl:0.61, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Baltimore Orioles – Philadelphia Phillies", pick:"Trea Turner — Coups sûrs Plus de 1.5", cote:2.87, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🏀", match:"Portland Fire – Los Angeles Sparks", pick:"Frieda Buhner — Points Moins de 8.5", cote:1.79, r:"G", mise:1.00, pnl:0.79, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"Dallas Wings – Connecticut Sun", pick:"Olivia Nelson-Ododa — Points Moins de 13.5", cote:1.85, r:"G", mise:1.00, pnl:0.85, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Los Angeles Dodgers – Boston Red Sox", pick:"Vainqueur — Boston Red Sox @ 2.53", cote:2.53, r:"G", mise:1.50, pnl:2.29, type:"value", sport:"baseball"},
-  {flag:"🎾", match:"Linda Fruhvirtova – Katarzyna Kawa", pick:"Victoire Katarzyna Kawa", cote:1.54, r:"G", mise:1.00, pnl:0.54, type:"conseil", sport:"tennis"},
-  {flag:"🎾", match:"Martyna Kubka – Teodora Kostovic", pick:"Total sets — Plus de 2.5 @ 2.63", cote:2.63, r:"G", mise:1.50, pnl:2.44, type:"value", sport:"tennis"},
-  {flag:"🏀", match:"Atlanta Dream – Las Vegas Aces", pick:"Naz Hillmon — Points Plus de 7.5", cote:2.05, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"New York Liberty – Seattle Storm", pick:"Rebecca Allen — Points Moins de 6.5", cote:1.85, r:"G", mise:1.00, pnl:0.85, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Philadelphia Phillies – Washington Nationals", pick:"Vainqueur — Washington Nationals @ 2.36", cote:2.36, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Milwaukee Brewers – Pittsburgh Pirates", pick:"Vainqueur — Pittsburgh Pirates @ 2.37", cote:2.37, r:"G", mise:1.50, pnl:2.06, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Milwaukee Brewers – Pittsburgh Pirates", pick:"Jake Mangum — Coups sûrs Plus de 1.5", cote:2.97, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Texas Rangers – San Francisco Giants", pick:"Vainqueur — San Francisco Giants @ 2.2", cote:2.20, r:"G", mise:1.50, pnl:1.80, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Chicago Cubs – Los Angeles Dodgers", pick:"Vainqueur — Los Angeles Dodgers @ 1.8333", cote:1.83, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Houston Astros – Toronto Blue Jays", pick:"Vainqueur — Houston Astros @ 1.7407", cote:1.74, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Chicago Sky – Phoenix Mercury", pick:"Sydney Taylor — Points Moins de 18.5", cote:1.91, r:"G", mise:1.00, pnl:0.91, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Colorado Rockies – Tampa Bay Rays", pick:"Vainqueur — Colorado Rockies @ 2.58", cote:2.58, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Tampa Bay Rays", pick:"Cole Carrigg — Coups sûrs Plus de 1.5", cote:2.95, r:"G", mise:1.00, pnl:1.95, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Arizona Diamondbacks – San Diego Padres", pick:"Vainqueur — San Diego Padres @ 2.0", cote:2.00, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Arizona Diamondbacks – San Diego Padres", pick:"Jackson Merrill — Coups sûrs Plus de 1.5", cote:2.95, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🎾", match:"Carol Young Suh Lee – Elsa Jacquemot", pick:"Total sets — Plus de 2.5 @ 2.5", cote:2.50, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"tennis"},
-  {flag:"🎾", match:"Ella Seidel – Dalma Galfi", pick:"Total sets — Plus de 2.5 @ 2.36", cote:2.36, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"tennis"},
-  {flag:"⚾", match:"Baltimore Orioles – Los Angeles Angels", pick:"Vainqueur — Los Angeles Angels @ 2.4", cote:2.40, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Philadelphia Phillies – Washington Nationals", pick:"Vainqueur — Washington Nationals @ 3.91", cote:3.91, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Philadelphia Phillies – Washington Nationals", pick:"Trea Turner — Coups sûrs Plus de 1.5", cote:2.78, r:"G", mise:1.00, pnl:1.78, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Athletics", pick:"Vainqueur — Athletics @ 2.21", cote:2.21, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Athletics", pick:"Jacob Wilson — Coups sûrs Plus de 1.5", cote:2.72, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"🏀", match:"Chicago Sky – Connecticut Sun", pick:"Sydney Taylor — Points Moins de 18.5", cote:1.77, r:"G", mise:1.00, pnl:0.77, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"Toronto Tempo – Minnesota Lynx", pick:"Courtney Williams — Points Plus de 11.5", cote:1.85, r:"G", mise:1.00, pnl:0.85, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"New York Yankees – St. Louis Cardinals", pick:"Vainqueur — St. Louis Cardinals @ 2.75", cote:2.75, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Atlanta Braves – Miami Marlins", pick:"Vainqueur — Miami Marlins @ 2.37", cote:2.37, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Atlanta Braves – Miami Marlins", pick:"Drake Baldwin — Coups sûrs Plus de 1.5", cote:2.78, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Boston Red Sox – Chicago White Sox", pick:"Vainqueur — Chicago White Sox @ 2.37", cote:2.37, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Boston Red Sox – Chicago White Sox", pick:"Ceddanne Rafaela — Coups sûrs Plus de 1.5", cote:2.85, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Kansas City Royals – Minnesota Twins", pick:"Vainqueur — Minnesota Twins @ 1.7143", cote:1.71, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Kansas City Royals – Minnesota Twins", pick:"Bobby Witt Jr. — Coups sûrs Plus de 1.5", cote:2.80, r:"G", mise:1.00, pnl:1.80, type:"player", sport:"baseball"},
-  {flag:"⚾", match:"Texas Rangers – San Francisco Giants", pick:"Vainqueur — San Francisco Giants @ 2.75", cote:2.75, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Las Vegas Aces – New York Liberty", pick:"Sabrina Ionescu — Points Moins de 18.5", cote:1.87, r:"G", mise:1.00, pnl:0.87, type:"player", sport:"wnba"},
-  {flag:"🏀", match:"Golden State Valkyries – Toronto Tempo", pick:"Marina Mabrey — Points Plus de 16.5", cote:1.91, r:"P", mise:1.00, pnl:-1.00, type:"player", sport:"wnba"},
-  {flag:"⚾", match:"Houston Astros – Toronto Blue Jays", pick:"Écart de points — Houston Astros -1,5 @ 1.9524", cote:1.95, r:"P", mise:1.50, pnl:-1.50, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Texas Rangers – San Francisco Giants", pick:"Écart de points — Texas Rangers -1,5 @ 2.3", cote:2.30, r:"G", mise:1.50, pnl:1.95, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Chicago Cubs – Los Angeles Dodgers", pick:"Écart de points — Chicago Cubs -1,5 @ 2.65", cote:2.65, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Colorado Rockies – Tampa Bay Rays", pick:"Vainqueur — Colorado Rockies @ 2.44", cote:2.44, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Baltimore Orioles – Los Angeles Angels", pick:"Écart de points — Baltimore Orioles -1,5 @ 2.5", cote:2.50, r:"G", mise:1.50, pnl:2.25, type:"value", sport:"baseball"},
-  {flag:"⚾", match:"Cincinnati Reds – Athletics", pick:"Écart de points — Cincinnati Reds -1,5 @ 2.3", cote:2.30, r:"P", mise:1.00, pnl:-1.00, type:"value", sport:"baseball"},
-  {flag:"🏀", match:"Atlanta Dream – Phoenix Mercury", pick:"Kelsey Plum — Points Plus de 15.5", cote:1.80, r:"G", mise:1.50, pnl:1.20, type:"player", sport:"wnba"},
-];
-const PERIOD_STATS = {jour:{n:4, g:2, p:2, r:0, winrate:50, pnl:1.45}, semaine:{n:41, g:14, p:27, r:0, winrate:34, pnl:-9.82}, mois:{n:97, g:33, p:64, r:0, winrate:34, pnl:-29.57}, annee:{n:948, g:466, p:477, r:5, winrate:49, pnl:-82.60}};
-const PERIOD_SERIES = {jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:1.45}], semaine:[{label:"Lun", pnl:6.13}, {label:"Mar", pnl:2.19}, {label:"Mer", pnl:-11.28}, {label:"Jeu", pnl:-9.83}], mois:[{label:"1", pnl:-12.89}, {label:"2", pnl:-19.75}, {label:"3", pnl:-13.62}, {label:"4", pnl:-17.55}, {label:"5", pnl:-31.02}, {label:"6", pnl:-29.57}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.71}, {label:"Jul", pnl:-53.03}, {label:"Aoû", pnl:-82.60}], now_frac:{jour:0.132303, semaine:0.447472, mois:0.165558, annee:0.594883}, total_buckets:{jour:24, semaine:7, mois:31, annee:12}, by_sport:{"baseball":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:1.25}], semaine:[{label:"Lun", pnl:2.29}, {label:"Mar", pnl:0.10}, {label:"Mer", pnl:-12.37}, {label:"Jeu", pnl:-11.12}], mois:[{label:"1", pnl:-5.22}, {label:"2", pnl:-13.10}, {label:"3", pnl:-10.80}, {label:"4", pnl:-13.00}, {label:"5", pnl:-25.47}, {label:"6", pnl:-24.22}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:0.00}, {label:"Jul", pnl:-32.33}, {label:"Aoû", pnl:-56.54}]}, "tennis":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:0.00}], semaine:[{label:"Lun", pnl:2.98}, {label:"Mar", pnl:0.48}, {label:"Mer", pnl:0.48}, {label:"Jeu", pnl:0.48}], mois:[{label:"1", pnl:-7.41}, {label:"2", pnl:-8.30}, {label:"3", pnl:-5.32}, {label:"4", pnl:-7.82}, {label:"5", pnl:-7.82}, {label:"6", pnl:-7.82}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:-0.01}, {label:"Jul", pnl:-0.03}, {label:"Aoû", pnl:-7.85}]}, "football":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Mer", pnl:0.00}, {label:"Jeu", pnl:0.00}], mois:[{label:"1", pnl:0.00}, {label:"2", pnl:0.00}, {label:"3", pnl:0.00}, {label:"4", pnl:0.00}, {label:"5", pnl:0.00}, {label:"6", pnl:0.00}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:7.73}, {label:"Jul", pnl:-17.69}, {label:"Aoû", pnl:-17.69}]}, "nhl":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:0.00}], semaine:[{label:"Lun", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Mer", pnl:0.00}, {label:"Jeu", pnl:0.00}], mois:[{label:"1", pnl:0.00}, {label:"2", pnl:0.00}, {label:"3", pnl:0.00}, {label:"4", pnl:0.00}, {label:"5", pnl:0.00}, {label:"6", pnl:0.00}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:-0.00}, {label:"Jul", pnl:-0.00}, {label:"Aoû", pnl:-0.00}]}, "wnba":{jour:[{label:"00h", pnl:0.00}, {label:"01h", pnl:0.00}, {label:"02h", pnl:0.00}, {label:"03h", pnl:0.20}], semaine:[{label:"Lun", pnl:0.85}, {label:"Mar", pnl:1.61}, {label:"Mer", pnl:0.61}, {label:"Jeu", pnl:0.81}], mois:[{label:"1", pnl:-0.26}, {label:"2", pnl:1.65}, {label:"3", pnl:2.50}, {label:"4", pnl:3.26}, {label:"5", pnl:2.26}, {label:"6", pnl:2.46}], annee:[{label:"Jan", pnl:0.00}, {label:"Fév", pnl:0.00}, {label:"Mar", pnl:0.00}, {label:"Avr", pnl:0.00}, {label:"Mai", pnl:0.00}, {label:"Jun", pnl:0.00}, {label:"Jul", pnl:-2.98}, {label:"Aoû", pnl:-0.52}]}}};
-const PERF_STATS = {"global": {"n": 948, "w": 466, "l": 477, "winrate": 49, "roi": -8.0, "pnl": -82.6, "since": "2026-06-06"}, "sports": [{"sport": "football", "n": 505, "w": 279, "l": 226, "winrate": 55, "roi": -3.2, "pnl": -17.69}, {"sport": "baseball", "n": 246, "w": 94, "l": 152, "winrate": 38, "roi": -20.7, "pnl": -56.54}, {"sport": "tennis", "n": 170, "w": 79, "l": 86, "winrate": 48, "roi": -4.3, "pnl": -7.84}, {"sport": "wnba", "n": 25, "w": 13, "l": 12, "winrate": 52, "roi": -2.0, "pnl": -0.52}, {"sport": "nhl", "n": 2, "w": 1, "l": 1, "winrate": 50, "roi": -38.5, "pnl": -0.0}], "markets": [{"market": "Double chance", "band": "1.50-1.70", "n": 110, "winrate": 60, "pnl": -12.48, "blocked": true}, {"market": "Buts (over/under)", "band": "2.50-3.00", "n": 84, "winrate": 24, "pnl": -28.45, "blocked": false}, {"market": "Vainqueur", "band": "1.50-1.70", "n": 80, "winrate": 62, "pnl": 5.76, "blocked": false}, {"market": "Double chance", "band": "1.70-2.00", "n": 78, "winrate": 44, "pnl": -28.27, "blocked": true}, {"market": "Vainqueur", "band": "1.70-2.00", "n": 77, "winrate": 57, "pnl": 11.08, "blocked": false}, {"market": "Vainqueur", "band": "2.00-2.50", "n": 74, "winrate": 41, "pnl": -12.67, "blocked": false}, {"market": "Double chance", "band": "< 1.50", "n": 69, "winrate": 78, "pnl": 0.88, "blocked": false}, {"market": "Vainqueur", "band": "< 1.50", "n": 44, "winrate": 61, "pnl": -4.5, "blocked": false}, {"market": "Double chance", "band": "2.00-2.50", "n": 44, "winrate": 52, "pnl": 2.95, "blocked": false}, {"market": "Buts (over/under)", "band": "2.00-2.50", "n": 33, "winrate": 27, "pnl": -13.45, "blocked": false}, {"market": "Pronostic joueur", "band": "2.00-2.50", "n": 33, "winrate": 39, "pnl": -1.8, "blocked": false}, {"market": "Vainqueur", "band": "2.50-3.00", "n": 32, "winrate": 47, "pnl": 10.13, "blocked": false}, {"market": "Double chance", "band": "2.50-3.00", "n": 26, "winrate": 38, "pnl": -4.69, "blocked": true}, {"market": "Buts (over/under)", "band": "< 1.50", "n": 23, "winrate": 78, "pnl": 1.75, "blocked": false}, {"market": "Pronostic joueur", "band": "2.50-3.00", "n": 22, "winrate": 64, "pnl": 15.76, "blocked": false}, {"market": "Pronostic joueur", "band": "1.50-1.70", "n": 20, "winrate": 50, "pnl": -4.87, "blocked": false}, {"market": "Buts (over/under)", "band": "1.70-2.00", "n": 19, "winrate": 68, "pnl": 5.33, "blocked": false}, {"market": "Vainqueur", "band": "4.00+", "n": 16, "winrate": 0, "pnl": -8.04, "blocked": true}, {"market": "Double chance", "band": "3.00-4.00", "n": 10, "winrate": 40, "pnl": -1.92, "blocked": true}, {"market": "Vainqueur", "band": "3.00-4.00", "n": 9, "winrate": 33, "pnl": -2.43, "blocked": false}, {"market": "Pronostic joueur", "band": "< 1.50", "n": 9, "winrate": 67, "pnl": -1.41, "blocked": false}, {"market": "Pronostic joueur", "band": "3.00-4.00", "n": 8, "winrate": 12, "pnl": -4.8, "blocked": false}, {"market": "Buts (over/under)", "band": "3.00-4.00", "n": 5, "winrate": 0, "pnl": -0.03, "blocked": true}, {"market": "Buts (over/under)", "band": "4.00+", "n": 5, "winrate": 0, "pnl": -0.03, "blocked": true}, {"market": "Buts (over/under)", "band": "1.70-2.00", "n": 4, "winrate": 75, "pnl": -0.99, "blocked": false}, {"market": "Double chance", "band": "4.00+", "n": 3, "winrate": 0, "pnl": -3.0, "blocked": true}, {"market": "Buts (over/under)", "band": "1.50-1.70", "n": 2, "winrate": 50, "pnl": -0.12, "blocked": false}, {"market": "Handicap", "band": "2.50-3.00", "n": 2, "winrate": 50, "pnl": 1.25, "blocked": false}, {"market": "Handicap", "band": "2.00-2.50", "n": 2, "winrate": 50, "pnl": 0.95, "blocked": false}, {"market": "Buts (over/under)", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -0.01, "blocked": false}, {"market": "Buts (over/under)", "band": "2.50-3.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Handicap", "band": "1.70-2.00", "n": 1, "winrate": 0, "pnl": -1.5, "blocked": false}, {"market": "Pronostic joueur", "band": "1.70-2.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Pronostic joueur", "band": "4.00+", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}], "blocked_bands": [{"market": "Double chance", "band": "1.50-2.00"}, {"market": "Double chance", "band": "2.50+"}, {"market": "Vainqueur", "band": "4.00+"}, {"market": "Buts (over/under)", "band": "3.00+"}, {"market": "Les deux marquent", "band": "1.50-3.00"}], "highlights": {"best": {"match": "Martyna Kubka – Teodora Kostovic", "pick": "Total sets Plus de 2.5", "cote": 2.63, "pnl": 2.44, "flag": "🎾", "league": "T-Mobile Polish Open"}, "worst": {"match": "Baltimore Orioles – Los Angeles Angels", "pick": "Victoire Los Angeles Angels", "cote": 2.4, "pnl": -1.5, "flag": "⚾", "league": "MLB"}, "top_league": {"league": "T-Mobile Polish Open", "flag": "⚽", "pnl": 0.48, "n": 4}}, "percent_picks": {"n": 81, "winrate": 40}, "bankroll": {"initial": 10000, "current": -6520.32, "pnl": -16520.32, "pct": -165.2, "series": [{"date": "2026-06-06", "value": 9999.05}, {"date": "2026-06-07", "value": 9998.05}, {"date": "2026-06-19", "value": 9992.34}, {"date": "2026-06-20", "value": 9985.19}, {"date": "2026-06-21", "value": 9975.4}, {"date": "2026-06-22", "value": 10454.58}, {"date": "2026-06-23", "value": 9734.36}, {"date": "2026-06-24", "value": 9672.4}, {"date": "2026-06-25", "value": 10943.6}, {"date": "2026-06-26", "value": 11854.8}, {"date": "2026-06-27", "value": 12057.0}, {"date": "2026-06-28", "value": 12249.7}, {"date": "2026-06-29", "value": 11164.7}, {"date": "2026-06-30", "value": 11542.5}, {"date": "2026-07-01", "value": 9065.5}, {"date": "2026-07-02", "value": 7064.1}, {"date": "2026-07-03", "value": 8013.9}, {"date": "2026-07-04", "value": 5905.1}, {"date": "2026-07-05", "value": 4415.9}, {"date": "2026-07-06", "value": 5258.6}, {"date": "2026-07-07", "value": 5610.6}, {"date": "2026-07-08", "value": 5862.9}, {"date": "2026-07-09", "value": 5876.74}, {"date": "2026-07-10", "value": 5560.74}, {"date": "2026-07-11", "value": 4654.74}, {"date": "2026-07-12", "value": 5951.44}, {"date": "2026-07-13", "value": 6075.64}, {"date": "2026-07-15", "value": 6829.04}, {"date": "2026-07-17", "value": 6859.04}, {"date": "2026-07-18", "value": 6459.04}, {"date": "2026-07-19", "value": 2166.53}, {"date": "2026-07-20", "value": 3658.16}, {"date": "2026-07-21", "value": 2685.83}, {"date": "2026-07-22", "value": 2111.79}, {"date": "2026-07-23", "value": 1500.57}, {"date": "2026-07-24", "value": 2530.8}, {"date": "2026-07-25", "value": 651.52}, {"date": "2026-07-26", "value": -177.84}, {"date": "2026-07-27", "value": -528.84}, {"date": "2026-07-28", "value": -281.83}, {"date": "2026-07-29", "value": 15.87}, {"date": "2026-07-30", "value": -914.98}, {"date": "2026-07-31", "value": -606.06}, {"date": "2026-08-01", "value": -3183.4}, {"date": "2026-08-02", "value": -4555.32}, {"date": "2026-08-03", "value": -3329.32}, {"date": "2026-08-04", "value": -4116.32}, {"date": "2026-08-05", "value": -6810.32}, {"date": "2026-08-06", "value": -6520.32}]}};
+}
+majCompte();
+charger();
+setInterval(charger, 60000);
 </script>
 </body>
 </html>
-

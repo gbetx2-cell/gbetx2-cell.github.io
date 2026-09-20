@@ -537,7 +537,9 @@ function paris(p){
 }
 function carte(p, euros, valeurU){
   const sc = SCORES[p.fixture_id] || null;
-  const live = sc && !sc.finished && sc.status_short && sc.status_short !== "NS";
+  /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
+     reste bloque sur un statut en cours (21/09/2026). */
+  const live = !p.result && sc && !sc.finished && sc.status_short && sc.status_short !== "NS";
   const [home, away] = String(p.match).split("–").map(t => (t || "").trim());
   const ini = n => (n || "?").split(/[ .-]+/).slice(0, 2).map(w => w[0] || "").join("").toUpperCase();
   const cle = n => String(n || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -561,8 +563,14 @@ function carte(p, euros, valeurU){
     <span class="tname">${esc(n)}</span><span class="tscore">${score ?? ""}</span></div>`;
   const ko = p.kickoff_at ? new Date(p.kickoff_at) : null;
   const heure = ko ? ko.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
-  const etat = live ? `<span class="clock">${esc(sc.status_long || "En direct")}${sc.elapsed ? " · " + sc.elapsed + "'" : ""}</span>`
-    : fini ? `<span class="gain">Terminé</span>`
+  /* Le resultat publie prime sur le cache de score en direct (21/09/2026) :
+     ce cache ne couvre pas tous les sports -- le tennis n'y est pas -- et une
+     carte reglee "Gagne +1,07 u" s'affichait quand meme "A venir", ou restait
+     figee sur "First Half 15'". Des qu'un pari porte un resultat, le match est
+     termine, quoi qu'en dise le cache. */
+  const regle = !!p.result;
+  const etat = regle || fini ? `<span class="gain">Terminé</span>`
+    : live ? `<span class="clock">${esc(sc.status_long || "En direct")}${sc.elapsed ? " · " + sc.elapsed + "'" : ""}</span>`
     : ko && ko > new Date() ? `<span class="kick" data-ko="${p.kickoff_at}">${compte(ko)}</span>` : `<span class="tag s">À venir</span>`;
 
   const lignes = paris(p).map(b => {
@@ -602,9 +610,23 @@ const groupe = p => {
   return p.result || (sc && sc.finished) ? "Terminés" : "À venir";
 };
 function duJour(){
+  /* Les paris du jour, PLUS ceux d'hier qui ne sont pas encore regles
+     (21/09/2026). Le filtre ne gardait que les coups d'envoi du jour
+     calendaire : a minuit, un pari encore en jeu disparaissait du site. Les
+     matchs americains commencent a 22h05 heure de Paris et s'evaporaient donc
+     en plein milieu -- 4 paris vivants etaient invisibles au moment du
+     controle. Seuls les paris TERMINES s'effacent a minuit, comme demande. */
   const jour = new Date().toDateString();
+  const hier = new Date(Date.now() - 864e5).toDateString();
   return [...(PUBS.live || []), ...(PUBS.done || [])]
-    .filter(p => p.kickoff_at && new Date(p.kickoff_at).toDateString() === jour)
+    .filter(p => {
+      if (!p.kickoff_at) return false;
+      const j = new Date(p.kickoff_at).toDateString();
+      if (j === jour) return true;
+      const sc = SCORES[p.fixture_id];
+      const termine = !!p.result || (sc && sc.finished);
+      return j === hier && !termine;          // encore en jeu : on le garde visible
+    })
     .sort((a, b) => new Date(a.kickoff_at) - new Date(b.kickoff_at));
 }
 function dessineJour(){
