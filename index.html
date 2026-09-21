@@ -748,11 +748,19 @@ function duJour(){
       const termine = !!p.result || (sc && sc.finished);
       return j === hier && !termine;          // encore en jeu : on le garde visible
     })
-    /* Le plus recent en haut (21/09/2026, demande explicite : "pour tous les
-       sports, tous les onglets, les listes on trie par ordre d'heure, en haut
-       le plus recent"). Meme sens que "Derniers paris" et que le bilan
-       detaille : partout sur le site, le haut de liste est le plus recent. */
-    .sort((a, b) => new Date(b.kickoff_at) - new Date(a.kickoff_at));
+    /* Le PROCHAIN match en haut (21/09/2026, demande explicite). Deux etages :
+       d'abord ce qui reste a jouer, du plus proche au plus lointain -- le
+       prochain coup d'envoi ouvre donc la liste ; ensuite ce qui est deja
+       termine, du plus recemment fini au plus ancien.
+       Un simple tri croissant ne suffisait pas : il aurait mis en tete le
+       match le plus matinal de la journee, deja joué depuis longtemps. */
+    .sort((a, b) => {
+      const fini = p => !!p.result || !!(SCORES[p.fixture_id] || {}).finished;
+      const fa = fini(a), fb = fini(b);
+      if (fa !== fb) return fa ? 1 : -1;                    // a jouer avant termine
+      const ta = new Date(a.kickoff_at), tb = new Date(b.kickoff_at);
+      return fa ? tb - ta : ta - tb;                        // termines : le plus recent d'abord
+    });
 }
 function dessineJour(){
   const tout = duJour();
