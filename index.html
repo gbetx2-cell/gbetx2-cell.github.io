@@ -1038,6 +1038,7 @@ async function charger(){
   try {
     const [pub, live, res] = await Promise.all([api("/api/publications"), api("/api/live-scores"), api("/api/results")]);
     PUBS = pub; SCORES = (live && live.scores) || {}; RES = res;
+    dernierChargement = Date.now();
     $("#jour-maj").textContent = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
     dessineJour(); resumeResultats(); dessineMise();
     dessineBlocs("rail-track", "period-chips", periode, false);
@@ -1058,10 +1059,29 @@ async function charger(){
     $("#list").innerHTML = `<div class="empty"><b>Données indisponibles.</b><br>Le serveur ne répond pas, réessayez dans un instant.</div>`;
   }
 }
+let dernierChargement = 0;   /* declare avant le 1er charger() : il l'ecrit */
 majCompte();
 verifierSession();   /* 21/09/2026 : l'etat de connexion vient du serveur */
 charger();
 setInterval(charger, 60000);
+
+/* Rafraichissement au retour sur la page (21/09/2026, cas signale : un pari
+   publie sur Telegram a 07h30 n'apparaissait pas quand on ouvrait le site
+   dans la foulee). La minuterie de 60 s ne tourne que si la page est au
+   premier plan -- un navigateur mobile la gele des qu'on change d'onglet ou
+   qu'on verrouille l'ecran. On revenait donc sur des donnees figees au
+   moment ou on avait quitte la page, parfois plusieurs minutes plus tot.
+   On recharge des que la page redevient visible, sans marteler le serveur
+   (pas plus d'une fois toutes les 15 s). */
+const rechargeSiVieux = () => {
+  if (document.visibilityState !== "visible") return;
+  if (Date.now() - dernierChargement < 15000) return;
+  dernierChargement = Date.now();
+  charger();
+};
+document.addEventListener("visibilitychange", rechargeSiVieux);
+addEventListener("focus", rechargeSiVieux);
+addEventListener("pageshow", rechargeSiVieux);   /* retour "page precedente" */
 </script>
 </body>
 </html>
