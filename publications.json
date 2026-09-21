@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-21T16:18:47.790723+00:00",
+ "generated_at": "2026-09-21T23:30:14.753902+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183996",
@@ -8,13 +8,41 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Julia Avdeeva – Yuki Naito",
-   "kickoff_at": "2026-09-21T16:30Z",
+   "kickoff_at": "2026-09-21T17:10Z",
    "published": true,
    "home_photo": "assets/players/julia avdeeva.png",
    "away_photo": "assets/players/yuki naito.png",
    "conseil": "Victoire Julia Avdeeva",
    "conseil_cote": 1.62,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "wnba_401857206",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "New York Liberty – Atlanta Dream",
+   "kickoff_at": "2026-09-22T00:00Z",
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "DeWanna Bonner — Points Plus de 7.5",
+     "kind": "player",
+     "detail": "cote 2.18",
+     "odd": 2.18,
+     "mise_eur": 200.0
+    },
+    {
+     "category": "Player pick",
+     "label": "DeWanna Bonner — Rebonds Plus de 3.5",
+     "kind": "player",
+     "detail": "cote 1.78",
+     "odd": 1.78,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -59,28 +87,6 @@
    "score": "6 - 2"
   },
   {
-   "fixture_id": "hockey_433616",
-   "flag": "🏒",
-   "league": "DEL (Germany)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "ERC Ingolstadt – Nurnberg Ice Tigers",
-   "kickoff_at": "2026-09-20T12:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/247.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/254.png",
-   "result_updated_at": "2026-09-20T16:42:58.141501+02:00",
-   "conseil": "Victoire ERC Ingolstadt",
-   "conseil_cote": 1.31,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — ERC Ingolstadt @ 1.31",
-   "value_cote": 1.31,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "2 - 6"
-  },
-  {
    "fixture_id": "hockey_433618",
    "flag": "🏒",
    "league": "DEL (Germany)",
@@ -101,6 +107,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "hockey_433616",
+   "flag": "🏒",
+   "league": "DEL (Germany)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "ERC Ingolstadt – Nurnberg Ice Tigers",
+   "kickoff_at": "2026-09-20T12:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/247.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/254.png",
+   "result_updated_at": "2026-09-20T16:42:58.141501+02:00",
+   "conseil": "Victoire ERC Ingolstadt",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — ERC Ingolstadt @ 1.31",
+   "value_cote": 1.31,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "2 - 6"
   },
   {
    "fixture_id": "tennis_espn_wta_183728",
@@ -165,26 +193,26 @@
    "score": "3 - 4"
   },
   {
-   "fixture_id": "hockey_426273",
+   "fixture_id": "hockey_426275",
    "flag": "🏒",
    "league": "Extraliga (Czech-Republic)",
    "sport": "hockey",
    "sport_label": "Hockey",
-   "match": "Ceske Budejovice – Olomouc",
+   "match": "Pardubice – Karlovy Vary",
    "kickoff_at": "2026-09-20T15:00:00+00:00",
    "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/124.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/131.png",
-   "result_updated_at": "2026-09-20T19:30:57.458082+02:00",
-   "conseil": "Victoire Ceske Budejovice",
-   "conseil_cote": 1.5,
+   "home_logo": "https://media.api-sports.io/hockey/teams/132.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/125.png",
+   "result_updated_at": "2026-09-20T20:01:56.735695+02:00",
+   "conseil": "Victoire Pardubice",
+   "conseil_cote": 1.31,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Ceske Budejovice @ 1.5",
-   "value_cote": 1.5,
+   "value_bet": "Vainqueur (prol. incluse) — Pardubice @ 1.31",
+   "value_cote": 1.31,
    "value_mise_eur": 200.0,
    "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "3 - 2"
+   "score": "5 - 2"
   },
   {
    "fixture_id": "hockey_435750",
@@ -209,26 +237,26 @@
    "score": "5 - 2"
   },
   {
-   "fixture_id": "hockey_426275",
+   "fixture_id": "hockey_426273",
    "flag": "🏒",
    "league": "Extraliga (Czech-Republic)",
    "sport": "hockey",
    "sport_label": "Hockey",
-   "match": "Pardubice – Karlovy Vary",
+   "match": "Ceske Budejovice – Olomouc",
    "kickoff_at": "2026-09-20T15:00:00+00:00",
    "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/132.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/125.png",
-   "result_updated_at": "2026-09-20T20:01:56.735695+02:00",
-   "conseil": "Victoire Pardubice",
-   "conseil_cote": 1.31,
+   "home_logo": "https://media.api-sports.io/hockey/teams/124.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/131.png",
+   "result_updated_at": "2026-09-20T19:30:57.458082+02:00",
+   "conseil": "Victoire Ceske Budejovice",
+   "conseil_cote": 1.5,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Pardubice @ 1.31",
-   "value_cote": 1.31,
+   "value_bet": "Vainqueur (prol. incluse) — Ceske Budejovice @ 1.5",
+   "value_cote": 1.5,
    "value_mise_eur": 200.0,
    "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "5 - 2"
+   "score": "3 - 2"
   },
   {
    "fixture_id": "tennis_espn_wta_183774",
@@ -249,23 +277,6 @@
    "score": "4-6, 6-0, 6-2"
   },
   {
-   "fixture_id": "nfl_401872935",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Tampa Bay Buccaneers – Cleveland Browns",
-   "kickoff_at": "2026-09-20T17:00Z",
-   "published": true,
-   "result_updated_at": "2026-09-20T22:07:20.704284+02:00",
-   "value_bet": "Moins de 41.5 @ 1.8929",
-   "value_cote": 1.89,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "19 - 23 (en cours)"
-  },
-  {
    "fixture_id": "nfl_401872939",
    "flag": "🏈",
    "league": "NFL",
@@ -283,21 +294,27 @@
    "score": "20 - 24"
   },
   {
-   "fixture_id": "nfl_401872938",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Baltimore Ravens – New Orleans Saints",
+   "fixture_id": "wnba_401857201",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Connecticut Sun – Minnesota Lynx",
    "kickoff_at": "2026-09-20T17:00Z",
    "published": true,
-   "result_updated_at": "2026-09-20T22:07:26.955461+02:00",
-   "value_bet": "Moins de 45.5 @ 1.9091",
-   "value_cote": 1.91,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "17 - 24"
+   "result_updated_at": "2026-09-20T20:34:57.466920+02:00",
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Howard — Points Plus de 11.5",
+     "kind": "player",
+     "detail": "cote 1.90",
+     "odd": 1.9,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "nfl_401872946",
@@ -334,27 +351,38 @@
    "score": "17 - 20"
   },
   {
-   "fixture_id": "wnba_401857201",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Connecticut Sun – Minnesota Lynx",
+   "fixture_id": "nfl_401872935",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Tampa Bay Buccaneers – Cleveland Browns",
    "kickoff_at": "2026-09-20T17:00Z",
    "published": true,
-   "result_updated_at": "2026-09-20T20:34:57.466920+02:00",
-   "result": "GAGNE",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Natasha Howard — Points Plus de 11.5",
-     "kind": "player",
-     "detail": "cote 1.90",
-     "odd": 1.9,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
+   "result_updated_at": "2026-09-20T22:07:20.704284+02:00",
+   "value_bet": "Moins de 41.5 @ 1.8929",
+   "value_cote": 1.89,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "19 - 23 (en cours)"
+  },
+  {
+   "fixture_id": "nfl_401872938",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Baltimore Ravens – New Orleans Saints",
+   "kickoff_at": "2026-09-20T17:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-20T22:07:26.955461+02:00",
+   "value_bet": "Moins de 45.5 @ 1.9091",
+   "value_cote": 1.91,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "17 - 24"
   },
   {
    "fixture_id": "nfl_401872937",
@@ -465,23 +493,6 @@
    ]
   },
   {
-   "fixture_id": "nfl_401872941",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Los Angeles Chargers – Las Vegas Raiders",
-   "kickoff_at": "2026-09-20T20:05Z",
-   "published": true,
-   "result_updated_at": "2026-09-21T01:28:58.223210+02:00",
-   "value_bet": "Las Vegas Raiders +6.5 @ 1.9804",
-   "value_cote": 1.98,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "14 - 26"
-  },
-  {
    "fixture_id": "nfl_401872940",
    "flag": "🏈",
    "league": "NFL",
@@ -499,6 +510,23 @@
    "score": "20 - 13"
   },
   {
+   "fixture_id": "nfl_401872941",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Los Angeles Chargers – Las Vegas Raiders",
+   "kickoff_at": "2026-09-20T20:05Z",
+   "published": true,
+   "result_updated_at": "2026-09-21T01:28:58.223210+02:00",
+   "value_bet": "Las Vegas Raiders +6.5 @ 1.9804",
+   "value_cote": 1.98,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "14 - 26"
+  },
+  {
    "fixture_id": "nfl_401872945",
    "flag": "🏈",
    "league": "NFL",
@@ -514,28 +542,6 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "27 - 27 (en cours)"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184082",
-   "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aliaksandra Sasnovich – Daria Kasatkina",
-   "kickoff_at": "2026-09-21T03:00Z",
-   "published": true,
-   "home_photo": "assets/players/aliaksandra sasnovich.png",
-   "away_photo": "assets/players/daria kasatkina.png",
-   "result_updated_at": "2026-09-21T06:28:41.998041+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.65,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
-   "value_cote": 1.65,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "7-5, 6-0"
   },
   {
    "fixture_id": "tennis_espn_wta_184041",
@@ -558,6 +564,28 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "4-6, 7-6, 2-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184082",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Aliaksandra Sasnovich – Daria Kasatkina",
+   "kickoff_at": "2026-09-21T03:00Z",
+   "published": true,
+   "home_photo": "assets/players/aliaksandra sasnovich.png",
+   "away_photo": "assets/players/daria kasatkina.png",
+   "result_updated_at": "2026-09-21T06:28:41.998041+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.65,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
+   "value_cote": 1.65,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "7-5, 6-0"
   },
   {
    "fixture_id": "tennis_espn_wta_184046",
