@@ -748,7 +748,11 @@ function duJour(){
       const termine = !!p.result || (sc && sc.finished);
       return j === hier && !termine;          // encore en jeu : on le garde visible
     })
-    .sort((a, b) => new Date(a.kickoff_at) - new Date(b.kickoff_at));
+    /* Le plus recent en haut (21/09/2026, demande explicite : "pour tous les
+       sports, tous les onglets, les listes on trie par ordre d'heure, en haut
+       le plus recent"). Meme sens que "Derniers paris" et que le bilan
+       detaille : partout sur le site, le haut de liste est le plus recent. */
+    .sort((a, b) => new Date(b.kickoff_at) - new Date(a.kickoff_at));
 }
 function dessineJour(){
   const tout = duJour();
