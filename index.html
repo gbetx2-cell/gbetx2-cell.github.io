@@ -566,7 +566,18 @@ function jaugeDe(texte, score, regle, setsJoues){
      -- on le nomme donc pour ce qu'il est. */
   return jauge(under ? `${mot} — perdu à ${need}` : `${mot} — gagné à ${need}`, total, need, under);
 }
-const etatDe = r => r === "GAGNE" ? "w" : r === "PERDU" ? "l" : r === "REMBOURSE" ? "p" : "s";
+/* 21/09/2026 : cette comparaison ne connaissait que "GAGNE" sans accent.
+   Or le reglement ecrit "GAGNÉ" avec accent pour le baseball et la NFL --
+   75 + 7 paris GAGNANTS s'affichaient donc "En attente", gain "—", alors
+   qu'ils etaient bien regles en base. Les totaux, eux, etaient justes (le
+   serveur, lui, gere les deux graphies) : la page se contredisait toute
+   seule, un bilan positif au-dessus de cartes qui n'avaient rien gagne.
+   On normalise les accents au lieu d'enumerer les graphies. */
+const sansAccent = t => String(t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toUpperCase();
+const etatDe = r => {
+  const v = sansAccent(r);
+  return v === "GAGNE" ? "w" : v === "PERDU" ? "l" : v === "REMBOURSE" ? "p" : "s";
+};
 const LIB = {w: "Gagné", l: "Perdu", p: "Remboursé", s: "En attente"};
 
 /* Un meme pari est parfois enregistre deux fois : une ligne "conseil" et une
