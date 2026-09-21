@@ -95,6 +95,8 @@ h3{font:600 16px/1.3 var(--display);margin:18px 0 6px}
 /* Sets tennis en colonnes, alignes d'une ligne a l'autre. */
 .jeux{display:flex;gap:6px;margin-left:auto;font:600 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
 .jeux i{font-style:normal;min-width:14px;text-align:center}
+/* Sets gagnes : detache des jeux par set, pour ne pas se lire comme un set de plus. */
+.tscore.total{margin-left:10px;padding-left:10px;border-left:1px solid var(--line);font-weight:800;color:var(--text)}
 .team.win .jeux{color:var(--text)}
 .team .badge{width:34px;height:34px;border-radius:50%;background:var(--raise);border:1px solid var(--line);
   object-fit:cover;display:grid;place-items:center;font:700 11px/1 var(--body);color:var(--muted);flex:none}
@@ -539,7 +541,7 @@ function jauge(label, now, need, under){
   return `<div class="gauge ${cls}"><span>${esc(label)}</span><div class="track"><div class="fill" style="width:${pct}%"></div></div>
     <span class="num">${now} / ${need}</span></div>`;
 }
-function jaugeDe(texte, score, regle){
+function jaugeDe(texte, score, regle, setsJoues){
   /* 21/09/2026 : plus de jauge sur un pari deja regle, ni quand aucun score
      en direct n'existe. Elle restait alors bloquee a 0 -- "Sets 0 / 3" sur un
      pari gagne la veille donnait l'impression que le match n'avait pas eu
@@ -548,7 +550,14 @@ function jaugeDe(texte, score, regle){
   if (!SEUIL.test(texte)) return "";
   const m = texte.match(/(\d+(?:[.,]\d+)?)/); if (!m) return "";
   const seuil = parseFloat(m[1].replace(",", ".")), need = Math.floor(seuil) + 1;
-  const total = score ? (Number(score.home_score) || 0) + (Number(score.away_score) || 0) : 0;
+  /* Au tennis, ce qui decide un "Total sets" est le nombre de sets JOUES,
+     pas le nombre de sets gagnes (21/09/2026) : un 3e set entame compte, meme
+     si personne ne l'a encore remporte. La jauge affichait "3 / 3 -- perdu"
+     pendant que le pari disait "En cours", parce qu'elle additionnait les sets
+     gagnes, dont un set en cours compte a tort. */
+  const total = (setsJoues && /sets/i.test(texte))
+    ? setsJoues
+    : (score ? (Number(score.home_score) || 0) + (Number(score.away_score) || 0) : 0);
   const under = UNDER.test(texte);
   const mot = /buts|goals/i.test(texte) ? "Buts" : /points/i.test(texte) ? "Points" : /runs/i.test(texte) ? "Runs"
     : /sets/i.test(texte) ? "Sets" : "Progression";
@@ -637,8 +646,12 @@ function carte(p, euros, valeurU){
   const detail = !sets.length && sp && !spn ? sp : "";
   const gagnant = hs !== null && hs !== as ? (hs > as ? "h" : "a") : null;
   const fini = sc && sc.finished;
+  /* Les jeux par set et le nombre de sets gagnes se suivaient sans aucune
+     separation : "4 7 0" puis "1" se lisait comme un quatrieme set
+     (21/09/2026). Le total est desormais detache et mis en avant, comme le
+     score d'une equipe dans les autres sports. */
   const ligne = (n, url, side, score) => `<div class="team ${fini && gagnant === side ? "win" : ""}">${logo(url, n)}
-    <span class="tname">${esc(n)}</span>${colonnes(side === "h" ? 1 : 2)}<span class="tscore">${score ?? ""}</span></div>`;
+    <span class="tname">${esc(n)}</span>${colonnes(side === "h" ? 1 : 2)}<span class="tscore${sets.length ? " total" : ""}">${score ?? ""}</span></div>`;
   const ko = p.kickoff_at ? new Date(p.kickoff_at) : null;
   const heure = ko ? ko.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
   /* Le resultat publie prime sur le cache de score en direct (21/09/2026) :
@@ -649,7 +662,12 @@ function carte(p, euros, valeurU){
   const regle = !!p.result;
   const etat = regle || fini ? `<span class="gain">Terminé</span>`
     : live ? `<span class="clock">${esc(sc.status_long || "En direct")}${sc.elapsed ? " · " + sc.elapsed + "'" : ""}</span>`
-    : ko && ko > new Date() ? `<span class="kick" data-ko="${p.kickoff_at}">${compte(ko)}</span>` : `<span class="tag s">À venir</span>`;
+    : ko && ko > new Date() ? `<span class="kick" data-ko="${p.kickoff_at}">${compte(ko)}</span>`
+    /* L'heure est passee mais aucun score n'est encore remonte : dire "À venir"
+       serait faux (21/09/2026, cas reel a 07h07 pour un match de 06h30). On dit
+       ce qu'on sait vraiment. */
+    : ko ? `<span class="tag s">Coup d'envoi ${heure} · en attente du score</span>`
+    : `<span class="tag s">À venir</span>`;
 
   const lignes = paris(p).map(b => {
     const mise = valeurU ? (b.mise || 200) / 200 : (b.mise || 200) / 200;
@@ -661,7 +679,7 @@ function carte(p, euros, valeurU){
       <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
       <span class="tag ${b.r}">${b.r === "s" && live ? "En cours" : LIB[b.r]}</span>
       <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
-      ${jaugeDe(b.bet, sc, regle || b.r !== "s")}</div>`;
+      ${jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length)}</div>`;
   }).join("");
 
   return `<article class="pick ${live ? "is-live" : ""}">
@@ -683,9 +701,14 @@ function compte(d){
   return h ? `dans ${h} h ${String(m).padStart(2, "0")}` : `dans ${m} min ${String(sec % 60).padStart(2, "0")} s`;
 }
 const groupe = p => {
+  /* Le resultat publie prime, ici aussi (21/09/2026). La carte appliquait
+     deja cette regle mais pas le classement dans les filtres : un pari NFL
+     regle "Perdu" apparaissait sous "En direct", parce que son score en cache
+     etait reste bloque sur LIVE. Le compteur et la carte se contredisaient. */
+  if (p.result) return "Terminés";
   const sc = SCORES[p.fixture_id];
   if (sc && !sc.finished && sc.status_short && sc.status_short !== "NS") return "En direct";
-  return p.result || (sc && sc.finished) ? "Terminés" : "À venir";
+  return (sc && sc.finished) ? "Terminés" : "À venir";
 };
 /* Les paris regles, du plus recemment regle au plus ancien (21/09/2026).
    Le site prenait les 8 premiers d'une liste classee par coup d'envoi
@@ -762,7 +785,12 @@ function courbe(points, conv){
    porte au moins un pari regle. */
 function serieJoursPositifs(jours){
   let serie = 0;
-  for (const j of jours){                 // deja classes du plus recent au plus ancien
+  /* La journee en cours ne compte pas (21/09/2026) : elle n'est pas finie.
+     Sinon la flamme affiche un jour de plus des la premiere heure positive,
+     puis retombe a zero si la journee tourne mal -- une serie doit se compter
+     sur des journees closes. C'est le premier element de la liste, le serveur
+     la renvoyant du plus recent au plus ancien. */
+  for (const j of jours.slice(1)){        // deja classes du plus recent au plus ancien
     /* "Aucun pari ce jour-la" se lit sur les sports presents, PAS sur le
        nombre de points de la courbe : celle-ci compte 24 points horaires
        meme un jour vide, ce qui faisait passer la journee en cours pour une
@@ -808,11 +836,16 @@ function resumeResultats(){
   Object.entries(bySport).forEach(([s, v]) => {
     const nom = NOM_SPORT[s] || (s.charAt(0).toUpperCase() + s.slice(1));
     const an = v.annee || {};
-    const f = fusion[nom] || (fusion[nom] = {n: 0, g: 0, pnl: 0});
-    f.n += an.n || 0; f.g += an.g || 0; f.pnl += an.pnl || 0;
+    const f = fusion[nom] || (fusion[nom] = {n: 0, g: 0, p: 0, pnl: 0});
+    f.n += an.n || 0; f.g += an.g || 0; f.p += an.p || 0; f.pnl += an.pnl || 0;
   });
+  /* Le taux se calcule sur les paris DECIDES (gagnes + perdus), jamais sur le
+     total : un remboursement n'est pas un echec (21/09/2026). Le tableau
+     affichait 62 % pour le tennis -- seul sport a avoir des remboursements --
+     la ou le chiffre officiel dit 65 %, deux nombres differents pour la meme
+     chose sur la meme page. */
   SPLIT.sport = Object.entries(fusion).map(([nom, f]) =>
-      [nom, f.n, f.n ? Math.round(f.g / f.n * 100) : "—", f.pnl])
+      [nom, f.n, (f.g + f.p) ? Math.round(f.g / (f.g + f.p) * 100) : "—", f.pnl])
     .filter(r => r[1]).sort((a, b) => b[3] - a[3]);
   const lg = RES.league_stats || {};
   SPLIT.ligue = Object.entries(lg).map(([n, v]) => [v.name || n, v.n || 0, v.winrate ?? "—", v.pnl || 0])
