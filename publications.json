@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-21T13:05:45.207413+00:00",
+ "generated_at": "2026-09-21T16:18:47.790723+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_wta_183857",
-   "flag": "🎾",
-   "league": "SP Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Nadia Podoroska – Kaitlin Quevedo",
-   "kickoff_at": "2026-09-21T14:00Z",
-   "published": true,
-   "home_photo": "assets/players/nadia podoroska.png",
-   "away_photo": "assets/players/kaitlin quevedo.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.64,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.637",
-   "value_cote": 1.64,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Kaitlin Quevedo",
-     "kind": "player",
-     "detail": "cote 1.73",
-     "odd": 1.73,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_wta_183996",
    "flag": "🎾",
@@ -36,7 +8,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Julia Avdeeva – Yuki Naito",
-   "kickoff_at": "2026-09-21T16:00Z",
+   "kickoff_at": "2026-09-21T16:30Z",
    "published": true,
    "home_photo": "assets/players/julia avdeeva.png",
    "away_photo": "assets/players/yuki naito.png",
@@ -544,6 +516,28 @@
    "score": "27 - 27 (en cours)"
   },
   {
+   "fixture_id": "tennis_espn_wta_184082",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Aliaksandra Sasnovich – Daria Kasatkina",
+   "kickoff_at": "2026-09-21T03:00Z",
+   "published": true,
+   "home_photo": "assets/players/aliaksandra sasnovich.png",
+   "away_photo": "assets/players/daria kasatkina.png",
+   "result_updated_at": "2026-09-21T06:28:41.998041+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.65,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
+   "value_cote": 1.65,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "7-5, 6-0"
+  },
+  {
    "fixture_id": "tennis_espn_wta_184041",
    "flag": "🎾",
    "league": "Korea Open",
@@ -586,28 +580,6 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "3-6, 0-6"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184082",
-   "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aliaksandra Sasnovich – Daria Kasatkina",
-   "kickoff_at": "2026-09-21T03:00Z",
-   "published": true,
-   "home_photo": "assets/players/aliaksandra sasnovich.png",
-   "away_photo": "assets/players/daria kasatkina.png",
-   "result_updated_at": "2026-09-21T06:28:41.998041+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.65,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
-   "value_cote": 1.65,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "7-5, 6-0"
   },
   {
    "fixture_id": "tennis_espn_wta_184035",
@@ -728,6 +700,39 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "4-6, 6-3, 6-3"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183857",
+   "flag": "🎾",
+   "league": "SP Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Nadia Podoroska – Kaitlin Quevedo",
+   "kickoff_at": "2026-09-21T14:05Z",
+   "published": true,
+   "home_photo": "assets/players/nadia podoroska.png",
+   "away_photo": "assets/players/kaitlin quevedo.png",
+   "result_updated_at": "2026-09-21T18:18:35.499268+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.64,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.637",
+   "value_cote": 1.64,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-4, 4-6, 2-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Kaitlin Quevedo",
+     "kind": "player",
+     "detail": "cote 1.73",
+     "odd": 1.73,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
