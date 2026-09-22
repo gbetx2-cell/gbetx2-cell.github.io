@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T08:48:31.769946+00:00",
+ "generated_at": "2026-09-22T09:05:25.863002+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183996",
@@ -30,34 +30,6 @@
    "conseil": "Victoire Pavel Kotov",
    "conseil_cote": 1.22,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184036",
-   "flag": "🎾",
-   "league": "Korea Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasia Zakharova – Jelena Ostapenko",
-   "kickoff_at": "2026-09-22T07:00Z",
-   "published": true,
-   "home_photo": "assets/players/anastasia zakharova.png",
-   "away_photo": "assets/players/jelena ostapenko.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.59,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.592",
-   "value_cote": 1.59,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Jelena Ostapenko",
-     "kind": "player",
-     "detail": "cote 1.70",
-     "odd": 1.699,
-     "mise_eur": 200.0
-    }
-   ]
   }
  ],
  "done": [
@@ -502,6 +474,39 @@
      "kind": "player",
      "detail": "cote 1.58",
      "odd": 1.578,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184036",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasia Zakharova – Jelena Ostapenko",
+   "kickoff_at": "2026-09-22T07:00Z",
+   "published": true,
+   "home_photo": "assets/players/anastasia zakharova.png",
+   "away_photo": "assets/players/jelena ostapenko.png",
+   "result_updated_at": "2026-09-22T11:05:13.316808+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.59,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.592",
+   "value_cote": 1.59,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "4-6, 1-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Jelena Ostapenko",
+     "kind": "player",
+     "detail": "cote 1.70",
+     "odd": 1.699,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
