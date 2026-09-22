@@ -855,7 +855,8 @@ function resumeResultats(){
      etiquettes historiques cote base). */
   const NOM_SPORT = {football: "Football", baseball: "Baseball (MLB)", mlb: "Baseball (MLB)",
                      tennis: "Tennis", hockey: "Hockey", nhl: "Hockey", nfl: "Football US (NFL)",
-                     nba: "Basket (NBA)", wnba: "Basket (WNBA)"};
+                     nba: "Basket (NBA)", wnba: "Basket (WNBA)",
+                     npb: "Baseball (NPB)", kbo: "Baseball (KBO)"};
   const bySport = (RES.period_stats || {}).by_sport || {};
   const fusion = {};
   Object.entries(bySport).forEach(([s, v]) => {
@@ -901,7 +902,8 @@ const pnlSport = x => {
   return pts.length ? (Number(pts[pts.length - 1].pnl) || 0) : 0;
 };
 const SPORT_FR = {football: "Football", tennis: "Tennis", hockey: "Hockey", nfl: "Football US",
-                  baseball: "Baseball", wnba: "Basket (WNBA)", basketball: "Basket"};
+                  baseball: "Baseball", wnba: "Basket (WNBA)", basketball: "Basket",
+                  npb: "Baseball (NPB)", kbo: "Baseball (KBO)"};
 async function blocs(periode, n = 8){
   const key = periode + ":" + n;
   if (CACHE[key]) return CACHE[key];
