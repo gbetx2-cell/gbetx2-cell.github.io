@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T07:05:25.060053+00:00",
+ "generated_at": "2026-09-22T07:24:44.749161+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183996",
@@ -17,34 +17,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_186127",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Luka Pavlovic – Alexandre Muller",
-   "kickoff_at": "2026-09-22T05:00Z",
-   "published": true,
-   "home_photo": "assets/players/luka pavlovic.png",
-   "away_photo": "assets/players/alexandre muller.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.559",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Alexandre Muller",
-     "kind": "player",
-     "detail": "cote 1.48",
-     "odd": 1.481,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_186140",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
@@ -60,21 +32,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_186128",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Pavel Kotov – Luca Castelnuovo",
-   "kickoff_at": "2026-09-22T06:30Z",
-   "published": true,
-   "home_photo": "assets/players/pavel kotov.png",
-   "away_photo": "assets/players/luca castelnuovo.png",
-   "conseil": "Victoire Pavel Kotov",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_186133",
    "flag": "🎾",
    "league": "Chengdu Open",
@@ -87,6 +44,21 @@
    "away_photo": "assets/players/lloyd harris.png",
    "conseil": "Victoire Lloyd Harris",
    "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186128",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Pavel Kotov – Luca Castelnuovo",
+   "kickoff_at": "2026-09-22T06:30Z",
+   "published": true,
+   "home_photo": "assets/players/pavel kotov.png",
+   "away_photo": "assets/players/luca castelnuovo.png",
+   "conseil": "Victoire Pavel Kotov",
+   "conseil_cote": 1.22,
    "conseil_mise_eur": 200.0
   },
   {
@@ -118,21 +90,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_186136",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Rio Noguchi – Masamichi Imamura",
-   "kickoff_at": "2026-09-22T07:00Z",
-   "published": true,
-   "home_photo": "assets/players/rio noguchi.png",
-   "away_photo": "assets/players/masamichi imamura.png",
-   "conseil": "Victoire Rio Noguchi",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_wta_184036",
    "flag": "🎾",
    "league": "Korea Open",
@@ -159,6 +116,21 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186136",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rio Noguchi – Masamichi Imamura",
+   "kickoff_at": "2026-09-22T07:00Z",
+   "published": true,
+   "home_photo": "assets/players/rio noguchi.png",
+   "away_photo": "assets/players/masamichi imamura.png",
+   "conseil": "Victoire Rio Noguchi",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -469,6 +441,39 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-7, 6-7"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186127",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Luka Pavlovic – Alexandre Muller",
+   "kickoff_at": "2026-09-22T05:00Z",
+   "published": true,
+   "home_photo": "assets/players/luka pavlovic.png",
+   "away_photo": "assets/players/alexandre muller.png",
+   "result_updated_at": "2026-09-22T09:24:25.705335+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.559",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4-6, 7-6, 3-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Alexandre Muller",
+     "kind": "player",
+     "detail": "cote 1.48",
+     "odd": 1.481,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_184077",
