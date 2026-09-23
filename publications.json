@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T11:29:04.752703+00:00",
+ "generated_at": "2026-09-23T11:31:03.821497+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -17,24 +17,6 @@
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "hockey_430471",
-   "flag": "🏒",
-   "league": "KHL (Russia)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Khabarovsk – CSKA Moscow",
-   "kickoff_at": "2026-09-23T09:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/1486.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/371.png",
-   "conseil": "Victoire CSKA Moscow",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — CSKA Moscow @ 1.47",
-   "value_cote": 1.47,
-   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_183878",
@@ -564,6 +546,28 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "hockey_430471",
+   "flag": "🏒",
+   "league": "KHL (Russia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Khabarovsk – CSKA Moscow",
+   "kickoff_at": "2026-09-23T09:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/1486.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/371.png",
+   "result_updated_at": "2026-09-23T13:30:52.315334+02:00",
+   "conseil": "Victoire CSKA Moscow",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — CSKA Moscow @ 1.47",
+   "value_cote": 1.47,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "0 - 2"
   },
   {
    "fixture_id": "tennis_espn_wta_184005",
