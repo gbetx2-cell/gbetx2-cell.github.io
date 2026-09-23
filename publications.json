@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T07:45:52.049477+00:00",
+ "generated_at": "2026-09-23T07:59:03.405230+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -17,21 +17,6 @@
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_186144",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Rio Noguchi – Dalibor Svrcina",
-   "kickoff_at": "2026-09-23T05:30Z",
-   "published": true,
-   "home_photo": "assets/players/rio noguchi.png",
-   "away_photo": "assets/players/dalibor svrcina.png",
-   "conseil": "Victoire Dalibor Svrcina",
-   "conseil_cote": 1.19,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_184047",
@@ -436,6 +421,24 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186144",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rio Noguchi – Dalibor Svrcina",
+   "kickoff_at": "2026-09-23T05:30Z",
+   "published": true,
+   "home_photo": "assets/players/rio noguchi.png",
+   "away_photo": "assets/players/dalibor svrcina.png",
+   "result_updated_at": "2026-09-23T09:58:52.304687+02:00",
+   "conseil": "Victoire Dalibor Svrcina",
+   "conseil_cote": 1.19,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "4-6, 1-6"
   },
   {
    "fixture_id": "tennis_espn_wta_184067",
