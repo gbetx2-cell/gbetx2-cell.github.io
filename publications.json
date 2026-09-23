@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T11:00:52.988687+00:00",
+ "generated_at": "2026-09-23T11:29:04.752703+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -35,21 +35,6 @@
    "value_bet": "Vainqueur (prol. incluse) — CSKA Moscow @ 1.47",
    "value_cote": 1.47,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184005",
-   "flag": "🎾",
-   "league": "Turk Telekom Ankara Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Polina Iatcenko – Weronika Falkowska",
-   "kickoff_at": "2026-09-23T10:05Z",
-   "published": true,
-   "home_photo": "assets/players/polina iatcenko.png",
-   "away_photo": "assets/players/weronika falkowska.png",
-   "conseil": "Victoire Polina Iatcenko",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_183878",
@@ -415,39 +400,6 @@
    "score": "4-6, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_184048",
-   "flag": "🎾",
-   "league": "Korea Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maya Joint – Dayeon Back",
-   "kickoff_at": "2026-09-23T05:05Z",
-   "published": true,
-   "home_photo": "assets/players/maya joint.png",
-   "away_photo": "assets/players/dayeon back.png",
-   "result_updated_at": "2026-09-23T08:12:14.595089+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.36",
-   "value_cote": 1.36,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-2, 6-1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Maya Joint",
-     "kind": "player",
-     "detail": "cote 1.23",
-     "odd": 1.234,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_184098",
    "flag": "🎾",
    "league": "Singapore Tennis Open presented by BNP Paribas",
@@ -475,6 +427,39 @@
      "kind": "player",
      "detail": "cote 1.44",
      "odd": 1.442,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184048",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maya Joint – Dayeon Back",
+   "kickoff_at": "2026-09-23T05:05Z",
+   "published": true,
+   "home_photo": "assets/players/maya joint.png",
+   "away_photo": "assets/players/dayeon back.png",
+   "result_updated_at": "2026-09-23T08:12:14.595089+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.36",
+   "value_cote": 1.36,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-2, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maya Joint",
+     "kind": "player",
+     "detail": "cote 1.23",
+     "odd": 1.234,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
@@ -579,6 +564,24 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184005",
+   "flag": "🎾",
+   "league": "Turk Telekom Ankara Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Polina Iatcenko – Weronika Falkowska",
+   "kickoff_at": "2026-09-23T10:05Z",
+   "published": true,
+   "home_photo": "assets/players/polina iatcenko.png",
+   "away_photo": "assets/players/weronika falkowska.png",
+   "result_updated_at": "2026-09-23T13:28:52.767078+02:00",
+   "conseil": "Victoire Polina Iatcenko",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 6-4"
   }
  ]
 }
