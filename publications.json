@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T06:05:14.345566+00:00",
+ "generated_at": "2026-09-23T06:08:27.107818+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -19,6 +19,21 @@
    "lineup_source": "api_football"
   },
   {
+   "fixture_id": "tennis_espn_atp_186145",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hayato Matsuoka – Taro Daniel",
+   "kickoff_at": "2026-09-23T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/hayato matsuoka.png",
+   "away_photo": "assets/players/taro daniel.png",
+   "conseil": "Victoire Taro Daniel",
+   "conseil_cote": 1.44,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_186143",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
@@ -34,18 +49,18 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_186145",
+   "fixture_id": "tennis_espn_atp_186148",
    "flag": "🎾",
-   "league": "AITO Hangzhou Open",
+   "league": "Chengdu Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Hayato Matsuoka – Taro Daniel",
-   "kickoff_at": "2026-09-23T04:00Z",
+   "match": "Petr Bar Biryukov – Alexandre Muller",
+   "kickoff_at": "2026-09-23T05:00Z",
    "published": true,
-   "home_photo": "assets/players/hayato matsuoka.png",
-   "away_photo": "assets/players/taro daniel.png",
-   "conseil": "Victoire Taro Daniel",
-   "conseil_cote": 1.44,
+   "home_photo": "assets/players/petr bar biryukov.png",
+   "away_photo": "assets/players/alexandre muller.png",
+   "conseil": "Victoire Alexandre Muller",
+   "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0
   },
   {
@@ -72,49 +87,6 @@
      "kind": "player",
      "detail": "cote 1.34",
      "odd": 1.345,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_186148",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Petr Bar Biryukov – Alexandre Muller",
-   "kickoff_at": "2026-09-23T05:00Z",
-   "published": true,
-   "home_photo": "assets/players/petr bar biryukov.png",
-   "away_photo": "assets/players/alexandre muller.png",
-   "conseil": "Victoire Alexandre Muller",
-   "conseil_cote": 1.32,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184098",
-   "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maja Chwalinska – Oleksandra Oliynykova",
-   "kickoff_at": "2026-09-23T05:05Z",
-   "published": true,
-   "home_photo": "assets/players/maja chwalinska.png",
-   "away_photo": "assets/players/oleksandra oliynykova.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.498",
-   "value_cote": 1.5,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Maja Chwalinska",
-     "kind": "player",
-     "detail": "cote 1.44",
-     "odd": 1.442,
      "mise_eur": 200.0
     }
    ]
@@ -169,7 +141,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Elise Mertens – Barbora Krejcikova",
-   "kickoff_at": "2026-09-23T06:00Z",
+   "kickoff_at": "2026-09-23T06:05Z",
    "published": true,
    "home_photo": "assets/players/elise mertens.png",
    "away_photo": "assets/players/barbora krejcikova.png",
@@ -204,6 +176,21 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "tennis_espn_wta_184047",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Darya Astakhova – Alina Korneeva",
+   "kickoff_at": "2026-09-23T06:30Z",
+   "published": true,
+   "home_photo": "assets/players/darya astakhova.png",
+   "away_photo": "assets/players/alina korneeva.png",
+   "conseil": "Victoire Alina Korneeva",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_wta_184093",
    "flag": "🎾",
    "league": "Singapore Tennis Open presented by BNP Paribas",
@@ -230,42 +217,9 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184047",
-   "flag": "🎾",
-   "league": "Korea Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Darya Astakhova – Alina Korneeva",
-   "kickoff_at": "2026-09-23T06:30Z",
-   "published": true,
-   "home_photo": "assets/players/darya astakhova.png",
-   "away_photo": "assets/players/alina korneeva.png",
-   "conseil": "Victoire Alina Korneeva",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
-  {
-   "fixture_id": "tennis_espn_atp_186128",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Pavel Kotov – Luca Castelnuovo",
-   "kickoff_at": "2026-09-22T06:30Z",
-   "published": true,
-   "home_photo": "assets/players/pavel kotov.png",
-   "away_photo": "assets/players/luca castelnuovo.png",
-   "result_updated_at": "2026-09-22T12:41:12.738013+02:00",
-   "conseil": "Victoire Pavel Kotov",
-   "conseil_cote": 1.22,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-7, 7-5, 7-5"
-  },
   {
    "fixture_id": "tennis_espn_atp_186133",
    "flag": "🎾",
@@ -283,6 +237,24 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "3-6, 5-7"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186128",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Pavel Kotov – Luca Castelnuovo",
+   "kickoff_at": "2026-09-22T06:30Z",
+   "published": true,
+   "home_photo": "assets/players/pavel kotov.png",
+   "away_photo": "assets/players/luca castelnuovo.png",
+   "result_updated_at": "2026-09-22T12:41:12.738013+02:00",
+   "conseil": "Victoire Pavel Kotov",
+   "conseil_cote": 1.22,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-7, 7-5, 7-5"
   },
   {
    "fixture_id": "tennis_espn_wta_184042",
@@ -463,6 +435,39 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-7, 0-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184098",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maja Chwalinska – Oleksandra Oliynykova",
+   "kickoff_at": "2026-09-23T05:05Z",
+   "published": true,
+   "home_photo": "assets/players/maja chwalinska.png",
+   "away_photo": "assets/players/oleksandra oliynykova.png",
+   "result_updated_at": "2026-09-23T08:08:15.162258+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.498",
+   "value_cote": 1.5,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-0, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maja Chwalinska",
+     "kind": "player",
+     "detail": "cote 1.44",
+     "odd": 1.442,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
