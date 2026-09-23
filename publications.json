@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T04:45:25.187346+00:00",
+ "generated_at": "2026-09-23T05:00:14.695533+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183996",
@@ -64,6 +64,34 @@
    "conseil_mise_eur": 200.0
   },
   {
+   "fixture_id": "tennis_espn_wta_184098",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maja Chwalinska – Oleksandra Oliynykova",
+   "kickoff_at": "2026-09-23T05:00Z",
+   "published": true,
+   "home_photo": "assets/players/maja chwalinska.png",
+   "away_photo": "assets/players/oleksandra oliynykova.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.498",
+   "value_cote": 1.5,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maja Chwalinska",
+     "kind": "player",
+     "detail": "cote 1.44",
+     "odd": 1.442,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_atp_186148",
    "flag": "🎾",
    "league": "Chengdu Open",
@@ -107,34 +135,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184098",
-   "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maja Chwalinska – Oleksandra Oliynykova",
-   "kickoff_at": "2026-09-23T05:00Z",
-   "published": true,
-   "home_photo": "assets/players/maja chwalinska.png",
-   "away_photo": "assets/players/oleksandra oliynykova.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.498",
-   "value_cote": 1.5,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Maja Chwalinska",
-     "kind": "player",
-     "detail": "cote 1.44",
-     "odd": 1.442,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_186150",
    "flag": "🎾",
    "league": "Chengdu Open",
@@ -161,6 +161,21 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186144",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rio Noguchi – Dalibor Svrcina",
+   "kickoff_at": "2026-09-23T05:30Z",
+   "published": true,
+   "home_photo": "assets/players/rio noguchi.png",
+   "away_photo": "assets/players/dalibor svrcina.png",
+   "conseil": "Victoire Dalibor Svrcina",
+   "conseil_cote": 1.19,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -524,24 +539,6 @@
    "score": "4-6, 3-6"
   },
   {
-   "fixture_id": "tennis_espn_atp_186142",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Philip Sekulic – Dalibor Svrcina",
-   "kickoff_at": "2026-09-22T05:30Z",
-   "published": true,
-   "home_photo": "assets/players/philip sekulic.png",
-   "away_photo": "assets/players/dalibor svrcina.png",
-   "result_updated_at": "2026-09-22T09:05:14.258743+02:00",
-   "conseil": "Victoire Dalibor Svrcina",
-   "conseil_cote": 1.16,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "3-6, 2-6"
-  },
-  {
    "fixture_id": "tennis_espn_atp_186140",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
@@ -558,6 +555,24 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-4, 7-5"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186142",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Philip Sekulic – Dalibor Svrcina",
+   "kickoff_at": "2026-09-22T05:30Z",
+   "published": true,
+   "home_photo": "assets/players/philip sekulic.png",
+   "away_photo": "assets/players/dalibor svrcina.png",
+   "result_updated_at": "2026-09-22T09:05:14.258743+02:00",
+   "conseil": "Victoire Dalibor Svrcina",
+   "conseil_cote": 1.16,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "3-6, 2-6"
   },
   {
    "fixture_id": "tennis_espn_atp_186128",
