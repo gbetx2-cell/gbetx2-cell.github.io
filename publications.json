@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T06:35:57.686269+00:00",
+ "generated_at": "2026-09-23T06:49:17.723683+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -17,34 +17,6 @@
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_186150",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alexis Galarneau – Lloyd Harris",
-   "kickoff_at": "2026-09-23T05:00Z",
-   "published": true,
-   "home_photo": "assets/players/alexis galarneau.png",
-   "away_photo": "assets/players/lloyd harris.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.51,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.51",
-   "value_cote": 1.51,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Lloyd Harris",
-     "kind": "player",
-     "detail": "cote 1.34",
-     "odd": 1.345,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_186144",
@@ -357,6 +329,39 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "4-6, 6-7"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186150",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alexis Galarneau – Lloyd Harris",
+   "kickoff_at": "2026-09-23T05:00Z",
+   "published": true,
+   "home_photo": "assets/players/alexis galarneau.png",
+   "away_photo": "assets/players/lloyd harris.png",
+   "result_updated_at": "2026-09-23T08:49:06.401515+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.51,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.51",
+   "value_cote": 1.51,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "3-6, 5-7",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Lloyd Harris",
+     "kind": "player",
+     "detail": "cote 1.34",
+     "odd": 1.345,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_186148",
