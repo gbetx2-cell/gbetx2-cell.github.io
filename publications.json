@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T02:30:14.422663+00:00",
+ "generated_at": "2026-09-23T03:30:15.110326+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183996",
@@ -80,12 +80,27 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Sohyun Park – Lanlana Tararudee",
-   "kickoff_at": "2026-09-23T03:00Z",
+   "kickoff_at": "2026-09-23T03:05Z",
    "published": true,
    "home_photo": "assets/players/sohyun park.png",
    "away_photo": "assets/players/lanlana tararudee.png",
    "conseil": "Victoire Lanlana Tararudee",
    "conseil_cote": 1.12,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186145",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hayato Matsuoka – Taro Daniel",
+   "kickoff_at": "2026-09-23T04:00Z",
+   "published": true,
+   "home_photo": "assets/players/hayato matsuoka.png",
+   "away_photo": "assets/players/taro daniel.png",
+   "conseil": "Victoire Taro Daniel",
+   "conseil_cote": 1.44,
    "conseil_mise_eur": 200.0
   }
  ],
@@ -632,7 +647,8 @@
      "kind": "player",
      "detail": "cote 1.92",
      "odd": 1.92,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
