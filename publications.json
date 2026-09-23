@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T06:22:26.029099+00:00",
+ "generated_at": "2026-09-23T06:26:57.714443+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -17,21 +17,6 @@
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_186148",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Petr Bar Biryukov – Alexandre Muller",
-   "kickoff_at": "2026-09-23T05:00Z",
-   "published": true,
-   "home_photo": "assets/players/petr bar biryukov.png",
-   "away_photo": "assets/players/alexandre muller.png",
-   "conseil": "Victoire Alexandre Muller",
-   "conseil_cote": 1.32,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_186150",
@@ -105,26 +90,13 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184021",
-   "flag": "🎾",
-   "league": "Korea Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hao-Ching Chan/Fang-Hsien Wu – Alina Charaeva/Kamilla Rakhimova",
-   "kickoff_at": "2026-09-23T06:20Z",
-   "published": true,
-   "conseil": "Victoire Alina Korneeva",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_wta_184047",
    "flag": "🎾",
    "league": "Korea Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Darya Astakhova – Alina Korneeva",
-   "kickoff_at": "2026-09-23T06:30Z",
+   "kickoff_at": "2026-09-23T06:25Z",
    "published": true,
    "home_photo": "assets/players/darya astakhova.png",
    "away_photo": "assets/players/alina korneeva.png",
@@ -315,29 +287,6 @@
    ]
   },
   {
-   "fixture_id": "wnba_401857211",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Las Vegas Aces – Los Angeles Sparks",
-   "kickoff_at": "2026-09-23T02:00Z",
-   "published": true,
-   "result_updated_at": "2026-09-23T06:04:15.149361+02:00",
-   "result": "GAGNE",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Ariel Atkins — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.98",
-     "odd": 1.98,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "wnba_401857212",
    "flag": "🏀",
    "league": "WNBA",
@@ -355,6 +304,29 @@
      "kind": "player",
      "detail": "cote 1.96",
      "odd": 1.96,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "wnba_401857211",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Las Vegas Aces – Los Angeles Sparks",
+   "kickoff_at": "2026-09-23T02:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-23T06:04:15.149361+02:00",
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Ariel Atkins — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.98",
+     "odd": 1.98,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
@@ -413,6 +385,24 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "1-6, 6-2, 4-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186148",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Petr Bar Biryukov – Alexandre Muller",
+   "kickoff_at": "2026-09-23T05:00Z",
+   "published": true,
+   "home_photo": "assets/players/petr bar biryukov.png",
+   "away_photo": "assets/players/alexandre muller.png",
+   "result_updated_at": "2026-09-23T08:26:45.511292+02:00",
+   "conseil": "Victoire Alexandre Muller",
+   "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "4-6, 4-6"
   },
   {
    "fixture_id": "tennis_espn_wta_184048",
