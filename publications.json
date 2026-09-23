@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T01:51:20.903641+00:00",
+ "generated_at": "2026-09-23T02:30:14.422663+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_183996",
@@ -15,26 +15,6 @@
    "conseil": "Victoire Julia Avdeeva",
    "conseil_cote": 1.62,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "wnba_401857212",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Portland Fire – Golden State Valkyries",
-   "kickoff_at": "2026-09-23T02:00Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Carla Leite — Points Plus de 13.5",
-     "kind": "player",
-     "detail": "cote 1.96",
-     "odd": 1.96,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "wnba_401857211",
@@ -57,6 +37,26 @@
    ]
   },
   {
+   "fixture_id": "wnba_401857212",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Portland Fire – Golden State Valkyries",
+   "kickoff_at": "2026-09-23T02:00Z",
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Carla Leite — Points Plus de 13.5",
+     "kind": "player",
+     "detail": "cote 1.96",
+     "odd": 1.96,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
    "fixture_id": "api_football:1549802",
    "flag": "🇨🇴",
    "league": "Primera A",
@@ -72,6 +72,21 @@
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184049",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Sohyun Park – Lanlana Tararudee",
+   "kickoff_at": "2026-09-23T03:00Z",
+   "published": true,
+   "home_photo": "assets/players/sohyun park.png",
+   "away_photo": "assets/players/lanlana tararudee.png",
+   "conseil": "Victoire Lanlana Tararudee",
+   "conseil_cote": 1.12,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
