@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T11:53:04.867714+00:00",
+ "generated_at": "2026-09-23T12:32:04.160052+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -17,21 +17,6 @@
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183878",
-   "flag": "🎾",
-   "league": "Delta Motors Tolentino Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Rebeka Masarova – Isabella Maria Serban",
-   "kickoff_at": "2026-09-23T10:05Z",
-   "published": true,
-   "home_photo": "assets/players/rebeka masarova.png",
-   "away_photo": "assets/players/isabella maria serban.png",
-   "conseil": "Victoire Rebeka Masarova",
-   "conseil_cote": 1.1,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_183962",
@@ -354,39 +339,6 @@
    "score": "4-6, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_184098",
-   "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maja Chwalinska – Oleksandra Oliynykova",
-   "kickoff_at": "2026-09-23T05:05Z",
-   "published": true,
-   "home_photo": "assets/players/maja chwalinska.png",
-   "away_photo": "assets/players/oleksandra oliynykova.png",
-   "result_updated_at": "2026-09-23T08:08:15.162258+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.498",
-   "value_cote": 1.5,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-0, 6-1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Maja Chwalinska",
-     "kind": "player",
-     "detail": "cote 1.44",
-     "odd": 1.442,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_184048",
    "flag": "🎾",
    "league": "Korea Open",
@@ -414,6 +366,39 @@
      "kind": "player",
      "detail": "cote 1.23",
      "odd": 1.234,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184098",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maja Chwalinska – Oleksandra Oliynykova",
+   "kickoff_at": "2026-09-23T05:05Z",
+   "published": true,
+   "home_photo": "assets/players/maja chwalinska.png",
+   "away_photo": "assets/players/oleksandra oliynykova.png",
+   "result_updated_at": "2026-09-23T08:08:15.162258+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.498",
+   "value_cote": 1.5,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-0, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maja Chwalinska",
+     "kind": "player",
+     "detail": "cote 1.44",
+     "odd": 1.442,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
@@ -558,6 +543,24 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-3, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183878",
+   "flag": "🎾",
+   "league": "Delta Motors Tolentino Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rebeka Masarova – Isabella Maria Serban",
+   "kickoff_at": "2026-09-23T10:05Z",
+   "published": true,
+   "home_photo": "assets/players/rebeka masarova.png",
+   "away_photo": "assets/players/isabella maria serban.png",
+   "result_updated_at": "2026-09-23T14:31:52.016060+02:00",
+   "conseil": "Victoire Rebeka Masarova",
+   "conseil_cote": 1.1,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "5-7, 6-2, 6-0"
   },
   {
    "fixture_id": "tennis_espn_wta_184095",
