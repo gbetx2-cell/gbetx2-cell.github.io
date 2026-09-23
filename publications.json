@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T06:49:17.723683+00:00",
+ "generated_at": "2026-09-23T07:16:11.410135+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -331,6 +331,24 @@
    "score": "4-6, 6-7"
   },
   {
+   "fixture_id": "tennis_espn_atp_186148",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Petr Bar Biryukov – Alexandre Muller",
+   "kickoff_at": "2026-09-23T05:00Z",
+   "published": true,
+   "home_photo": "assets/players/petr bar biryukov.png",
+   "away_photo": "assets/players/alexandre muller.png",
+   "result_updated_at": "2026-09-23T08:26:45.511292+02:00",
+   "conseil": "Victoire Alexandre Muller",
+   "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "4-6, 4-6"
+  },
+  {
    "fixture_id": "tennis_espn_atp_186150",
    "flag": "🎾",
    "league": "Chengdu Open",
@@ -364,22 +382,37 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_186148",
+   "fixture_id": "tennis_espn_wta_184048",
    "flag": "🎾",
-   "league": "Chengdu Open",
+   "league": "Korea Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Petr Bar Biryukov – Alexandre Muller",
-   "kickoff_at": "2026-09-23T05:00Z",
+   "match": "Maya Joint – Dayeon Back",
+   "kickoff_at": "2026-09-23T05:05Z",
    "published": true,
-   "home_photo": "assets/players/petr bar biryukov.png",
-   "away_photo": "assets/players/alexandre muller.png",
-   "result_updated_at": "2026-09-23T08:26:45.511292+02:00",
-   "conseil": "Victoire Alexandre Muller",
-   "conseil_cote": 1.32,
+   "home_photo": "assets/players/maya joint.png",
+   "away_photo": "assets/players/dayeon back.png",
+   "result_updated_at": "2026-09-23T08:12:14.595089+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.36,
    "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.36",
+   "value_cote": 1.36,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "4-6, 4-6"
+   "score": "6-2, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maya Joint",
+     "kind": "player",
+     "detail": "cote 1.23",
+     "odd": 1.234,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_184098",
@@ -409,39 +442,6 @@
      "kind": "player",
      "detail": "cote 1.44",
      "odd": 1.442,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184048",
-   "flag": "🎾",
-   "league": "Korea Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maya Joint – Dayeon Back",
-   "kickoff_at": "2026-09-23T05:05Z",
-   "published": true,
-   "home_photo": "assets/players/maya joint.png",
-   "away_photo": "assets/players/dayeon back.png",
-   "result_updated_at": "2026-09-23T08:12:14.595089+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.36",
-   "value_cote": 1.36,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-2, 6-1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Maya Joint",
-     "kind": "player",
-     "detail": "cote 1.23",
-     "odd": 1.234,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
