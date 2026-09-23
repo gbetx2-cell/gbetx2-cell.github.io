@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T08:43:05.880023+00:00",
+ "generated_at": "2026-09-23T09:30:52.575612+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -35,6 +35,21 @@
    "value_bet": "Vainqueur (prol. incluse) — CSKA Moscow @ 1.47",
    "value_cote": 1.47,
    "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183878",
+   "flag": "🎾",
+   "league": "Delta Motors Tolentino Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rebeka Masarova – Isabella Maria Serban",
+   "kickoff_at": "2026-09-23T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/rebeka masarova.png",
+   "away_photo": "assets/players/isabella maria serban.png",
+   "conseil": "Victoire Rebeka Masarova",
+   "conseil_cote": 1.1,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -108,24 +123,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_186136",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Rio Noguchi – Masamichi Imamura",
-   "kickoff_at": "2026-09-22T07:00Z",
-   "published": true,
-   "home_photo": "assets/players/rio noguchi.png",
-   "away_photo": "assets/players/masamichi imamura.png",
-   "result_updated_at": "2026-09-22T10:32:13.636874+02:00",
-   "conseil": "Victoire Rio Noguchi",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-1, 6-4"
-  },
-  {
    "fixture_id": "tennis_espn_wta_184036",
    "flag": "🎾",
    "league": "Korea Open",
@@ -157,6 +154,24 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186136",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rio Noguchi – Masamichi Imamura",
+   "kickoff_at": "2026-09-22T07:00Z",
+   "published": true,
+   "home_photo": "assets/players/rio noguchi.png",
+   "away_photo": "assets/players/masamichi imamura.png",
+   "result_updated_at": "2026-09-22T10:32:13.636874+02:00",
+   "conseil": "Victoire Rio Noguchi",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-1, 6-4"
   },
   {
    "fixture_id": "wnba_401857209",
@@ -255,24 +270,6 @@
    "score": "6-7, 0-6"
   },
   {
-   "fixture_id": "tennis_espn_atp_186143",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Akira Santillan – Alex Bolt",
-   "kickoff_at": "2026-09-23T04:00Z",
-   "published": true,
-   "home_photo": "assets/players/akira santillan.png",
-   "away_photo": "assets/players/alex bolt.jpg",
-   "result_updated_at": "2026-09-23T08:11:14.896881+02:00",
-   "conseil": "Victoire Alex Bolt",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "1-6, 6-2, 4-6"
-  },
-  {
    "fixture_id": "tennis_espn_atp_186145",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
@@ -291,22 +288,22 @@
    "score": "4-6, 6-7"
   },
   {
-   "fixture_id": "tennis_espn_atp_186148",
+   "fixture_id": "tennis_espn_atp_186143",
    "flag": "🎾",
-   "league": "Chengdu Open",
+   "league": "AITO Hangzhou Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Petr Bar Biryukov – Alexandre Muller",
-   "kickoff_at": "2026-09-23T05:00Z",
+   "match": "Akira Santillan – Alex Bolt",
+   "kickoff_at": "2026-09-23T04:00Z",
    "published": true,
-   "home_photo": "assets/players/petr bar biryukov.png",
-   "away_photo": "assets/players/alexandre muller.png",
-   "result_updated_at": "2026-09-23T08:26:45.511292+02:00",
-   "conseil": "Victoire Alexandre Muller",
-   "conseil_cote": 1.32,
+   "home_photo": "assets/players/akira santillan.png",
+   "away_photo": "assets/players/alex bolt.jpg",
+   "result_updated_at": "2026-09-23T08:11:14.896881+02:00",
+   "conseil": "Victoire Alex Bolt",
+   "conseil_cote": 1.47,
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
-   "score": "4-6, 4-6"
+   "score": "1-6, 6-2, 4-6"
   },
   {
    "fixture_id": "tennis_espn_atp_186150",
@@ -342,37 +339,22 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184048",
+   "fixture_id": "tennis_espn_atp_186148",
    "flag": "🎾",
-   "league": "Korea Open",
+   "league": "Chengdu Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Maya Joint – Dayeon Back",
-   "kickoff_at": "2026-09-23T05:05Z",
+   "match": "Petr Bar Biryukov – Alexandre Muller",
+   "kickoff_at": "2026-09-23T05:00Z",
    "published": true,
-   "home_photo": "assets/players/maya joint.png",
-   "away_photo": "assets/players/dayeon back.png",
-   "result_updated_at": "2026-09-23T08:12:14.595089+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.36,
+   "home_photo": "assets/players/petr bar biryukov.png",
+   "away_photo": "assets/players/alexandre muller.png",
+   "result_updated_at": "2026-09-23T08:26:45.511292+02:00",
+   "conseil": "Victoire Alexandre Muller",
+   "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.36",
-   "value_cote": 1.36,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "6-2, 6-1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Maya Joint",
-     "kind": "player",
-     "detail": "cote 1.23",
-     "odd": 1.234,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
+   "score": "4-6, 4-6"
   },
   {
    "fixture_id": "tennis_espn_wta_184098",
@@ -402,6 +384,39 @@
      "kind": "player",
      "detail": "cote 1.44",
      "odd": 1.442,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184048",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maya Joint – Dayeon Back",
+   "kickoff_at": "2026-09-23T05:05Z",
+   "published": true,
+   "home_photo": "assets/players/maya joint.png",
+   "away_photo": "assets/players/dayeon back.png",
+   "result_updated_at": "2026-09-23T08:12:14.595089+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.36",
+   "value_cote": 1.36,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-2, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maya Joint",
+     "kind": "player",
+     "detail": "cote 1.23",
+     "odd": 1.234,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
