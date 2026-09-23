@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T07:16:11.410135+00:00",
+ "generated_at": "2026-09-23T07:39:04.721072+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -32,34 +32,6 @@
    "conseil": "Victoire Dalibor Svrcina",
    "conseil_cote": 1.19,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184067",
-   "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Elise Mertens – Barbora Krejcikova",
-   "kickoff_at": "2026-09-23T06:05Z",
-   "published": true,
-   "home_photo": "assets/players/elise mertens.png",
-   "away_photo": "assets/players/barbora krejcikova.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.62,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.621",
-   "value_cote": 1.62,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Elise Mertens",
-     "kind": "player",
-     "detail": "cote 1.76",
-     "odd": 1.758,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_wta_184047",
@@ -444,6 +416,38 @@
      "odd": 1.442,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184067",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Elise Mertens – Barbora Krejcikova",
+   "kickoff_at": "2026-09-23T06:05Z",
+   "published": true,
+   "home_photo": "assets/players/elise mertens.png",
+   "away_photo": "assets/players/barbora krejcikova.png",
+   "result_updated_at": "2026-09-23T09:38:52.530254+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.62,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.621",
+   "value_cote": 1.62,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "7-6, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Elise Mertens",
+     "kind": "player",
+     "detail": "cote 1.76",
+     "odd": 1.758,
+     "mise_eur": 200.0
     }
    ]
   },
