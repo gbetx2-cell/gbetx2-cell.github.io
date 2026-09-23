@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T11:31:03.821497+00:00",
+ "generated_at": "2026-09-23T11:53:04.867714+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549802",
@@ -32,34 +32,6 @@
    "conseil": "Victoire Rebeka Masarova",
    "conseil_cote": 1.1,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184095",
-   "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aliaksandra Sasnovich – Mirra Andreeva",
-   "kickoff_at": "2026-09-23T10:35Z",
-   "published": true,
-   "home_photo": "assets/players/aliaksandra sasnovich.png",
-   "away_photo": "assets/players/mirra andreeva.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.34,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.342",
-   "value_cote": 1.34,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Mirra Andreeva",
-     "kind": "player",
-     "detail": "cote 1.12",
-     "odd": 1.125,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_wta_183962",
@@ -586,6 +558,39 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-3, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184095",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Aliaksandra Sasnovich – Mirra Andreeva",
+   "kickoff_at": "2026-09-23T10:35Z",
+   "published": true,
+   "home_photo": "assets/players/aliaksandra sasnovich.png",
+   "away_photo": "assets/players/mirra andreeva.png",
+   "result_updated_at": "2026-09-23T13:52:52.862563+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.34,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.342",
+   "value_cote": 1.34,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "2-6, 2-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Mirra Andreeva",
+     "kind": "player",
+     "detail": "cote 1.12",
+     "odd": 1.125,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
