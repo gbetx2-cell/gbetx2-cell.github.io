@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-24T02:30:19.405255+00:00",
+ "generated_at": "2026-09-24T04:30:24.937911+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_184053",
@@ -8,7 +8,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Alina Charaeva – Anna Bondar",
-   "kickoff_at": "2026-09-24T03:00Z",
+   "kickoff_at": "2026-09-24T03:05Z",
    "published": true,
    "home_photo": "assets/players/alina charaeva.png",
    "away_photo": "assets/players/anna bondar.png",
@@ -28,6 +28,70 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183354",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Taro Daniel – Dane Sweeny",
+   "kickoff_at": "2026-09-24T05:00Z",
+   "published": true,
+   "home_photo": "assets/players/taro daniel.png",
+   "away_photo": "assets/players/dane sweeny.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.65,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.654",
+   "value_cote": 1.65,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183397",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Camilo Ugo Carabelli – Nuno Borges",
+   "kickoff_at": "2026-09-24T05:00Z",
+   "published": true,
+   "home_photo": "assets/players/camilo ugo carabelli.png",
+   "away_photo": "assets/players/nuno borges.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.46,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Nuno Borges",
+     "kind": "player",
+     "detail": "cote 1.24",
+     "odd": 1.235,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183405",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lorenzo Sonego – James Duckworth",
+   "kickoff_at": "2026-09-24T05:00Z",
+   "published": true,
+   "home_photo": "assets/players/lorenzo sonego.png",
+   "away_photo": "assets/players/james duckworth.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -647,7 +711,8 @@
      "kind": "player",
      "detail": "cote 1.79",
      "odd": 1.79,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "GAGNE"
     },
     {
      "category": "Player pick",
