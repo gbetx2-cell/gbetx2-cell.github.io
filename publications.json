@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-24T06:00:19.733005+00:00",
+ "generated_at": "2026-09-24T06:26:31.011293+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_wta_184053",
-   "flag": "🎾",
-   "league": "Korea Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alina Charaeva – Anna Bondar",
-   "kickoff_at": "2026-09-24T03:05Z",
-   "published": true,
-   "home_photo": "assets/players/alina charaeva.png",
-   "away_photo": "assets/players/anna bondar.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.62,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.617",
-   "value_cote": 1.62,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Anna Bondar",
-     "kind": "player",
-     "detail": "cote 1.69",
-     "odd": 1.69,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_wta_184099",
    "flag": "🎾",
@@ -112,24 +84,6 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_atp_183405",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lorenzo Sonego – James Duckworth",
-   "kickoff_at": "2026-09-24T06:30Z",
-   "published": true,
-   "home_photo": "assets/players/lorenzo sonego.png",
-   "away_photo": "assets/players/james duckworth.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_183356",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
@@ -156,6 +110,24 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183405",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lorenzo Sonego – James Duckworth",
+   "kickoff_at": "2026-09-24T07:30Z",
+   "published": true,
+   "home_photo": "assets/players/lorenzo sonego.png",
+   "away_photo": "assets/players/james duckworth.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -383,13 +355,46 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_wta_184053",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alina Charaeva – Anna Bondar",
+   "kickoff_at": "2026-09-24T03:05Z",
+   "published": true,
+   "home_photo": "assets/players/alina charaeva.png",
+   "away_photo": "assets/players/anna bondar.png",
+   "result_updated_at": "2026-09-24T08:26:18.860641+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.62,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.617",
+   "value_cote": 1.62,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4-6, 7-6, 6-7",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Anna Bondar",
+     "kind": "player",
+     "detail": "cote 1.69",
+     "odd": 1.69,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_atp_183397",
    "flag": "🎾",
    "league": "Chengdu Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Camilo Ugo Carabelli – Federico Cina",
-   "kickoff_at": "2026-09-24T06:30Z",
+   "kickoff_at": "2026-09-24T07:30Z",
    "published": true,
    "home_photo": "assets/players/camilo ugo carabelli.png",
    "away_photo": "assets/players/federico cina.png",
