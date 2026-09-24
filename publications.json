@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-24T10:18:30.688425+00:00",
+ "generated_at": "2026-09-24T10:29:29.632004+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_183404",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Nikoloz Basilashvili – Miomir Kecmanovic",
-   "kickoff_at": "2026-09-24T08:50Z",
-   "published": true,
-   "home_photo": "assets/players/nikoloz basilashvili.png",
-   "away_photo": "assets/players/miomir kecmanovic.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.54,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.541",
-   "value_cote": 1.54,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Miomir Kecmanovic",
-     "kind": "player",
-     "detail": "cote 1.45",
-     "odd": 1.45,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_183395",
    "flag": "🎾",
@@ -619,6 +591,39 @@
      "odd": 1.68,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183404",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Nikoloz Basilashvili – Miomir Kecmanovic",
+   "kickoff_at": "2026-09-24T08:50Z",
+   "published": true,
+   "home_photo": "assets/players/nikoloz basilashvili.png",
+   "away_photo": "assets/players/miomir kecmanovic.png",
+   "result_updated_at": "2026-09-24T12:29:17.377907+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.541",
+   "value_cote": 1.54,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "7-6, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Miomir Kecmanovic",
+     "kind": "player",
+     "detail": "cote 1.45",
+     "odd": 1.45,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   },
