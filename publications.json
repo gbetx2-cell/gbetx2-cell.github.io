@@ -1,35 +1,6 @@
 {
- "generated_at": "2026-09-24T00:06:04.349248+00:00",
- "live": [
-  {
-   "fixture_id": "wnba_401857213",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "New York Liberty – Atlanta Dream",
-   "kickoff_at": "2026-09-24T00:00Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "DeWanna Bonner — Points Plus de 7.5",
-     "kind": "player",
-     "detail": "cote 1.79",
-     "odd": 1.79,
-     "mise_eur": 200.0
-    },
-    {
-     "category": "Player pick",
-     "label": "Naz Hillmon — Points Plus de 6.5",
-     "kind": "player",
-     "detail": "cote 1.79",
-     "odd": 1.79,
-     "mise_eur": 200.0
-    }
-   ]
-  }
- ],
+ "generated_at": "2026-09-24T02:12:28.816351+00:00",
+ "live": [],
  "done": [
   {
    "fixture_id": "tennis_espn_atp_186133",
@@ -355,39 +326,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184048",
-   "flag": "🎾",
-   "league": "Korea Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Maya Joint – Dayeon Back",
-   "kickoff_at": "2026-09-23T05:05Z",
-   "published": true,
-   "home_photo": "assets/players/maya joint.png",
-   "away_photo": "assets/players/dayeon back.png",
-   "result_updated_at": "2026-09-23T08:12:14.595089+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.36",
-   "value_cote": 1.36,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-2, 6-1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Maya Joint",
-     "kind": "player",
-     "detail": "cote 1.23",
-     "odd": 1.234,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_184098",
    "flag": "🎾",
    "league": "Singapore Tennis Open presented by BNP Paribas",
@@ -415,6 +353,39 @@
      "kind": "player",
      "detail": "cote 1.44",
      "odd": 1.442,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184048",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Maya Joint – Dayeon Back",
+   "kickoff_at": "2026-09-23T05:05Z",
+   "published": true,
+   "home_photo": "assets/players/maya joint.png",
+   "away_photo": "assets/players/dayeon back.png",
+   "result_updated_at": "2026-09-23T08:12:14.595089+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.36",
+   "value_cote": 1.36,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-2, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maya Joint",
+     "kind": "player",
+     "detail": "cote 1.23",
+     "odd": 1.234,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
@@ -543,24 +514,6 @@
    "score": "0 - 2"
   },
   {
-   "fixture_id": "tennis_espn_wta_184005",
-   "flag": "🎾",
-   "league": "Turk Telekom Ankara Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Polina Iatcenko – Weronika Falkowska",
-   "kickoff_at": "2026-09-23T10:05Z",
-   "published": true,
-   "home_photo": "assets/players/polina iatcenko.png",
-   "away_photo": "assets/players/weronika falkowska.png",
-   "result_updated_at": "2026-09-23T13:28:52.767078+02:00",
-   "conseil": "Victoire Polina Iatcenko",
-   "conseil_cote": 1.36,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 6-4"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183878",
    "flag": "🎾",
    "league": "Delta Motors Tolentino Open",
@@ -577,6 +530,24 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "5-7, 6-2, 6-0"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184005",
+   "flag": "🎾",
+   "league": "Turk Telekom Ankara Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Polina Iatcenko – Weronika Falkowska",
+   "kickoff_at": "2026-09-23T10:05Z",
+   "published": true,
+   "home_photo": "assets/players/polina iatcenko.png",
+   "away_photo": "assets/players/weronika falkowska.png",
+   "result_updated_at": "2026-09-23T13:28:52.767078+02:00",
+   "conseil": "Victoire Polina Iatcenko",
+   "conseil_cote": 1.36,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 6-4"
   },
   {
    "fixture_id": "tennis_espn_wta_184095",
@@ -628,6 +599,37 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-4, 5-7, 6-4"
+  },
+  {
+   "fixture_id": "wnba_401857213",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "New York Liberty – Atlanta Dream",
+   "kickoff_at": "2026-09-24T00:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-24T04:12:17.074346+02:00",
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "DeWanna Bonner — Points Plus de 7.5",
+     "kind": "player",
+     "detail": "cote 1.79",
+     "odd": 1.79,
+     "mise_eur": 200.0
+    },
+    {
+     "category": "Player pick",
+     "label": "Naz Hillmon — Points Plus de 6.5",
+     "kind": "player",
+     "detail": "cote 1.79",
+     "odd": 1.79,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
