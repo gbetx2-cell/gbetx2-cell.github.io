@@ -1,24 +1,6 @@
 {
- "generated_at": "2026-09-24T10:36:29.809593+00:00",
+ "generated_at": "2026-09-24T11:52:28.951758+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_wta_183960",
-   "flag": "🎾",
-   "league": "Eupago Porto Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Mia Pohankova – Veronika Podrez",
-   "kickoff_at": "2026-09-24T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/mia pohankova.png",
-   "away_photo": "assets/players/veronika podrez.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.465",
-   "value_cote": 1.47,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "tennis_espn_atp_183392",
    "flag": "🎾",
@@ -424,26 +406,37 @@
    "score": "6-7, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_atp_183405",
+   "fixture_id": "tennis_espn_atp_183397",
    "flag": "🎾",
    "league": "Chengdu Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Lorenzo Sonego – James Duckworth",
+   "match": "Camilo Ugo Carabelli – Federico Cina",
    "kickoff_at": "2026-09-24T07:35Z",
    "published": true,
-   "home_photo": "assets/players/lorenzo sonego.png",
-   "away_photo": "assets/players/james duckworth.png",
-   "result_updated_at": "2026-09-24T11:05:20.075168+02:00",
+   "home_photo": "assets/players/camilo ugo carabelli.png",
+   "away_photo": "assets/players/federico cina.png",
+   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
    "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.53,
+   "conseil_cote": 1.46,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
-   "value_cote": 1.53,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
+   "value_cote": 1.46,
    "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-4, 6-4"
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "Joueur remplacé",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Nuno Borges",
+     "kind": "player",
+     "detail": "cote 1.24",
+     "odd": 1.235,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_184054",
@@ -479,37 +472,26 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_183397",
+   "fixture_id": "tennis_espn_atp_183405",
    "flag": "🎾",
    "league": "Chengdu Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Camilo Ugo Carabelli – Federico Cina",
+   "match": "Lorenzo Sonego – James Duckworth",
    "kickoff_at": "2026-09-24T07:35Z",
    "published": true,
-   "home_photo": "assets/players/camilo ugo carabelli.png",
-   "away_photo": "assets/players/federico cina.png",
-   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
+   "home_photo": "assets/players/lorenzo sonego.png",
+   "away_photo": "assets/players/james duckworth.png",
+   "result_updated_at": "2026-09-24T11:05:20.075168+02:00",
    "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.46,
+   "conseil_cote": 1.53,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
-   "value_cote": 1.46,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
+   "value_cote": 1.53,
    "value_mise_eur": 200.0,
-   "value_result": "REMBOURSE",
-   "result": "REMBOURSE",
-   "score": "Joueur remplacé",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Nuno Borges",
-     "kind": "player",
-     "detail": "cote 1.24",
-     "odd": 1.235,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-4"
   },
   {
    "fixture_id": "tennis_espn_atp_183360",
@@ -663,6 +645,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-4, 6-0"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183960",
+   "flag": "🎾",
+   "league": "Eupago Porto Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mia Pohankova – Veronika Podrez",
+   "kickoff_at": "2026-09-24T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/mia pohankova.png",
+   "away_photo": "assets/players/veronika podrez.png",
+   "result_updated_at": "2026-09-24T13:52:17.396745+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.465",
+   "value_cote": 1.47,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-3, 6-4"
   }
  ]
 }
