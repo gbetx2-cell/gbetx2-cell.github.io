@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T08:00:18.246642+00:00",
+ "generated_at": "2026-09-25T08:10:29.771324+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -17,34 +17,6 @@
    "conseil_cote": 1.21,
    "conseil_mise_eur": 200.0,
    "lineup_source": "espn"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183413",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Adrian Mannarino – Alejandro Tabilo",
-   "kickoff_at": "2026-09-25T06:30Z",
-   "published": true,
-   "home_photo": "assets/players/adrian mannarino.png",
-   "away_photo": "assets/players/alejandro tabilo.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.58,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.585",
-   "value_cote": 1.58,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Alejandro Tabilo",
-     "kind": "player",
-     "detail": "cote 1.48",
-     "odd": 1.476,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_183355",
@@ -607,6 +579,39 @@
      "kind": "player",
      "detail": "cote 1.59",
      "odd": 1.595,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183413",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Adrian Mannarino – Alejandro Tabilo",
+   "kickoff_at": "2026-09-25T06:30Z",
+   "published": true,
+   "home_photo": "assets/players/adrian mannarino.png",
+   "away_photo": "assets/players/alejandro tabilo.png",
+   "result_updated_at": "2026-09-25T10:10:18.932730+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.58,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.585",
+   "value_cote": 1.58,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Alejandro Tabilo",
+     "kind": "player",
+     "detail": "cote 1.48",
+     "odd": 1.476,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
