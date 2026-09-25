@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T03:23:29.346250+00:00",
+ "generated_at": "2026-09-25T04:30:18.147962+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -17,6 +17,34 @@
    "conseil_cote": 1.21,
    "conseil_mise_eur": 200.0,
    "lineup_source": "espn"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183412",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Denis Shapovalov – Vit Kopriva",
+   "kickoff_at": "2026-09-25T05:00Z",
+   "published": true,
+   "home_photo": "assets/players/denis shapovalov.png",
+   "away_photo": "assets/players/vit kopriva.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.42,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.422",
+   "value_cote": 1.42,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Denis Shapovalov",
+     "kind": "player",
+     "detail": "cote 1.24",
+     "odd": 1.24,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
