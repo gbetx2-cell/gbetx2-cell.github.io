@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T08:10:29.771324+00:00",
+ "generated_at": "2026-09-25T08:30:18.507295+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -42,34 +42,6 @@
      "kind": "player",
      "detail": "cote 1.44",
      "odd": 1.442,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183368",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Andrey Rublev – Rinky Hijikata",
-   "kickoff_at": "2026-09-25T08:30Z",
-   "published": true,
-   "home_photo": "assets/players/andrey rublev.png",
-   "away_photo": "assets/players/rinky hijikata.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.59,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.595",
-   "value_cote": 1.59,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Andrey Rublev",
-     "kind": "player",
-     "detail": "cote 1.35",
-     "odd": 1.352,
      "mise_eur": 200.0
     }
    ]
@@ -119,6 +91,48 @@
    "value_bet": "Vainqueur (prol. incluse) — Lokomotiv Yaroslavl @ 1.39",
    "value_cote": 1.39,
    "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184011",
+   "flag": "🎾",
+   "league": "Turk Telekom Ankara Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Polina Iatcenko – Ksenia Zaytseva",
+   "kickoff_at": "2026-09-25T09:00Z",
+   "published": true,
+   "home_photo": "assets/players/polina iatcenko.png",
+   "conseil": "Victoire Polina Iatcenko",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183368",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Andrey Rublev – Rinky Hijikata",
+   "kickoff_at": "2026-09-25T09:00Z",
+   "published": true,
+   "home_photo": "assets/players/andrey rublev.png",
+   "away_photo": "assets/players/rinky hijikata.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.59,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.595",
+   "value_cote": 1.59,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Andrey Rublev",
+     "kind": "player",
+     "detail": "cote 1.35",
+     "odd": 1.352,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -178,39 +192,6 @@
    "score": "6-7, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_184054",
-   "flag": "🎾",
-   "league": "Korea Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Taylah Preston – Jelena Ostapenko",
-   "kickoff_at": "2026-09-24T07:35Z",
-   "published": true,
-   "home_photo": "assets/players/taylah preston.png",
-   "away_photo": "assets/players/jelena ostapenko.png",
-   "result_updated_at": "2026-09-24T10:59:18.168543+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.472",
-   "value_cote": 1.47,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-4, 6-1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Jelena Ostapenko",
-     "kind": "player",
-     "detail": "cote 1.34",
-     "odd": 1.344,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_183397",
    "flag": "🎾",
    "league": "Chengdu Open",
@@ -238,6 +219,39 @@
      "kind": "player",
      "detail": "cote 1.24",
      "odd": 1.235,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184054",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Taylah Preston – Jelena Ostapenko",
+   "kickoff_at": "2026-09-24T07:35Z",
+   "published": true,
+   "home_photo": "assets/players/taylah preston.png",
+   "away_photo": "assets/players/jelena ostapenko.png",
+   "result_updated_at": "2026-09-24T10:59:18.168543+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.472",
+   "value_cote": 1.47,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Jelena Ostapenko",
+     "kind": "player",
+     "detail": "cote 1.34",
+     "odd": 1.344,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
