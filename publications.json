@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T11:55:30.114648+00:00",
+ "generated_at": "2026-09-25T12:21:30.688755+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -19,18 +19,18 @@
    "lineup_source": "espn"
   },
   {
-   "fixture_id": "tennis_espn_wta_184106",
+   "fixture_id": "tennis_espn_wta_183964",
    "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "league": "Eupago Porto Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Leylah Fernandez – Mirra Andreeva",
-   "kickoff_at": "2026-09-25T10:45Z",
+   "match": "Sinja Kraus – Elena Malygina",
+   "kickoff_at": "2026-09-25T12:05Z",
    "published": true,
-   "home_photo": "assets/players/leylah fernandez.png",
-   "away_photo": "assets/players/mirra andreeva.png",
-   "conseil": "Victoire Mirra Andreeva",
-   "conseil_cote": 1.32,
+   "home_photo": "assets/players/sinja kraus.png",
+   "away_photo": "assets/players/elena malygina.png",
+   "conseil": "Victoire Sinja Kraus",
+   "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0
   },
   {
@@ -40,7 +40,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Jessica Pieri – Mia Ristic",
-   "kickoff_at": "2026-09-25T12:00Z",
+   "kickoff_at": "2026-09-25T12:10Z",
    "published": true,
    "home_photo": "assets/players/jessica pieri.png",
    "away_photo": "assets/players/mia ristic.png",
@@ -55,7 +55,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Hugo Gaston – Jaime Faria",
-   "kickoff_at": "2026-09-25T12:00Z",
+   "kickoff_at": "2026-09-25T12:10Z",
    "published": true,
    "home_photo": "assets/players/hugo gaston.png",
    "away_photo": "assets/players/jaime faria.png",
@@ -83,7 +83,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Talia Gibson – Maria Sakkari",
-   "kickoff_at": "2026-09-25T12:00Z",
+   "kickoff_at": "2026-09-25T12:25Z",
    "published": true,
    "home_photo": "assets/players/talia gibson.png",
    "away_photo": "assets/players/maria sakkari.png",
@@ -103,21 +103,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183964",
-   "flag": "🎾",
-   "league": "Eupago Porto Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sinja Kraus – Elena Malygina",
-   "kickoff_at": "2026-09-25T12:00Z",
-   "published": true,
-   "home_photo": "assets/players/sinja kraus.png",
-   "away_photo": "assets/players/elena malygina.png",
-   "conseil": "Victoire Sinja Kraus",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -177,39 +162,6 @@
    "score": "6-7, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_atp_183397",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Camilo Ugo Carabelli – Federico Cina",
-   "kickoff_at": "2026-09-24T07:35Z",
-   "published": true,
-   "home_photo": "assets/players/camilo ugo carabelli.png",
-   "away_photo": "assets/players/federico cina.png",
-   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.46,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
-   "value_cote": 1.46,
-   "value_mise_eur": 200.0,
-   "value_result": "REMBOURSE",
-   "result": "REMBOURSE",
-   "score": "Joueur remplacé",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Nuno Borges",
-     "kind": "player",
-     "detail": "cote 1.24",
-     "odd": 1.235,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_184054",
    "flag": "🎾",
    "league": "Korea Open",
@@ -237,6 +189,39 @@
      "kind": "player",
      "detail": "cote 1.34",
      "odd": 1.344,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183397",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Camilo Ugo Carabelli – Federico Cina",
+   "kickoff_at": "2026-09-24T07:35Z",
+   "published": true,
+   "home_photo": "assets/players/camilo ugo carabelli.png",
+   "away_photo": "assets/players/federico cina.png",
+   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.46,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "Joueur remplacé",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Nuno Borges",
+     "kind": "player",
+     "detail": "cote 1.24",
+     "odd": 1.235,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -418,23 +403,6 @@
    "score": "6-4, 6-0"
   },
   {
-   "fixture_id": "tennis_espn_atp_183392",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
-   "kickoff_at": "2026-09-24T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/hubert hurkacz.png",
-   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
-   "conseil": "Victoire Hubert Hurkacz",
-   "conseil_cote": 1.21,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 7-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183960",
    "flag": "🎾",
    "league": "Eupago Porto Open",
@@ -455,6 +423,23 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-3, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183392",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
+   "kickoff_at": "2026-09-24T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/hubert hurkacz.png",
+   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
+   "conseil": "Victoire Hubert Hurkacz",
+   "conseil_cote": 1.21,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 7-6"
   },
   {
    "fixture_id": "hockey_430476",
@@ -753,6 +738,24 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184106",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Leylah Fernandez – Mirra Andreeva",
+   "kickoff_at": "2026-09-25T10:45Z",
+   "published": true,
+   "home_photo": "assets/players/leylah fernandez.png",
+   "away_photo": "assets/players/mirra andreeva.png",
+   "result_updated_at": "2026-09-25T14:21:18.068082+02:00",
+   "conseil": "Victoire Mirra Andreeva",
+   "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-2, 7-5"
   }
  ]
 }
