@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T13:45:31.645681+00:00",
+ "generated_at": "2026-09-25T14:35:31.746894+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -57,34 +57,6 @@
      "kind": "player",
      "detail": "cote 1.50",
      "odd": 1.503,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184103",
-   "flag": "🎾",
-   "league": "Singapore Tennis Open presented by BNP Paribas",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Talia Gibson – Maria Sakkari",
-   "kickoff_at": "2026-09-25T12:35Z",
-   "published": true,
-   "home_photo": "assets/players/talia gibson.png",
-   "away_photo": "assets/players/maria sakkari.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.529",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Maria Sakkari",
-     "kind": "player",
-     "detail": "cote 1.44",
-     "odd": 1.444,
      "mise_eur": 200.0
     }
    ]
@@ -774,6 +746,39 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-4, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184103",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Talia Gibson – Maria Sakkari",
+   "kickoff_at": "2026-09-25T12:35Z",
+   "published": true,
+   "home_photo": "assets/players/talia gibson.png",
+   "away_photo": "assets/players/maria sakkari.png",
+   "result_updated_at": "2026-09-25T16:35:19.897920+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.529",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-1, 4-6, 6-2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maria Sakkari",
+     "kind": "player",
+     "detail": "cote 1.44",
+     "odd": 1.444,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
