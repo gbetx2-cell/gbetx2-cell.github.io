@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T10:35:30.850825+00:00",
+ "generated_at": "2026-09-25T11:00:17.971889+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -71,13 +71,41 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Leylah Fernandez – Mirra Andreeva",
-   "kickoff_at": "2026-09-25T10:40Z",
+   "kickoff_at": "2026-09-25T10:45Z",
    "published": true,
    "home_photo": "assets/players/leylah fernandez.png",
    "away_photo": "assets/players/mirra andreeva.png",
    "conseil": "Victoire Mirra Andreeva",
    "conseil_cote": 1.32,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183364",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hugo Gaston – Jaime Faria",
+   "kickoff_at": "2026-09-25T11:30Z",
+   "published": true,
+   "home_photo": "assets/players/hugo gaston.png",
+   "away_photo": "assets/players/jaime faria.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.63,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.629",
+   "value_cote": 1.63,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Jaime Faria",
+     "kind": "player",
+     "detail": "cote 1.50",
+     "odd": 1.503,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -137,39 +165,6 @@
    "score": "6-7, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_atp_183397",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Camilo Ugo Carabelli – Federico Cina",
-   "kickoff_at": "2026-09-24T07:35Z",
-   "published": true,
-   "home_photo": "assets/players/camilo ugo carabelli.png",
-   "away_photo": "assets/players/federico cina.png",
-   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.46,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
-   "value_cote": 1.46,
-   "value_mise_eur": 200.0,
-   "value_result": "REMBOURSE",
-   "result": "REMBOURSE",
-   "score": "Joueur remplacé",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Nuno Borges",
-     "kind": "player",
-     "detail": "cote 1.24",
-     "odd": 1.235,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_184054",
    "flag": "🎾",
    "league": "Korea Open",
@@ -223,6 +218,39 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-4, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183397",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Camilo Ugo Carabelli – Federico Cina",
+   "kickoff_at": "2026-09-24T07:35Z",
+   "published": true,
+   "home_photo": "assets/players/camilo ugo carabelli.png",
+   "away_photo": "assets/players/federico cina.png",
+   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.46,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "Joueur remplacé",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Nuno Borges",
+     "kind": "player",
+     "detail": "cote 1.24",
+     "odd": 1.235,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_183360",
@@ -378,23 +406,6 @@
    "score": "6-4, 6-0"
   },
   {
-   "fixture_id": "tennis_espn_atp_183392",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
-   "kickoff_at": "2026-09-24T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/hubert hurkacz.png",
-   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
-   "conseil": "Victoire Hubert Hurkacz",
-   "conseil_cote": 1.21,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 7-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183960",
    "flag": "🎾",
    "league": "Eupago Porto Open",
@@ -415,6 +426,23 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-3, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183392",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
+   "kickoff_at": "2026-09-24T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/hubert hurkacz.png",
+   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
+   "conseil": "Victoire Hubert Hurkacz",
+   "conseil_cote": 1.21,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 7-6"
   },
   {
    "fixture_id": "hockey_430476",
