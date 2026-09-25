@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T15:00:18.337038+00:00",
+ "generated_at": "2026-09-25T15:01:30.724982+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -32,34 +32,6 @@
    "conseil": "Victoire Sinja Kraus",
    "conseil_cote": 1.2,
    "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183364",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hugo Gaston – Jaime Faria",
-   "kickoff_at": "2026-09-25T12:10Z",
-   "published": true,
-   "home_photo": "assets/players/hugo gaston.png",
-   "away_photo": "assets/players/jaime faria.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.63,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.629",
-   "value_cote": 1.63,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Jaime Faria",
-     "kind": "player",
-     "detail": "cote 1.50",
-     "odd": 1.503,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_wta_183900",
@@ -759,6 +731,39 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-4, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183364",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hugo Gaston – Jaime Faria",
+   "kickoff_at": "2026-09-25T12:10Z",
+   "published": true,
+   "home_photo": "assets/players/hugo gaston.png",
+   "away_photo": "assets/players/jaime faria.png",
+   "result_updated_at": "2026-09-25T17:01:18.230476+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.63,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.629",
+   "value_cote": 1.63,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4-6, 7-6, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Jaime Faria",
+     "kind": "player",
+     "detail": "cote 1.50",
+     "odd": 1.503,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_184103",
