@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T10:00:19.450240+00:00",
+ "generated_at": "2026-09-25T10:10:31.998988+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -47,34 +47,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_183410",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Botic Van De Zandschulp – Nikoloz Basilashvili",
-   "kickoff_at": "2026-09-25T08:40Z",
-   "published": true,
-   "home_photo": "assets/players/botic van de zandschulp.png",
-   "away_photo": "assets/players/nikoloz basilashvili.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.65,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
-   "value_cote": 1.65,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Botic Van De Zandschulp",
-     "kind": "player",
-     "detail": "cote 1.43",
-     "odd": 1.426,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "hockey_430481",
    "flag": "🏒",
    "league": "KHL (Russia)",
@@ -113,7 +85,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Andrey Rublev – Rinky Hijikata",
-   "kickoff_at": "2026-09-25T10:00Z",
+   "kickoff_at": "2026-09-25T10:20Z",
    "published": true,
    "home_photo": "assets/players/andrey rublev.png",
    "away_photo": "assets/players/rinky hijikata.png",
@@ -487,28 +459,6 @@
    "score": "6-3, 6-4"
   },
   {
-   "fixture_id": "hockey_430476",
-   "flag": "🏒",
-   "league": "KHL (Russia)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Nizhny Novgorod – Sochi",
-   "kickoff_at": "2026-09-24T16:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
-   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
-   "conseil": "Victoire Nizhny Novgorod",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
-   "value_cote": 1.27,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "3 - 0"
-  },
-  {
    "fixture_id": "hockey_426282",
    "flag": "🏒",
    "league": "Extraliga (Czech-Republic)",
@@ -529,6 +479,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "5 - 2"
+  },
+  {
+   "fixture_id": "hockey_430476",
+   "flag": "🏒",
+   "league": "KHL (Russia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Nizhny Novgorod – Sochi",
+   "kickoff_at": "2026-09-24T16:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
+   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
+   "conseil": "Victoire Nizhny Novgorod",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
+   "value_cote": 1.27,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "3 - 0"
   },
   {
    "fixture_id": "nfl_401872948",
@@ -641,6 +613,39 @@
      "kind": "player",
      "detail": "cote 1.48",
      "odd": 1.476,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183410",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Botic Van De Zandschulp – Nikoloz Basilashvili",
+   "kickoff_at": "2026-09-25T08:40Z",
+   "published": true,
+   "home_photo": "assets/players/botic van de zandschulp.png",
+   "away_photo": "assets/players/nikoloz basilashvili.png",
+   "result_updated_at": "2026-09-25T12:10:19.583478+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.65,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
+   "value_cote": 1.65,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "4-6, 5-7",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Botic Van De Zandschulp",
+     "kind": "player",
+     "detail": "cote 1.43",
+     "odd": 1.426,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
