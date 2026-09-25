@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T07:16:34.035353+00:00",
+ "generated_at": "2026-09-25T07:45:17.301242+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -73,6 +73,24 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "hockey_430481",
+   "flag": "🏒",
+   "league": "KHL (Russia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Khabarovsk – Lokomotiv Yaroslavl",
+   "kickoff_at": "2026-09-25T09:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/1486.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/377.png",
+   "conseil": "Victoire Lokomotiv Yaroslavl",
+   "conseil_cote": 1.39,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Lokomotiv Yaroslavl @ 1.39",
+   "value_cote": 1.39,
+   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -132,39 +150,6 @@
    "score": "6-7, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_atp_183397",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Camilo Ugo Carabelli – Federico Cina",
-   "kickoff_at": "2026-09-24T07:35Z",
-   "published": true,
-   "home_photo": "assets/players/camilo ugo carabelli.png",
-   "away_photo": "assets/players/federico cina.png",
-   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.46,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
-   "value_cote": 1.46,
-   "value_mise_eur": 200.0,
-   "value_result": "REMBOURSE",
-   "result": "REMBOURSE",
-   "score": "Joueur remplacé",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Nuno Borges",
-     "kind": "player",
-     "detail": "cote 1.24",
-     "odd": 1.235,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_184054",
    "flag": "🎾",
    "league": "Korea Open",
@@ -192,6 +177,39 @@
      "kind": "player",
      "detail": "cote 1.34",
      "odd": 1.344,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183397",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Camilo Ugo Carabelli – Federico Cina",
+   "kickoff_at": "2026-09-24T07:35Z",
+   "published": true,
+   "home_photo": "assets/players/camilo ugo carabelli.png",
+   "away_photo": "assets/players/federico cina.png",
+   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.46,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "Joueur remplacé",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Nuno Borges",
+     "kind": "player",
+     "detail": "cote 1.24",
+     "odd": 1.235,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -373,23 +391,6 @@
    "score": "6-4, 6-0"
   },
   {
-   "fixture_id": "tennis_espn_atp_183392",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
-   "kickoff_at": "2026-09-24T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/hubert hurkacz.png",
-   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
-   "conseil": "Victoire Hubert Hurkacz",
-   "conseil_cote": 1.21,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 7-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183960",
    "flag": "🎾",
    "league": "Eupago Porto Open",
@@ -412,26 +413,21 @@
    "score": "6-3, 6-4"
   },
   {
-   "fixture_id": "hockey_430476",
-   "flag": "🏒",
-   "league": "KHL (Russia)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Nizhny Novgorod – Sochi",
-   "kickoff_at": "2026-09-24T16:00:00+00:00",
+   "fixture_id": "tennis_espn_atp_183392",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
+   "kickoff_at": "2026-09-24T10:00Z",
    "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
-   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
-   "conseil": "Victoire Nizhny Novgorod",
-   "conseil_cote": 1.27,
+   "home_photo": "assets/players/hubert hurkacz.png",
+   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
+   "conseil": "Victoire Hubert Hurkacz",
+   "conseil_cote": 1.21,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
-   "value_cote": 1.27,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "3 - 0"
+   "score": "6-3, 7-6"
   },
   {
    "fixture_id": "hockey_426282",
@@ -454,6 +450,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "5 - 2"
+  },
+  {
+   "fixture_id": "hockey_430476",
+   "flag": "🏒",
+   "league": "KHL (Russia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Nizhny Novgorod – Sochi",
+   "kickoff_at": "2026-09-24T16:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
+   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
+   "conseil": "Victoire Nizhny Novgorod",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
+   "value_cote": 1.27,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "3 - 0"
   },
   {
    "fixture_id": "nfl_401872948",
