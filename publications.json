@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T10:14:30.114895+00:00",
+ "generated_at": "2026-09-25T10:35:30.850825+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -37,27 +37,13 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_184011",
-   "flag": "🎾",
-   "league": "Turk Telekom Ankara Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Polina Iatcenko – Ksenia Zaytseva",
-   "kickoff_at": "2026-09-25T09:05Z",
-   "published": true,
-   "home_photo": "assets/players/polina iatcenko.png",
-   "conseil": "Victoire Polina Iatcenko",
-   "conseil_cote": 1.52,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_183368",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Andrey Rublev – Rinky Hijikata",
-   "kickoff_at": "2026-09-25T10:20Z",
+   "kickoff_at": "2026-09-25T10:35Z",
    "published": true,
    "home_photo": "assets/players/andrey rublev.png",
    "away_photo": "assets/players/rinky hijikata.png",
@@ -85,7 +71,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Leylah Fernandez – Mirra Andreeva",
-   "kickoff_at": "2026-09-25T10:30Z",
+   "kickoff_at": "2026-09-25T10:40Z",
    "published": true,
    "home_photo": "assets/players/leylah fernandez.png",
    "away_photo": "assets/players/mirra andreeva.png",
@@ -431,28 +417,6 @@
    "score": "6-3, 6-4"
   },
   {
-   "fixture_id": "hockey_426282",
-   "flag": "🏒",
-   "league": "Extraliga (Czech-Republic)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Mountfield HK – Liberec",
-   "kickoff_at": "2026-09-24T16:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/130.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/127.png",
-   "result_updated_at": "2026-09-24T20:30:16.669116+02:00",
-   "conseil": "Victoire Mountfield HK",
-   "conseil_cote": 1.74,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Mountfield HK @ 1.74",
-   "value_cote": 1.74,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "5 - 2"
-  },
-  {
    "fixture_id": "hockey_430476",
    "flag": "🏒",
    "league": "KHL (Russia)",
@@ -473,6 +437,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "3 - 0"
+  },
+  {
+   "fixture_id": "hockey_426282",
+   "flag": "🏒",
+   "league": "Extraliga (Czech-Republic)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Mountfield HK – Liberec",
+   "kickoff_at": "2026-09-24T16:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/130.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/127.png",
+   "result_updated_at": "2026-09-24T20:30:16.669116+02:00",
+   "conseil": "Victoire Mountfield HK",
+   "conseil_cote": 1.74,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Mountfield HK @ 1.74",
+   "value_cote": 1.74,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "5 - 2"
   },
   {
    "fixture_id": "nfl_401872948",
@@ -655,6 +641,23 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184011",
+   "flag": "🎾",
+   "league": "Turk Telekom Ankara Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Polina Iatcenko – Ksenia Zaytseva",
+   "kickoff_at": "2026-09-25T09:05Z",
+   "published": true,
+   "home_photo": "assets/players/polina iatcenko.png",
+   "result_updated_at": "2026-09-25T12:35:19.218451+02:00",
+   "conseil": "Victoire Polina Iatcenko",
+   "conseil_cote": 1.52,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 6-2"
   }
  ]
 }
