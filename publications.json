@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T19:38:29.318833+00:00",
+ "generated_at": "2026-09-25T19:45:29.955295+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -17,24 +17,6 @@
    "conseil_cote": 1.21,
    "conseil_mise_eur": 200.0,
    "lineup_source": "espn"
-  },
-  {
-   "fixture_id": "hockey_447115",
-   "flag": "🏒",
-   "league": "ICE Hockey League (Austria)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Black Wings Linz – Vorarlberg",
-   "kickoff_at": "2026-09-25T17:15:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/1017.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/2046.png",
-   "conseil": "Victoire Black Wings Linz",
-   "conseil_cote": 1.31,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Black Wings Linz @ 1.31",
-   "value_cote": 1.31,
-   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -841,6 +823,28 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "hockey_447115",
+   "flag": "🏒",
+   "league": "ICE Hockey League (Austria)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Black Wings Linz – Vorarlberg",
+   "kickoff_at": "2026-09-25T17:15:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/1017.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/2046.png",
+   "result_updated_at": "2026-09-25T21:45:17.736805+02:00",
+   "conseil": "Victoire Black Wings Linz",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Black Wings Linz @ 1.31",
+   "value_cote": 1.31,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "5 - 3"
   },
   {
    "fixture_id": "tennis_espn_wta_183901",
