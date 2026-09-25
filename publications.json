@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T11:30:26.180017+00:00",
+ "generated_at": "2026-09-25T11:55:30.114648+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -19,34 +19,6 @@
    "lineup_source": "espn"
   },
   {
-   "fixture_id": "tennis_espn_atp_183368",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Andrey Rublev – Rinky Hijikata",
-   "kickoff_at": "2026-09-25T10:35Z",
-   "published": true,
-   "home_photo": "assets/players/andrey rublev.png",
-   "away_photo": "assets/players/rinky hijikata.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.59,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.595",
-   "value_cote": 1.59,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Andrey Rublev",
-     "kind": "player",
-     "detail": "cote 1.35",
-     "odd": 1.352,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_wta_184106",
    "flag": "🎾",
    "league": "Singapore Tennis Open presented by BNP Paribas",
@@ -59,6 +31,21 @@
    "away_photo": "assets/players/mirra andreeva.png",
    "conseil": "Victoire Mirra Andreeva",
    "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183899",
+   "flag": "🎾",
+   "league": "Delta Motors Tolentino Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jessica Pieri – Mia Ristic",
+   "kickoff_at": "2026-09-25T12:00Z",
+   "published": true,
+   "home_photo": "assets/players/jessica pieri.png",
+   "away_photo": "assets/players/mia ristic.png",
+   "conseil": "Victoire Mia Ristic",
+   "conseil_cote": 1.17,
    "conseil_mise_eur": 200.0
   },
   {
@@ -90,36 +77,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_183964",
-   "flag": "🎾",
-   "league": "Eupago Porto Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Sinja Kraus – Elena Malygina",
-   "kickoff_at": "2026-09-25T12:00Z",
-   "published": true,
-   "home_photo": "assets/players/sinja kraus.png",
-   "away_photo": "assets/players/elena malygina.png",
-   "conseil": "Victoire Sinja Kraus",
-   "conseil_cote": 1.2,
-   "conseil_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183899",
-   "flag": "🎾",
-   "league": "Delta Motors Tolentino Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jessica Pieri – Mia Ristic",
-   "kickoff_at": "2026-09-25T12:00Z",
-   "published": true,
-   "home_photo": "assets/players/jessica pieri.png",
-   "away_photo": "assets/players/mia ristic.png",
-   "conseil": "Victoire Mia Ristic",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_wta_184103",
    "flag": "🎾",
    "league": "Singapore Tennis Open presented by BNP Paribas",
@@ -146,6 +103,21 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183964",
+   "flag": "🎾",
+   "league": "Eupago Porto Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Sinja Kraus – Elena Malygina",
+   "kickoff_at": "2026-09-25T12:00Z",
+   "published": true,
+   "home_photo": "assets/players/sinja kraus.png",
+   "away_photo": "assets/players/elena malygina.png",
+   "conseil": "Victoire Sinja Kraus",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -748,6 +720,39 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-3, 6-2"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183368",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Andrey Rublev – Rinky Hijikata",
+   "kickoff_at": "2026-09-25T10:35Z",
+   "published": true,
+   "home_photo": "assets/players/andrey rublev.png",
+   "away_photo": "assets/players/rinky hijikata.png",
+   "result_updated_at": "2026-09-25T13:55:18.750225+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.59,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.595",
+   "value_cote": 1.59,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-3, 6-3",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Andrey Rublev",
+     "kind": "player",
+     "detail": "cote 1.35",
+     "odd": 1.352,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
