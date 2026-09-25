@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T15:19:49.964100+00:00",
+ "generated_at": "2026-09-25T16:00:20.116723+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -25,7 +25,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Oksana Selekhmeteva – Ekaterine Gorgodze",
-   "kickoff_at": "2026-09-25T15:30Z",
+   "kickoff_at": "2026-09-25T15:35Z",
    "published": true,
    "home_photo": "assets/players/oksana selekhmeteva.png",
    "away_photo": "assets/players/ekaterine gorgodze.png",
@@ -45,6 +45,24 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "hockey_447115",
+   "flag": "🏒",
+   "league": "ICE Hockey League (Austria)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Black Wings Linz – Vorarlberg",
+   "kickoff_at": "2026-09-25T17:15:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/1017.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/2046.png",
+   "conseil": "Victoire Black Wings Linz",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Black Wings Linz @ 1.31",
+   "value_cote": 1.31,
+   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -104,39 +122,6 @@
    "score": "6-7, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_wta_184054",
-   "flag": "🎾",
-   "league": "Korea Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Taylah Preston – Jelena Ostapenko",
-   "kickoff_at": "2026-09-24T07:35Z",
-   "published": true,
-   "home_photo": "assets/players/taylah preston.png",
-   "away_photo": "assets/players/jelena ostapenko.png",
-   "result_updated_at": "2026-09-24T10:59:18.168543+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.47,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.472",
-   "value_cote": 1.47,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-4, 6-1",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Jelena Ostapenko",
-     "kind": "player",
-     "detail": "cote 1.34",
-     "odd": 1.344,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_183397",
    "flag": "🎾",
    "league": "Chengdu Open",
@@ -164,6 +149,39 @@
      "kind": "player",
      "detail": "cote 1.24",
      "odd": 1.235,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184054",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Taylah Preston – Jelena Ostapenko",
+   "kickoff_at": "2026-09-24T07:35Z",
+   "published": true,
+   "home_photo": "assets/players/taylah preston.png",
+   "away_photo": "assets/players/jelena ostapenko.png",
+   "result_updated_at": "2026-09-24T10:59:18.168543+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.47,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.472",
+   "value_cote": 1.47,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-1",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Jelena Ostapenko",
+     "kind": "player",
+     "detail": "cote 1.34",
+     "odd": 1.344,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
@@ -384,28 +402,6 @@
    "score": "6-3, 6-4"
   },
   {
-   "fixture_id": "hockey_430476",
-   "flag": "🏒",
-   "league": "KHL (Russia)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Nizhny Novgorod – Sochi",
-   "kickoff_at": "2026-09-24T16:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
-   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
-   "conseil": "Victoire Nizhny Novgorod",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
-   "value_cote": 1.27,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "3 - 0"
-  },
-  {
    "fixture_id": "hockey_426282",
    "flag": "🏒",
    "league": "Extraliga (Czech-Republic)",
@@ -426,6 +422,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "5 - 2"
+  },
+  {
+   "fixture_id": "hockey_430476",
+   "flag": "🏒",
+   "league": "KHL (Russia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Nizhny Novgorod – Sochi",
+   "kickoff_at": "2026-09-24T16:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
+   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
+   "conseil": "Victoire Nizhny Novgorod",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
+   "value_cote": 1.27,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "3 - 0"
   },
   {
    "fixture_id": "nfl_401872948",
@@ -718,24 +736,6 @@
    "score": "6-7, 6-3, 6-4"
   },
   {
-   "fixture_id": "tennis_espn_wta_183899",
-   "flag": "🎾",
-   "league": "Delta Motors Tolentino Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jessica Pieri – Mia Ristic",
-   "kickoff_at": "2026-09-25T12:10Z",
-   "published": true,
-   "home_photo": "assets/players/jessica pieri.png",
-   "away_photo": "assets/players/mia ristic.png",
-   "result_updated_at": "2026-09-25T15:45:19.373018+02:00",
-   "conseil": "Victoire Mia Ristic",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-4, 6-4"
-  },
-  {
    "fixture_id": "tennis_espn_atp_183364",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
@@ -767,6 +767,24 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183899",
+   "flag": "🎾",
+   "league": "Delta Motors Tolentino Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jessica Pieri – Mia Ristic",
+   "kickoff_at": "2026-09-25T12:10Z",
+   "published": true,
+   "home_photo": "assets/players/jessica pieri.png",
+   "away_photo": "assets/players/mia ristic.png",
+   "result_updated_at": "2026-09-25T15:45:19.373018+02:00",
+   "conseil": "Victoire Mia Ristic",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-4, 6-4"
   },
   {
    "fixture_id": "tennis_espn_wta_184103",
