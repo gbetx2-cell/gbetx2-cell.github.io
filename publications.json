@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T11:00:17.971889+00:00",
+ "generated_at": "2026-09-25T11:30:26.180017+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -17,24 +17,6 @@
    "conseil_cote": 1.21,
    "conseil_mise_eur": 200.0,
    "lineup_source": "espn"
-  },
-  {
-   "fixture_id": "hockey_430481",
-   "flag": "🏒",
-   "league": "KHL (Russia)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Khabarovsk – Lokomotiv Yaroslavl",
-   "kickoff_at": "2026-09-25T09:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/1486.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/377.png",
-   "conseil": "Victoire Lokomotiv Yaroslavl",
-   "conseil_cote": 1.39,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Lokomotiv Yaroslavl @ 1.39",
-   "value_cote": 1.39,
-   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_183368",
@@ -86,7 +68,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Hugo Gaston – Jaime Faria",
-   "kickoff_at": "2026-09-25T11:30Z",
+   "kickoff_at": "2026-09-25T12:00Z",
    "published": true,
    "home_photo": "assets/players/hugo gaston.png",
    "away_photo": "assets/players/jaime faria.png",
@@ -103,6 +85,64 @@
      "kind": "player",
      "detail": "cote 1.50",
      "odd": 1.503,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183964",
+   "flag": "🎾",
+   "league": "Eupago Porto Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Sinja Kraus – Elena Malygina",
+   "kickoff_at": "2026-09-25T12:00Z",
+   "published": true,
+   "home_photo": "assets/players/sinja kraus.png",
+   "away_photo": "assets/players/elena malygina.png",
+   "conseil": "Victoire Sinja Kraus",
+   "conseil_cote": 1.2,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183899",
+   "flag": "🎾",
+   "league": "Delta Motors Tolentino Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jessica Pieri – Mia Ristic",
+   "kickoff_at": "2026-09-25T12:00Z",
+   "published": true,
+   "home_photo": "assets/players/jessica pieri.png",
+   "away_photo": "assets/players/mia ristic.png",
+   "conseil": "Victoire Mia Ristic",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184103",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Talia Gibson – Maria Sakkari",
+   "kickoff_at": "2026-09-25T12:00Z",
+   "published": true,
+   "home_photo": "assets/players/talia gibson.png",
+   "away_photo": "assets/players/maria sakkari.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.529",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maria Sakkari",
+     "kind": "player",
+     "detail": "cote 1.44",
+     "odd": 1.444,
      "mise_eur": 200.0
     }
    ]
@@ -165,6 +205,39 @@
    "score": "6-7, 4-6"
   },
   {
+   "fixture_id": "tennis_espn_atp_183397",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Camilo Ugo Carabelli – Federico Cina",
+   "kickoff_at": "2026-09-24T07:35Z",
+   "published": true,
+   "home_photo": "assets/players/camilo ugo carabelli.png",
+   "away_photo": "assets/players/federico cina.png",
+   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.46,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "value_result": "REMBOURSE",
+   "result": "REMBOURSE",
+   "score": "Joueur remplacé",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Nuno Borges",
+     "kind": "player",
+     "detail": "cote 1.24",
+     "odd": 1.235,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_wta_184054",
    "flag": "🎾",
    "league": "Korea Open",
@@ -218,39 +291,6 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-4, 6-4"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183397",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Camilo Ugo Carabelli – Federico Cina",
-   "kickoff_at": "2026-09-24T07:35Z",
-   "published": true,
-   "home_photo": "assets/players/camilo ugo carabelli.png",
-   "away_photo": "assets/players/federico cina.png",
-   "result_updated_at": "2026-09-24T06:49:18.597708+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.46,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.463",
-   "value_cote": 1.46,
-   "value_mise_eur": 200.0,
-   "value_result": "REMBOURSE",
-   "result": "REMBOURSE",
-   "score": "Joueur remplacé",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Nuno Borges",
-     "kind": "player",
-     "detail": "cote 1.24",
-     "odd": 1.235,
-     "mise_eur": 200.0,
-     "result": "PERDU"
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_183360",
@@ -406,6 +446,23 @@
    "score": "6-4, 6-0"
   },
   {
+   "fixture_id": "tennis_espn_atp_183392",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
+   "kickoff_at": "2026-09-24T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/hubert hurkacz.png",
+   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
+   "conseil": "Victoire Hubert Hurkacz",
+   "conseil_cote": 1.21,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 7-6"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183960",
    "flag": "🎾",
    "league": "Eupago Porto Open",
@@ -426,23 +483,6 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-3, 6-4"
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183392",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
-   "kickoff_at": "2026-09-24T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/hubert hurkacz.png",
-   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
-   "conseil": "Victoire Hubert Hurkacz",
-   "conseil_cote": 1.21,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 7-6"
   },
   {
    "fixture_id": "hockey_430476",
@@ -669,6 +709,28 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "hockey_430481",
+   "flag": "🏒",
+   "league": "KHL (Russia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Khabarovsk – Lokomotiv Yaroslavl",
+   "kickoff_at": "2026-09-25T09:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/1486.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/377.png",
+   "result_updated_at": "2026-09-25T13:30:18.630240+02:00",
+   "conseil": "Victoire Lokomotiv Yaroslavl",
+   "conseil_cote": 1.39,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Lokomotiv Yaroslavl @ 1.39",
+   "value_cote": 1.39,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 1"
   },
   {
    "fixture_id": "tennis_espn_wta_184011",
