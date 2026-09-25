@@ -1,19 +1,6 @@
 {
- "generated_at": "2026-09-25T00:06:20.606514+00:00",
+ "generated_at": "2026-09-25T03:23:29.346250+00:00",
  "live": [
-  {
-   "fixture_id": "nfl_401872948",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Green Bay Packers – Atlanta Falcons",
-   "kickoff_at": "2026-09-25T00:15Z",
-   "published": true,
-   "value_bet": "Atlanta Falcons +5.0 @ 1.9091",
-   "value_cote": 1.91,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "api_football:1549794",
    "flag": "🇨🇴",
@@ -422,28 +409,6 @@
    "score": "6-7, 4-6"
   },
   {
-   "fixture_id": "tennis_espn_atp_183405",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lorenzo Sonego – James Duckworth",
-   "kickoff_at": "2026-09-24T07:35Z",
-   "published": true,
-   "home_photo": "assets/players/lorenzo sonego.png",
-   "away_photo": "assets/players/james duckworth.png",
-   "result_updated_at": "2026-09-24T11:05:20.075168+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-4, 6-4"
-  },
-  {
    "fixture_id": "tennis_espn_wta_184054",
    "flag": "🎾",
    "league": "Korea Open",
@@ -475,6 +440,28 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183405",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lorenzo Sonego – James Duckworth",
+   "kickoff_at": "2026-09-24T07:35Z",
+   "published": true,
+   "home_photo": "assets/players/lorenzo sonego.png",
+   "away_photo": "assets/players/james duckworth.png",
+   "result_updated_at": "2026-09-24T11:05:20.075168+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-4"
   },
   {
    "fixture_id": "tennis_espn_atp_183397",
@@ -663,23 +650,6 @@
    "score": "6-4, 6-0"
   },
   {
-   "fixture_id": "tennis_espn_atp_183392",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
-   "kickoff_at": "2026-09-24T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/hubert hurkacz.png",
-   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
-   "conseil": "Victoire Hubert Hurkacz",
-   "conseil_cote": 1.21,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-3, 7-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_183960",
    "flag": "🎾",
    "league": "Eupago Porto Open",
@@ -700,6 +670,45 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-3, 6-4"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183392",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
+   "kickoff_at": "2026-09-24T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/hubert hurkacz.png",
+   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
+   "conseil": "Victoire Hubert Hurkacz",
+   "conseil_cote": 1.21,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 7-6"
+  },
+  {
+   "fixture_id": "hockey_430476",
+   "flag": "🏒",
+   "league": "KHL (Russia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Nizhny Novgorod – Sochi",
+   "kickoff_at": "2026-09-24T16:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
+   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
+   "conseil": "Victoire Nizhny Novgorod",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
+   "value_cote": 1.27,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "3 - 0"
   },
   {
    "fixture_id": "hockey_426282",
@@ -724,26 +733,21 @@
    "score": "5 - 2"
   },
   {
-   "fixture_id": "hockey_430476",
-   "flag": "🏒",
-   "league": "KHL (Russia)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Nizhny Novgorod – Sochi",
-   "kickoff_at": "2026-09-24T16:00:00+00:00",
+   "fixture_id": "nfl_401872948",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Green Bay Packers – Atlanta Falcons",
+   "kickoff_at": "2026-09-25T00:15Z",
    "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
-   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
-   "conseil": "Victoire Nizhny Novgorod",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
-   "value_cote": 1.27,
+   "result_updated_at": "2026-09-25T05:23:17.621685+02:00",
+   "value_bet": "Atlanta Falcons +5.0 @ 1.9091",
+   "value_cote": 1.91,
    "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "3 - 0"
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "14 - 35"
   }
  ]
 }
