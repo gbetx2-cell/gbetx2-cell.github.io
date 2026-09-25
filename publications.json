@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T08:30:18.507295+00:00",
+ "generated_at": "2026-09-25T10:00:19.450240+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549794",
@@ -53,7 +53,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Botic Van De Zandschulp – Nikoloz Basilashvili",
-   "kickoff_at": "2026-09-25T08:30Z",
+   "kickoff_at": "2026-09-25T08:40Z",
    "published": true,
    "home_photo": "assets/players/botic van de zandschulp.png",
    "away_photo": "assets/players/nikoloz basilashvili.png",
@@ -99,7 +99,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Polina Iatcenko – Ksenia Zaytseva",
-   "kickoff_at": "2026-09-25T09:00Z",
+   "kickoff_at": "2026-09-25T09:05Z",
    "published": true,
    "home_photo": "assets/players/polina iatcenko.png",
    "conseil": "Victoire Polina Iatcenko",
@@ -113,7 +113,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Andrey Rublev – Rinky Hijikata",
-   "kickoff_at": "2026-09-25T09:00Z",
+   "kickoff_at": "2026-09-25T10:00Z",
    "published": true,
    "home_photo": "assets/players/andrey rublev.png",
    "away_photo": "assets/players/rinky hijikata.png",
@@ -133,6 +133,21 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184106",
+   "flag": "🎾",
+   "league": "Singapore Tennis Open presented by BNP Paribas",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Leylah Fernandez – Mirra Andreeva",
+   "kickoff_at": "2026-09-25T10:30Z",
+   "published": true,
+   "home_photo": "assets/players/leylah fernandez.png",
+   "away_photo": "assets/players/mirra andreeva.png",
+   "conseil": "Victoire Mirra Andreeva",
+   "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -433,6 +448,23 @@
    "score": "6-4, 6-0"
   },
   {
+   "fixture_id": "tennis_espn_atp_183392",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
+   "kickoff_at": "2026-09-24T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/hubert hurkacz.png",
+   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
+   "conseil": "Victoire Hubert Hurkacz",
+   "conseil_cote": 1.21,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-3, 7-6"
+  },
+  {
    "fixture_id": "tennis_espn_wta_183960",
    "flag": "🎾",
    "league": "Eupago Porto Open",
@@ -455,21 +487,26 @@
    "score": "6-3, 6-4"
   },
   {
-   "fixture_id": "tennis_espn_atp_183392",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hubert Hurkacz – Aleksandr Shevchenko",
-   "kickoff_at": "2026-09-24T10:00Z",
+   "fixture_id": "hockey_430476",
+   "flag": "🏒",
+   "league": "KHL (Russia)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Nizhny Novgorod – Sochi",
+   "kickoff_at": "2026-09-24T16:00:00+00:00",
    "published": true,
-   "home_photo": "assets/players/hubert hurkacz.png",
-   "result_updated_at": "2026-09-24T14:29:16.934530+02:00",
-   "conseil": "Victoire Hubert Hurkacz",
-   "conseil_cote": 1.21,
+   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
+   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
+   "conseil": "Victoire Nizhny Novgorod",
+   "conseil_cote": 1.27,
    "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
+   "value_cote": 1.27,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
    "result": "GAGNE",
-   "score": "6-3, 7-6"
+   "score": "3 - 0"
   },
   {
    "fixture_id": "hockey_426282",
@@ -492,28 +529,6 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "5 - 2"
-  },
-  {
-   "fixture_id": "hockey_430476",
-   "flag": "🏒",
-   "league": "KHL (Russia)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Nizhny Novgorod – Sochi",
-   "kickoff_at": "2026-09-24T16:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/379.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/385.png",
-   "result_updated_at": "2026-09-24T20:30:31.897453+02:00",
-   "conseil": "Victoire Nizhny Novgorod",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Nizhny Novgorod @ 1.27",
-   "value_cote": 1.27,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "3 - 0"
   },
   {
    "fixture_id": "nfl_401872948",
