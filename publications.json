@@ -1,24 +1,6 @@
 {
- "generated_at": "2026-09-26T14:45:30.866004+00:00",
+ "generated_at": "2026-09-26T15:45:18.454300+00:00",
  "live": [
-  {
-   "fixture_id": "hockey_425222",
-   "flag": "🏒",
-   "league": "SHL (Sweden)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Rögle – Linkoping",
-   "kickoff_at": "2026-09-26T13:15:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/542.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/2045.png",
-   "conseil": "Victoire Rögle",
-   "conseil_cote": 1.4,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Rögle @ 1.4",
-   "value_cote": 1.4,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "hockey_425775",
    "flag": "🏒",
@@ -35,6 +17,24 @@
    "conseil_mise_eur": 200.0,
    "value_bet": "Vainqueur (prol. incluse) — Tappara @ 1.36",
    "value_cote": 1.36,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "hockey_425223",
+   "flag": "🏒",
+   "league": "SHL (Sweden)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Vaxjo – HV 71",
+   "kickoff_at": "2026-09-26T16:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/544.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/535.png",
+   "conseil": "Victoire Vaxjo",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Vaxjo @ 1.4",
+   "value_cote": 1.4,
    "value_mise_eur": 200.0
   },
   {
@@ -56,21 +56,21 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "hockey_425223",
+   "fixture_id": "hockey_435758",
    "flag": "🏒",
-   "league": "SHL (Sweden)",
+   "league": "Extraliga (Slovakia)",
    "sport": "hockey",
    "sport_label": "Hockey",
-   "match": "Vaxjo – HV 71",
-   "kickoff_at": "2026-09-26T16:00:00+00:00",
+   "match": "Zilina – Kosice",
+   "kickoff_at": "2026-09-26T17:00:00+00:00",
    "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/544.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/535.png",
-   "conseil": "Victoire Vaxjo",
-   "conseil_cote": 1.4,
+   "home_logo": "https://media.api-sports.io/hockey/teams/491.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/496.png",
+   "conseil": "Victoire Zilina",
+   "conseil_cote": 1.48,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Vaxjo @ 1.4",
-   "value_cote": 1.4,
+   "value_bet": "Vainqueur (prol. incluse) — Zilina @ 1.48",
+   "value_cote": 1.48,
    "value_mise_eur": 200.0
   }
  ],
@@ -641,6 +641,28 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "hockey_425222",
+   "flag": "🏒",
+   "league": "SHL (Sweden)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Rögle – Linkoping",
+   "kickoff_at": "2026-09-26T13:15:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/542.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/2045.png",
+   "result_updated_at": "2026-09-26T17:45:17.655757+02:00",
+   "conseil": "Victoire Rögle",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Rögle @ 1.4",
+   "value_cote": 1.4,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "2 - 1"
   }
  ]
 }
