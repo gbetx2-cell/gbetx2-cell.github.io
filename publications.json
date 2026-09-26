@@ -1,24 +1,6 @@
 {
- "generated_at": "2026-09-25T19:45:29.955295+00:00",
- "live": [
-  {
-   "fixture_id": "api_football:1549794",
-   "flag": "🇨🇴",
-   "league": "Primera A",
-   "sport": "football",
-   "sport_label": "Football",
-   "match": "Atletico Nacional – Millonarios",
-   "kickoff_at": "2026-09-25T02:30:00+02:00",
-   "published": true,
-   "league_id": 239,
-   "home_logo": "https://media.api-sports.io/football/teams/1137.png",
-   "away_logo": "https://media.api-sports.io/football/teams/1125.png",
-   "conseil": "Atletico Nacional ou Nul",
-   "conseil_cote": 1.21,
-   "conseil_mise_eur": 200.0,
-   "lineup_source": "espn"
-  }
- ],
+ "generated_at": "2026-09-26T00:20:29.115888+00:00",
+ "live": [],
  "done": [
   {
    "fixture_id": "tennis_espn_atp_183356",
@@ -109,6 +91,28 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_183405",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lorenzo Sonego – James Duckworth",
+   "kickoff_at": "2026-09-24T07:35Z",
+   "published": true,
+   "home_photo": "assets/players/lorenzo sonego.png",
+   "away_photo": "assets/players/james duckworth.png",
+   "result_updated_at": "2026-09-24T11:05:20.075168+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 6-4"
+  },
+  {
    "fixture_id": "tennis_espn_wta_184054",
    "flag": "🎾",
    "league": "Korea Open",
@@ -140,28 +144,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_183405",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lorenzo Sonego – James Duckworth",
-   "kickoff_at": "2026-09-24T07:35Z",
-   "published": true,
-   "home_photo": "assets/players/lorenzo sonego.png",
-   "away_photo": "assets/players/james duckworth.png",
-   "result_updated_at": "2026-09-24T11:05:20.075168+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6-4, 6-4"
   },
   {
    "fixture_id": "tennis_espn_atp_183360",
@@ -415,6 +397,26 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "14 - 35"
+  },
+  {
+   "fixture_id": "api_football:1549794",
+   "flag": "🇨🇴",
+   "league": "Primera A",
+   "sport": "football",
+   "sport_label": "Football",
+   "match": "Atletico Nacional – Millonarios",
+   "kickoff_at": "2026-09-25T02:30:00+02:00",
+   "published": true,
+   "league_id": 239,
+   "home_logo": "https://media.api-sports.io/football/teams/1137.png",
+   "away_logo": "https://media.api-sports.io/football/teams/1125.png",
+   "result_updated_at": "2026-09-26T02:20:17.284149+02:00",
+   "conseil": "Atletico Nacional ou Nul",
+   "conseil_cote": 1.21,
+   "conseil_mise_eur": 200.0,
+   "lineup_source": "espn",
+   "result": "GAGNE",
+   "score": "1 - 1"
   },
   {
    "fixture_id": "tennis_espn_atp_183412",
