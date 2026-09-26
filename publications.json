@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-26T08:48:28.913092+00:00",
+ "generated_at": "2026-09-26T10:30:18.895330+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_183357",
@@ -35,7 +35,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Lloyd Harris – Valentin Vacherot",
-   "kickoff_at": "2026-09-26T08:55Z",
+   "kickoff_at": "2026-09-26T09:00Z",
    "published": true,
    "home_photo": "assets/players/lloyd harris.png",
    "away_photo": "assets/players/valentin vacherot.png",
@@ -63,7 +63,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Valentin Royer – Daniil Medvedev",
-   "kickoff_at": "2026-09-26T09:00Z",
+   "kickoff_at": "2026-09-26T10:40Z",
    "published": true,
    "home_photo": "assets/players/valentin royer.png",
    "away_photo": "assets/players/daniil medvedev.png",
@@ -80,6 +80,34 @@
      "kind": "player",
      "detail": "cote 1.21",
      "odd": 1.206,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183967",
+   "flag": "🎾",
+   "league": "Eupago Porto Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Mia Pohankova – Maria Timofeeva",
+   "kickoff_at": "2026-09-26T11:00Z",
+   "published": true,
+   "home_photo": "assets/players/mia pohankova.png",
+   "away_photo": "assets/players/maria timofeeva.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.58,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.578",
+   "value_cote": 1.58,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Maria Timofeeva",
+     "kind": "player",
+     "detail": "cote 1.60",
+     "odd": 1.599,
      "mise_eur": 200.0
     }
    ]
@@ -294,24 +322,6 @@
    "score": "6-7, 6-3, 6-4"
   },
   {
-   "fixture_id": "tennis_espn_wta_183899",
-   "flag": "🎾",
-   "league": "Delta Motors Tolentino Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jessica Pieri – Mia Ristic",
-   "kickoff_at": "2026-09-25T12:10Z",
-   "published": true,
-   "home_photo": "assets/players/jessica pieri.png",
-   "away_photo": "assets/players/mia ristic.png",
-   "result_updated_at": "2026-09-25T15:45:19.373018+02:00",
-   "conseil": "Victoire Mia Ristic",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-4, 6-4"
-  },
-  {
    "fixture_id": "tennis_espn_atp_183364",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
@@ -343,6 +353,24 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_183899",
+   "flag": "🎾",
+   "league": "Delta Motors Tolentino Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jessica Pieri – Mia Ristic",
+   "kickoff_at": "2026-09-25T12:10Z",
+   "published": true,
+   "home_photo": "assets/players/jessica pieri.png",
+   "away_photo": "assets/players/mia ristic.png",
+   "result_updated_at": "2026-09-25T15:45:19.373018+02:00",
+   "conseil": "Victoire Mia Ristic",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-4, 6-4"
   },
   {
    "fixture_id": "tennis_espn_wta_184103",
