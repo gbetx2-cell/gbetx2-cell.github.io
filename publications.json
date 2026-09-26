@@ -1,33 +1,6 @@
 {
- "generated_at": "2026-09-26T08:30:18.338370+00:00",
+ "generated_at": "2026-09-26T08:48:28.913092+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_183409",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Hubert Hurkacz – Martin Damm",
-   "kickoff_at": "2026-09-26T06:50Z",
-   "published": true,
-   "home_photo": "assets/players/hubert hurkacz.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.61,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.613",
-   "value_cote": 1.61,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Hubert Hurkacz",
-     "kind": "player",
-     "detail": "cote 1.36",
-     "odd": 1.365,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_183357",
    "flag": "🎾",
@@ -62,7 +35,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Lloyd Harris – Valentin Vacherot",
-   "kickoff_at": "2026-09-26T08:45Z",
+   "kickoff_at": "2026-09-26T08:55Z",
    "published": true,
    "home_photo": "assets/players/lloyd harris.png",
    "away_photo": "assets/players/valentin vacherot.png",
@@ -516,6 +489,38 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "7-6, 6-1"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183409",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Hubert Hurkacz – Martin Damm",
+   "kickoff_at": "2026-09-26T06:50Z",
+   "published": true,
+   "home_photo": "assets/players/hubert hurkacz.png",
+   "result_updated_at": "2026-09-26T10:48:17.856024+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.61,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.613",
+   "value_cote": 1.61,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "4-6, 6-3, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Hubert Hurkacz",
+     "kind": "player",
+     "detail": "cote 1.36",
+     "odd": 1.365,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
