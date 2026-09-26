@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-26T10:30:18.895330+00:00",
+ "generated_at": "2026-09-26T10:41:30.603088+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_183357",
@@ -29,41 +29,13 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_183408",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Lloyd Harris – Valentin Vacherot",
-   "kickoff_at": "2026-09-26T09:00Z",
-   "published": true,
-   "home_photo": "assets/players/lloyd harris.png",
-   "away_photo": "assets/players/valentin vacherot.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.66,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.662",
-   "value_cote": 1.66,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Valentin Vacherot",
-     "kind": "player",
-     "detail": "cote 1.81",
-     "odd": 1.806,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_183347",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Valentin Royer – Daniil Medvedev",
-   "kickoff_at": "2026-09-26T10:40Z",
+   "kickoff_at": "2026-09-26T11:00Z",
    "published": true,
    "home_photo": "assets/players/valentin royer.png",
    "away_photo": "assets/players/daniil medvedev.png",
@@ -322,6 +294,24 @@
    "score": "6-7, 6-3, 6-4"
   },
   {
+   "fixture_id": "tennis_espn_wta_183899",
+   "flag": "🎾",
+   "league": "Delta Motors Tolentino Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Jessica Pieri – Mia Ristic",
+   "kickoff_at": "2026-09-25T12:10Z",
+   "published": true,
+   "home_photo": "assets/players/jessica pieri.png",
+   "away_photo": "assets/players/mia ristic.png",
+   "result_updated_at": "2026-09-25T15:45:19.373018+02:00",
+   "conseil": "Victoire Mia Ristic",
+   "conseil_cote": 1.17,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-4, 6-4"
+  },
+  {
    "fixture_id": "tennis_espn_atp_183364",
    "flag": "🎾",
    "league": "AITO Hangzhou Open",
@@ -353,24 +343,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_183899",
-   "flag": "🎾",
-   "league": "Delta Motors Tolentino Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Jessica Pieri – Mia Ristic",
-   "kickoff_at": "2026-09-25T12:10Z",
-   "published": true,
-   "home_photo": "assets/players/jessica pieri.png",
-   "away_photo": "assets/players/mia ristic.png",
-   "result_updated_at": "2026-09-25T15:45:19.373018+02:00",
-   "conseil": "Victoire Mia Ristic",
-   "conseil_cote": 1.17,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-4, 6-4"
   },
   {
    "fixture_id": "tennis_espn_wta_184103",
@@ -547,6 +519,39 @@
      "odd": 1.365,
      "mise_eur": 200.0,
      "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183408",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lloyd Harris – Valentin Vacherot",
+   "kickoff_at": "2026-09-26T09:00Z",
+   "published": true,
+   "home_photo": "assets/players/lloyd harris.png",
+   "away_photo": "assets/players/valentin vacherot.png",
+   "result_updated_at": "2026-09-26T12:41:18.821195+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.662",
+   "value_cote": 1.66,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 7-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Valentin Vacherot",
+     "kind": "player",
+     "detail": "cote 1.81",
+     "odd": 1.806,
+     "mise_eur": 200.0,
+     "result": "PERDU"
     }
    ]
   }
