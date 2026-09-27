@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-27T20:35:04.845345+00:00",
+ "generated_at": "2026-09-27T22:30:54.824943+00:00",
  "live": [
   {
    "fixture_id": "nfl_401872959",
@@ -13,6 +13,34 @@
    "value_bet": "Moins de 42.5 @ 1.9259",
    "value_cote": 1.93,
    "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "wnba_401918013",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Atlanta Dream – Washington Mystics",
+   "kickoff_at": "2026-09-27T23:00Z",
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "DeWanna Bonner — Points Plus de 8.5",
+     "kind": "player",
+     "detail": "cote 2.02",
+     "odd": 2.02,
+     "mise_eur": 200.0
+    },
+    {
+     "category": "Player pick",
+     "label": "Naz Hillmon — Points Plus de 7.5",
+     "kind": "player",
+     "detail": "cote 2.10",
+     "odd": 2.1,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -667,6 +695,24 @@
    "score": "1 - 3"
   },
   {
+   "fixture_id": "tennis_espn_wta_186198",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasia Tikhonova – Viktoria Hruncakova",
+   "kickoff_at": "2026-09-27T12:05Z",
+   "published": true,
+   "home_photo": "assets/players/anastasia tikhonova.png",
+   "away_photo": "assets/players/viktoria hruncakova.jpg",
+   "result_updated_at": "2026-09-27T15:28:26.752277+02:00",
+   "conseil": "Victoire Viktoria Hruncakova",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-1, 6-2"
+  },
+  {
    "fixture_id": "tennis_espn_wta_184015",
    "flag": "🎾",
    "league": "Turk Telekom Ankara Open",
@@ -698,24 +744,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_186198",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasia Tikhonova – Viktoria Hruncakova",
-   "kickoff_at": "2026-09-27T12:05Z",
-   "published": true,
-   "home_photo": "assets/players/anastasia tikhonova.png",
-   "away_photo": "assets/players/viktoria hruncakova.jpg",
-   "result_updated_at": "2026-09-27T15:28:26.752277+02:00",
-   "conseil": "Victoire Viktoria Hruncakova",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-1, 6-2"
   },
   {
    "fixture_id": "tennis_espn_atp_183373",
