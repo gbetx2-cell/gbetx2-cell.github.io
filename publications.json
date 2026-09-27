@@ -1,24 +1,6 @@
 {
- "generated_at": "2026-09-27T16:30:07.441945+00:00",
+ "generated_at": "2026-09-27T16:30:30.027011+00:00",
  "live": [
-  {
-   "fixture_id": "hockey_426284",
-   "flag": "🏒",
-   "league": "Extraliga (Czech-Republic)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Kladno – Olomouc",
-   "kickoff_at": "2026-09-27T14:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/144.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/131.png",
-   "conseil": "Victoire Kladno",
-   "conseil_cote": 1.46,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Kladno @ 1.46",
-   "value_cote": 1.46,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "hockey_426288",
    "flag": "🏒",
@@ -102,6 +84,58 @@
    "published": true,
    "value_bet": "Los Angeles Chargers +7.0 @ 1.9091",
    "value_cote": 1.91,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "nfl_401872949",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Cleveland Browns – Carolina Panthers",
+   "kickoff_at": "2026-09-27T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 41.5 @ 1.9259",
+   "value_cote": 1.93,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "nfl_401872956",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "New York Giants – Tennessee Titans",
+   "kickoff_at": "2026-09-27T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 37.5 @ 1.9091",
+   "value_cote": 1.91,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "nfl_401872955",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Washington Commanders – Seattle Seahawks",
+   "kickoff_at": "2026-09-27T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 40.5 @ 1.9091",
+   "value_cote": 1.91,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "nfl_401872950",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Pittsburgh Steelers – Cincinnati Bengals",
+   "kickoff_at": "2026-09-27T17:00Z",
+   "published": true,
+   "value_bet": "Moins de 42.5 @ 1.9524",
+   "value_cote": 1.95,
    "value_mise_eur": 200.0
   }
  ],
@@ -857,6 +891,28 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "2-6, 2-6"
+  },
+  {
+   "fixture_id": "hockey_426284",
+   "flag": "🏒",
+   "league": "Extraliga (Czech-Republic)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Kladno – Olomouc",
+   "kickoff_at": "2026-09-27T14:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/144.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/131.png",
+   "result_updated_at": "2026-09-27T18:30:26.571862+02:00",
+   "conseil": "Victoire Kladno",
+   "conseil_cote": 1.46,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Kladno @ 1.46",
+   "value_cote": 1.46,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "1 - 4"
   }
  ]
 }
