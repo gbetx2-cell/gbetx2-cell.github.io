@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-27T10:49:45.116156+00:00",
+ "generated_at": "2026-09-27T11:13:37.491992+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_183414",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Denis Shapovalov – Adrian Mannarino",
-   "kickoff_at": "2026-09-27T08:35Z",
-   "published": true,
-   "home_photo": "assets/players/denis shapovalov.png",
-   "away_photo": "assets/players/adrian mannarino.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.51,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.515",
-   "value_cote": 1.51,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Denis Shapovalov",
-     "kind": "player",
-     "detail": "cote 1.37",
-     "odd": 1.368,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_wta_183969",
    "flag": "🎾",
@@ -64,7 +36,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Hubert Hurkacz – Lloyd Harris",
-   "kickoff_at": "2026-09-27T11:00Z",
+   "kickoff_at": "2026-09-27T11:20Z",
    "published": true,
    "home_photo": "assets/players/hubert hurkacz.png",
    "away_photo": "assets/players/lloyd harris.png",
@@ -104,24 +76,6 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "hockey_433631",
-   "flag": "🏒",
-   "league": "DEL (Germany)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Eisbaren Berlin – Iserlohn Roosters",
-   "kickoff_at": "2026-09-27T12:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/248.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/250.png",
-   "conseil": "Victoire Eisbaren Berlin",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Eisbaren Berlin @ 1.18",
-   "value_cote": 1.18,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "hockey_433633",
    "flag": "🏒",
    "league": "DEL (Germany)",
@@ -137,6 +91,24 @@
    "conseil_mise_eur": 200.0,
    "value_bet": "Vainqueur (prol. incluse) — Munchen @ 1.24",
    "value_cote": 1.24,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "hockey_433631",
+   "flag": "🏒",
+   "league": "DEL (Germany)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Eisbaren Berlin – Iserlohn Roosters",
+   "kickoff_at": "2026-09-27T12:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/248.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/250.png",
+   "conseil": "Victoire Eisbaren Berlin",
+   "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Eisbaren Berlin @ 1.18",
+   "value_cote": 1.18,
    "value_mise_eur": 200.0
   }
  ],
@@ -603,6 +575,39 @@
      "kind": "player",
      "detail": "cote 1.22",
      "odd": 1.224,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183414",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Denis Shapovalov – Adrian Mannarino",
+   "kickoff_at": "2026-09-27T08:35Z",
+   "published": true,
+   "home_photo": "assets/players/denis shapovalov.png",
+   "away_photo": "assets/players/adrian mannarino.png",
+   "result_updated_at": "2026-09-27T13:13:26.043331+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.51,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.515",
+   "value_cote": 1.51,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-7, 6-3, 6-2",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Denis Shapovalov",
+     "kind": "player",
+     "detail": "cote 1.37",
+     "odd": 1.368,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
