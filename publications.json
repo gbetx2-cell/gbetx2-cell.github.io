@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-27T08:03:37.131019+00:00",
+ "generated_at": "2026-09-27T08:23:36.895599+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_183419",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Alejandro Davidovich Fokina – Alexandre Muller",
-   "kickoff_at": "2026-09-27T07:00Z",
-   "published": true,
-   "home_photo": "assets/players/alejandro davidovich fokina.png",
-   "away_photo": "assets/players/alexandre muller.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.65,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
-   "value_cote": 1.65,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Alejandro Davidovich Fokina",
-     "kind": "player",
-     "detail": "cote 1.42",
-     "odd": 1.417,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_183370",
    "flag": "🎾",
@@ -317,28 +289,6 @@
    "score": "2 - 4"
   },
   {
-   "fixture_id": "hockey_425223",
-   "flag": "🏒",
-   "league": "SHL (Sweden)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Vaxjo – HV 71",
-   "kickoff_at": "2026-09-26T16:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/544.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/535.png",
-   "result_updated_at": "2026-09-26T20:30:18.262861+02:00",
-   "conseil": "Victoire Vaxjo",
-   "conseil_cote": 1.4,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Vaxjo @ 1.4",
-   "value_cote": 1.4,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "7 - 5"
-  },
-  {
    "fixture_id": "hockey_427399",
    "flag": "🏒",
    "league": "Hockey Allsvenskan (Sweden)",
@@ -359,6 +309,28 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "3 - 4"
+  },
+  {
+   "fixture_id": "hockey_425223",
+   "flag": "🏒",
+   "league": "SHL (Sweden)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Vaxjo – HV 71",
+   "kickoff_at": "2026-09-26T16:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/544.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/535.png",
+   "result_updated_at": "2026-09-26T20:30:18.262861+02:00",
+   "conseil": "Victoire Vaxjo",
+   "conseil_cote": 1.4,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Vaxjo @ 1.4",
+   "value_cote": 1.4,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "7 - 5"
   },
   {
    "fixture_id": "hockey_435758",
@@ -487,6 +459,39 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-4, 6-2"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183419",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Alejandro Davidovich Fokina – Alexandre Muller",
+   "kickoff_at": "2026-09-27T07:00Z",
+   "published": true,
+   "home_photo": "assets/players/alejandro davidovich fokina.png",
+   "away_photo": "assets/players/alexandre muller.png",
+   "result_updated_at": "2026-09-27T10:23:25.739825+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.65,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
+   "value_cote": 1.65,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-1, 7-5",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Alejandro Davidovich Fokina",
+     "kind": "player",
+     "detail": "cote 1.42",
+     "odd": 1.417,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
