@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-27T20:04:59.919506+00:00",
+ "generated_at": "2026-09-27T20:10:08.918669+00:00",
  "live": [
   {
    "fixture_id": "nfl_401872949",
@@ -26,34 +26,6 @@
    "value_bet": "Los Angeles Chargers +7.0 @ 1.9091",
    "value_cote": 1.91,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "wnba_401918014",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Minnesota Lynx – New York Liberty",
-   "kickoff_at": "2026-09-27T18:00Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Marine Johannes — Points Plus de 4.5",
-     "kind": "player",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 200.0
-    },
-    {
-     "category": "Player pick",
-     "label": "Natasha Howard — Points Plus de 11.5",
-     "kind": "player",
-     "detail": "cote 1.91",
-     "odd": 1.91,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "nfl_401872959",
@@ -982,6 +954,38 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "24 - 27 (en cours)"
+  },
+  {
+   "fixture_id": "wnba_401918014",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Minnesota Lynx – New York Liberty",
+   "kickoff_at": "2026-09-27T18:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-27T22:09:57.105689+02:00",
+   "result": "PERDU",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Marine Johannes — Points Plus de 4.5",
+     "kind": "player",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    },
+    {
+     "category": "Player pick",
+     "label": "Natasha Howard — Points Plus de 11.5",
+     "kind": "player",
+     "detail": "cote 1.91",
+     "odd": 1.91,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
