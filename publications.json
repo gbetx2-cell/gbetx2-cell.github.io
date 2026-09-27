@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-27T06:00:27.612300+00:00",
+ "generated_at": "2026-09-27T06:30:26.146216+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_183418",
@@ -58,13 +58,31 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_wta_184061",
+   "flag": "🎾",
+   "league": "Korea Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Kimberly Birrell – Maya Joint",
+   "kickoff_at": "2026-09-27T06:30Z",
+   "published": true,
+   "home_photo": "assets/players/kimberly birrell.png",
+   "away_photo": "assets/players/maya joint.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.67,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.667",
+   "value_cote": 1.67,
+   "value_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_183419",
    "flag": "🎾",
    "league": "Chengdu Open",
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Alejandro Davidovich Fokina – Alexandre Muller",
-   "kickoff_at": "2026-09-27T06:30Z",
+   "kickoff_at": "2026-09-27T06:40Z",
    "published": true,
    "home_photo": "assets/players/alejandro davidovich fokina.png",
    "away_photo": "assets/players/alexandre muller.png",
@@ -86,22 +104,32 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184061",
+   "fixture_id": "tennis_espn_atp_183370",
    "flag": "🎾",
-   "league": "Korea Open",
+   "league": "AITO Hangzhou Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Kimberly Birrell – Maya Joint",
-   "kickoff_at": "2026-09-27T06:30Z",
+   "match": "Andrey Rublev – Hugo Gaston",
+   "kickoff_at": "2026-09-27T07:00Z",
    "published": true,
-   "home_photo": "assets/players/kimberly birrell.png",
-   "away_photo": "assets/players/maya joint.png",
+   "home_photo": "assets/players/andrey rublev.png",
+   "away_photo": "assets/players/hugo gaston.png",
    "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.67,
+   "conseil_cote": 1.53,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.667",
-   "value_cote": 1.67,
-   "value_mise_eur": 200.0
+   "value_bet": "Total sets — Moins de 2.5 @ 1.535",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Andrey Rublev",
+     "kind": "player",
+     "detail": "cote 1.22",
+     "odd": 1.224,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -335,28 +363,6 @@
    "score": "2 - 4"
   },
   {
-   "fixture_id": "hockey_427399",
-   "flag": "🏒",
-   "league": "Hockey Allsvenskan (Sweden)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Södertälje – Oskarshamn",
-   "kickoff_at": "2026-09-26T16:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/524.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/541.png",
-   "result_updated_at": "2026-09-26T21:01:17.534704+02:00",
-   "conseil": "Victoire Södertälje",
-   "conseil_cote": 1.33,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Södertälje @ 1.33",
-   "value_cote": 1.33,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "3 - 4"
-  },
-  {
    "fixture_id": "hockey_425223",
    "flag": "🏒",
    "league": "SHL (Sweden)",
@@ -377,6 +383,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "7 - 5"
+  },
+  {
+   "fixture_id": "hockey_427399",
+   "flag": "🏒",
+   "league": "Hockey Allsvenskan (Sweden)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Södertälje – Oskarshamn",
+   "kickoff_at": "2026-09-26T16:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/524.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/541.png",
+   "result_updated_at": "2026-09-26T21:01:17.534704+02:00",
+   "conseil": "Victoire Södertälje",
+   "conseil_cote": 1.33,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Södertälje @ 1.33",
+   "value_cote": 1.33,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 4"
   },
   {
    "fixture_id": "hockey_435758",
