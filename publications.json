@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-27T13:15:36.570696+00:00",
+ "generated_at": "2026-09-27T13:28:38.497758+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_183415",
@@ -82,21 +82,6 @@
    "value_bet": "Vainqueur (prol. incluse) — Munchen @ 1.24",
    "value_cote": 1.24,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_186198",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasia Tikhonova – Viktoria Hruncakova",
-   "kickoff_at": "2026-09-27T12:05Z",
-   "published": true,
-   "home_photo": "assets/players/anastasia tikhonova.png",
-   "away_photo": "assets/players/viktoria hruncakova.jpg",
-   "conseil": "Victoire Viktoria Hruncakova",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_184015",
@@ -188,24 +173,6 @@
    "value_mise_eur": 200.0
   },
   {
-   "fixture_id": "hockey_426288",
-   "flag": "🏒",
-   "league": "Extraliga (Czech-Republic)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Vitkovice – Mlada Boleslav",
-   "kickoff_at": "2026-09-27T14:30:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/136.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/129.png",
-   "conseil": "Victoire Vitkovice",
-   "conseil_cote": 1.72,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Vitkovice @ 1.72",
-   "value_cote": 1.72,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "hockey_427402",
    "flag": "🏒",
    "league": "Hockey Allsvenskan (Sweden)",
@@ -221,6 +188,24 @@
    "conseil_mise_eur": 200.0,
    "value_bet": "Vainqueur (prol. incluse) — AIK @ 1.35",
    "value_cote": 1.35,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "hockey_426288",
+   "flag": "🏒",
+   "league": "Extraliga (Czech-Republic)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Vitkovice – Mlada Boleslav",
+   "kickoff_at": "2026-09-27T14:30:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/136.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/129.png",
+   "conseil": "Victoire Vitkovice",
+   "conseil_cote": 1.72,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Vitkovice @ 1.72",
+   "value_cote": 1.72,
    "value_mise_eur": 200.0
   }
  ],
@@ -775,6 +760,24 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_186198",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasia Tikhonova – Viktoria Hruncakova",
+   "kickoff_at": "2026-09-27T12:05Z",
+   "published": true,
+   "home_photo": "assets/players/anastasia tikhonova.png",
+   "away_photo": "assets/players/viktoria hruncakova.jpg",
+   "result_updated_at": "2026-09-27T15:28:26.752277+02:00",
+   "conseil": "Victoire Viktoria Hruncakova",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-1, 6-2"
   }
  ]
 }
