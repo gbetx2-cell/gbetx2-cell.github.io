@@ -1,32 +1,6 @@
 {
- "generated_at": "2026-09-27T18:00:37.809941+00:00",
+ "generated_at": "2026-09-27T19:35:48.525179+00:00",
  "live": [
-  {
-   "fixture_id": "nfl_401872955",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Washington Commanders – Seattle Seahawks",
-   "kickoff_at": "2026-09-27T17:00Z",
-   "published": true,
-   "value_bet": "Moins de 40.5 @ 1.9091",
-   "value_cote": 1.91,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "nfl_401872950",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Pittsburgh Steelers – Cincinnati Bengals",
-   "kickoff_at": "2026-09-27T17:00Z",
-   "published": true,
-   "value_bet": "Moins de 42.5 @ 1.9524",
-   "value_cote": 1.95,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "nfl_401872953",
    "flag": "🏈",
@@ -93,6 +67,19 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "nfl_401872959",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Tampa Bay Buccaneers – Minnesota Vikings",
+   "kickoff_at": "2026-09-27T20:05Z",
+   "published": true,
+   "value_bet": "Moins de 42.5 @ 1.9259",
+   "value_cote": 1.93,
+   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -703,28 +690,6 @@
    "score": "1 - 4"
   },
   {
-   "fixture_id": "hockey_427400",
-   "flag": "🏒",
-   "league": "Hockey Allsvenskan (Sweden)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "BIK Karlskoga – Vimmerby",
-   "kickoff_at": "2026-09-27T12:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/519.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/1194.png",
-   "result_updated_at": "2026-09-27T16:30:25.937921+02:00",
-   "conseil": "Victoire BIK Karlskoga",
-   "conseil_cote": 1.27,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — BIK Karlskoga @ 1.27",
-   "value_cote": 1.27,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "1 - 3"
-  },
-  {
    "fixture_id": "hockey_433631",
    "flag": "🏒",
    "league": "DEL (Germany)",
@@ -745,6 +710,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "4 - 0"
+  },
+  {
+   "fixture_id": "hockey_427400",
+   "flag": "🏒",
+   "league": "Hockey Allsvenskan (Sweden)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "BIK Karlskoga – Vimmerby",
+   "kickoff_at": "2026-09-27T12:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/519.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/1194.png",
+   "result_updated_at": "2026-09-27T16:30:25.937921+02:00",
+   "conseil": "Victoire BIK Karlskoga",
+   "conseil_cote": 1.27,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — BIK Karlskoga @ 1.27",
+   "value_cote": 1.27,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "1 - 3"
   },
   {
    "fixture_id": "tennis_espn_wta_184015",
@@ -871,28 +858,6 @@
    "score": "1 - 4"
   },
   {
-   "fixture_id": "hockey_426288",
-   "flag": "🏒",
-   "league": "Extraliga (Czech-Republic)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Vitkovice – Mlada Boleslav",
-   "kickoff_at": "2026-09-27T14:30:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/136.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/129.png",
-   "result_updated_at": "2026-09-27T19:00:41.301632+02:00",
-   "conseil": "Victoire Vitkovice",
-   "conseil_cote": 1.72,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Vitkovice @ 1.72",
-   "value_cote": 1.72,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "6 - 2"
-  },
-  {
    "fixture_id": "hockey_427402",
    "flag": "🏒",
    "league": "Hockey Allsvenskan (Sweden)",
@@ -913,6 +878,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "2 - 1"
+  },
+  {
+   "fixture_id": "hockey_426288",
+   "flag": "🏒",
+   "league": "Extraliga (Czech-Republic)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Vitkovice – Mlada Boleslav",
+   "kickoff_at": "2026-09-27T14:30:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/136.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/129.png",
+   "result_updated_at": "2026-09-27T19:00:41.301632+02:00",
+   "conseil": "Victoire Vitkovice",
+   "conseil_cote": 1.72,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Vitkovice @ 1.72",
+   "value_cote": 1.72,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6 - 2"
   },
   {
    "fixture_id": "hockey_435761",
@@ -957,6 +944,40 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6 - 2"
+  },
+  {
+   "fixture_id": "nfl_401872950",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Pittsburgh Steelers – Cincinnati Bengals",
+   "kickoff_at": "2026-09-27T17:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-27T21:34:01.629341+02:00",
+   "value_bet": "Moins de 42.5 @ 1.9524",
+   "value_cote": 1.95,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "24 - 27 (en cours)"
+  },
+  {
+   "fixture_id": "nfl_401872955",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Washington Commanders – Seattle Seahawks",
+   "kickoff_at": "2026-09-27T17:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-27T21:33:47.153168+02:00",
+   "value_bet": "Moins de 40.5 @ 1.9091",
+   "value_cote": 1.91,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "24 - 17 (en cours)"
   }
  ]
 }
