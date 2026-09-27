@@ -1,6 +1,24 @@
 {
- "generated_at": "2026-09-27T13:45:26.169597+00:00",
+ "generated_at": "2026-09-27T14:15:30.466368+00:00",
  "live": [
+  {
+   "fixture_id": "hockey_433633",
+   "flag": "🏒",
+   "league": "DEL (Germany)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Munchen – Frankfurt Lowen",
+   "kickoff_at": "2026-09-27T12:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/253.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/262.png",
+   "conseil": "Victoire Munchen",
+   "conseil_cote": 1.24,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Munchen @ 1.24",
+   "value_cote": 1.24,
+   "value_mise_eur": 200.0
+  },
   {
    "fixture_id": "hockey_427400",
    "flag": "🏒",
@@ -36,52 +54,6 @@
    "value_bet": "Vainqueur (prol. incluse) — Eisbaren Berlin @ 1.18",
    "value_cote": 1.18,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "hockey_433633",
-   "flag": "🏒",
-   "league": "DEL (Germany)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Munchen – Frankfurt Lowen",
-   "kickoff_at": "2026-09-27T12:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/253.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/262.png",
-   "conseil": "Victoire Munchen",
-   "conseil_cote": 1.24,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Munchen @ 1.24",
-   "value_cote": 1.24,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184015",
-   "flag": "🎾",
-   "league": "Turk Telekom Ankara Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Teodora Kostovic – Berfu Cengiz",
-   "kickoff_at": "2026-09-27T12:05Z",
-   "published": true,
-   "home_photo": "assets/players/teodora kostovic.png",
-   "away_photo": "assets/players/berfu cengiz.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.61,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.613",
-   "value_cote": 1.61,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Teodora Kostovic",
-     "kind": "player",
-     "detail": "cote 1.52",
-     "odd": 1.518,
-     "mise_eur": 200.0
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_atp_183373",
@@ -196,6 +168,24 @@
    "conseil_mise_eur": 200.0,
    "value_bet": "Vainqueur (prol. incluse) — Liptovsky Mikulas @ 1.26",
    "value_cote": 1.26,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "hockey_447121",
+   "flag": "🏒",
+   "league": "ICE Hockey League (Austria)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Klagenfurt – Graz99ers",
+   "kickoff_at": "2026-09-27T15:30:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/749.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/748.png",
+   "conseil": "Victoire Klagenfurt",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Klagenfurt @ 1.31",
+   "value_cote": 1.31,
    "value_mise_eur": 200.0
   }
  ],
@@ -801,6 +791,39 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-1, 6-2"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184015",
+   "flag": "🎾",
+   "league": "Turk Telekom Ankara Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Teodora Kostovic – Berfu Cengiz",
+   "kickoff_at": "2026-09-27T12:05Z",
+   "published": true,
+   "home_photo": "assets/players/teodora kostovic.png",
+   "away_photo": "assets/players/berfu cengiz.png",
+   "result_updated_at": "2026-09-27T16:15:26.556842+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.61,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.613",
+   "value_cote": 1.61,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-2, 4-6, 5-7",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Teodora Kostovic",
+     "kind": "player",
+     "detail": "cote 1.52",
+     "odd": 1.518,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
