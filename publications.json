@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-27T06:44:37.890193+00:00",
+ "generated_at": "2026-09-27T07:30:26.203329+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_183371",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Kyrian Jacquet – Fabian Marozsan",
-   "kickoff_at": "2026-09-27T05:35Z",
-   "published": true,
-   "home_photo": "assets/players/kyrian jacquet.png",
-   "away_photo": "assets/players/fabian marozsan.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.65,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
-   "value_cote": 1.65,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Fabian Marozsan",
-     "kind": "player",
-     "detail": "cote 1.73",
-     "odd": 1.73,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_wta_184061",
    "flag": "🎾",
@@ -54,7 +26,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Alejandro Davidovich Fokina – Alexandre Muller",
-   "kickoff_at": "2026-09-27T06:40Z",
+   "kickoff_at": "2026-09-27T07:00Z",
    "published": true,
    "home_photo": "assets/players/alejandro davidovich fokina.png",
    "away_photo": "assets/players/alexandre muller.png",
@@ -82,7 +54,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Andrey Rublev – Hugo Gaston",
-   "kickoff_at": "2026-09-27T07:00Z",
+   "kickoff_at": "2026-09-27T07:30Z",
    "published": true,
    "home_photo": "assets/players/andrey rublev.png",
    "away_photo": "assets/players/hugo gaston.png",
@@ -99,6 +71,34 @@
      "kind": "player",
      "detail": "cote 1.22",
      "odd": 1.224,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183414",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Denis Shapovalov – Adrian Mannarino",
+   "kickoff_at": "2026-09-27T08:00Z",
+   "published": true,
+   "home_photo": "assets/players/denis shapovalov.png",
+   "away_photo": "assets/players/adrian mannarino.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.51,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.515",
+   "value_cote": 1.51,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Denis Shapovalov",
+     "kind": "player",
+     "detail": "cote 1.37",
+     "odd": 1.368,
      "mise_eur": 200.0
     }
    ]
@@ -446,6 +446,39 @@
      "kind": "player",
      "detail": "cote 1.79",
      "odd": 1.794,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183371",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Kyrian Jacquet – Fabian Marozsan",
+   "kickoff_at": "2026-09-27T05:35Z",
+   "published": true,
+   "home_photo": "assets/players/kyrian jacquet.png",
+   "away_photo": "assets/players/fabian marozsan.png",
+   "result_updated_at": "2026-09-27T09:29:25.649231+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.65,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.645",
+   "value_cote": 1.65,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "7-6, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Fabian Marozsan",
+     "kind": "player",
+     "detail": "cote 1.73",
+     "odd": 1.73,
      "mise_eur": 200.0,
      "result": "PERDU"
     }
