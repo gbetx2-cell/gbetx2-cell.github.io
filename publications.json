@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-27T06:30:26.146216+00:00",
+ "generated_at": "2026-09-27T06:44:37.890193+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_183418",
-   "flag": "🎾",
-   "league": "Chengdu Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Nikoloz Basilashvili – Jenson Brooksby",
-   "kickoff_at": "2026-09-27T05:05Z",
-   "published": true,
-   "home_photo": "assets/players/nikoloz basilashvili.png",
-   "away_photo": "assets/players/jenson brooksby.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.61,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.613",
-   "value_cote": 1.61,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Jenson Brooksby",
-     "kind": "player",
-     "detail": "cote 1.79",
-     "odd": 1.794,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_183371",
    "flag": "🎾",
@@ -64,7 +36,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Kimberly Birrell – Maya Joint",
-   "kickoff_at": "2026-09-27T06:30Z",
+   "kickoff_at": "2026-09-27T06:35Z",
    "published": true,
    "home_photo": "assets/players/kimberly birrell.png",
    "away_photo": "assets/players/maya joint.png",
@@ -445,6 +417,39 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "3-6, 5-7"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183418",
+   "flag": "🎾",
+   "league": "Chengdu Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Nikoloz Basilashvili – Jenson Brooksby",
+   "kickoff_at": "2026-09-27T05:05Z",
+   "published": true,
+   "home_photo": "assets/players/nikoloz basilashvili.png",
+   "away_photo": "assets/players/jenson brooksby.png",
+   "result_updated_at": "2026-09-27T08:44:26.888808+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.61,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.613",
+   "value_cote": 1.61,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6-4, 7-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Jenson Brooksby",
+     "kind": "player",
+     "detail": "cote 1.79",
+     "odd": 1.794,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   }
  ]
 }
