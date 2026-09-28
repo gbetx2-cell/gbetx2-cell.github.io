@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28T04:30:49.270712+00:00",
+ "generated_at": "2026-09-28T05:27:00.251603+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_186257",
@@ -30,51 +30,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_186243",
-   "flag": "🎾",
-   "league": "Kinoshita Group Japan Open Tennis Championships",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Martin Damm – Arthur Fils",
-   "kickoff_at": "2026-09-28T03:30Z",
-   "published": true,
-   "away_photo": "assets/players/arthur fils.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.43,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.426",
-   "value_cote": 1.43,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Arthur Fils",
-     "kind": "player",
-     "detail": "cote 1.19",
-     "odd": 1.187,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_186253",
-   "flag": "🎾",
-   "league": "China Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Vit Kopriva – Alex Molcan",
-   "kickoff_at": "2026-09-28T04:30Z",
-   "published": true,
-   "home_photo": "assets/players/vit kopriva.png",
-   "away_photo": "assets/players/alex molcan.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.65,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.649",
-   "value_cote": 1.65,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_186255",
    "flag": "🎾",
    "league": "China Open",
@@ -101,6 +56,24 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186253",
+   "flag": "🎾",
+   "league": "China Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Vit Kopriva – Alex Molcan",
+   "kickoff_at": "2026-09-28T04:30Z",
+   "published": true,
+   "home_photo": "assets/players/vit kopriva.png",
+   "away_photo": "assets/players/alex molcan.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.65,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.649",
+   "value_cote": 1.65,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_186245",
@@ -1196,6 +1169,38 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "5-7, 2-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186243",
+   "flag": "🎾",
+   "league": "Kinoshita Group Japan Open Tennis Championships",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Martin Damm – Arthur Fils",
+   "kickoff_at": "2026-09-28T03:30Z",
+   "published": true,
+   "away_photo": "assets/players/arthur fils.png",
+   "result_updated_at": "2026-09-28T07:26:48.008605+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.43,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.426",
+   "value_cote": 1.43,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-2, 1-6, 1-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Arthur Fils",
+     "kind": "player",
+     "detail": "cote 1.19",
+     "odd": 1.187,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
