@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-28T00:30:54.878947+00:00",
+ "generated_at": "2026-09-28T00:32:58.513445+00:00",
  "live": [
-  {
-   "fixture_id": "wnba_401918013",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Atlanta Dream – Washington Mystics",
-   "kickoff_at": "2026-09-27T23:00Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "DeWanna Bonner — Points Plus de 8.5",
-     "kind": "player",
-     "detail": "cote 2.02",
-     "odd": 2.02,
-     "mise_eur": 200.0
-    },
-    {
-     "category": "Player pick",
-     "label": "Naz Hillmon — Points Plus de 7.5",
-     "kind": "player",
-     "detail": "cote 2.10",
-     "odd": 2.1,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "wnba_401918016",
    "flag": "🏀",
@@ -1054,6 +1026,37 @@
    "value_result": "GAGNÉ",
    "result": "GAGNÉ",
    "score": "16 - 23"
+  },
+  {
+   "fixture_id": "wnba_401918013",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Atlanta Dream – Washington Mystics",
+   "kickoff_at": "2026-09-27T23:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-28T02:32:47.269283+02:00",
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "DeWanna Bonner — Points Plus de 8.5",
+     "kind": "player",
+     "detail": "cote 2.02",
+     "odd": 2.02,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "category": "Player pick",
+     "label": "Naz Hillmon — Points Plus de 7.5",
+     "kind": "player",
+     "detail": "cote 2.10",
+     "odd": 2.1,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ]
 }
