@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28T09:55:14.388120+00:00",
+ "generated_at": "2026-09-28T10:34:08.190281+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_186251",
@@ -86,34 +86,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184140",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Vendula Valdmannova – Antonia Ruzic",
-   "kickoff_at": "2026-09-28T08:35Z",
-   "published": true,
-   "home_photo": "assets/players/vendula valdmannova.png",
-   "away_photo": "assets/players/antonia ruzic.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.562",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Antonia Ruzic",
-     "kind": "player",
-     "detail": "cote 1.80",
-     "odd": 1.8,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
    "fixture_id": "tennis_espn_atp_183421",
    "flag": "🎾",
    "league": "Chengdu Open",
@@ -170,6 +142,21 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_wta_184124",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Suzan Lamens – Leolia Jeanjean",
+   "kickoff_at": "2026-09-28T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/suzan lamens.png",
+   "away_photo": "assets/players/leolia jeanjean.png",
+   "conseil": "Victoire Leolia Jeanjean",
+   "conseil_cote": 1.81,
+   "conseil_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_wta_184132",
    "flag": "🎾",
    "league": "Adana Open",
@@ -196,21 +183,6 @@
      "mise_eur": 200.0
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184124",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Suzan Lamens – Leolia Jeanjean",
-   "kickoff_at": "2026-09-28T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/suzan lamens.png",
-   "away_photo": "assets/players/leolia jeanjean.png",
-   "conseil": "Victoire Leolia Jeanjean",
-   "conseil_cote": 1.81,
-   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -1124,6 +1096,39 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "3-6, 2-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184140",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Vendula Valdmannova – Antonia Ruzic",
+   "kickoff_at": "2026-09-28T08:35Z",
+   "published": true,
+   "home_photo": "assets/players/vendula valdmannova.png",
+   "away_photo": "assets/players/antonia ruzic.png",
+   "result_updated_at": "2026-09-28T12:33:49.464075+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.562",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "4-6, 3-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Antonia Ruzic",
+     "kind": "player",
+     "detail": "cote 1.80",
+     "odd": 1.8,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
