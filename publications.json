@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28T09:23:13.761217+00:00",
+ "generated_at": "2026-09-28T09:30:52.826351+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_186251",
@@ -30,6 +30,24 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_186247",
+   "flag": "🎾",
+   "league": "Kinoshita Group Japan Open Tennis Championships",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Taro Daniel – Adolfo Daniel Vallejo",
+   "kickoff_at": "2026-09-28T08:00Z",
+   "published": true,
+   "home_photo": "assets/players/taro daniel.png",
+   "away_photo": "assets/players/adolfo daniel vallejo.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.529",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0
+  },
+  {
    "fixture_id": "tennis_espn_atp_186256",
    "flag": "🎾",
    "league": "China Open",
@@ -58,22 +76,32 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_186247",
+   "fixture_id": "tennis_espn_wta_184125",
    "flag": "🎾",
-   "league": "Kinoshita Group Japan Open Tennis Championships",
+   "league": "Adana Open",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Taro Daniel – Adolfo Daniel Vallejo",
-   "kickoff_at": "2026-09-28T08:00Z",
+   "match": "Anna Blinkova – Emiliana Arango",
+   "kickoff_at": "2026-09-28T08:35Z",
    "published": true,
-   "home_photo": "assets/players/taro daniel.png",
-   "away_photo": "assets/players/adolfo daniel vallejo.png",
+   "home_photo": "assets/players/anna blinkova.png",
+   "away_photo": "assets/players/emiliana arango.png",
    "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.53,
+   "conseil_cote": 1.57,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.529",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0
+   "value_bet": "Total sets — Moins de 2.5 @ 1.575",
+   "value_cote": 1.57,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Anna Blinkova",
+     "kind": "player",
+     "detail": "cote 1.41",
+     "odd": 1.413,
+     "mise_eur": 200.0
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_wta_184140",
@@ -99,34 +127,6 @@
      "kind": "player",
      "detail": "cote 1.80",
      "odd": 1.8,
-     "mise_eur": 200.0
-    }
-   ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184125",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anna Blinkova – Emiliana Arango",
-   "kickoff_at": "2026-09-28T08:35Z",
-   "published": true,
-   "home_photo": "assets/players/anna blinkova.png",
-   "away_photo": "assets/players/emiliana arango.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.575",
-   "value_cote": 1.57,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Anna Blinkova",
-     "kind": "player",
-     "detail": "cote 1.41",
-     "odd": 1.413,
      "mise_eur": 200.0
     }
    ]
@@ -183,6 +183,34 @@
      "kind": "player",
      "detail": "cote 1.38",
      "odd": 1.38,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184132",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Lucrezia Stefanini – Elena Ruxandra Bertea",
+   "kickoff_at": "2026-09-28T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/lucrezia stefanini.png",
+   "away_photo": "assets/players/elena ruxandra bertea.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.32,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.317",
+   "value_cote": 1.32,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Lucrezia Stefanini",
+     "kind": "player",
+     "detail": "cote 1.11",
+     "odd": 1.114,
      "mise_eur": 200.0
     }
    ]
