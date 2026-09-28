@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-28T06:00:54.157275+00:00",
+ "generated_at": "2026-09-28T06:21:00.427005+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_186257",
-   "flag": "🎾",
-   "league": "China Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Tomas Machac – Yannick Hanfmann",
-   "kickoff_at": "2026-09-28T03:00Z",
-   "published": true,
-   "home_photo": "assets/players/tomas machac.png",
-   "away_photo": "assets/players/yannick hanfmann.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.63,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.629",
-   "value_cote": 1.63,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Yannick Hanfmann",
-     "kind": "player",
-     "detail": "cote 1.75",
-     "odd": 1.752,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_186255",
    "flag": "🎾",
@@ -91,21 +63,6 @@
    "conseil_mise_eur": 200.0
   },
   {
-   "fixture_id": "tennis_espn_wta_184176",
-   "flag": "🎾",
-   "league": "Jingshan Tennis Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Emerson Jones – Haruka Kaji",
-   "kickoff_at": "2026-09-28T06:30Z",
-   "published": true,
-   "home_photo": "assets/players/emerson jones.png",
-   "away_photo": "assets/players/haruka kaji.png",
-   "conseil": "Victoire Emerson Jones",
-   "conseil_cote": 1.31,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_186246",
    "flag": "🎾",
    "league": "Kinoshita Group Japan Open Tennis Championships",
@@ -132,6 +89,21 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184176",
+   "flag": "🎾",
+   "league": "Jingshan Tennis Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Emerson Jones – Haruka Kaji",
+   "kickoff_at": "2026-09-28T06:30Z",
+   "published": true,
+   "home_photo": "assets/players/emerson jones.png",
+   "away_photo": "assets/players/haruka kaji.png",
+   "conseil": "Victoire Emerson Jones",
+   "conseil_cote": 1.31,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -834,6 +806,39 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "5-7, 2-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186257",
+   "flag": "🎾",
+   "league": "China Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Tomas Machac – Yannick Hanfmann",
+   "kickoff_at": "2026-09-28T03:00Z",
+   "published": true,
+   "home_photo": "assets/players/tomas machac.png",
+   "away_photo": "assets/players/yannick hanfmann.png",
+   "result_updated_at": "2026-09-28T08:20:48.064767+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.63,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.629",
+   "value_cote": 1.63,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "7-6, 6-7, 6-4",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Yannick Hanfmann",
+     "kind": "player",
+     "detail": "cote 1.75",
+     "odd": 1.752,
+     "mise_eur": 200.0,
+     "result": "PERDU"
+    }
+   ]
   },
   {
    "fixture_id": "tennis_espn_atp_186243",
