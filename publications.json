@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-28T11:11:12.204107+00:00",
+ "generated_at": "2026-09-28T12:57:04.460298+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_186251",
-   "flag": "🎾",
-   "league": "China Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Valentin Royer – Botic Van De Zandschulp",
-   "kickoff_at": "2026-09-28T07:30Z",
-   "published": true,
-   "home_photo": "assets/players/valentin royer.png",
-   "away_photo": "assets/players/botic van de zandschulp.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.63,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.633",
-   "value_cote": 1.63,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Botic Van De Zandschulp",
-     "kind": "player",
-     "detail": "cote 1.49",
-     "odd": 1.485,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_186256",
    "flag": "🎾",
@@ -58,21 +30,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184124",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Suzan Lamens – Leolia Jeanjean",
-   "kickoff_at": "2026-09-28T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/suzan lamens.png",
-   "away_photo": "assets/players/leolia jeanjean.png",
-   "conseil": "Victoire Leolia Jeanjean",
-   "conseil_cote": 1.81,
-   "conseil_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_wta_184132",
    "flag": "🎾",
    "league": "Adana Open",
@@ -99,6 +56,21 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184124",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Suzan Lamens – Leolia Jeanjean",
+   "kickoff_at": "2026-09-28T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/suzan lamens.png",
+   "away_photo": "assets/players/leolia jeanjean.png",
+   "conseil": "Victoire Leolia Jeanjean",
+   "conseil_cote": 1.81,
+   "conseil_mise_eur": 200.0
   }
  ],
  "done": [
@@ -992,6 +964,39 @@
    "score": "6-2, 6-4"
   },
   {
+   "fixture_id": "tennis_espn_atp_186251",
+   "flag": "🎾",
+   "league": "China Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Valentin Royer – Botic Van De Zandschulp",
+   "kickoff_at": "2026-09-28T07:30Z",
+   "published": true,
+   "home_photo": "assets/players/valentin royer.png",
+   "away_photo": "assets/players/botic van de zandschulp.png",
+   "result_updated_at": "2026-09-28T14:56:47.986390+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.63,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.633",
+   "value_cote": 1.63,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "6-4, 2-6, 4-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Botic Van De Zandschulp",
+     "kind": "player",
+     "detail": "cote 1.49",
+     "odd": 1.485,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
    "fixture_id": "tennis_espn_atp_186247",
    "flag": "🎾",
    "league": "Kinoshita Group Japan Open Tennis Championships",
@@ -1012,39 +1017,6 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "3-6, 2-6"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184140",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Vendula Valdmannova – Antonia Ruzic",
-   "kickoff_at": "2026-09-28T08:35Z",
-   "published": true,
-   "home_photo": "assets/players/vendula valdmannova.png",
-   "away_photo": "assets/players/antonia ruzic.png",
-   "result_updated_at": "2026-09-28T12:33:49.464075+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.56,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.562",
-   "value_cote": 1.56,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "4-6, 3-6",
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Antonia Ruzic",
-     "kind": "player",
-     "detail": "cote 1.80",
-     "odd": 1.8,
-     "mise_eur": 200.0,
-     "result": "GAGNE"
-    }
-   ]
   },
   {
    "fixture_id": "tennis_espn_wta_184125",
@@ -1074,6 +1046,39 @@
      "kind": "player",
      "detail": "cote 1.41",
      "odd": 1.413,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184140",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Vendula Valdmannova – Antonia Ruzic",
+   "kickoff_at": "2026-09-28T08:35Z",
+   "published": true,
+   "home_photo": "assets/players/vendula valdmannova.png",
+   "away_photo": "assets/players/antonia ruzic.png",
+   "result_updated_at": "2026-09-28T12:33:49.464075+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.56,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.562",
+   "value_cote": 1.56,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "4-6, 3-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Antonia Ruzic",
+     "kind": "player",
+     "detail": "cote 1.80",
+     "odd": 1.8,
      "mise_eur": 200.0,
      "result": "GAGNE"
     }
