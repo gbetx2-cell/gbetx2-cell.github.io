@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28T06:21:00.427005+00:00",
+ "generated_at": "2026-09-28T07:00:49.448072+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_186255",
@@ -97,13 +97,41 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Emerson Jones – Haruka Kaji",
-   "kickoff_at": "2026-09-28T06:30Z",
+   "kickoff_at": "2026-09-28T06:45Z",
    "published": true,
    "home_photo": "assets/players/emerson jones.png",
    "away_photo": "assets/players/haruka kaji.png",
    "conseil": "Victoire Emerson Jones",
    "conseil_cote": 1.31,
    "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186251",
+   "flag": "🎾",
+   "league": "China Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Valentin Royer – Botic Van De Zandschulp",
+   "kickoff_at": "2026-09-28T07:30Z",
+   "published": true,
+   "home_photo": "assets/players/valentin royer.png",
+   "away_photo": "assets/players/botic van de zandschulp.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.63,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.633",
+   "value_cote": 1.63,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Botic Van De Zandschulp",
+     "kind": "player",
+     "detail": "cote 1.49",
+     "odd": 1.485,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -313,28 +341,6 @@
    ]
   },
   {
-   "fixture_id": "hockey_433631",
-   "flag": "🏒",
-   "league": "DEL (Germany)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Eisbaren Berlin – Iserlohn Roosters",
-   "kickoff_at": "2026-09-27T12:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/248.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/250.png",
-   "result_updated_at": "2026-09-27T16:30:39.812390+02:00",
-   "conseil": "Victoire Eisbaren Berlin",
-   "conseil_cote": 1.18,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Eisbaren Berlin @ 1.18",
-   "value_cote": 1.18,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "4 - 0"
-  },
-  {
    "fixture_id": "hockey_427400",
    "flag": "🏒",
    "league": "Hockey Allsvenskan (Sweden)",
@@ -357,6 +363,28 @@
    "score": "1 - 3"
   },
   {
+   "fixture_id": "hockey_433631",
+   "flag": "🏒",
+   "league": "DEL (Germany)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Eisbaren Berlin – Iserlohn Roosters",
+   "kickoff_at": "2026-09-27T12:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/248.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/250.png",
+   "result_updated_at": "2026-09-27T16:30:39.812390+02:00",
+   "conseil": "Victoire Eisbaren Berlin",
+   "conseil_cote": 1.18,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Eisbaren Berlin @ 1.18",
+   "value_cote": 1.18,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "4 - 0"
+  },
+  {
    "fixture_id": "hockey_433633",
    "flag": "🏒",
    "league": "DEL (Germany)",
@@ -377,24 +405,6 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "1 - 4"
-  },
-  {
-   "fixture_id": "tennis_espn_wta_186198",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasia Tikhonova – Viktoria Hruncakova",
-   "kickoff_at": "2026-09-27T12:05Z",
-   "published": true,
-   "home_photo": "assets/players/anastasia tikhonova.png",
-   "away_photo": "assets/players/viktoria hruncakova.jpg",
-   "result_updated_at": "2026-09-27T15:28:26.752277+02:00",
-   "conseil": "Victoire Viktoria Hruncakova",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-1, 6-2"
   },
   {
    "fixture_id": "tennis_espn_wta_184015",
@@ -428,6 +438,24 @@
      "result": "PERDU"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_186198",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasia Tikhonova – Viktoria Hruncakova",
+   "kickoff_at": "2026-09-27T12:05Z",
+   "published": true,
+   "home_photo": "assets/players/anastasia tikhonova.png",
+   "away_photo": "assets/players/viktoria hruncakova.jpg",
+   "result_updated_at": "2026-09-27T15:28:26.752277+02:00",
+   "conseil": "Victoire Viktoria Hruncakova",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-1, 6-2"
   },
   {
    "fixture_id": "tennis_espn_atp_183373",
@@ -591,6 +619,40 @@
    "score": "6 - 2"
   },
   {
+   "fixture_id": "nfl_401872950",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Pittsburgh Steelers – Cincinnati Bengals",
+   "kickoff_at": "2026-09-27T17:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-27T21:34:01.629341+02:00",
+   "value_bet": "Moins de 42.5 @ 1.9524",
+   "value_cote": 1.95,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "24 - 27 (en cours)"
+  },
+  {
+   "fixture_id": "nfl_401872953",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Buffalo Bills – Los Angeles Chargers",
+   "kickoff_at": "2026-09-27T17:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-27T22:34:47.766199+02:00",
+   "value_bet": "Los Angeles Chargers +7.0 @ 1.9091",
+   "value_cote": 1.91,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "24 - 16"
+  },
+  {
    "fixture_id": "nfl_401872949",
    "flag": "🏈",
    "league": "NFL",
@@ -640,40 +702,6 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "24 - 17 (en cours)"
-  },
-  {
-   "fixture_id": "nfl_401872953",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Buffalo Bills – Los Angeles Chargers",
-   "kickoff_at": "2026-09-27T17:00Z",
-   "published": true,
-   "result_updated_at": "2026-09-27T22:34:47.766199+02:00",
-   "value_bet": "Los Angeles Chargers +7.0 @ 1.9091",
-   "value_cote": 1.91,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "24 - 16"
-  },
-  {
-   "fixture_id": "nfl_401872950",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Pittsburgh Steelers – Cincinnati Bengals",
-   "kickoff_at": "2026-09-27T17:00Z",
-   "published": true,
-   "result_updated_at": "2026-09-27T21:34:01.629341+02:00",
-   "value_bet": "Moins de 42.5 @ 1.9524",
-   "value_cote": 1.95,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
-   "result": "PERDU",
-   "score": "24 - 27 (en cours)"
   },
   {
    "fixture_id": "wnba_401918014",
