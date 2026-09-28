@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28T08:43:00.446262+00:00",
+ "generated_at": "2026-09-28T09:00:48.711360+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_atp_186253",
@@ -48,24 +48,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_186247",
-   "flag": "🎾",
-   "league": "Kinoshita Group Japan Open Tennis Championships",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Taro Daniel – Adolfo Daniel Vallejo",
-   "kickoff_at": "2026-09-28T08:00Z",
-   "published": true,
-   "home_photo": "assets/players/taro daniel.png",
-   "away_photo": "assets/players/adolfo daniel vallejo.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.529",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0
-  },
-  {
    "fixture_id": "tennis_espn_atp_186256",
    "flag": "🎾",
    "league": "China Open",
@@ -92,6 +74,24 @@
      "mise_eur": 200.0
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186247",
+   "flag": "🎾",
+   "league": "Kinoshita Group Japan Open Tennis Championships",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Taro Daniel – Adolfo Daniel Vallejo",
+   "kickoff_at": "2026-09-28T08:00Z",
+   "published": true,
+   "home_photo": "assets/players/taro daniel.png",
+   "away_photo": "assets/players/adolfo daniel vallejo.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.529",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_wta_184140",
@@ -156,7 +156,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Alejandro Davidovich Fokina – Nikoloz Basilashvili",
-   "kickoff_at": "2026-09-28T09:00Z",
+   "kickoff_at": "2026-09-28T09:05Z",
    "published": true,
    "home_photo": "assets/players/alejandro davidovich fokina.png",
    "away_photo": "assets/players/nikoloz basilashvili.png",
@@ -173,6 +173,34 @@
      "kind": "player",
      "detail": "cote 1.34",
      "odd": 1.342,
+     "mise_eur": 200.0
+    }
+   ]
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183374",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Andrey Rublev – Kyrian Jacquet",
+   "kickoff_at": "2026-09-28T09:30Z",
+   "published": true,
+   "home_photo": "assets/players/andrey rublev.png",
+   "away_photo": "assets/players/kyrian jacquet.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.54,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.541",
+   "value_cote": 1.54,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Andrey Rublev",
+     "kind": "player",
+     "detail": "cote 1.38",
+     "odd": 1.38,
      "mise_eur": 200.0
     }
    ]
@@ -407,6 +435,28 @@
    "score": "1 - 3"
   },
   {
+   "fixture_id": "hockey_433633",
+   "flag": "🏒",
+   "league": "DEL (Germany)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Munchen – Frankfurt Lowen",
+   "kickoff_at": "2026-09-27T12:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/253.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/262.png",
+   "result_updated_at": "2026-09-27T16:30:45.369907+02:00",
+   "conseil": "Victoire Munchen",
+   "conseil_cote": 1.24,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Munchen @ 1.24",
+   "value_cote": 1.24,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "1 - 4"
+  },
+  {
    "fixture_id": "hockey_433631",
    "flag": "🏒",
    "league": "DEL (Germany)",
@@ -429,26 +479,22 @@
    "score": "4 - 0"
   },
   {
-   "fixture_id": "hockey_433633",
-   "flag": "🏒",
-   "league": "DEL (Germany)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Munchen – Frankfurt Lowen",
-   "kickoff_at": "2026-09-27T12:00:00+00:00",
+   "fixture_id": "tennis_espn_wta_186198",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Anastasia Tikhonova – Viktoria Hruncakova",
+   "kickoff_at": "2026-09-27T12:05Z",
    "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/253.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/262.png",
-   "result_updated_at": "2026-09-27T16:30:45.369907+02:00",
-   "conseil": "Victoire Munchen",
-   "conseil_cote": 1.24,
+   "home_photo": "assets/players/anastasia tikhonova.png",
+   "away_photo": "assets/players/viktoria hruncakova.jpg",
+   "result_updated_at": "2026-09-27T15:28:26.752277+02:00",
+   "conseil": "Victoire Viktoria Hruncakova",
+   "conseil_cote": 1.53,
    "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Munchen @ 1.24",
-   "value_cote": 1.24,
-   "value_mise_eur": 200.0,
-   "value_result": "PERDU",
    "result": "PERDU",
-   "score": "1 - 4"
+   "score": "6-1, 6-2"
   },
   {
    "fixture_id": "tennis_espn_wta_184015",
@@ -482,24 +528,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_186198",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Anastasia Tikhonova – Viktoria Hruncakova",
-   "kickoff_at": "2026-09-27T12:05Z",
-   "published": true,
-   "home_photo": "assets/players/anastasia tikhonova.png",
-   "away_photo": "assets/players/viktoria hruncakova.jpg",
-   "result_updated_at": "2026-09-27T15:28:26.752277+02:00",
-   "conseil": "Victoire Viktoria Hruncakova",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-1, 6-2"
   },
   {
    "fixture_id": "tennis_espn_atp_183373",
@@ -575,28 +603,6 @@
    "score": "1 - 4"
   },
   {
-   "fixture_id": "hockey_427402",
-   "flag": "🏒",
-   "league": "Hockey Allsvenskan (Sweden)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "AIK – Mora",
-   "kickoff_at": "2026-09-27T14:30:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/517.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/523.png",
-   "result_updated_at": "2026-09-27T19:00:25.326449+02:00",
-   "conseil": "Victoire AIK",
-   "conseil_cote": 1.35,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — AIK @ 1.35",
-   "value_cote": 1.35,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "2 - 1"
-  },
-  {
    "fixture_id": "hockey_426288",
    "flag": "🏒",
    "league": "Extraliga (Czech-Republic)",
@@ -617,6 +623,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6 - 2"
+  },
+  {
+   "fixture_id": "hockey_427402",
+   "flag": "🏒",
+   "league": "Hockey Allsvenskan (Sweden)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "AIK – Mora",
+   "kickoff_at": "2026-09-27T14:30:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/517.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/523.png",
+   "result_updated_at": "2026-09-27T19:00:25.326449+02:00",
+   "conseil": "Victoire AIK",
+   "conseil_cote": 1.35,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — AIK @ 1.35",
+   "value_cote": 1.35,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "2 - 1"
   },
   {
    "fixture_id": "hockey_435761",
@@ -663,6 +691,23 @@
    "score": "6 - 2"
   },
   {
+   "fixture_id": "nfl_401872949",
+   "flag": "🏈",
+   "league": "NFL",
+   "sport": "nfl",
+   "sport_label": "Football US (NFL)",
+   "match": "Cleveland Browns – Carolina Panthers",
+   "kickoff_at": "2026-09-27T17:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-27T22:35:00.987904+02:00",
+   "value_bet": "Moins de 41.5 @ 1.9259",
+   "value_cote": 1.93,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNÉ",
+   "result": "GAGNÉ",
+   "score": "21 - 18"
+  },
+  {
    "fixture_id": "nfl_401872950",
    "flag": "🏈",
    "league": "NFL",
@@ -695,23 +740,6 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "24 - 16"
-  },
-  {
-   "fixture_id": "nfl_401872949",
-   "flag": "🏈",
-   "league": "NFL",
-   "sport": "nfl",
-   "sport_label": "Football US (NFL)",
-   "match": "Cleveland Browns – Carolina Panthers",
-   "kickoff_at": "2026-09-27T17:00Z",
-   "published": true,
-   "result_updated_at": "2026-09-27T22:35:00.987904+02:00",
-   "value_bet": "Moins de 41.5 @ 1.9259",
-   "value_cote": 1.93,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNÉ",
-   "result": "GAGNÉ",
-   "score": "21 - 18"
   },
   {
    "fixture_id": "nfl_401872956",
