@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29T14:15:47.713228+00:00",
+ "generated_at": "2026-09-29T16:30:48.599931+00:00",
  "live": [
   {
    "fixture_id": "hockey_425779",
@@ -17,6 +17,24 @@
    "conseil_mise_eur": 200.0,
    "value_bet": "Vainqueur (prol. incluse) — Jokerit @ 1.61",
    "value_cote": 1.61,
+   "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "hockey_428793",
+   "flag": "🏒",
+   "league": "National League (Switzerland)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Rapperswil-Jona – Zug",
+   "kickoff_at": "2026-09-29T17:45:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/553.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/555.png",
+   "conseil": "Victoire Zug",
+   "conseil_cote": 1.66,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Zug @ 1.66",
+   "value_cote": 1.66,
    "value_mise_eur": 200.0
   }
  ],
@@ -428,24 +446,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184180",
-   "flag": "🎾",
-   "league": "Jingshan Tennis Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aliona Falei – Tyra Caterina Grant",
-   "kickoff_at": "2026-09-29T03:05Z",
-   "published": true,
-   "home_photo": "assets/players/aliona falei.png",
-   "away_photo": "assets/players/tyra caterina grant.png",
-   "result_updated_at": "2026-09-29T06:30:48.059898+02:00",
-   "conseil": "Victoire Tyra Caterina Grant",
-   "conseil_cote": 1.5,
-   "conseil_mise_eur": 200.0,
-   "result": "PERDU",
-   "score": "6-4, 6-1"
-  },
-  {
    "fixture_id": "tennis_espn_wta_184174",
    "flag": "🎾",
    "league": "Jingshan Tennis Open",
@@ -462,6 +462,24 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "5-7, 3-6"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184180",
+   "flag": "🎾",
+   "league": "Jingshan Tennis Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Aliona Falei – Tyra Caterina Grant",
+   "kickoff_at": "2026-09-29T03:05Z",
+   "published": true,
+   "home_photo": "assets/players/aliona falei.png",
+   "away_photo": "assets/players/tyra caterina grant.png",
+   "result_updated_at": "2026-09-29T06:30:48.059898+02:00",
+   "conseil": "Victoire Tyra Caterina Grant",
+   "conseil_cote": 1.5,
+   "conseil_mise_eur": 200.0,
+   "result": "PERDU",
+   "score": "6-4, 6-1"
   },
   {
    "fixture_id": "tennis_espn_atp_186240",
