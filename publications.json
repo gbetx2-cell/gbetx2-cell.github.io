@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-29T12:57:00.648116+00:00",
+ "generated_at": "2026-09-29T13:17:06.275551+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_183376",
-   "flag": "🎾",
-   "league": "AITO Hangzhou Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Andrey Rublev – Daniil Medvedev",
-   "kickoff_at": "2026-09-29T11:40Z",
-   "published": true,
-   "home_photo": "assets/players/andrey rublev.png",
-   "away_photo": "assets/players/daniil medvedev.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.68,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.68",
-   "value_cote": 1.68,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Daniil Medvedev",
-     "kind": "player",
-     "detail": "cote 1.53",
-     "odd": 1.532,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_wta_184143",
    "flag": "🎾",
@@ -630,6 +602,39 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "6-4, 7-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183376",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Andrey Rublev – Daniil Medvedev",
+   "kickoff_at": "2026-09-29T11:40Z",
+   "published": true,
+   "home_photo": "assets/players/andrey rublev.png",
+   "away_photo": "assets/players/daniil medvedev.png",
+   "result_updated_at": "2026-09-29T15:16:47.932033+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.68,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.68",
+   "value_cote": 1.68,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "5-7, 4-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Daniil Medvedev",
+     "kind": "player",
+     "detail": "cote 1.53",
+     "odd": 1.532,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
