@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29T10:30:48.424417+00:00",
+ "generated_at": "2026-09-29T11:00:48.956598+00:00",
  "live": [
   {
    "fixture_id": "tennis_espn_wta_184141",
@@ -36,7 +36,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Lois Boisson – Lucia Bronzetti",
-   "kickoff_at": "2026-09-29T10:30Z",
+   "kickoff_at": "2026-09-29T10:35Z",
    "published": true,
    "home_photo": "assets/players/lois boisson.png",
    "away_photo": "assets/players/lucia bronzetti.png",
@@ -46,21 +46,6 @@
    "value_bet": "Total sets — Moins de 2.5 @ 1.51",
    "value_cote": 1.51,
    "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184143",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Erika Andreeva – Polina Iatcenko",
-   "kickoff_at": "2026-09-29T10:30Z",
-   "published": true,
-   "home_photo": "assets/players/erika andreeva.png",
-   "away_photo": "assets/players/polina iatcenko.png",
-   "conseil": "Victoire Polina Iatcenko",
-   "conseil_cote": 1.64,
-   "conseil_mise_eur": 200.0
   },
   {
    "fixture_id": "tennis_espn_atp_183422",
@@ -79,6 +64,49 @@
    "value_bet": "Total sets — Moins de 2.5 @ 1.68",
    "value_cote": 1.68,
    "value_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184143",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Erika Andreeva – Polina Iatcenko",
+   "kickoff_at": "2026-09-29T11:00Z",
+   "published": true,
+   "home_photo": "assets/players/erika andreeva.png",
+   "away_photo": "assets/players/polina iatcenko.png",
+   "conseil": "Victoire Polina Iatcenko",
+   "conseil_cote": 1.64,
+   "conseil_mise_eur": 200.0
+  },
+  {
+   "fixture_id": "tennis_espn_atp_183376",
+   "flag": "🎾",
+   "league": "AITO Hangzhou Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Andrey Rublev – Daniil Medvedev",
+   "kickoff_at": "2026-09-29T11:30Z",
+   "published": true,
+   "home_photo": "assets/players/andrey rublev.png",
+   "away_photo": "assets/players/daniil medvedev.png",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.68,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.68",
+   "value_cote": 1.68,
+   "value_mise_eur": 200.0,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Daniil Medvedev",
+     "kind": "player",
+     "detail": "cote 1.53",
+     "odd": 1.532,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ],
  "done": [
@@ -354,6 +382,24 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_wta_184124",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Suzan Lamens – Leolia Jeanjean",
+   "kickoff_at": "2026-09-28T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/suzan lamens.png",
+   "away_photo": "assets/players/leolia jeanjean.png",
+   "result_updated_at": "2026-09-28T15:30:47.054865+02:00",
+   "conseil": "Victoire Leolia Jeanjean",
+   "conseil_cote": 1.81,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-4, 3-6, 2-6"
+  },
+  {
    "fixture_id": "tennis_espn_wta_184132",
    "flag": "🎾",
    "league": "Adana Open",
@@ -385,24 +431,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_wta_184124",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Suzan Lamens – Leolia Jeanjean",
-   "kickoff_at": "2026-09-28T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/suzan lamens.png",
-   "away_photo": "assets/players/leolia jeanjean.png",
-   "result_updated_at": "2026-09-28T15:30:47.054865+02:00",
-   "conseil": "Victoire Leolia Jeanjean",
-   "conseil_cote": 1.81,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-4, 3-6, 2-6"
   },
   {
    "fixture_id": "tennis_espn_atp_186238",
@@ -438,24 +466,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_atp_186241",
-   "flag": "🎾",
-   "league": "Kinoshita Group Japan Open Tennis Championships",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aleksandar Kovacevic – Jaume Munar",
-   "kickoff_at": "2026-09-29T03:00Z",
-   "published": true,
-   "home_photo": "assets/players/aleksandar kovacevic.png",
-   "away_photo": "assets/players/jaume munar.png",
-   "result_updated_at": "2026-09-29T06:23:48.123281+02:00",
-   "conseil": "Victoire Jaume Munar",
-   "conseil_cote": 1.59,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "2-6, 3-6"
-  },
-  {
    "fixture_id": "tennis_espn_atp_186260",
    "flag": "🎾",
    "league": "China Open",
@@ -489,22 +499,22 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184174",
+   "fixture_id": "tennis_espn_atp_186241",
    "flag": "🎾",
-   "league": "Jingshan Tennis Open",
+   "league": "Kinoshita Group Japan Open Tennis Championships",
    "sport": "tennis",
    "sport_label": "Tennis",
-   "match": "Rina Saigo – Alexandra Shubladze",
-   "kickoff_at": "2026-09-29T03:05Z",
+   "match": "Aleksandar Kovacevic – Jaume Munar",
+   "kickoff_at": "2026-09-29T03:00Z",
    "published": true,
-   "home_photo": "assets/players/rina saigo.png",
-   "away_photo": "assets/players/alexandra shubladze.png",
-   "result_updated_at": "2026-09-29T07:21:46.761684+02:00",
-   "conseil": "Victoire Alexandra Shubladze",
-   "conseil_cote": 1.06,
+   "home_photo": "assets/players/aleksandar kovacevic.png",
+   "away_photo": "assets/players/jaume munar.png",
+   "result_updated_at": "2026-09-29T06:23:48.123281+02:00",
+   "conseil": "Victoire Jaume Munar",
+   "conseil_cote": 1.59,
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
-   "score": "5-7, 3-6"
+   "score": "2-6, 3-6"
   },
   {
    "fixture_id": "tennis_espn_wta_184180",
@@ -523,6 +533,24 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-4, 6-1"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184174",
+   "flag": "🎾",
+   "league": "Jingshan Tennis Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rina Saigo – Alexandra Shubladze",
+   "kickoff_at": "2026-09-29T03:05Z",
+   "published": true,
+   "home_photo": "assets/players/rina saigo.png",
+   "away_photo": "assets/players/alexandra shubladze.png",
+   "result_updated_at": "2026-09-29T07:21:46.761684+02:00",
+   "conseil": "Victoire Alexandra Shubladze",
+   "conseil_cote": 1.06,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "5-7, 3-6"
   },
   {
    "fixture_id": "tennis_espn_atp_186240",
