@@ -1,6 +1,25 @@
 {
- "generated_at": "2026-09-29T13:36:59.059383+00:00",
- "live": [],
+ "generated_at": "2026-09-29T14:15:47.713228+00:00",
+ "live": [
+  {
+   "fixture_id": "hockey_425779",
+   "flag": "🏒",
+   "league": "Liiga (Finland)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Jokerit – Hameenlinna",
+   "kickoff_at": "2026-09-29T15:30:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/375.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/169.png",
+   "conseil": "Victoire Jokerit",
+   "conseil_cote": 1.61,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Jokerit @ 1.61",
+   "value_cote": 1.61,
+   "value_mise_eur": 200.0
+  }
+ ],
  "done": [
   {
    "fixture_id": "tennis_espn_atp_186246",
@@ -87,6 +106,28 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_186247",
+   "flag": "🎾",
+   "league": "Kinoshita Group Japan Open Tennis Championships",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Taro Daniel – Adolfo Daniel Vallejo",
+   "kickoff_at": "2026-09-28T08:00Z",
+   "published": true,
+   "home_photo": "assets/players/taro daniel.png",
+   "away_photo": "assets/players/adolfo daniel vallejo.png",
+   "result_updated_at": "2026-09-28T11:54:49.142974+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.529",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "3-6, 2-6"
+  },
+  {
    "fixture_id": "tennis_espn_atp_186256",
    "flag": "🎾",
    "league": "China Open",
@@ -118,28 +159,6 @@
      "result": "PERDU"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_186247",
-   "flag": "🎾",
-   "league": "Kinoshita Group Japan Open Tennis Championships",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Taro Daniel – Adolfo Daniel Vallejo",
-   "kickoff_at": "2026-09-28T08:00Z",
-   "published": true,
-   "home_photo": "assets/players/taro daniel.png",
-   "away_photo": "assets/players/adolfo daniel vallejo.png",
-   "result_updated_at": "2026-09-28T11:54:49.142974+02:00",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.529",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0,
-   "value_result": "GAGNE",
-   "result": "GAGNE",
-   "score": "3-6, 2-6"
   },
   {
    "fixture_id": "tennis_espn_wta_184125",
@@ -274,24 +293,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184124",
-   "flag": "🎾",
-   "league": "Adana Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Suzan Lamens – Leolia Jeanjean",
-   "kickoff_at": "2026-09-28T10:00Z",
-   "published": true,
-   "home_photo": "assets/players/suzan lamens.png",
-   "away_photo": "assets/players/leolia jeanjean.png",
-   "result_updated_at": "2026-09-28T15:30:47.054865+02:00",
-   "conseil": "Victoire Leolia Jeanjean",
-   "conseil_cote": 1.81,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "6-4, 3-6, 2-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_184132",
    "flag": "🎾",
    "league": "Adana Open",
@@ -323,6 +324,24 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184124",
+   "flag": "🎾",
+   "league": "Adana Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Suzan Lamens – Leolia Jeanjean",
+   "kickoff_at": "2026-09-28T10:00Z",
+   "published": true,
+   "home_photo": "assets/players/suzan lamens.png",
+   "away_photo": "assets/players/leolia jeanjean.png",
+   "result_updated_at": "2026-09-28T15:30:47.054865+02:00",
+   "conseil": "Victoire Leolia Jeanjean",
+   "conseil_cote": 1.81,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "6-4, 3-6, 2-6"
   },
   {
    "fixture_id": "tennis_espn_atp_186238",
@@ -409,24 +428,6 @@
    ]
   },
   {
-   "fixture_id": "tennis_espn_wta_184174",
-   "flag": "🎾",
-   "league": "Jingshan Tennis Open",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Rina Saigo – Alexandra Shubladze",
-   "kickoff_at": "2026-09-29T03:05Z",
-   "published": true,
-   "home_photo": "assets/players/rina saigo.png",
-   "away_photo": "assets/players/alexandra shubladze.png",
-   "result_updated_at": "2026-09-29T07:21:46.761684+02:00",
-   "conseil": "Victoire Alexandra Shubladze",
-   "conseil_cote": 1.06,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "5-7, 3-6"
-  },
-  {
    "fixture_id": "tennis_espn_wta_184180",
    "flag": "🎾",
    "league": "Jingshan Tennis Open",
@@ -443,6 +444,24 @@
    "conseil_mise_eur": 200.0,
    "result": "PERDU",
    "score": "6-4, 6-1"
+  },
+  {
+   "fixture_id": "tennis_espn_wta_184174",
+   "flag": "🎾",
+   "league": "Jingshan Tennis Open",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rina Saigo – Alexandra Shubladze",
+   "kickoff_at": "2026-09-29T03:05Z",
+   "published": true,
+   "home_photo": "assets/players/rina saigo.png",
+   "away_photo": "assets/players/alexandra shubladze.png",
+   "result_updated_at": "2026-09-29T07:21:46.761684+02:00",
+   "conseil": "Victoire Alexandra Shubladze",
+   "conseil_cote": 1.06,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "5-7, 3-6"
   },
   {
    "fixture_id": "tennis_espn_atp_186240",
