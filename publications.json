@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-29T03:00:48.418316+00:00",
+ "generated_at": "2026-09-29T03:47:59.971206+00:00",
  "live": [
-  {
-   "fixture_id": "tennis_espn_atp_186238",
-   "flag": "🎾",
-   "league": "Kinoshita Group Japan Open Tennis Championships",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Rinky Hijikata – Stefanos Tsitsipas",
-   "kickoff_at": "2026-09-29T02:00Z",
-   "published": true,
-   "home_photo": "assets/players/rinky hijikata.png",
-   "away_photo": "assets/players/stefanos tsitsipas.png",
-   "conseil": "Total sets Moins de 2.5",
-   "conseil_cote": 1.57,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Total sets — Moins de 2.5 @ 1.571",
-   "value_cote": 1.57,
-   "value_mise_eur": 200.0,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Player pick : Vainqueur du match Stefanos Tsitsipas",
-     "kind": "player",
-     "detail": "cote 1.33",
-     "odd": 1.331,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "tennis_espn_atp_186241",
    "flag": "🎾",
@@ -79,7 +51,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Aliona Falei – Tyra Caterina Grant",
-   "kickoff_at": "2026-09-29T03:00Z",
+   "kickoff_at": "2026-09-29T03:05Z",
    "published": true,
    "home_photo": "assets/players/aliona falei.png",
    "away_photo": "assets/players/tyra caterina grant.png",
@@ -94,7 +66,7 @@
    "sport": "tennis",
    "sport_label": "Tennis",
    "match": "Rina Saigo – Alexandra Shubladze",
-   "kickoff_at": "2026-09-29T03:00Z",
+   "kickoff_at": "2026-09-29T03:05Z",
    "published": true,
    "home_photo": "assets/players/rina saigo.png",
    "away_photo": "assets/players/alexandra shubladze.png",
@@ -1291,6 +1263,39 @@
    "conseil_mise_eur": 200.0,
    "result": "GAGNE",
    "score": "6-4, 3-6, 2-6"
+  },
+  {
+   "fixture_id": "tennis_espn_atp_186238",
+   "flag": "🎾",
+   "league": "Kinoshita Group Japan Open Tennis Championships",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Rinky Hijikata – Stefanos Tsitsipas",
+   "kickoff_at": "2026-09-29T02:00Z",
+   "published": true,
+   "home_photo": "assets/players/rinky hijikata.png",
+   "away_photo": "assets/players/stefanos tsitsipas.png",
+   "result_updated_at": "2026-09-29T05:47:47.988737+02:00",
+   "conseil": "Total sets Moins de 2.5",
+   "conseil_cote": 1.57,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Total sets — Moins de 2.5 @ 1.571",
+   "value_cote": 1.57,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "4-6, 3-6",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Player pick : Vainqueur du match Stefanos Tsitsipas",
+     "kind": "player",
+     "detail": "cote 1.33",
+     "odd": 1.331,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
