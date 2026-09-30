@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-09-30T00:52:20.320921+00:00",
+ "generated_at": "2026-09-30T01:06:30.875231+00:00",
  "live": [
-  {
-   "fixture_id": "wnba_401918017",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "New York Liberty – Minnesota Lynx",
-   "kickoff_at": "2026-09-30T00:30Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Natasha Howard — Points Plus de 10.5",
-     "kind": "player",
-     "detail": "cote 1.96",
-     "odd": 1.96,
-     "mise_eur": 200.0
-    },
-    {
-     "category": "Player pick",
-     "label": "Nia Brodie — Points Plus de 4.5",
-     "kind": "player",
-     "detail": "cote 2.00",
-     "odd": 2.0,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "nhljp_2026020004_8478402_pts1",
    "flag": "🏒",
@@ -743,6 +715,37 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "2 - 5"
+  },
+  {
+   "fixture_id": "wnba_401918017",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "New York Liberty – Minnesota Lynx",
+   "kickoff_at": "2026-09-30T00:30Z",
+   "published": true,
+   "result_updated_at": "2026-09-30T03:06:19.135047+02:00",
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Howard — Points Plus de 10.5",
+     "kind": "player",
+     "detail": "cote 1.96",
+     "odd": 1.96,
+     "mise_eur": 200.0
+    },
+    {
+     "category": "Player pick",
+     "label": "Nia Brodie — Points Plus de 4.5",
+     "kind": "player",
+     "detail": "cote 2.00",
+     "odd": 2.0,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    }
+   ]
   }
  ]
 }
