@@ -1,6 +1,35 @@
 {
- "generated_at": "2026-09-29T20:15:41.242522+00:00",
- "live": [],
+ "generated_at": "2026-09-30T00:00:29.379746+00:00",
+ "live": [
+  {
+   "fixture_id": "wnba_401918017",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "New York Liberty – Minnesota Lynx",
+   "kickoff_at": "2026-09-30T00:30Z",
+   "published": true,
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Natasha Howard — Points Plus de 10.5",
+     "kind": "player",
+     "detail": "cote 1.96",
+     "odd": 1.96,
+     "mise_eur": 200.0
+    },
+    {
+     "category": "Player pick",
+     "label": "Nia Brodie — Points Plus de 4.5",
+     "kind": "player",
+     "detail": "cote 2.00",
+     "odd": 2.0,
+     "mise_eur": 200.0
+    }
+   ]
+  }
+ ],
  "done": [
   {
    "fixture_id": "tennis_espn_atp_186246",
@@ -358,6 +387,24 @@
    ]
   },
   {
+   "fixture_id": "tennis_espn_atp_186241",
+   "flag": "🎾",
+   "league": "Kinoshita Group Japan Open Tennis Championships",
+   "sport": "tennis",
+   "sport_label": "Tennis",
+   "match": "Aleksandar Kovacevic – Jaume Munar",
+   "kickoff_at": "2026-09-29T03:00Z",
+   "published": true,
+   "home_photo": "assets/players/aleksandar kovacevic.png",
+   "away_photo": "assets/players/jaume munar.png",
+   "result_updated_at": "2026-09-29T06:23:48.123281+02:00",
+   "conseil": "Victoire Jaume Munar",
+   "conseil_cote": 1.59,
+   "conseil_mise_eur": 200.0,
+   "result": "GAGNE",
+   "score": "2-6, 3-6"
+  },
+  {
    "fixture_id": "tennis_espn_atp_186260",
    "flag": "🎾",
    "league": "China Open",
@@ -389,24 +436,6 @@
      "result": "GAGNE"
     }
    ]
-  },
-  {
-   "fixture_id": "tennis_espn_atp_186241",
-   "flag": "🎾",
-   "league": "Kinoshita Group Japan Open Tennis Championships",
-   "sport": "tennis",
-   "sport_label": "Tennis",
-   "match": "Aleksandar Kovacevic – Jaume Munar",
-   "kickoff_at": "2026-09-29T03:00Z",
-   "published": true,
-   "home_photo": "assets/players/aleksandar kovacevic.png",
-   "away_photo": "assets/players/jaume munar.png",
-   "result_updated_at": "2026-09-29T06:23:48.123281+02:00",
-   "conseil": "Victoire Jaume Munar",
-   "conseil_cote": 1.59,
-   "conseil_mise_eur": 200.0,
-   "result": "GAGNE",
-   "score": "2-6, 3-6"
   },
   {
    "fixture_id": "tennis_espn_wta_184174",
