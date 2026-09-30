@@ -98,6 +98,9 @@ h3{font:600 16px/1.3 var(--display);margin:18px 0 6px}
 /* Sets gagnes : detache des jeux par set, pour ne pas se lire comme un set de plus. */
 .tscore.total{margin-left:10px;padding-left:10px;border-left:1px solid var(--line);font-weight:800;color:var(--text)}
 .team.win .jeux{color:var(--text)}
+.pager{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:10px;font-size:13px;color:var(--mute,#a39b88)}
+.pager button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--raise);color:inherit;font-size:18px;cursor:pointer}
+.pager button:disabled{opacity:.35;cursor:default}
 .team .badge{width:34px;height:34px;border-radius:50%;background:var(--raise);border:1px solid var(--line);
   object-fit:cover;display:grid;place-items:center;font:700 11px/1 var(--body);color:var(--muted);flex:none}
 img.badge[src*="media.api-sports"],img.badge[src*="espncdn"]{object-fit:contain;background:transparent;border-color:transparent}
@@ -288,6 +291,11 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
         </div>
         <div style="overflow-x:auto"><table><thead><tr><th id="split-col">Sport</th><th>Paris</th><th>Réussite</th><th>Bénéfice</th></tr></thead>
           <tbody id="split-body"></tbody></table></div>
+        <div class="pager" id="split-pager" hidden>
+          <button type="button" data-p="-1" aria-label="Page précédente">‹</button>
+          <span id="split-page">1 / 1</span>
+          <button type="button" data-p="1" aria-label="Page suivante">›</button>
+        </div>
       </div>
     </div>
 
@@ -918,22 +926,40 @@ function resumeResultats(){
   SPLIT.sport = Object.entries(fusion).map(([nom, f]) =>
       [nom, f.n, (f.g + f.p) ? Math.round(f.g / (f.g + f.p) * 100) : "—", f.pnl])
     .filter(r => r[1]).sort((a, b) => b[3] - a[3]);
-  const lg = RES.league_stats || {};
-  SPLIT.ligue = Object.entries(lg).map(([n, v]) => [v.name || n, v.n || 0, v.winrate ?? "—", v.pnl || 0])
-    .filter(r => r[1] >= 5).sort((a, b) => b[3] - a[3]).slice(0, 12);
+  /* Ligues de TOUS les sports, pays entre parentheses (01/10/2026, demande
+     explicite) : "league_table" du serveur ; ancien "league_stats" (foot seul)
+     en repli. Toutes les ligues, reparties sur plusieurs pages. */
+  const ICONE = {football: "⚽", tennis: "🎾", hockey: "🏒", baseball: "⚾", nfl: "🏈", wnba: "🏀", nba: "🏀", npb: "⚾", kbo: "⚾"};
+  SPLIT.ligue = (RES.league_table || []).length
+    ? RES.league_table.map(v => [`${ICONE[v.sport] || ""} ${v.name}`.trim(), v.n || 0, v.winrate ?? "—", v.pnl || 0])
+    : Object.entries(RES.league_stats || {}).map(([n, v]) => [v.name || n, v.n || 0, v.winrate ?? "—", v.pnl || 0])
+        .sort((a, b) => b[3] - a[3]);
   dessineSplit(splitKey);
 }
 const SPLIT = {sport: [], ligue: []};
-let splitKey = "sport";
-function dessineSplit(k){
+const PAR_PAGE = 10;
+let splitKey = "sport", splitPage = 0;
+function dessineSplit(k, page){
+  if (k !== splitKey) splitPage = 0;
   splitKey = k;
+  if (page !== undefined) splitPage = page;
+  const rows = SPLIT[k] || [];
+  const pages = Math.max(1, Math.ceil(rows.length / PAR_PAGE));
+  splitPage = Math.min(Math.max(0, splitPage), pages - 1);
   $("#split-col").textContent = k === "sport" ? "Sport" : "Ligue";
   document.querySelectorAll("#split button").forEach(b => b.setAttribute("aria-pressed", b.dataset.split === k));
-  $("#split-body").innerHTML = (SPLIT[k] || []).map(([n, c, w, u]) =>
+  $("#split-body").innerHTML = rows.slice(splitPage * PAR_PAGE, (splitPage + 1) * PAR_PAGE).map(([n, c, w, u]) =>
     `<tr><td>${esc(n)}</td><td>${c}</td><td>${w}${w === "—" ? "" : " %"}</td>
      <td class="${u > 0 ? "pos" : u < 0 ? "neg" : ""}">${unit(u)}</td></tr>`).join("") || `<tr><td colspan="4">—</td></tr>`;
+  const pg = $("#split-pager");
+  pg.hidden = pages <= 1;
+  $("#split-page").textContent = `${splitPage + 1} / ${pages}`;
+  pg.querySelector('[data-p="-1"]').disabled = splitPage === 0;
+  pg.querySelector('[data-p="1"]').disabled = splitPage >= pages - 1;
 }
 $("#split").addEventListener("click", e => { const b = e.target.closest("button"); if (b) dessineSplit(b.dataset.split); });
+$("#split-pager").addEventListener("click", e => { const b = e.target.closest("button[data-p]");
+  if (b && !b.disabled) dessineSplit(splitKey, splitPage + Number(b.dataset.p)); });
 
 /* Bilans par période : /api/results/history?period&offset (du plus récent au plus ancien) */
 const CACHE = {};
