@@ -892,7 +892,9 @@ function resumeResultats(){
     <div class="kpi"><span>Aujourd'hui</span><strong class="${(j.pnl || 0) >= 0 ? "pos" : "neg"}">${unit(j.pnl || 0)}</strong></div>
     <div class="kpi"><span>Série en cours</span><div id="res-flamme" class="flamme off"><span>—</span></div></div>`;
   dessineFlamme();
-  $("#chart-u").innerHTML = courbe((RES.period_series || {}).annee || (RES.period_series || {}).mois, v => Number(v));
+  /* Courbe jour par jour depuis le premier pari (01/10/2026) ; "annee" (1 point
+     par mois) en repli si le serveur n'envoie pas encore "debut". */
+  $("#chart-u").innerHTML = courbe((RES.period_series || {}).debut || (RES.period_series || {}).annee, v => Number(v));
   $("#list-res").innerHTML = reglesRecents().slice(0, 8).map(p => carte(p)).join("") || `<p class="gain">Rien à afficher.</p>`;
   /* Noms lisibles + fusion mlb/baseball et nhl/hockey (memes paris, deux
      etiquettes historiques cote base). */
@@ -1036,7 +1038,7 @@ function dessineMise(){
   $("#m-body").innerHTML = (SPLIT.sport || []).map(([n, c, w, u]) =>
     `<tr><td>${esc(n)}</td><td>${c}</td><td>${Math.round(c * 1.35 * s).toLocaleString("fr-FR")} €</td>
      <td class="${u > 0 ? "pos" : "neg"}">${eur(u * s)}</td></tr>`).join("") || `<tr><td colspan="4">—</td></tr>`;
-  $("#chart-e").innerHTML = courbe((RES.period_series || {}).annee || (RES.period_series || {}).mois, v => v * s);
+  $("#chart-e").innerHTML = courbe((RES.period_series || {}).debut || (RES.period_series || {}).annee, v => v * s);
   $("#m-list").innerHTML = reglesRecents().slice(0, 6).map(p => carte(p, true, s)).join("");
   dessineBlocs("m-track", "m-period-chips", mPeriode, true, s);
 }
