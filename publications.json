@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-30T18:00:41.682815+00:00",
+ "generated_at": "2026-09-30T19:30:42.331005+00:00",
  "live": [
   {
    "fixture_id": "api_football:1549719",
@@ -17,24 +17,6 @@
    "conseil_cote": 1.67,
    "conseil_mise_eur": 300.0,
    "lineup_source": "api_football"
-  },
-  {
-   "fixture_id": "hockey_427412",
-   "flag": "🏒",
-   "league": "Hockey Allsvenskan (Sweden)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Vimmerby – MODO",
-   "kickoff_at": "2026-09-30T17:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/1194.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/522.png",
-   "conseil": "Victoire MODO",
-   "conseil_cote": 1.53,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — MODO @ 1.53",
-   "value_cote": 1.53,
-   "value_mise_eur": 200.0
   }
  ],
  "done": [
@@ -283,6 +265,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "4 - 2"
+  },
+  {
+   "fixture_id": "hockey_427412",
+   "flag": "🏒",
+   "league": "Hockey Allsvenskan (Sweden)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Vimmerby – MODO",
+   "kickoff_at": "2026-09-30T17:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/1194.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/522.png",
+   "result_updated_at": "2026-09-30T21:30:13.665451+02:00",
+   "conseil": "Victoire MODO",
+   "conseil_cote": 1.53,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — MODO @ 1.53",
+   "value_cote": 1.53,
+   "value_mise_eur": 200.0,
+   "value_result": "PERDU",
+   "result": "PERDU",
+   "score": "3 - 2"
   }
  ]
 }
