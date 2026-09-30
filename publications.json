@@ -1,22 +1,6 @@
 {
- "generated_at": "2026-09-30T01:06:30.875231+00:00",
+ "generated_at": "2026-09-30T04:54:00.218327+00:00",
  "live": [
-  {
-   "fixture_id": "nhljp_2026020004_8478402_pts1",
-   "flag": "🏒",
-   "league": "NHL",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Oilers – Canucks",
-   "kickoff_at": "2026-09-30T02:00:00Z",
-   "published": true,
-   "conseil": "Connor McDavid (EDM) : 1+ point",
-   "conseil_cote": 1.15,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Connor McDavid (EDM) : 1+ point @ 1.15",
-   "value_cote": 1.15,
-   "value_mise_eur": 200.0
-  },
   {
    "fixture_id": "api_football:1549719",
    "flag": "🇨🇴",
@@ -734,7 +718,8 @@
      "kind": "player",
      "detail": "cote 1.96",
      "odd": 1.96,
-     "mise_eur": 200.0
+     "mise_eur": 200.0,
+     "result": "PERDU"
     },
     {
      "category": "Player pick",
@@ -746,6 +731,26 @@
      "result": "GAGNE"
     }
    ]
+  },
+  {
+   "fixture_id": "nhljp_2026020004_8478402_pts1",
+   "flag": "🏒",
+   "league": "NHL",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Oilers – Canucks",
+   "kickoff_at": "2026-09-30T02:00:00Z",
+   "published": true,
+   "result_updated_at": "2026-09-30T06:53:18.912199+02:00",
+   "conseil": "Connor McDavid (EDM) : 1+ point",
+   "conseil_cote": 1.15,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Connor McDavid (EDM) : 1+ point @ 1.15",
+   "value_cote": 1.15,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "5 - 6 (2 point)"
   }
  ]
 }
