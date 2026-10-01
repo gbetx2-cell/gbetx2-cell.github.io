@@ -599,6 +599,40 @@ function jaugeDe(texte, score, regle, setsJoues, sport){
   /* 01/10/2026 : meme jauge que les paris joueurs (ligne aux 3/4, valeur au bout) */
   return jaugeLigne(mot, total, seuil, under);
 }
+/* Jauge HANDICAP (01/10/2026, demande explicite) : "Écart Detroit Tigers +1.5" ou
+   "Écart de points — Detroit Tigers +1,5". On suit l'ECART de l'equipe pariee
+   (son score moins celui de l'adversaire, negatif si elle est menee). Le pari
+   passe si ecart + handicap > 0 : la ligne aux 3/4 est donc -handicap (+3,5 pour
+   un -3,5 : gagner de 4 ou plus ; -1,5 pour un +1,5 : ne pas perdre de 2 ou plus).
+   Combines exclus (deux paris en un). */
+function jaugeHandicap(texte, score, regle, home, away, sport){
+  if (regle || !score) return "";
+  if (/combin|combo/i.test(texte)) return "";
+  const m = String(texte).match(/[ée]cart(?: de points)?\s*(?:—\s*)?(.+?)\s*([+\-−]\d+(?:[.,]\d+)?)\s*$/i);
+  if (!m) return "";
+  const cle = n => String(n || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").trim();
+  const equipe = cle(m[1]), dom = cle(home), ext = cle(away);
+  const fin = n => n.split(" ").pop();
+  const cote = equipe === dom || (dom && fin(equipe) === fin(dom)) ? "h"
+    : equipe === ext || (ext && fin(equipe) === fin(ext)) ? "a" : null;
+  if (!cote) return "";
+  const h = parseFloat(m[2].replace("−", "-").replace(",", "."));
+  const hs = Number(score.home_score) || 0, as = Number(score.away_score) || 0;
+  const v = cote === "h" ? hs - as : as - hs;                       // ecart de l'equipe pariee
+  const L = -h;                                                     // ecart a depasser
+  const unite = {baseball: 3, mlb: 3, hockey: 2, nhl: 2, football: 2, nfl: 7, nba: 10, wnba: 10}[sport] || 3;
+  const span = Math.max(Math.abs(L), unite);
+  const pct = Math.max(0, Math.min(100, 75 + (v - L) / span * 75));
+  const marge = v - L;
+  const etat = marge > 0 ? "passe" : marge === 0 ? "remboursé si ça reste" : `il manque ${Math.floor(-marge) + 1}`;
+  const signe = x => (x > 0 ? "+" : x < 0 ? "−" : "") + fmtLigne(Math.abs(x));
+  const nom = m[1].trim();
+  return `<div class="pgauge ${marge > 0 ? "ok" : ""}"><span class="lbl">Écart ${esc(nom)} · ${signe(h)} — ${esc(etat)}</span>
+    <div class="ptrack"><div class="pfill" style="width:${pct}%"></div>
+      <span class="pval" style="left:${Math.max(3, Math.min(97, pct))}%">${signe(v)}</span>
+      <span class="pmark" style="left:75%"></span><span class="pline" style="left:75%">${signe(L)}</span></div>
+    <div class="pend"></div></div>`;
+}
 /* Jauge d'un pari joueur (27/09/2026, bug signale en WNBA : "Points Plus de
    4.5" affichait "26 / 5" -- jaugeDe additionnait les deux scores d'equipe,
    donc le TOTAL DU MATCH, pour n'importe quel "Plus de"). On lit la stat de
@@ -818,7 +852,8 @@ function carte(p, euros, valeurU){
       <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
       <span class="tag ${b.r}">${b.r === "s" && live ? "En cours" : LIB[b.r]}</span>
       <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
-      ${b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length, p.sport)}</div>`;
+      ${b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : (/[ée]cart|handicap/i.test(b.bet) ? jaugeHandicap(b.bet, sc, regle || b.r !== "s", home, away, p.sport)
+         : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length, p.sport))}</div>`;
   }).join("");
 
   return `<article class="pick ${live ? "is-live" : ""}">
