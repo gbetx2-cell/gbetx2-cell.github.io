@@ -102,7 +102,7 @@ COMPETITION_FLAGS = {
 # COMPETITION_FLAGS, donc affichaient TOUJOURS le ballon de foot. Priorite
 # a l'icone sport pour tout ce qui n'est pas football.
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈",
-              "tennis": "🎾", "wnba": "🏀"}
+              "tennis": "🎾", "wnba": "🏀", "npb": "⚾", "kbo": "⚾"}
 
 # Bug corrige le 04/08/2026 (confirme en direct : "Victoire Boston Red Sox"
 # reglee GAGNE le 03/08 a 00h50, jamais visible sur le site) : paris.resultat/
@@ -129,7 +129,8 @@ RESULTAT_GAGNE = ("GAGNE", "GAGNÉ")
 # Si cette liste change un jour, la mettre a jour ICI ET dans betting_rules.py.
 # "mlb" ajoute le 29/07/2026 (meme bug/fix que betting_rules.py -- paris.sport
 # vaut "baseball" mais sport_player_picks.sport vaut "mlb" pour le meme sport).
-SPORTS_VALUE_BET_IS_CONSEIL = {"tennis", "nba", "nhl", "baseball", "mlb", "wnba", "nfl"}
+SPORTS_VALUE_BET_IS_CONSEIL = {"tennis", "nba", "nhl", "baseball", "mlb", "wnba", "nfl",
+                              "npb", "kbo"}  # meme miroir conseil/value_bet que baseball
 
 
 def _flag(competition: str, sport: str = "") -> str:
@@ -233,8 +234,10 @@ def fetch_period_stats() -> dict:
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
           AND NOT (market_type IN ('total_points', 'player_pick_only'))
         ORDER BY result_updated_at DESC
-        LIMIT 1000
         """,
+        # LIMIT 1000 retire le 01/10/2026 (audit du site, demande explicite) : 958
+        # paris regles au 30/09 -- au-dela de 1000, les plus anciens sortaient en
+        # silence des bilans mois / annee / "depuis le debut".
     )
     rows = cur.fetchall()
 
@@ -386,13 +389,132 @@ def fetch_league_stats() -> dict:
         b["stake"] += float(mise or 0)
         b["pnl"] += float(pnl or 0)
 
+    # name / winrate / pnl (01/10/2026, demande explicite : l'onglet "Ligue" de
+    # Resultats affichait l'id brut "39", "—" et 0,00 u -- la page lit v.name,
+    # v.winrate, v.pnl qui n'existaient pas). Cles et champs existants inchanges
+    # (globe Performance). Import tolerant : ce fichier peut tourner hors du repo.
+    try:
+        from tg_bot.league_flags import LEAGUE_NAMES as _NOMS
+    except Exception:
+        _NOMS = {}
     return {
         lid: {
             "n": b["n"], "w": b["w"], "l": b["l"],
             "roi": round(b["pnl"] / b["stake"] * 100, 1) if b["stake"] else 0.0,
+            "name": _NOMS.get(int(lid), f"Ligue {lid}") if str(lid).isdigit() else str(lid),
+            "winrate": round(b["w"] / (b["w"] + b["l"]) * 100) if (b["w"] + b["l"]) else None,
+            "pnl": round(b["pnl"] / BASE_UNIT_EUR, 2),
         }
         for lid, b in leagues.items()
     }
+
+
+# Pays en francais pour les noms de ligues (01/10/2026, demande explicite :
+# "ajoute le pays entre parentheses") -- codes de tg_bot/league_flags.py
+# LEAGUE_COUNTRY_CODE et pays anglais des noms hockey api-sports.
+PAYS_FR = {
+    "ae": "Émirats", "ar": "Argentine", "at": "Autriche", "au": "Australie", "be": "Belgique", "bo": "Bolivie",
+    "br": "Brésil", "by": "Biélorussie", "ca": "Canada", "ch": "Suisse", "cl": "Chili", "cn": "Chine",
+    "co": "Colombie", "cz": "Tchéquie", "de": "Allemagne", "dk": "Danemark", "dz": "Algérie", "ec": "Équateur",
+    "ee": "Estonie", "eg": "Égypte", "es": "Espagne", "eu": "Europe", "fi": "Finlande", "fo": "Îles Féroé",
+    "fr": "France", "gb-eng": "Angleterre", "gb-sct": "Écosse", "ge": "Géorgie", "gh": "Ghana", "gr": "Grèce",
+    "hr": "Croatie", "ie": "Irlande", "in": "Inde", "ir": "Iran", "is": "Islande", "it": "Italie", "jo": "Jordanie",
+    "jp": "Japon", "kr": "Corée du Sud", "lt": "Lituanie", "lv": "Lettonie", "ma": "Maroc", "mx": "Mexique",
+    "nl": "Pays-Bas", "no": "Norvège", "pe": "Pérou", "pl": "Pologne", "pt": "Portugal", "py": "Paraguay",
+    "ro": "Roumanie", "rs": "Serbie", "ru": "Russie", "sa": "Arabie saoudite", "se": "Suède", "sn": "Sénégal",
+    "th": "Thaïlande", "tn": "Tunisie", "tr": "Turquie", "ua": "Ukraine", "us": "États-Unis", "uy": "Uruguay",
+    "ve": "Venezuela", "za": "Afrique du Sud",
+}
+PAYS_EN_FR = {"Sweden": "Suède", "Czech-Republic": "Tchéquie", "Russia": "Russie", "Switzerland": "Suisse",
+              "Slovakia": "Slovaquie", "Germany": "Allemagne", "Finland": "Finlande", "Austria": "Autriche",
+              "Norway": "Norvège", "Denmark": "Danemark", "France": "France", "Great-Britain": "Royaume-Uni",
+              "Poland": "Pologne", "USA": "États-Unis", "Canada": "Canada", "Japan": "Japon", "Korea": "Corée du Sud"}
+# Ligues jouees absentes de tg_bot/league_flags.py (01/10/2026, verifiees sur les
+# equipes des matchs : 393 = Balzan / Floriana / Valletta -> Malte, etc.).
+_LIGUES_EN_PLUS = {408: ("Premiership", "Irlande du Nord"), 373: ("1. SNL", "Slovénie"),
+                   419: ("Premyer Liqa", "Azerbaïdjan"), 315: ("Premijer Liga", "Bosnie-Herzégovine"),
+                   332: ("Super Liga", "Slovaquie"), 393: ("Premier League", "Malte"),
+                   172: ("First League", "Bulgarie")}
+_LIGUE_SPORT = {"baseball": "MLB (États-Unis)", "mlb": "MLB (États-Unis)", "nfl": "NFL (États-Unis)",
+                "wnba": "WNBA (États-Unis)", "nba": "NBA (États-Unis)", "npb": "NPB (Japon)", "kbo": "KBO (Corée du Sud)"}
+
+
+def nom_ligue(sport: str, competition: str, tournoi: str = "") -> str:
+    """Nom lisible avec le pays entre parentheses, pour tous les sports."""
+    sport = (sport or "football").lower()
+    comp = (competition or "").strip()
+    if sport == "football" and comp.isdigit():
+        try:
+            from tg_bot.league_flags import LEAGUE_COUNTRY_CODE, LEAGUE_NAMES
+        except Exception:
+            LEAGUE_NAMES, LEAGUE_COUNTRY_CODE = {}, {}
+        if int(comp) in _LIGUES_EN_PLUS:
+            return "{} ({})".format(*_LIGUES_EN_PLUS[int(comp)])
+        nom = LEAGUE_NAMES.get(int(comp)) or tournoi or f"Ligue {comp}"
+        pays = PAYS_FR.get(LEAGUE_COUNTRY_CODE.get(int(comp), ""), "")
+        return f"{nom} ({pays})" if pays else nom
+    if sport == "tennis":
+        return tournoi or comp or "Tennis"
+    if sport in _LIGUE_SPORT and not comp:
+        return _LIGUE_SPORT[sport]
+    m = re.match(r"^(.*?)\s*\(([^)]+)\)$", comp)
+    if m:
+        return f"{m.group(1)} ({PAYS_EN_FR.get(m.group(2), m.group(2))})"
+    if comp == "NHL":
+        return "NHL (Amérique du Nord)"
+    return comp or _LIGUE_SPORT.get(sport, sport.capitalize())
+
+
+def fetch_league_table() -> list[dict]:
+    """Bilan par ligue / tournoi, TOUS SPORTS (01/10/2026, demande explicite
+    "mets tous les sports"). Memes 4 sources et memes conventions que les
+    bilans (fetch_period_stats) : paris, pronostics joueur, value bets foot et
+    MLB additionnels -- la somme des ligues d'un sport = le total du sport.
+    Ligue d'un pronostic / value bet = celle du pari principal du meme match."""
+    import psycopg2
+
+    db = os.environ.get("DATABASE_URL")
+    if not db:
+        raise SystemExit("DATABASE_URL manquant")
+    conn = psycopg2.connect(db, connect_timeout=10)
+    cur = conn.cursor()
+    ref = """LEFT JOIN (SELECT DISTINCT ON (fixture_id) fixture_id, sport, competition FROM paris) p ON p.fixture_id = x.fixture_id
+             LEFT JOIN programme_fixtures pf ON pf.fixture_id = x.fixture_id"""
+    cur.execute(
+        """
+        SELECT x.sport, x.competition, pf.league, x.resultat, COALESCE(x.pnl,0)
+        FROM paris x LEFT JOIN programme_fixtures pf ON pf.fixture_id = x.fixture_id
+        WHERE x.resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
+          AND x.result_updated_at IS NOT NULL AND x.result_updated_at <> ''
+          AND NOT (x.market_type IN ('total_points', 'player_pick_only'))
+        """)
+    lignes = [(sp, c, t, r, float(v)) for sp, c, t, r, v in cur.fetchall()]
+    cur.execute(f"""
+        SELECT COALESCE(p.sport, x.sport), p.competition, pf.league, x.settlement_status, x.odd, COALESCE(x.stake_eur,0)
+        FROM sport_player_picks x {ref} WHERE x.settlement_status IN ('GAGNE','PERDU')""")
+    lignes += [(sp if sp != "mlb" else "baseball", c, t, r, _pnl_fixed(r, float(o or 0), float(st or 0)))
+               for sp, c, t, r, o, st in cur.fetchall()]
+    for table, sp_def in (("refonte_value_bet_settlements", "football"),
+                          ("refonte_cross_competition_value_bet_settlements", "football"),
+                          ("mlb_value_bet_settlements", "baseball")):
+        cur.execute(f"SELECT '{sp_def}', p.competition, pf.league, x.result, COALESCE(x.pnl_eur,0) "
+                    f"FROM {table} x {ref} WHERE x.result != ''")
+        lignes += [(sp, c, t, r, float(v)) for sp, c, t, r, v in cur.fetchall()]
+    conn.close()
+    agg: dict = {}
+    for sp, comp, tournoi, res, pnl in lignes:
+        sp = (sp or "football").lower()
+        sp = {"mlb": "baseball", "nhl": "hockey"}.get(sp, sp)
+        nom = nom_ligue(sp, comp or "", tournoi or "")
+        b = agg.setdefault((sp, nom), {"n": 0, "g": 0, "p": 0, "pnl": 0.0})
+        b["n"] += 1
+        b["g"] += res in RESULTAT_GAGNE
+        b["p"] += res == "PERDU"
+        b["pnl"] += pnl
+    return sorted(({"sport": sp, "name": nom, "n": b["n"],
+                    "winrate": round(b["g"] / (b["g"] + b["p"]) * 100) if (b["g"] + b["p"]) else None,
+                    "pnl": round(b["pnl"] / BASE_UNIT_EUR, 2)} for (sp, nom), b in agg.items()),
+                  key=lambda r: -r["pnl"])
 
 
 # Tournois tennis deja places sur le globe (site/performance.html::
@@ -525,8 +647,8 @@ def fetch_period_series() -> dict:
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
           AND NOT (market_type IN ('total_points', 'player_pick_only'))
         ORDER BY result_updated_at DESC
-        LIMIT 5000
         """,
+        # LIMIT 5000 retire le 01/10/2026 : meme piege que fetch_period_stats (courbe cumulee)
     )
     rows = cur.fetchall()
 
@@ -561,10 +683,16 @@ def fetch_period_series() -> dict:
         return {"heures": [0.0]*24, "semaine": [0.0]*7, "mois": [0.0]*n_days_month, "annee": [0.0]*12}
 
     buckets_by_sport: dict = {"all": _empty_buckets()}
+    # Courbe "depuis le debut" jour par jour (01/10/2026, demande explicite :
+    # le graphique "Benefice cumule" lisait la serie annee, 1 point par MOIS --
+    # plat de janvier a aout puis un seul saut, le bot n'ayant commence que le
+    # 31/08). Tous sports, en unites, cumule par jour de reglement.
+    par_jour: dict = {}
 
     def _bucket_pnl(pnl_eur, dt, sport_key):
         d = dt.date()
         pnl_u = pnl_eur / BASE_UNIT_EUR
+        par_jour[d] = par_jour.get(d, 0.0) + pnl_u
         for key in ("all", sport_key):
             b = buckets_by_sport.setdefault(key, _empty_buckets())
             if d == today:
@@ -654,6 +782,14 @@ def fetch_period_series() -> dict:
         }
 
     result = _build_period_dict(buckets_by_sport["all"])
+    debut, running = [], 0.0
+    if par_jour:
+        d, fin = min(par_jour), today
+        while d <= fin:
+            running += par_jour.get(d, 0.0)
+            debut.append({"label": d.strftime("%d/%m"), "pnl": round(running, 2)})
+            d += timedelta(days=1)
+    result["debut"] = debut
     result["now_frac"] = {
         "jour": round(now_frac_jour, 6),
         "semaine": round(now_frac_semaine, 6),
@@ -1243,7 +1379,8 @@ def fetch_perf_stats() -> dict:
                CASE WHEN cote_reelle > 1.01 THEN cote_reelle
                     WHEN value_cote > 1.01 THEN value_cote
                     ELSE cote_interne END,
-               resultat, COALESCE(mise,0), COALESCE(pnl,0), result_updated_at
+               resultat, COALESCE(mise,0), COALESCE(pnl,0), result_updated_at,
+               COALESCE(cote_source,''), COALESCE(cote_reelle,0), COALESCE(value_cote,0)
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
@@ -1256,9 +1393,19 @@ def fetch_perf_stats() -> dict:
     month_start = today.replace(day=1)
 
     g = {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0, "since": None}
+    # Second bilan, restreint aux paris a VRAIE cote bookmaker (21/09/2026,
+    # demande explicite "affiche les deux"). C'est le perimetre du ROI
+    # officiel interne (engines/roi_pnl.py::is_eligible_for_roi) : meme regle,
+    # meme liste de sources. Le site affichait jusqu'ici le seul rendement
+    # tous paris confondus (1,0 %), sans dire qu'il melangeait des paris dont
+    # la cote n'avait jamais ete relevee chez un bookmaker -- deux chiffres
+    # legitimes, mais un seul montre et aucun libelle pour les distinguer.
+    from engines.roi_pnl import _REAL_ODD_SOURCES
+    g_reel = {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0, "since": None}
     sports: dict = {}
     markets: dict = {}
-    for sport, market_type, cote, resultat, mise, pnl, rud in rows:
+    for (sport, market_type, cote, resultat, mise, pnl, rud,
+         cote_source, cote_reelle, value_cote) in rows:
         d = _paris_calendar_date(rud)
         if d is None:
             continue
@@ -1271,6 +1418,20 @@ def fetch_perf_stats() -> dict:
         g["pnl"] += float(pnl or 0)
         if g["since"] is None or d < g["since"]:
             g["since"] = d
+
+        # Meme regle que is_eligible_for_roi : source de cote reelle ET cote
+        # valide. La cote du value bet compte aussi -- sur ce canal cote_reelle
+        # vaut 0 par construction, la vraie cote etant portee par value_cote
+        # (cf tennis/predictions.py, meme convention pour tous les sports).
+        if (cote_source in _REAL_ODD_SOURCES
+                and (float(cote_reelle or 0) > 1.0 or float(value_cote or 0) > 1.0)):
+            g_reel["n"] += 1
+            g_reel["w"] += won
+            g_reel["l"] += lost
+            g_reel["stake"] += float(mise or 0)
+            g_reel["pnl"] += float(pnl or 0)
+            if g_reel["since"] is None or d < g_reel["since"]:
+                g_reel["since"] = d
 
         sp = (sport or "football").lower()
         s = sports.setdefault(sp, {"n": 0, "w": 0, "l": 0, "stake": 0.0, "pnl": 0.0})
@@ -1484,6 +1645,9 @@ def fetch_perf_stats() -> dict:
 
     return {
         "global": {**pack(g), "since": g["since"].isoformat() if g["since"] else ""},
+        # Meme bilan, restreint aux paris a vraie cote bookmaker.
+        "global_cote_reelle": {**pack(g_reel),
+                               "since": g_reel["since"].isoformat() if g_reel["since"] else ""},
         "sports": [{"sport": sp, **pack(s)} for sp, s in
                    sorted(sports.items(), key=lambda kv: -kv[1]["n"])],
         "markets": market_rows,
@@ -1678,8 +1842,13 @@ def update_html(path: str, results: list[dict], period_stats: dict,
 
 
 if __name__ == "__main__":
+    # 21/09/2026 : la cible par defaut etait site/index.html, qui ne porte plus
+    # aucun de ces blocs depuis le 07/08/2026 (ils vivent dans resultats.html et
+    # performance.html, cf jobs/site_stats_sync.py) -- et qui est desormais la
+    # page principale du nouveau site. Lancer ce script sans argument aurait
+    # donc ecrase l'accueil. Le job en production ne passe pas par ici.
     target = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "site", "index.html",
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "site", "resultats.html",
     )
     update_html(target, fetch_results(), fetch_period_stats(),
                 fetch_period_series(), fetch_perf_stats())
