@@ -127,6 +127,21 @@ img.badge[src*="media.api-sports"],img.badge[src*="espncdn"]{object-fit:contain;
 .net{min-width:74px}
 .tag{font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
 .tag.w{color:var(--win)} .tag.l{color:var(--loss)} .tag.p{color:var(--push)} .tag.s{color:var(--muted)}
+/* Jauge pari joueur (01/10/2026, demande explicite) : la ligne du pari est aux
+   3/4 de la barre (chiffre affiche dessus), la barre jaune avance avec la stat
+   en direct, et la stat est ecrite au bout du jaune. */
+.pgauge{grid-column:1 / -1;margin-top:10px;font-size:12px;color:var(--muted)}
+.pgauge .lbl{display:block;margin-bottom:16px}
+.pgauge .ptrack{position:relative;height:8px;background:var(--surface);border-radius:999px}
+.pgauge .pfill{position:absolute;left:0;top:0;bottom:0;background:var(--gold);border-radius:999px;transition:width .6s ease}
+.pgauge.ok .pfill{background:var(--win)}
+.pgauge.danger .pfill{background:var(--loss)}
+.pgauge .pmark{position:absolute;top:-4px;width:2px;height:16px;background:var(--text);opacity:.8;transform:translateX(-1px)}
+.pgauge .pline{position:absolute;top:13px;transform:translateX(-50%);font:700 11px var(--mono);color:var(--text)}
+.pgauge .pval{position:absolute;top:-17px;transform:translateX(-50%);font:700 12px var(--mono);color:var(--gold);white-space:nowrap}
+.pgauge.ok .pval{color:var(--win)}
+.pgauge.danger .pval{color:var(--loss)}
+.pgauge .pend{height:14px}
 .gauge{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);margin-top:8px;grid-column:1 / -1}
 .gauge .track{flex:1;height:6px;background:var(--surface);border-radius:999px;overflow:hidden}
 .gauge .fill{height:100%;background:var(--gold);border-radius:999px}
@@ -596,19 +611,44 @@ function statJoueur(stats, nom){
     return r2.join(" ") === fam && p2[0] === pre[0]; });
   return proches.length === 1 ? stats[proches[0]] : null;
 }
+/* Lecture d'un pari joueur, tous formats (01/10/2026) :
+     "Marine Johannes — Points Plus de 4.5"      (anciens paris WNBA)
+     "Connor McDavid (EDM) : 2+ tirs cadrés"      (NHL : k+ = plus de k-0.5)
+     "Connor McDavid (EDM) : 1+ point · PREMIUM" / ": buteur"
+     "Jalen Brunson (NY) : moins de 2.5 paniers à 3 pts" / ": plus de 24.5 points"
+   -> {cle: stat a lire, mot, ligne, under} ou null. */
+function lirePariJoueur(texte){
+  const t = String(texte || "").toLowerCase();
+  const cle = /tirs/.test(t) ? "shots" : /buteur|\bbuts?\b/.test(t) ? "goals"
+    : /3 pts|3 points|trois points/.test(t) ? "threePointers" : /rebond/.test(t) ? "rebounds"
+    : /passe/.test(t) ? "assists" : /point/.test(t) ? "points" : null;
+  if (!cle) return null;
+  const mot = {shots: "Tirs cadrés", goals: "Buts", threePointers: "Paniers à 3 pts", rebounds: "Rebonds",
+               assists: "Passes", points: "Points"}[cle];
+  let m = t.match(/(\d+)\s*\+/);                                     // "2+ tirs cadrés"
+  if (m) return {cle, mot, ligne: Number(m[1]) - 0.5, under: false};
+  if (/buteur/.test(t)) return {cle, mot, ligne: 0.5, under: false};
+  m = t.match(/(plus|moins) de\s+(\d+(?:[.,]\d+)?)/);
+  if (m) return {cle, mot, ligne: parseFloat(m[2].replace(",", ".")), under: m[1] === "moins"};
+  return null;
+}
+const fmtLigne = v => String(v).replace(".", ",");
 function jaugeJoueur(b, score, regle){
   if (regle || !score || !score.player_stats_json) return "";
   let stats; try { stats = JSON.parse(score.player_stats_json); } catch (_){ return ""; }
   const s = statJoueur(stats, b.joueur); if (!s) return "";
-  const t = b.bet.slice(b.bet.indexOf("—") + 1);
-  const [cle, mot] = /3 points|trois points/i.test(t) ? ["threePointers", "Paniers à 3 pts"]
-    : /rebond/i.test(t) ? ["rebounds", "Rebonds"]
-    : /passe/i.test(t) ? ["assists", "Passes"]
-    : /points/i.test(t) ? ["points", "Points"] : [null, null];
-  if (!cle || typeof s[cle] !== "number") return "";
-  const m = t.match(/(\d+(?:[.,]\d+)?)/); if (!m) return "";
-  const need = Math.floor(parseFloat(m[1].replace(",", "."))) + 1, under = UNDER.test(t);
-  return jauge(under ? `${mot} — perdu à ${need}` : `${mot} — gagné à ${need}`, s[cle], need, under);
+  const pari = lirePariJoueur(b.bet.includes("—") ? b.bet.slice(b.bet.indexOf("—") + 1) : b.bet.slice(b.bet.indexOf(":") + 1));
+  if (!pari || typeof s[pari.cle] !== "number") return "";
+  const v = s[pari.cle], L = pari.ligne;
+  const pct = Math.max(0, Math.min(100, v / L * 75));            // la ligne est aux 3/4 de la barre
+  const passe = v > L;
+  const cls = pari.under ? (passe ? "danger" : "") : (passe ? "ok" : "");
+  const etat = pari.under ? (passe ? "perdu" : `gagné si ${Math.floor(L)} ou moins`) : (passe ? "gagné" : `il faut ${Math.floor(L) + 1}`);
+  return `<div class="pgauge ${cls}"><span class="lbl">${esc(pari.mot)} · ${pari.under ? "moins" : "plus"} de ${fmtLigne(L)} — ${esc(etat)}</span>
+    <div class="ptrack"><div class="pfill" style="width:${pct}%"></div>
+      <span class="pval" style="left:${Math.max(3, Math.min(97, pct))}%">${v}</span>
+      <span class="pmark" style="left:75%"></span><span class="pline" style="left:75%">${fmtLigne(L)}</span></div>
+    <div class="pend"></div></div>`;
 }
 /* 21/09/2026 : cette comparaison ne connaissait que "GAGNE" sans accent.
    Or le reglement ecrit "GAGNÉ" avec accent pour le baseball et la NFL --
@@ -648,6 +688,9 @@ function paris(p){
      une cote interne estimee) -- en cas de doublon on garde la cote reelle. */
   const ajoute = e => {
     if (!e.bet) return;
+    /* Paris joueurs NHL / NBA / WNBA (01/10/2026) : "Nom (ABR) : 2+ tirs cadrés" */
+    const pj = !e.joueur && e.bet.match(/^(.+?)\s+\([A-Z]{2,4}\)\s*:\s*(.+)$/);
+    if (pj && lirePariJoueur(pj[2])) e.joueur = pj[1];
     const j = out.findIndex(o => memePari(o, e));
     if (j < 0) { out.push(e); return; }
     const joueur = e.joueur || out[j].joueur;
