@@ -1,34 +1,6 @@
 {
- "generated_at": "2026-10-01T00:07:58.857015+00:00",
+ "generated_at": "2026-10-01T00:29:59.035216+00:00",
  "live": [
-  {
-   "fixture_id": "wnba_401918019",
-   "flag": "🏀",
-   "league": "WNBA",
-   "sport": "wnba",
-   "sport_label": "Basketball (WNBA)",
-   "match": "Washington Mystics – Atlanta Dream",
-   "kickoff_at": "2026-09-30T23:00Z",
-   "published": true,
-   "player_picks": [
-    {
-     "category": "Player pick",
-     "label": "Naz Hillmon — Points Plus de 5.5",
-     "kind": "player",
-     "detail": "cote 1.95",
-     "odd": 1.95,
-     "mise_eur": 200.0
-    },
-    {
-     "category": "Player pick",
-     "label": "Lauren Betts — Points Plus de 4.5",
-     "kind": "player",
-     "detail": "cote 1.93",
-     "odd": 1.93,
-     "mise_eur": 200.0
-    }
-   ]
-  },
   {
    "fixture_id": "nhljp_2026020008_8477939_sog2",
    "flag": "🏒",
@@ -334,6 +306,37 @@
    "value_result": "PERDU",
    "result": "PERDU",
    "score": "3 - 2"
+  },
+  {
+   "fixture_id": "wnba_401918019",
+   "flag": "🏀",
+   "league": "WNBA",
+   "sport": "wnba",
+   "sport_label": "Basketball (WNBA)",
+   "match": "Washington Mystics – Atlanta Dream",
+   "kickoff_at": "2026-09-30T23:00Z",
+   "published": true,
+   "result_updated_at": "2026-10-01T02:29:32.319245+02:00",
+   "result": "GAGNE",
+   "player_picks": [
+    {
+     "category": "Player pick",
+     "label": "Naz Hillmon — Points Plus de 5.5",
+     "kind": "player",
+     "detail": "cote 1.95",
+     "odd": 1.95,
+     "mise_eur": 200.0,
+     "result": "GAGNE"
+    },
+    {
+     "category": "Player pick",
+     "label": "Lauren Betts — Points Plus de 4.5",
+     "kind": "player",
+     "detail": "cote 1.93",
+     "odd": 1.93,
+     "mise_eur": 200.0
+    }
+   ]
   }
  ]
 }
