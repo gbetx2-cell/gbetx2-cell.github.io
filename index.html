@@ -468,7 +468,7 @@ const SITE = location.hostname.includes("89.168.57.74") ? "https://gbetx2-cell.g
 const $ = s => document.querySelector(s);
 const fmt = (n, d = 2) => (n === null || n === undefined || isNaN(n) ? "—" : Number(n).toFixed(d).replace(".", ",").replace("-", "−"));
 const unit = u => (u > 0 ? "+" : "") + fmt(u, 2) + " u";
-const eur = v => (v > 0 ? "+" : "") + fmt(v, 0) + " €";
+const eur = v => (v > 0 ? "+" : "") + fmt(v, Math.abs(v) < 100 && Math.round(v * 100) % 100 ? 2 : 0) + " €";
 const esc = t => String(t ?? "").replace(/[<>&]/g, c => ({"<": "&lt;", ">": "&gt;", "&": "&amp;"}[c]));
 const store = {
   get(k){ try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } },
@@ -764,7 +764,7 @@ const PAYS_EN_FR = {"Sweden": "Suède", "Czech-Republic": "Tchéquie", "Russia":
   "Slovakia": "Slovaquie", "Germany": "Allemagne", "Finland": "Finlande", "Austria": "Autriche", "Norway": "Norvège",
   "Denmark": "Danemark", "France": "France", "Great-Britain": "Royaume-Uni", "Poland": "Pologne", "USA": "États-Unis",
   "Canada": "Canada", "Japan": "Japon", "Korea": "Corée du Sud", "South-Korea": "Corée du Sud"};
-const ligueFr = l => String(l).replace(/\(([^)]+)\)\s*$/, (m, c) => `(${PAYS_EN_FR[c] || c})`);
+const ligueFr = l => String(l).replace(/\s+(presentado por|presented by|powered by|driven by)\s+.*$/i, "").replace(/\(([^)]+)\)\s*$/, (m, c) => `(${PAYS_EN_FR[c] || c})`);
 /* Tous les paris de la carte sont regles (01/10/2026) ; sans pari lisible, on
    retombe sur le resultat de la ligne. */
 function estRegle(p){
@@ -822,7 +822,12 @@ function carte(p, euros, valeurU){
   const ligne = (n, url, side, score) => `<div class="team ${fini && gagnant === side ? "win" : ""}">${logo(url, n)}
     <span class="tname">${esc(n)}</span>${colonnes(side === "h" ? 1 : 2)}<span class="tscore${sets.length ? " total" : ""}">${score ?? ""}</span></div>`;
   const ko = p.kickoff_at ? new Date(p.kickoff_at) : null;
-  const heure = ko ? ko.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
+  /* Jour affiche quand le match n'est pas aujourd'hui (01/10/2026) : la liste
+     "Derniers paris" (classee par heure de reglement) melangeait 01:30, 03:00,
+     19:00 sans dire quel match etait d'hier. */
+  const heure = ko ? (ko.toDateString() === new Date().toDateString() ? ""
+      : ko.toLocaleDateString("fr-FR", {day: "2-digit", month: "2-digit"}) + " ")
+    + ko.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
   /* Le resultat publie prime sur le cache de score en direct (21/09/2026) :
      ce cache ne couvre pas tous les sports -- le tennis n'y est pas -- et une
      carte reglee "Gagne +1,07 u" s'affichait quand meme "A venir", ou restait
@@ -999,7 +1004,7 @@ async function dessineFlamme(){
   el.className = "flamme " + (vivante ? "on" : "off");
   el.innerHTML = vivante
     ? `<b>${n}</b><span>jours positifs d'affilée</span>`
-    : `<span>${jours.some(j => Object.keys(j.sports || {}).length) ? "Série interrompue" : "Pas encore de série"}</span>`;
+    : `<span>${jours.some(j => Object.keys(j.sports || {}).length) ? "—" : "—"}</span>`;
   el.setAttribute("data-tip", encodeURIComponent(
     `<b>Série en cours</b><em>${vivante ? n + " journées consécutives dans le vert." : "La flamme s'allume à partir de 2 journées positives d'affilée."}</em>` +
     `<em>Une journée sans pari ne casse pas la série.</em>`));
