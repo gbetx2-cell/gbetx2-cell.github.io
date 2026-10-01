@@ -557,7 +557,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
             # l'ID ESPN et interroger le score en direct pendant le match
             # (remplace "En cours" -- voir programme.html::espnEventInfo).
             "fixture_id": str(fixture_id),
-            "flag": _sport_icon(sport, league, int(league_id) if league_id else None),
+            "flag": _sport_icon(sport, league, int(league_id) if str(league_id or "").isdigit() else None),
             "league": league or "",
             "sport": sport or "football",
             "sport_label": SPORT_LABEL.get(sport, sport or "Football"),
@@ -574,7 +574,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
         # logo d'equipe (cf normalize_team()).
         if sport == "football":
             if league_id:
-                item["league_id"] = int(league_id)
+                item["league_id"] = int(league_id) if str(league_id).isdigit() else league_id
             if home_team_id:
                 item["home_logo"] = f"https://media.api-sports.io/football/teams/{int(home_team_id)}.png"
             if away_team_id:
