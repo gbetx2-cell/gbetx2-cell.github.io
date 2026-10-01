@@ -755,7 +755,30 @@ function paris(p){
     const m = bet.match(/^(.+?)\s+—\s+(.+)$/);
     ajoute({bet, odd: x.odd, mise: x.mise_eur, r: etatDe(x.result), rang: 1, joueur: m ? m[1] : "?"});
   });
+  (p._autres || []).forEach(q => paris(q).forEach(b => out.push(b)));
   return out;
+}
+/* Une carte par MATCH (01/10/2026) : les paris joueurs NHL/NBA/WNBA ont un
+   identifiant par pari (wnbajp_<match>_<joueur>_<code>) -- 3 joueuses du meme
+   match faisaient 3 cartes. Les lignes d'un meme match (sport + affiche + coup
+   d'envoi) sont fusionnees : la 1re porte les autres dans _autres. La carte
+   reste "en cours" tant qu'un de ses paris n'est pas regle. */
+function grouper(pub){
+  const tous = [...(pub.live || []).map(p => ({...p, _live: true})), ...(pub.done || [])];
+  const parCle = new Map();
+  for (const p of tous){
+    const k = [p.sport, p.match, String(p.kickoff_at || "").slice(0, 16)].join("|");
+    if (!parCle.has(k)) parCle.set(k, {...p, _autres: []});
+    else {
+      const t = parCle.get(k);
+      t._autres.push(p);
+      t._live = t._live || p._live;
+      if (!t.score && p.score) t.score = p.score;
+      if (String(p.result_updated_at || "") > String(t.result_updated_at || "")) t.result_updated_at = p.result_updated_at;
+    }
+  }
+  const g = [...parCle.values()];
+  return {...pub, live: g.filter(p => p._live), done: g.filter(p => !p._live)};
 }
 /* Pays des ligues en francais sur les cartes (01/10/2026, demande explicite) :
    "Hockey Allsvenskan (Sweden)" -> "Hockey Allsvenskan (Suède)". Meme table que
@@ -772,7 +795,7 @@ function estRegle(p){
   return b.length ? b.every(x => x.r !== "s") : !!p.result;
 }
 function carte(p, euros, valeurU){
-  const sc = SCORES[p.fixture_id] || null;
+  const sc = [p, ...(p._autres || [])].map(q => SCORES[q.fixture_id]).find(Boolean) || null;
   /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
      reste bloque sur un statut en cours (21/09/2026). */
   const live = !estRegle(p) && sc && !sc.finished && sc.status_short && sc.status_short !== "NS";
@@ -797,7 +820,9 @@ function carte(p, euros, valeurU){
      gagne s'affichait donc sans le moindre score, alors que "3-6, 2-6" etait
      deja dans la reponse du serveur. Un score "2 - 1" se repartit par equipe ;
      un score par sets reste tel quel, a cote de l'etat. */
-  const sp = !sc && p.score ? String(p.score).trim() : "";
+  /* "108 - 100 (13 points)" (paris joueurs, 01/10/2026) : la stat du joueur
+     entre parentheses est retiree, le score se repartit par equipe. */
+  const sp = !sc && p.score ? String(p.score).replace(/\s*\(.*\)\s*$/, "").trim() : "";
   const spn = sp.match(/^(\d+)\s*[-–]\s*(\d+)$/);
   const hs = sc ? sc.home_score : (spn ? Number(spn[1]) : null);
   const as = sc ? sc.away_score : (spn ? Number(spn[2]) : null);
@@ -1241,7 +1266,7 @@ document.querySelector("nav").addEventListener("click", e => {
 async function charger(){
   try {
     const [pub, live, res] = await Promise.all([api("/api/publications"), api("/api/live-scores"), api("/api/results")]);
-    PUBS = pub; SCORES = (live && live.scores) || {}; RES = res;
+    PUBS = grouper(pub); SCORES = (live && live.scores) || {}; RES = res;
     dernierChargement = Date.now();
     $("#jour-maj").textContent = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
     dessineJour(); resumeResultats(); dessineMise();
