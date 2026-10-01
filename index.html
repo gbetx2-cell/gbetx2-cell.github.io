@@ -729,7 +729,7 @@ function carte(p, euros, valeurU){
   const sc = SCORES[p.fixture_id] || null;
   /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
      reste bloque sur un statut en cours (21/09/2026). */
-  const live = !p.result && sc && !sc.finished && sc.status_short && sc.status_short !== "NS";
+  const live = !estRegle(p) && sc && !sc.finished && sc.status_short && sc.status_short !== "NS";
   const [home, away] = String(p.match).split("–").map(t => (t || "").trim());
   const ini = n => (n || "?").split(/[ .-]+/).slice(0, 2).map(w => w[0] || "").join("").toUpperCase();
   const cle = n => String(n || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
