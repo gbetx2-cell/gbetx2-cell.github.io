@@ -665,6 +665,14 @@ function paris(p){
   });
   return out;
 }
+/* Pays des ligues en francais sur les cartes (01/10/2026, demande explicite) :
+   "Hockey Allsvenskan (Sweden)" -> "Hockey Allsvenskan (Suède)". Meme table que
+   le serveur (scripts/export_site_results.py::PAYS_EN_FR). */
+const PAYS_EN_FR = {"Sweden": "Suède", "Czech-Republic": "Tchéquie", "Russia": "Russie", "Switzerland": "Suisse",
+  "Slovakia": "Slovaquie", "Germany": "Allemagne", "Finland": "Finlande", "Austria": "Autriche", "Norway": "Norvège",
+  "Denmark": "Danemark", "France": "France", "Great-Britain": "Royaume-Uni", "Poland": "Pologne", "USA": "États-Unis",
+  "Canada": "Canada", "Japan": "Japon", "Korea": "Corée du Sud", "South-Korea": "Corée du Sud"};
+const ligueFr = l => String(l).replace(/\(([^)]+)\)\s*$/, (m, c) => `(${PAYS_EN_FR[c] || c})`);
 function carte(p, euros, valeurU){
   const sc = SCORES[p.fixture_id] || null;
   /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
@@ -748,7 +756,7 @@ function carte(p, euros, valeurU){
   return `<article class="pick ${live ? "is-live" : ""}">
     <div class="when">${heure}</div>
     <div>
-      <div class="meta">${esc(p.sport_label || p.sport || "")} · ${esc(p.league || "")}
+      <div class="meta">${esc(p.sport_label || p.sport || "")} · ${esc(ligueFr(p.league || ""))}
         <button class="talk" type="button" data-fix="${esc(p.fixture_id)}" data-match="${esc(p.match)}"
           data-league="${esc(p.league || "")}" data-score="${detail || (hs !== null && hs !== undefined ? hs + " - " + as : "")}"
           title="Discussion" aria-label="Ouvrir la discussion">💬</button></div>
