@@ -565,7 +565,7 @@ function jauge(label, now, need, under){
   return `<div class="gauge ${cls}"><span>${esc(label)}</span><div class="track"><div class="fill" style="width:${pct}%"></div></div>
     <span class="num">${now} / ${need}</span></div>`;
 }
-function jaugeDe(texte, score, regle, setsJoues){
+function jaugeDe(texte, score, regle, setsJoues, sport){
   /* 21/09/2026 : plus de jauge sur un pari deja regle, ni quand aucun score
      en direct n'existe. Elle restait alors bloquee a 0 -- "Sets 0 / 3" sur un
      pari gagne la veille donnait l'impression que le match n'avait pas eu
@@ -574,6 +574,10 @@ function jaugeDe(texte, score, regle, setsJoues){
   if (!SEUIL.test(texte)) return "";
   /* Pari joueur non reconnu comme tel : jamais le score du match (27/09/2026). */
   if (/—\s*(points|rebonds|passes|paniers)/i.test(texte)) return "";
+  /* 01/10/2026 : un handicap ("Écart de points — X -3.5") ou un total d'UNE equipe
+     ne se lit pas sur la somme des deux scores -- la jauge affichait 110 pour un
+     ecart de -3,5. Pas de jauge plutot qu'un chiffre faux. */
+  if (/écart|ecart|handicap|équipe|equipe/i.test(texte)) return "";
   const m = texte.match(/(\d+(?:[.,]\d+)?)/); if (!m) return "";
   const seuil = parseFloat(m[1].replace(",", ".")), need = Math.floor(seuil) + 1;
   /* Au tennis, ce qui decide un "Total sets" est le nombre de sets JOUES,
@@ -586,11 +590,14 @@ function jaugeDe(texte, score, regle, setsJoues){
     : (score ? (Number(score.home_score) || 0) + (Number(score.away_score) || 0) : 0);
   const under = UNDER.test(texte);
   const mot = /buts|goals/i.test(texte) ? "Buts" : /points/i.test(texte) ? "Points" : /runs/i.test(texte) ? "Runs"
-    : /sets/i.test(texte) ? "Sets" : "Progression";
+    : /sets/i.test(texte) ? "Sets"
+    : ({football: "Buts", hockey: "Buts", nhl: "Buts", baseball: "Runs", mlb: "Runs", npb: "Runs", kbo: "Runs",
+        nba: "Points", wnba: "Points", nfl: "Points", tennis: "Jeux"}[sport] || "Total");
   /* Le libelle disait "(max 2)" pendant que le compteur affichait "0 / 3" :
      deux nombres qui se contredisent. Le denominateur est le point de bascule
      -- on le nomme donc pour ce qu'il est. */
-  return jauge(under ? `${mot} — perdu à ${need}` : `${mot} — gagné à ${need}`, total, need, under);
+  /* 01/10/2026 : meme jauge que les paris joueurs (ligne aux 3/4, valeur au bout) */
+  return jaugeLigne(mot, total, seuil, under);
 }
 /* Jauge d'un pari joueur (27/09/2026, bug signale en WNBA : "Points Plus de
    4.5" affichait "26 / 5" -- jaugeDe additionnait les deux scores d'equipe,
@@ -639,12 +646,17 @@ function jaugeJoueur(b, score, regle){
   const s = statJoueur(stats, b.joueur); if (!s) return "";
   const pari = lirePariJoueur(b.bet.includes("—") ? b.bet.slice(b.bet.indexOf("—") + 1) : b.bet.slice(b.bet.indexOf(":") + 1));
   if (!pari || typeof s[pari.cle] !== "number") return "";
-  const v = s[pari.cle], L = pari.ligne;
-  const pct = Math.max(0, Math.min(100, v / L * 75));            // la ligne est aux 3/4 de la barre
+  return jaugeLigne(pari.mot, s[pari.cle], pari.ligne, pari.under);
+}
+/* Jauge "ligne aux 3/4" (01/10/2026), commune aux paris joueurs et aux totaux
+   de match : la ligne du pari est aux 75 % de la barre (chiffre affiche
+   dessous), la barre jaune avance avec la valeur en direct, ecrite au bout. */
+function jaugeLigne(mot, v, L, under){
+  const pct = Math.max(0, Math.min(100, v / L * 75));
   const passe = v > L;
-  const cls = pari.under ? (passe ? "danger" : "") : (passe ? "ok" : "");
-  const etat = pari.under ? (passe ? "perdu" : `gagné si ${Math.floor(L)} ou moins`) : (passe ? "gagné" : `il faut ${Math.floor(L) + 1}`);
-  return `<div class="pgauge ${cls}"><span class="lbl">${esc(pari.mot)} · ${pari.under ? "moins" : "plus"} de ${fmtLigne(L)} — ${esc(etat)}</span>
+  const cls = under ? (passe ? "danger" : "") : (passe ? "ok" : "");
+  const etat = under ? (passe ? "perdu" : `gagné si ${Math.floor(L)} ou moins`) : (passe ? "gagné" : `il faut ${Math.floor(L) + 1}`);
+  return `<div class="pgauge ${cls}"><span class="lbl">${esc(mot)} · ${under ? "moins" : "plus"} de ${fmtLigne(L)} — ${esc(etat)}</span>
     <div class="ptrack"><div class="pfill" style="width:${pct}%"></div>
       <span class="pval" style="left:${Math.max(3, Math.min(97, pct))}%">${v}</span>
       <span class="pmark" style="left:75%"></span><span class="pline" style="left:75%">${fmtLigne(L)}</span></div>
@@ -806,7 +818,7 @@ function carte(p, euros, valeurU){
       <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
       <span class="tag ${b.r}">${b.r === "s" && live ? "En cours" : LIB[b.r]}</span>
       <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
-      ${b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length)}</div>`;
+      ${b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length, p.sport)}</div>`;
   }).join("");
 
   return `<article class="pick ${live ? "is-live" : ""}">
