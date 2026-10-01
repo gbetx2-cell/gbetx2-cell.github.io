@@ -719,6 +719,12 @@ const PAYS_EN_FR = {"Sweden": "Suède", "Czech-Republic": "Tchéquie", "Russia":
   "Denmark": "Danemark", "France": "France", "Great-Britain": "Royaume-Uni", "Poland": "Pologne", "USA": "États-Unis",
   "Canada": "Canada", "Japan": "Japon", "Korea": "Corée du Sud", "South-Korea": "Corée du Sud"};
 const ligueFr = l => String(l).replace(/\(([^)]+)\)\s*$/, (m, c) => `(${PAYS_EN_FR[c] || c})`);
+/* Tous les paris de la carte sont regles (01/10/2026) ; sans pari lisible, on
+   retombe sur le resultat de la ligne. */
+function estRegle(p){
+  const b = paris(p);
+  return b.length ? b.every(x => x.r !== "s") : !!p.result;
+}
 function carte(p, euros, valeurU){
   const sc = SCORES[p.fixture_id] || null;
   /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
@@ -776,7 +782,11 @@ function carte(p, euros, valeurU){
      carte reglee "Gagne +1,07 u" s'affichait quand meme "A venir", ou restait
      figee sur "First Half 15'". Des qu'un pari porte un resultat, le match est
      termine, quoi qu'en dise le cache. */
-  const regle = !!p.result;
+  /* 01/10/2026 : une carte a plusieurs paris (paris joueurs) n'est "Terminé"
+     que quand TOUS ses paris sont regles -- le premier regle masquait la jauge
+     et affichait "Terminé" alors que le match se jouait encore. */
+  const tousRegles = estRegle(p);
+  const regle = tousRegles;
   const etat = regle || fini ? `<span class="gain">Terminé</span>`
     : live ? `<span class="clock">${esc(sc.status_long || "En direct")}${sc.elapsed ? " · " + sc.elapsed + "'" : ""}</span>`
     : ko && ko > new Date() ? `<span class="kick" data-ko="${p.kickoff_at}">${compte(ko)}</span>`
@@ -796,7 +806,7 @@ function carte(p, euros, valeurU){
       <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
       <span class="tag ${b.r}">${b.r === "s" && live ? "En cours" : LIB[b.r]}</span>
       <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
-      ${b.joueur ? jaugeJoueur(b, sc, regle || b.r !== "s") : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length)}</div>`;
+      ${b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length)}</div>`;
   }).join("");
 
   return `<article class="pick ${live ? "is-live" : ""}">
@@ -822,7 +832,7 @@ const groupe = p => {
      deja cette regle mais pas le classement dans les filtres : un pari NFL
      regle "Perdu" apparaissait sous "En direct", parce que son score en cache
      etait reste bloque sur LIVE. Le compteur et la carte se contredisaient. */
-  if (p.result) return "Terminés";
+  if (estRegle(p)) return "Terminés";
   const sc = SCORES[p.fixture_id];
   if (sc && !sc.finished && sc.status_short && sc.status_short !== "NS") return "En direct";
   return (sc && sc.finished) ? "Terminés" : "À venir";
