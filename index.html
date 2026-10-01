@@ -1048,7 +1048,7 @@ function resumeResultats(){
      en repli. Toutes les ligues, reparties sur plusieurs pages. */
   const ICONE = {football: "⚽", tennis: "🎾", hockey: "🏒", baseball: "⚾", nfl: "🏈", wnba: "🏀", nba: "🏀", npb: "⚾", kbo: "⚾"};
   SPLIT.ligue = (RES.league_table || []).length
-    ? RES.league_table.map(v => [`${ICONE[v.sport] || ""} ${v.name}`.trim(), v.n || 0, v.winrate ?? "—", v.pnl || 0])
+    ? RES.league_table.map(v => [`${ICONE[v.sport] || ""} ${ligueFr(v.name)}`.trim(), v.n || 0, v.winrate ?? "—", v.pnl || 0])
     : Object.entries(RES.league_stats || {}).map(([n, v]) => [v.name || n, v.n || 0, v.winrate ?? "—", v.pnl || 0])
         .sort((a, b) => b[3] - a[3]);
   dessineSplit(splitKey);
