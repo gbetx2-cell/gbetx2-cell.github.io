@@ -208,9 +208,9 @@ COMPETITION_FLAGS = {
 # sport (distinct de "nhl", module ESPN) -- sans lui, les paris hockey
 # etaient absents de Publications / "Paris du jour" alors qu'ils comptaient
 # bien dans les Resultats.
-PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague")
+PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague", "mma")
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀",
-              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀"}
+              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊"}
 
 # Sports ou paris.conseil n'est jamais une info independante : c'est soit un
 # mirroir du value bet ("Victoire X"), soit un mirroir du player pick ("Total
@@ -220,7 +220,7 @@ SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒",
 # doublon (meme info sous 2 etiquettes) ou pire, un player pick affiche a
 # tort sous le libelle "Conseil" quand aucun value bet n'avait passe les
 # criteres -- signale par l'utilisateur comme peu clair cote client.
-SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague"}
+SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague", "mma"}
 
 # "tennis" retire de SPORTS_CONSEIL_IS_MIRROR le 22/08/2026 (bug confirme
 # en production, demande explicite : "le tennis des fois ne montre pas
@@ -261,7 +261,7 @@ SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
                "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "hockey": "Hockey",
                "nfl": "Football US (NFL)", "tennis": "Tennis", "wnba": "Basketball (WNBA)",
                "npb": "Baseball (NPB)", "kbo": "Baseball (KBO)",
-               "nbl": "Basketball (NBL)", "euroleague": "Basketball (Euroleague)"}
+               "nbl": "Basketball (NBL)", "euroleague": "Basketball (Euroleague)", "mma": "MMA (UFC)"}
 
 # Libelle FR par categorie de player pick, tous sports confondus (football:
 # buteur/passeur/decisif : baseball/basket/hockey/NFL ont leurs propres
