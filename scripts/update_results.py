@@ -561,6 +561,7 @@ _alerted_new_tennis_tournaments: set = set()
 
 
 def _alert_new_tennis_tournaments(tournament_names) -> None:
+    return   # 04/10/2026 : le globe (ancien site, performance.html) est coupe -- plus d'alerte
     """Signale un tournoi avec des paris reels regles mais absent du globe
     (28/08/2026, demande explicite "a chaque nouveaux tournois tu rajoutes
     dans le globe a sa bonne place") -- jamais de coordonnees devinees
