@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-03T16:30:12.486155+00:00",
+ "generated_at": "2026-10-03T16:37:26.233078+00:00",
  "live": [
   {
    "fixture_id": "api_football:1565480",
@@ -34,24 +34,6 @@
    "conseil_mise_eur": 200.0,
    "value_bet": "Vainqueur (prol. incluse) — SaiPa @ 1.57",
    "value_cote": 1.57,
-   "value_mise_eur": 200.0
-  },
-  {
-   "fixture_id": "hockey_425788",
-   "flag": "🏒",
-   "league": "Liiga (Finland)",
-   "sport": "hockey",
-   "sport_label": "Hockey",
-   "match": "Ilves – Kiekko-Espoo",
-   "kickoff_at": "2026-10-03T14:00:00+00:00",
-   "published": true,
-   "home_logo": "https://media.api-sports.io/hockey/teams/171.png",
-   "away_logo": "https://media.api-sports.io/hockey/teams/190.png",
-   "conseil": "Victoire Ilves",
-   "conseil_cote": 1.55,
-   "conseil_mise_eur": 200.0,
-   "value_bet": "Vainqueur (prol. incluse) — Ilves @ 1.55",
-   "value_cote": 1.55,
    "value_mise_eur": 200.0
   },
   {
@@ -115,6 +97,28 @@
    "value_result": "GAGNE",
    "result": "GAGNE",
    "score": "2 - 5 (1 point)"
+  },
+  {
+   "fixture_id": "hockey_425788",
+   "flag": "🏒",
+   "league": "Liiga (Finland)",
+   "sport": "hockey",
+   "sport_label": "Hockey",
+   "match": "Ilves – Kiekko-Espoo",
+   "kickoff_at": "2026-10-03T14:00:00+00:00",
+   "published": true,
+   "home_logo": "https://media.api-sports.io/hockey/teams/171.png",
+   "away_logo": "https://media.api-sports.io/hockey/teams/190.png",
+   "result_updated_at": "2026-10-03T18:36:58.713937+02:00",
+   "conseil": "Victoire Ilves",
+   "conseil_cote": 1.55,
+   "conseil_mise_eur": 200.0,
+   "value_bet": "Vainqueur (prol. incluse) — Ilves @ 1.55",
+   "value_cote": 1.55,
+   "value_mise_eur": 200.0,
+   "value_result": "GAGNE",
+   "result": "GAGNE",
+   "score": "6 - 4"
   }
  ]
 }
