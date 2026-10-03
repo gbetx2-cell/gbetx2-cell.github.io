@@ -939,6 +939,10 @@ function duJour(){
       if (j === jour) return true;
       const sc = SCORES[p.fixture_id];
       const termine = !!p.result || (sc && sc.finished);
+      /* 03/10/2026 : un pari publie le soir pour un match apres minuit (UFC a 00h00,
+         NHL/MLB de nuit) restait invisible jusqu'a minuit -- on le montre des sa
+         publication s'il commence dans les 18 h. */
+      if (!termine && new Date(p.kickoff_at) - Date.now() < 18 * 3600e3 && new Date(p.kickoff_at) > new Date(jour)) return true;
       return j === hier && !termine;          // encore en jeu : on le garde visible
     })
     /* Trois etages, dans cet ordre (21/09/2026, demande explicite) :
