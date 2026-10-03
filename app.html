@@ -1121,19 +1121,36 @@ const pnlSport = x => {
 const SPORT_FR = {football: "Football", tennis: "Tennis", hockey: "Hockey", nfl: "Football US",
                   baseball: "Baseball", wnba: "Basket (WNBA)", basketball: "Basket",
                   npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)", kbl: "Basket (KBL)", nbam: "Basket (NBA)"};
-async function blocs(periode, n = 8){
+/* 03/10/2026 : une seule requete pour les n bilans (avant : n requetes a la suite,
+   relancees par chaque dessin en parallele -> ~60 appels au chargement). La promesse
+   est partagee entre les appels simultanes et gardee 5 min. */
+function blocs(periode, n = 8){
   const key = periode + ":" + n;
-  if (CACHE[key]) return CACHE[key];
-  const out = [];
-  for (let o = 0; o > -n; o--){
+  const c = CACHE[key];
+  if (c && Date.now() - c.t < 300000) return c.p;
+  const p = (async () => {
     try {
-      const d = await api(`/api/results/history?period=${periode}&offset=${o}`);
-      out.push({label: d.label_range || "", pnl: d.pnl_total || 0, sports: d.by_sport || {},
-                n: (d.points || []).length});
-    } catch (_){ break; }
-  }
-  CACHE[key] = out;
-  return out;
+      const d = await api(`/api/results/history-blocks?period=${periode}&n=${n}`);
+      return (d.blocks || []).map(b => ({label: b.label_range || "", pnl: b.pnl_total || 0,
+                                         sports: b.by_sport || {}, n: b.n || 0}));
+    } catch (_){                         /* ancien serveur : repli requete par requete */
+      const out = [];
+      for (let o = 0; o > -n; o--){
+        try {
+          const d = await api(`/api/results/history?period=${periode}&offset=${o}`);
+          out.push({label: d.label_range || "", pnl: d.pnl_total || 0, sports: d.by_sport || {},
+                    n: (d.points || []).length});
+        } catch (_){ break; }
+      }
+      return out;
+    }
+  })();
+  CACHE[key] = {t: Date.now(), p};
+  /* Un echec (serveur qui redemarre...) ne doit jamais rester en memoire 5 min :
+     resultat vide = on retentera au prochain rafraichissement. */
+  p.then(v => { if (!v.length && CACHE[key] && CACHE[key].p === p) delete CACHE[key]; },
+         () => { delete CACHE[key]; });
+  return p;
 }
 async function dessineBlocs(trackId, chipsId, periode, euros, valeurU){
   document.querySelectorAll(`#${chipsId} button`).forEach(b => b.setAttribute("aria-pressed", b.dataset.p === periode));
@@ -1269,7 +1286,13 @@ document.querySelector("nav").addEventListener("click", e => {
 
 async function charger(){
   try {
-    const [pub, live, res] = await Promise.all([api("/api/publications"), api("/api/live-scores"), api("/api/results")]);
+    const [pub, live] = await Promise.all([api("/api/publications"), api("/api/live-scores")]);
+    /* 03/10/2026 : /api/results (le plus lourd, tout l'historique) n'est relu que si
+       un pari a change d'etat (publie, regle) depuis le dernier chargement. */
+    const sig = [...(pub.live || []), ...(pub.done || [])].map(p => p.fixture_id + ":" + (p.result || "")).sort().join("|");
+    if (RES && sig !== signatureRes) for (const k in CACHE) delete CACHE[k];   // bilans a jour aussi
+    const res = (!RES || sig !== signatureRes) ? await api("/api/results") : RES;
+    signatureRes = sig;
     PUBS = grouper(pub); SCORES = (live && live.scores) || {}; RES = res;
     dernierChargement = Date.now();
     $("#jour-maj").textContent = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
@@ -1293,6 +1316,17 @@ async function charger(){
   }
 }
 let dernierChargement = 0;   /* declare avant le 1er charger() : il l'ecrit */
+let signatureRes = "";
+/* Scores en direct toutes les 20 s, seulement quand un match est en cours (03/10/2026).
+   Le reste de la page garde son rythme de 60 s. */
+setInterval(async () => {
+  if (document.hidden || !PUBS || !duJour().some(p => groupe(p) === "En direct")) return;
+  try {
+    const live = await api("/api/live-scores");
+    SCORES = (live && live.scores) || {};
+    dessineJour();
+  } catch (_){}
+}, 20000);
 majCompte();
 verifierSession();   /* 21/09/2026 : l'etat de connexion vient du serveur */
 charger();
