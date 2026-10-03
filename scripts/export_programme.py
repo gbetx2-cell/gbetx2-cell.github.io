@@ -605,6 +605,13 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                 item["home_logo"] = f"https://media.api-sports.io/baseball/teams/{int(home_team_id)}.png"
             if away_team_id:
                 item["away_logo"] = f"https://media.api-sports.io/baseball/teams/{int(away_team_id)}.png"
+        elif sport == "mma":
+            # Photos des combattants (03/10/2026, demande explicite) : id athlete ESPN
+            # enregistre a la publication (mma/meilleur_prix.py), photo publique ESPN.
+            if home_team_id:
+                item["home_logo"] = f"https://a.espncdn.com/i/headshots/mma/players/full/{home_team_id}.png"
+            if away_team_id:
+                item["away_logo"] = f"https://a.espncdn.com/i/headshots/mma/players/full/{away_team_id}.png"
         elif sport == "tennis":
             # Photos joueurs (13/08/2026, demande explicite "recupere celle
             # d'ESPN le maximum et installe un systeme pour completer... avec
