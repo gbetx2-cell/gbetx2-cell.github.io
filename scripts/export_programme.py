@@ -208,9 +208,9 @@ COMPETITION_FLAGS = {
 # sport (distinct de "nhl", module ESPN) -- sans lui, les paris hockey
 # etaient absents de Publications / "Paris du jour" alors qu'ils comptaient
 # bien dans les Resultats.
-PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague", "mma")
+PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl")
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀",
-              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊"}
+              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀"}
 
 # Sports ou paris.conseil n'est jamais une info independante : c'est soit un
 # mirroir du value bet ("Victoire X"), soit un mirroir du player pick ("Total
@@ -220,7 +220,7 @@ SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒",
 # doublon (meme info sous 2 etiquettes) ou pire, un player pick affiche a
 # tort sous le libelle "Conseil" quand aucun value bet n'avait passe les
 # criteres -- signale par l'utilisateur comme peu clair cote client.
-SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague", "mma"}
+SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl"}
 
 # "tennis" retire de SPORTS_CONSEIL_IS_MIRROR le 22/08/2026 (bug confirme
 # en production, demande explicite : "le tennis des fois ne montre pas
@@ -261,7 +261,8 @@ SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
                "nba": "Basketball (NBA)", "nhl": "Hockey (NHL)", "hockey": "Hockey",
                "nfl": "Football US (NFL)", "tennis": "Tennis", "wnba": "Basketball (WNBA)",
                "npb": "Baseball (NPB)", "kbo": "Baseball (KBO)",
-               "nbl": "Basketball (NBL)", "euroleague": "Basketball (Euroleague)", "mma": "MMA (UFC)"}
+               "nbl": "Basketball (NBL)", "euroleague": "Basketball (Euroleague)", "mma": "MMA (UFC)",
+               "grebl": "Basketball (Grèce)", "kbl": "Basketball (KBL)"}
 
 # Libelle FR par categorie de player pick, tous sports confondus (football:
 # buteur/passeur/decisif : baseball/basket/hockey/NFL ont leurs propres
@@ -588,7 +589,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                 item["home_logo"] = f"https://media.api-sports.io/hockey/teams/{int(home_team_id)}.png"
             if away_team_id:
                 item["away_logo"] = f"https://media.api-sports.io/hockey/teams/{int(away_team_id)}.png"
-        elif sport in ("nbl", "euroleague"):
+        elif sport in ("nbl", "euroleague", "grebl", "kbl"):
             # Logos NBL / Euroleague (02/10/2026) : ids api-sports basket,
             # enregistres a la publication (baseball/npb_kbo_rules.py).
             if str(home_team_id or "").isdigit():

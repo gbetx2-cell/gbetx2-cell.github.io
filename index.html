@@ -591,7 +591,7 @@ function jaugeDe(texte, score, regle, setsJoues, sport){
   const under = UNDER.test(texte);
   const mot = /buts|goals/i.test(texte) ? "Buts" : /points/i.test(texte) ? "Points" : /runs/i.test(texte) ? "Runs"
     : /sets/i.test(texte) ? "Sets"
-    : ({football: "Buts", hockey: "Buts", nhl: "Buts", baseball: "Runs", mlb: "Runs", npb: "Runs", kbo: "Runs", nbl: "Points", euroleague: "Points",
+    : ({football: "Buts", hockey: "Buts", nhl: "Buts", baseball: "Runs", mlb: "Runs", npb: "Runs", kbo: "Runs", nbl: "Points", euroleague: "Points", grebl: "Points", kbl: "Points",
         nba: "Points", wnba: "Points", nfl: "Points", tennis: "Jeux"}[sport] || "Total");
   /* Le libelle disait "(max 2)" pendant que le compteur affichait "0 / 3" :
      deux nombres qui se contredisent. Le denominateur est le point de bascule
@@ -1051,7 +1051,7 @@ function resumeResultats(){
   const NOM_SPORT = {football: "Football", baseball: "Baseball (MLB)", mlb: "Baseball (MLB)",
                      tennis: "Tennis", hockey: "Hockey", nhl: "Hockey", nfl: "Football US (NFL)",
                      nba: "Basket (NBA)", wnba: "Basket (WNBA)",
-                     npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)"};
+                     npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)", kbl: "Basket (KBL)"};
   const bySport = (RES.period_stats || {}).by_sport || {};
   const fusion = {};
   Object.entries(bySport).forEach(([s, v]) => {
@@ -1071,7 +1071,7 @@ function resumeResultats(){
   /* Ligues de TOUS les sports, pays entre parentheses (01/10/2026, demande
      explicite) : "league_table" du serveur ; ancien "league_stats" (foot seul)
      en repli. Toutes les ligues, reparties sur plusieurs pages. */
-  const ICONE = {football: "⚽", tennis: "🎾", hockey: "🏒", baseball: "⚾", nfl: "🏈", wnba: "🏀", nba: "🏀", npb: "⚾", kbo: "⚾", nbl: "🏀", euroleague: "🏀", mma: "🥊"};
+  const ICONE = {football: "⚽", tennis: "🎾", hockey: "🏒", baseball: "⚾", nfl: "🏈", wnba: "🏀", nba: "🏀", npb: "⚾", kbo: "⚾", nbl: "🏀", euroleague: "🏀", mma: "🥊", grebl: "🏀", kbl: "🏀"};
   SPLIT.ligue = (RES.league_table || []).length
     ? RES.league_table.map(v => [`${ICONE[v.sport] || ""} ${ligueFr(v.name)}`.trim(), v.n || 0, v.winrate ?? "—", v.pnl || 0])
     : Object.entries(RES.league_stats || {}).map(([n, v]) => [v.name || n, v.n || 0, v.winrate ?? "—", v.pnl || 0])
@@ -1116,7 +1116,7 @@ const pnlSport = x => {
 };
 const SPORT_FR = {football: "Football", tennis: "Tennis", hockey: "Hockey", nfl: "Football US",
                   baseball: "Baseball", wnba: "Basket (WNBA)", basketball: "Basket",
-                  npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)"};
+                  npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)", kbl: "Basket (KBL)"};
 async function blocs(periode, n = 8){
   const key = periode + ":" + n;
   if (CACHE[key]) return CACHE[key];
