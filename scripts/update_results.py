@@ -532,6 +532,25 @@ TENNIS_TOURNAMENT_CITIES = frozenset({
     "Odlum Brown VanOpen", "Palermo Ladies Open", "Millennium Estoril Open",
     "MSC Hamburg Ladies Open", "Generali Open", "Livesport Prague Open",
     "Axeria Open 2026 powered by Intaro Sport",
+    "ATIK Antalya Open",
+    "Montreux Nestlé Open",
+    "Zavarovalnica Triglav Ljubljana",
+    "Kia Open",
+    "Guadalajara Open presentado por Santander",
+    "Caldas da Rainha Ladies Open",
+    "SP Open",
+    "BBVA Open Internacional De Valencia",
+    "Singapore Tennis Open presented by BNP Paribas",
+    "Korea Open",
+    "Eupago Porto Open",
+    "Turk Telekom Ankara Open",
+    "Delta Motors Tolentino Open",
+    "Chengdu Open",
+    "AITO Hangzhou Open",
+    "Adana Open",
+    "Jingshan Tennis Open",
+    "Kinoshita Group Japan Open Tennis Championships",
+    "China Open",
 })
 
 # Anti-spam (meme principe que _alert_sync_failures dans jobs/site_stats_sync.py) :
@@ -555,6 +574,15 @@ def _alert_new_tennis_tournaments(tournament_names) -> None:
         return
     for t in new_ones:
         _alerted_new_tennis_tournaments.add(t)
+    # 03/10/2026 : la memoire ci-dessus repartait a vide a chaque redemarrage -> meme
+    # alerte toutes les ~10 min. Une seule alerte par tournoi et par jour (persistant).
+    try:
+        from database import claim_daily_flag
+        new_ones = [t for t in new_ones if claim_daily_flag(f"tennis_globe_{t}")]
+    except Exception:
+        pass
+    if not new_ones:
+        return
     try:
         from tg_bot.alerts import _envoyer
         _envoyer(
