@@ -795,7 +795,7 @@ function estRegle(p){
   return b.length ? b.every(x => x.r !== "s") : !!p.result;
 }
 function carte(p, euros, valeurU){
-  const sc = [p, ...(p._autres || [])].map(q => SCORES[q.fixture_id]).find(Boolean) || null;
+  const sc = [p, ...(p._autres || [])].map(q => scoreDe(q)).find(Boolean) || null;
   /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
      reste bloque sur un statut en cours (21/09/2026). */
   const live = !estRegle(p) && sc && !sc.finished && sc.status_short && sc.status_short !== "NS";
@@ -869,7 +869,7 @@ function carte(p, euros, valeurU){
     /* L'heure est passee mais aucun score n'est encore remonte : dire "À venir"
        serait faux (21/09/2026, cas reel a 07h07 pour un match de 06h30). On dit
        ce qu'on sait vraiment. */
-    : ko ? `<span class="tag s">Coup d'envoi ${heure} · en attente du score</span>`
+    : ko ? `<span class="clock">En cours · commencé à ${heure}</span>`
     : `<span class="tag s">À venir</span>`;
 
   const lignes = paris(p).map(b => {
@@ -880,7 +880,7 @@ function carte(p, euros, valeurU){
     return `<div class="betline"><span class="bet">${esc(b.bet)}</span>
       <span class="mise"><b>${miseTxt}</b><span>mise</span></span>
       <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
-      <span class="tag ${b.r}">${b.r === "s" && live ? "En cours" : LIB[b.r]}</span>
+      <span class="tag ${b.r}">${b.r === "s" && (live || (ko && ko <= new Date())) ? "En cours" : LIB[b.r]}</span>
       <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
       ${b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : (/[ée]cart|handicap/i.test(b.bet) ? jaugeHandicap(b.bet, sc, regle || b.r !== "s", home, away, p.sport)
          : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length, p.sport))}</div>`;
@@ -904,15 +904,30 @@ function compte(d){
   const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60);
   return h ? `dans ${h} h ${String(m).padStart(2, "0")}` : `dans ${m} min ${String(sec % 60).padStart(2, "0")} s`;
 }
+/* 04/10/2026 : un pari joueur (nfljp_<match>_<joueur>_...) n'a pas de score a son nom --
+   on prend celui de son match (nfl_<match>). Sans ce lien, le match restait "A venir". */
+const BASE_SCORE = {nfljp: ["nfl_", "nfl_espn_"], mlbjp: ["baseball_", "mlb_"], nbajp: ["nba_", "nbam_"],
+                    wnbajp: ["wnba_"], nhljp: ["nhl_"]};
+function scoreDe(p){
+  if (SCORES[p.fixture_id]) return SCORES[p.fixture_id];
+  const m = String(p.fixture_id).match(/^([a-z]+)_(\d+)_/);
+  for (const pre of (m && BASE_SCORE[m[1]]) || []){
+    if (SCORES[pre + m[2]]) return SCORES[pre + m[2]];
+  }
+  return null;
+}
+/* Commence depuis plus de 2 min, pas regle, sans score recu : "En direct" quand meme. */
+const commence = p => p.kickoff_at && Date.now() - new Date(p.kickoff_at) > 120000;
 const groupe = p => {
   /* Le resultat publie prime, ici aussi (21/09/2026). La carte appliquait
      deja cette regle mais pas le classement dans les filtres : un pari NFL
      regle "Perdu" apparaissait sous "En direct", parce que son score en cache
      etait reste bloque sur LIVE. Le compteur et la carte se contredisaient. */
   if (estRegle(p)) return "Terminés";
-  const sc = SCORES[p.fixture_id];
+  const sc = scoreDe(p);
   if (sc && !sc.finished && sc.status_short && sc.status_short !== "NS") return "En direct";
-  return (sc && sc.finished) ? "Terminés" : "À venir";
+  if (sc && sc.finished) return "Terminés";
+  return commence(p) ? "En direct" : "À venir";
 };
 /* Les paris regles, du plus recemment regle au plus ancien (21/09/2026).
    Le site prenait les 8 premiers d'une liste classee par coup d'envoi
