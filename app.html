@@ -660,12 +660,14 @@ function statJoueur(stats, nom){
    -> {cle: stat a lire, mot, ligne, under} ou null. */
 function lirePariJoueur(texte){
   const t = String(texte || "").toLowerCase();
-  const cle = /tirs/.test(t) ? "shots" : /buteur|\bbuts?\b/.test(t) ? "goals"
+  /* 05/10/2026 : NFL "réceptions" et MLB "points mérités" (avant : lus comme "points" du match) */
+  const cle = /r[ée]ception/.test(t) ? "receptions" : /points? m[ée]rit/.test(t) ? "earnedRuns"
+    : /tirs/.test(t) ? "shots" :/buteur|\bbuts?\b/.test(t) ? "goals"
     : /3 pts|3 points|trois points/.test(t) ? "threePointers" : /rebond/.test(t) ? "rebounds"
     : /passe/.test(t) ? "assists" : /point/.test(t) ? "points" : null;
   if (!cle) return null;
   const mot = {shots: "Tirs cadrés", goals: "Buts", threePointers: "Paniers à 3 pts", rebounds: "Rebonds",
-               assists: "Passes", points: "Points"}[cle];
+               assists: "Passes", points: "Points", receptions: "Réceptions", earnedRuns: "Points mérités"}[cle];
   let m = t.match(/(\d+)\s*\+/);                                     // "2+ tirs cadrés"
   if (m) return {cle, mot, ligne: Number(m[1]) - 0.5, under: false};
   if (/buteur/.test(t)) return {cle, mot, ligne: 0.5, under: false};
@@ -737,6 +739,10 @@ function paris(p){
     /* Paris joueurs NHL / NBA / WNBA (01/10/2026) : "Nom (ABR) : 2+ tirs cadrés" */
     const pj = !e.joueur && e.bet.match(/^(.+?)\s+\([A-Z]{2,4}\)\s*:\s*(.+)$/);
     if (pj && lirePariJoueur(pj[2])) e.joueur = pj[1];
+    /* 05/10/2026 : NFL / MLB "Stefon Diggs : moins de 5.5 réceptions" (sans equipe entre parentheses) --
+       sans ce cas, le pari passait pour un pari de MATCH et la jauge montrait le score du match. */
+    const pn = !e.joueur && e.bet.match(/^(.+?)\s*:\s*((?:plus|moins) de .+)$/i);
+    if (pn && lirePariJoueur(pn[2])) e.joueur = pn[1];
     /* ... et l'ancien format WNBA "Naz Hillmon — Points Plus de 5.5" quand il arrive en conseil */
     const pw = !e.joueur && e.bet.match(/^(.+?)\s+—\s+(.+)$/);
     if (pw && /plus de|moins de/i.test(pw[2]) && lirePariJoueur(pw[2])) e.joueur = pw[1];
