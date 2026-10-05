@@ -1076,7 +1076,7 @@ function resumeResultats(){
   const NOM_SPORT = {football: "Football", baseball: "Baseball (MLB)", mlb: "Baseball (MLB)",
                      tennis: "Tennis", hockey: "Hockey", nhl: "Hockey", nfl: "Football US (NFL)",
                      nba: "Basket (NBA)", wnba: "Basket (WNBA)",
-                     npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)", kbl: "Basket (KBL)", nbam: "Basket (NBA)", hfra: "Handball (France)", hpol: "Handball (Pologne)", hrom: "Handball (Roumanie)", hromf: "Handball (Roumanie F)"};
+                     npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)", kbl: "Basket (KBL)", nbam: "Basket (NBA)", hfra: "Handball (France)", hpol: "Handball (Pologne)", hrom: "Handball (Roumanie)", hromf: "Handball (Roumanie F)", f1: "Formule 1"};
   const bySport = (RES.period_stats || {}).by_sport || {};
   const fusion = {};
   Object.entries(bySport).forEach(([s, v]) => {
@@ -1096,7 +1096,7 @@ function resumeResultats(){
   /* Ligues de TOUS les sports, pays entre parentheses (01/10/2026, demande
      explicite) : "league_table" du serveur ; ancien "league_stats" (foot seul)
      en repli. Toutes les ligues, reparties sur plusieurs pages. */
-  const ICONE = {football: "⚽", tennis: "🎾", hockey: "🏒", baseball: "⚾", nfl: "🏈", wnba: "🏀", nba: "🏀", npb: "⚾", kbo: "⚾", nbl: "🏀", euroleague: "🏀", mma: "🥊", grebl: "🏀", kbl: "🏀", nbam: "🏀", hfra: "🤾", hpol: "🤾", hrom: "🤾", hromf: "🤾"};
+  const ICONE = {football: "⚽", tennis: "🎾", hockey: "🏒", baseball: "⚾", nfl: "🏈", wnba: "🏀", nba: "🏀", npb: "⚾", kbo: "⚾", nbl: "🏀", euroleague: "🏀", mma: "🥊", grebl: "🏀", kbl: "🏀", nbam: "🏀", hfra: "🤾", hpol: "🤾", hrom: "🤾", hromf: "🤾", f1: "🏎️"};
   SPLIT.ligue = (RES.league_table || []).length
     ? RES.league_table.map(v => [`${ICONE[v.sport] || ""} ${ligueFr(v.name)}`.trim(), v.n || 0, v.winrate ?? "—", v.pnl || 0])
     : Object.entries(RES.league_stats || {}).map(([n, v]) => [v.name || n, v.n || 0, v.winrate ?? "—", v.pnl || 0])
@@ -1141,7 +1141,7 @@ const pnlSport = x => {
 };
 const SPORT_FR = {football: "Football", tennis: "Tennis", hockey: "Hockey", nfl: "Football US",
                   baseball: "Baseball", wnba: "Basket (WNBA)", basketball: "Basket",
-                  npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)", kbl: "Basket (KBL)", nbam: "Basket (NBA)", hfra: "Handball (France)", hpol: "Handball (Pologne)", hrom: "Handball (Roumanie)", hromf: "Handball (Roumanie F)"};
+                  npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)", kbl: "Basket (KBL)", nbam: "Basket (NBA)", hfra: "Handball (France)", hpol: "Handball (Pologne)", hrom: "Handball (Roumanie)", hromf: "Handball (Roumanie F)", f1: "Formule 1"};
 /* 03/10/2026 : une seule requete pour les n bilans (avant : n requetes a la suite,
    relancees par chaque dessin en parallele -> ~60 appels au chargement). La promesse
    est partagee entre les appels simultanes et gardee 5 min. */
