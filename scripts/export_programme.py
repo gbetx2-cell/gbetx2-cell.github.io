@@ -633,6 +633,25 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                 item["home_photo"] = home_photo
             if away_photo:
                 item["away_photo"] = away_photo
+        # 09/10/2026 : logos/photos fiables (data_providers/logos.py), CACHE SEUL -- aucun appel reseau
+        # ici. Logo gris "image not available" d'api-sports -> blason TheSportsDB ou rien (initiales).
+        # Golf / F1 / tennis sans photo locale -> photo TheSportsDB deja trouvee a la publication.
+        try:
+            from data_providers import logos as _L
+            _sp_l = {"nbl": "basketball", "euroleague": "basketball", "grebl": "basketball", "kbl": "basketball",
+                     "nbam": "basketball", "hfra": "handball", "hpol": "handball", "hrom": "handball",
+                     "hromf": "handball", "npb": "baseball", "kbo": "baseball"}.get(sport, sport or "football")
+            for cote_, nom_ in (("home", home), ("away", away)):
+                if item.get(f"{cote_}_logo"):
+                    item[f"{cote_}_logo"] = _L.logo_fiable(item[f"{cote_}_logo"], nom_, _sp_l)
+                    if not item[f"{cote_}_logo"]:
+                        del item[f"{cote_}_logo"]
+                if sport in ("tennis", "golf", "f1") and not item.get(f"{cote_}_photo") and not item.get(f"{cote_}_logo"):
+                    ph = _L.photo_joueur(nom_, sport, cache_seul=True)
+                    if ph:
+                        item[f"{cote_}_logo"] = ph
+        except Exception:
+            pass
         if coup_fixture_id and str(fixture_id) == coup_fixture_id:
             item["coup"] = True
         if publish_status != "published" and str(fixture_id) in no_bet_by_fixture:
