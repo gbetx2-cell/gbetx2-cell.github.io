@@ -1068,7 +1068,9 @@ function carte(p, euros, valeurU){
   const colonnes = c => sets.length
     ? `<span class="jeux">${sets.map(m => `<i>${m[c]}</i>`).join("")}</span>` : "";
   const detail = !sets.length && sp && !spn ? sp : "";
-  const gagnant = hs !== null && hs !== as ? (hs > as ? "h" : "a") : null;
+  /* golf (11/10/2026) : score par rapport au par, le plus bas gagne */
+  const golf = p.sport === "golf" && sc;
+  const gagnant = hs !== null && hs !== as ? ((golf ? hs < as : hs > as) ? "h" : "a") : null;
   const fini = sc && sc.finished;
   /* Les jeux par set et le nombre de sets gagnes se suivaient sans aucune
      separation : "4 7 0" puis "1" se lisait comme un quatrieme set
@@ -1141,8 +1143,10 @@ function carte(p, euros, valeurU){
       .map(e => `${esc(e.player)} ${e.elapsed}'`);
     const bh = de(home), ba = de(away);
     if (bh.length || ba.length) det = `<div class="det buts"><div>${bh.map(x => "⚽ " + x).join("<br>") || "&nbsp;"}</div><div>${ba.map(x => x + " ⚽").join("<br>") || "&nbsp;"}</div></div>`;
-  } else if (detail) det = `<div class="det">${esc(detail)}</div>`;
-  const scoreTxt = hs !== null && hs !== undefined && hs !== "" ? `${hs} - ${as}` : (detail && !det ? esc(detail) : "");
+  } else if (golf && sc.events_json) det = `<div class="det">Classement : ${esc(sc.events_json)}</div>`;
+  else if (detail) det = `<div class="det">${esc(detail)}</div>`;
+  const par = v => Number(v) === 0 ? "E" : (Number(v) > 0 ? "+" : "−") + Math.abs(Number(v));
+  const scoreTxt = hs !== null && hs !== undefined && hs !== "" ? (golf ? `${par(hs)} / ${par(as)}` : `${hs} - ${as}`) : (detail && !det ? esc(detail) : "");
   const vu = SCORES_VUS.get(p.fixture_id); SCORES_VUS.set(p.fixture_id, scoreTxt);
   const bump = vu !== undefined && vu !== scoreTxt && phase === "direct";
   const moment = phase === "fin" ? "Terminé" : live ? statutFr(sc.status_long || "En direct") + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
