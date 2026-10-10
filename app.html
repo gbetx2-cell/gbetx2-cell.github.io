@@ -1648,7 +1648,7 @@ setInterval(async () => {
     SCORES = (live && live.scores) || {};
     dessineJour();
   } catch (_){}
-}, 20000);
+}, 10000);   /* 11/10/2026 : scores en direct toutes les 10 s pendant les matchs (avant 20 s) */
 /* ─────────────────────────── Résultats (10/10/2026) ───────────────────────────
    Registre officiel /api/results/all : memes sources et memes regles que le bilan du serveur, la
    somme d'une periode retombe exactement sur les chiffres officiels. Jour d'un pari = jour de son
