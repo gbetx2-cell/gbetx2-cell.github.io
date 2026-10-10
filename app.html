@@ -7,7 +7,7 @@
 <meta name="description" content="Paris publiés avant le coup d'envoi, résultats complets réglés automatiquement, et calcul de ce que ça donne avec votre mise.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Anton&family=Barlow+Condensed:wght@600&display=swap">
 <style>
 :root{
   --ink:#100f0c; --surface:#1a1813; --raise:#24211a; --line:#2f2b22;
@@ -243,6 +243,94 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
   .dock .cta{flex:1}
 }
 @media (prefers-reduced-motion:reduce){.clock::before{animation:none}.track-x{scroll-behavior:auto}}
+
+/* ───── Cartes "Affiche" animees (10/10/2026, demande explicite, valide sur le site fictif) ─────
+   Avant le match : visuels serres autour du VS. Au coup d'envoi : ils s'ecartent et le score
+   apparait. A la fin : le perdant passe en gris. Seules position / taille / opacite sont animees. */
+.pick{display:block;padding:0;overflow:hidden;border-radius:16px}
+.pick .corps{padding:4px 16px 14px}
+.ban{position:relative;height:250px;overflow:hidden;border-bottom:1px solid var(--line)}
+.ban::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 30% 50%,#ffffff10,transparent 45%);
+  animation:derive 14s ease-in-out infinite alternate;pointer-events:none}
+@keyframes derive{to{transform:translateX(30%)}}
+.ban .geant{position:absolute;font:120px/1 Anton,var(--display);color:transparent;-webkit-text-stroke:1.5px #ffffff1c;white-space:nowrap;
+  transition:transform 1.4s cubic-bezier(.65,0,.35,1);pointer-events:none}
+.ban .ligue{position:absolute;top:14px;left:120px;right:120px;text-align:center;font:600 13px 'Barlow Condensed',var(--body);letter-spacing:4px;
+  color:var(--gold);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ban .bdg{position:absolute;top:10px;left:14px;font:700 12px var(--mono);background:#07080bcc;padding:3px 8px;border-radius:6px}
+.ban .bdg.live{background:var(--loss);color:#fff;font-family:var(--body)}
+.ban .bdg.live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:6px;animation:pulse 1.2s infinite}
+.ban .bdg.fin{background:#3a372e;color:#d8d2c2;font-family:var(--body)}
+.ban .talk{position:absolute;top:8px;right:12px;margin:0;background:#07080bcc}
+.ban .v{position:absolute;top:44%;width:140px;height:140px;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;
+  transition:left 1.4s cubic-bezier(.65,0,.35,1),right 1.4s cubic-bezier(.65,0,.35,1),filter .8s}
+.ban .v img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 14px #ffffff40)}
+.ban .v.ph{width:170px;height:205px;top:auto;bottom:0;transform:none}
+.ban .v.ph img{object-position:bottom;filter:drop-shadow(0 0 20px #000a)}
+.ban .v.ph.d img{transform:scaleX(-1)}
+.ban .v.ini{border-radius:50%;font:46px Anton,var(--display);color:#fff}
+.ban .v.ini.mot{font-size:30px;text-align:center;line-height:1}
+.ban .v.g{left:calc(50% - 215px)} .ban .v.d{right:calc(50% - 215px)}
+.ban.ecarte .v.g{left:4%} .ban.ecarte .v.d{right:4%}
+.ban.ecarte .geant.a{transform:translateX(-60px)} .ban.ecarte .geant.b{transform:translateX(60px)}
+.ban .v.perdant{filter:grayscale(1) brightness(.5)}
+.ban .vs{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font:66px Anton,var(--display);color:var(--gold);
+  text-shadow:0 0 30px #000;transition:opacity .5s,transform .8s}
+.ban.ecarte .vs{opacity:0;transform:translate(-50%,-50%) scale(.4)}
+.ban .centre{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) scale(.85);opacity:0;text-align:center;max-width:40%;
+  transition:opacity .7s .7s,transform .7s .7s}
+.ban.ecarte .centre{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.ban .score{font:68px/1 Anton,var(--display);color:var(--gold);text-shadow:0 0 30px #000;white-space:nowrap;display:inline-block}
+.ban .score.bump{animation:bump .7s}
+@keyframes bump{30%{transform:scale(1.3);color:#fff}}
+.ban .moment{font:600 14px 'Barlow Condensed',var(--body);letter-spacing:3px;margin-top:4px;text-transform:uppercase}
+.ban .det{font:600 13px 'Barlow Condensed',var(--body);letter-spacing:1px;color:#d8d2c2;margin-top:6px;background:#07080bb0;border-radius:8px;
+  padding:5px 10px;display:inline-block;line-height:1.35}
+.ban .det table{border-collapse:collapse;font:700 15px var(--mono);width:auto}
+.ban .det td{padding:1px 6px;border:0;text-align:center;font-size:15px}
+.ban .det td.n{font:600 13px 'Barlow Condensed',var(--body);text-align:left;letter-spacing:1px}
+.ban .det.buts{display:grid;grid-template-columns:auto auto;gap:18px;text-align:left}
+.ban .det.buts div{white-space:nowrap}.ban .det.buts div:last-child{text-align:right}
+.ban .nom{position:absolute;bottom:16px;font:24px Anton,var(--display);background:#07080bcc;padding:3px 12px;letter-spacing:1px;max-width:40%;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:uppercase}
+.ban .nom.a{left:14px;border-left:4px solid var(--gold)} .ban .nom.b{right:14px;border-right:4px solid var(--gold)}
+.pick .state:empty{display:none}
+.pick .state{margin:10px 0 0}
+/* resultats : memes cartes, banniere plus basse */
+#list-res .ban,#m-list .ban{height:170px}
+#list-res .ban .v,#m-list .ban .v{width:96px;height:96px}
+#list-res .ban .v.ph,#m-list .ban .v.ph{width:120px;height:150px}
+#list-res .ban .geant,#m-list .ban .geant{font-size:84px}
+#list-res .ban .score,#m-list .ban .score{font-size:46px}
+#list-res .ban .nom,#m-list .ban .nom{font-size:17px;bottom:10px}
+/* filtres : etat en interrupteur, sports en pastilles avec icone */
+#state-chips{display:inline-flex;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;flex-wrap:nowrap;max-width:100%;overflow-x:auto}
+#state-chips button{border:0;background:none;padding:6px 14px;white-space:nowrap;flex:none;transition:background-color .25s,color .25s}
+#state-chips button[aria-pressed="true"]{background:var(--gold);color:var(--gold-ink)}
+#sport-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;max-width:100%;
+  -webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);mask-image:linear-gradient(90deg,#000 92%,transparent)}
+#sport-chips::-webkit-scrollbar{display:none}
+#sport-chips button{display:flex;align-items:center;gap:7px;padding:5px 12px 5px 6px;border-radius:12px;flex:none;transition:border-color .25s,background-color .25s,transform .2s}
+#sport-chips button:hover{transform:translateY(-1px)}
+#sport-chips .ic{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:var(--ink);font-size:14px}
+#sport-chips button[aria-pressed="true"]{background:#2a2415}
+#sport-chips button[aria-pressed="true"] .ic{background:var(--gold)}
+.filters{flex-direction:column;align-items:stretch}
+/* apparition des cartes */
+.pick{animation:apparait .45s ease both}
+@keyframes apparait{from{opacity:0;transform:translateY(12px)}}
+@media (max-width:760px){
+  .ban{height:220px}.ban .geant{font-size:80px}
+  .ban .v{width:84px;height:84px;top:42%}.ban .v.ph{width:110px;height:150px;bottom:40px}.ban .v.ini{font-size:30px}.ban .v.ini.mot{font-size:20px}
+  .ban .v.g{left:calc(50% - 120px)}.ban .v.d{right:calc(50% - 120px)}.ban.ecarte .v.g{left:1%}.ban.ecarte .v.d{right:1%}
+  .ban .vs{font-size:44px;top:42%}.ban .score{font-size:36px}.ban .centre{top:52%;max-width:50%}
+  .ban .moment{font-size:11px;letter-spacing:2px}.ban .det{font-size:11px;padding:3px 6px}.ban .det table,.ban .det td{font-size:11px}
+  .ban .ligue{top:40px;left:12px;right:12px;font-size:11px;letter-spacing:2px}
+  .ban .nom{font-size:13px;padding:2px 7px;max-width:46%;bottom:10px}
+  #list-res .ban,#m-list .ban{height:170px}
+  .pick .corps{padding:4px 12px 12px}
+}
+@media (prefers-reduced-motion:reduce){.ban *,.ban::before,.pick{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -465,6 +553,36 @@ const API = location.hostname.includes("89.168.57.74") ? "" : "https://api-89-16
 /* Logos officiels des equipes (ESPN) : cle "<sport>|<nom normalise>". */
 const LOGOS = {"baseball|angels": "https://a.espncdn.com/i/teamlogos/mlb/500/laa.png", "baseball|arizonadiamondbacks": "https://a.espncdn.com/i/teamlogos/mlb/500/ari.png", "baseball|astros": "https://a.espncdn.com/i/teamlogos/mlb/500/hou.png", "baseball|athletics": "https://a.espncdn.com/i/teamlogos/mlb/500/ath.png", "baseball|atlantabraves": "https://a.espncdn.com/i/teamlogos/mlb/500/atl.png", "baseball|baltimoreorioles": "https://a.espncdn.com/i/teamlogos/mlb/500/bal.png", "baseball|bluejays": "https://a.espncdn.com/i/teamlogos/mlb/500/tor.png", "baseball|bostonredsox": "https://a.espncdn.com/i/teamlogos/mlb/500/bos.png", "baseball|braves": "https://a.espncdn.com/i/teamlogos/mlb/500/atl.png", "baseball|brewers": "https://a.espncdn.com/i/teamlogos/mlb/500/mil.png", "baseball|cardinals": "https://a.espncdn.com/i/teamlogos/mlb/500/stl.png", "baseball|chicagocubs": "https://a.espncdn.com/i/teamlogos/mlb/500/chc.png", "baseball|chicagowhitesox": "https://a.espncdn.com/i/teamlogos/mlb/500/chw.png", "baseball|cincinnatireds": "https://a.espncdn.com/i/teamlogos/mlb/500/cin.png", "baseball|clevelandguardians": "https://a.espncdn.com/i/teamlogos/mlb/500/cle.png", "baseball|coloradorockies": "https://a.espncdn.com/i/teamlogos/mlb/500/col.png", "baseball|cubs": "https://a.espncdn.com/i/teamlogos/mlb/500/chc.png", "baseball|detroittigers": "https://a.espncdn.com/i/teamlogos/mlb/500/det.png", "baseball|diamondbacks": "https://a.espncdn.com/i/teamlogos/mlb/500/ari.png", "baseball|dodgers": "https://a.espncdn.com/i/teamlogos/mlb/500/lad.png", "baseball|giants": "https://a.espncdn.com/i/teamlogos/mlb/500/sf.png", "baseball|guardians": "https://a.espncdn.com/i/teamlogos/mlb/500/cle.png", "baseball|houstonastros": "https://a.espncdn.com/i/teamlogos/mlb/500/hou.png", "baseball|kansascityroyals": "https://a.espncdn.com/i/teamlogos/mlb/500/kc.png", "baseball|losangelesangels": "https://a.espncdn.com/i/teamlogos/mlb/500/laa.png", "baseball|losangelesdodgers": "https://a.espncdn.com/i/teamlogos/mlb/500/lad.png", "baseball|mariners": "https://a.espncdn.com/i/teamlogos/mlb/500/sea.png", "baseball|marlins": "https://a.espncdn.com/i/teamlogos/mlb/500/mia.png", "baseball|mets": "https://a.espncdn.com/i/teamlogos/mlb/500/nym.png", "baseball|miamimarlins": "https://a.espncdn.com/i/teamlogos/mlb/500/mia.png", "baseball|milwaukeebrewers": "https://a.espncdn.com/i/teamlogos/mlb/500/mil.png", "baseball|minnesotatwins": "https://a.espncdn.com/i/teamlogos/mlb/500/min.png", "baseball|nationals": "https://a.espncdn.com/i/teamlogos/mlb/500/wsh.png", "baseball|newyorkmets": "https://a.espncdn.com/i/teamlogos/mlb/500/nym.png", "baseball|newyorkyankees": "https://a.espncdn.com/i/teamlogos/mlb/500/nyy.png", "baseball|orioles": "https://a.espncdn.com/i/teamlogos/mlb/500/bal.png", "baseball|padres": "https://a.espncdn.com/i/teamlogos/mlb/500/sd.png", "baseball|philadelphiaphillies": "https://a.espncdn.com/i/teamlogos/mlb/500/phi.png", "baseball|phillies": "https://a.espncdn.com/i/teamlogos/mlb/500/phi.png", "baseball|pirates": "https://a.espncdn.com/i/teamlogos/mlb/500/pit.png", "baseball|pittsburghpirates": "https://a.espncdn.com/i/teamlogos/mlb/500/pit.png", "baseball|rangers": "https://a.espncdn.com/i/teamlogos/mlb/500/tex.png", "baseball|rays": "https://a.espncdn.com/i/teamlogos/mlb/500/tb.png", "baseball|reds": "https://a.espncdn.com/i/teamlogos/mlb/500/cin.png", "baseball|redsox": "https://a.espncdn.com/i/teamlogos/mlb/500/bos.png", "baseball|rockies": "https://a.espncdn.com/i/teamlogos/mlb/500/col.png", "baseball|royals": "https://a.espncdn.com/i/teamlogos/mlb/500/kc.png", "baseball|sandiegopadres": "https://a.espncdn.com/i/teamlogos/mlb/500/sd.png", "baseball|sanfranciscogiants": "https://a.espncdn.com/i/teamlogos/mlb/500/sf.png", "baseball|seattlemariners": "https://a.espncdn.com/i/teamlogos/mlb/500/sea.png", "baseball|stlouiscardinals": "https://a.espncdn.com/i/teamlogos/mlb/500/stl.png", "baseball|tampabayrays": "https://a.espncdn.com/i/teamlogos/mlb/500/tb.png", "baseball|texasrangers": "https://a.espncdn.com/i/teamlogos/mlb/500/tex.png", "baseball|tigers": "https://a.espncdn.com/i/teamlogos/mlb/500/det.png", "baseball|torontobluejays": "https://a.espncdn.com/i/teamlogos/mlb/500/tor.png", "baseball|twins": "https://a.espncdn.com/i/teamlogos/mlb/500/min.png", "baseball|washingtonnationals": "https://a.espncdn.com/i/teamlogos/mlb/500/wsh.png", "baseball|whitesox": "https://a.espncdn.com/i/teamlogos/mlb/500/chw.png", "baseball|yankees": "https://a.espncdn.com/i/teamlogos/mlb/500/nyy.png", "hockey|anaheimducks": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png", "hockey|avalanche": "https://a.espncdn.com/i/teamlogos/nhl/500/col.png", "hockey|blackhawks": "https://a.espncdn.com/i/teamlogos/nhl/500/chi.png", "hockey|bluejackets": "https://a.espncdn.com/i/teamlogos/nhl/500/cbj.png", "hockey|blues": "https://a.espncdn.com/i/teamlogos/nhl/500/stl.png", "hockey|bostonbruins": "https://a.espncdn.com/i/teamlogos/nhl/500/bos.png", "hockey|bruins": "https://a.espncdn.com/i/teamlogos/nhl/500/bos.png", "hockey|buffalosabres": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png", "hockey|calgaryflames": "https://a.espncdn.com/i/teamlogos/nhl/500/cgy.png", "hockey|canadiens": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png", "hockey|canucks": "https://a.espncdn.com/i/teamlogos/nhl/500/van.png", "hockey|capitals": "https://a.espncdn.com/i/teamlogos/nhl/500/wsh.png", "hockey|carolinahurricanes": "https://a.espncdn.com/i/teamlogos/nhl/500/car.png", "hockey|chicagoblackhawks": "https://a.espncdn.com/i/teamlogos/nhl/500/chi.png", "hockey|coloradoavalanche": "https://a.espncdn.com/i/teamlogos/nhl/500/col.png", "hockey|columbusbluejackets": "https://a.espncdn.com/i/teamlogos/nhl/500/cbj.png", "hockey|dallasstars": "https://a.espncdn.com/i/teamlogos/nhl/500/dal.png", "hockey|detroitredwings": "https://a.espncdn.com/i/teamlogos/nhl/500/det.png", "hockey|devils": "https://a.espncdn.com/i/teamlogos/nhl/500/nj.png", "hockey|ducks": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png", "hockey|edmontonoilers": "https://a.espncdn.com/i/teamlogos/nhl/500/edm.png", "hockey|flames": "https://a.espncdn.com/i/teamlogos/nhl/500/cgy.png", "hockey|floridapanthers": "https://a.espncdn.com/i/teamlogos/nhl/500/fla.png", "hockey|flyers": "https://a.espncdn.com/i/teamlogos/nhl/500/phi.png", "hockey|goldenknights": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png", "hockey|hurricanes": "https://a.espncdn.com/i/teamlogos/nhl/500/car.png", "hockey|islanders": "https://a.espncdn.com/i/teamlogos/nhl/500/nyi.png", "hockey|jets": "https://a.espncdn.com/i/teamlogos/nhl/500/wpg.png", "hockey|kings": "https://a.espncdn.com/i/teamlogos/nhl/500/la.png", "hockey|kraken": "https://a.espncdn.com/i/teamlogos/nhl/500/sea.png", "hockey|lightning": "https://a.espncdn.com/i/teamlogos/nhl/500/tb.png", "hockey|losangeleskings": "https://a.espncdn.com/i/teamlogos/nhl/500/la.png", "hockey|mammoth": "https://a.espncdn.com/i/teamlogos/nhl/500/utah.png", "hockey|mapleleafs": "https://a.espncdn.com/i/teamlogos/nhl/500/tor.png", "hockey|minnesotawild": "https://a.espncdn.com/i/teamlogos/nhl/500/min.png", "hockey|montrealcanadiens": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png", "hockey|nashvillepredators": "https://a.espncdn.com/i/teamlogos/nhl/500/nsh.png", "hockey|newjerseydevils": "https://a.espncdn.com/i/teamlogos/nhl/500/nj.png", "hockey|newyorkislanders": "https://a.espncdn.com/i/teamlogos/nhl/500/nyi.png", "hockey|newyorkrangers": "https://a.espncdn.com/i/teamlogos/nhl/500/nyr.png", "hockey|oilers": "https://a.espncdn.com/i/teamlogos/nhl/500/edm.png", "hockey|ottawasenators": "https://a.espncdn.com/i/teamlogos/nhl/500/ott.png", "hockey|panthers": "https://a.espncdn.com/i/teamlogos/nhl/500/fla.png", "hockey|penguins": "https://a.espncdn.com/i/teamlogos/nhl/500/pit.png", "hockey|philadelphiaflyers": "https://a.espncdn.com/i/teamlogos/nhl/500/phi.png", "hockey|pittsburghpenguins": "https://a.espncdn.com/i/teamlogos/nhl/500/pit.png", "hockey|predators": "https://a.espncdn.com/i/teamlogos/nhl/500/nsh.png", "hockey|rangers": "https://a.espncdn.com/i/teamlogos/nhl/500/nyr.png", "hockey|redwings": "https://a.espncdn.com/i/teamlogos/nhl/500/det.png", "hockey|sabres": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png", "hockey|sanjosesharks": "https://a.espncdn.com/i/teamlogos/nhl/500/sj.png", "hockey|seattlekraken": "https://a.espncdn.com/i/teamlogos/nhl/500/sea.png", "hockey|senators": "https://a.espncdn.com/i/teamlogos/nhl/500/ott.png", "hockey|sharks": "https://a.espncdn.com/i/teamlogos/nhl/500/sj.png", "hockey|stars": "https://a.espncdn.com/i/teamlogos/nhl/500/dal.png", "hockey|stlouisblues": "https://a.espncdn.com/i/teamlogos/nhl/500/stl.png", "hockey|tampabaylightning": "https://a.espncdn.com/i/teamlogos/nhl/500/tb.png", "hockey|torontomapleleafs": "https://a.espncdn.com/i/teamlogos/nhl/500/tor.png", "hockey|utahmammoth": "https://a.espncdn.com/i/teamlogos/nhl/500/utah.png", "hockey|vancouvercanucks": "https://a.espncdn.com/i/teamlogos/nhl/500/van.png", "hockey|vegasgoldenknights": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png", "hockey|washingtoncapitals": "https://a.espncdn.com/i/teamlogos/nhl/500/wsh.png", "hockey|wild": "https://a.espncdn.com/i/teamlogos/nhl/500/min.png", "hockey|winnipegjets": "https://a.espncdn.com/i/teamlogos/nhl/500/wpg.png", "nba|76ers": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png", "nba|atlantahawks": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png", "nba|bostonceltics": "https://a.espncdn.com/i/teamlogos/nba/500/bos.png", "nba|brooklynnets": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png", "nba|bucks": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png", "nba|bulls": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png", "nba|cavaliers": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png", "nba|celtics": "https://a.espncdn.com/i/teamlogos/nba/500/bos.png", "nba|charlottehornets": "https://a.espncdn.com/i/teamlogos/nba/500/cha.png", "nba|chicagobulls": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png", "nba|clevelandcavaliers": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png", "nba|clippers": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png", "nba|dallasmavericks": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png", "nba|denvernuggets": "https://a.espncdn.com/i/teamlogos/nba/500/den.png", "nba|detroitpistons": "https://a.espncdn.com/i/teamlogos/nba/500/det.png", "nba|goldenstatewarriors": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png", "nba|grizzlies": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png", "nba|hawks": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png", "nba|heat": "https://a.espncdn.com/i/teamlogos/nba/500/mia.png", "nba|hornets": "https://a.espncdn.com/i/teamlogos/nba/500/cha.png", "nba|houstonrockets": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png", "nba|indianapacers": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png", "nba|jazz": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png", "nba|kings": "https://a.espncdn.com/i/teamlogos/nba/500/sac.png", "nba|knicks": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png", "nba|laclippers": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png", "nba|lakers": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png", "nba|losangeleslakers": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png", "nba|magic": "https://a.espncdn.com/i/teamlogos/nba/500/orl.png", "nba|mavericks": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png", "nba|memphisgrizzlies": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png", "nba|miamiheat": "https://a.espncdn.com/i/teamlogos/nba/500/mia.png", "nba|milwaukeebucks": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png", "nba|minnesotatimberwolves": "https://a.espncdn.com/i/teamlogos/nba/500/min.png", "nba|nets": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png", "nba|neworleanspelicans": "https://a.espncdn.com/i/teamlogos/nba/500/no.png", "nba|newyorkknicks": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png", "nba|nuggets": "https://a.espncdn.com/i/teamlogos/nba/500/den.png", "nba|oklahomacitythunder": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png", "nba|orlandomagic": "https://a.espncdn.com/i/teamlogos/nba/500/orl.png", "nba|pacers": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png", "nba|pelicans": "https://a.espncdn.com/i/teamlogos/nba/500/no.png", "nba|philadelphia76ers": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png", "nba|phoenixsuns": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png", "nba|pistons": "https://a.espncdn.com/i/teamlogos/nba/500/det.png", "nba|portlandtrailblazers": "https://a.espncdn.com/i/teamlogos/nba/500/por.png", "nba|raptors": "https://a.espncdn.com/i/teamlogos/nba/500/tor.png", "nba|rockets": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png", "nba|sacramentokings": "https://a.espncdn.com/i/teamlogos/nba/500/sac.png", "nba|sanantoniospurs": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png", "nba|spurs": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png", "nba|suns": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png", "nba|thunder": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png", "nba|timberwolves": "https://a.espncdn.com/i/teamlogos/nba/500/min.png", "nba|torontoraptors": "https://a.espncdn.com/i/teamlogos/nba/500/tor.png", "nba|trailblazers": "https://a.espncdn.com/i/teamlogos/nba/500/por.png", "nba|utahjazz": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png", "nba|warriors": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png", "nba|washingtonwizards": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png", "nba|wizards": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png", "nfl|49ers": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png", "nfl|arizonacardinals": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png", "nfl|atlantafalcons": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png", "nfl|baltimoreravens": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png", "nfl|bears": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png", "nfl|bengals": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png", "nfl|bills": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png", "nfl|broncos": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png", "nfl|browns": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png", "nfl|buccaneers": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png", "nfl|buffalobills": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png", "nfl|cardinals": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png", "nfl|carolinapanthers": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png", "nfl|chargers": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png", "nfl|chicagobears": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png", "nfl|chiefs": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png", "nfl|cincinnatibengals": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png", "nfl|clevelandbrowns": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png", "nfl|colts": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png", "nfl|commanders": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png", "nfl|cowboys": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png", "nfl|dallascowboys": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png", "nfl|denverbroncos": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png", "nfl|detroitlions": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png", "nfl|dolphins": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png", "nfl|eagles": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png", "nfl|falcons": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png", "nfl|giants": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png", "nfl|greenbaypackers": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png", "nfl|houstontexans": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png", "nfl|indianapoliscolts": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png", "nfl|jacksonvillejaguars": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png", "nfl|jaguars": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png", "nfl|jets": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png", "nfl|kansascitychiefs": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png", "nfl|lasvegasraiders": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png", "nfl|lions": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png", "nfl|losangeleschargers": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png", "nfl|losangelesrams": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png", "nfl|miamidolphins": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png", "nfl|minnesotavikings": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png", "nfl|newenglandpatriots": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png", "nfl|neworleanssaints": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png", "nfl|newyorkgiants": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png", "nfl|newyorkjets": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png", "nfl|packers": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png", "nfl|panthers": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png", "nfl|patriots": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png", "nfl|philadelphiaeagles": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png", "nfl|pittsburghsteelers": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png", "nfl|raiders": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png", "nfl|rams": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png", "nfl|ravens": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png", "nfl|saints": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png", "nfl|sanfrancisco49ers": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png", "nfl|seahawks": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png", "nfl|seattleseahawks": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png", "nfl|steelers": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png", "nfl|tampabaybuccaneers": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png", "nfl|tennesseetitans": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png", "nfl|texans": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png", "nfl|titans": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png", "nfl|vikings": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png", "nfl|washingtoncommanders": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png", "nhl|anaheimducks": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png", "nhl|avalanche": "https://a.espncdn.com/i/teamlogos/nhl/500/col.png", "nhl|blackhawks": "https://a.espncdn.com/i/teamlogos/nhl/500/chi.png", "nhl|bluejackets": "https://a.espncdn.com/i/teamlogos/nhl/500/cbj.png", "nhl|blues": "https://a.espncdn.com/i/teamlogos/nhl/500/stl.png", "nhl|bostonbruins": "https://a.espncdn.com/i/teamlogos/nhl/500/bos.png", "nhl|bruins": "https://a.espncdn.com/i/teamlogos/nhl/500/bos.png", "nhl|buffalosabres": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png", "nhl|calgaryflames": "https://a.espncdn.com/i/teamlogos/nhl/500/cgy.png", "nhl|canadiens": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png", "nhl|canucks": "https://a.espncdn.com/i/teamlogos/nhl/500/van.png", "nhl|capitals": "https://a.espncdn.com/i/teamlogos/nhl/500/wsh.png", "nhl|carolinahurricanes": "https://a.espncdn.com/i/teamlogos/nhl/500/car.png", "nhl|chicagoblackhawks": "https://a.espncdn.com/i/teamlogos/nhl/500/chi.png", "nhl|coloradoavalanche": "https://a.espncdn.com/i/teamlogos/nhl/500/col.png", "nhl|columbusbluejackets": "https://a.espncdn.com/i/teamlogos/nhl/500/cbj.png", "nhl|dallasstars": "https://a.espncdn.com/i/teamlogos/nhl/500/dal.png", "nhl|detroitredwings": "https://a.espncdn.com/i/teamlogos/nhl/500/det.png", "nhl|devils": "https://a.espncdn.com/i/teamlogos/nhl/500/nj.png", "nhl|ducks": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png", "nhl|edmontonoilers": "https://a.espncdn.com/i/teamlogos/nhl/500/edm.png", "nhl|flames": "https://a.espncdn.com/i/teamlogos/nhl/500/cgy.png", "nhl|floridapanthers": "https://a.espncdn.com/i/teamlogos/nhl/500/fla.png", "nhl|flyers": "https://a.espncdn.com/i/teamlogos/nhl/500/phi.png", "nhl|goldenknights": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png", "nhl|hurricanes": "https://a.espncdn.com/i/teamlogos/nhl/500/car.png", "nhl|islanders": "https://a.espncdn.com/i/teamlogos/nhl/500/nyi.png", "nhl|jets": "https://a.espncdn.com/i/teamlogos/nhl/500/wpg.png", "nhl|kings": "https://a.espncdn.com/i/teamlogos/nhl/500/la.png", "nhl|kraken": "https://a.espncdn.com/i/teamlogos/nhl/500/sea.png", "nhl|lightning": "https://a.espncdn.com/i/teamlogos/nhl/500/tb.png", "nhl|losangeleskings": "https://a.espncdn.com/i/teamlogos/nhl/500/la.png", "nhl|mammoth": "https://a.espncdn.com/i/teamlogos/nhl/500/utah.png", "nhl|mapleleafs": "https://a.espncdn.com/i/teamlogos/nhl/500/tor.png", "nhl|minnesotawild": "https://a.espncdn.com/i/teamlogos/nhl/500/min.png", "nhl|montrealcanadiens": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png", "nhl|nashvillepredators": "https://a.espncdn.com/i/teamlogos/nhl/500/nsh.png", "nhl|newjerseydevils": "https://a.espncdn.com/i/teamlogos/nhl/500/nj.png", "nhl|newyorkislanders": "https://a.espncdn.com/i/teamlogos/nhl/500/nyi.png", "nhl|newyorkrangers": "https://a.espncdn.com/i/teamlogos/nhl/500/nyr.png", "nhl|oilers": "https://a.espncdn.com/i/teamlogos/nhl/500/edm.png", "nhl|ottawasenators": "https://a.espncdn.com/i/teamlogos/nhl/500/ott.png", "nhl|panthers": "https://a.espncdn.com/i/teamlogos/nhl/500/fla.png", "nhl|penguins": "https://a.espncdn.com/i/teamlogos/nhl/500/pit.png", "nhl|philadelphiaflyers": "https://a.espncdn.com/i/teamlogos/nhl/500/phi.png", "nhl|pittsburghpenguins": "https://a.espncdn.com/i/teamlogos/nhl/500/pit.png", "nhl|predators": "https://a.espncdn.com/i/teamlogos/nhl/500/nsh.png", "nhl|rangers": "https://a.espncdn.com/i/teamlogos/nhl/500/nyr.png", "nhl|redwings": "https://a.espncdn.com/i/teamlogos/nhl/500/det.png", "nhl|sabres": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png", "nhl|sanjosesharks": "https://a.espncdn.com/i/teamlogos/nhl/500/sj.png", "nhl|seattlekraken": "https://a.espncdn.com/i/teamlogos/nhl/500/sea.png", "nhl|senators": "https://a.espncdn.com/i/teamlogos/nhl/500/ott.png", "nhl|sharks": "https://a.espncdn.com/i/teamlogos/nhl/500/sj.png", "nhl|stars": "https://a.espncdn.com/i/teamlogos/nhl/500/dal.png", "nhl|stlouisblues": "https://a.espncdn.com/i/teamlogos/nhl/500/stl.png", "nhl|tampabaylightning": "https://a.espncdn.com/i/teamlogos/nhl/500/tb.png", "nhl|torontomapleleafs": "https://a.espncdn.com/i/teamlogos/nhl/500/tor.png", "nhl|utahmammoth": "https://a.espncdn.com/i/teamlogos/nhl/500/utah.png", "nhl|vancouvercanucks": "https://a.espncdn.com/i/teamlogos/nhl/500/van.png", "nhl|vegasgoldenknights": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png", "nhl|washingtoncapitals": "https://a.espncdn.com/i/teamlogos/nhl/500/wsh.png", "nhl|wild": "https://a.espncdn.com/i/teamlogos/nhl/500/min.png", "nhl|winnipegjets": "https://a.espncdn.com/i/teamlogos/nhl/500/wpg.png", "wnba|aces": "https://a.espncdn.com/i/teamlogos/wnba/500/lv.png", "wnba|atlantadream": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png", "wnba|chicagosky": "https://a.espncdn.com/i/teamlogos/wnba/500/chi.png", "wnba|connecticutsun": "https://a.espncdn.com/i/teamlogos/wnba/500/con.png", "wnba|dallaswings": "https://a.espncdn.com/i/teamlogos/wnba/500/dal.png", "wnba|dream": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png", "wnba|fever": "https://a.espncdn.com/i/teamlogos/wnba/500/ind.png", "wnba|fire": "https://a.espncdn.com/i/teamlogos/wnba/500/por.png", "wnba|goldenstatevalkyries": "https://a.espncdn.com/i/teamlogos/wnba/500/gs.png", "wnba|indianafever": "https://a.espncdn.com/i/teamlogos/wnba/500/ind.png", "wnba|lasvegasaces": "https://a.espncdn.com/i/teamlogos/wnba/500/lv.png", "wnba|liberty": "https://a.espncdn.com/i/teamlogos/wnba/500/ny.png", "wnba|losangelessparks": "https://a.espncdn.com/i/teamlogos/wnba/500/la.png", "wnba|lynx": "https://a.espncdn.com/i/teamlogos/wnba/500/min.png", "wnba|mercury": "https://a.espncdn.com/i/teamlogos/wnba/500/phx.png", "wnba|minnesotalynx": "https://a.espncdn.com/i/teamlogos/wnba/500/min.png", "wnba|mystics": "https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png", "wnba|newyorkliberty": "https://a.espncdn.com/i/teamlogos/wnba/500/ny.png", "wnba|phoenixmercury": "https://a.espncdn.com/i/teamlogos/wnba/500/phx.png", "wnba|portlandfire": "https://a.espncdn.com/i/teamlogos/wnba/500/por.png", "wnba|seattlestorm": "https://a.espncdn.com/i/teamlogos/wnba/500/sea.png", "wnba|sky": "https://a.espncdn.com/i/teamlogos/wnba/500/chi.png", "wnba|sparks": "https://a.espncdn.com/i/teamlogos/wnba/500/la.png", "wnba|storm": "https://a.espncdn.com/i/teamlogos/wnba/500/sea.png", "wnba|sun": "https://a.espncdn.com/i/teamlogos/wnba/500/con.png", "wnba|tempo": "https://a.espncdn.com/i/teamlogos/wnba/500/tor.png", "wnba|torontotempo": "https://a.espncdn.com/i/teamlogos/wnba/500/tor.png", "wnba|valkyries": "https://a.espncdn.com/i/teamlogos/wnba/500/gs.png", "wnba|washingtonmystics": "https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png", "wnba|wings": "https://a.espncdn.com/i/teamlogos/wnba/500/dal.png"};
 const SITE = location.hostname.includes("89.168.57.74") ? "https://gbetx2-cell.github.io/" : "";
+
+/* ───── Cartes "Affiche" (10/10/2026) ───── */
+/* Images HD : index publie par data_providers/images_hd.py (adresse d'origine -> version amelioree).
+   Tant qu'une image n'a pas sa version HD, ou si elle ne charge pas, on garde l'originale. */
+let HDX = {};
+fetch((SITE || "") + "assets/hd/index.json", {cache: "no-cache"}).then(r => r.ok ? r.json() : {}).then(j => { HDX = j || {}; if (PUBS) dessineJour(); }).catch(() => {});
+const JOUEURS_SP = new Set(["tennis", "golf", "f1", "mma"]);
+const ICONE_SP = {football: "⚽", tennis: "🎾", hockey: "🏒", nhl: "🏒", nba: "🏀", wnba: "🏀", nbl: "🏀", euroleague: "🏀", grebl: "🏀", kbl: "🏀",
+  nbam: "🏀", basketball: "🏀", nfl: "🏈", baseball: "⚾", mlb: "⚾", npb: "⚾", kbo: "⚾", hfra: "🤾", hpol: "🤾", hrom: "🤾", hromf: "🤾",
+  f1: "🏎️", golf: "⛳", mma: "🥊"};
+const STATUT_FR = {"First Half": "1re mi-temps", "Second Half": "2e mi-temps", "Halftime": "Mi-temps", "Half Time": "Mi-temps", "Extra Time": "Prolongation",
+  "Penalty In Progress": "Tirs au but", "Break Time": "Pause", "In Progress": "En cours", "Match Finished": "Terminé", "Game Finished": "Terminé",
+  "Finished": "Terminé", "After Penalties": "Terminé (tirs au but)", "After Over Time": "Terminé (prolongation)", "After Extra Time": "Terminé (prolongation)",
+  "First Period": "1re période", "Second Period": "2e période", "Third Period": "3e période", "Overtime": "Prolongation", "Penalties Time": "Tirs au but",
+  "Quarter 1": "QT1", "Quarter 2": "QT2", "Quarter 3": "QT3", "Quarter 4": "QT4"};
+const statutFr = t => { t = String(t || ""); if (STATUT_FR[t]) return STATUT_FR[t];
+  const m = t.match(/^(Top|Bottom|Mid|End) (\d+)(st|nd|rd|th)$/i);
+  return m ? `${/top/i.test(m[1]) ? "▲" : /bot/i.test(m[1]) ? "▼" : ""} Manche ${m[2]}` : t; };
+const teinte = n => { let h = 7; for (const c of String(n || "")) h = (h * 31 + c.charCodeAt(0)) % 360; return `hsl(${h} 55% 24%)`; };
+const nomFam = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean); if (!m.length) return "";
+  return (j && m.length > 1 ? m[m.length - 1] : m.reduce((x, y) => y.length > x.length ? y : x)).toUpperCase(); };
+const nomCourt = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean);
+  return j && m.length > 1 && !/\d/.test(n) ? `${m[0][0]}. ${m.slice(1).join(" ")}` : String(n || ""); };
+const PHASES = new Map(), SCORES_VUS = new Map();
+/* Apres chaque affichage : les cartes qui viennent de passer "a venir" -> "en direct"/"termine"
+   jouent l'animation une seule fois (jamais a chaque rafraichissement). */
+function animer(){
+  requestAnimationFrame(() => requestAnimationFrame(() =>
+    document.querySelectorAll(".ban[data-anim]").forEach(b => { b.removeAttribute("data-anim"); b.classList.add("ecarte"); })));
+}
 const $ = s => document.querySelector(s);
 const fmt = (n, d = 2) => (n === null || n === undefined || isNaN(n) ? "—" : Number(n).toFixed(d).replace(".", ",").replace("-", "−"));
 const unit = u => (u > 0 ? "+" : "") + fmt(u, 2) + " u";
@@ -808,9 +926,8 @@ function carte(p, euros, valeurU){
   const [home, away] = String(p.match).split("–").map(t => (t || "").trim());
   const ini = n => (n || "?").split(/[ .-]+/).slice(0, 2).map(w => w[0] || "").join("").toUpperCase();
   const cle = n => String(n || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
-  function image(url, nom){
-    if (url && /^https?:/.test(url)) return url;                 // logo club (football)
-    if (url) return SITE + url;                                  // photo joueur (tennis), chemin relatif
+  function source(url, nom){
+    if (url) return url;
     const sp = p.sport || "";
     const k = cle(nom);
     return LOGOS[`${sp}|${k}`]                                   // nom complet
@@ -818,6 +935,9 @@ function carte(p, euros, valeurU){
       || Object.entries(LOGOS).find(([kk]) => kk.startsWith(sp + "|") && (kk.endsWith("|" + k) || k.endsWith(kk.split("|")[1])))?.[1]
       || "";
   }
+  const absolu = u => !u ? "" : /^https?:/.test(u) ? u : SITE + u;   // photo joueur (tennis) : chemin relatif au site
+  function image(url, nom){ const u = source(url, nom); return absolu(HDX[u] || u); }
+  function origine(url, nom){ return absolu(source(url, nom)); }
   const logo = (url, n) => { const src = image(url, n);
     return src ? `<img class="badge" src="${esc(src)}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'badge',textContent:'${esc(ini(n))}'}))">`
                : `<span class="badge">${esc(ini(n))}</span>`; };
@@ -892,15 +1012,57 @@ function carte(p, euros, valeurU){
          : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length, p.sport))}</div>`;
   }).join("");
 
+  /* ───── Banniere "Affiche" (10/10/2026) ───── */
+  const joueur = JOUEURS_SP.has(p.sport);
+  const phase = regle || fini ? "fin" : live || (ko && ko <= new Date() && !regle) ? "direct" : "avant";
+  const avant = PHASES.get(p.fixture_id); PHASES.set(p.fixture_id, phase);
+  const anime = avant === "avant" && phase !== "avant";
+  const vis = (n, url, side) => {
+    const src = image(url, n), org = origine(url, n), ph = joueur && src ? " ph" : "";
+    const perd = phase === "fin" && gagnant && gagnant !== (side === "g" ? "h" : "a") ? " perdant" : "";
+    const repli = `this.onerror=null;if('${esc(org)}'&&this.src!=='${esc(org)}'){this.src='${esc(org)}'}else{this.parentNode.classList.add('ini');this.replaceWith('${esc(ini(n))}')}`;
+    if (src) return `<div class="v ${side}${ph}${perd}"><img src="${esc(src)}" alt="" loading="lazy" onerror="${repli}"></div>`;
+    const mot = /\d/.test(n) || ini(n).length > 2;
+    return `<div class="v ini ${side}${mot ? " mot" : ""}${perd}" style="background:${teinte(n)};box-shadow:0 0 40px ${teinte(n)}">${esc(mot ? String(n).replace(/^.*\((.*)\).*$/, "$1") : ini(n))}</div>`;
+  };
+  const nomCote = (s) => s === "h" ? home : away;
+  let det = "";
+  if (sets.length) det = `<div class="det"><table>${["h", "a"].map((s, i) => `<tr><td class="n">${esc(nomFam(nomCote(s), true))}</td>${sets.map(m => `<td>${m[i + 1]}</td>`).join("")}</tr>`).join("")}</table></div>`;
+  else if (sc && sc.events_json && /"Goal"/.test(sc.events_json)){
+    let ev = []; try { ev = JSON.parse(sc.events_json); } catch (_){}
+    const buts = ev.filter(e => e.type === "Goal" && e.player);
+    const de = t => buts.filter(e => cle(e.team) && (cle(t).includes(cle(e.team)) || cle(e.team).includes(cle(t))))
+      .map(e => `${esc(e.player)} ${e.elapsed}'`);
+    const bh = de(home), ba = de(away);
+    if (bh.length || ba.length) det = `<div class="det buts"><div>${bh.map(x => "⚽ " + x).join("<br>") || "&nbsp;"}</div><div>${ba.map(x => x + " ⚽").join("<br>") || "&nbsp;"}</div></div>`;
+  } else if (detail) det = `<div class="det">${esc(detail)}</div>`;
+  const scoreTxt = hs !== null && hs !== undefined && hs !== "" ? `${hs} - ${as}` : (detail && !det ? esc(detail) : "");
+  const vu = SCORES_VUS.get(p.fixture_id); SCORES_VUS.set(p.fixture_id, scoreTxt);
+  const bump = vu !== undefined && vu !== scoreTxt && phase === "direct";
+  const moment = phase === "fin" ? "Terminé" : live ? statutFr(sc.status_long || "En direct") + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
+    : phase === "direct" ? "En cours" : "";
+  const badge = phase === "avant" ? `<span class="bdg">${esc(heure || "À venir")}</span>`
+    : phase === "direct" ? `<span class="bdg live">EN DIRECT</span>` : `<span class="bdg fin">TERMINÉ</span>`;
+  const ban = `<div class="ban${phase !== "avant" && !anime ? " ecarte" : ""}"${anime ? " data-anim" : ""}
+      style="background:linear-gradient(100deg,${teinte(home)},#0b0f1a 47%,#0b0f1a 53%,${teinte(away)})">
+    <div class="geant a" style="left:-10px;top:14px">${esc(nomFam(home, joueur))}</div>
+    <div class="geant b" style="right:-10px;top:115px">${esc(nomFam(away, joueur))}</div>
+    ${vis(home, p.home_logo || p.home_photo, "g")}${vis(away, p.away_logo || p.away_photo, "d")}
+    <div class="ligue">${esc(p.sport_label || p.sport || "")} · ${esc(ligueFr(p.league || ""))}</div>
+    <div class="vs">VS</div>
+    <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${esc(moment)}</div>${det}</div>
+    ${badge}
+    <button class="talk" type="button" data-fix="${esc(p.fixture_id)}" data-match="${esc(p.match)}"
+      data-league="${esc(p.league || "")}" data-score="${detail || (hs !== null && hs !== undefined ? hs + " - " + as : "")}"
+      title="Discussion" aria-label="Ouvrir la discussion">💬</button>
+    <div class="nom a">${esc(nomCourt(home, joueur))}</div><div class="nom b">${esc(nomCourt(away, joueur))}</div>
+  </div>`;
+  /* sous la banniere : compte a rebours avant le match, rien d'autre (le reste est dans la banniere) */
+  const sous = phase === "avant" ? etat : (!live && phase === "direct" ? etat : "");
   return `<article class="pick ${live ? "is-live" : ""}">
-    <div class="when">${heure}</div>
-    <div>
-      <div class="meta">${esc(p.sport_label || p.sport || "")} · ${esc(ligueFr(p.league || ""))}
-        <button class="talk" type="button" data-fix="${esc(p.fixture_id)}" data-match="${esc(p.match)}"
-          data-league="${esc(p.league || "")}" data-score="${detail || (hs !== null && hs !== undefined ? hs + " - " + as : "")}"
-          title="Discussion" aria-label="Ouvrir la discussion">💬</button></div>
-      <div class="teams">${ligne(home, p.home_logo || p.home_photo, "h", hs)}${ligne(away, p.away_logo || p.away_photo, "a", as)}</div>
-      <div class="state">${etat}${detail ? `<span class="sets">${esc(detail)}</span>` : ""}</div>
+    ${ban}
+    <div class="corps">
+      <div class="state">${sous}</div>
       <div class="bets">${lignes}</div>
     </div>
   </article>`;
@@ -990,11 +1152,14 @@ function dessineJour(){
     return `<button type="button" aria-pressed="${g === stateFilter}" data-state="${g}">${g}<small>${n}</small></button>`;
   }).join("");
   const sports = ["Tous", ...new Set(tout.map(p => p.sport_label || p.sport))];
+  const icone = s => s === "Tous" ? "✦" : (ICONE_SP[(tout.find(p => (p.sport_label || p.sport) === s) || {}).sport] || "•");
+  const nb = s => s === "Tous" ? tout.length : tout.filter(p => (p.sport_label || p.sport) === s).length;
   $("#sport-chips").innerHTML = sports.map(s =>
-    `<button type="button" aria-pressed="${s === sportFilter}" data-sport="${esc(s)}">${s === "Tous" ? "Tous sports" : esc(s)}</button>`).join("");
+    `<button type="button" aria-pressed="${s === sportFilter}" data-sport="${esc(s)}"><span class="ic">${icone(s)}</span>${s === "Tous" ? "Tous sports" : esc(s)}<small>${nb(s)}</small></button>`).join("");
   const vus = tout.filter(p => stateFilter === "Tous" || groupe(p) === stateFilter)
                   .filter(p => sportFilter === "Tous" || (p.sport_label || p.sport) === sportFilter);
   const suivant = tout.find(p => new Date(p.kickoff_at) > new Date());
+  setTimeout(animer, 0);
   $("#list").innerHTML = vus.map(p => carte(p)).join("") ||
     `<div class="empty"><b>Aucun pari ici pour l'instant.</b><br>${suivant
       ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) + "."
