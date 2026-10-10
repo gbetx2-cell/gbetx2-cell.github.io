@@ -331,6 +331,76 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
   .pick .corps{padding:4px 12px 12px}
 }
 @media (prefers-reduced-motion:reduce){.ban *,.ban::before,.pick{animation:none!important;transition:none!important}}
+
+/* ───── Page Resultats (10/10/2026, refaite comme le site fictif) ───── */
+.rmise{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;font-weight:600;color:var(--muted)}
+.rmise input{width:92px;background:var(--surface);border:1px solid var(--line);border-radius:10px;color:var(--text);font:700 16px var(--mono);padding:6px 10px;text-align:right}
+#r-per{margin-bottom:14px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+#r-per button{flex:none;white-space:nowrap}
+.rkpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px}
+.rkpi>div,.rfaits>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:help;transition:border-color .2s;min-width:0}
+.rkpi>div:hover,.rfaits>div:hover{border-color:var(--gold)}
+.rkpi b{display:block;font:700 clamp(20px,3.4vw,26px)/1.2 var(--mono)}
+.rkpi span{font-size:13px;color:var(--muted)} .rkpi em{display:block;font-style:normal;font-size:11px;color:var(--muted)}
+.rfaits{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.rfaits small{display:block;font-size:11px;color:var(--muted)}
+.rfaits b{display:block;font:700 13px var(--body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rgraph .panel-head{margin-bottom:4px}
+.rsvg{position:relative}
+#r-svg{width:100%;height:130px;display:block;cursor:crosshair}
+#r-courbe{fill:none;stroke-width:3;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:2400;stroke-dashoffset:2400}
+#r-courbe.trace{transition:stroke-dashoffset 1.4s ease;stroke-dashoffset:0}
+.rsvg .gx{position:absolute;width:1px;background:#ffffff40;pointer-events:none;opacity:0;transition:opacity .15s;top:0;height:100%}
+.rsvg .gd{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px #e3b34155;pointer-events:none;opacity:0}
+.rsvg .gt{position:absolute;background:#07080b;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:600 12px var(--body);pointer-events:none;opacity:0;white-space:nowrap;max-width:300px;z-index:8}
+.rsvg .gt small{display:block;color:var(--muted);font-size:11px;overflow:hidden;text-overflow:ellipsis}
+.rtab{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sprow{display:grid;grid-template-columns:1.3fr 1.6fr 50px 74px 104px;gap:12px;align-items:center;width:100%;padding:10px 14px;border:0;border-bottom:1px solid var(--line);
+  background:none;color:var(--text);font:600 14px var(--body);text-align:left;cursor:pointer;transition:background-color .2s}
+.sprow:last-child{border-bottom:0}.sprow:hover,.sprow.on{background:#2a2415}
+.sprow small{display:block;color:var(--muted);font-weight:400;font-size:12px}
+.sprow .barre{height:7px;border-radius:9px;background:#2a271f;overflow:hidden}.sprow .barre i{display:block;height:100%;background:var(--gold);border-radius:9px}
+.sprow .n2{font:700 13px var(--mono);text-align:right}
+.jourt{display:flex;justify-content:space-between;padding:8px 14px;background:#141310;font:700 12px var(--body);color:var(--muted);border-bottom:1px solid var(--line)}
+.jourt span:first-child{text-transform:capitalize}
+.rcard{border-bottom:1px solid var(--line);cursor:pointer}
+.rcard:last-child{border-bottom:0}
+.rban{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:12px 16px;min-height:86px;transition:filter .2s}
+.rcard:hover .rban{filter:brightness(1.08)}
+.rcote{display:flex;align-items:center;gap:12px;min-width:0;transition:filter .5s}.rcote.d{justify-content:flex-end}
+.rcote.perdant{filter:grayscale(1) brightness(.55)}
+.rv{width:54px;height:54px;object-fit:contain;flex:none;filter:drop-shadow(0 0 10px #ffffff30)}
+.rv.ph{object-fit:cover;border-radius:50%;object-position:top}
+.rv.ini{display:grid;place-items:center;border-radius:50%;font:20px Anton,var(--display);color:#fff}
+.rn{font:20px Anton,var(--display);letter-spacing:.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:uppercase}
+.rmil{text-align:center;display:flex;flex-direction:column;align-items:center;max-width:220px}
+.rmil b{font:30px/1.1 Anton,var(--display);color:var(--gold);white-space:nowrap}
+.rlg{font:600 11px 'Barlow Condensed',var(--body);letter-spacing:2px;color:var(--gold);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.rh{font:600 11px 'Barlow Condensed',var(--body);letter-spacing:2px;color:#d8d2c2;text-transform:uppercase}
+.rpari{display:flex;align-items:center;gap:14px;padding:10px 16px;flex-wrap:wrap;background:var(--surface)}
+.rpari .t{flex:1;color:var(--gold);font-weight:600;min-width:150px}
+.rpari .n{display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1.1}
+.rpari .n b{font:700 16px var(--mono)} .rpari .n span{font-size:10px;color:var(--muted);text-transform:uppercase}
+.rplus{max-height:0;overflow:hidden;opacity:0;transition:max-height .35s ease,opacity .3s;padding:0 16px;background:var(--surface)}
+.rcard.ouvert .rplus{max-height:320px;opacity:1;padding-bottom:12px}
+.rplus .pg{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.rplus .pg div{background:#141310;border-radius:8px;padding:6px 8px;font:700 13px var(--mono)}
+.rplus .pg small{display:block;font:600 10px var(--body);color:var(--muted)}
+.rplus p{font-size:13px;color:#d8d2c2;margin:8px 0 0}
+.rfil{color:var(--gold);font-size:13px;min-height:18px;margin-bottom:6px}
+.rpag{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;font-size:13px;color:var(--muted)}
+.rpag button{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:7px 14px;font:600 13px var(--body);cursor:pointer}
+.rpag button:hover:not(:disabled){border-color:var(--gold);background:#2a2415}.rpag button:disabled{opacity:.35;cursor:default}
+@media (max-width:760px){
+  .rkpi,.rfaits{grid-template-columns:1fr 1fr}
+  .sprow{grid-template-columns:1fr 64px 92px}.sprow .barre,.sprow .w2{display:none}
+  .rban{gap:6px;padding:10px}.rv{width:36px;height:36px}.rn{font-size:13px}.rmil b{font-size:22px}.rlg{font-size:9px;letter-spacing:1px;max-width:130px}
+  .rcote{flex-direction:column;gap:4px;align-items:center}.rcote.d{flex-direction:column-reverse}
+  .rplus .pg{grid-template-columns:repeat(3,1fr)}
+  .rpag span{font-size:11px;text-align:center}.rpag button{padding:6px 10px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){#r-courbe{stroke-dashoffset:0!important;transition:none!important}.rplus,.rcote{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -366,6 +436,23 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
   </section>
 
   <section id="p-res" hidden>
+    <div class="head"><h1>Résultats</h1><span class="gain">Tous les paris publiés · rien n'est supprimé · réglés depuis le score officiel</span></div>
+    <div class="rmise"><label for="r-mise">Ma mise : 1 u =</label><input id="r-mise" type="number" min="1" max="10000" step="1" inputmode="numeric"> €
+      <span class="gain">le bot mise de 0,75 u à 3 u selon sa confiance</span></div>
+    <div class="chips" id="r-per"></div>
+    <div class="rkpi" id="r-kpi"></div>
+    <div class="rfaits" id="r-faits"></div>
+    <div class="panel rgraph"><div class="panel-head"><h2 id="r-gt">Bilan cumulé</h2><b class="num" id="r-gv"></b></div>
+      <div class="rsvg"><svg viewBox="0 0 600 130" preserveAspectRatio="none" id="r-svg"><line id="r-zero" x1="0" x2="600" stroke="#ffffff22" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/><path id="r-courbe" d=""/></svg>
+        <div class="gx"></div><div class="gd"></div><div class="gt"></div></div></div>
+    <h2>Par sport <span class="gain">cliquer sur un sport pour filtrer toute la page</span></h2>
+    <div class="rtab" id="r-sport"></div>
+    <h2 id="r-liste-t" style="margin-top:22px">Détail des paris <span class="gain">cliquer sur un pari pour voir comment il a été réglé</span></h2>
+    <div class="rfil" id="r-fil"></div>
+    <div class="rtab" id="r-liste"><div class="empty">Chargement…</div></div>
+    <div class="rpag" id="r-pag"></div>
+    <p class="gain" style="margin-top:14px">Un pari « Plus de » est gagné si le total est strictement au-dessus de la ligne, un « Moins de » s'il est strictement en dessous. Total pile sur une ligne ronde, joueur absent, abandon ou match annulé : pari remboursé, la mise est rendue.</p>
+  <div hidden id="res-ancien">
     <div class="head"><h1>Résultats</h1><span class="gain">Tous les paris publiés · rien n'est supprimé</span></div>
     <div class="summary" id="res-summary"></div>
     <div class="yday" id="res-streak"></div>
@@ -405,6 +492,7 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
 
     <h2>Derniers paris</h2>
     <div class="list" id="list-res"></div>
+  </div>
   </section>
 
   <section id="p-mise" hidden>
@@ -1477,7 +1565,9 @@ async function charger(){
        un pari a change d'etat (publie, regle) depuis le dernier chargement. */
     const sig = [...(pub.live || []), ...(pub.done || [])].map(p => p.fixture_id + ":" + (p.result || "")).sort().join("|");
     if (RES && sig !== signatureRes) for (const k in CACHE) delete CACHE[k];   // bilans a jour aussi
-    const res = (!RES || sig !== signatureRes) ? await api("/api/results") : RES;
+    const relire = !RES || sig !== signatureRes;
+    const res = relire ? await api("/api/results") : RES;
+    if (relire || !REG) api("/api/results/all").then(d => { REG = (d && d.results) || []; dessineResultats(); }).catch(() => {});
     signatureRes = sig;
     PUBS = grouper(pub); SCORES = (live && live.scores) || {}; RES = res;
     dernierChargement = Date.now();
@@ -1513,6 +1603,192 @@ setInterval(async () => {
     dessineJour();
   } catch (_){}
 }, 20000);
+/* ─────────────────────────── Résultats (10/10/2026) ───────────────────────────
+   Registre officiel /api/results/all : memes sources et memes regles que le bilan du serveur, la
+   somme d'une periode retombe exactement sur les chiffres officiels. Jour d'un pari = jour de son
+   reglement, heure de Paris (champ "j"), comme les bilans Telegram. */
+let REG = null, rPer = "semaine", rSport = "tous", rPage = 0, rOuvert = "";
+const R_PAR_PAGE = 12;
+const SPORT_NOM = {football: "Football", baseball: "Baseball (MLB)", mlb: "Baseball (MLB)", tennis: "Tennis", hockey: "Hockey",
+  nhl: "Hockey", nfl: "Football US (NFL)", nba: "Basket (NBA)", nbam: "Basket (NBA)", wnba: "Basket (WNBA)", npb: "Baseball (NPB)",
+  kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)",
+  kbl: "Basket (KBL)", hfra: "Handball (France)", hpol: "Handball (Pologne)", hrom: "Handball (Roumanie)",
+  hromf: "Handball (Roumanie F)", f1: "Formule 1", golf: "Golf"};
+const nomSport = s => SPORT_NOM[s] || (String(s).charAt(0).toUpperCase() + String(s).slice(1));
+const jourParis = d => new Intl.DateTimeFormat("fr-CA", {timeZone: "Europe/Paris"}).format(d);   // AAAA-MM-JJ
+const dateDe = j => new Date(j + "T12:00:00");
+const lundiDe = j => { const d = dateDe(j); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return jourParis(d); };
+function bornes(){
+  const auj = jourParis(new Date());
+  return {jour: auj, semaine: lundiDe(auj), mois: auj.slice(0, 8) + "01", annee: auj.slice(0, 5) + "01-01", debut: "0000"};
+}
+const R_PER = {
+  jour: {nom: "Aujourd'hui", u: ["pari", "paris"], cle: e => e.ts + e.fid + e.pick, lib: e => e.pick},
+  semaine: {nom: "Cette semaine", u: ["jour", "jours"], cle: e => e.j,
+            lib: e => dateDe(e.j).toLocaleDateString("fr-FR", {weekday: "long", day: "numeric", month: "long"})},
+  mois: {nom: "Ce mois", u: ["semaine", "semaines"], cle: e => lundiDe(e.j),
+         lib: e => "semaine du " + dateDe(lundiDe(e.j)).toLocaleDateString("fr-FR", {day: "numeric", month: "long"})},
+  annee: {nom: "Cette année", u: ["mois", "mois"], cle: e => e.j.slice(0, 7),
+          lib: e => dateDe(e.j).toLocaleDateString("fr-FR", {month: "long", year: "numeric"})},
+  debut: {nom: "Depuis le début", u: ["année", "années"], cle: e => e.j.slice(0, 4), lib: e => e.j.slice(0, 4)}};
+const vU = () => { const v = Number(store.get("gbet-u")); return v >= 1 && v <= 10000 ? v : 10; };
+const euro = u => fmt(u * vU(), 2) + " €";
+const euroS = u => (u > 0 ? "+" : "") + euro(u);
+const pctS = x => (x > 0 ? "+" : "") + fmt(x, 1) + " %";
+const uTxt = u => fmt(u, Number.isInteger(u) ? 0 : 2) + " u";
+const coul = v => v > 0 ? "var(--win)" : v < 0 ? "var(--loss)" : "inherit";
+const tip = h => encodeURIComponent(h);
+function stats(L){
+  const rg = L.filter(e => e.r !== "R"), g = L.filter(e => e.r === "G").length;
+  const b = L.reduce((s, e) => s + e.pnl, 0), mis = L.reduce((s, e) => s + e.mise, 0);
+  return {n: L.length, rg: rg.length, g, p: rg.length - g, b, mis, w: rg.length ? g / rg.length : 0, roi: mis ? b / mis * 100 : 0};
+}
+function series(L, cfg){
+  const grp = new Map();
+  [...L].reverse().forEach(e => { const k = cfg.cle(e); if (!grp.has(k)) grp.set(k, {nom: cfg.lib(e), b: 0}); grp.get(k).b += e.pnl; });
+  const G = [...grp.values()].filter(g => Math.abs(g.b) > 1e-9);
+  let best = 0, cur = 0; G.forEach(g => { cur = g.b > 0 ? cur + 1 : 0; best = Math.max(best, cur); });
+  let enc = 0, sens = 0;
+  for (let i = G.length - 1; i >= 0; i--){ const s = Math.sign(G[i].b); if (!sens) sens = s; if (s !== sens) break; enc++; }
+  return {enc, sens, best, nb: G.length, pos: G.filter(g => g.b > 0).length, top: [...G].sort((a, b) => b.b - a.b)[0]};
+}
+function visuelRes(url, nom, sp, side){
+  const joueur = JOUEURS_SP.has(sp);
+  const u = url || LOGOS[`${sp}|${String(nom || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "")}`] || "";
+  const src = u ? (/^https?:/.test(HDX[u] || u) ? (HDX[u] || u) : SITE + (HDX[u] || u)) : "";
+  const org = u ? (/^https?:/.test(u) ? u : SITE + u) : "";
+  const ini = String(nom || "?").split(/[ .-]+/).slice(0, 2).map(w => w[0] || "").join("").toUpperCase();
+  if (src) return `<img class="rv${joueur ? " ph" : ""}" src="${esc(src)}" alt="" loading="lazy" onerror="this.onerror=null;if(this.src!=='${esc(org)}'&&'${esc(org)}'){this.src='${esc(org)}'}else{this.outerHTML='<span class=&quot;rv ini&quot; style=&quot;background:${teinte(nom)}&quot;>${esc(ini)}</span>'}">`;
+  return `<span class="rv ini" style="background:${teinte(nom)}">${esc(/\d/.test(nom) ? "TOP 3" : ini)}</span>`;
+}
+function explication(e){
+  const t = e.pick.toLowerCase(), sc = e.sc || "";
+  if (e.r === "R") return "Pari remboursé : la mise est rendue (égalité pile sur la ligne, joueur absent, abandon ou match annulé).";
+  const m = t.match(/(plus|moins) de\s+(\d+(?:[.,]\d+)?)/);
+  const nums = (sc.match(/^(\d+)\s*-\s*(\d+)/) || []).slice(1).map(Number);
+  if (m && nums.length === 2 && !/:/.test(e.pick)){
+    const tot = nums[0] + nums[1], L = parseFloat(m[2].replace(",", "."));
+    return `Total final ${tot}, ${tot > L ? "au-dessus" : "en dessous"} de ${fmtLigne(L)} → ${m[1] === "plus" ? "Plus de" : "Moins de"} ${e.r === "G" ? "gagné" : "perdu"}.`;
+  }
+  return e.r === "G" ? "Le pronostic est passé." : "Le pronostic n'est pas passé.";
+}
+const libPari = t => String(t || "").replace(/\s*@\s*\d[\d.,]*(\s*\([^)]*\))?\s*$/, "").replace(/^(Handicap|Vainqueur|Total|Écart de points) — /, "$1 ");
+function carteResultat(e){
+  e = {...e, pick: libPari(e.pick)};
+  const [a, b] = String(e.match).split("–").map(x => (x || "").trim());
+  let n = (String(e.sc).replace(/\s*\(.*\)\s*$/, "").match(/^(\d+)\s*-\s*(\d+)$/) || []).slice(1).map(Number);
+  /* tennis "6-3, 4-6, 7-5" : on compte les sets gagnes */
+  const sets = String(e.sc).split(",").map(x => x.trim().match(/^(\d+)-(\d+)$/)).filter(Boolean);
+  if (!n.length && sets.length > 1) n = [sets.filter(m => +m[1] > +m[2]).length, sets.filter(m => +m[2] > +m[1]).length];
+  const perd = n.length === 2 && n[0] !== n[1] ? (n[0] > n[1] ? "d" : "g") : "";
+  const id = e.ts + "|" + e.fid + "|" + e.pick;
+  const ko = e.ko ? new Date(e.ko) : null, pub = e.pub ? new Date(e.pub) : null;
+  const hm = d => d ? d.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "—";
+  const st = e.r === "G" ? `<span class="tag w">Gagné</span>` : e.r === "P" ? `<span class="tag l">Perdu</span>` : `<span class="tag p">Remboursé</span>`;
+  const retour = e.r === "G" ? e.mise * e.cote : e.r === "R" ? e.mise : 0;
+  return `<div class="rcard${rOuvert === id ? " ouvert" : ""}" data-id="${esc(id)}">
+    <div class="rban" style="background:linear-gradient(100deg,${teinte(a)},#0b0f1a 46%,#0b0f1a 54%,${teinte(b)})">
+      <div class="rcote g${perd === "g" ? " perdant" : ""}">${visuelRes(e.hl, a, e.sport, "g")}<span class="rn">${esc(nomCourt(a, JOUEURS_SP.has(e.sport)))}</span></div>
+      <div class="rmil"><span class="rlg">${esc(nomSport(e.sport))}${e.lg ? " · " + esc(ligueFr(e.lg)) : ""}</span><b>${esc(String(e.sc || "").replace(/\s*\(.*\)\s*$/, "") || "—")}</b><span class="rh">${ko ? hm(ko) + " · " : ""}terminé</span></div>
+      <div class="rcote d${perd === "d" ? " perdant" : ""}"><span class="rn">${esc(nomCourt(b, JOUEURS_SP.has(e.sport)))}</span>${/\d/.test(b) ? "" : visuelRes(e.al, b, e.sport, "d")}</div>
+    </div>
+    <div class="rpari"><span class="t">${esc(e.pick)}</span>
+      <span class="n"><b>${uTxt(e.mise)}</b><span>${euro(e.mise)}</span></span>
+      <span class="n"><b>${fmt(e.cote)}</b><span>cote</span></span>${st}
+      <span class="n"><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b><span>gain</span></span></div>
+    <div class="rplus"><div class="pg">
+      <div><small>Publié</small>${hm(pub)}</div><div><small>Début du match</small>${hm(ko)}</div>
+      <div><small>Mise conseillée</small>${uTxt(e.mise)}</div><div><small>Ma mise</small>${euro(e.mise)}</div>
+      <div><small>Retour</small>${euro(retour)}</div><div><small>Gain net</small><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b></div>
+    </div><p>${esc(explication(e))}</p><p class="gain">${e.mise > 1 ? "Mise renforcée : confiance élevée du modèle. " : e.mise < 1 ? "Mise réduite : pari plus risqué. " : ""}Résultat réglé depuis le score officiel.</p></div>
+  </div>`;
+}
+let GRR = null, rTrace = false;
+function dessineResultats(){
+  if (!REG) return;
+  const B = bornes(), cfg = R_PER[rPer];
+  const dans = e => e.j && e.j >= B[rPer] && e.j <= B.jour;
+  const L = REG.filter(e => dans(e) && (rSport === "tous" || nomSport(e.sport) === rSport));
+  const S = stats(L), SE = series(L, cfg);
+  const champ = $("#r-mise"); if (document.activeElement !== champ) champ.value = vU();
+  $("#r-per").innerHTML = Object.entries(R_PER).map(([k, v]) => `<button type="button" aria-pressed="${k === rPer}" data-p="${k}">${v.nom}</button>`).join("");
+  const gG = L.filter(e => e.pnl > 0).reduce((s, e) => s + e.pnl, 0), gP = L.filter(e => e.pnl < 0).reduce((s, e) => s + e.pnl, 0);
+  $("#r-kpi").innerHTML = [
+    [S.rg ? Math.round(S.w * 100) + " %" : "—", "paris gagnés", `${S.g} gagnés sur ${S.rg}`, `<b>${S.g}</b> gagnés · <b>${S.p}</b> perdus · <b>${S.n - S.rg}</b> remboursés<em>Le taux se calcule sur les paris décidés : un remboursement n'est pas un échec.</em>`, 0],
+    [pctS(S.roi), "retour (ROI)", "bénéfice ÷ total misé", `<b>${euroS(S.b)}</b> pour <b>${euro(S.mis)}</b> misés`, S.roi],
+    [euroS(S.b), "bilan", `${unit(S.b)}`, `Gains <b>${euroS(gG)}</b> · pertes <b>${euroS(gP)}</b>`, S.b],
+    [euro(S.mis), "total misé", `${S.n} paris · ${S.n - S.rg} remboursés`, `Mise moyenne <b>${euro(S.n ? S.mis / S.n : 0)}</b> par pari (${uTxt(S.n ? +(S.mis / S.n).toFixed(2) : 0)})`, 0]]
+    .map(k => `<div tabindex="0" data-tip="${tip(k[3])}"><b style="color:${coul(k[4])}">${k[0]}</b><span>${k[1]}</span><em>${esc(k[2])}</em></div>`).join("");
+  const U = cfg.u, estPari = U[0] === "pari", fem = U[0] === "semaine" || U[0] === "année";
+  const adj = estPari ? (SE.sens > 0 ? "gagné" : "perdu") + (SE.enc > 1 ? "s" : "") : (SE.sens > 0 ? "positi" : "négati") + (fem ? "ve" : "f") + (SE.enc > 1 ? "s" : "");
+  const top = L.filter(e => e.r === "G").sort((a, b) => b.pnl - a.pnl)[0];
+  const faits = [
+    ["Série en cours", SE.enc ? `${SE.enc} ${SE.enc > 1 ? U[1] : U[0]} ${adj} de suite` : "—", SE.sens],
+    estPari ? ["Meilleure série", SE.best ? `${SE.best} gagnés de suite` : "—", 0]
+            : [`${U[1][0].toUpperCase() + U[1].slice(1)} dans le vert`, SE.nb ? `${SE.pos} sur ${SE.nb}${SE.best > 1 ? ` · record ${SE.best} de suite` : ""}` : "—", 0],
+    ["Plus gros gain", top ? `${euroS(top.pnl)} · ${libPari(top.pick)}` : "—", top ? 1 : 0],
+    estPari ? ["Rendement du jour", S.mis ? `${euroS(S.b)} pour ${euro(S.mis)} misés` : "—", S.b]
+            : [`Meilleur${fem ? "e" : ""} ${U[0]}`, SE.top && SE.top.b > 0 ? `${SE.top.nom} · ${euroS(SE.top.b)}` : "—", SE.top && SE.top.b > 0 ? 1 : 0]];
+  $("#r-faits").innerHTML = faits.map(f => `<div tabindex="0" data-tip="${tip(`<b>${esc(f[0])}</b><em>${esc(f[1])}</em>`)}"><small>${esc(f[0])}</small><b style="color:${coul(f[2])}">${esc(f[1])}</b></div>`).join("");
+  /* courbe du bilan cumule, pari apres pari */
+  let cum = 0; const ordre = [...L].reverse(), pts = [0, ...ordre.map(e => cum += e.pnl)];
+  const mn = Math.min(0, ...pts), mx = Math.max(.01, ...pts), y = v => 122 - (v - mn) / (mx - mn || 1) * 112, x = i => i / (pts.length - 1 || 1) * 600;
+  const c = $("#r-courbe");
+  c.setAttribute("d", pts.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1)).join(" "));
+  c.style.stroke = S.b >= 0 ? "var(--win)" : "var(--loss)";
+  $("#r-zero").setAttribute("y1", y(0)); $("#r-zero").setAttribute("y2", y(0));
+  $("#r-gt").textContent = "Bilan cumulé · " + cfg.nom.toLowerCase(); $("#r-gv").textContent = euroS(S.b); $("#r-gv").style.color = coul(S.b);
+  GRR = {pts, it: [null, ...ordre], y};
+  if (!$("#p-res").hidden){ c.classList.remove("trace"); void c.getBoundingClientRect(); c.classList.add("trace"); rTrace = true; }
+  /* par sport */
+  const parSport = new Map();
+  REG.filter(dans).forEach(e => { const k = nomSport(e.sport); if (!parSport.has(k)) parSport.set(k, []); parSport.get(k).push(e); });
+  $("#r-sport").innerHTML = [...parSport.entries()].map(([k, l]) => ({k, ...stats(l)})).sort((a, b) => b.b - a.b).map(o =>
+    `<button type="button" class="sprow${rSport === o.k ? " on" : ""}" data-s="${esc(o.k)}"><span>${esc(o.k)}<small>${o.n} paris</small></span>
+      <span class="barre"><i style="width:${Math.round(o.w * 100)}%"></i></span><span class="n2 w2">${Math.round(o.w * 100)} %</span>
+      <span class="n2" style="color:${coul(o.roi)}">${pctS(o.roi)}</span><span class="n2" style="color:${coul(o.b)}">${euroS(o.b)}</span></button>`).join("")
+    || `<div class="empty">Aucun pari réglé sur cette période.</div>`;
+  /* liste paginee, groupee par jour */
+  const pages = Math.max(1, Math.ceil(L.length / R_PAR_PAGE)); rPage = Math.min(rPage, pages - 1);
+  const vue = L.slice(rPage * R_PAR_PAGE, (rPage + 1) * R_PAR_PAGE);
+  let html = "", dj = "";
+  vue.forEach(e => {
+    if (e.j !== dj){ dj = e.j; const lj = L.filter(x => x.j === dj), bj = lj.reduce((s, x) => s + x.pnl, 0);
+      html += `<div class="jourt"><span>${dateDe(dj).toLocaleDateString("fr-FR", {weekday: "long", day: "numeric", month: "long", year: "numeric"})}</span><span>${lj.length} paris · <b style="color:${coul(bj)}">${euroS(bj)}</b></span></div>`; }
+    html += carteResultat(e);
+  });
+  $("#r-liste").innerHTML = html || `<div class="empty">Aucun pari réglé sur cette période.</div>`;
+  const deb = L.length ? rPage * R_PAR_PAGE + 1 : 0, fin = Math.min(L.length, (rPage + 1) * R_PAR_PAGE);
+  $("#r-pag").innerHTML = `<button type="button" data-d="-1" ${rPage === 0 ? "disabled" : ""}>← Plus récents</button><span>${deb}–${fin} sur ${L.length} · page ${rPage + 1} / ${pages}</span><button type="button" data-d="1" ${rPage >= pages - 1 ? "disabled" : ""}>Plus anciens →</button>`;
+  $("#r-fil").textContent = rSport === "tous" ? "" : `Filtré sur ${rSport} · cliquer à nouveau sur le sport pour tout voir`;
+}
+$("#r-per").addEventListener("click", e => { const b = e.target.closest("button[data-p]"); if (b){ rPer = b.dataset.p; rPage = 0; rOuvert = ""; dessineResultats(); } });
+$("#r-sport").addEventListener("click", e => { const b = e.target.closest(".sprow"); if (b){ rSport = rSport === b.dataset.s ? "tous" : b.dataset.s; rPage = 0; rOuvert = ""; dessineResultats(); } });
+$("#r-liste").addEventListener("click", e => { const c = e.target.closest(".rcard"); if (!c) return; rOuvert = rOuvert === c.dataset.id ? "" : c.dataset.id;
+  document.querySelectorAll("#r-liste .rcard").forEach(x => x.classList.toggle("ouvert", x.dataset.id === rOuvert)); });
+$("#r-pag").addEventListener("click", e => { const b = e.target.closest("button[data-d]"); if (!b || b.disabled) return; rPage += Number(b.dataset.d); rOuvert = "";
+  dessineResultats(); const t = $("#r-liste-t").getBoundingClientRect().top + scrollY - 80; scrollTo({top: t, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); });
+$("#r-mise").addEventListener("change", e => { const v = Math.round(Number(e.target.value));
+  if (v >= 1 && v <= 10000){ store.set("gbet-u", v); const st = $("#stake"); if (st){ st.value = v; dessineMise(); } } dessineResultats(); });
+/* survol du graphique : montant a chaque point */
+(() => {
+  const box = document.querySelector(".rsvg"), svg = $("#r-svg"), gx = box.querySelector(".gx"), gd = box.querySelector(".gd"), gt = box.querySelector(".gt");
+  const montrer = ev => {
+    if (!GRR || GRR.pts.length < 2) return;
+    const r = svg.getBoundingClientRect(), cx = (ev.touches ? ev.touches[0].clientX : ev.clientX) - r.left;
+    const n = GRR.pts.length, i = Math.max(0, Math.min(n - 1, Math.round(cx / r.width * (n - 1))));
+    const px = i / (n - 1) * r.width, py = GRR.y(GRR.pts[i]) / 130 * r.height, e = GRR.it[i];
+    gx.style.cssText = `left:${px}px;opacity:1`; gd.style.cssText = `left:${px}px;top:${py}px;opacity:1`;
+    gt.innerHTML = e ? `<small>${esc(dateDe(e.j).toLocaleDateString("fr-FR", {day: "numeric", month: "short"}))} · ${esc(libPari(e.pick))}</small><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b> sur ce pari<br>Cumul <b style="color:${coul(GRR.pts[i])}">${euroS(GRR.pts[i])}</b>` : "Départ · 0,00 €";
+    const w = gt.offsetWidth; gt.style.cssText = `left:${Math.max(0, Math.min(r.width - w, px - w / 2))}px;top:${Math.max(0, py - gt.offsetHeight - 14)}px;opacity:1`;
+  };
+  const cacher = () => [gx, gd, gt].forEach(x => x.style.opacity = 0);
+  svg.addEventListener("mousemove", montrer); svg.addEventListener("touchmove", montrer, {passive: true});
+  svg.addEventListener("mouseleave", cacher); svg.addEventListener("touchend", cacher);
+})();
+/* la courbe se dessine a l'ouverture de l'onglet */
+document.querySelector('nav [data-page="res"]').addEventListener("click", () => setTimeout(dessineResultats, 30));
+
 majCompte();
 verifierSession();   /* 21/09/2026 : l'etat de connexion vient du serveur */
 charger();
