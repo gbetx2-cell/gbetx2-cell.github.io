@@ -1514,6 +1514,7 @@ addEventListener("scroll", () => { ftip.style.display = "none"; }, true);
 /* ─────────────────────────── Ma mise ─────────────────────────── */
 const valeurU = () => Math.max(1, Number($("#stake").value) || 10);
 function dessineMise(){
+  if (!RES) return;                                    /* charge a l'ouverture de l'onglet */
   const s = valeurU(), ps = (RES && RES.period_stats) || {}, an = ps.annee || {};
   const miseU = (an.mise || 0) / 200;
   $("#m-mise").textContent = Math.round(miseU * s).toLocaleString("fr-FR") + " €";
@@ -1598,40 +1599,43 @@ document.querySelector("nav").addEventListener("click", e => {
   document.querySelectorAll("nav button").forEach(x => x.setAttribute("aria-selected", x === b));
   ["jour", "res", "mise", "aide"].forEach(k => document.getElementById("p-" + k).hidden = k !== b.dataset.page);
   scrollTo({top: 0});
+  chargerResultats();
 });
 
+/* 10/10/2026 (capacite du site) : a l'ouverture, seulement les paris du jour et les scores. Les
+   resultats (100 Ko) et le registre complet (100 Ko) ne sont charges que si l'onglet Resultats ou
+   Ma mise est ouvert -- avant, chaque visiteur les telechargeait sans jamais les regarder. */
+const pageOuverte = () => (document.querySelector("nav button[aria-selected=\"true\"]") || {dataset: {}}).dataset.page;
 async function charger(){
   try {
     const [pub, live] = await Promise.all([api("/api/publications"), api("/api/live-scores")]);
-    /* 03/10/2026 : /api/results (le plus lourd, tout l'historique) n'est relu que si
-       un pari a change d'etat (publie, regle) depuis le dernier chargement. */
+    /* Resultats a relire seulement si un pari a change d'etat (publie, regle) */
     const sig = [...(pub.live || []), ...(pub.done || [])].map(p => p.fixture_id + ":" + (p.result || "")).sort().join("|");
-    if (RES && sig !== signatureRes) for (const k in CACHE) delete CACHE[k];   // bilans a jour aussi
-    const relire = !RES || sig !== signatureRes;
-    const res = relire ? await api("/api/results") : RES;
-    if (relire || !REG) api("/api/results/all").then(d => { REG = (d && d.results) || []; dessineResultats(); }).catch(() => {});
+    if (signatureRes && sig !== signatureRes){ RES = null; REG = null; for (const k in CACHE) delete CACHE[k]; }
     signatureRes = sig;
-    PUBS = grouper(pub); SCORES = (live && live.scores) || {}; RES = res;
+    PUBS = grouper(pub); SCORES = (live && live.scores) || {};
     dernierChargement = Date.now();
     $("#jour-maj").textContent = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
-    dessineJour(); resumeResultats(); dessineMise();
-    dessineBlocs("rail-track", "period-chips", periode, false);
-    const st = RES.period_stats || {};
-    /* 21/09/2026 : "cette semaine" est la semaine calendaire, pas 7 jours
-       glissants -- le libelle "sur 7 jours" etait faux. Et un lundi matin,
-       avant le premier reglement, la page annoncait "0 % de reussite cette
-       semaine" juste au-dessus d'un tableau montrant +3,81 u la veille : exact,
-       et alarmant pour rien. Tant qu'aucun pari n'est regle, on le dit. */
-    const sem = st.semaine || {}, mois = st.mois || {};
-    $("#res-streak").innerHTML = sem.n
-      ? `<span class="streak">${sem.winrate ?? "—"} % de réussite depuis lundi</span>
-         <span class="gain">${sem.n} paris réglés · ${unit(sem.pnl || 0)} cette semaine ·
-         ${mois.n || 0} paris ce mois-ci</span>`
-      : `<span class="streak">Semaine en cours</span>
-         <span class="gain">Aucun pari réglé depuis lundi · ${mois.n || 0} paris ce mois-ci</span>`;
+    dessineJour();
+    await chargerResultats();
   } catch (_){
     $("#list").innerHTML = `<div class="empty"><b>Données indisponibles.</b><br>Le serveur ne répond pas, réessayez dans un instant.</div>`;
   }
+}
+let chargeRes = null;
+async function chargerResultats(){
+  const pg = pageOuverte();
+  if (pg !== "res" && pg !== "mise") return;
+  if (chargeRes) return chargeRes;                       /* une seule requete a la fois */
+  chargeRes = (async () => {
+    try {
+      if (!RES){ RES = await api("/api/results"); dessineMise(); dessineBlocs("m-track", "m-period-chips", mPeriode, true, valeurU()); }
+      if (pg === "res" && !REG){ const d = await api("/api/results/all"); REG = (d && d.results) || []; }
+      if (pg === "res") dessineResultats();
+    } catch (_){ /* reessai au prochain rafraichissement */ }
+    finally { chargeRes = null; }
+  })();
+  return chargeRes;
 }
 let dernierChargement = 0;   /* declare avant le 1er charger() : il l'ecrit */
 let signatureRes = "";
@@ -1829,7 +1833,7 @@ $("#r-mise").addEventListener("change", e => { const v = Math.round(Number(e.tar
   svg.addEventListener("mouseleave", cacher); svg.addEventListener("touchend", cacher);
 })();
 /* la courbe se dessine a l'ouverture de l'onglet */
-document.querySelector('nav [data-page="res"]').addEventListener("click", () => setTimeout(dessineResultats, 30));
+
 
 majCompte();
 verifierSession();   /* 21/09/2026 : l'etat de connexion vient du serveur */
