@@ -347,6 +347,151 @@ def fetch_period_stats() -> dict:
     return result
 
 
+def _visuel(sport: str, team_id: str, nom: str) -> str:
+    """Logo d'equipe (api-sports) ou photo de joueur deja en cache (tennis : site/assets/players ;
+    golf / F1 / MMA : TheSportsDB). Lecture disque seule, aucun appel reseau."""
+    sp = (sport or "").lower()
+    if sp == "tennis":
+        try:
+            from tennis_elo_utils import normalize_player_name
+            k = normalize_player_name(nom or "")
+            base = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "site", "assets", "players")
+            for ext in (".png", ".jpg", ".webp", ".jpeg"):
+                if k and os.path.exists(os.path.join(base, k + ext)):
+                    return f"assets/players/{k}{ext}"
+        except Exception:
+            pass
+    url = _logo_equipe(sp, team_id, nom)
+    if not url and sp in ("tennis", "golf", "f1", "mma"):
+        try:
+            from data_providers import logos as _L
+            url = _L.photo_joueur(nom or "", sp, cache_seul=True)
+        except Exception:
+            url = ""
+    return url
+
+
+def fetch_registre() -> list[dict]:
+    """Registre officiel pari par pari (10/10/2026, page Resultats detaillee) : EXACTEMENT les memes
+    sources et les memes regles que fetch_period_stats() (paris regles hors miroirs de player picks,
+    sport_player_picks regles, value bets additionnelles foot/MLB), pour que la somme des lignes d'une
+    periode retombe au centime pres sur le bilan officiel. Chaque ligne : sport, ligue, match, pari,
+    cote, resultat (G/P/R), mise et gain en unites, dates (reglement, coup d'envoi, publication),
+    score, logos."""
+    import psycopg2
+
+    db = os.environ.get("DATABASE_URL")
+    if not db:
+        raise SystemExit("DATABASE_URL manquant")
+    conn = psycopg2.connect(db, connect_timeout=10)
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT p.fixture_id, p.home, p.away, p.conseil, p.value_bet,
+               CASE WHEN p.cote_reelle > 1.01 THEN p.cote_reelle
+                    WHEN p.value_cote > 1.01 THEN p.value_cote
+                    ELSE p.cote_interne END,
+               p.resultat, p.pnl, COALESCE(p.mise,0), p.result_updated_at, p.sport,
+               COALESCE(NULLIF(p.competition,''), pf.league, ''), COALESCE(pf.kickoff_at::text, ''),
+               COALESCE(p.score, ''), COALESCE(p.created_at, ''),
+               COALESCE(pf.home_team_id::text, ''), COALESCE(pf.away_team_id::text, '')
+        FROM paris p
+        LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
+        WHERE p.resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
+          AND p.result_updated_at IS NOT NULL AND p.result_updated_at <> ''
+          AND NOT (p.market_type IN ('total_points', 'player_pick_only'))
+        """
+    )
+    out: list[dict] = []
+    for (fid, home, away, conseil, value_bet, cote, resultat, pnl, mise, ts, sport, lg, ko, score, cree,
+         hid, aid) in cur.fetchall():
+        sp = (sport or "football").lower()
+        texte = value_bet if (sp in SPORTS_VALUE_BET_IS_CONSEIL and value_bet) else (conseil or value_bet or "")
+        out.append({
+            "fid": str(fid), "sport": sp, "lg": lg or "", "match": f"{home} – {away}", "pick": _short_pick(texte),
+            "cote": round(float(cote or 0), 2),
+            "r": "G" if resultat in RESULTAT_GAGNE else {"PERDU": "P"}.get(resultat, "R"),
+            "mise": round(float(mise or 0) / BASE_UNIT_EUR, 3), "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 3),
+            "ts": ts or "", "ko": ko or "", "sc": score or "", "pub": cree or "",
+            "hl": _visuel(sp, hid, home), "al": _visuel(sp, aid, away),
+        })
+    cur.execute(
+        """
+        SELECT s.fixture_id, s.player_name, s.market_label, s.odd, COALESCE(s.stake_eur,0), s.settlement_status,
+               COALESCE(NULLIF(s.settled_at,''), s.created_at), s.sport, p.home, p.away,
+               COALESCE(NULLIF(p.competition,''), pf.league, ''), COALESCE(pf.kickoff_at::text, ''),
+               COALESCE(p.score, ''), COALESCE(s.created_at, ''),
+               COALESCE(pf.home_team_id::text, ''), COALESCE(pf.away_team_id::text, '')
+        FROM sport_player_picks s
+        LEFT JOIN paris p ON p.fixture_id = s.fixture_id
+        LEFT JOIN programme_fixtures pf ON pf.fixture_id = s.fixture_id
+        WHERE s.settlement_status IN ('GAGNE','PERDU')
+        """
+    )
+    for (fid, joueur, marche, odd, stake, status, ts, sport, home, away, lg, ko, score, cree,
+         hid, aid) in cur.fetchall():
+        sp = (sport or "football").lower()
+        out.append({
+            "fid": str(fid), "sport": sp, "lg": lg or "", "match": f"{home or '?'} – {away or '?'}",
+            "pick": f"{joueur} — {marche}", "cote": round(float(odd or 0), 2),
+            "r": "G" if status == "GAGNE" else "P",
+            "mise": round(float(stake or 0) / BASE_UNIT_EUR, 3),
+            "pnl": round(_pnl_fixed(status, float(odd or 0), float(stake or 0)) / BASE_UNIT_EUR, 3),
+            "ts": ts or "", "ko": ko or "", "sc": score or "", "pub": cree or "",
+            "hl": _visuel(sp, hid, home), "al": _visuel(sp, aid, away),
+        })
+    # value bets additionnelles : memes tables que _fetch_refonte_settled_rows()
+    cur.execute(
+        """
+        SELECT 'football', fixture_id::text, home, away, market, selection, odd, result, COALESCE(stake_eur,0),
+               COALESCE(pnl_eur,0), settled_at, ''
+        FROM refonte_value_bet_settlements WHERE result != ''
+        UNION ALL
+        SELECT 'football', fixture_id::text, home, away, market, selection, odd, result, COALESCE(stake_eur,0),
+               COALESCE(pnl_eur,0), settled_at, COALESCE(competition, '')
+        FROM refonte_cross_competition_value_bet_settlements WHERE result != ''
+        """
+    )
+    try:
+        from football.refonte_publication_preview import MARKET_LABELS, _SELECTION_LABELS
+    except Exception:
+        MARKET_LABELS, _SELECTION_LABELS = {}, {}
+    for sp, fid, home, away, market, sel, odd, res, stake, pnl, ts, lg in cur.fetchall():
+        label = _SELECTION_LABELS.get(sel, sel).format(home=home or "", away=away or "")
+        out.append({
+            "fid": str(fid), "sport": sp, "lg": lg or "", "match": f"{home} – {away}",
+            "pick": f"{MARKET_LABELS.get(market, market)} : {label}", "cote": round(float(odd or 0), 2),
+            "r": {"GAGNE": "G", "PERDU": "P"}.get(res, "R"),
+            "mise": round(float(stake or 0) / BASE_UNIT_EUR, 3), "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 3),
+            "ts": ts or "", "ko": "", "sc": "", "pub": "", "hl": "", "al": "",
+        })
+    cur.execute(
+        """
+        SELECT s.fixture_id, p.home, p.away, s.selection_text, s.odd, s.result, COALESCE(s.stake_eur,0),
+               COALESCE(s.pnl_eur,0), s.settled_at, COALESCE(pf.kickoff_at::text, ''), COALESCE(p.score, ''),
+               COALESCE(NULLIF(p.competition,''), pf.league, '')
+        FROM mlb_value_bet_settlements s
+        LEFT JOIN paris p ON p.fixture_id = s.fixture_id
+        LEFT JOIN programme_fixtures pf ON pf.fixture_id = s.fixture_id
+        WHERE s.result != ''
+        """
+    )
+    for fid, home, away, sel, odd, res, stake, pnl, ts, ko, score, lg in cur.fetchall():
+        out.append({
+            "fid": str(fid), "sport": "baseball", "lg": lg or "", "match": f"{home or '?'} – {away or '?'}",
+            "pick": sel, "cote": round(float(odd or 0), 2), "r": {"GAGNE": "G", "PERDU": "P"}.get(res, "R"),
+            "mise": round(float(stake or 0) / BASE_UNIT_EUR, 3), "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 3),
+            "ts": ts or "", "ko": ko or "", "sc": score or "", "pub": "", "hl": "", "al": "",
+        })
+    conn.close()
+    # jour de reglement (heure de Paris) : meme convention que les bilans (_paris_calendar_date)
+    for e in out:
+        d = _paris_calendar_date(e["ts"])
+        e["j"] = d.isoformat() if d else ""
+    out.sort(key=lambda e: e["ts"], reverse=True)
+    return out
+
+
 def fetch_league_stats() -> dict:
     """Bilan reel PAR LIGUE (n/w/l/roi), pour le globe de la page
     Performance (26/08/2026, demande explicite "recopie le prototype a
@@ -1042,7 +1187,31 @@ def _pnl_fixed(result: str, cote, stake) -> float:
     return 0.0
 
 
-def fetch_results() -> list[dict]:
+_LOGO_API = {"football": "football", "hockey": "hockey", "nbl": "basketball", "euroleague": "basketball",
+             "grebl": "basketball", "kbl": "basketball", "nbam": "basketball", "hfra": "handball", "hpol": "handball",
+             "hrom": "handball", "hromf": "handball", "npb": "baseball", "kbo": "baseball"}
+
+
+def _logo_equipe(sport: str, team_id: str, nom: str) -> str:
+    """Meme logo que les publications (site/scripts/export_programme.py) : id api-sports enregistre a la
+    publication, verifie par data_providers/logos.py (cache seul, aucun appel reseau). MMA : photo ESPN."""
+    sp = (sport or "").lower()
+    tid = str(team_id or "").strip()
+    if not tid:
+        return ""
+    if sp == "mma":
+        return f"https://a.espncdn.com/i/headshots/mma/players/full/{tid}.png"
+    if sp not in _LOGO_API or not tid.isdigit():
+        return ""
+    url = f"https://media.api-sports.io/{_LOGO_API[sp]}/teams/{int(tid)}.png"
+    try:
+        from data_providers import logos as _L
+        return _L.logo_fiable(url, nom or "", {"football": "football", "hockey": "hockey"}.get(sp, _LOGO_API[sp])) or ""
+    except Exception:
+        return url
+
+
+def fetch_results(n_matches: int = N_MATCHES, details: bool = False) -> list[dict]:
     """Jusqu'a 3 entrees independantes par match regle (conseil / value bet /
     player pick COTE uniquement -- jamais le mode pourcentage, qui n'a pas de
     prix de marche a encaisser) : chacune a son propre resultat et son propre
@@ -1081,7 +1250,9 @@ def fetch_results() -> list[dict]:
                p.resultat, COALESCE(p.mise,1), COALESCE(p.pnl,0),
                p.value_bet, p.value_cote, p.value_result, COALESCE(p.value_stake_eur,0),
                COALESCE(NULLIF(p.competition,''), pf.league, ''),
-               p.market_type, p.sport, p.result_updated_at
+               p.market_type, p.sport, p.result_updated_at,
+               COALESCE(pf.kickoff_at::text, ''), COALESCE(p.score, ''), COALESCE(p.created_at, ''),
+               COALESCE(pf.home_team_id::text, ''), COALESCE(pf.away_team_id::text, '')
         FROM paris p
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
         WHERE p.result_updated_at IS NOT NULL AND p.result_updated_at <> ''
@@ -1100,7 +1271,7 @@ def fetch_results() -> list[dict]:
         ORDER BY p.result_updated_at DESC
         LIMIT %s
         """,
-        (N_MATCHES,),
+        (n_matches,),
     )
     fixtures = cur.fetchall()
     fixture_ids = [str(r[0]) for r in fixtures]
@@ -1149,11 +1320,16 @@ def fetch_results() -> list[dict]:
     conn.close()
 
     out = []
-    for fixture_id, home, away, conseil, cote, resultat, mise, pnl, \
-            value_bet, value_cote, value_result, value_stake, competition, market_type, sport, result_updated_at \
-            in reversed(fixtures):
+    for row in reversed(fixtures):
+        (fixture_id, home, away, conseil, cote, resultat, mise, pnl, value_bet, value_cote, value_result,
+         value_stake, competition, market_type, sport, result_updated_at, *plus) = row
         _ts = result_updated_at or ""
         fixture_id = str(fixture_id)
+        # 10/10/2026 (page Resultats detaillee) : coup d'envoi, score, publication, ligue
+        _ko, _score, _cree, _hid, _aid = (list(plus) + ["", "", "", "", ""])[:5]
+        _det = {"ko": _ko or "", "sc": _score or "", "pub": _cree or "", "lg": competition or "", "fid": fixture_id}
+        if details:
+            _det["hl"], _det["al"] = _logo_equipe(sport, _hid, home), _logo_equipe(sport, _aid, away)
         flag = _flag(competition, sport)
         match = f"{home} – {away}"
         sport_l = (sport or "").lower()
@@ -1183,7 +1359,7 @@ def fetch_results() -> list[dict]:
                 "r": "G" if resultat in RESULTAT_GAGNE else {"PERDU": "P"}.get(resultat, "R"),
                 "mise": round(float(mise or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
                 "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 2),
-                "type": "conseil", "sport": sport_l, "_ts": _ts,
+                "type": "conseil", "sport": sport_l, "_ts": _ts, **_det,
             })
 
         # REMBOURSE ajoute (26/07/2026, confirme en direct : Lorenzo Musetti
@@ -1200,7 +1376,7 @@ def fetch_results() -> list[dict]:
                 "r": "G" if value_result in RESULTAT_GAGNE else {"PERDU": "P"}.get(value_result, "R"),
                 "mise": round(float(value_stake or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
                 "pnl": round(v_pnl / BASE_UNIT_EUR, 2),
-                "type": "value", "sport": sport_l, "_ts": _ts,
+                "type": "value", "sport": sport_l, "_ts": _ts, **_det,
             })
 
         pick_info = player_by_fixture.get(fixture_id)
@@ -1218,7 +1394,7 @@ def fetch_results() -> list[dict]:
                     "r": {"GAGNE": "G", "PERDU": "P"}.get(result, "R"),
                     "mise": round(pick_info["stake"] / BASE_UNIT_EUR, 2),
                     "pnl": round(p_pnl / BASE_UNIT_EUR, 2),
-                    "type": "player", "sport": sport_l, "_ts": _ts,
+                    "type": "player", "sport": sport_l, "_ts": _ts, **_det,
                 })
 
         # Player picks MLB/NBA/WNBA/NHL/NFL/Tennis (sport_player_picks) --
@@ -1233,7 +1409,7 @@ def fetch_results() -> list[dict]:
                 "r": {"GAGNE": "G", "PERDU": "P"}.get(sp["result"], "R"),
                 "mise": round(sp["stake"] / BASE_UNIT_EUR, 2),
                 "pnl": round(p_pnl / BASE_UNIT_EUR, 2),
-                "type": "player", "sport": sport_l, "_ts": _ts,
+                "type": "player", "sport": sport_l, "_ts": _ts, **_det,
             })
 
     # Value bets refonte football (23/08/2026, demande explicite : "je veux
@@ -1258,7 +1434,7 @@ def fetch_results() -> list[dict]:
         ORDER BY settled_at DESC
         LIMIT %s
         """,
-        (N_MATCHES,),
+        (n_matches,),
     )
     refonte_rows = cur2.fetchall()
     cur2.close()
@@ -1276,7 +1452,7 @@ def fetch_results() -> list[dict]:
             "r": {"GAGNE": "G", "PERDU": "P"}.get(r_result, "R"),
             "mise": round(float(r_stake or BASE_UNIT_EUR) / BASE_UNIT_EUR, 2),
             "pnl": round(float(r_pnl or 0) / BASE_UNIT_EUR, 2),
-            "type": "value", "sport": "football", "_ts": _r_settled_at or "",
+            "type": "value", "sport": "football", "_ts": _r_settled_at or "", "lg": r_competition or "", "fid": str(r_fid),
         })
 
     # Value bets MLB additionnelles (03/09/2026, demande explicite, meme
@@ -1305,7 +1481,7 @@ def fetch_results() -> list[dict]:
         ORDER BY m.settled_at DESC
         LIMIT %s
         """,
-        (N_MATCHES,),
+        (n_matches,),
     )
     mlb_extra_rows = cur3.fetchall()
     cur3.close()
@@ -1329,7 +1505,12 @@ def fetch_results() -> list[dict]:
     # vrai settled_at, puisque simplement appendees a la fin de `out`.
     out.sort(key=lambda e: e.get("_ts", ""))
     for e in out:
-        e.pop("_ts", None)
+        ts = e.pop("_ts", None)
+        if details:
+            e["ts"] = ts or ""
+        else:
+            for k in ("ko", "sc", "pub", "lg", "fid", "hl", "al"):
+                e.pop(k, None)
     return out
 
 
