@@ -1010,7 +1010,7 @@ function carte(p, euros, valeurU){
   const sc = [p, ...(p._autres || [])].map(q => scoreDe(q)).find(Boolean) || null;
   /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
      reste bloque sur un statut en cours (21/09/2026). */
-  const live = !estRegle(p) && sc && !sc.finished && sc.status_short && sc.status_short !== "NS";
+  const live = !estRegle(p) && sc && !sc.finished && enJeu(sc, p);
   const [home, away] = String(p.match).split("–").map(t => (t || "").trim());
   const ini = n => (n || "?").split(/[ .-]+/).slice(0, 2).map(w => w[0] || "").join("").toUpperCase();
   const cle = n => String(n || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -1172,6 +1172,12 @@ function scoreDe(p){
   }
   return null;
 }
+/* 10/10/2026 : un statut "PRE" (avant-match NHL) ou un coup d'envoi encore a venir n'est PAS du direct --
+   Sharks-Oilers s'affichait "En direct" 0-0 une demi-heure avant le debut, range parmi les matchs en cours. */
+function enJeu(sc, p){
+  if (!sc || !sc.status_short || /^(NS|PRE|TBD|SCH|SCHEDULED|PST|CANC|POSTP)$/i.test(sc.status_short)) return false;
+  return !(p && p.kickoff_at && new Date(p.kickoff_at) - Date.now() > 60000);
+}
 /* Commence depuis plus de 2 min, pas regle, sans score recu : "En direct" quand meme. */
 const commence = p => p.kickoff_at && Date.now() - new Date(p.kickoff_at) > 120000;
 const groupe = p => {
@@ -1181,7 +1187,7 @@ const groupe = p => {
      etait reste bloque sur LIVE. Le compteur et la carte se contredisaient. */
   if (estRegle(p)) return "Terminés";
   const sc = scoreDe(p);
-  if (sc && !sc.finished && sc.status_short && sc.status_short !== "NS") return "En direct";
+  if (sc && !sc.finished && enJeu(sc, p)) return "En direct";
   if (sc && sc.finished) return "Terminés";
   return commence(p) ? "En direct" : "À venir";
 };
