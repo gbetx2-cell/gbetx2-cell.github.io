@@ -131,7 +131,8 @@ img.badge[src*="media.api-sports"],img.badge[src*="espncdn"]{object-fit:contain;
    3/4 de la barre (chiffre affiche dessus), la barre jaune avance avec la stat
    en direct, et la stat est ecrite au bout du jaune. */
 .pgauge{grid-column:1 / -1;margin-top:10px;font-size:12px;color:var(--muted)}
-.pgauge .lbl{display:block;margin-bottom:16px}
+.pgauge{padding-top:18px}
+.pgauge .lbl{display:block;margin-top:2px}
 .pgauge .ptrack{position:relative;height:8px;background:var(--surface);border-radius:999px}
 .pgauge .pfill{position:absolute;left:0;top:0;bottom:0;background:var(--gold);border-radius:999px;transition:width .6s ease}
 .pgauge.ok .pfill{background:var(--win)}
@@ -317,7 +318,17 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
 #sport-chips button[aria-pressed="true"] .ic{background:var(--gold)}
 .filters{flex-direction:column;align-items:stretch}
 /* apparition des cartes */
-.pick{animation:apparait .45s ease both}
+.pick.nouvelle{animation:apparait .45s ease both}
+.ruban{background:#2a2415;color:var(--gold);font:600 12px var(--body);padding:6px 14px;border-bottom:1px solid var(--line)}
+.squelette{height:300px;border-radius:16px;margin-bottom:10px;background:var(--surface);border:1px solid var(--line);position:relative;overflow:hidden}
+.squelette::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,#ffffff0d 50%,transparent 70%);animation:reflet 1.2s infinite;transform:translateX(-100%)}
+@keyframes reflet{to{transform:translateX(100%)}}
+main section:not([hidden]){animation:fondu .3s ease}
+@keyframes fondu{from{opacity:0;transform:translateY(6px)}}
+a.cta:not(.ghost){position:relative;overflow:hidden}
+a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:0;background:linear-gradient(100deg,transparent,#ffffff90,transparent);
+  transform:translateX(-150%);animation:brille 10s infinite;pointer-events:none}
+@keyframes brille{0%,88%{transform:translateX(-150%)}100%{transform:translateX(350%)}}
 @keyframes apparait{from{opacity:0;transform:translateY(12px)}}
 @media (max-width:760px){
   .ban{height:220px}.ban .geant{font-size:80px}
@@ -330,7 +341,7 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
   #list-res .ban,#m-list .ban{height:170px}
   .pick .corps{padding:4px 12px 12px}
 }
-@media (prefers-reduced-motion:reduce){.ban *,.ban::before,.pick{animation:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){.ban *,.ban::before,.pick,.squelette::after,main section,a.cta::after{animation:none!important;transition:none!important}}
 
 /* ───── Page Resultats (10/10/2026, refaite comme le site fictif) ───── */
 .rmise{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;font-weight:600;color:var(--muted)}
@@ -432,7 +443,7 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
       <div class="chips" id="state-chips"></div>
       <div class="chips" id="sport-chips"></div>
     </div>
-    <div class="list" id="list"><div class="empty">Chargement…</div></div>
+    <div class="list" id="list"><div class="squelette"></div><div class="squelette"></div><div class="squelette"></div></div>
   </section>
 
   <section id="p-res" hidden>
@@ -664,7 +675,7 @@ const nomFam = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean
   return (j && m.length > 1 ? m[m.length - 1] : m.reduce((x, y) => y.length > x.length ? y : x)).toUpperCase(); };
 const nomCourt = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean);
   return j && m.length > 1 && !/\d/.test(n) ? `${m[0][0]}. ${m.slice(1).join(" ")}` : String(n || ""); };
-const PHASES = new Map(), SCORES_VUS = new Map();
+const PHASES = new Map(), SCORES_VUS = new Map(), ETAT_VU = new Map(), CARTES_VUES = new Set();
 /* Apres chaque affichage : les cartes qui viennent de passer "a venir" -> "en direct"/"termine"
    jouent l'animation une seule fois (jamais a chaque rafraichissement). */
 function animer(){
@@ -762,7 +773,7 @@ $("#gate-form").addEventListener("submit", async e => {
 });
 
 /* ─────────────────────────── Paris ─────────────────────────── */
-let PUBS = {live: [], done: []}, SCORES = {}, RES = null, stateFilter = "Tous", sportFilter = "Tous";
+let PUBS = {live: [], done: []}, SCORES = {}, RES = null, stateFilter = "Jour", sportFilter = "Tous";
 const SEUIL = /(plus de|moins de|total|écart|over|under)/i, UNDER = /(moins de|under)/i;
 
 function jauge(label, now, need, under){
@@ -833,11 +844,13 @@ function jaugeHandicap(texte, score, regle, home, away, sport){
   const etat = marge > 0 ? "passe" : marge === 0 ? "remboursé si ça reste" : `il manque ${Math.floor(-marge) + 1}`;
   const signe = x => (x > 0 ? "+" : x < 0 ? "−" : "") + fmtLigne(Math.abs(x));
   const nom = m[1].trim();
-  return `<div class="pgauge ${marge > 0 ? "ok" : ""}"><span class="lbl">Écart ${esc(nom)} · ${signe(h)} — ${esc(etat)}</span>
+  const phrase = marge > 0 ? `Écart actuel ${signe(v)} : le handicap passe` : marge === 0 ? "Écart pile sur la ligne : remboursé si ça reste"
+    : `Écart actuel ${signe(v)} : ${esc(etat)}`;
+  return `<div class="pgauge ${marge > 0 ? "ok" : ""}">
     <div class="ptrack"><div class="pfill" style="width:${pct}%"></div>
       <span class="pval" style="left:${Math.max(3, Math.min(97, pct))}%">${signe(v)}</span>
       <span class="pmark" style="left:75%"></span><span class="pline" style="left:75%">${signe(L)}</span></div>
-    <div class="pend"></div></div>`;
+    <div class="pend"></div><span class="lbl">${phrase}</span></div>`;
 }
 /* Jauge d'un pari joueur (27/09/2026, bug signale en WNBA : "Points Plus de
    4.5" affichait "26 / 5" -- jaugeDe additionnait les deux scores d'equipe,
@@ -897,12 +910,15 @@ function jaugeLigne(mot, v, L, under){
   const pct = Math.max(0, Math.min(100, v / L * 75));
   const passe = v > L;
   const cls = under ? (passe ? "danger" : "") : (passe ? "ok" : "");
-  const etat = under ? (passe ? "perdu" : `gagné si ${Math.floor(L)} ou moins`) : (passe ? "gagné" : `il faut ${Math.floor(L) + 1}`);
-  return `<div class="pgauge ${cls}"><span class="lbl">${esc(mot)} · ${under ? "moins" : "plus"} de ${fmtLigne(L)} — ${esc(etat)}</span>
+  /* 10/10/2026 (valide sur le site fictif) : la phrase de marge seule, sans repeter le pari */
+  const marge = Math.floor(L) - v, manque = Math.floor(L) + 1 - v;
+  const etat = under ? (passe ? "Ligne dépassée : pari perdu" : marge <= 0 ? "Plus aucune marge : un de plus et le pari est perdu" : `Marge : encore ${marge} au maximum`)
+                     : (passe ? "Ligne franchie : déjà gagné, il attend la fin du match" : `Encore ${manque} pour passer la ligne`);
+  return `<div class="pgauge ${cls}" data-etat="${passe ? (under ? "perdu" : "gagne") : ""}">
     <div class="ptrack"><div class="pfill" style="width:${pct}%"></div>
       <span class="pval" style="left:${Math.max(3, Math.min(97, pct))}%">${v}</span>
       <span class="pmark" style="left:75%"></span><span class="pline" style="left:75%">${fmtLigne(L)}</span></div>
-    <div class="pend"></div></div>`;
+    <div class="pend"></div><span class="lbl">${esc(etat)}</span></div>`;
 }
 /* 21/09/2026 : cette comparaison ne connaissait que "GAGNE" sans accent.
    Or le reglement ecrit "GAGNÉ" avec accent pour le baseball et la NFL --
@@ -1091,13 +1107,15 @@ function carte(p, euros, valeurU){
     const miseTxt = euros ? eur(mise * valeurU).replace("+", "") : fmt(mise, 2) + " u";
     const g = b.r === "w" ? mise * ((b.odd || 1) - 1) : b.r === "l" ? -mise : 0;
     const gainTxt = b.r === "s" ? "—" : (euros ? eur(g * valeurU) : unit(g));
+    const jg = b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : (/[ée]cart|handicap/i.test(b.bet) ? jaugeHandicap(b.bet, sc, regle || b.r !== "s", home, away, p.sport)
+         : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length, p.sport));
+    const avance = b.r === "s" && live ? (/data-etat="gagne"/.test(jg) ? ["w", "Gagné d'avance"] : /data-etat="perdu"/.test(jg) ? ["l", "Perdu"] : null) : null;
     return `<div class="betline"><span class="bet">${esc(b.bet)}</span>
       <span class="mise"><b>${miseTxt}</b><span>mise</span></span>
       <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
-      <span class="tag ${b.r}">${b.r === "s" && (live || (ko && ko <= new Date())) ? "En cours" : LIB[b.r]}</span>
+      <span class="tag ${avance ? avance[0] : b.r}">${avance ? avance[1] : b.r === "s" && (live || (ko && ko <= new Date())) ? "En cours" : LIB[b.r]}</span>
       <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
-      ${b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : (/[ée]cart|handicap/i.test(b.bet) ? jaugeHandicap(b.bet, sc, regle || b.r !== "s", home, away, p.sport)
-         : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length, p.sport))}</div>`;
+      ${jg}</div>`;
   }).join("");
 
   /* ───── Banniere "Affiche" (10/10/2026) ───── */
@@ -1240,21 +1258,39 @@ function duJour(){
 }
 function dessineJour(){
   const tout = duJour();
-  const etats = ["Tous", "En direct", "À venir", "Terminés"];
-  $("#state-chips").innerHTML = etats.map(g => {
-    const n = g === "Tous" ? tout.length : tout.filter(p => groupe(p) === g).length;
-    return `<button type="button" aria-pressed="${g === stateFilter}" data-state="${g}">${g}<small>${n}</small></button>`;
-  }).join("");
+  /* 10/10/2026 (valide sur le site fictif) : plus de filtre "A venir" seul -- un match qui commencait
+     disparaissait de la vue au moment ou son animation se jouait. */
+  const ETATS = {Jour: ["À venir et en direct", g => g !== "Terminés"], "En direct": ["En direct", g => g === "En direct"],
+                 "Terminés": ["Terminés", g => g === "Terminés"], Tous: ["Tout", () => true]};
+  if (!ETATS[stateFilter]) stateFilter = "Jour";
+  $("#state-chips").innerHTML = Object.entries(ETATS).map(([k, [lib, f]]) =>
+    `<button type="button" aria-pressed="${k === stateFilter}" data-state="${k}">${lib}<small>${tout.filter(p => f(groupe(p))).length}</small></button>`).join("");
   const sports = ["Tous", ...new Set(tout.map(p => p.sport_label || p.sport))];
   const icone = s => s === "Tous" ? "✦" : (ICONE_SP[(tout.find(p => (p.sport_label || p.sport) === s) || {}).sport] || "•");
   const nb = s => s === "Tous" ? tout.length : tout.filter(p => (p.sport_label || p.sport) === s).length;
   $("#sport-chips").innerHTML = sports.map(s =>
     `<button type="button" aria-pressed="${s === sportFilter}" data-sport="${esc(s)}"><span class="ic">${icone(s)}</span>${s === "Tous" ? "Tous sports" : esc(s)}<small>${nb(s)}</small></button>`).join("");
-  const vus = tout.filter(p => stateFilter === "Tous" || groupe(p) === stateFilter)
+  /* Une carte qui vient de changer d'etat (debut ou fin du match) reste 12 s dans la vue ou elle etait,
+     avec un bandeau : on voit l'animation et le reglement avant qu'elle parte dans l'autre filtre. */
+  const maintenant = Date.now(), garde = new Set();
+  tout.forEach(p => { const g = groupe(p), av = ETAT_VU.get(p.fixture_id);
+    if (av && av.g !== g){ ETAT_VU.set(p.fixture_id, {g, t: maintenant, av: av.g}); setTimeout(dessineJour, 12500); }
+    else if (!av) ETAT_VU.set(p.fixture_id, {g, t: 0, av: g}); });
+  const vus = tout.filter(p => { const f = ETATS[stateFilter][1], e = ETAT_VU.get(p.fixture_id);
+                    if (f(groupe(p))) return true;
+                    if (e && maintenant - e.t < 12000 && f(e.av)){ garde.add(p.fixture_id); return true; }
+                    return false; })
                   .filter(p => sportFilter === "Tous" || (p.sport_label || p.sport) === sportFilter);
   const suivant = tout.find(p => new Date(p.kickoff_at) > new Date());
   setTimeout(animer, 0);
-  $("#list").innerHTML = vus.map(p => carte(p)).join("") ||
+  $("#list").innerHTML = vus.map(p => {
+    let h = carte(p);
+    /* apparition en fondu seulement pour une carte nouvelle, jamais a chaque rafraichissement */
+    if (!CARTES_VUES.has(p.fixture_id)){ CARTES_VUES.add(p.fixture_id); h = h.replace('<article class="pick', '<article class="pick nouvelle'); }
+    if (garde.has(p.fixture_id)) h = h.replace(/(<article[^>]*>)/, `$1<div class="ruban">${groupe(p) === "Terminés"
+      ? "Match terminé · retrouvez-le dans « Terminés »" : "Le match vient de commencer"}</div>`);
+    return h;
+  }).join("") ||
     `<div class="empty"><b>Aucun pari ici pour l'instant.</b><br>${suivant
       ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) + "."
       : "Rien de publié aujourd'hui : c'est normal les jours sans match filtré."}</div>`;
