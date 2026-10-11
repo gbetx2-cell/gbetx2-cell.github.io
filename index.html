@@ -425,6 +425,12 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
 .mtest th{font:600 11px var(--body);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 @media (max-width:520px){.mtest td,.mtest th{padding:5px 6px;font-size:12px}.mtest th{font-size:10px}.mtest td:first-child{white-space:nowrap}}
 .mtest table{table-layout:auto;max-width:100%}.mtest td{white-space:nowrap}.mtest .pos{color:var(--win)}.mtest .neg{color:var(--loss)}.mtest .mnote{font-size:12px;color:var(--muted);padding:6px 12px 10px}
+
+.rban{position:relative}
+.simtag{position:absolute;right:8px;bottom:6px;font:700 10px var(--body);text-transform:uppercase;letter-spacing:.07em;
+  background:#000b;color:var(--gold);border:1px solid #e3b34166;border-radius:6px;padding:2px 7px;pointer-events:none}
+.simnote{margin:6px 0 0;font-size:12px;color:var(--muted)}.simnote b{color:var(--text)}
+#r-simzone{fill:#ffffff0d}#r-simlib{fill:var(--muted);font:600 10px var(--body);letter-spacing:.06em;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -465,9 +471,10 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
       <span class="gain">le bot mise de 0,75 u à 3 u selon sa confiance</span></div>
     <div class="chips" id="r-per"></div>
     <div class="rkpi" id="r-kpi"></div>
+    <p class="simnote" id="r-simnote" hidden></p>
     <div class="rfaits" id="r-faits"></div>
     <div class="panel rgraph"><div class="panel-head"><h2 id="r-gt">Bilan cumulé</h2><b class="num" id="r-gv"></b></div>
-      <div class="rsvg"><svg viewBox="0 0 600 130" preserveAspectRatio="none" id="r-svg"><line id="r-zero" x1="0" x2="600" stroke="#ffffff22" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/><path id="r-courbe" d=""/></svg>
+      <div class="rsvg"><svg viewBox="0 0 600 130" preserveAspectRatio="none" id="r-svg"><rect id="r-simzone" x="0" y="0" width="0" height="130"/><text id="r-simlib" x="6" y="12"></text><line id="r-zero" x1="0" x2="600" stroke="#ffffff22" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/><path id="r-courbe" d=""/></svg>
         <div class="gx"></div><div class="gd"></div><div class="gt"></div></div></div>
     <h2>Par sport <span class="gain">cliquer sur un sport pour filtrer toute la page</span></h2>
     <div class="rtab" id="r-sport"></div>
@@ -1758,16 +1765,17 @@ function carteResultat(e){
       <div class="rcote g${perd === "g" ? " perdant" : ""}">${visuelRes(e.hl, a, e.sport, "g")}<span class="rn">${esc(nomCourt(a, JOUEURS_SP.has(e.sport)))}</span></div>
       <div class="rmil"><span class="rlg">${esc(nomSport(e.sport))}${e.lg ? " · " + esc(ligueFr(e.lg)) : ""}</span><b>${esc(String(e.sc || "").replace(/\s*\(.*\)\s*$/, "") || "—")}</b><span class="rh">${ko ? hm(ko) + " · " : ""}terminé</span></div>
       <div class="rcote d${perd === "d" ? " perdant" : ""}"><span class="rn">${esc(nomCourt(b, JOUEURS_SP.has(e.sport)))}</span>${/\d/.test(b) ? "" : visuelRes(e.al, b, e.sport, "d")}</div>
+      ${e.sim ? '<span class="simtag">simulation</span>' : ""}
     </div>
     <div class="rpari"><span class="t">${esc(e.pick)}</span>
       <span class="n"><b>${uTxt(e.mise)}</b><span>${euro(e.mise)}</span></span>
       <span class="n"><b>${fmt(e.cote)}</b><span>cote</span></span>${st}
       <span class="n"><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b><span>gain</span></span></div>
     <div class="rplus"><div class="pg">
-      <div><small>Publié</small>${hm(pub)}</div><div><small>Début du match</small>${hm(ko)}</div>
+      <div><small>Publié</small>${e.sim ? "simulation" : hm(pub)}</div><div><small>Début du match</small>${e.sim ? "—" : hm(ko)}</div>
       <div><small>Mise conseillée</small>${uTxt(e.mise)}</div><div><small>Ma mise</small>${euro(e.mise)}</div>
       <div><small>Retour</small>${euro(retour)}</div><div><small>Gain net</small><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b></div>
-    </div><p>${esc(explication(e))}</p><p class="gain">${e.mise > 1 ? "Mise renforcée : confiance élevée du modèle. " : e.mise < 1 ? "Mise réduite : pari plus risqué. " : ""}Résultat réglé depuis le score officiel.</p></div>
+    </div><p>${esc(explication(e))}</p><p class="gain">${e.mise > 1 ? "Mise renforcée : confiance élevée du modèle. " : e.mise < 1 ? "Mise réduite : pari plus risqué. " : ""}${e.sim ? "Pari simulé : la règle actuelle rejouée sur ce match passé, avec la vraie cote de l'époque, avant le lancement du bot (mise 1 u)." : "Résultat réglé depuis le score officiel."}</p></div>
   </div>`;
 }
 let GRR = null, rTrace = false;
@@ -1786,6 +1794,9 @@ function dessineResultats(){
     [euroS(S.b), "bilan", `${unit(S.b)}`, `Gains <b>${euroS(gG)}</b> · pertes <b>${euroS(gP)}</b>`, S.b],
     [euro(S.mis), "total misé", `${S.n} paris · ${S.n - S.rg} remboursés`, `Mise moyenne <b>${euro(S.n ? S.mis / S.n : 0)}</b> par pari (${uTxt(S.n ? +(S.mis / S.n).toFixed(2) : 0)})`, 0]]
     .map(k => `<div tabindex="0" data-tip="${tip(k[3])}"><b style="color:${coul(k[4])}">${k[0]}</b><span>${k[1]}</span><em>${esc(k[2])}</em></div>`).join("");
+  const LS = L.filter(e => e.sim), SS = stats(LS), SR = stats(L.filter(e => !e.sim)), note = $("#r-simnote");
+  note.hidden = !LS.length;
+  if (LS.length) note.innerHTML = `dont <b>${SS.n} paris simulés</b> avant le lancement du bot (${euroS(SS.b)}, ROI ${pctS(SS.roi)}) · paris réellement publiés : <b>${SR.n}</b> (${euroS(SR.b)}, ROI ${pctS(SR.roi)})`;
   const U = cfg.u, estPari = U[0] === "pari", fem = U[0] === "semaine" || U[0] === "année";
   const adj = estPari ? (SE.sens > 0 ? "gagné" : "perdu") + (SE.enc > 1 ? "s" : "") : (SE.sens > 0 ? "positi" : "négati") + (fem ? "ve" : "f") + (SE.enc > 1 ? "s" : "");
   const top = L.filter(e => e.r === "G").sort((a, b) => b.pnl - a.pnl)[0];
@@ -1804,14 +1815,17 @@ function dessineResultats(){
   c.setAttribute("d", pts.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1)).join(" "));
   c.style.stroke = S.b >= 0 ? "var(--win)" : "var(--loss)";
   $("#r-zero").setAttribute("y1", y(0)); $("#r-zero").setAttribute("y2", y(0));
+  const kSim = ordre.reduce((k, e, i) => e.sim ? i + 1 : k, 0);
+  $("#r-simzone").setAttribute("width", kSim ? x(kSim).toFixed(1) : 0);
+  $("#r-simlib").textContent = kSim && x(kSim) > 90 ? "simulation" : "";
   $("#r-gt").textContent = "Bilan cumulé · " + cfg.nom.toLowerCase(); $("#r-gv").textContent = euroS(S.b); $("#r-gv").style.color = coul(S.b);
   GRR = {pts, it: [null, ...ordre], y};
   if (!$("#p-res").hidden){ c.classList.remove("trace"); void c.getBoundingClientRect(); c.classList.add("trace"); rTrace = true; }
   /* par sport */
   const parSport = new Map();
   REG.filter(dans).forEach(e => { const k = nomSport(e.sport); if (!parSport.has(k)) parSport.set(k, []); parSport.get(k).push(e); });
-  $("#r-sport").innerHTML = [...parSport.entries()].map(([k, l]) => ({k, ...stats(l)})).sort((a, b) => b.b - a.b).map(o =>
-    `<button type="button" class="sprow${rSport === o.k ? " on" : ""}" data-s="${esc(o.k)}"><span>${esc(o.k)}<small>${o.n} paris</small></span>
+  $("#r-sport").innerHTML = [...parSport.entries()].map(([k, l]) => ({k, ...stats(l), ns: l.filter(e => e.sim).length})).sort((a, b) => b.b - a.b).map(o =>
+    `<button type="button" class="sprow${rSport === o.k ? " on" : ""}" data-s="${esc(o.k)}"><span>${esc(o.k)}<small>${o.n} paris${o.ns ? ` · dont ${o.ns} simulés` : ""}</small></span>
       <span class="barre"><i style="width:${Math.round(o.w * 100)}%"></i></span><span class="n2 w2">${Math.round(o.w * 100)} %</span>
       <span class="n2" style="color:${coul(o.roi)}">${pctS(o.roi)}</span><span class="n2" style="color:${coul(o.b)}">${euroS(o.b)}</span></button>`).join("")
     || `<div class="empty">Aucun pari réglé sur cette période.</div>`;
