@@ -208,9 +208,9 @@ COMPETITION_FLAGS = {
 # sport (distinct de "nhl", module ESPN) -- sans lui, les paris hockey
 # etaient absents de Publications / "Paris du jour" alors qu'ils comptaient
 # bien dans les Resultats.
-PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf")
+PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp")
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀",
-              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾"}
+              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾", "hden": "🤾", "hesp": "🤾"}
 
 # Sports ou paris.conseil n'est jamais une info independante : c'est soit un
 # mirroir du value bet ("Victoire X"), soit un mirroir du player pick ("Total
@@ -220,7 +220,7 @@ SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒",
 # doublon (meme info sous 2 etiquettes) ou pire, un player pick affiche a
 # tort sous le libelle "Conseil" quand aucun value bet n'avait passe les
 # criteres -- signale par l'utilisateur comme peu clair cote client.
-SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf"}
+SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp"}
 
 # "tennis" retire de SPORTS_CONSEIL_IS_MIRROR le 22/08/2026 (bug confirme
 # en production, demande explicite : "le tennis des fois ne montre pas
@@ -262,7 +262,7 @@ SPORT_LABEL = {"football": "Football", "baseball": "Baseball (MLB)",
                "nfl": "Football US (NFL)", "tennis": "Tennis", "wnba": "Basketball (WNBA)",
                "npb": "Baseball (NPB)", "kbo": "Baseball (KBO)",
                "nbl": "Basketball (NBL)", "euroleague": "Basketball (Euroleague)", "mma": "MMA (UFC)",
-               "grebl": "Basketball (Grèce)", "kbl": "Basketball (KBL)", "nbam": "Basketball (NBA)", "hfra": "Handball (France)", "hpol": "Handball (Pologne)", "hrom": "Handball (Roumanie)", "hromf": "Handball (Roumanie F)"}
+               "grebl": "Basketball (Grèce)", "kbl": "Basketball (KBL)", "nbam": "Basketball (NBA)", "hfra": "Handball (France)", "hpol": "Handball (Pologne)", "hrom": "Handball (Roumanie)", "hromf": "Handball (Roumanie F)", "hden": "Handball (Danemark)", "hesp": "Handball (Espagne)"}
 
 # Libelle FR par categorie de player pick, tous sports confondus (football:
 # buteur/passeur/decisif : baseball/basket/hockey/NFL ont leurs propres
@@ -596,7 +596,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                 item["home_logo"] = f"https://media.api-sports.io/basketball/teams/{int(home_team_id)}.png"
             if str(away_team_id or "").isdigit():
                 item["away_logo"] = f"https://media.api-sports.io/basketball/teams/{int(away_team_id)}.png"
-        elif sport in ("hfra", "hpol", "hrom", "hromf"):
+        elif sport in ("hfra", "hpol", "hrom", "hromf", "hden", "hesp"):
             # Logos handball (05/10/2026) : ids api-sports handball
             if str(home_team_id or "").isdigit():
                 item["home_logo"] = f"https://media.api-sports.io/handball/teams/{int(home_team_id)}.png"
@@ -640,7 +640,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
             from data_providers import logos as _L
             _sp_l = {"nbl": "basketball", "euroleague": "basketball", "grebl": "basketball", "kbl": "basketball",
                      "nbam": "basketball", "hfra": "handball", "hpol": "handball", "hrom": "handball",
-                     "hromf": "handball", "npb": "baseball", "kbo": "baseball"}.get(sport, sport or "football")
+                     "hromf": "handball", "hden": "handball", "hesp": "handball", "npb": "baseball", "kbo": "baseball"}.get(sport, sport or "football")
             for cote_, nom_ in (("home", home), ("away", away)):
                 if item.get(f"{cote_}_logo"):
                     item[f"{cote_}_logo"] = _L.logo_fiable(item[f"{cote_}_logo"], nom_, _sp_l)

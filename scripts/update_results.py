@@ -102,7 +102,7 @@ COMPETITION_FLAGS = {
 # COMPETITION_FLAGS, donc affichaient TOUJOURS le ballon de foot. Priorite
 # a l'icone sport pour tout ce qui n'est pas football.
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈",
-              "tennis": "🎾", "wnba": "🏀", "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾"}
+              "tennis": "🎾", "wnba": "🏀", "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾", "hden": "🤾", "hesp": "🤾"}
 
 # Bug corrige le 04/08/2026 (confirme en direct : "Victoire Boston Red Sox"
 # reglee GAGNE le 03/08 a 00h50, jamais visible sur le site) : paris.resultat/
@@ -130,7 +130,7 @@ RESULTAT_GAGNE = ("GAGNE", "GAGNÉ")
 # "mlb" ajoute le 29/07/2026 (meme bug/fix que betting_rules.py -- paris.sport
 # vaut "baseball" mais sport_player_picks.sport vaut "mlb" pour le meme sport).
 SPORTS_VALUE_BET_IS_CONSEIL = {"tennis", "nba", "nhl", "baseball", "mlb", "wnba", "nfl",
-                              "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf"}  # meme miroir conseil/value_bet que baseball
+                              "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp"}  # meme miroir conseil/value_bet que baseball
 
 
 def _flag(competition: str, sport: str = "") -> str:
@@ -583,7 +583,7 @@ _LIGUES_EN_PLUS = {408: ("Premiership", "Irlande du Nord"), 373: ("1. SNL", "Slo
 _LIGUE_SPORT = {"baseball": "MLB (États-Unis)", "mlb": "MLB (États-Unis)", "nfl": "NFL (États-Unis)",
                 "wnba": "WNBA (États-Unis)", "nba": "NBA (États-Unis)", "npb": "NPB (Japon)", "kbo": "KBO (Corée du Sud)",
                 "nbl": "NBL (Australie)", "euroleague": "Euroleague (Europe)", "mma": "UFC",
-                "grebl": "Basket League (Grèce)", "kbl": "KBL (Corée du Sud)", "nbam": "NBA (États-Unis)", "hfra": "Starligue (France)", "hpol": "Superliga (Pologne)", "hrom": "Liga Nationala (Roumanie)", "hromf": "Liga Nationala F (Roumanie)"}
+                "grebl": "Basket League (Grèce)", "kbl": "KBL (Corée du Sud)", "nbam": "NBA (États-Unis)", "hfra": "Starligue (France)", "hpol": "Superliga (Pologne)", "hrom": "Liga Nationala (Roumanie)", "hromf": "Liga Nationala F (Roumanie)", "hden": "Herre Handbold Ligaen (Danemark)", "hesp": "Liga ASOBAL (Espagne)"}
 
 
 def nom_ligue(sport: str, competition: str, tournoi: str = "") -> str:
@@ -1189,7 +1189,7 @@ def _pnl_fixed(result: str, cote, stake) -> float:
 
 _LOGO_API = {"football": "football", "hockey": "hockey", "nbl": "basketball", "euroleague": "basketball",
              "grebl": "basketball", "kbl": "basketball", "nbam": "basketball", "hfra": "handball", "hpol": "handball",
-             "hrom": "handball", "hromf": "handball", "npb": "baseball", "kbo": "baseball"}
+             "hrom": "handball", "hromf": "handball", "hden": "handball", "hesp": "handball", "npb": "baseball", "kbo": "baseball"}
 
 
 def _logo_equipe(sport: str, team_id: str, nom: str) -> str:
