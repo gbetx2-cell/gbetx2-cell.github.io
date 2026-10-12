@@ -967,6 +967,7 @@ function memePari(a, b){
   const x = coeur(a.bet), y = coeur(b.bet);
   if (!x || !y) return false;
   if (x === y) return true;                                  // meme pari, meme si la cote diffe
+  if (x.split(" ").sort().join(" ") === y.split(" ").sort().join(" ")) return true;   // memes mots, autre ordre (12/10/2026 : handicap hockey en double)
   const oa = Number(a.odd) || 0, ob = Number(b.odd) || 0;
   if (oa && ob && Math.abs(oa - ob) > 0.011) return false;    // cotes connues et differentes
   return x.includes(y) || y.includes(x);
