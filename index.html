@@ -196,6 +196,25 @@ details+details{margin-top:8px}
 summary{cursor:pointer;font-weight:600}
 details p{margin:8px 0 0;color:var(--muted)}
 details p+p{margin-top:8px}
+/* 12/10/2026 : centre d'aide (recherche, rubriques, lexique, contact) */
+.aide-hero{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 18px;margin:8px 0 14px}
+.aide-hero h1{margin:0 0 4px;font-family:var(--display)} .aide-hero>p{margin:0 0 12px;color:var(--muted)}
+.aide-search input{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.aide-vide{color:var(--muted);margin:10px 0 0}
+.aide-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.aide-cats a{display:block;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.aide-cats a:hover{border-color:var(--gold)} .aide-cats span{display:block;font-size:13px;color:var(--muted)}
+#p-aide h3{scroll-margin-top:80px;margin-top:22px}
+.aide-table{overflow-x:auto;margin-top:8px} .aide-table table{border-collapse:collapse;width:100%;font-size:14px}
+.aide-table th,.aide-table td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.aide-table td:first-child{font-weight:600;white-space:nowrap}
+.aide-lex{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.aide-lex div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.aide-lex span{display:block;font-size:14px;color:var(--muted)}
+.aide-contact{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:22px 0 8px;
+  background:var(--raise);border:1px solid var(--line);border-radius:14px;padding:16px}
+.aide-contact span{display:block;color:var(--muted);font-size:14px}
+@media (max-width:700px){.aide-cats{grid-template-columns:1fr 1fr}.aide-lex{grid-template-columns:1fr}}
 .promise{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
 .promise div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:600}
 .promise div span{display:block;font-weight:400;font-size:13px;color:var(--muted)}
@@ -567,59 +586,123 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
   </section>
 
   <section id="p-aide" hidden>
-    <div class="head"><h1>Aide</h1></div>
+    <div class="aide-hero">
+      <h1>Centre d'aide</h1>
+      <p>Tout ce qu'il faut savoir pour lire nos paris, suivre les résultats et jouer sereinement.</p>
+      <div class="aide-search"><input id="aide-q" type="search" placeholder="Rechercher : cote, handicap, remboursé, unité…" aria-label="Rechercher dans l'aide" autocomplete="off"></div>
+      <p class="aide-vide" id="aide-vide" hidden>Aucune réponse ne correspond. Essayez un autre mot, ou écrivez-nous sur Telegram.</p>
+    </div>
+
+    <nav class="aide-cats" aria-label="Rubriques de l'aide">
+      <a href="#aide-debuter"><b>🚀 Bien démarrer</b><span>Le principe, en 2 minutes</span></a>
+      <a href="#aide-lire"><b>🎫 Lire un pari</b><span>Cote, mise, marchés</span></a>
+      <a href="#aide-chiffres"><b>📊 Résultats et chiffres</b><span>Unité, ROI, simulation</span></a>
+      <a href="#aide-reglement"><b>⚖️ Règlement</b><span>Gagné, perdu, remboursé</span></a>
+      <a href="#aide-compte"><b>👤 Compte et Telegram</b><span>Inscription, discussions</span></a>
+      <a href="#aide-responsable"><b>🛟 Jeu responsable</b><span>Limites, aide, contacts</span></a>
+    </nav>
+
     <div class="promise">
       <div>Publié avant le match<span>Jamais après le coup d'envoi</span></div>
       <div>Réglé automatiquement<span>Depuis le score officiel</span></div>
       <div>Jamais supprimé<span>Les paris perdus restent affichés</span></div>
     </div>
 
-    <h3>Comprendre les chiffres</h3>
-    <details open><summary>C'est quoi une unité (u) ?</summary>
-      <p>Une unité est une mise de référence, exprimée en pourcentage de votre capital de jeu plutôt qu'en euros, pour que le suivi vaille quel que soit votre budget. L'usage courant est de fixer 1 u entre 1 % et 3 % de ce capital.</p>
-      <p>Exemple : avec 500 € de capital et 1 u = 2 %, une unité vaut 10 €. Un pari noté 1,5 u correspond alors à 15 €. Le champ « Ma mise » de la page Résultats fait ce calcul pour vous.</p></details>
-    <details><summary>Pourquoi les mises changent d'un pari à l'autre ?</summary>
-      <p>La mise dépend de l'écart entre notre estimation et la cote proposée : plus cet écart est net, plus la mise est élevée. Elle va de 0,75 u à 3 u, avec un plafond par match pour ne jamais concentrer le risque sur une seule rencontre.</p></details>
-    <details><summary>Bénéfice et retour, quelle différence ?</summary>
-      <p>Le bénéfice est ce que le suivi a rapporté, en unités. Le retour rapporte ce bénéfice au total misé : +6 u de bénéfice pour 1 400 u misées donnent un retour de 0,4 %.</p>
-      <p>Sur la durée, un retour durablement compris entre 3 % et 8 % est déjà considéré comme très bon dans le milieu. Méfiez-vous des annonces à 30 % ou 50 % : elles ne tiennent jamais sur un gros volume de paris.</p></details>
-    <details><summary>Pourquoi deux chiffres de retour ?</summary>
-      <p>Parce qu'ils ne portent pas sur les mêmes paris, et qu'en montrer un seul reviendrait à choisir celui qui arrange.</p>
-      <p><b>Tous les paris</b> compte chaque pari publié, y compris ceux dont la cote n'a jamais pu être relevée chez un bookmaker au moment de la publication. Le gain de ceux-là est calculé sur une cote estimée : le chiffre est complet, mais moins fiable.</p>
-      <p><b>Paris à cote bookmaker</b> ne garde que les paris dont la cote a réellement été relevée. Moins de paris, mais chaque euro est vérifiable — c'est le chiffre sur lequel le bot est piloté en interne.</p>
-      <p>L'écart entre les deux ne se lit pas comme une bonne nouvelle : il indique surtout que les paris sans cote relevée tirent le bilan vers le bas. Le deuxième chiffre est le plus juste, le premier le plus prudent.</p></details>
-    <details><summary>Un taux de réussite élevé veut-il dire rentable ?</summary>
-      <p>Non. Gagner 70 % de ses paris à la cote 1,30 fait perdre de l'argent, car il faut 77 % de réussite pour rentrer dans ses frais à cette cote. Le seul chiffre qui tranche est le bénéfice rapporté au total misé.</p></details>
-
-    <h3>Comment ça marche</h3>
+    <h3 id="aide-debuter">🚀 Bien démarrer</h3>
+    <details open><summary>G-BET, c'est quoi ?</summary>
+      <p>Un bot qui analyse chaque jour des milliers de matchs dans une dizaine de sports et ne publie que les paris qui remplissent des règles testées sur plusieurs saisons de vrais matchs, avec les vraies cotes de l'époque.</p>
+      <p>Chaque pari publié est réglé automatiquement et reste visible à vie, qu'il soit gagné ou perdu : le bilan affiché est complet.</p></details>
+    <details><summary>Comment utiliser le site en 3 étapes ?</summary>
+      <p><b>1.</b> Ouvrez <b>Paris du jour</b> : les paris à venir apparaissent 15 à 75 minutes avant le match, avec la cote et la mise conseillées.</p>
+      <p><b>2.</b> Vérifiez la cote chez votre bookmaker : jouez seulement si elle est égale ou supérieure.</p>
+      <p><b>3.</b> Suivez le règlement en direct sur la carte du match, puis le bilan complet dans <b>Résultats</b>.</p></details>
+    <details><summary>Quels sports sont couverts ?</summary>
+      <p>Football, tennis, hockey, basket, baseball, handball, football américain, MMA, Formule 1 et golf. Les filtres regroupent par sport ; la ligue ou le tournoi exact est écrit sur chaque carte (ex. « Hockey · Metal Ligaen (Danemark) »).</p></details>
     <details><summary>Combien de paris par jour ?</summary>
-      <p>Cela dépend du programme et des critères remplis : certains jours plusieurs paris, d'autres aucun. Un jour sans pari est un jour normal, pas une panne.</p></details>
-    <details><summary>Quand les paris sont-ils publiés ?</summary>
-      <p>Avant le coup d'envoi, une fois les compositions vérifiées quand elles existent. La cote affichée est celle relevée au moment de la publication.</p></details>
-    <details><summary>Et si la cote a bougé quand je veux parier ?</summary>
-      <p>Jouez seulement si vous obtenez une cote égale ou supérieure. En dessous, l'avantage estimé disparaît : il vaut mieux passer ce pari.</p></details>
-    <details><summary>Plusieurs paris sur le même match ?</summary>
-      <p>Oui, ils sont regroupés sur la même carte, chacun avec sa mise. Ce sont des paris séparés, à jouer séparément : ce n'est pas un combiné.</p></details>
-    <details><summary>Qui décide qu'un pari est gagné ou perdu ?</summary>
-      <p>Le règlement est automatique, à partir du score officiel récupéré après le match. Aucune intervention manuelle, aucun pari effacé, y compris les perdus.</p></details>
-    <details><summary>D'où viennent les données ?</summary>
-      <p>Les rencontres, compositions et statistiques viennent de fournisseurs de données sportives professionnels. Les cotes affichées sont des cotes réelles de bookmakers, relevées à la publication.</p></details>
+      <p>Cela dépend du programme et des critères remplis : certains jours plusieurs dizaines, d'autres aucun. Un jour sans pari est un jour normal, pas une panne : le bot préfère passer que forcer.</p></details>
 
-    <h3>Votre compte</h3>
+    <h3 id="aide-lire">🎫 Lire un pari</h3>
+    <details><summary>Que veut dire chaque ligne d'une carte ?</summary>
+      <p>En haut : le sport, la ligue et l'heure. Au centre : les équipes ou joueurs. En bas : le pari (ex. « Victoire Herlev »), la <b>mise</b> en unités, la <b>cote</b> relevée à la publication, puis le <b>résultat</b> et le <b>gain</b> une fois le match terminé.</p></details>
+    <details><summary>Et si la cote a bougé quand je veux parier ?</summary>
+      <p>Jouez seulement si vous obtenez une cote égale ou supérieure. En dessous, l'avantage estimé disparaît : mieux vaut passer ce pari.</p></details>
+    <details><summary>Pourquoi les mises changent d'un pari à l'autre ?</summary>
+      <p>La mise dépend de la confiance et de l'écart entre notre estimation et la cote. Elle reste plafonnée par match pour ne jamais concentrer le risque sur une seule rencontre.</p></details>
+    <details><summary>Plusieurs paris sur le même match ?</summary>
+      <p>Oui, ils sont regroupés sur la même carte. Ce sont des paris séparés, à jouer séparément : ce n'est pas un combiné.</p></details>
+    <details><summary>Que veulent dire « handicap », « plus de / moins de », « paris joueurs » ?</summary>
+      <p><b>Handicap −1,5</b> : l'équipe doit gagner avec au moins 2 buts (ou points) d'écart. <b>Plus de / moins de 2,5</b> : le total doit être au-dessus ou en dessous de la ligne. <b>Paris joueurs</b> : une statistique d'un joueur (points, tirs cadrés, réceptions…) comparée à une ligne. Le lexique plus bas détaille chaque terme.</p></details>
+
+    <h3 id="aide-chiffres">📊 Résultats et chiffres</h3>
+    <details><summary>C'est quoi une unité (u) ?</summary>
+      <p>Une unité est une mise de référence, exprimée en pourcentage de votre capital plutôt qu'en euros, pour que le suivi vaille quel que soit votre budget. L'usage courant : 1 u entre 1 % et 3 % du capital.</p>
+      <p>Exemple : avec 500 € de capital et 1 u = 2 %, une unité vaut 10 €. Le champ « Ma mise » de la page Résultats convertit tout le bilan dans votre mise.</p></details>
+    <details><summary>Bénéfice, ROI, taux de réussite : lequel regarder ?</summary>
+      <p>Le <b>bénéfice</b> est ce que le suivi a rapporté. Le <b>ROI</b> (retour) le rapporte au total misé : +6 u pour 100 u misées = +6 %. Le <b>taux de réussite</b> seul ne dit pas si c'est rentable : gagner 70 % de ses paris à la cote 1,30 fait perdre de l'argent (il faut 77 % pour rentrer dans ses frais).</p>
+      <p>Sur la durée, un ROI durablement entre 3 % et 8 % est déjà très bon. Méfiez-vous des annonces à 30 % ou 50 % : elles ne tiennent jamais sur un gros volume.</p></details>
+    <details><summary>C'est quoi les paris « simulation » ?</summary>
+      <p>Avant le lancement du bot, chaque règle publiée aujourd'hui a été rejouée match par match sur les saisons passées (depuis 2022-23), avec les vraies cotes de l'époque. Ces paris portent un autocollant <b>simulation</b>, sont signalés dans les totaux (« dont X simulés ») et grisés sur le graphique : ils ne sont jamais présentés comme des paris publiés.</p>
+      <p>Attention : une partie de ces saisons a servi à choisir les règles, ces chiffres sont donc plus flatteurs que ce qu'on peut attendre en réel. Seuls les vrais paris font foi.</p></details>
+    <details><summary>Pourquoi un sport affiche « 0 paris » ?</summary>
+      <p>Le golf et la Formule 1 n'ont pas de cotes historiques : impossible de les simuler honnêtement. Ils partent de zéro et se remplissent avec les vrais paris publiés.</p></details>
+
+    <h3 id="aide-reglement">⚖️ Règlement des paris</h3>
+    <details><summary>Qui décide qu'un pari est gagné ou perdu ?</summary>
+      <p>Personne à la main : le règlement est automatique, depuis le score officiel, en général quelques minutes après la fin du match. Aucun pari n'est effacé, y compris les perdus.</p></details>
+    <details><summary>Quand un pari est-il remboursé ?</summary>
+      <p>Total pile sur une ligne ronde (ex. 5 buts pour « plus de 5 »), joueur absent de la feuille de match, abandon au tennis avant la fin, match annulé ou reporté : la mise est rendue, le pari compte 0.</p></details>
+    <details><summary>Les règles exactes, sport par sport</summary>
+      <div class="aide-table"><table>
+        <tr><th>Sport</th><th>Ce qui compte</th></tr>
+        <tr><td>Football</td><td>Temps réglementaire (90 min + arrêts de jeu), sauf mention « qualification ».</td></tr>
+        <tr><td>Hockey</td><td>Prolongation et tirs au but inclus. Un match gagné en prolongation finit avec 1 but d'écart : un handicap −1,5 est alors perdu.</td></tr>
+        <tr><td>Basket</td><td>Prolongations incluses.</td></tr>
+        <tr><td>Handball</td><td>Temps réglementaire : une prolongation compte comme un match nul.</td></tr>
+        <tr><td>Baseball</td><td>Manches supplémentaires incluses.</td></tr>
+        <tr><td>Football US</td><td>Prolongation incluse.</td></tr>
+        <tr><td>Tennis</td><td>Match terminé ; abandon avant la fin = remboursé.</td></tr>
+        <tr><td>Paris joueurs</td><td>Statistique officielle de la feuille de match ; joueur absent = remboursé.</td></tr>
+        <tr><td>MMA / F1 / Golf</td><td>Résultat officiel ; combat annulé ou pilote non partant = remboursé ; golf : égalité = remboursé.</td></tr>
+      </table></div></details>
+    <details><summary>Un pari reste « en cours » alors que le match est fini ?</summary>
+      <p>Le score officiel arrive parfois avec quelques minutes de retard (feuille de match, statistiques des joueurs). Le bot vérifie en continu : le pari passe en « gagné », « perdu » ou « remboursé » dès que le score est confirmé.</p></details>
+
+    <h3 id="aide-compte">👤 Compte et Telegram</h3>
     <details><summary>Pourquoi créer un compte ?</summary>
-      <p>Le compte sert à suivre les paris du jour et à participer aux discussions sous chaque match, avec votre pseudo.</p></details>
+      <p>Le compte sert à participer aux discussions sous chaque match, avec votre pseudo. Les paris et résultats restent visibles sans compte.</p></details>
     <details><summary>Le service est-il payant ?</summary>
       <p>Non. Le canal et le site sont gratuits. Le site contient des liens vers un bookmaker partenaire, signalés comme tels.</p></details>
+    <details><summary>Telegram ou site, quelle différence ?</summary>
+      <p>Telegram vous prévient à chaque publication, avec un lien vers le site. Le site affiche tout : direct, règlement, historique complet et bilan par sport.</p></details>
 
-    <h3>Avant de parier</h3>
+    <h3 id="aide-responsable">🛟 Jeu responsable</h3>
     <details><summary>Est-ce que les gains sont garantis ?</summary>
       <p>Non, et personne ne peut le garantir. Les performances passées ne préjugent pas des résultats futurs. Des séries de défaites arrivent, même quand la méthode est bonne.</p></details>
     <details><summary>Combien miser ?</summary>
-      <p>Ne misez que de l'argent dont vous n'avez pas besoin. La règle la plus répandue est de ne jamais engager plus de 1 à 3 % de votre capital sur un pari, et de ne jamais dépasser 5 %.</p>
+      <p>Ne misez que de l'argent dont vous n'avez pas besoin. La règle la plus répandue : jamais plus de 1 à 3 % de votre capital sur un pari, jamais plus de 5 %.</p>
       <p>Ne tentez pas de « rattraper » une perte en augmentant la mise suivante : c'est la manière la plus rapide de perdre tout son capital.</p></details>
     <details><summary>Je pense jouer trop, que faire ?</summary>
       <p>Les paris sont interdits aux mineurs et peuvent rendre dépendant. Vous pouvez demander votre exclusion des jeux d'argent auprès de l'Autorité nationale des jeux, et fixer des limites de dépôt chez votre bookmaker.</p>
       <p>Pour en parler : <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener">joueurs-info-service.fr</a> ou le 09 74 75 13 13, appel non surtaxé, 7 jours sur 7 de 8 h à 2 h.</p></details>
+
+    <h3 id="aide-lexique">📖 Lexique</h3>
+    <div class="aide-lex">
+      <div><b>Cote</b><span>Ce que rapporte 1 € misé, mise comprise. Cote 2,10 : 1 € misé rapporte 2,10 € si c'est gagné.</span></div>
+      <div><b>Unité (u)</b><span>Mise de référence, en % de votre capital.</span></div>
+      <div><b>ROI</b><span>Bénéfice divisé par le total misé.</span></div>
+      <div><b>Value bet</b><span>Pari dont la cote est plus haute que la probabilité réelle estimée.</span></div>
+      <div><b>Handicap</b><span>Avance ou retard fictif donné à une équipe avant le match (−1,5 : gagner de 2 ou plus).</span></div>
+      <div><b>Plus de / moins de</b><span>Total (buts, points, sets, jeux…) au-dessus ou en dessous de la ligne.</span></div>
+      <div><b>Pari joueur</b><span>Statistique d'un joueur comparée à une ligne (points, tirs cadrés, réceptions…).</span></div>
+      <div><b>Prolongation incluse</b><span>Le score final après prolongation (et tirs au but au hockey) compte.</span></div>
+      <div><b>Remboursé</b><span>Mise rendue, pari compté 0 (ligne pile, joueur absent, abandon).</span></div>
+      <div><b>Simulation</b><span>Pari rejoué sur le passé avec les cotes de l'époque, jamais publié en direct.</span></div>
+    </div>
+
+    <div class="aide-contact">
+      <div><b>Vous n'avez pas trouvé votre réponse ?</b><span>Écrivez-nous sur le canal Telegram, on répond à chaque question.</span></div>
+      <a class="cta" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Nous écrire sur Telegram</a>
+    </div>
   </section>
 
 </main>
@@ -1179,7 +1262,7 @@ function carte(p, euros, valeurU){
     <div class="geant a" style="left:-10px;top:14px">${esc(nomFam(home, joueur))}</div>
     <div class="geant b" style="right:-10px;top:115px">${esc(nomFam(away, joueur))}</div>
     ${vis(home, p.home_logo || p.home_photo, "g")}${vis(away, p.away_logo || p.away_photo, "d")}
-    <div class="ligue">${esc(p.sport_label || p.sport || "")} · ${esc(ligueFr(p.league || ""))}</div>
+    <div class="ligue">${esc(sportGeneral(p.sport) || "")} · ${esc(ligueFr(p.league || ""))}</div>
     <div class="vs">VS</div>
     <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${esc(moment)}</div>${det}</div>
     ${badge}
@@ -1290,9 +1373,9 @@ function dessineJour(){
   if (!ETATS[stateFilter]) stateFilter = "Jour";
   $("#state-chips").innerHTML = Object.entries(ETATS).map(([k, [lib, f]]) =>
     `<button type="button" aria-pressed="${k === stateFilter}" data-state="${k}">${lib}<small>${tout.filter(p => f(groupe(p))).length}</small></button>`).join("");
-  const sports = ["Tous", ...new Set(tout.map(p => p.sport_label || p.sport))];
-  const icone = s => s === "Tous" ? "✦" : (ICONE_SP[(tout.find(p => (p.sport_label || p.sport) === s) || {}).sport] || "•");
-  const nb = s => s === "Tous" ? tout.length : tout.filter(p => (p.sport_label || p.sport) === s).length;
+  const sports = ["Tous", ...new Set(tout.map(p => sportGeneral(p.sport)))];
+  const icone = s => s === "Tous" ? "✦" : (ICONE_SP[(tout.find(p => (sportGeneral(p.sport)) === s) || {}).sport] || "•");
+  const nb = s => s === "Tous" ? tout.length : tout.filter(p => (sportGeneral(p.sport)) === s).length;
   $("#sport-chips").innerHTML = sports.map(s =>
     `<button type="button" aria-pressed="${s === sportFilter}" data-sport="${esc(s)}"><span class="ic">${icone(s)}</span>${s === "Tous" ? "Tous sports" : esc(s)}<small>${nb(s)}</small></button>`).join("");
   /* Une carte qui vient de changer d'etat (debut ou fin du match) reste 12 s dans la vue ou elle etait,
@@ -1305,7 +1388,7 @@ function dessineJour(){
                     if (f(groupe(p))) return true;
                     if (e && maintenant - e.t < 12000 && f(e.av)){ garde.add(p.fixture_id); return true; }
                     return false; })
-                  .filter(p => sportFilter === "Tous" || (p.sport_label || p.sport) === sportFilter);
+                  .filter(p => sportFilter === "Tous" || (sportGeneral(p.sport)) === sportFilter);
   const suivant = tout.find(p => new Date(p.kickoff_at) > new Date());
   setTimeout(animer, 0);
   $("#list").innerHTML = vus.map(p => {
@@ -1459,9 +1542,14 @@ const pnlSport = x => {
   const pts = x.points || [];
   return pts.length ? (Number(pts[pts.length - 1].pnl) || 0) : 0;
 };
-const SPORT_FR = {football: "Football", tennis: "Tennis", hockey: "Hockey", nfl: "Football US",
-                  baseball: "Baseball", wnba: "Basket (WNBA)", basketball: "Basket",
-                  npb: "Baseball (NPB)", kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)", kbl: "Basket (KBL)", nbam: "Basket (NBA)", hfra: "Handball (France)", hpol: "Handball (Pologne)", hrom: "Handball (Roumanie)", hromf: "Handball (Roumanie F)", hden: "Handball (Danemark)", hesp: "Handball (Espagne)", f1: "Formule 1", golf: "Golf"};
+/* 12/10/2026 (demande explicite) : partout sur le site, on regroupe par SPORT (la ligue reste
+   ecrite sur chaque publication) -- Handball (Roumanie) / (France)... -> Handball, etc. */
+const SPORT_FR = {football: "Football", tennis: "Tennis", hockey: "Hockey", nhl: "Hockey", nfl: "Football US",
+                  baseball: "Baseball", mlb: "Baseball", npb: "Baseball", kbo: "Baseball",
+                  basketball: "Basket", nba: "Basket", nbam: "Basket", wnba: "Basket", nbl: "Basket", euroleague: "Basket", grebl: "Basket", kbl: "Basket",
+                  hfra: "Handball", hpol: "Handball", hrom: "Handball", hromf: "Handball", hden: "Handball", hesp: "Handball",
+                  mma: "MMA", f1: "Formule 1", golf: "Golf"};
+const sportGeneral = s => SPORT_FR[s] || (String(s || "").charAt(0).toUpperCase() + String(s || "").slice(1));
 /* 03/10/2026 : une seule requete pour les n bilans (avant : n requetes a la suite,
    relancees par chaque dessin en parallele -> ~60 appels au chargement). La promesse
    est partagee entre les appels simultanes et gardee 5 min. */
@@ -1498,13 +1586,16 @@ async function dessineBlocs(trackId, chipsId, periode, euros, valeurU){
   const el = document.getElementById(trackId);
   el.innerHTML = `<div class="block flat"><span>Chargement…</span></div>`;
   const data = await blocs(periode);
-  el.innerHTML = data.map(b => {
+  el.innerHTML = data.map(b0 => {
+    /* 12/10/2026 : ligues regroupees par sport (Basket NBA + Euroleague -> Basket) */
+    const sp = {}; Object.entries(b0.sports || {}).forEach(([s, x]) => { const k = sportGeneral(s); sp[k] = {pnl_total: (sp[k] ? sp[k].pnl_total : 0) + pnlSport(x)}; });
+    const b = {...b0, sports: sp};
     const v = euros ? b.pnl * valeurU : b.pnl;
     const detail = `<b>${esc(b.label)}</b>` + (Object.entries(b.sports).length
       /* 21/09/2026 : l'infobulle n'affichait que des 0. Le serveur envoie
          "pnl_total" par sport (cf export_site_results.py), le site lisait
          "pnl" -- une cle qui n'existe pas, donc undefined || 0. */
-      ? Object.entries(b.sports).map(([s, x]) => `<em>${esc(SPORT_FR[s] || s)} · ${euros ? eur(pnlSport(x) * valeurU) : unit(pnlSport(x))}</em>`).join("")
+      ? Object.entries(b.sports).map(([s, x]) => `<em>${esc(s)} · ${euros ? eur(pnlSport(x) * valeurU) : unit(pnlSport(x))}</em>`).join("")
       : `<em>Aucun pari sur cette période.</em>`);
     return `<div class="block ${b.pnl > 0 ? "up" : b.pnl < 0 ? "down" : "flat"}" tabindex="0" data-tip="${encodeURIComponent(detail)}">
       <span>${esc(b.label)}</span><b class="${b.pnl > 0 ? "pos" : b.pnl < 0 ? "neg" : ""}">${euros ? eur(v) : unit(v)}</b>
@@ -1680,11 +1771,7 @@ setInterval(async () => {
    reglement, heure de Paris (champ "j"), comme les bilans Telegram. */
 let REG = null, rPer = "semaine", rSport = "tous", rPage = 0, rOuvert = "";
 const R_PAR_PAGE = 12;
-const SPORT_NOM = {football: "Football", baseball: "Baseball (MLB)", mlb: "Baseball (MLB)", tennis: "Tennis", hockey: "Hockey",
-  nhl: "Hockey", nfl: "Football US (NFL)", nba: "Basket (NBA)", nbam: "Basket (NBA)", wnba: "Basket (WNBA)", npb: "Baseball (NPB)",
-  kbo: "Baseball (KBO)", nbl: "Basket (NBL)", euroleague: "Basket (Euroleague)", mma: "MMA (UFC)", grebl: "Basket (Grèce)",
-  kbl: "Basket (KBL)", hfra: "Handball (France)", hpol: "Handball (Pologne)", hrom: "Handball (Roumanie)",
-  hromf: "Handball (Roumanie F)", hden: "Handball (Danemark)", hesp: "Handball (Espagne)", f1: "Formule 1", golf: "Golf"};
+const SPORT_NOM = SPORT_FR;
 const nomSport = s => SPORT_NOM[s] || (String(s).charAt(0).toUpperCase() + String(s).slice(1));
 const jourParis = d => new Intl.DateTimeFormat("fr-CA", {timeZone: "Europe/Paris"}).format(d);   // AAAA-MM-JJ
 const dateDe = j => new Date(j + "T12:00:00");
@@ -1908,6 +1995,29 @@ function rendreModeles(){
   document.getElementById("r-modeles-sans").textContent="Pas d'historique de cotes, donc pas de simulation possible : "+MODELES_TESTS.sans.join(", ")+".";
 }
 try { rendreModeles(); } catch (_){}
+
+/* 12/10/2026 : recherche dans l'aide (filtre les questions et le lexique, ouvre les reponses trouvees) */
+(function(){
+  const q = document.getElementById("aide-q"); if (!q) return;
+  const norm = t => String(t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  q.addEventListener("input", () => {
+    const m = norm(q.value.trim()); let n = 0;
+    document.querySelectorAll("#p-aide details, #p-aide .aide-lex > div").forEach(d => {
+      const ok = !m || norm(d.textContent).includes(m); d.hidden = !ok; if (ok) n++;
+      if (d.tagName === "DETAILS" && m) d.open = ok;
+    });
+    document.querySelectorAll("#p-aide h3").forEach(h => {
+      let e = h.nextElementSibling, vis = false;
+      while (e && e.tagName !== "H3" && !e.classList.contains("aide-contact")) {
+        if (e.classList.contains("aide-lex")) vis = vis || [...e.children].some(c => !c.hidden); else if (!e.hidden) vis = true;
+        e = e.nextElementSibling; }
+      h.hidden = !!m && !vis;
+    });
+    document.querySelector("#p-aide .aide-cats").hidden = !!m;
+    document.querySelector("#p-aide .promise").hidden = !!m;
+    document.getElementById("aide-vide").hidden = n > 0;
+  });
+})();
 </script>
 </body>
 </html>
