@@ -215,6 +215,9 @@ details p+p{margin-top:8px}
   background:var(--raise);border:1px solid var(--line);border-radius:14px;padding:16px}
 .aide-contact span{display:block;color:var(--muted);font-size:14px}
 @media (max-width:700px){.aide-cats{grid-template-columns:1fr 1fr}.aide-lex{grid-template-columns:1fr}}
+.rpp{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--muted);margin-left:auto}
+.rpp select{background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:4px 6px;font:inherit}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:9999}
 .promise{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
 .promise div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:600}
 .promise div span{display:block;font-weight:400;font-size:13px;color:var(--muted)}
@@ -1722,6 +1725,35 @@ document.querySelector("nav").addEventListener("click", e => {
    resultats (100 Ko) et le registre complet (100 Ko) ne sont charges que si l'onglet Resultats ou
    Ma mise est ouvert -- avant, chaque visiteur les telechargeait sans jamais les regarder. */
 const pageOuverte = () => (document.querySelector("nav button[aria-selected=\"true\"]") || {dataset: {}}).dataset.page;
+
+/* 12/10/2026 (demande explicite) : confettis quand un pari passe en GAGNE. Une seule fois par pari
+   et par visiteur ; seulement pour un reglement recent (< 6 h) ; rien si "reduire les animations". */
+const CONFETTI_VU = (() => { try { return new Set(JSON.parse(localStorage.getItem("gbet_confetti") || "[]")); } catch (_){ return new Set(); } })();
+let confettiPret = false;
+function confettis(n = 140){
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const c = document.createElement("canvas"); c.id = "confetti"; document.body.appendChild(c);
+  const x = c.getContext("2d"), W = c.width = innerWidth, H = c.height = innerHeight;
+  const coul = ["#e3b341", "#43b97f", "#f3efe6", "#e2665d", "#7aa2f7"];
+  const P = Array.from({length: n}, () => ({x: W / 2 + (Math.random() - .5) * W * .3, y: H * .35, vx: (Math.random() - .5) * 14,
+    vy: -Math.random() * 14 - 4, r: Math.random() * 6 + 4, a: Math.random() * 6.3, va: (Math.random() - .5) * .3, c: coul[(Math.random() * coul.length) | 0]}));
+  const t0 = performance.now();
+  (function f(t){
+    x.clearRect(0, 0, W, H);
+    P.forEach(p => { p.vy += .35; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.a += p.va;
+      x.save(); x.translate(p.x, p.y); x.rotate(p.a); x.fillStyle = p.c; x.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); x.restore(); });
+    if (t - t0 < 3200) requestAnimationFrame(f); else c.remove();
+  })(t0);
+}
+function verifierConfettis(pubs){
+  const gagnes = (pubs.done || []).filter(p => /^GAGN/i.test(p.result || "") &&
+    (!p.result_updated_at || Date.now() - new Date(p.result_updated_at).getTime() < 6 * 3600e3));
+  const nouveaux = gagnes.filter(p => !CONFETTI_VU.has(p.fixture_id));
+  nouveaux.forEach(p => CONFETTI_VU.add(p.fixture_id));
+  try { localStorage.setItem("gbet_confetti", JSON.stringify([...CONFETTI_VU].slice(-300))); } catch (_){}
+  if (confettiPret && nouveaux.length) confettis();
+  confettiPret = true;          // pas de confettis au premier chargement : seulement quand ca change sous vos yeux
+}
 async function charger(){
   try {
     const [pub, live] = await Promise.all([api("/api/publications"), api("/api/live-scores")]);
@@ -1730,6 +1762,7 @@ async function charger(){
     if (signatureRes && sig !== signatureRes){ RES = null; REG = null; for (const k in CACHE) delete CACHE[k]; }
     signatureRes = sig;
     PUBS = grouper(pub); SCORES = (live && live.scores) || {};
+    try { verifierConfettis(pub); } catch (_){}
     dernierChargement = Date.now();
     $("#jour-maj").textContent = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
     dessineJour();
@@ -1770,7 +1803,8 @@ setInterval(async () => {
    somme d'une periode retombe exactement sur les chiffres officiels. Jour d'un pari = jour de son
    reglement, heure de Paris (champ "j"), comme les bilans Telegram. */
 let REG = null, rPer = "semaine", rSport = "tous", rPage = 0, rOuvert = "";
-const R_PAR_PAGE = 12;
+let R_PAR_PAGE = 20;
+try { const t = Number(localStorage.getItem("gbet_rpp")); if ([10, 20, 50, 100].includes(t)) R_PAR_PAGE = t; } catch (_){}
 const SPORT_NOM = SPORT_FR;
 const nomSport = s => SPORT_NOM[s] || (String(s).charAt(0).toUpperCase() + String(s).slice(1));
 const jourParis = d => new Intl.DateTimeFormat("fr-CA", {timeZone: "Europe/Paris"}).format(d);   // AAAA-MM-JJ
@@ -1879,8 +1913,8 @@ function dessineResultats(){
     [euro(S.mis), "total misé", `${S.n} paris · ${S.n - S.rg} remboursés`, `Mise moyenne <b>${euro(S.n ? S.mis / S.n : 0)}</b> par pari (${uTxt(S.n ? +(S.mis / S.n).toFixed(2) : 0)})`, 0]]
     .map(k => `<div tabindex="0" data-tip="${tip(k[3])}"><b style="color:${coul(k[4])}">${k[0]}</b><span>${k[1]}</span><em>${esc(k[2])}</em></div>`).join("");
   const LS = L.filter(e => e.sim), SS = stats(LS), SR = stats(L.filter(e => !e.sim)), note = $("#r-simnote");
-  note.hidden = !LS.length;
-  if (LS.length) note.innerHTML = `dont <b>${SS.n} paris simulés</b> avant le lancement du bot (${euroS(SS.b)}, ROI ${pctS(SS.roi)}) · paris réellement publiés : <b>${SR.n}</b> (${euroS(SR.b)}, ROI ${pctS(SR.roi)})`;
+  note.hidden = true;   /* 12/10/2026 (demande explicite) : ligne "dont X simules / reellement publies" retiree ;
+                          l'autocollant "simulation" de chaque pari et la zone grise du graphique restent */
   const U = cfg.u, estPari = U[0] === "pari", fem = U[0] === "semaine" || U[0] === "année";
   const adj = estPari ? (SE.sens > 0 ? "gagné" : "perdu") + (SE.enc > 1 ? "s" : "") : (SE.sens > 0 ? "positi" : "négati") + (fem ? "ve" : "f") + (SE.enc > 1 ? "s" : "");
   const top = L.filter(e => e.r === "G").sort((a, b) => b.pnl - a.pnl)[0];
@@ -1926,13 +1960,21 @@ function dessineResultats(){
   });
   $("#r-liste").innerHTML = html || `<div class="empty">Aucun pari réglé sur cette période.</div>`;
   const deb = L.length ? rPage * R_PAR_PAGE + 1 : 0, fin = Math.min(L.length, (rPage + 1) * R_PAR_PAGE);
-  $("#r-pag").innerHTML = `<button type="button" data-d="-1" ${rPage === 0 ? "disabled" : ""}>← Plus récents</button><span>${deb}–${fin} sur ${L.length} · page ${rPage + 1} / ${pages}</span><button type="button" data-d="1" ${rPage >= pages - 1 ? "disabled" : ""}>Plus anciens →</button>`;
+  $("#r-pag").innerHTML = `<button type="button" data-d="-1" ${rPage === 0 ? "disabled" : ""}>← Plus récents</button><span>${deb}–${fin} sur ${L.length} · page ${rPage + 1} / ${pages}</span><button type="button" data-d="1" ${rPage >= pages - 1 ? "disabled" : ""}>Plus anciens →</button>`
+    + `<label class="rpp">Afficher <select id="r-rpp" aria-label="Nombre de paris par page">${[10, 20, 50, 100].map(n => `<option value="${n}"${n === R_PAR_PAGE ? " selected" : ""}>${n}</option>`).join("")}</select> paris</label>`;
   $("#r-fil").textContent = rSport === "tous" ? "" : `Filtré sur ${rSport} · cliquer à nouveau sur le sport pour tout voir`;
 }
 $("#r-per").addEventListener("click", e => { const b = e.target.closest("button[data-p]"); if (b){ rPer = b.dataset.p; rPage = 0; rOuvert = ""; dessineResultats(); } });
 $("#r-sport").addEventListener("click", e => { const b = e.target.closest(".sprow"); if (b){ rSport = rSport === b.dataset.s ? "tous" : b.dataset.s; rPage = 0; rOuvert = ""; dessineResultats(); } });
 $("#r-liste").addEventListener("click", e => { const c = e.target.closest(".rcard"); if (!c) return; rOuvert = rOuvert === c.dataset.id ? "" : c.dataset.id;
   document.querySelectorAll("#r-liste .rcard").forEach(x => x.classList.toggle("ouvert", x.dataset.id === rOuvert)); });
+$("#r-pag").addEventListener("change", e => {
+  if (e.target.id !== "r-rpp") return;
+  const premier = rPage * R_PAR_PAGE;                     // garde le meme pari en tete de page
+  R_PAR_PAGE = Number(e.target.value) || 20; rPage = Math.floor(premier / R_PAR_PAGE); rOuvert = "";
+  try { localStorage.setItem("gbet_rpp", String(R_PAR_PAGE)); } catch (_){}
+  dessineResultats();
+});
 $("#r-pag").addEventListener("click", e => { const b = e.target.closest("button[data-d]"); if (!b || b.disabled) return; rPage += Number(b.dataset.d); rOuvert = "";
   dessineResultats(); const t = $("#r-liste-t").getBoundingClientRect().top + scrollY - 80; scrollTo({top: t, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); });
 $("#r-mise").addEventListener("change", e => { const v = Math.round(Number(e.target.value));
