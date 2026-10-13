@@ -217,7 +217,25 @@ details p+p{margin-top:8px}
 @media (max-width:700px){.aide-cats{grid-template-columns:1fr 1fr}.aide-lex{grid-template-columns:1fr}}
 .rpp{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--muted);margin-left:auto}
 .rpp select{background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:4px 6px;font:inherit}
-#confetti{position:fixed;inset:0;pointer-events:none;z-index:9999}
+/* 13/10/2026 (demande explicite, validees sur la demo) : animations du site -- flash vert / rouge au reglement,
+   EN DIRECT qui pulse, serie en cours, son optionnel, page Resultats animee. Les confettis sont retires. */
+@media (prefers-reduced-motion:no-preference){
+  .bdg.live{animation:aPulse 1.4s ease-in-out infinite}
+  @keyframes aPulse{0%,100%{box-shadow:0 0 0 0 #e2665d88}50%{box-shadow:0 0 0 7px #e2665d00}}
+  .clock{animation:aBlink 1.4s ease-in-out infinite} @keyframes aBlink{50%{opacity:.5}}
+  .a-flash-g{animation:aFlashG 1.8s ease-out} .a-flash-p{animation:aFlashP 1.8s ease-out}
+  @keyframes aFlashG{0%{box-shadow:0 0 0 3px var(--win),0 0 44px var(--win)}100%{box-shadow:none}}
+  @keyframes aFlashP{0%{box-shadow:0 0 0 3px var(--loss),0 0 44px var(--loss)}100%{box-shadow:none}}
+  .rcard.a-in{animation:aIn .5s ease-out both} @keyframes aIn{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+  .sprow .barre i.a-grow{animation:aGrow .9s ease-out both} @keyframes aGrow{from{width:0}}
+  #r-kpi > div.a-pop{animation:aPop .55s ease-out} @keyframes aPop{0%{transform:scale(.95);opacity:.5}60%{transform:scale(1.03)}100%{transform:none;opacity:1}}
+  #serie .f{display:inline-block;animation:aFlamme .8s ease-in-out infinite alternate}
+  @keyframes aFlamme{from{transform:scale(1) rotate(-6deg)}to{transform:scale(1.25) rotate(6deg)}}
+}
+#serie{position:fixed;left:14px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--raise);border:1px solid var(--line);
+  border-radius:999px;padding:8px 14px;font:700 14px var(--body);color:var(--text);box-shadow:0 8px 24px #0006}
+#serie b{color:var(--gold)}
+#son{background:none;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:13px;color:var(--muted);cursor:pointer;margin-left:8px}
 .promise{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
 .promise div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:600}
 .promise div span{display:block;font-weight:400;font-size:13px;color:var(--muted)}
@@ -1726,34 +1744,71 @@ document.querySelector("nav").addEventListener("click", e => {
    Ma mise est ouvert -- avant, chaque visiteur les telechargeait sans jamais les regarder. */
 const pageOuverte = () => (document.querySelector("nav button[aria-selected=\"true\"]") || {dataset: {}}).dataset.page;
 
-/* 12/10/2026 (demande explicite) : confettis quand un pari passe en GAGNE. Une seule fois par pari
-   et par visiteur ; seulement pour un reglement recent (< 6 h) ; rien si "reduire les animations". */
-const CONFETTI_VU = (() => { try { return new Set(JSON.parse(localStorage.getItem("gbet_confetti") || "[]")); } catch (_){ return new Set(); } })();
-let confettiPret = false;
-function confettis(n = 140){
-  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const c = document.createElement("canvas"); c.id = "confetti"; document.body.appendChild(c);
-  const x = c.getContext("2d"), W = c.width = innerWidth, H = c.height = innerHeight;
-  const coul = ["#e3b341", "#43b97f", "#f3efe6", "#e2665d", "#7aa2f7"];
-  const P = Array.from({length: n}, () => ({x: W / 2 + (Math.random() - .5) * W * .3, y: H * .35, vx: (Math.random() - .5) * 14,
-    vy: -Math.random() * 14 - 4, r: Math.random() * 6 + 4, a: Math.random() * 6.3, va: (Math.random() - .5) * .3, c: coul[(Math.random() * coul.length) | 0]}));
-  const t0 = performance.now();
-  (function f(t){
-    x.clearRect(0, 0, W, H);
-    P.forEach(p => { p.vy += .35; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.a += p.va;
-      x.save(); x.translate(p.x, p.y); x.rotate(p.a); x.fillStyle = p.c; x.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); x.restore(); });
-    if (t - t0 < 3200) requestAnimationFrame(f); else c.remove();
-  })(t0);
+/* 13/10/2026 (demande explicite) : au reglement d'un pari, la carte s'illumine en vert (gagne) ou en rouge
+   (perdu), avec un petit son si le visiteur l'a active. Seulement quand ca change sous ses yeux. */
+const REGLE_VU = new Set();
+let RES_SERIE = null;      /* resultats lus pour la serie en cours, sans toucher au cache RES de la page Resultats */
+let reglePret = false;
+let SON = false; try { SON = localStorage.getItem("gbet_son") === "1"; } catch (_){}
+function sonVictoire(gagne){
+  try { const c = new (window.AudioContext || window.webkitAudioContext)();
+    (gagne ? [523, 659, 784, 1047] : [392, 330, 262]).forEach((f, i) => {
+      const o = c.createOscillator(), g = c.createGain(); o.frequency.value = f; o.type = "triangle"; o.connect(g); g.connect(c.destination);
+      const t = c.currentTime + i * .1; g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.16, t + .02);
+      g.gain.exponentialRampToValueAtTime(.0001, t + .25); o.start(t); o.stop(t + .3); }); } catch (_){}
 }
-function verifierConfettis(pubs){
-  const gagnes = (pubs.done || []).filter(p => /^GAGN/i.test(p.result || "") &&
-    (!p.result_updated_at || Date.now() - new Date(p.result_updated_at).getTime() < 6 * 3600e3));
-  const nouveaux = gagnes.filter(p => !CONFETTI_VU.has(p.fixture_id));
-  nouveaux.forEach(p => CONFETTI_VU.add(p.fixture_id));
-  try { localStorage.setItem("gbet_confetti", JSON.stringify([...CONFETTI_VU].slice(-300))); } catch (_){}
-  if (confettiPret && nouveaux.length) confettis();
-  confettiPret = true;          // pas de confettis au premier chargement : seulement quand ca change sous vos yeux
+function flashCarte(fid, gagne){
+  const t = document.querySelector(`#list .talk[data-fix="${CSS.escape(fid)}"]`), c = t && t.closest("article");
+  if (!c) return;
+  c.classList.remove("a-flash-g", "a-flash-p"); void c.offsetWidth; c.classList.add(gagne ? "a-flash-g" : "a-flash-p");
 }
+function verifierReglements(pubs){
+  const regles = (pubs.done || []).filter(p => /^(GAGN|PERDU)/i.test(p.result || ""));
+  const nouveaux = regles.filter(p => !REGLE_VU.has(p.fixture_id));
+  nouveaux.forEach(p => REGLE_VU.add(p.fixture_id));
+  if (reglePret && nouveaux.length){
+    setTimeout(() => nouveaux.forEach(p => flashCarte(p.fixture_id, /^GAGN/i.test(p.result))), 350);
+    if (SON) sonVictoire(nouveaux.some(p => /^GAGN/i.test(p.result)));
+  }
+  reglePret = true;
+}
+/* serie en cours : paris REELLEMENT publies (jamais les simules), du plus recent au plus ancien, rembourses ignores */
+function majSerie(){
+  const L = (REG || ((RES || RES_SERIE) && (RES || RES_SERIE).results) || []).filter(e => !e.sim && (e.r === "G" || e.r === "P"));
+  const tri = L[0] && L[0].ts ? [...L].sort((x, y) => String(y.ts).localeCompare(String(x.ts))) : L;
+  let n = 0; for (const e of tri){ if (e.r === "G") n++; else break; }
+  let el = document.getElementById("serie");
+  if (n < 3){ if (el) el.hidden = true; return; }
+  if (!el){ el = document.createElement("div"); el.id = "serie"; el.setAttribute("role", "status"); document.body.appendChild(el); }
+  el.hidden = false; el.innerHTML = `<span class="f">🔥</span> Série en cours : <b>${n} paris gagnés</b> d'affilée`;
+}
+/* chiffres qui defilent jusqu'a leur valeur */
+function defile(el){
+  if (!el || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+  const txt = el.textContent, m = txt.match(/[\d\s\u202f\u00a0]+(?:,\d+)?/); if (!m) return;
+  const brut = m[0].replace(/[\s\u202f\u00a0]/g, ""), fin = parseFloat(brut.replace(",", ".")); if (!isFinite(fin) || !brut) return;
+  const dec = (brut.split(",")[1] || "").length, t0 = performance.now();
+  (function f(t){ const k = Math.min(1, (t - t0) / 1000), v = fin * (1 - Math.pow(1 - k, 3));
+    el.textContent = txt.replace(m[0], v.toLocaleString("fr-FR", {minimumFractionDigits: dec, maximumFractionDigits: dec}));
+    if (k < 1) requestAnimationFrame(f); else el.textContent = txt; })(t0);
+}
+/* page Resultats : chiffres, barres des sports, cartes en cascade avec leur flash */
+function animeResultats(){
+  document.querySelectorAll("#r-kpi > div").forEach((k, i) => { k.classList.remove("a-pop"); void k.offsetWidth; setTimeout(() => k.classList.add("a-pop"), i * 110); });
+  document.querySelectorAll("#r-kpi b, #r-gv").forEach(defile);
+  document.querySelectorAll("#r-sport .sprow .barre i").forEach(b => { b.classList.remove("a-grow"); void b.offsetWidth; b.classList.add("a-grow"); });
+  [...document.querySelectorAll("#r-liste .rcard")].slice(0, 12).forEach((r, i) => {
+    r.style.animationDelay = (i * 0.07) + "s"; r.classList.add("a-in");
+    const t = r.innerText || "";
+    setTimeout(() => { r.style.animationDelay = ""; r.classList.remove("a-in");
+      if (/Gagné/.test(t) || /Perdu/.test(t)){ void r.offsetWidth; r.classList.add(/Gagné/.test(t) ? "a-flash-g" : "a-flash-p"); } }, 550 + i * 70);
+  });
+}
+document.addEventListener("click", e => {
+  if (e.target.id !== "son") return;
+  SON = !SON; try { localStorage.setItem("gbet_son", SON ? "1" : "0"); } catch (_){}
+  e.target.textContent = SON ? "🔊 Son" : "🔇 Son"; e.target.setAttribute("aria-pressed", SON); if (SON) sonVictoire(true);
+});
 async function charger(){
   try {
     const [pub, live] = await Promise.all([api("/api/publications"), api("/api/live-scores")]);
@@ -1762,11 +1817,13 @@ async function charger(){
     if (signatureRes && sig !== signatureRes){ RES = null; REG = null; for (const k in CACHE) delete CACHE[k]; }
     signatureRes = sig;
     PUBS = grouper(pub); SCORES = (live && live.scores) || {};
-    try { verifierConfettis(pub); } catch (_){}
+    try { verifierReglements(pub); } catch (_){}
     dernierChargement = Date.now();
-    $("#jour-maj").textContent = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
+    $("#jour-maj").innerHTML = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"})
+      + `<button type="button" id="son" aria-pressed="${SON}" title="Petit son quand un pari est réglé">${SON ? "🔊 Son" : "🔇 Son"}</button>`;
     dessineJour();
     await chargerResultats();
+    try { if (!RES && !RES_SERIE) RES_SERIE = await api("/api/results"); majSerie(); } catch (_){}
   } catch (_){
     $("#list").innerHTML = `<div class="empty"><b>Données indisponibles.</b><br>Le serveur ne répond pas, réessayez dans un instant.</div>`;
   }
@@ -1781,6 +1838,7 @@ async function chargerResultats(){
       if (!RES){ RES = await api("/api/results"); dessineMise(); dessineBlocs("m-track", "m-period-chips", mPeriode, true, valeurU()); }
       if (pg === "res" && !REG){ const d = await api("/api/results/all"); REG = (d && d.results) || []; }
       if (pg === "res") dessineResultats();
+      try { majSerie(); } catch (_){}
     } catch (_){ /* reessai au prochain rafraichissement */ }
     finally { chargeRes = null; }
   })();
@@ -1959,6 +2017,7 @@ function dessineResultats(){
     html += carteResultat(e);
   });
   $("#r-liste").innerHTML = html || `<div class="empty">Aucun pari réglé sur cette période.</div>`;
+  setTimeout(() => { try { animeResultats(); } catch (_){} }, 30);
   const deb = L.length ? rPage * R_PAR_PAGE + 1 : 0, fin = Math.min(L.length, (rPage + 1) * R_PAR_PAGE);
   $("#r-pag").innerHTML = `<button type="button" data-d="-1" ${rPage === 0 ? "disabled" : ""}>← Plus récents</button><span>${deb}–${fin} sur ${L.length} · page ${rPage + 1} / ${pages}</span><button type="button" data-d="1" ${rPage >= pages - 1 ? "disabled" : ""}>Plus anciens →</button>`
     + `<label class="rpp">Afficher <select id="r-rpp" aria-label="Nombre de paris par page">${[10, 20, 50, 100].map(n => `<option value="${n}"${n === R_PAR_PAGE ? " selected" : ""}>${n}</option>`).join("")}</select> paris</label>`;
