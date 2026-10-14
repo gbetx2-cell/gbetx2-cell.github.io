@@ -232,8 +232,8 @@ details p+p{margin-top:8px}
   #serie .f{display:inline-block;animation:aFlamme .8s ease-in-out infinite alternate}
   @keyframes aFlamme{from{transform:scale(1) rotate(-6deg)}to{transform:scale(1.25) rotate(6deg)}}
 }
-#serie{position:fixed;left:14px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--raise);border:1px solid var(--line);
-  border-radius:999px;padding:8px 14px;font:700 14px var(--body);color:var(--text);box-shadow:0 8px 24px #0006}
+#serie{display:inline-flex;align-items:center;gap:6px;margin-left:8px;background:var(--raise);border:1px solid var(--line);
+  border-radius:999px;padding:2px 10px;font:700 13px var(--body);color:var(--text)}
 #serie b{color:var(--gold)}
 #son{background:none;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:13px;color:var(--muted);cursor:pointer;margin-left:8px}
 .promise{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
@@ -1779,8 +1779,10 @@ function majSerie(){
   let n = 0; for (const e of tri){ if (e.r === "G") n++; else break; }
   let el = document.getElementById("serie");
   if (n < 3){ if (el) el.hidden = true; return; }
-  if (!el){ el = document.createElement("div"); el.id = "serie"; el.setAttribute("role", "status"); document.body.appendChild(el); }
-  el.hidden = false; el.innerHTML = `<span class="f">🔥</span> Série en cours : <b>${n} paris gagnés</b> d'affilée`;
+  const hote = document.getElementById("jour-maj");
+  if (!el || !el.isConnected){ el = document.createElement("span"); el.id = "serie"; el.setAttribute("role", "status"); }
+  if (hote && el.parentNode !== hote) hote.appendChild(el);      /* dans l'en-tete, jamais par-dessus les cartes */
+  el.hidden = false; el.innerHTML = `<span class="f">🔥</span> Série : <b>${n} gagnés</b> d'affilée`;
 }
 /* chiffres qui defilent jusqu'a leur valeur */
 function defile(el){
@@ -1821,6 +1823,7 @@ async function charger(){
     dernierChargement = Date.now();
     $("#jour-maj").innerHTML = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"})
       + `<button type="button" id="son" aria-pressed="${SON}" title="Petit son quand un pari est réglé">${SON ? "🔊 Son" : "🔇 Son"}</button>`;
+    try { majSerie(); } catch (_){}
     dessineJour();
     await chargerResultats();
     try { if (!RES && !RES_SERIE) RES_SERIE = await api("/api/results"); majSerie(); } catch (_){}
