@@ -232,7 +232,7 @@ def fetch_period_stats() -> dict:
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
-          AND NOT (market_type IN ('total_points', 'player_pick_only'))
+          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba')))
         ORDER BY result_updated_at DESC
         """,
         # LIMIT 1000 retire le 01/10/2026 (audit du site, demande explicite) : 958
@@ -399,7 +399,7 @@ def fetch_registre() -> list[dict]:
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
         WHERE p.resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND p.result_updated_at IS NOT NULL AND p.result_updated_at <> ''
-          AND NOT (p.market_type IN ('total_points', 'player_pick_only'))
+          AND NOT (p.market_type = 'player_pick_only' OR (p.market_type = 'total_points' AND p.sport IN ('baseball', 'mlb', 'wnba')))
         """
     )
     out: list[dict] = []
@@ -633,7 +633,7 @@ def fetch_league_table() -> list[dict]:
         FROM paris x LEFT JOIN programme_fixtures pf ON pf.fixture_id = x.fixture_id
         WHERE x.resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND x.result_updated_at IS NOT NULL AND x.result_updated_at <> ''
-          AND NOT (x.market_type IN ('total_points', 'player_pick_only'))
+          AND NOT (x.market_type = 'player_pick_only' OR (x.market_type = 'total_points' AND x.sport IN ('baseball', 'mlb', 'wnba')))
         """)
     lignes = [(sp, c, t, r, float(v)) for sp, c, t, r, v in cur.fetchall()]
     cur.execute(f"""
@@ -821,7 +821,7 @@ def fetch_period_series() -> dict:
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
-          AND NOT (market_type IN ('total_points', 'player_pick_only'))
+          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba')))
         ORDER BY result_updated_at DESC
         """,
         # LIMIT 5000 retire le 01/10/2026 : meme piege que fetch_period_stats (courbe cumulee)
@@ -1053,7 +1053,7 @@ def fetch_period_series_offset(period: str, offset: int) -> dict:
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
-          AND NOT (market_type IN ('total_points', 'player_pick_only'))
+          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba')))
           AND result_updated_at >= %s AND result_updated_at < %s
         """,
         (start_iso, end_iso),
@@ -1349,7 +1349,7 @@ def fetch_results(n_matches: int = N_MATCHES, details: bool = False) -> list[dic
         # dans "Derniers picks" (une fois "Conseil", une fois "Value bet",
         # memes match/cote/resultat) -- le bloc value ci-dessous suffit deja.
         if (conseil and resultat in ("GAGNE", "GAGNÉ", "PERDU", "REMBOURSE")
-                and market_type not in ("total_points", "player_pick_only")
+                and market_type != "player_pick_only" and not (market_type == "total_points" and sport_l in ("baseball", "mlb", "wnba"))
                 and not (sport_l in SPORTS_VALUE_BET_IS_CONSEIL and value_bet)):
             # paris.mise/paris.pnl sont stockes en EUROS en base (mise =
             # advice_stake.stake_eur, cf football/predictions.py).
@@ -1576,6 +1576,8 @@ def fetch_perf_stats() -> dict:
     cur = conn.cursor()
 
     # ── Global + par sport + marche x bande (tous les conseils regles) ──
+    # 14/10/2026 : l'exclusion 'total_points' ne vise QUE les anciens lots MLB/WNBA -- les totaux NPB/KBO/NBL/
+    # Euroleague/handball (meme market_type) disparaissaient sinon de tous les resultats.
     # Exclut les lignes baseball "3 picks bundles" (market_type='total_points',
     # conseil = texte du meilleur edge parmi jusqu'a 3 player picks) -- remplacees
     # plus bas par TOUTES les lignes sport_player_picks correspondantes, pour ne
@@ -1596,7 +1598,7 @@ def fetch_perf_stats() -> dict:
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
-          AND NOT (market_type IN ('total_points', 'player_pick_only'))
+          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba')))
         """,
     )
     rows = cur.fetchall()
@@ -1896,7 +1898,7 @@ def fetch_bankroll() -> dict:
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
-          AND NOT (market_type IN ('total_points', 'player_pick_only'))
+          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba')))
         """,
     )
     rows = cur.fetchall()
