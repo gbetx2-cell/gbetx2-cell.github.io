@@ -391,9 +391,13 @@ def _strip_market_labels(text: str) -> str:
     return prefix + " + ".join(cleaned_legs)
 
 
-def _short_pick(conseil: str) -> str:
+def _short_pick(conseil: str, sport: str = "") -> str:
     cleaned = re.sub(r"^Double chance\s+", "", (conseil or "").strip(), flags=re.IGNORECASE)
-    return _strip_market_labels(cleaned)
+    try:   # 15/10/2026 : meme texte court que Telegram et Resultats (tg_bot/format_v2.py)
+        from tg_bot.format_v2 import strip_market_labels
+        return strip_market_labels(cleaned, sport)
+    except ImportError:
+        return _strip_market_labels(cleaned)
 
 
 def _cat(selection: str) -> str:
@@ -679,7 +683,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                 if result_updated_at:
                     item["result_updated_at"] = str(result_updated_at)
                 if conseil and sport not in SPORTS_CONSEIL_IS_MIRROR:
-                    item["conseil"] = _short_pick(conseil)
+                    item["conseil"] = _short_pick(conseil, sport)
                     item["conseil_cote"] = round(float(cote or 0), 2)
                     # Mise (22/08/2026, demande explicite "rajoute les mises
                     # dans les publications") : paris.mise est deja en EUROS
@@ -694,7 +698,7 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                 if sport == "football" and lineup_source:
                     item["lineup_source"] = str(lineup_source)
                 if value_bet:
-                    item["value_bet"] = _short_pick(value_bet)
+                    item["value_bet"] = _short_pick(value_bet, sport)
                     item["value_cote"] = round(float(value_cote or 0), 2)
                     if float(value_mise or 0) > 0:
                         item["value_mise_eur"] = round(float(value_mise), 0)

@@ -144,7 +144,7 @@ def _flag(competition: str, sport: str = "") -> str:
     return "⚽"
 
 
-def _short_pick(conseil: str) -> str:
+def _short_pick(conseil: str, sport: str = "") -> str:
     s = (conseil or "").strip()
     s = re.sub(r"^Double chance\s+", "", s, flags=re.IGNORECASE)
     # Retire les labels de marche (06/08/2026, demande explicite : "ca
@@ -152,7 +152,7 @@ def _short_pick(conseil: str) -> str:
     # fonction que les captions Telegram (tg_bot/format_v2.py), site et
     # bot toujours coherents. Ne touche jamais la donnee stockee en base.
     from tg_bot.format_v2 import strip_market_labels
-    s = strip_market_labels(s)
+    s = strip_market_labels(s, sport)
     return s
 
 
@@ -408,7 +408,7 @@ def fetch_registre() -> list[dict]:
         sp = (sport or "football").lower()
         texte = value_bet if (sp in SPORTS_VALUE_BET_IS_CONSEIL and value_bet) else (conseil or value_bet or "")
         out.append({
-            "fid": str(fid), "sport": sp, "lg": lg or "", "match": f"{home} – {away}", "pick": _short_pick(texte),
+            "fid": str(fid), "sport": sp, "lg": lg or "", "match": f"{home} – {away}", "pick": _short_pick(texte, sp),
             "cote": round(float(cote or 0), 2),
             "r": "G" if resultat in RESULTAT_GAGNE else {"PERDU": "P"}.get(resultat, "R"),
             "mise": round(float(mise or 0) / BASE_UNIT_EUR, 3), "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 3),
@@ -433,7 +433,7 @@ def fetch_registre() -> list[dict]:
         sp = (sport or "football").lower()
         out.append({
             "fid": str(fid), "sport": sp, "lg": lg or "", "match": f"{home or '?'} – {away or '?'}",
-            "pick": f"{joueur} — {marche}", "cote": round(float(odd or 0), 2),
+            "pick": _short_pick(f"{joueur} — {marche}", sp), "cote": round(float(odd or 0), 2),
             "r": "G" if status == "GAGNE" else "P",
             "mise": round(float(stake or 0) / BASE_UNIT_EUR, 3),
             "pnl": round(_pnl_fixed(status, float(odd or 0), float(stake or 0)) / BASE_UNIT_EUR, 3),
@@ -479,7 +479,7 @@ def fetch_registre() -> list[dict]:
     for fid, home, away, sel, odd, res, stake, pnl, ts, ko, score, lg in cur.fetchall():
         out.append({
             "fid": str(fid), "sport": "baseball", "lg": lg or "", "match": f"{home or '?'} – {away or '?'}",
-            "pick": sel, "cote": round(float(odd or 0), 2), "r": {"GAGNE": "G", "PERDU": "P"}.get(res, "R"),
+            "pick": _short_pick(sel, "baseball"), "cote": round(float(odd or 0), 2), "r": {"GAGNE": "G", "PERDU": "P"}.get(res, "R"),
             "mise": round(float(stake or 0) / BASE_UNIT_EUR, 3), "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 3),
             "ts": ts or "", "ko": ko or "", "sc": score or "", "pub": "", "hl": "", "al": "",
         })
