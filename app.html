@@ -2004,7 +2004,6 @@ function dessineResultats(){
   const parSport = new Map();
   REG.filter(dans).forEach(e => { const k = nomSport(e.sport); if (!parSport.has(k)) parSport.set(k, []); parSport.get(k).push(e); });
   /* sports proposes sans pari simule (pas d'historique de cotes) : affiches a zero, se remplissent avec les vrais paris */
-  ["golf", "f1"].forEach(s => { const k = nomSport(s); if (!parSport.has(k)) parSport.set(k, []); });
   $("#r-sport").innerHTML = [...parSport.entries()].map(([k, l]) => ({k, ...stats(l), ns: l.filter(e => e.sim).length})).sort((a, b) => (!a.n - !b.n) || b.b - a.b).map(o =>
     `<button type="button" class="sprow${rSport === o.k ? " on" : ""}" data-s="${esc(o.k)}"><span>${esc(o.k)}<small>${o.n} paris${o.ns ? ` · dont ${o.ns} simulés` : ""}</small></span>
       <span class="barre"><i style="width:${Math.round(o.w * 100)}%"></i></span><span class="n2 w2">${Math.round(o.w * 100)} %</span>
