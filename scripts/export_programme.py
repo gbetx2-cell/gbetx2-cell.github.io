@@ -348,7 +348,12 @@ def _tennis_player_photo_path(player_name: str) -> str | None:
     for ext in _TENNIS_PHOTO_EXTS:
         if os.path.exists(os.path.join(_TENNIS_PHOTO_DIR, f"{key}{ext}")):
             return f"assets/players/{key}{ext}"
-    return None
+    try:   # 17/10/2026 : autre orthographe du meme joueur (Aleksandr / Alexander Shevchenko)
+        from jobs.tennis_player_photos import photo_souple
+        s = photo_souple(key)
+        return f"assets/players/{os.path.basename(s)}" if s else None
+    except Exception:
+        return None
 
 
 # Duplique depuis tg_bot/format_v2.py::strip_market_labels (07/08/2026,
