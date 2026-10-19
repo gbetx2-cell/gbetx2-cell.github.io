@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>G-BET Suivi direct</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* 20/10/2026 (demande explicite) : tous les matchs suivis par le direct Flashscore, tous sports, et la charge du bot */
+:root{
+  --ink:#100f0c; --surface:#1a1813; --raise:#24211a; --line:#2f2b22;
+  --text:#f3efe6; --muted:#a39c8c; --gold:#e3b341; --win:#43b97f; --loss:#e2665d;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--ink);margin:0}
+body{color:var(--text);font:15px/1.5 var(--body);padding:20px 16px 60px}
+.wrap{max-width:1000px;margin-inline:auto}
+a{color:var(--gold)}
+h1{font:800 clamp(26px,5vw,38px)/1.05 var(--display);letter-spacing:-.03em;margin:0 0 4px}
+.sous{color:var(--muted);margin:0 0 18px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:14px}
+.kpi{background:var(--surface);padding:12px 14px}
+.kpi span{display:block;color:var(--muted);font-size:12px}
+.kpi strong{font:700 22px/1.2 var(--mono);font-variant-numeric:tabular-nums}
+.ok{color:var(--win)} .ko{color:var(--loss)}
+.carte{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px}
+.carte h2{font:600 16px var(--display);margin:0 0 10px}
+.barres{display:flex;align-items:flex-end;gap:2px;height:70px}
+.barres i{flex:1;background:var(--gold);border-radius:2px 2px 0 0;min-height:2px;opacity:.85}
+.barres i.err{background:var(--loss)}
+.leg{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{color:var(--muted);font-weight:600;text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);font-size:12px}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;border-radius:999px;padding:1px 9px;font-size:12px;font-weight:600;background:var(--raise)}
+.tag.live{background:#3a1715;color:#ff8a80}
+.tag.fin{color:var(--muted)}
+.tag.nf{background:#3a2a10;color:var(--gold)}
+.fs{color:var(--muted);font-size:12px}
+.vide{color:var(--muted);text-align:center;padding:22px}
+.bump{animation:bump .8s}
+@keyframes bump{30%{color:var(--gold);transform:scale(1.08)}}
+.scroll{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Suivi direct</h1>
+  <p class="sous">Tous les matchs de nos paris en cours suivis par le direct Flashscore (un passage toutes les 30 s, tous sports
+    ensemble), et la charge du bot. Mis à jour automatiquement · <a href="./">retour au site</a></p>
+  <div class="kpis" id="kpis"></div>
+  <div class="carte">
+    <h2>Durée des derniers passages</h2>
+    <div class="barres" id="barres"></div>
+    <div class="leg"><span id="leg-g"></span><span id="leg-d">maintenant</span></div>
+  </div>
+  <div class="carte">
+    <h2>Matchs suivis en ce moment</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>Sport</th><th>Match</th><th>Début</th><th>Score</th><th>État</th><th>Mis à jour</th></tr></thead>
+      <tbody id="lignes"><tr><td colspan="6" class="vide">Chargement…</td></tr></tbody>
+    </table></div>
+  </div>
+</div>
+<script>
+const API = "https://api-89-168-57-74.nip.io/api/suivi";
+const SP = {tennis: "🎾 Tennis", hockey: "🏒 Hockey", nbl: "🏀 NBL", euroleague: "🏀 Euroleague", grebl: "🏀 Grèce",
+  kbl: "🏀 KBL", nbam: "🏀 NBA", hfra: "🤾 France", hpol: "🤾 Pologne", hrom: "🤾 Roumanie", hromf: "🤾 Roumanie F",
+  hden: "🤾 Danemark", hesp: "🤾 Espagne", npb: "⚾ NPB", kbo: "⚾ KBO"};
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const ilya = s => s == null ? "—" : s < 60 ? `il y a ${s} s` : `il y a ${Math.round(s / 60)} min`;
+const vus = new Map();
+async function charger(){
+  let d;
+  try { d = await (await fetch(API, {cache: "no-store"})).json(); }
+  catch (_){ document.getElementById("kpis").innerHTML = `<div class="kpi"><span>API</span><strong class="ko">injoignable</strong></div>`; return; }
+  const P = d.passages || [], der = P[P.length - 1];
+  const ecart = der ? Math.round((Date.now() - new Date(der.t)) / 1000) : null;
+  const k = [
+    ["Matchs suivis", (d.matchs || []).length, ""],
+    ["Dernier passage", ecart == null ? "—" : `${ecart} s`, ecart != null && ecart > 90 ? "ko" : "ok"],
+    ["Durée moyenne", d.duree_moyenne_ms == null ? "—" : `${(d.duree_moyenne_ms / 1000).toFixed(1)} s`, ""],
+    ["Requêtes / passage", der ? der.requetes : "—", ""],
+    ["Erreurs (depuis le démarrage)", `${d.total_erreurs} / ${d.total_requetes}`, d.total_erreurs ? "ko" : "ok"],
+  ];
+  document.getElementById("kpis").innerHTML = k.map(([l, v, c]) => `<div class="kpi"><span>${l}</span><strong class="${c}">${esc(v)}</strong></div>`).join("")
+    + (d.derniere_erreur ? `<div class="kpi" style="grid-column:1/-1"><span>Dernière erreur</span>${esc(d.derniere_erreur)}</div>` : "");
+  const max = Math.max(1000, ...P.map(p => p.duree_ms));
+  document.getElementById("barres").innerHTML = P.map(p =>
+    `<i class="${p.erreurs ? "err" : ""}" style="height:${Math.max(3, 100 * p.duree_ms / max)}%" title="${esc(p.t)} · ${p.duree_ms} ms · ${p.requetes} requêtes · ${p.suivis} matchs · ${p.maj} mis à jour${p.erreurs ? " · " + p.erreurs + " erreur(s)" : ""}"></i>`).join("");
+  document.getElementById("leg-g").textContent = P.length ? `${P.length} passages · max ${(max / 1000).toFixed(1)} s` : "aucun passage encore";
+  const L = d.matchs || [];
+  document.getElementById("lignes").innerHTML = L.length ? L.map(m => {
+    const etat = !m.trouve ? `<span class="tag nf">pas encore sur Flashscore</span>`
+      : /Terminé/.test(m.statut || "") ? `<span class="tag fin">Terminé</span>`
+      : /En cours/.test(m.statut || "") ? `<span class="tag live">${esc(m.statut)}</span>` : `<span class="tag">${esc(m.statut || "À venir")}</span>`;
+    const debut = m.ko ? new Date(m.ko * 1000).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
+    const bouge = vus.has(m.fid) && vus.get(m.fid) !== m.score; vus.set(m.fid, m.score);
+    return `<tr><td>${esc(SP[m.sport] || m.sport)}</td><td>${esc(m.home)} – ${esc(m.away)}${m.fs_nom ? `<div class="fs">Flashscore : ${esc(m.fs_nom)}</div>` : ""}</td>
+      <td class="n">${debut}</td><td class="n${bouge ? " bump" : ""}">${esc(m.score || "—")}</td><td>${etat}</td>
+      <td class="n">${ilya(m.ecrit_il_y_a_s)}</td></tr>`;
+  }).join("") : `<tr><td colspan="6" class="vide">Aucun match suivi en ce moment : aucun de nos paris n'est en cours ou ne commence dans les 15 minutes.</td></tr>`;
+}
+charger(); setInterval(charger, 10000);
+</script>
+</body>
+</html>
