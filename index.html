@@ -661,6 +661,11 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
     <details><summary>Bénéfice, ROI, taux de réussite : lequel regarder ?</summary>
       <p>Le <b>bénéfice</b> est ce que le suivi a rapporté. Le <b>ROI</b> (retour) le rapporte au total misé : +6 u pour 100 u misées = +6 %. Le <b>taux de réussite</b> seul ne dit pas si c'est rentable : gagner 70 % de ses paris à la cote 1,30 fait perdre de l'argent (il faut 77 % pour rentrer dans ses frais).</p>
       <p>Sur la durée, un ROI durablement entre 3 % et 8 % est déjà très bon. Méfiez-vous des annonces à 30 % ou 50 % : elles ne tiennent jamais sur un gros volume.</p></details>
+    <details><summary>Pourquoi deux chiffres de retour ?</summary>
+      <p>Parce qu'ils ne portent pas sur les mêmes paris, et qu'en montrer un seul reviendrait à choisir celui qui arrange.</p>
+      <p><b>Tous les paris</b> compte chaque pari publié, y compris ceux dont la cote n'a jamais pu être relevée chez un bookmaker au moment de la publication. Le gain de ceux-là est calculé sur une cote estimée : le chiffre est complet, mais moins fiable.</p>
+      <p><b>Paris à cote bookmaker</b> ne garde que les paris dont la cote a réellement été relevée. Moins de paris, mais chaque euro est vérifiable — c'est le chiffre sur lequel le bot est piloté en interne.</p>
+      <p>L'écart entre les deux ne se lit pas comme une bonne nouvelle : il indique surtout que les paris sans cote relevée tirent le bilan vers le bas. Le deuxième chiffre est le plus juste, le premier le plus prudent.</p></details>
     <details><summary>C'est quoi les paris « simulation » ?</summary>
       <p>Avant le lancement du bot, chaque règle publiée aujourd'hui a été rejouée match par match sur les saisons passées (depuis 2022-23), avec les vraies cotes de l'époque. Ces paris portent un autocollant <b>simulation</b>, sont signalés dans les totaux (« dont X simulés ») et grisés sur le graphique : ils ne sont jamais présentés comme des paris publiés.</p>
       <p>Attention : une partie de ces saisons a servi à choisir les règles, ces chiffres sont donc plus flatteurs que ce qu'on peut attendre en réel. Seuls les vrais paris font foi.</p></details>

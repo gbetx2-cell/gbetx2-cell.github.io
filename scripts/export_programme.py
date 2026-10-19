@@ -350,7 +350,7 @@ def _tennis_player_photo_path(player_name: str) -> str | None:
             return f"assets/players/{key}{ext}"
     try:   # 17/10/2026 : autre orthographe du meme joueur (Aleksandr / Alexander Shevchenko)
         from jobs.tennis_player_photos import photo_souple
-        s = photo_souple(key)
+        s = photo_souple(key, _TENNIS_PHOTO_DIR)
         return f"assets/players/{os.path.basename(s)}" if s else None
     except Exception:
         return None
