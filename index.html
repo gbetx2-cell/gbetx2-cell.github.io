@@ -1761,7 +1761,25 @@ document.querySelector("nav").addEventListener("click", e => {
   ["jour", "res", "mise", "aide"].forEach(k => document.getElementById("p-" + k).hidden = k !== b.dataset.page);
   scrollTo({top: 0});
   chargerResultats();
+  suivre("vue");
 });
+
+/* 20/10/2026 (tableau de bord admin) : une vue a chaque onglet ouvert + un battement de coeur toutes les 30 s
+   tant que la page est visible (visiteurs presents en direct). Identifiant anonyme tire au hasard et garde dans
+   le navigateur : aucune adresse IP, aucun traceur tiers. */
+function suivre(type){
+  try {
+    let id = localStorage.getItem("gbet_vid");
+    if (!id){ id = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)); localStorage.setItem("gbet_vid", id); }
+    const w = innerWidth, appareil = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? (w > 700 ? "tablette" : "mobile") : "ordinateur";
+    fetch(API + "/api/track", {method: "POST", credentials: "include", keepalive: true, headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({type, page: {jour: "Paris du jour", res: "Résultats", mise: "Ma mise", aide: "Aide"}[pageOuverte()] || "Accueil",
+                            visitor_id: id, appareil})}).catch(() => {});
+  } catch (_){}
+}
+setTimeout(() => suivre("vue"), 0);     /* apres la fin du script : pageOuverte est declaree plus bas */
+setInterval(() => { if (!document.hidden) suivre("ping"); }, 30000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) suivre("ping"); });
 
 /* 10/10/2026 (capacite du site) : a l'ouverture, seulement les paris du jour et les scores. Les
    resultats (100 Ko) et le registre complet (100 Ko) ne sont charges que si l'onglet Resultats ou
