@@ -330,6 +330,9 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
 .ban .det table{border-collapse:collapse;font:700 15px var(--mono);width:auto}
 .ban .det td{padding:1px 6px;border:0;text-align:center;font-size:15px}
 .ban .det td.n{font:600 13px 'Barlow Condensed',var(--body);text-align:left;letter-spacing:1px}
+.ban .det.per td.h{font:600 11px 'Barlow Condensed',var(--body);color:var(--muted);letter-spacing:1px}
+.ban .det.per td.cur{color:var(--gold)}
+.ban .det.per td.cur.bump{animation:bump .7s}
 .ban .det.buts{display:grid;grid-template-columns:auto auto;gap:18px;text-align:left}
 .ban .det.buts div{white-space:nowrap}.ban .det.buts div:last-child{text-align:right}
 .ban .nom{position:absolute;bottom:16px;font:24px Anton,var(--display);background:#07080bcc;padding:3px 12px;letter-spacing:1px;max-width:40%;
@@ -803,7 +806,7 @@ const nomFam = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean
   return (j && m.length > 1 ? m[m.length - 1] : m.reduce((x, y) => y.length > x.length ? y : x)).toUpperCase(); };
 const nomCourt = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean);
   return j && m.length > 1 && !/\d/.test(n) ? `${m[0][0]}. ${m.slice(1).join(" ")}` : String(n || ""); };
-const PHASES = new Map(), SCORES_VUS = new Map(), ETAT_VU = new Map(), CARTES_VUES = new Set();
+const PHASES = new Map(), SCORES_VUS = new Map(), ETAT_VU = new Map(), CARTES_VUES = new Set(), PERIODES_VUES = new Map();
 /* Apres chaque affichage : les cartes qui viennent de passer "a venir" -> "en direct"/"termine"
    jouent l'animation une seule fois (jamais a chaque rafraichissement). */
 function animer(){
@@ -1190,7 +1193,10 @@ function carte(p, euros, valeurU){
      3 2 / 6 6 : on lit le match comme un tableau, au lieu d'une chaine collee
      a cote de l'etat. La source est soit le score du pari regle, soit le score
      en direct ESPN (events_json, cf jobs/tennis_live.py). */
-  const brutSets = sc ? String(sc.events_json || "") : sp;
+  /* 20/10/2026 : "P:8-21,17-16" = score par periode (Flashscore, jobs/flashscore_direct.py) -- pas des sets */
+  const periodes = sc && /^P:/.test(String(sc.events_json || ""))
+    ? String(sc.events_json).slice(2).split(",").map(x => x.match(/^(\d+)-(\d+)$/)).filter(Boolean) : [];
+  const brutSets = sc ? (periodes.length ? "" : String(sc.events_json || "")) : sp;
   const sets = !spn && /\d+\s*[-–]\s*\d+/.test(brutSets)
     ? brutSets.split(",").map(x => x.trim().match(/^(\d+)\s*[-–]\s*(\d+)$/)).filter(Boolean)
     : [];
@@ -1265,7 +1271,20 @@ function carte(p, euros, valeurU){
   };
   const nomCote = (s) => s === "h" ? home : away;
   let det = "";
-  if (sets.length) det = `<div class="det"><table>${["h", "a"].map((s, i) => `<tr><td class="n">${esc(nomFam(nomCote(s), true))}</td>${sets.map(m => `<td>${m[i + 1]}</td>`).join("")}</tr>`).join("")}</table></div>`;
+  if (periodes.length){
+    /* 20/10/2026 : score de chaque periode, la periode en cours en or (et qui pulse quand elle bouge) */
+    const fam = /^h(fra|pol|rom|romf|den|esp)$/.test(p.sport) ? "hand" : /^(nbl|euroleague|grebl|kbl|nbam|nba|wnba)$/.test(p.sport) ? "basket"
+      : /^(npb|kbo|baseball|mlb)$/.test(p.sport) ? "base" : "hockey";
+    const nReg = {hand: 2, basket: 4, base: 9, hockey: 3}[fam];
+    const tete = i => fam === "base" ? String(i + 1) : i >= nReg ? "Pr" : ({hand: "MT", basket: "Q", hockey: "P"}[fam]) + (i + 1);
+    const enCours = live && !fini ? periodes.length - 1 : -1;
+    const vuP = PERIODES_VUES.get(p.fixture_id); const cleP = periodes.map(m => m[0]).join(",");
+    PERIODES_VUES.set(p.fixture_id, cleP);
+    const bouge = vuP !== undefined && vuP !== cleP;
+    det = `<div class="det per"><table><tr><td class="n"></td>${periodes.map((_, i) => `<td class="h${i === enCours ? " cur" : ""}">${tete(i)}</td>`).join("")}</tr>` +
+      ["h", "a"].map((s, k) => `<tr><td class="n">${esc(nomFam(nomCote(s), joueur))}</td>${periodes.map((m, i) =>
+        `<td class="${i === enCours ? "cur" + (bouge ? " bump" : "") : ""}">${m[k + 1]}</td>`).join("")}</tr>`).join("") + `</table></div>`;
+  } else if (sets.length) det =`<div class="det"><table>${["h", "a"].map((s, i) => `<tr><td class="n">${esc(nomFam(nomCote(s), true))}</td>${sets.map(m => `<td>${m[i + 1]}</td>`).join("")}</tr>`).join("")}</table></div>`;
   else if (sc && sc.events_json && /"Goal"/.test(sc.events_json)){
     let ev = []; try { ev = JSON.parse(sc.events_json); } catch (_){}
     const buts = ev.filter(e => e.type === "Goal" && e.player);
