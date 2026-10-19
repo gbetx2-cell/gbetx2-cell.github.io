@@ -191,10 +191,14 @@ $("#p").addEventListener("keydown", e => { if (e.key === "Enter") login(); });
 $("#sortir").onclick = async () => { try { await fetch(API + "/api/logout", {method: "POST", credentials: "include"}); } catch (_){} location.reload(); };
 $("#pause").onclick = () => { pause = !pause; $("#pause").textContent = pause ? "Reprendre" : "Pause"; };
 
+// 20/10/2026 : lien perso admin.html#cle=... -> plus besoin de se connecter (cle gardee sur cet appareil)
+const CLE = (() => { const m = location.hash.match(/cle=([\w-]+)/); let c = m ? m[1] : "";
+  try { if (c) localStorage.setItem("gbet_admin_cle", c); else c = localStorage.getItem("gbet_admin_cle") || ""; } catch (_){}
+  return c; })();
 async function charger(){
   let d;
   try {
-    const r = await fetch(API + "/api/admin", {credentials: "include", cache: "no-store", signal: AbortSignal.timeout(15000)});
+    const r = await fetch(API + "/api/admin", {credentials: "include", cache: "no-store", headers: CLE ? {"X-Admin-Key": CLE} : {}, signal: AbortSignal.timeout(15000)});
     if (r.status === 403){ $("#app").hidden = true; $("#gate").hidden = false; return; }
     d = await r.json();
   } catch (_){ $("#etat").classList.add("off"); $("#maj").textContent = "API injoignable"; return; }
