@@ -16,6 +16,7 @@ push touchant ce fichier (cf .github/workflows/sync-site-public.yml,
 publics update-results.yml/update-programme.yml sont eux-memes redeclenches
 automatiquement juste apres, sequentiellement (fix collision 26/07/2026).
 """
+from utils.silencieux import note as _silencieux
 import os
 import re
 import sys
@@ -359,8 +360,8 @@ def _visuel(sport: str, team_id: str, nom: str) -> str:
             for ext in (".png", ".jpg", ".webp", ".jpeg"):
                 if k and os.path.exists(os.path.join(base, k + ext)):
                     return f"assets/players/{k}{ext}"
-        except Exception:
-            pass
+        except Exception as _e_sil:
+            _silencieux("scripts/export_site_results.py:362", _e_sil)
     url = _logo_equipe(sp, team_id, nom)
     if not url and sp in ("tennis", "golf", "f1", "mma"):
         try:
@@ -725,8 +726,8 @@ def _alert_new_tennis_tournaments(tournament_names) -> None:
     try:
         from database import claim_daily_flag
         new_ones = [t for t in new_ones if claim_daily_flag(f"tennis_globe_{t}")]
-    except Exception:
-        pass
+    except Exception as _e_sil:
+        _silencieux("scripts/export_site_results.py:728", _e_sil)
     if not new_ones:
         return
     try:

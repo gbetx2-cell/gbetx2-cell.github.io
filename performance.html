@@ -1,1 +1,1553 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/"><link rel="canonical" href="/"><title>G-BET</title></head><body><script>location.replace("/")</script><a href="/">G-BET</a></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1898b001-076e-4422-a322-25b16662f25b"></script>
+<title>Performance — G-BET Bot</title>
+<meta name="description" content="Réussite et bilan par marché et par tranche de cote, depuis le premier pari réglé — les zones perdantes bloquées restent affichées.">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706;
+  --bg-2:#0c0b09;
+  --card:#12110e;
+  --card-2:#1a1813;
+  --border:rgba(240,185,11,.14);
+  --border-strong:rgba(240,185,11,.32);
+  --text:#f2ede1;
+  --muted:#9c9481;
+  --gold:#f0b90b;
+  --gold-2:#f7ca3e;
+  --gold-dark:#b8860b;
+  --green:#22c55e;
+  --red:#ef4444;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.gold{color:var(--gold-2)}
+
+/* ── Header (avec le jeton qui tourne, en haut à gauche) ── */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(7,7,6,.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.5px}
+.logo .g{color:var(--gold-2)}
+.coin-sm-wrap{perspective:400px}
+.coin-sm{
+  width:42px;height:42px;position:relative;
+  transform-style:preserve-3d;
+  animation:coinspin 5s linear infinite;
+  /* Force sa propre couche de composition : evite le gel de l'animation 3D
+     observe sur Safari/WebKit mobile quand l'ancetre est en position:sticky
+     (le header l'est) -- bug WebKit connu, pas un souci de nos donnees. */
+  will-change:transform;
+  transform:translateZ(0);
+  -webkit-transform:translateZ(0);
+}
+.coin-sm .face{
+  position:absolute;inset:0;border-radius:50%;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;
+  border:2px solid var(--gold);
+  box-shadow:0 0 12px rgba(240,185,11,.4);
+}
+.coin-sm .face img{width:100%;height:100%;object-fit:cover;display:block}
+.coin-sm .face.back{transform:rotateY(180deg)}
+@keyframes coinspin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+.nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
+.nav-links a{position:relative;padding-bottom:4px;transition:color .15s}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-links a.active{color:var(--gold-2);font-weight:600}
+.nav-links a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold-2));border-radius:2px;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:12px;
+  font-weight:700;font-size:.95rem;
+  transition:transform .15s ease, box-shadow .15s ease;
+  cursor:pointer;border:none;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  color:#141005;
+  box-shadow:0 4px 24px rgba(240,185,11,.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 34px rgba(240,185,11,.5)}
+.btn-ghost{border:1px solid var(--border-strong);color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn-sm{padding:9px 16px;font-size:.88rem}
+
+/* ── Hero ───────────────────────────────── */
+.hero{
+  position:relative;
+  padding:84px 0 64px;
+  background:
+    radial-gradient(ellipse 58% 48% at 72% 8%, rgba(240,185,11,.10), transparent),
+    radial-gradient(ellipse 40% 34% at 12% 18%, rgba(240,185,11,.05), transparent);
+}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:52px;align-items:center;max-width:640px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px;border-radius:99px;
+  background:rgba(240,185,11,.09);
+  border:1px solid var(--border-strong);
+  color:var(--gold-2);font-size:.82rem;font-weight:600;
+  margin-bottom:22px;
+}
+.badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.05rem,4.5vw,3.3rem);font-weight:800;margin-bottom:20px}
+.hero h1 .hl{
+  background:linear-gradient(120deg,var(--gold-dark),var(--gold-2),var(--gold-dark));
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shine 5s linear infinite;
+}
+@keyframes shine{to{background-position:200% center}}
+.hero p.lead{color:var(--muted);font-size:1.1rem;max-width:520px;margin-bottom:30px}
+.hero p.lead strong{color:var(--text)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.check{color:var(--gold-2)}
+
+/* ── Avis clients (07/08/2026, demande explicite : "au tout debut du
+   site", puis "beaucoup d'avis" + "un avis par un avis change avec une
+   animation") -- temoignages fictifs, generes pour illustrer le format
+   tant qu'aucun vrai retour client n'est collecte. Carrousel : un seul
+   avis affiche a la fois, defile automatiquement (fondu + glissement),
+   jamais tous en meme temps. ── */
+.reviews{border-block:1px solid var(--border);background:var(--bg-2);padding:44px 0}
+.reviews-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.reviews-head h2{font-size:1.3rem;font-weight:800}
+.reviews-disclaimer{color:var(--muted);font-size:.78rem}
+.reviews-carousel{max-width:560px;margin:0 auto;position:relative;min-height:190px}
+.review-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;
+  position:absolute;inset:0;
+  opacity:0;transform:translateX(24px);
+  transition:opacity .5s ease,transform .5s ease;
+  pointer-events:none;
+}
+.review-card.active{opacity:1;transform:translateX(0);pointer-events:auto}
+.review-card.leaving{transform:translateX(-24px)}
+.review-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.review-avatar{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:var(--bg);font-weight:800;font-size:.85rem;
+}
+.review-name{font-weight:700;font-size:.92rem}
+.review-date{color:var(--muted);font-size:.74rem}
+.review-stars{color:var(--gold-2);font-size:.85rem;letter-spacing:2px;margin-bottom:10px}
+.review-text{color:var(--muted);font-size:.9rem;line-height:1.55}
+.reviews-dots{display:flex;justify-content:center;gap:7px;margin-top:18px}
+.reviews-dots .dot{width:7px;height:7px;border-radius:50%;background:var(--border-strong);border:none;padding:0;cursor:pointer;transition:background .3s ease,transform .3s ease}
+.reviews-dots .dot.active{background:var(--gold);transform:scale(1.3)}
+@media (prefers-reduced-motion: reduce){
+  .review-card{transition:opacity .01s linear;transform:none}
+}
+
+/* ── Ticker ligues ──────────────────────── */
+.ticker{
+  border-block:1px solid var(--border);
+  background:var(--bg-2);
+  overflow:hidden;white-space:nowrap;
+  padding:13px 0;
+}
+.ticker-inner{display:inline-block;animation:ticker 38s linear infinite}
+.ticker:hover .ticker-inner{animation-play-state:paused}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker span{
+  display:inline-flex;align-items:center;gap:8px;
+  margin:0 26px;color:var(--muted);font-size:.88rem;font-weight:500;
+}
+.ticker b{color:var(--gold-2);font-weight:700}
+
+/* ── Stats strip ────────────────────────── */
+.stats{border-bottom:1px solid var(--border);background:var(--bg-2)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:34px 20px;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat .n{font-family:'Sora';font-weight:800;font-size:2.15rem;color:var(--gold-2)}
+.stat .l{color:var(--muted);font-size:.85rem;margin-top:4px}
+
+/* ── Compteurs live ─────────────────────── */
+.live-strip{background:var(--bg);padding:56px 0 8px}
+.live-grid{display:grid;grid-template-columns:1fr;max-width:460px;margin:0 auto;gap:20px}
+.live-card{
+  background:linear-gradient(160deg,var(--card-2),var(--card));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:26px 30px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.live-card .lc-label{color:var(--muted);font-size:.86rem;margin-bottom:4px}
+.live-card .lc-title{font-family:'Sora';font-weight:700;font-size:1.06rem}
+.live-card .timer{
+  font-family:'Sora';font-weight:800;font-size:2rem;
+  color:var(--gold-2);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 22px rgba(240,185,11,.35);
+  white-space:nowrap;
+}
+
+/* ── Bilan jour / semaine / mois ────────── */
+.period-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.period-grid.has-5{grid-template-columns:repeat(5,1fr)}
+.perf-sub-title{font-size:1.05rem;color:var(--text);margin:0 0 12px}
+
+/* ── Globe des ligues (26/08/2026, demande explicite) : technique "dotted
+   globe" (points de cotes reels projetes en 3D orthographique sur canvas,
+   rotation par matrice) -- meme principe que Cobe/planetary.js/earthjs,
+   aucune librairie externe, valide sur un prototype avant integration ici. */
+.globe-panel{background:var(--card-bg,rgba(255,255,255,.03));border:1px solid rgba(156,148,129,.18);border-radius:16px;padding:28px;margin-bottom:32px}
+/* 04/09/2026 : padding reduit -- le globe est desormais imbrique dans
+   #main juste sous le titre (plus une section pleine largeur a part
+   comme avant), un espacement de section complet serait excessif ici. */
+#globe-section{padding:0 0 40px}
+.globe-stage{position:relative;height:460px;display:flex;align-items:center;justify-content:center}
+.globe-zoom{position:absolute;left:6px;bottom:6px;display:flex;flex-direction:column;gap:4px;z-index:3}
+.globe-zoom button{
+  width:32px;height:32px;border-radius:8px;border:1px solid rgba(156,148,129,.35);
+  background:rgba(20,16,5,.75);color:#f2ede0;font-family:'Sora';font-weight:700;font-size:1.1rem;
+  cursor:pointer;line-height:1;transition:background .15s,border-color .15s;
+}
+.globe-zoom button:hover{background:rgba(212,175,55,.25);border-color:var(--gold-2)}
+#globeCanvas{cursor:grab;touch-action:none}
+#globeCanvas:active{cursor:grabbing}
+.globe-popup{
+  position:absolute;z-index:5;background:#141005;border:1px solid var(--gold-2,#d4af37);border-radius:12px;
+  padding:16px 18px;box-shadow:0 12px 30px rgba(0,0,0,.4);font-family:'Inter';color:#f2ede0;
+  width:220px;opacity:0;pointer-events:none;transition:opacity .12s;
+}
+.globe-popup.open{opacity:1;pointer-events:auto}
+.globe-popup .gp-flag{font-size:1.5rem}
+.globe-popup .gp-name{font-family:'Sora';font-weight:700;font-size:1.15rem;line-height:1.15;margin-top:2px}
+.globe-popup .gp-sub{color:rgba(242,237,224,.6);font-size:.74rem;margin:2px 0 10px}
+.globe-popup .gp-league{padding:5px 0;border-top:1px solid rgba(255,255,255,.1);font-size:.82rem}
+.globe-popup .gp-league:first-of-type{border-top:none}
+.globe-popup .gp-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-top:1px solid rgba(255,255,255,.1);font-size:.82rem}
+.globe-popup .gp-row:first-of-type{border-top:none}
+.globe-popup .gp-row .k{color:rgba(242,237,224,.6)}
+.globe-popup .gp-row .v{font-family:'Sora';font-weight:700;font-variant-numeric:tabular-nums}
+.globe-popup .gp-row .v.up{color:var(--green)}
+.globe-popup .gp-row .v.down{color:var(--red)}
+.globe-popup .gp-leagues-detail{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.1)}
+.globe-popup-close{position:absolute;top:8px;right:10px;background:none;border:0;color:rgba(242,237,224,.6);font-size:1rem;cursor:pointer;padding:4px}
+.globe-popup-close:hover{color:#fff}
+.globe-tooltip{
+  position:absolute;z-index:4;pointer-events:none;background:#141005;border:1px solid rgba(156,148,129,.35);
+  border-radius:8px;padding:5px 10px;font:600 .78rem 'Inter';color:#f2ede0;white-space:nowrap;
+  opacity:0;transform:translate(-50%,-130%);transition:opacity .1s;
+}
+.globe-tooltip.show{opacity:1}
+.globe-tooltip b{color:var(--gold-2,#d4af37)}
+.period-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:22px 24px;
+}
+.period-label{color:var(--muted);font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.period-pnl{font-family:'Sora';font-weight:800;font-size:1.7rem;margin-bottom:6px}
+.period-pnl.up{color:var(--green)}
+.period-pnl.down{color:var(--red)}
+.period-pnl.flat{color:var(--muted)}
+.period-sub{color:var(--muted);font-size:.84rem}
+.split-bar{margin-top:14px;height:8px;border-radius:99px;overflow:hidden;display:flex;background:var(--border)}
+.split-bar span{height:100%}
+.split-bar .w{background:var(--green)}
+.split-bar .l{background:var(--red)}
+
+/* ── Tableau performance par marché ─────── */
+.perf-table-wrap{overflow-x:auto}
+.perf-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.perf-table th{
+  text-align:left;color:var(--muted);font-weight:600;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.05em;
+  padding:10px 12px;border-bottom:1px solid var(--border-strong);
+}
+.perf-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
+.perf-table tr:last-child td{border-bottom:none}
+.perf-table .num{font-variant-numeric:tabular-nums;text-align:right}
+.perf-table th.num{text-align:right}
+.perf-table .up{color:var(--green);font-weight:600}
+.perf-table .down{color:var(--red);font-weight:600}
+.badge-blocked{
+  display:inline-block;margin-left:8px;padding:2px 8px;border-radius:6px;
+  font-size:.78rem;font-weight:700;letter-spacing:.04em;
+  color:var(--red);border:1px solid rgba(239,68,68,.4);background:rgba(239,68,68,.08);
+}
+
+/* ── Graphique bankroll ─────────────────── */
+.chart-sec{padding-top:56px}
+.chart-card{
+  background:linear-gradient(170deg,var(--card-2),var(--card));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:34px;
+}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:20px}
+.chart-head h3{font-size:1.2rem}
+.chart-toggle{display:inline-flex;border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;margin-top:8px}
+.chart-toggle button{
+  background:transparent;border:none;color:var(--muted);
+  padding:8px 18px;font-family:'Sora';font-weight:700;font-size:.85rem;
+  cursor:pointer;transition:all .15s;
+}
+.chart-toggle button.active{
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  color:#141005;
+}
+.chart-head .delta{font-family:'Sora';font-weight:800;font-size:1.5rem;text-align:right}
+.chart-head .delta.up{color:var(--green)}
+.chart-head .delta.down{color:var(--red)}
+.chart-head .delta small{display:block;font-family:'Inter';font-weight:500;font-size:.78rem;color:var(--muted)}
+#bkChart,#periodChart,#bankrollChart{width:100%;height:auto;display:block}
+
+/* Flash directionnel sur mouvement de courbe (06/08/2026, demande
+   explicite : "a chaque mouvement dans les graphique une animation quand
+   ca descend ou baisse") -- se declenche uniquement quand la valeur change
+   reellement entre deux rafraichissements, jamais au premier rendu. */
+@keyframes flashUpGlow{0%{filter:drop-shadow(0 0 0 rgba(34,197,94,0))}30%{filter:drop-shadow(0 0 10px rgba(34,197,94,.95))}100%{filter:drop-shadow(0 0 0 rgba(34,197,94,0))}}
+@keyframes flashDownGlow{0%{filter:drop-shadow(0 0 0 rgba(239,68,68,0))}30%{filter:drop-shadow(0 0 10px rgba(239,68,68,.95))}100%{filter:drop-shadow(0 0 0 rgba(239,68,68,0))}}
+@keyframes flashUpText{0%{transform:translateY(0)}25%{transform:translateY(-4px)}60%{transform:translateY(0)}}
+@keyframes flashDownText{0%{transform:translateY(0)}25%{transform:translateY(4px)}60%{transform:translateY(0)}}
+.flash-up{animation:flashUpGlow 1.2s ease}
+.flash-down{animation:flashDownGlow 1.2s ease}
+.chart-head .delta.flash-up{animation:flashUpText .5s ease}
+.chart-head .delta.flash-down{animation:flashDownText .5s ease}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;align-items:center}
+.chips .c-label{color:var(--muted);font-size:.82rem;margin-right:6px;width:100%}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 10px;border-radius:9px;
+  font-weight:800;font-size:.78rem;font-family:'Sora';
+  cursor:default;position:relative;
+  opacity:0;transform:scale(.4);
+}
+.chip.visible{animation:chipin .35s ease forwards}
+@keyframes chipin{to{opacity:1;transform:scale(1)}}
+.chip.g{background:rgba(34,197,94,.14);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.chip.p{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.35)}
+.chip.r{background:rgba(156,148,129,.12);color:var(--muted);border:1px solid rgba(156,148,129,.3)}
+.chip .flag{font-size:1rem}
+/* Tooltip du chip : le pronostic donné */
+.chip .tip{
+  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) scale(.92);
+  background:#1e1b12;border:1px solid var(--border-strong);
+  border-radius:10px;padding:10px 14px;
+  font-family:'Inter';font-weight:500;font-size:.8rem;color:var(--text);
+  white-space:nowrap;pointer-events:none;
+  opacity:0;transition:opacity .15s ease,transform .15s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  z-index:10;
+}
+.chip .tip b{color:var(--gold-2);font-weight:700}
+.chip .tip .res-g{color:var(--green);font-weight:700}
+.chip .tip .res-p{color:var(--red);font-weight:700}
+.chip .tip .res-r{color:var(--muted);font-weight:700}
+.chip .tip::after{
+  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:var(--border-strong);
+}
+.chip:hover .tip{opacity:1;transform:translateX(-50%) scale(1)}
+.chart-note{color:var(--muted);font-size:.8rem;margin-top:18px}
+.pub-link{
+  display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--gold-2);
+  border:1px solid var(--border-strong);padding:6px 12px;border-radius:8px;margin-top:14px;
+  text-decoration:none;
+}
+.pub-link:hover{background:rgba(240,185,11,.08)}
+.type-filter{flex-wrap:wrap}
+/* Pastilles rondes independantes (26/08/2026, comme le prototype -- pas
+   des onglets colles comme .chart-toggle) : chaque sport est un choix
+   independant, pas une position dans une sequence. */
+.sport-filter{flex-wrap:wrap;display:flex;gap:8px;border:none;border-radius:0;overflow:visible;margin-top:8px}
+.sport-filter button{
+  border:1px solid var(--border-strong);border-radius:99px;
+  background:transparent;color:var(--muted);
+  padding:8px 16px;font-family:'Sora';font-weight:700;font-size:.82rem;
+  cursor:pointer;transition:all .15s;
+}
+.sport-filter button.active{
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  border-color:transparent;color:#141005;
+}
+.sport-filter button:hover:not(.active){color:var(--text);border-color:var(--gold-2)}
+.highlight-link{display:block;margin-top:8px;font-size:.78rem;color:var(--gold-2);text-decoration:none}
+.highlight-link:hover{text-decoration:underline}
+
+/* ── Sections ───────────────────────────── */
+section{padding:84px 0}
+.sec-tag{color:var(--gold-2);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.sec-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;margin-bottom:16px}
+.sec-sub{color:var(--muted);max-width:640px;margin-bottom:48px}
+
+
+
+/* Transparence */
+.transp{background:var(--bg-2);border-block:1px solid var(--border)}
+.transp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;
+}
+.t-card .big{font-family:'Sora';font-weight:800;font-size:1.35rem;margin-bottom:8px}
+.t-card p{color:var(--muted);font-size:.9rem}
+.t-card .ok{color:var(--gold-2)}
+.t-card .ko{color:var(--red)}
+
+/* FAQ */
+.faq-item{
+  border:1px solid var(--border);border-radius:14px;
+  margin-bottom:12px;background:var(--card);
+  overflow:hidden;
+}
+.faq-item summary{
+  padding:20px 24px;cursor:pointer;font-weight:600;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;
+  font-size:.98rem;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';color:var(--gold-2);font-size:1.3rem;font-weight:400}
+.faq-item[open] summary::after{content:'−'}
+.faq-item .a{padding:0 24px 20px;color:var(--muted);font-size:.93rem}
+
+/* CTA final */
+.cta-final{
+  text-align:center;
+  background:radial-gradient(ellipse 50% 62% at 50% 100%, rgba(240,185,11,.13), transparent);
+}
+.cta-final .coin-mini{
+  width:92px;height:92px;border-radius:50%;overflow:hidden;
+  border:3px solid var(--gold);margin:0 auto 26px;
+  box-shadow:0 0 34px rgba(240,185,11,.4);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.cta-final .coin-mini img{width:100%;height:100%;object-fit:cover}
+.cta-final h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;margin-bottom:16px}
+.cta-final p{color:var(--muted);max-width:520px;margin:0 auto 32px}
+
+/* Bouton Telegram flottant */
+.fab{
+  position:fixed;right:22px;bottom:22px;z-index:60;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  box-shadow:0 8px 30px rgba(240,185,11,.45);
+  transition:transform .15s ease;
+}
+.fab:hover{transform:scale(1.1)}
+.fab::after{
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid rgba(240,185,11,.4);
+  animation:fabpulse 2.2s ease-out infinite;
+}
+@keyframes fabpulse{from{transform:scale(.8);opacity:1}to{transform:scale(1.35);opacity:0}}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:40px 0;background:var(--bg-2)}
+.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.foot-brand{max-width:300px}
+.foot-brand .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--gold)}
+.foot-brand p{color:var(--muted);font-size:.85rem;margin-top:10px}
+.legal{
+  border-top:1px solid var(--border);padding-top:24px;
+  color:var(--muted);font-size:.78rem;line-height:1.7;
+}
+.legal strong{color:#d8d0bd}
+.age{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:50%;
+  border:2px solid var(--red);color:var(--red);
+  font-weight:800;font-size:.8rem;margin-right:12px;flex-shrink:0;
+}
+.legal-flex{display:flex;align-items:flex-start;gap:4px}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── Responsive ─────────────────────────── */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--border)}
+  .transp-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .live-grid{grid-template-columns:1fr}
+  .chart-card{padding:22px}
+  .chip .tip{white-space:normal;width:220px}
+  .period-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Telephone (21/08/2026, meme fix que resultats.html) */
+@media(max-width:480px){
+  .period-grid,.period-grid.has-5{grid-template-columns:1fr}
+  .period-card{padding:16px 18px}
+  .period-pnl{font-size:1.4rem}
+  .period-sub{font-size:.8rem}
+  .stats-grid{grid-template-columns:1fr}
+}
+
+/* ── Accessibilité : focus clavier visible ─ */
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+:focus:not(:focus-visible){outline:none}
+
+/* ── Skip link ──────────────────────────── */
+.skip-link{
+  position:fixed;top:-60px;left:12px;z-index:200;
+  background:var(--gold-2);color:#141005;font-weight:700;font-size:.9rem;
+  padding:12px 20px;border-radius:10px;transition:top .2s ease;
+}
+.skip-link:focus{top:12px}
+
+/* ── Icônes SVG (remplacent les émojis fonctionnels) ── */
+.icon{width:1.15em;height:1.15em;display:inline-block;vertical-align:-0.2em;flex-shrink:0;
+  stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ic .icon{width:22px;height:22px;color:var(--gold-2)}
+
+/* ── Réduction de mouvement ────────────────── */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* ── Menu mobile ────────────────────────── */
+.icon-btn{
+  background:transparent;border:1px solid var(--border-strong);border-radius:10px;
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  color:var(--text);cursor:pointer;flex-shrink:0;
+}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold-2)}
+.menu-toggle{display:none}
+.header-right{display:flex;align-items:center;gap:10px}
+.mobile-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:64;
+}
+.mobile-backdrop.open{opacity:1;pointer-events:auto}
+.mobile-nav{
+  position:fixed;top:0;right:0;height:100vh;width:min(320px,82vw);
+  background:var(--bg-2);border-left:1px solid var(--border);
+  transform:translateX(100%);transition:transform .25s ease;
+  z-index:70;padding:20px 22px;display:flex;flex-direction:column;gap:4px;
+  overflow-y:auto;
+}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav-head{display:flex;justify-content:flex-end;margin-bottom:14px}
+.mobile-nav a{padding:15px 4px;font-size:1.05rem;color:var(--text);font-weight:600;
+  border-bottom:1px solid var(--border);}
+.mobile-nav a.active{color:var(--gold-2)}
+.mobile-nav .btn{margin-top:18px;justify-content:center}
+@media(max-width:900px){
+  .menu-toggle{display:flex}
+}
+
+/* ── Transition de page : logo qui tourne (07/08/2026, demande explicite :
+   "quand le client clique sur une page il y a une animation mon logo qui
+   tourne et apres il tombe sur sa page") -- affichee brievement a chaque
+   navigation vers Publications ou vers une section (Resultats/Performance/
+   FAQ), jamais un saut instantane. ── */
+.page-loader{
+  position:fixed;inset:0;z-index:999;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.page-loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{
+  width:64px;height:64px;border-radius:50%;
+  border:3px solid var(--gold);
+  animation:loaderSpin 1s linear infinite;
+  box-shadow:0 0 30px rgba(240,185,11,.45);
+}
+@keyframes loaderSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.loader-logo{animation:none}}
+
+/* ── Pop-up partenaire (07/08/2026, demande explicite) ── */
+.promo-overlay{
+  position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.65);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+.promo-overlay.show{opacity:1;visibility:visible}
+.promo-modal{
+  position:relative;background:var(--card);border:1px solid var(--border-strong);
+  border-radius:var(--radius);padding:32px 28px 26px;max-width:420px;
+  box-shadow:0 30px 90px rgba(0,0,0,.6);text-align:center;
+  transform:translateY(14px);transition:transform .3s ease;
+}
+.promo-overlay.show .promo-modal{transform:translateY(0)}
+.promo-close{
+  position:absolute;top:10px;right:12px;background:none;border:none;
+  color:var(--muted);font-size:1.6rem;line-height:1;cursor:pointer;padding:6px;
+}
+.promo-close:hover{color:var(--text)}
+.promo-tag{
+  display:inline-block;padding:5px 12px;border-radius:99px;
+  background:rgba(240,185,11,.12);border:1px solid var(--border-strong);
+  color:var(--gold-2);font-size:.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.04em;margin-bottom:14px;
+}
+.promo-modal h3{font-size:1.2rem;margin-bottom:10px}
+.promo-modal p{color:var(--muted);font-size:.9rem;line-height:1.5;margin-bottom:18px}
+.promo-cta{width:100%;justify-content:center}
+.promo-legal{font-size:.68rem;color:var(--muted);opacity:.8;margin-top:16px;margin-bottom:0;line-height:1.4}
+</style>
+</head>
+<body>
+
+<div id="pageLoader" class="page-loader" aria-hidden="true">
+  <img src="assets/logo.jpg" alt="" class="loader-logo">
+</div>
+
+<div id="promoOverlay" class="promo-overlay" aria-hidden="true">
+  <div class="promo-modal" role="dialog" aria-modal="true" aria-label="Offre partenaire Winamax">
+    <button class="promo-close" id="promoClose" aria-label="Fermer">&times;</button>
+    <div class="promo-tag">Offre partenaire</div>
+    <h3>Envie de jouer vos pronostics ?</h3>
+    <p>Winamax propose une offre de bienvenue aux nouveaux inscrits avec le code parrain <b>GBEUVP</b>.</p>
+    <a class="btn btn-primary promo-cta" href="https://www.winamax.fr/parrain?code=GBEUVP" target="_blank" rel="noopener sponsored">Voir l'offre Winamax</a>
+    <p class="promo-legal">18+ · Jouer comporte des risques : endettement, isolement, dépendance. Ne pariez que ce que vous pouvez vous permettre de perdre. Pour être aidé : 09 74 75 13 13 (appel non surtaxé) ou joueurs-info-service.fr.</p>
+  </div>
+</div>
+
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7 2.5 2.5 7L21 3Z"/><path d="M12.5 13.5 21 3"/></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5.5"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-trend-up" viewBox="0 0 24 24"><path d="M3 17 10 10l4 4 7-7"/><path d="M15 6h6v6"/></symbol>
+<symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5 15.5 10l-1.3 4H9.8L8.5 10Z"/><path d="M12 7.5V4M15.5 10l3-1.4M14.2 14l2 2.8M9.8 14l-2 2.8M8.5 10l-3-1.4"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18 6l-1.7 1.7M7.7 16.3 6 18M18 18l-1.7-1.7M7.7 7.7 6 6"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M8 11h8M8 15h5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10Z"/><path d="M10 19a2 2 0 0 0 4 0"/></symbol>
+<symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12"/><path d="M7 3c0 4.5 3 5.5 5 7.2C10 12 7 13 7 17.5M17 3c0 4.5-3 5.5-5 7.2 2 1.8 5 2.8 5 7.5"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+</defs>
+</svg>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="coin-sm-wrap">
+        <div class="coin-sm">
+          <div class="face front"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
+          <div class="face back"><img src="assets/logo.jpg" alt=""></div>
+        </div>
+      </div>
+      <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+    </div>
+    <nav class="nav-links">
+      <a href="publications.html">Publications</a>
+      <a href="resultats.html">Résultats</a>
+      <a href="performance.html" class="active">Performance</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="header-right">
+      <a class="btn btn-primary btn-sm" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="icon" style="width:20px;height:20px"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Menu principal">
+  <div class="mobile-nav-head">
+    <button class="icon-btn" id="menuClose" aria-label="Fermer le menu">
+      <svg class="icon" style="width:18px;height:18px"><use href="#i-x"></use></svg>
+    </button>
+  </div>
+  <a href="publications.html">Publications</a>
+  <a href="resultats.html">Résultats</a>
+  <a href="performance.html" class="active">Performance</a>
+  <a href="faq.html">FAQ</a>
+  <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener">Rejoindre le canal</a>
+</nav>
+
+<div id="main">
+  <div class="container">
+    <div class="sec-tag">Performance</div>
+    <h2 class="sec-title">Chaque marché est <span class="gold">audité en continu.</span></h2>
+
+    <!-- ── GLOBE (04/09/2026, demande explicite : sous le titre "Chaque
+         marché est audité en continu" -- pas au tout debut de page comme
+         d'abord fait, ni tout en bas comme avant ce jour. Un globe par
+         sport avec des onglets au-dessus (26-28/08/2026, un seul globe
+         combinait deja tous les sports, "les autres sports c'est souvent
+         le meme pays donc pas besoin de faire d'autre globe", mais sans
+         separation par onglet). Meme canvas/rotation/zoom reutilises tels
+         quels (LEAGUE_COUNTRIES porte deja un id par ligue qui encode son
+         sport -- numerique = football, "sport:xxx" = xxx, "tennis:xxx" =
+         tennis -- cf leagueSport() plus bas) : seul le filtrage des
+         points affiches change par onglet, pas de composant duplique par
+         sport. ────────────────────── -->
+    <div id="globe-section">
+      <h3 class="perf-sub-title">Nos ligues, pays par pays</h3>
+      <div class="chart-toggle sport-filter" id="globeSportFilter" style="margin-bottom:16px">
+        <button data-sport="football" class="active">⚽ Football</button>
+        <button data-sport="tennis">🎾 Tennis</button>
+        <button data-sport="baseball">⚾ MLB</button>
+        <button data-sport="nba">🏀 NBA</button>
+        <button data-sport="nhl">🏒 NHL</button>
+        <button data-sport="nfl">🏈 NFL</button>
+        <button data-sport="wnba">🏀 WNBA</button>
+      </div>
+      <div class="globe-panel">
+        <div class="globe-stage" id="globeStage">
+          <canvas id="globeCanvas" width="460" height="460" role="img" aria-label="Globe des ligues couvertes, pays par pays"></canvas>
+          <div class="globe-popup" id="globePopup"><button class="globe-popup-close" id="globePopupClose" aria-label="Fermer">✕</button><div id="globePopupBody"></div></div>
+          <div class="globe-tooltip" id="globeTooltip"></div>
+          <div class="globe-zoom" id="globeZoom">
+            <button id="globeZoomIn" aria-label="Zoomer">+</button>
+            <button id="globeZoomOut" aria-label="Dézoomer">−</button>
+          </div>
+        </div>
+        <p class="chart-note" style="text-align:center" id="globeEmptyNote">Faites glisser le globe pour l'orienter, zoomez pour séparer les points collés — chaque point est un pays où une ligue est couverte.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px">
+      <div class="chart-toggle" id="perfPeriodTabs">
+        <button data-period="jour" class="active">Aujourd'hui</button>
+        <button data-period="semaine">Semaine</button>
+        <button data-period="mois">Mois</button>
+        <button data-period="annee">Année</button>
+      </div>
+      <div class="chart-toggle sport-filter" id="perfSportFilter">
+        <button data-sport="all" class="active">Tous les sports</button>
+      </div>
+    </div>
+    <div class="period-grid reveal" id="periodGrid"></div>
+    <div class="chart-card reveal" style="position:relative">
+      <div class="chart-head">
+        <div><h3>Évolution de la bankroll</h3></div>
+        <div class="delta" id="bankrollDelta">—</div>
+      </div>
+      <div id="bankrollHoverBox" style="position:absolute;top:60px;right:16px;text-align:right;background:var(--bg-alt,rgba(20,16,5,.85));border:1px solid rgba(156,148,129,.35);border-radius:10px;padding:8px 14px;font-family:'Sora';font-weight:700;font-size:.92rem;opacity:0;transition:opacity .1s;pointer-events:none;z-index:2">
+        <div id="bankrollHoverDate" style="font-family:'Inter';font-weight:500;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin-bottom:2px">—</div>
+        <div id="bankrollHoverValue">—</div>
+      </div>
+      <svg id="bankrollChart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg>
+      <div class="chart-note" id="bankrollNote"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA FINAL ────────────────────────── -->
+<section class="cta-final">
+  <div class="container">
+    <div class="coin-mini"><img src="assets/logo.jpg" alt="G-BET Bot"></div>
+    <h2>Laissez la machine filtrer.<br>Gardez votre bankroll pour les bons matchs.</h2>
+    <p>Les analyses tombent directement sur Telegram, 30 minutes avant le coup d'envoi,
+    compositions confirmées.</p>
+    <a class="btn btn-primary" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener"><svg class="icon"><use href="#i-plane"></use></svg> Rejoindre le canal Telegram</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ───────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <img src="assets/logo.jpg" alt="">
+          <span><span class="g">G</span>-BET <span style="color:var(--muted);font-size:.85rem;font-weight:600">BOT</span></span>
+        </div>
+        <p>Analyses football automatisées. Données officielles, cotes réelles,
+        bilan public quotidien.</p>
+      </div>
+      <nav class="nav-links" style="display:flex;flex-direction:column;gap:10px">
+        <a href="publications.html">Publications</a>
+        <a href="resultats.html">Résultats</a>
+        <a href="performance.html" class="active">Performance</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+    <div class="legal">
+      <div class="legal-flex">
+        <span class="age">18+</span>
+        <div>
+          <strong>Jouer comporte des risques : endettement, isolement, dépendance.</strong>
+          Les jeux d'argent et de hasard sont interdits aux mineurs. G-BET Bot fournit des
+          analyses statistiques à titre informatif — aucun gain n'est garanti et les
+          performances passées ne préjugent pas des résultats futurs. Ne pariez que ce que
+          vous pouvez vous permettre de perdre.
+          Pour être aidé, appelez le <strong>09&nbsp;74&nbsp;75&nbsp;13&nbsp;13</strong>
+          (appel non surtaxé) ou consultez
+          <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener" style="text-decoration:underline">joueurs-info-service.fr</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://t.me/+EkFP3P5VF-AyMGRk" target="_blank" rel="noopener" aria-label="Rejoindre le canal Telegram"><svg class="icon" style="width:24px;height:24px;color:#141005"><use href="#i-plane"></use></svg></a>
+
+<script>
+const MISE_PAR_UNITE = 200; // 1 unité = 200 € (ai/staking.py BASE_UNIT_EUR)
+let currentMode = "u"; // "u" = unités, "e" = euros (pas de bascule sur cette page, garde le format unites)
+let _lastBankrollTotal = null;
+
+// API live (05/08/2026, chantier "site plus rapide") : meme endpoint que
+// Resultats (renvoie tout ensemble), cette page ne lit que data.perf_stats.
+// Railway abandonne le 31/08/2026 (migration Oracle Cloud) -- URL remplacee
+// le 02/09/2026 par un reverse proxy Caddy (HTTPS auto, DNS nip.io) devant
+// l'API du bot sur la VM Oracle.
+const LIVE_API_BASE = 'https://api-89-168-57-74.nip.io';
+
+// Beacon de vue de page (04/09/2026) -- meme visitor_id que publications.html
+// (localStorage, jamais une IP), alimente l'onglet prive admin /api/stats.
+(function(){
+  try {
+    let vid = localStorage.getItem('gbet_visitor_id');
+    if (!vid) { vid = 'v_' + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem('gbet_visitor_id', vid); }
+    fetch(LIVE_API_BASE + '/api/track', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({page: 'performance', visitor_id: vid}),
+    }).catch(()=>{});
+  } catch(e){}
+})();
+
+let PERF_STATS = {"global": {"n": 1382, "w": 866, "l": 502, "winrate": 63, "roi": 0.9, "pnl": 13.08, "since": "2026-08-31"}, "global_cote_reelle": {"n": 860, "w": 572, "l": 274, "winrate": 68, "roi": 5.7, "pnl": 57.86, "since": "2026-08-31"}, "sports": [{"sport": "football", "n": 619, "w": 402, "l": 217, "winrate": 65, "roi": 3.1, "pnl": 24.35}, {"sport": "tennis", "n": 417, "w": 269, "l": 134, "winrate": 67, "roi": 0.3, "pnl": 1.21}, {"sport": "baseball", "n": 237, "w": 132, "l": 105, "winrate": 56, "roi": -3.5, "pnl": -8.28}, {"sport": "hockey", "n": 52, "w": 34, "l": 18, "winrate": 65, "roi": -4.9, "pnl": -2.57}, {"sport": "wnba", "n": 32, "w": 17, "l": 15, "winrate": 53, "roi": 3.7, "pnl": 1.19}, {"sport": "nfl", "n": 24, "w": 11, "l": 13, "winrate": 46, "roi": -12.5, "pnl": -3.0}, {"sport": "mma", "n": 1, "w": 1, "l": 0, "winrate": 100, "roi": 19.0, "pnl": 0.19}], "markets": [{"market": "Vainqueur", "band": "1.50-1.70", "n": 194, "winrate": 67, "pnl": 11.07, "blocked": false}, {"market": "Double chance", "band": "< 1.50", "n": 189, "winrate": 79, "pnl": -0.16, "blocked": false}, {"market": "Vainqueur", "band": "< 1.50", "n": 181, "winrate": 80, "pnl": 8.24, "blocked": false}, {"market": "refonte_value_bet", "band": "1.50-1.70", "n": 88, "winrate": 49, "pnl": -13.25, "blocked": false}, {"market": "Double chance", "band": "1.50-1.70", "n": 71, "winrate": 72, "pnl": 14.23, "blocked": true}, {"market": "Vainqueur", "band": "1.70-2.00", "n": 69, "winrate": 62, "pnl": 11.9, "blocked": false}, {"market": "refonte_value_bet", "band": "< 1.50", "n": 61, "winrate": 61, "pnl": -12.39, "blocked": false}, {"market": "Pronostic joueur", "band": "< 1.50", "n": 56, "winrate": 77, "pnl": -0.04, "blocked": false}, {"market": "Double chance", "band": "1.70-2.00", "n": 47, "winrate": 64, "pnl": 11.16, "blocked": true}, {"market": "mlb_value_bet", "band": "1.70-2.00", "n": 46, "winrate": 50, "pnl": -5.42, "blocked": false}, {"market": "mlb_value_bet", "band": "1.50-1.70", "n": 44, "winrate": 59, "pnl": -1.85, "blocked": false}, {"market": "Vainqueur", "band": "2.00-2.50", "n": 41, "winrate": 49, "pnl": 12.52, "blocked": false}, {"market": "Total équipe", "band": "1.70-2.00", "n": 38, "winrate": 47, "pnl": -5.89, "blocked": false}, {"market": "Double chance", "band": "2.00-2.50", "n": 32, "winrate": 44, "pnl": -4.88, "blocked": false}, {"market": "Total (over/under)", "band": "1.70-2.00", "n": 27, "winrate": 44, "pnl": -4.61, "blocked": false}, {"market": "Pronostic joueur", "band": "1.50-1.70", "n": 22, "winrate": 64, "pnl": 0.53, "blocked": false}, {"market": "refonte_value_bet", "band": "1.70-2.00", "n": 20, "winrate": 55, "pnl": 0.75, "blocked": false}, {"market": "Total équipe", "band": "2.00-2.50", "n": 14, "winrate": 57, "pnl": 2.43, "blocked": false}, {"market": "player_pts", "band": "1.70-2.00", "n": 14, "winrate": 43, "pnl": -2.83, "blocked": false}, {"market": "Pronostic joueur", "band": "1.70-2.00", "n": 14, "winrate": 36, "pnl": -4.99, "blocked": false}, {"market": "Vainqueur", "band": "3.00-4.00", "n": 13, "winrate": 15, "pnl": -6.0, "blocked": false}, {"market": "Vainqueur", "band": "4.00+", "n": 11, "winrate": 27, "pnl": 3.35, "blocked": true}, {"market": "Handicap", "band": "1.70-2.00", "n": 10, "winrate": 50, "pnl": -0.64, "blocked": false}, {"market": "mlb_value_bet", "band": "< 1.50", "n": 9, "winrate": 67, "pnl": -0.25, "blocked": false}, {"market": "Vainqueur", "band": "2.50-3.00", "n": 8, "winrate": 50, "pnl": 2.67, "blocked": false}, {"market": "Total équipe", "band": "1.50-1.70", "n": 7, "winrate": 71, "pnl": 1.38, "blocked": false}, {"market": "player_pts", "band": "2.00-2.50", "n": 7, "winrate": 57, "pnl": 1.27, "blocked": false}, {"market": "Pronostic joueur", "band": "2.00-2.50", "n": 7, "winrate": 0, "pnl": -7.0, "blocked": false}, {"market": "Buts (over/under)", "band": "1.70-2.00", "n": 7, "winrate": 71, "pnl": 2.63, "blocked": false}, {"market": "Double chance", "band": "3.00-4.00", "n": 5, "winrate": 20, "pnl": -1.48, "blocked": true}, {"market": "Buts (over/under)", "band": "3.00-4.00", "n": 3, "winrate": 33, "pnl": 0.1, "blocked": false}, {"market": "mlb_value_bet", "band": "2.00-2.50", "n": 3, "winrate": 33, "pnl": -0.76, "blocked": false}, {"market": "Handicap", "band": "1.50-1.70", "n": 2, "winrate": 100, "pnl": 1.17, "blocked": false}, {"market": "Double chance", "band": "2.50-3.00", "n": 2, "winrate": 100, "pnl": 3.24, "blocked": true}, {"market": "player_reb", "band": "2.00-2.50", "n": 2, "winrate": 50, "pnl": 0.34, "blocked": false}, {"market": "player_usog35", "band": "1.70-2.00", "n": 2, "winrate": 100, "pnl": 1.64, "blocked": false}, {"market": "Pronostic joueur", "band": "3.00-4.00", "n": 2, "winrate": 0, "pnl": -2.0, "blocked": false}, {"market": "Handicap", "band": "< 1.50", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Handicap", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -1.05, "blocked": false}, {"market": "Total (over/under)", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -1.05, "blocked": false}, {"market": "Combiné", "band": "2.50-3.00", "n": 1, "winrate": 100, "pnl": 2.49, "blocked": false}, {"market": "player_pts1", "band": "< 1.50", "n": 1, "winrate": 100, "pnl": 0.15, "blocked": false}, {"market": "player_sog2", "band": "< 1.50", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "player_reb", "band": "1.70-2.00", "n": 1, "winrate": 100, "pnl": 0.78, "blocked": false}, {"market": "player_usog25", "band": "1.70-2.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "player_ureb35", "band": "1.70-2.00", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "player_usog25", "band": "2.00-2.50", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "player_usog35", "band": "1.50-1.70", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "player_pts1", "band": "1.70-2.00", "n": 1, "winrate": 100, "pnl": 0.87, "blocked": false}, {"market": "Pronostic joueur", "band": "4.00+", "n": 1, "winrate": 0, "pnl": -1.0, "blocked": false}, {"market": "Pronostic joueur", "band": "2.50-3.00", "n": 1, "winrate": 100, "pnl": 1.71, "blocked": false}], "blocked_bands": [{"market": "Double chance", "band": "1.50-2.00"}, {"market": "Double chance", "band": "2.50+"}, {"market": "Vainqueur", "band": "4.00+"}, {"market": "Buts (over/under)", "band": "3.00+"}, {"market": "Les deux marquent", "band": "1.50-3.00"}], "highlights": {"best": {"match": "Atlanta Dream – Connecticut Sun", "pick": "DeWanna Bonner (ATL) : plus de 4.5 rebonds", "cote": 2.34, "pnl": 1.34, "flag": "🏀", "league": "WNBA"}, "worst": {"match": "Cleveland Browns – Pittsburgh Steelers", "pick": "Total Moins de 37.5", "cote": 1.93, "pnl": -1.0, "flag": "🏈", "league": "NFL"}, "top_league": {"league": "239", "flag": "⚽", "pnl": 1.0, "n": 1}}, "percent_picks": {"n": 22, "winrate": 27}, "bankroll": {"initial": 10000, "current": 12616.71, "pnl": 2616.71, "pct": 26.17, "series": [{"date": "2026-08-31", "value": 10042.94}, {"date": "2026-09-01", "value": 11529.34}, {"date": "2026-09-02", "value": 11596.94}, {"date": "2026-09-03", "value": 13095.01}, {"date": "2026-09-04", "value": 13537.8}, {"date": "2026-09-05", "value": 13532.59}, {"date": "2026-09-06", "value": 10467.45}, {"date": "2026-09-07", "value": 8101.77}, {"date": "2026-09-08", "value": 7531.73}, {"date": "2026-09-09", "value": 8158.23}, {"date": "2026-09-10", "value": 9487.23}, {"date": "2026-09-11", "value": 9890.09}, {"date": "2026-09-12", "value": 10714.39}, {"date": "2026-09-13", "value": 10741.67}, {"date": "2026-09-14", "value": 10982.13}, {"date": "2026-09-15", "value": 11156.93}, {"date": "2026-09-16", "value": 11173.19}, {"date": "2026-09-17", "value": 11204.33}, {"date": "2026-09-18", "value": 11806.67}, {"date": "2026-09-19", "value": 11890.77}, {"date": "2026-09-20", "value": 12653.61}, {"date": "2026-09-21", "value": 13063.11}, {"date": "2026-09-22", "value": 13456.71}, {"date": "2026-09-23", "value": 15168.91}, {"date": "2026-09-24", "value": 15612.51}, {"date": "2026-09-25", "value": 14703.13}, {"date": "2026-09-26", "value": 14197.93}, {"date": "2026-09-27", "value": 13585.93}, {"date": "2026-09-28", "value": 13105.91}, {"date": "2026-09-29", "value": 13559.71}, {"date": "2026-09-30", "value": 13539.71}, {"date": "2026-10-01", "value": 13452.71}, {"date": "2026-10-02", "value": 12380.71}, {"date": "2026-10-03", "value": 12578.71}, {"date": "2026-10-04", "value": 12616.71}]}};
+/* ── Section Performance ── */
+const SPORT_FR = {football:"Football", baseball:"Baseball (MLB)", tennis:"Tennis", nhl:"Hockey (NHL)", basketball:"Basketball", nba:"Basketball (NBA)", wnba:"Basketball (WNBA)", nfl:"Football US (NFL)"};
+function sportLabel(sport){
+  return SPORT_FR[sport] || (sport ? sport.charAt(0).toUpperCase() + sport.slice(1) : sport);
+}
+
+function fmtPnl(u){
+  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
+  const v = u * factor;
+  const unit = currentMode === "e" ? "€" : "u";
+  return `${v > 0 ? '+' : ''}${currentMode === "e" ? v.toFixed(0) : v.toFixed(2)} ${unit}`;
+}
+
+// Aujourd'hui / Semaine / Mois / Année + filtre sport (26/08/2026, demande
+// explicite : onglets periode + filtre sport qui mettent a jour les MEMES
+// cartes, comme le prototype -- pas 4 cartes fixes cote a cote). Donnee
+// reelle : data.period_stats (deja renvoyee par /api/results), etendue le
+// meme jour avec un decoupage par sport (period_stats.by_sport[sport][periode])
+// cote serveur (scripts/export_site_results.py::fetch_period_stats), sur le
+// meme modele que period_series.by_sport deja utilise par Resultats pour
+// la courbe.
+const PERIOD_LABELS = {jour:"Aujourd'hui", semaine:"Cette semaine", mois:"Ce mois-ci", annee:"Cette année"};
+const _emptyPeriodBucket = () => ({n:0,g:0,p:0,r:0,winrate:0,pnl:0,mise:0});
+let PERIOD_STATS = {jour:{n:1, g:1, p:0, r:0, winrate:100, pnl:0.19, mise:200.00}, semaine:{n:92, g:54, p:38, r:0, winrate:59, pnl:-4.85, mise:18500.00}, mois:{n:40, g:19, p:21, r:0, winrate:48, pnl:-4.62, mise:8100.00}, annee:{n:1382, g:866, p:502, r:14, winrate:63, pnl:13.08, mise:307834.00}, by_sport:{mma:{jour:{n:1, g:1, p:0, r:0, winrate:100, pnl:0.19, mise:200.00}, semaine:{n:1, g:1, p:0, r:0, winrate:100, pnl:0.19, mise:200.00}, mois:{n:1, g:1, p:0, r:0, winrate:100, pnl:0.19, mise:200.00}, annee:{n:1, g:1, p:0, r:0, winrate:100, pnl:0.19, mise:200.00}}, hockey:{jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, semaine:{n:17, g:9, p:8, r:0, winrate:53, pnl:-2.20, mise:3400.00}, mois:{n:12, g:5, p:7, r:0, winrate:42, pnl:-3.37, mise:2400.00}, annee:{n:52, g:34, p:18, r:0, winrate:65, pnl:-2.57, mise:10400.00}}, wnba:{jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, semaine:{n:25, g:12, p:13, r:0, winrate:48, pnl:-1.44, mise:5000.00}, mois:{n:25, g:12, p:13, r:0, winrate:48, pnl:-1.44, mise:5000.00}, annee:{n:32, g:17, p:15, r:0, winrate:53, pnl:1.19, mise:6400.00}}, nfl:{jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, semaine:{n:2, g:1, p:1, r:0, winrate:50, pnl:-0.07, mise:400.00}, mois:{n:1, g:0, p:1, r:0, winrate:0, pnl:-1.00, mise:200.00}, annee:{n:24, g:11, p:13, r:0, winrate:46, pnl:-3.00, mise:4800.00}}, football:{jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, semaine:{n:1, g:1, p:0, r:0, winrate:100, pnl:1.00, mise:300.00}, mois:{n:1, g:1, p:0, r:0, winrate:100, pnl:1.00, mise:300.00}, annee:{n:619, g:402, p:217, r:0, winrate:65, pnl:24.35, mise:155000.00}}, tennis:{jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, semaine:{n:46, g:30, p:16, r:0, winrate:65, pnl:-2.33, mise:9200.00}, mois:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, annee:{n:417, g:269, p:134, r:14, winrate:67, pnl:1.21, mise:83400.00}}, baseball:{jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, semaine:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, mois:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, annee:{n:234, g:131, p:103, r:0, winrate:56, pnl:-8.38, mise:47034.00}}, mlb:{jour:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, semaine:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, mois:{n:0, g:0, p:0, r:0, winrate:0, pnl:0.00, mise:0.00}, annee:{n:3, g:1, p:2, r:0, winrate:33, pnl:0.10, mise:600.00}}}};
+let currentPerfPeriod = "jour";
+let currentPerfSportFilter = "all";
+
+function renderPeriodStats(){
+  const grid = document.getElementById('periodGrid');
+  if (!grid) return;
+  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
+  const unit = currentMode === "e" ? "€" : "u";
+  const source = currentPerfSportFilter === "all"
+    ? PERIOD_STATS
+    : (PERIOD_STATS.by_sport || {})[currentPerfSportFilter] || {};
+  const s = source[currentPerfPeriod] || _emptyPeriodBucket();
+  const val = s.pnl * factor;
+  const cls = s.n === 0 ? 'flat' : (val > 0 ? 'up' : val < 0 ? 'down' : 'flat');
+  const pnlDisplay = s.n === 0
+    ? '—'
+    : `${val > 0 ? '+' : ''}${currentMode === "e" ? val.toFixed(0) : val.toFixed(2)} ${unit}`;
+  const miseDisplay = s.mise > 0 ? `${Math.round(s.mise).toLocaleString('fr-FR')} € misés` : '';
+  const sub = s.n === 0
+    ? 'Aucun conseil réglé pour l’instant'
+    : `${s.g}G ${s.p}P${s.r ? ' ' + s.r + 'R' : ''}${miseDisplay ? ' · ' + miseDisplay : ''}`;
+  const decides = s.g + s.p;
+  const wPct = decides ? Math.round(s.g/decides*100) : 0, lPct = 100 - wPct;
+
+  grid.innerHTML = `
+    <div class="period-card">
+      <div class="period-label">Picks réglés — ${PERIOD_LABELS[currentPerfPeriod].toLowerCase()}</div>
+      <div class="period-pnl flat" style="color:var(--text)">${s.n}</div>
+      <div class="period-sub">${sub}</div>
+      ${s.n ? `<div class="split-bar"><span class="w" style="width:${wPct}%"></span><span class="l" style="width:${lPct}%"></span></div>` : ''}
+    </div>
+    <div class="period-card">
+      <div class="period-label">Taux de réussite</div>
+      <div class="period-pnl flat" style="color:var(--text)">${s.n ? s.winrate + '%' : '—'}</div>
+      <div class="period-sub">${s.n ? s.n + ' picks réglés' : 'Aucun pick réglé'}</div>
+    </div>
+    <div class="period-card">
+      <div class="period-label">ROI — ${PERIOD_LABELS[currentPerfPeriod].toLowerCase()}</div>
+      <div class="period-pnl ${cls}">${pnlDisplay}</div>
+      <div class="period-sub">${currentPerfSportFilter === "all" ? "Tous sports confondus" : sportLabel(currentPerfSportFilter)}</div>
+    </div>
+    ${renderBestGainCard()}`;
+}
+
+// "Plus gros gain" (26/08/2026, 4e carte du prototype) : la vraie donnee
+// disponible cote serveur est le meilleur pick du MOIS (PERF_STATS.highlights.best,
+// pas filtree par periode/sport selectionnes ci-dessus -- aucune agregation
+// "meilleur pick par periode+sport" n'existe encore cote serveur). Affichee
+// telle quelle, avec un libelle honnete ("du mois") plutot que de laisser
+// croire qu'elle suit les onglets/filtre au-dessus.
+function renderBestGainCard(){
+  const best = (PERF_STATS.highlights || {}).best;
+  if (!best) return `
+    <div class="period-card">
+      <div class="period-label">Plus gros gain du mois</div>
+      <div class="period-pnl flat">—</div>
+      <div class="period-sub">Aucun pick réglé ce mois-ci</div>
+    </div>`;
+  const factor = currentMode === "e" ? MISE_PAR_UNITE : 1;
+  const val = best.pnl * factor;
+  const unit = currentMode === "e" ? "€" : "u";
+  return `
+    <div class="period-card">
+      <div class="period-label">Plus gros gain du mois</div>
+      <div class="period-pnl up">+${currentMode === "e" ? val.toFixed(0) : val.toFixed(2)} ${unit}</div>
+      <div class="period-sub">${best.flag} ${best.match}<br>${best.pick} @${best.cote.toFixed(2)}</div>
+    </div>`;
+}
+
+document.querySelectorAll('#perfPeriodTabs button').forEach(btn=>{
+  btn.addEventListener('click', function(){
+    currentPerfPeriod = this.dataset.period;
+    document.querySelectorAll('#perfPeriodTabs button').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    renderPeriodStats();
+  });
+});
+
+// Tous les sports proposes (04/09/2026, demande explicite : "mets tout
+// les sport qu'on propose") -- avant ce fix, base sur PERF_STATS.sports
+// (derive des paris reellement regles cote serveur), un sport sans encore
+// AUCUN pari regle (hors-saison, tout juste ajoute) n'apparaissait meme
+// pas comme option de filtre. "baseball" ici (pas "mlb") : PERIOD_STATS.
+// by_sport utilise la cle brute cote serveur, jamais normalisee.
+const ALL_SPORTS_PERF = ["football","tennis","baseball","nba","nhl","nfl","wnba"];
+
+function renderPerfSportFilter(){
+  const bar = document.getElementById('perfSportFilter');
+  if (!bar) return;
+  const sports = ALL_SPORTS_PERF;
+  const existing = new Set([...bar.querySelectorAll('button')].map(b => b.dataset.sport));
+  if (sports.every(sp => existing.has(sp)) && existing.size === sports.length + 1) return; // deja a jour
+  bar.innerHTML = '<button data-sport="all" class="active">Tous les sports</button>' +
+    sports.map(sp => `<button data-sport="${sp}">${sportLabel(sp)}</button>`).join('');
+  bar.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      currentPerfSportFilter = this.dataset.sport;
+      bar.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+      this.classList.add('active');
+      renderPeriodStats();
+    });
+  });
+}
+
+// (26/08/2026, demande explicite "recopie le prototype a l'identique, pas
+// plus ni moins") : perfGlobalGrid/perfSportsGrid/perfHighlights n'existaient
+// pas dans le prototype valide -- retires. Seule la bankroll (qui existe
+// bien dans le prototype) reste pilotee par PERF_STATS ici.
+function renderPerfStats(){
+  const P = PERF_STATS;
+  if (!P || !P.global) return;
+  renderBankroll(P.bankroll);
+  _initBankrollHoverOnce();
+}
+
+/* ── Bankroll (points F/G) : valeur de départ + somme cumulée des PnL réels
+   réglés (paris.pnl), même principe de courbe que drawPeriodChart. ── */
+function renderBankroll(b){
+  const svg = document.getElementById('bankrollChart');
+  const note = document.getElementById('bankrollNote');
+  const delta = document.getElementById('bankrollDelta');
+  if (!b || !b.series || !b.series.length){
+    svg.innerHTML = '';
+    delta.textContent = '—';
+    note.textContent = '';
+    return;
+  }
+  const series = [{date: '', value: b.initial}, ...b.series];
+  const W = 800, H = 260, PAD_L = 64, PAD_R = 16, PAD_T = 16, PAD_B = 32;
+  const vals = series.map(p => p.value);
+  const n = vals.length;
+  const yMin = Math.min(...vals), yMax = Math.max(...vals, b.initial + 1);
+  const xs = i => n <= 1 ? PAD_L : PAD_L + (i/(n-1))*(W-PAD_L-PAD_R);
+  const ysc = v => H-PAD_B - ((v-yMin)/(yMax-yMin || 1))*(H-PAD_T-PAD_B);
+
+  const line = vals.map((v,i)=>`${i?'L':'M'}${xs(i).toFixed(1)},${ysc(v).toFixed(1)}`).join(' ');
+  const area = line + ` L${xs(n-1).toFixed(1)},${H-PAD_B} L${PAD_L},${H-PAD_B} Z`;
+  const initY = ysc(b.initial);
+  const up = b.pnl >= 0;
+  const col = up ? '#22c55e' : '#ef4444';
+
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${col}" stop-opacity=".28"/>
+        <stop offset="1" stop-color="${col}" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <line x1="${PAD_L}" y1="${initY}" x2="${W-PAD_R}" y2="${initY}" stroke="rgba(156,148,129,.3)" stroke-dasharray="5 6"/>
+    <text x="${W-PAD_R}" y="${initY-8}" fill="rgba(156,148,129,.7)" font-size="12" text-anchor="end" font-family="Inter">${b.initial.toFixed(0)} € (départ)</text>
+    <path d="${area}" fill="url(#bg)"/>
+    <path d="${line}" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${xs(n-1)}" cy="${ysc(vals[n-1])}" r="6" fill="${col}"/>
+    <line id="bkHoverLine" x1="0" y1="${PAD_T}" x2="0" y2="${H-PAD_B}" stroke="rgba(212,175,55,.55)" stroke-width="1" stroke-dasharray="3 4" opacity="0"/>
+    <circle id="bkHoverDot" r="5" fill="#d4af37" opacity="0"/>
+  `;
+
+  delta.className = 'delta ' + (up ? 'up' : 'down');
+  delta.textContent = `${b.current.toFixed(0)} € (${up?'+':''}${b.pct}%)`;
+  note.textContent = `Départ : ${b.initial.toFixed(0)} € · PnL cumulé : ${up?'+':''}${b.pnl.toFixed(0)} €.`;
+  _lastBankrollTotal = b.current;
+
+  // Survol interactif (26/08/2026, demande explicite, comme le prototype) :
+  // affiche la bankroll exacte + la date au point le plus proche du curseur.
+  _bankrollHover = {series, xs, ysc, W, initial: b.initial};
+}
+
+let _bankrollHover = null;
+
+function _initBankrollHoverOnce(){
+  const svg = document.getElementById('bankrollChart');
+  if (!svg || svg.dataset.hoverBound) return;
+  svg.dataset.hoverBound = '1';
+  const hoverBox = document.getElementById('bankrollHoverBox');
+  const hoverDate = document.getElementById('bankrollHoverDate');
+  const hoverValue = document.getElementById('bankrollHoverValue');
+
+  function showAt(i){
+    const h = _bankrollHover;
+    if (!h) return;
+    const p = h.series[i];
+    const line = svg.querySelector('#bkHoverLine');
+    const dot = svg.querySelector('#bkHoverDot');
+    const x = h.xs(i), y = h.ysc(p.value);
+    if (line){ line.setAttribute('x1', x); line.setAttribute('x2', x); line.setAttribute('opacity', 1); }
+    if (dot){ dot.setAttribute('cx', x); dot.setAttribute('cy', y); dot.setAttribute('opacity', 1); }
+    hoverDate.textContent = p.date ? new Date(p.date).toLocaleDateString('fr-FR', {day:'numeric', month:'short', year:'numeric'}) : 'Départ';
+    const val = p.value * (currentMode === "e" ? 1 : 1); // bankroll toujours en €, jamais en unites
+    hoverValue.textContent = `${val.toFixed(0)} €`;
+    hoverValue.style.color = val >= h.initial ? 'var(--green)' : 'var(--red)';
+    hoverBox.style.opacity = 1;
+  }
+  function hide(){
+    hoverBox.style.opacity = 0;
+    const line = svg.querySelector('#bkHoverLine');
+    const dot = svg.querySelector('#bkHoverDot');
+    if (line) line.setAttribute('opacity', 0);
+    if (dot) dot.setAttribute('opacity', 0);
+  }
+  svg.addEventListener('pointermove', e=>{
+    const h = _bankrollHover;
+    if (!h || !h.series.length) return;
+    const rect = svg.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width * h.W;
+    let best = 0, bestD = Infinity;
+    for (let i=0;i<h.series.length;i++){
+      const d = Math.abs(h.xs(i) - px);
+      if (d < bestD){ bestD = d; best = i; }
+    }
+    showAt(best);
+  });
+  svg.addEventListener('pointerleave', hide);
+}
+
+async function loadPerfLive(){
+  try{
+    const res = await fetch(LIVE_API_BASE + '/api/results', {cache: 'no-store', signal: AbortSignal.timeout(4000)});
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!data) return;
+    if (data.perf_stats){
+      PERF_STATS = data.perf_stats;
+      renderPerfStats();
+      renderPerfSportFilter();
+      renderPeriodStats(); // la carte "Plus gros gain" depend de PERF_STATS.highlights
+    }
+    if (data.period_stats){
+      PERIOD_STATS = data.period_stats;
+      renderPeriodStats();
+    }
+    if (data.league_stats){
+      // Bilan reel par ligue (26/08/2026, demande explicite "recopie le
+      // prototype a l'identique ... et mets nos donnees") : colore les
+      // reperes du globe par ROI et alimente le detail par ligue dans la
+      // popup, comme le prototype -- LEAGUE_STATS lu en direct par
+      // drawGlobe()/popupHtml() (globe IIFE plus bas), aucun redraw
+      // explicite necessaire (boucle d'animation deja active).
+      LEAGUE_STATS = data.league_stats;
+    }
+    if (data.tennis_tournament_stats){
+      TENNIS_TOURNAMENT_STATS = data.tennis_tournament_stats;
+    }
+  }catch(e){
+    // Silencieux (05/08/2026) : rafraichissement en arriere-plan, jamais
+    // d'erreur visible pour un simple manque de reseau/redemarrage bot.
+  }
+}
+
+let LEAGUE_STATS = {};
+let TENNIS_TOURNAMENT_STATS = {};
+
+renderPerfStats();
+renderPerfSportFilter();
+renderPeriodStats();
+loadPerfLive();
+setInterval(loadPerfLive, 20000);
+
+// ── Globe des ligues ("dotted globe" -- points de cotes reels projetes en
+// 3D orthographique sur canvas, rotation par matrice de rotation, aucune
+// librairie externe type WebGL/Three.js). Fond de carte : @svg-maps/world
+// (CC-BY-4.0), rasterise une fois puis echantillonne en grille terre/mer.
+// Liste des pays/ligues : football/coverage.py::BACKTEST_VALIDATED_LEAGUE_IDS
+// (les seules ligues reellement backtestees) + les 5 competitions cross-
+// championnat, placees au siege de leur confederation (UEFA/CONMEBOL) --
+// aucun bilan chiffre par pays n'existe cote serveur, la popup ne montre
+// donc que l'identite reelle des ligues couvertes, jamais un chiffre invente.
+const LAND_FILL_POINTS=[[-84.0,-171.2],[-84.0,-149.2],[-84.0,-147.0],[-84.0,-144.8],[-84.0,-142.6],[-84.0,-140.4],[-84.0,-138.2],[-84.0,-136.0],[-84.0,-133.8],[-84.0,-131.6],[-84.0,-129.4],[-84.0,-127.2],[-84.0,-125.0],[-84.0,-122.8],[-84.0,-120.6],[-84.0,-118.4],[-84.0,-116.2],[-84.0,-114.0],[-84.0,-111.8],[-84.0,-109.6],[-84.0,-107.4],[-84.0,-105.2],[-84.0,-103.0],[-84.0,-100.8],[-84.0,-98.6],[-84.0,-96.4],[-84.0,-94.2],[-84.0,-92.0],[-84.0,-89.8],[-84.0,-87.6],[-84.0,-85.4],[-84.0,-83.2],[-84.0,-81.0],[-84.0,-78.8],[-84.0,-76.6],[-84.0,-74.4],[-84.0,-72.2],[-84.0,-70.0],[-84.0,-67.8],[-84.0,-65.6],[-84.0,-63.4],[-84.0,-61.2],[-84.0,-59.0],[-84.0,-56.8],[-84.0,-54.6],[-84.0,-52.4],[-84.0,-50.2],[-84.0,-48.0],[-84.0,-45.8],[-84.0,-43.6],[-84.0,-41.4],[-84.0,-39.2],[-84.0,-37.0],[-84.0,-34.8],[-84.0,-32.6],[-84.0,-30.4],[-84.0,-28.2],[-84.0,-26.0],[-84.0,-23.8],[-84.0,-21.6],[-84.0,-19.4],[-84.0,-17.2],[-84.0,-15.0],[-84.0,-12.8],[-84.0,-10.6],[-84.0,-8.4],[-84.0,-6.2],[-84.0,-4.0],[-84.0,-1.8],[-84.0,0.4],[-84.0,2.6],[-84.0,4.8],[-84.0,7.0],[-84.0,9.2],[-84.0,11.4],[-84.0,13.6],[-84.0,15.8],[-84.0,18.0],[-84.0,20.2],[-84.0,22.4],[-84.0,24.6],[-84.0,26.8],[-84.0,29.0],[-84.0,31.2],[-84.0,33.4],[-84.0,35.6],[-84.0,37.8],[-84.0,40.0],[-84.0,42.2],[-84.0,44.4],[-84.0,46.6],[-84.0,48.8],[-84.0,51.0],[-84.0,53.2],[-84.0,55.4],[-84.0,57.6],[-84.0,59.8],[-84.0,62.0],[-84.0,64.2],[-84.0,66.4],[-84.0,68.6],[-84.0,70.8],[-84.0,73.0],[-84.0,75.2],[-84.0,77.4],[-84.0,79.6],[-84.0,81.8],[-84.0,84.0],[-84.0,86.2],[-84.0,88.4],[-84.0,90.6],[-84.0,92.8],[-84.0,95.0],[-84.0,97.2],[-84.0,99.4],[-84.0,101.6],[-84.0,103.8],[-84.0,106.0],[-84.0,108.2],[-84.0,110.4],[-84.0,112.6],[-84.0,114.8],[-84.0,117.0],[-84.0,119.2],[-84.0,121.4],[-84.0,123.6],[-84.0,125.8],[-84.0,128.0],[-84.0,130.2],[-84.0,132.4],[-84.0,134.6],[-84.0,136.8],[-84.0,139.0],[-84.0,141.2],[-84.0,143.4],[-84.0,145.6],[-84.0,147.8],[-84.0,150.0],[-84.0,152.2],[-84.0,154.4],[-84.0,156.6],[-84.0,158.8],[-84.0,161.0],[-84.0,163.2],[-84.0,165.4],[-84.0,167.6],[-84.0,169.8],[-81.8,-153.6],[-81.8,-151.4],[-81.8,-149.2],[-81.8,-147.0],[-81.8,-144.8],[-81.8,-142.6],[-81.8,-140.4],[-81.8,-138.2],[-81.8,-136.0],[-81.8,-133.8],[-81.8,-131.6],[-81.8,-129.4],[-81.8,-127.2],[-81.8,-125.0],[-81.8,-122.8],[-81.8,-120.6],[-81.8,-118.4],[-81.8,-116.2],[-81.8,-114.0],[-81.8,-111.8],[-81.8,-109.6],[-81.8,-107.4],[-81.8,-105.2],[-81.8,-103.0],[-81.8,-100.8],[-81.8,-98.6],[-81.8,-96.4],[-81.8,-94.2],[-81.8,-92.0],[-81.8,-89.8],[-81.8,-87.6],[-81.8,-85.4],[-81.8,-83.2],[-81.8,-81.0],[-81.8,-78.8],[-81.8,-76.6],[-81.8,-74.4],[-81.8,-72.2],[-81.8,-70.0],[-81.8,-67.8],[-81.8,-65.6],[-81.8,-63.4],[-81.8,-50.2],[-81.8,-48.0],[-81.8,-45.8],[-81.8,-41.4],[-81.8,-39.2],[-81.8,-37.0],[-81.8,-34.8],[-81.8,-32.6],[-81.8,-30.4],[-81.8,-28.2],[-81.8,-26.0],[-81.8,-23.8],[-81.8,-21.6],[-81.8,-19.4],[-81.8,-17.2],[-81.8,-15.0],[-81.8,-12.8],[-81.8,-10.6],[-81.8,-8.4],[-81.8,-6.2],[-81.8,-4.0],[-81.8,-1.8],[-81.8,0.4],[-81.8,2.6],[-81.8,4.8],[-81.8,7.0],[-81.8,9.2],[-81.8,11.4],[-81.8,13.6],[-81.8,15.8],[-81.8,18.0],[-81.8,20.2],[-81.8,22.4],[-81.8,24.6],[-81.8,26.8],[-81.8,29.0],[-81.8,31.2],[-81.8,33.4],[-81.8,35.6],[-81.8,37.8],[-81.8,40.0],[-81.8,42.2],[-81.8,44.4],[-81.8,46.6],[-81.8,48.8],[-81.8,51.0],[-81.8,53.2],[-81.8,55.4],[-81.8,57.6],[-81.8,59.8],[-81.8,62.0],[-81.8,64.2],[-81.8,66.4],[-81.8,68.6],[-81.8,70.8],[-81.8,73.0],[-81.8,75.2],[-81.8,77.4],[-81.8,79.6],[-81.8,81.8],[-81.8,84.0],[-81.8,86.2],[-81.8,88.4],[-81.8,90.6],[-81.8,92.8],[-81.8,95.0],[-81.8,97.2],[-81.8,99.4],[-81.8,101.6],[-81.8,103.8],[-81.8,106.0],[-81.8,108.2],[-81.8,110.4],[-81.8,112.6],[-81.8,114.8],[-81.8,117.0],[-81.8,119.2],[-81.8,121.4],[-81.8,123.6],[-81.8,125.8],[-81.8,128.0],[-81.8,130.2],[-81.8,132.4],[-81.8,134.6],[-81.8,136.8],[-81.8,139.0],[-81.8,141.2],[-81.8,143.4],[-81.8,145.6],[-81.8,147.8],[-81.8,150.0],[-81.8,152.2],[-81.8,154.4],[-81.8,156.6],[-81.8,158.8],[-81.8,161.0],[-79.6,-147.0],[-79.6,-144.8],[-79.6,-142.6],[-79.6,-140.4],[-79.6,-138.2],[-79.6,-136.0],[-79.6,-133.8],[-79.6,-131.6],[-79.6,-129.4],[-79.6,-127.2],[-79.6,-125.0],[-79.6,-122.8],[-79.6,-120.6],[-79.6,-118.4],[-79.6,-116.2],[-79.6,-114.0],[-79.6,-111.8],[-79.6,-109.6],[-79.6,-107.4],[-79.6,-105.2],[-79.6,-103.0],[-79.6,-100.8],[-79.6,-98.6],[-79.6,-96.4],[-79.6,-94.2],[-79.6,-92.0],[-79.6,-89.8],[-79.6,-87.6],[-79.6,-85.4],[-79.6,-83.2],[-79.6,-81.0],[-79.6,-78.8],[-79.6,-50.2],[-79.6,-48.0],[-79.6,-45.8],[-79.6,-43.6],[-79.6,-28.2],[-79.6,-26.0],[-79.6,-23.8],[-79.6,-21.6],[-79.6,-19.4],[-79.6,-17.2],[-79.6,-15.0],[-79.6,-12.8],[-79.6,-10.6],[-79.6,-8.4],[-79.6,-6.2],[-79.6,-4.0],[-79.6,-1.8],[-79.6,0.4],[-79.6,2.6],[-79.6,4.8],[-79.6,7.0],[-79.6,9.2],[-79.6,11.4],[-79.6,13.6],[-79.6,15.8],[-79.6,18.0],[-79.6,20.2],[-79.6,22.4],[-79.6,24.6],[-79.6,26.8],[-79.6,29.0],[-79.6,31.2],[-79.6,33.4],[-79.6,35.6],[-79.6,37.8],[-79.6,40.0],[-79.6,42.2],[-79.6,44.4],[-79.6,46.6],[-79.6,48.8],[-79.6,51.0],[-79.6,53.2],[-79.6,55.4],[-79.6,57.6],[-79.6,59.8],[-79.6,62.0],[-79.6,64.2],[-79.6,66.4],[-79.6,68.6],[-79.6,70.8],[-79.6,73.0],[-79.6,75.2],[-79.6,77.4],[-79.6,79.6],[-79.6,81.8],[-79.6,84.0],[-79.6,86.2],[-79.6,88.4],[-79.6,90.6],[-79.6,92.8],[-79.6,95.0],[-79.6,97.2],[-79.6,99.4],[-79.6,101.6],[-79.6,103.8],[-79.6,106.0],[-79.6,108.2],[-79.6,110.4],[-79.6,112.6],[-79.6,114.8],[-79.6,117.0],[-79.6,119.2],[-79.6,121.4],[-79.6,123.6],[-79.6,125.8],[-79.6,128.0],[-79.6,130.2],[-79.6,132.4],[-79.6,134.6],[-79.6,136.8],[-79.6,139.0],[-79.6,141.2],[-79.6,143.4],[-79.6,145.6],[-79.6,147.8],[-79.6,150.0],[-79.6,152.2],[-79.6,154.4],[-79.6,156.6],[-79.6,158.8],[-79.6,161.0],[-77.4,-158.0],[-77.4,-155.8],[-77.4,-153.6],[-77.4,-149.2],[-77.4,-147.0],[-77.4,-144.8],[-77.4,-142.6],[-77.4,-140.4],[-77.4,-138.2],[-77.4,-136.0],[-77.4,-133.8],[-77.4,-131.6],[-77.4,-129.4],[-77.4,-127.2],[-77.4,-125.0],[-77.4,-122.8],[-77.4,-120.6],[-77.4,-118.4],[-77.4,-116.2],[-77.4,-114.0],[-77.4,-111.8],[-77.4,-109.6],[-77.4,-107.4],[-77.4,-105.2],[-77.4,-103.0],[-77.4,-100.8],[-77.4,-98.6],[-77.4,-96.4],[-77.4,-94.2],[-77.4,-92.0],[-77.4,-89.8],[-77.4,-87.6],[-77.4,-85.4],[-77.4,-83.2],[-77.4,-81.0],[-77.4,-78.8],[-77.4,-76.6],[-77.4,-30.4],[-77.4,-28.2],[-77.4,-26.0],[-77.4,-23.8],[-77.4,-21.6],[-77.4,-19.4],[-77.4,-17.2],[-77.4,-15.0],[-77.4,-12.8],[-77.4,-10.6],[-77.4,-8.4],[-77.4,-6.2],[-77.4,-4.0],[-77.4,-1.8],[-77.4,0.4],[-77.4,2.6],[-77.4,4.8],[-77.4,7.0],[-77.4,9.2],[-77.4,11.4],[-77.4,13.6],[-77.4,15.8],[-77.4,18.0],[-77.4,20.2],[-77.4,22.4],[-77.4,24.6],[-77.4,26.8],[-77.4,29.0],[-77.4,31.2],[-77.4,33.4],[-77.4,35.6],[-77.4,37.8],[-77.4,40.0],[-77.4,42.2],[-77.4,44.4],[-77.4,46.6],[-77.4,48.8],[-77.4,51.0],[-77.4,53.2],[-77.4,55.4],[-77.4,57.6],[-77.4,59.8],[-77.4,62.0],[-77.4,64.2],[-77.4,66.4],[-77.4,68.6],[-77.4,70.8],[-77.4,73.0],[-77.4,75.2],[-77.4,77.4],[-77.4,79.6],[-77.4,81.8],[-77.4,84.0],[-77.4,86.2],[-77.4,88.4],[-77.4,90.6],[-77.4,92.8],[-77.4,95.0],[-77.4,97.2],[-77.4,99.4],[-77.4,101.6],[-77.4,103.8],[-77.4,106.0],[-77.4,108.2],[-77.4,110.4],[-77.4,112.6],[-77.4,114.8],[-77.4,117.0],[-77.4,119.2],[-77.4,121.4],[-77.4,123.6],[-77.4,125.8],[-77.4,128.0],[-77.4,130.2],[-77.4,132.4],[-77.4,134.6],[-77.4,136.8],[-77.4,139.0],[-77.4,141.2],[-77.4,143.4],[-77.4,145.6],[-77.4,147.8],[-77.4,150.0],[-77.4,152.2],[-77.4,154.4],[-77.4,156.6],[-77.4,158.8],[-77.4,161.0],[-77.4,163.2],[-75.2,-140.4],[-75.2,-138.2],[-75.2,-136.0],[-75.2,-133.8],[-75.2,-131.6],[-75.2,-129.4],[-75.2,-127.2],[-75.2,-125.0],[-75.2,-122.8],[-75.2,-120.6],[-75.2,-118.4],[-75.2,-116.2],[-75.2,-114.0],[-75.2,-111.8],[-75.2,-109.6],[-75.2,-107.4],[-75.2,-105.2],[-75.2,-103.0],[-75.2,-98.6],[-75.2,-96.4],[-75.2,-94.2],[-75.2,-92.0],[-75.2,-89.8],[-75.2,-87.6],[-75.2,-85.4],[-75.2,-83.2],[-75.2,-81.0],[-75.2,-78.8],[-75.2,-76.6],[-75.2,-74.4],[-75.2,-72.2],[-75.2,-70.0],[-75.2,-67.8],[-75.2,-65.6],[-75.2,-17.2],[-75.2,-15.0],[-75.2,-12.8],[-75.2,-10.6],[-75.2,-8.4],[-75.2,-6.2],[-75.2,-4.0],[-75.2,-1.8],[-75.2,0.4],[-75.2,2.6],[-75.2,4.8],[-75.2,7.0],[-75.2,9.2],[-75.2,11.4],[-75.2,13.6],[-75.2,15.8],[-75.2,18.0],[-75.2,20.2],[-75.2,22.4],[-75.2,24.6],[-75.2,26.8],[-75.2,29.0],[-75.2,31.2],[-75.2,33.4],[-75.2,35.6],[-75.2,37.8],[-75.2,40.0],[-75.2,42.2],[-75.2,44.4],[-75.2,46.6],[-75.2,48.8],[-75.2,51.0],[-75.2,53.2],[-75.2,55.4],[-75.2,57.6],[-75.2,59.8],[-75.2,62.0],[-75.2,64.2],[-75.2,66.4],[-75.2,68.6],[-75.2,70.8],[-75.2,73.0],[-75.2,75.2],[-75.2,77.4],[-75.2,79.6],[-75.2,81.8],[-75.2,84.0],[-75.2,86.2],[-75.2,88.4],[-75.2,90.6],[-75.2,92.8],[-75.2,95.0],[-75.2,97.2],[-75.2,99.4],[-75.2,101.6],[-75.2,103.8],[-75.2,106.0],[-75.2,108.2],[-75.2,110.4],[-75.2,112.6],[-75.2,114.8],[-75.2,117.0],[-75.2,119.2],[-75.2,121.4],[-75.2,123.6],[-75.2,125.8],[-75.2,128.0],[-75.2,130.2],[-75.2,132.4],[-75.2,134.6],[-75.2,136.8],[-75.2,139.0],[-75.2,141.2],[-75.2,143.4],[-75.2,145.6],[-75.2,147.8],[-75.2,150.0],[-75.2,152.2],[-75.2,154.4],[-75.2,156.6],[-75.2,158.8],[-75.2,161.0],[-75.2,163.2],[-73.0,-103.0],[-73.0,-100.8],[-73.0,-67.8],[-73.0,-65.6],[-73.0,-63.4],[-73.0,-61.2],[-73.0,-12.8],[-73.0,-10.6],[-73.0,-8.4],[-73.0,-6.2],[-73.0,-4.0],[-73.0,-1.8],[-73.0,0.4],[-73.0,2.6],[-73.0,4.8],[-73.0,7.0],[-73.0,9.2],[-73.0,11.4],[-73.0,13.6],[-73.0,15.8],[-73.0,18.0],[-73.0,20.2],[-73.0,22.4],[-73.0,24.6],[-73.0,26.8],[-73.0,29.0],[-73.0,31.2],[-73.0,33.4],[-73.0,35.6],[-73.0,37.8],[-73.0,40.0],[-73.0,42.2],[-73.0,44.4],[-73.0,46.6],[-73.0,48.8],[-73.0,51.0],[-73.0,53.2],[-73.0,55.4],[-73.0,57.6],[-73.0,59.8],[-73.0,62.0],[-73.0,64.2],[-73.0,66.4],[-73.0,68.6],[-73.0,70.8],[-73.0,73.0],[-73.0,75.2],[-73.0,77.4],[-73.0,79.6],[-73.0,81.8],[-73.0,84.0],[-73.0,86.2],[-73.0,88.4],[-73.0,90.6],[-73.0,92.8],[-73.0,95.0],[-73.0,97.2],[-73.0,99.4],[-73.0,101.6],[-73.0,103.8],[-73.0,106.0],[-73.0,108.2],[-73.0,110.4],[-73.0,112.6],[-73.0,114.8],[-73.0,117.0],[-73.0,119.2],[-73.0,121.4],[-73.0,123.6],[-73.0,125.8],[-73.0,128.0],[-73.0,130.2],[-73.0,132.4],[-73.0,134.6],[-73.0,136.8],[-73.0,139.0],[-73.0,141.2],[-73.0,143.4],[-73.0,145.6],[-73.0,147.8],[-73.0,150.0],[-73.0,152.2],[-73.0,154.4],[-73.0,156.6],[-73.0,158.8],[-73.0,161.0],[-73.0,163.2],[-73.0,165.4],[-73.0,167.6],[-73.0,169.8],[-70.8,-70.0],[-70.8,-67.8],[-70.8,-65.6],[-70.8,-63.4],[-70.8,4.8],[-70.8,7.0],[-70.8,9.2],[-70.8,11.4],[-70.8,13.6],[-70.8,15.8],[-70.8,18.0],[-70.8,20.2],[-70.8,22.4],[-70.8,24.6],[-70.8,26.8],[-70.8,29.0],[-70.8,31.2],[-70.8,33.4],[-70.8,35.6],[-70.8,37.8],[-70.8,40.0],[-70.8,42.2],[-70.8,44.4],[-70.8,46.6],[-70.8,48.8],[-70.8,51.0],[-70.8,53.2],[-70.8,55.4],[-70.8,57.6],[-70.8,59.8],[-70.8,62.0],[-70.8,64.2],[-70.8,66.4],[-70.8,68.6],[-70.8,73.0],[-70.8,75.2],[-70.8,77.4],[-70.8,79.6],[-70.8,81.8],[-70.8,84.0],[-70.8,86.2],[-70.8,88.4],[-70.8,90.6],[-70.8,92.8],[-70.8,95.0],[-70.8,97.2],[-70.8,99.4],[-70.8,101.6],[-70.8,103.8],[-70.8,106.0],[-70.8,108.2],[-70.8,110.4],[-70.8,112.6],[-70.8,114.8],[-70.8,117.0],[-70.8,119.2],[-70.8,121.4],[-70.8,123.6],[-70.8,125.8],[-70.8,128.0],[-70.8,130.2],[-70.8,132.4],[-70.8,134.6],[-70.8,136.8],[-70.8,139.0],[-70.8,141.2],[-70.8,143.4],[-70.8,145.6],[-70.8,147.8],[-70.8,150.0],[-70.8,152.2],[-70.8,154.4],[-70.8,156.6],[-70.8,158.8],[-70.8,161.0],[-70.8,163.2],[-70.8,165.4],[-68.6,-65.6],[-68.6,42.2],[-68.6,44.4],[-68.6,46.6],[-68.6,48.8],[-68.6,51.0],[-68.6,53.2],[-68.6,55.4],[-68.6,57.6],[-68.6,59.8],[-68.6,62.0],[-68.6,64.2],[-68.6,66.4],[-68.6,68.6],[-68.6,79.6],[-68.6,81.8],[-68.6,84.0],[-68.6,86.2],[-68.6,88.4],[-68.6,90.6],[-68.6,92.8],[-68.6,95.0],[-68.6,97.2],[-68.6,99.4],[-68.6,101.6],[-68.6,103.8],[-68.6,106.0],[-68.6,108.2],[-68.6,110.4],[-68.6,112.6],[-68.6,114.8],[-68.6,117.0],[-68.6,119.2],[-68.6,121.4],[-68.6,123.6],[-68.6,125.8],[-68.6,128.0],[-68.6,130.2],[-68.6,132.4],[-68.6,134.6],[-68.6,136.8],[-68.6,139.0],[-68.6,141.2],[-68.6,143.4],[-68.6,145.6],[-68.6,147.8],[-68.6,150.0],[-68.6,154.4],[-66.4,-65.6],[-66.4,-63.4],[-66.4,53.2],[-66.4,55.4],[-66.4,101.6],[-66.4,103.8],[-66.4,112.6],[-66.4,114.8],[-66.4,132.4],[-66.4,134.6],[-64.2,-59.0],[-55.4,-67.8],[-53.2,-72.2],[-53.2,-70.0],[-51.0,-74.4],[-51.0,-72.2],[-51.0,-70.0],[-48.8,-74.4],[-48.8,-72.2],[-48.8,-70.0],[-48.8,-67.8],[-46.6,-74.4],[-46.6,-72.2],[-46.6,-70.0],[-46.6,-67.8],[-44.4,-74.4],[-44.4,-72.2],[-44.4,-70.0],[-44.4,-67.8],[-44.4,-65.6],[-44.4,169.8],[-42.2,-72.2],[-42.2,-70.0],[-42.2,-67.8],[-42.2,-65.6],[-42.2,145.6],[-42.2,147.8],[-42.2,172.0],[-40.0,-72.2],[-40.0,-70.0],[-40.0,-67.8],[-40.0,-65.6],[-40.0,-63.4],[-40.0,176.4],[-37.8,-72.2],[-37.8,-70.0],[-37.8,-67.8],[-37.8,-65.6],[-37.8,-63.4],[-37.8,-61.2],[-37.8,-59.0],[-37.8,141.2],[-37.8,143.4],[-37.8,145.6],[-37.8,147.8],[-37.8,176.4],[-35.6,-72.2],[-35.6,-70.0],[-35.6,-67.8],[-35.6,-65.6],[-35.6,-63.4],[-35.6,-61.2],[-35.6,-59.0],[-35.6,139.0],[-35.6,141.2],[-35.6,143.4],[-35.6,145.6],[-35.6,147.8],[-35.6,150.0],[-35.6,174.2],[-33.4,-70.0],[-33.4,-67.8],[-33.4,-65.6],[-33.4,-63.4],[-33.4,-61.2],[-33.4,-59.0],[-33.4,-56.8],[-33.4,-54.6],[-33.4,20.2],[-33.4,22.4],[-33.4,24.6],[-33.4,26.8],[-33.4,117.0],[-33.4,119.2],[-33.4,121.4],[-33.4,123.6],[-33.4,136.8],[-33.4,139.0],[-33.4,141.2],[-33.4,143.4],[-33.4,145.6],[-33.4,147.8],[-33.4,150.0],[-31.2,-70.0],[-31.2,-67.8],[-31.2,-65.6],[-31.2,-63.4],[-31.2,-61.2],[-31.2,-59.0],[-31.2,-56.8],[-31.2,-54.6],[-31.2,-52.4],[-31.2,18.0],[-31.2,20.2],[-31.2,22.4],[-31.2,24.6],[-31.2,26.8],[-31.2,29.0],[-31.2,117.0],[-31.2,119.2],[-31.2,121.4],[-31.2,123.6],[-31.2,125.8],[-31.2,128.0],[-31.2,130.2],[-31.2,132.4],[-31.2,134.6],[-31.2,136.8],[-31.2,139.0],[-31.2,141.2],[-31.2,143.4],[-31.2,145.6],[-31.2,147.8],[-31.2,150.0],[-31.2,152.2],[-29.0,-70.0],[-29.0,-67.8],[-29.0,-65.6],[-29.0,-63.4],[-29.0,-61.2],[-29.0,-59.0],[-29.0,-56.8],[-29.0,-54.6],[-29.0,-52.4],[-29.0,-50.2],[-29.0,18.0],[-29.0,20.2],[-29.0,22.4],[-29.0,24.6],[-29.0,26.8],[-29.0,29.0],[-29.0,31.2],[-29.0,114.8],[-29.0,117.0],[-29.0,119.2],[-29.0,121.4],[-29.0,123.6],[-29.0,125.8],[-29.0,128.0],[-29.0,130.2],[-29.0,132.4],[-29.0,134.6],[-29.0,136.8],[-29.0,139.0],[-29.0,141.2],[-29.0,143.4],[-29.0,145.6],[-29.0,147.8],[-29.0,150.0],[-29.0,152.2],[-26.8,-70.0],[-26.8,-67.8],[-26.8,-65.6],[-26.8,-63.4],[-26.8,-61.2],[-26.8,-59.0],[-26.8,-56.8],[-26.8,-54.6],[-26.8,-52.4],[-26.8,-50.2],[-26.8,15.8],[-26.8,18.0],[-26.8,20.2],[-26.8,22.4],[-26.8,24.6],[-26.8,26.8],[-26.8,29.0],[-26.8,31.2],[-26.8,114.8],[-26.8,117.0],[-26.8,119.2],[-26.8,121.4],[-26.8,123.6],[-26.8,125.8],[-26.8,128.0],[-26.8,130.2],[-26.8,132.4],[-26.8,134.6],[-26.8,136.8],[-26.8,139.0],[-26.8,141.2],[-26.8,143.4],[-26.8,145.6],[-26.8,147.8],[-26.8,150.0],[-26.8,152.2],[-24.6,-70.0],[-24.6,-67.8],[-24.6,-65.6],[-24.6,-63.4],[-24.6,-61.2],[-24.6,-59.0],[-24.6,-56.8],[-24.6,-54.6],[-24.6,-52.4],[-24.6,-50.2],[-24.6,-48.0],[-24.6,15.8],[-24.6,18.0],[-24.6,20.2],[-24.6,22.4],[-24.6,24.6],[-24.6,26.8],[-24.6,29.0],[-24.6,31.2],[-24.6,33.4],[-24.6,44.4],[-24.6,46.6],[-24.6,114.8],[-24.6,117.0],[-24.6,119.2],[-24.6,121.4],[-24.6,123.6],[-24.6,125.8],[-24.6,128.0],[-24.6,130.2],[-24.6,132.4],[-24.6,134.6],[-24.6,136.8],[-24.6,139.0],[-24.6,141.2],[-24.6,143.4],[-24.6,145.6],[-24.6,147.8],[-24.6,150.0],[-24.6,152.2],[-22.4,-70.0],[-22.4,-67.8],[-22.4,-65.6],[-22.4,-63.4],[-22.4,-61.2],[-22.4,-59.0],[-22.4,-56.8],[-22.4,-54.6],[-22.4,-52.4],[-22.4,-50.2],[-22.4,-48.0],[-22.4,-45.8],[-22.4,-43.6],[-22.4,15.8],[-22.4,18.0],[-22.4,20.2],[-22.4,22.4],[-22.4,24.6],[-22.4,26.8],[-22.4,29.0],[-22.4,31.2],[-22.4,33.4],[-22.4,44.4],[-22.4,46.6],[-22.4,114.8],[-22.4,117.0],[-22.4,119.2],[-22.4,121.4],[-22.4,123.6],[-22.4,125.8],[-22.4,128.0],[-22.4,130.2],[-22.4,132.4],[-22.4,134.6],[-22.4,136.8],[-22.4,139.0],[-22.4,141.2],[-22.4,143.4],[-22.4,145.6],[-22.4,147.8],[-22.4,150.0],[-20.2,-70.0],[-20.2,-67.8],[-20.2,-65.6],[-20.2,-63.4],[-20.2,-61.2],[-20.2,-59.0],[-20.2,-56.8],[-20.2,-54.6],[-20.2,-52.4],[-20.2,-50.2],[-20.2,-48.0],[-20.2,-45.8],[-20.2,-43.6],[-20.2,-41.4],[-20.2,13.6],[-20.2,15.8],[-20.2,18.0],[-20.2,20.2],[-20.2,22.4],[-20.2,24.6],[-20.2,26.8],[-20.2,29.0],[-20.2,31.2],[-20.2,33.4],[-20.2,44.4],[-20.2,46.6],[-20.2,119.2],[-20.2,121.4],[-20.2,123.6],[-20.2,125.8],[-20.2,128.0],[-20.2,130.2],[-20.2,132.4],[-20.2,134.6],[-20.2,136.8],[-20.2,139.0],[-20.2,141.2],[-20.2,143.4],[-20.2,145.6],[-20.2,147.8],[-18.0,-70.0],[-18.0,-67.8],[-18.0,-65.6],[-18.0,-63.4],[-18.0,-61.2],[-18.0,-59.0],[-18.0,-56.8],[-18.0,-54.6],[-18.0,-52.4],[-18.0,-50.2],[-18.0,-48.0],[-18.0,-45.8],[-18.0,-43.6],[-18.0,-41.4],[-18.0,13.6],[-18.0,15.8],[-18.0,18.0],[-18.0,20.2],[-18.0,22.4],[-18.0,24.6],[-18.0,26.8],[-18.0,29.0],[-18.0,31.2],[-18.0,33.4],[-18.0,35.6],[-18.0,44.4],[-18.0,46.6],[-18.0,48.8],[-18.0,123.6],[-18.0,125.8],[-18.0,128.0],[-18.0,130.2],[-18.0,132.4],[-18.0,134.6],[-18.0,136.8],[-18.0,139.0],[-18.0,141.2],[-18.0,143.4],[-18.0,145.6],[-18.0,178.6],[-15.8,-72.2],[-15.8,-70.0],[-15.8,-67.8],[-15.8,-65.6],[-15.8,-63.4],[-15.8,-61.2],[-15.8,-59.0],[-15.8,-56.8],[-15.8,-54.6],[-15.8,-52.4],[-15.8,-50.2],[-15.8,-48.0],[-15.8,-45.8],[-15.8,-43.6],[-15.8,-41.4],[-15.8,-39.2],[-15.8,13.6],[-15.8,15.8],[-15.8,18.0],[-15.8,20.2],[-15.8,22.4],[-15.8,24.6],[-15.8,26.8],[-15.8,29.0],[-15.8,31.2],[-15.8,33.4],[-15.8,35.6],[-15.8,37.8],[-15.8,40.0],[-15.8,46.6],[-15.8,48.8],[-15.8,125.8],[-15.8,128.0],[-15.8,130.2],[-15.8,132.4],[-15.8,134.6],[-15.8,136.8],[-15.8,143.4],[-13.6,-74.4],[-13.6,-72.2],[-13.6,-70.0],[-13.6,-67.8],[-13.6,-65.6],[-13.6,-63.4],[-13.6,-61.2],[-13.6,-59.0],[-13.6,-56.8],[-13.6,-54.6],[-13.6,-52.4],[-13.6,-50.2],[-13.6,-48.0],[-13.6,-45.8],[-13.6,-43.6],[-13.6,-41.4],[-13.6,-39.2],[-13.6,13.6],[-13.6,15.8],[-13.6,18.0],[-13.6,20.2],[-13.6,22.4],[-13.6,24.6],[-13.6,26.8],[-13.6,29.0],[-13.6,31.2],[-13.6,33.4],[-13.6,35.6],[-13.6,37.8],[-13.6,40.0],[-13.6,48.8],[-13.6,130.2],[-13.6,132.4],[-13.6,134.6],[-13.6,143.4],[-11.4,-76.6],[-11.4,-74.4],[-11.4,-72.2],[-11.4,-70.0],[-11.4,-67.8],[-11.4,-65.6],[-11.4,-63.4],[-11.4,-61.2],[-11.4,-59.0],[-11.4,-56.8],[-11.4,-54.6],[-11.4,-52.4],[-11.4,-50.2],[-11.4,-48.0],[-11.4,-45.8],[-11.4,-43.6],[-11.4,-41.4],[-11.4,-39.2],[-11.4,15.8],[-11.4,18.0],[-11.4,20.2],[-11.4,22.4],[-11.4,24.6],[-11.4,26.8],[-11.4,29.0],[-11.4,31.2],[-11.4,33.4],[-11.4,35.6],[-11.4,37.8],[-11.4,40.0],[-11.4,132.4],[-9.2,-76.6],[-9.2,-74.4],[-9.2,-72.2],[-9.2,-70.0],[-9.2,-67.8],[-9.2,-65.6],[-9.2,-63.4],[-9.2,-61.2],[-9.2,-59.0],[-9.2,-56.8],[-9.2,-54.6],[-9.2,-52.4],[-9.2,-50.2],[-9.2,-48.0],[-9.2,-45.8],[-9.2,-43.6],[-9.2,-41.4],[-9.2,-39.2],[-9.2,-37.0],[-9.2,13.6],[-9.2,15.8],[-9.2,18.0],[-9.2,20.2],[-9.2,22.4],[-9.2,24.6],[-9.2,26.8],[-9.2,29.0],[-9.2,31.2],[-9.2,33.4],[-9.2,35.6],[-9.2,37.8],[-9.2,147.8],[-7.0,-78.8],[-7.0,-76.6],[-7.0,-74.4],[-7.0,-72.2],[-7.0,-70.0],[-7.0,-67.8],[-7.0,-65.6],[-7.0,-63.4],[-7.0,-61.2],[-7.0,-59.0],[-7.0,-56.8],[-7.0,-54.6],[-7.0,-52.4],[-7.0,-50.2],[-7.0,-48.0],[-7.0,-45.8],[-7.0,-43.6],[-7.0,-41.4],[-7.0,-39.2],[-7.0,-37.0],[-7.0,13.6],[-7.0,15.8],[-7.0,18.0],[-7.0,20.2],[-7.0,22.4],[-7.0,24.6],[-7.0,26.8],[-7.0,29.0],[-7.0,31.2],[-7.0,33.4],[-7.0,35.6],[-7.0,37.8],[-7.0,108.2],[-7.0,110.4],[-7.0,112.6],[-7.0,139.0],[-7.0,141.2],[-7.0,143.4],[-7.0,145.6],[-4.8,-81.0],[-4.8,-78.8],[-4.8,-76.6],[-4.8,-74.4],[-4.8,-72.2],[-4.8,-70.0],[-4.8,-67.8],[-4.8,-65.6],[-4.8,-63.4],[-4.8,-61.2],[-4.8,-59.0],[-4.8,-56.8],[-4.8,-54.6],[-4.8,-52.4],[-4.8,-50.2],[-4.8,-48.0],[-4.8,-45.8],[-4.8,-43.6],[-4.8,-41.4],[-4.8,-39.2],[-4.8,13.6],[-4.8,15.8],[-4.8,18.0],[-4.8,20.2],[-4.8,22.4],[-4.8,24.6],[-4.8,26.8],[-4.8,29.0],[-4.8,31.2],[-4.8,33.4],[-4.8,35.6],[-4.8,37.8],[-4.8,103.8],[-4.8,136.8],[-4.8,139.0],[-4.8,141.2],[-4.8,143.4],[-4.8,145.6],[-4.8,152.2],[-2.6,-78.8],[-2.6,-76.6],[-2.6,-74.4],[-2.6,-72.2],[-2.6,-70.0],[-2.6,-67.8],[-2.6,-65.6],[-2.6,-63.4],[-2.6,-61.2],[-2.6,-59.0],[-2.6,-56.8],[-2.6,-54.6],[-2.6,-52.4],[-2.6,-50.2],[-2.6,-48.0],[-2.6,-45.8],[-2.6,-43.6],[-2.6,11.4],[-2.6,13.6],[-2.6,15.8],[-2.6,18.0],[-2.6,20.2],[-2.6,22.4],[-2.6,24.6],[-2.6,26.8],[-2.6,29.0],[-2.6,31.2],[-2.6,33.4],[-2.6,35.6],[-2.6,37.8],[-2.6,40.0],[-2.6,101.6],[-2.6,103.8],[-2.6,110.4],[-2.6,112.6],[-2.6,114.8],[-2.6,119.2],[-2.6,121.4],[-2.6,136.8],[-2.6,139.0],[-0.4,-78.8],[-0.4,-76.6],[-0.4,-74.4],[-0.4,-72.2],[-0.4,-70.0],[-0.4,-67.8],[-0.4,-65.6],[-0.4,-63.4],[-0.4,-61.2],[-0.4,-59.0],[-0.4,-56.8],[-0.4,-54.6],[-0.4,-52.4],[-0.4,-50.2],[-0.4,9.2],[-0.4,11.4],[-0.4,13.6],[-0.4,15.8],[-0.4,18.0],[-0.4,20.2],[-0.4,22.4],[-0.4,24.6],[-0.4,26.8],[-0.4,29.0],[-0.4,31.2],[-0.4,33.4],[-0.4,35.6],[-0.4,37.8],[-0.4,40.0],[-0.4,42.2],[-0.4,101.6],[-0.4,110.4],[-0.4,112.6],[-0.4,114.8],[-0.4,117.0],[-0.4,128.0],[-0.4,132.4],[1.8,-76.6],[1.8,-74.4],[1.8,-72.2],[1.8,-70.0],[1.8,-67.8],[1.8,-65.6],[1.8,-63.4],[1.8,-61.2],[1.8,-59.0],[1.8,-56.8],[1.8,-54.6],[1.8,-52.4],[1.8,-50.2],[1.8,11.4],[1.8,13.6],[1.8,15.8],[1.8,18.0],[1.8,20.2],[1.8,22.4],[1.8,24.6],[1.8,26.8],[1.8,29.0],[1.8,31.2],[1.8,33.4],[1.8,35.6],[1.8,37.8],[1.8,40.0],[1.8,42.2],[1.8,44.4],[1.8,99.4],[1.8,101.6],[1.8,103.8],[1.8,112.6],[1.8,114.8],[1.8,117.0],[4.0,-76.6],[4.0,-74.4],[4.0,-72.2],[4.0,-70.0],[4.0,-67.8],[4.0,-65.6],[4.0,-63.4],[4.0,-61.2],[4.0,-59.0],[4.0,-56.8],[4.0,-54.6],[4.0,-52.4],[4.0,9.2],[4.0,11.4],[4.0,13.6],[4.0,15.8],[4.0,18.0],[4.0,20.2],[4.0,22.4],[4.0,24.6],[4.0,26.8],[4.0,29.0],[4.0,31.2],[4.0,33.4],[4.0,35.6],[4.0,37.8],[4.0,40.0],[4.0,42.2],[4.0,44.4],[4.0,46.6],[4.0,97.2],[4.0,101.6],[4.0,114.8],[4.0,117.0],[6.2,-76.6],[6.2,-74.4],[6.2,-72.2],[6.2,-70.0],[6.2,-67.8],[6.2,-65.6],[6.2,-63.4],[6.2,-61.2],[6.2,-59.0],[6.2,-10.6],[6.2,-8.4],[6.2,-6.2],[6.2,-4.0],[6.2,-1.8],[6.2,0.4],[6.2,4.8],[6.2,7.0],[6.2,9.2],[6.2,11.4],[6.2,13.6],[6.2,15.8],[6.2,18.0],[6.2,20.2],[6.2,22.4],[6.2,24.6],[6.2,26.8],[6.2,29.0],[6.2,31.2],[6.2,33.4],[6.2,35.6],[6.2,37.8],[6.2,40.0],[6.2,42.2],[6.2,44.4],[6.2,46.6],[6.2,48.8],[6.2,101.6],[6.2,117.0],[8.4,-83.2],[8.4,-81.0],[8.4,-76.6],[8.4,-74.4],[8.4,-72.2],[8.4,-70.0],[8.4,-67.8],[8.4,-65.6],[8.4,-63.4],[8.4,-61.2],[8.4,-12.8],[8.4,-10.6],[8.4,-8.4],[8.4,-6.2],[8.4,-4.0],[8.4,-1.8],[8.4,0.4],[8.4,2.6],[8.4,4.8],[8.4,7.0],[8.4,9.2],[8.4,11.4],[8.4,13.6],[8.4,15.8],[8.4,18.0],[8.4,20.2],[8.4,22.4],[8.4,24.6],[8.4,26.8],[8.4,29.0],[8.4,31.2],[8.4,33.4],[8.4,35.6],[8.4,37.8],[8.4,40.0],[8.4,42.2],[8.4,44.4],[8.4,46.6],[8.4,48.8],[8.4,77.4],[8.4,99.4],[8.4,123.6],[8.4,125.8],[10.6,-85.4],[10.6,-74.4],[10.6,-72.2],[10.6,-70.0],[10.6,-63.4],[10.6,-61.2],[10.6,-12.8],[10.6,-10.6],[10.6,-8.4],[10.6,-6.2],[10.6,-4.0],[10.6,-1.8],[10.6,0.4],[10.6,2.6],[10.6,4.8],[10.6,7.0],[10.6,9.2],[10.6,11.4],[10.6,13.6],[10.6,15.8],[10.6,18.0],[10.6,20.2],[10.6,22.4],[10.6,24.6],[10.6,26.8],[10.6,29.0],[10.6,31.2],[10.6,33.4],[10.6,35.6],[10.6,37.8],[10.6,40.0],[10.6,42.2],[10.6,46.6],[10.6,48.8],[10.6,51.0],[10.6,77.4],[10.6,79.6],[10.6,103.8],[10.6,106.0],[10.6,119.2],[10.6,123.6],[12.8,-85.4],[12.8,-15.0],[12.8,-12.8],[12.8,-10.6],[12.8,-8.4],[12.8,-6.2],[12.8,-4.0],[12.8,-1.8],[12.8,0.4],[12.8,2.6],[12.8,4.8],[12.8,7.0],[12.8,9.2],[12.8,11.4],[12.8,13.6],[12.8,15.8],[12.8,18.0],[12.8,20.2],[12.8,22.4],[12.8,24.6],[12.8,26.8],[12.8,29.0],[12.8,31.2],[12.8,33.4],[12.8,35.6],[12.8,37.8],[12.8,40.0],[12.8,42.2],[12.8,44.4],[12.8,75.2],[12.8,77.4],[12.8,79.6],[12.8,99.4],[12.8,101.6],[12.8,103.8],[12.8,106.0],[12.8,108.2],[12.8,121.4],[15.0,-92.0],[15.0,-89.8],[15.0,-87.6],[15.0,-85.4],[15.0,-83.2],[15.0,-15.0],[15.0,-12.8],[15.0,-10.6],[15.0,-8.4],[15.0,-6.2],[15.0,-4.0],[15.0,-1.8],[15.0,0.4],[15.0,2.6],[15.0,4.8],[15.0,7.0],[15.0,9.2],[15.0,11.4],[15.0,13.6],[15.0,15.8],[15.0,18.0],[15.0,20.2],[15.0,22.4],[15.0,24.6],[15.0,26.8],[15.0,29.0],[15.0,31.2],[15.0,33.4],[15.0,35.6],[15.0,37.8],[15.0,40.0],[15.0,44.4],[15.0,46.6],[15.0,48.8],[15.0,75.2],[15.0,77.4],[15.0,79.6],[15.0,99.4],[15.0,101.6],[15.0,103.8],[15.0,106.0],[15.0,108.2],[15.0,121.4],[17.2,-100.8],[17.2,-98.6],[17.2,-96.4],[17.2,-94.2],[17.2,-92.0],[17.2,-89.8],[17.2,-15.0],[17.2,-12.8],[17.2,-10.6],[17.2,-8.4],[17.2,-6.2],[17.2,-4.0],[17.2,-1.8],[17.2,0.4],[17.2,2.6],[17.2,4.8],[17.2,7.0],[17.2,9.2],[17.2,11.4],[17.2,13.6],[17.2,15.8],[17.2,18.0],[17.2,20.2],[17.2,22.4],[17.2,24.6],[17.2,26.8],[17.2,29.0],[17.2,31.2],[17.2,33.4],[17.2,35.6],[17.2,37.8],[17.2,44.4],[17.2,46.6],[17.2,48.8],[17.2,51.0],[17.2,53.2],[17.2,75.2],[17.2,77.4],[17.2,79.6],[17.2,81.8],[17.2,95.0],[17.2,97.2],[17.2,99.4],[17.2,101.6],[17.2,103.8],[17.2,106.0],[17.2,121.4],[19.4,-155.8],[19.4,-103.0],[19.4,-100.8],[19.4,-98.6],[19.4,-96.4],[19.4,-89.8],[19.4,-87.6],[19.4,-72.2],[19.4,-70.0],[19.4,-15.0],[19.4,-12.8],[19.4,-10.6],[19.4,-8.4],[19.4,-6.2],[19.4,-4.0],[19.4,-1.8],[19.4,0.4],[19.4,2.6],[19.4,4.8],[19.4,7.0],[19.4,9.2],[19.4,11.4],[19.4,13.6],[19.4,15.8],[19.4,18.0],[19.4,20.2],[19.4,22.4],[19.4,24.6],[19.4,26.8],[19.4,29.0],[19.4,31.2],[19.4,33.4],[19.4,35.6],[19.4,42.2],[19.4,44.4],[19.4,46.6],[19.4,48.8],[19.4,51.0],[19.4,53.2],[19.4,55.4],[19.4,57.6],[19.4,73.0],[19.4,75.2],[19.4,77.4],[19.4,79.6],[19.4,81.8],[19.4,84.0],[19.4,95.0],[19.4,97.2],[19.4,99.4],[19.4,101.6],[19.4,103.8],[19.4,110.4],[21.6,-158.0],[21.6,-105.2],[21.6,-103.0],[21.6,-100.8],[21.6,-98.6],[21.6,-78.8],[21.6,-15.0],[21.6,-12.8],[21.6,-10.6],[21.6,-8.4],[21.6,-6.2],[21.6,-4.0],[21.6,-1.8],[21.6,0.4],[21.6,2.6],[21.6,4.8],[21.6,7.0],[21.6,9.2],[21.6,11.4],[21.6,13.6],[21.6,15.8],[21.6,18.0],[21.6,20.2],[21.6,22.4],[21.6,24.6],[21.6,26.8],[21.6,29.0],[21.6,31.2],[21.6,33.4],[21.6,35.6],[21.6,40.0],[21.6,42.2],[21.6,44.4],[21.6,46.6],[21.6,48.8],[21.6,51.0],[21.6,53.2],[21.6,55.4],[21.6,57.6],[21.6,70.8],[21.6,73.0],[21.6,75.2],[21.6,77.4],[21.6,79.6],[21.6,81.8],[21.6,84.0],[21.6,86.2],[21.6,92.8],[21.6,95.0],[21.6,97.2],[21.6,99.4],[21.6,101.6],[21.6,103.8],[21.6,106.0],[21.6,110.4],[23.8,-105.2],[23.8,-103.0],[23.8,-100.8],[23.8,-98.6],[23.8,-15.0],[23.8,-12.8],[23.8,-10.6],[23.8,-8.4],[23.8,-6.2],[23.8,-4.0],[23.8,-1.8],[23.8,0.4],[23.8,2.6],[23.8,4.8],[23.8,7.0],[23.8,9.2],[23.8,11.4],[23.8,13.6],[23.8,15.8],[23.8,18.0],[23.8,20.2],[23.8,22.4],[23.8,24.6],[23.8,26.8],[23.8,29.0],[23.8,31.2],[23.8,33.4],[23.8,40.0],[23.8,42.2],[23.8,44.4],[23.8,46.6],[23.8,48.8],[23.8,51.0],[23.8,53.2],[23.8,55.4],[23.8,57.6],[23.8,68.6],[23.8,70.8],[23.8,73.0],[23.8,75.2],[23.8,77.4],[23.8,79.6],[23.8,81.8],[23.8,84.0],[23.8,86.2],[23.8,88.4],[23.8,90.6],[23.8,92.8],[23.8,95.0],[23.8,97.2],[23.8,99.4],[23.8,101.6],[23.8,103.8],[23.8,106.0],[23.8,108.2],[23.8,110.4],[23.8,112.6],[23.8,114.8],[23.8,117.0],[23.8,121.4],[26.0,-111.8],[26.0,-107.4],[26.0,-105.2],[26.0,-103.0],[26.0,-100.8],[26.0,-98.6],[26.0,-81.0],[26.0,-12.8],[26.0,-10.6],[26.0,-8.4],[26.0,-6.2],[26.0,-4.0],[26.0,-1.8],[26.0,0.4],[26.0,2.6],[26.0,4.8],[26.0,7.0],[26.0,9.2],[26.0,11.4],[26.0,13.6],[26.0,15.8],[26.0,18.0],[26.0,20.2],[26.0,22.4],[26.0,24.6],[26.0,26.8],[26.0,29.0],[26.0,31.2],[26.0,33.4],[26.0,37.8],[26.0,40.0],[26.0,42.2],[26.0,44.4],[26.0,46.6],[26.0,48.8],[26.0,57.6],[26.0,59.8],[26.0,62.0],[26.0,64.2],[26.0,66.4],[26.0,68.6],[26.0,70.8],[26.0,73.0],[26.0,75.2],[26.0,77.4],[26.0,79.6],[26.0,81.8],[26.0,84.0],[26.0,86.2],[26.0,88.4],[26.0,90.6],[26.0,92.8],[26.0,95.0],[26.0,97.2],[26.0,99.4],[26.0,101.6],[26.0,103.8],[26.0,106.0],[26.0,108.2],[26.0,110.4],[26.0,112.6],[26.0,114.8],[26.0,117.0],[26.0,119.2],[28.2,-114.0],[28.2,-109.6],[28.2,-107.4],[28.2,-105.2],[28.2,-103.0],[28.2,-100.8],[28.2,-98.6],[28.2,-81.0],[28.2,-10.6],[28.2,-8.4],[28.2,-6.2],[28.2,-4.0],[28.2,-1.8],[28.2,0.4],[28.2,2.6],[28.2,4.8],[28.2,7.0],[28.2,9.2],[28.2,11.4],[28.2,13.6],[28.2,15.8],[28.2,18.0],[28.2,20.2],[28.2,22.4],[28.2,24.6],[28.2,26.8],[28.2,29.0],[28.2,31.2],[28.2,33.4],[28.2,35.6],[28.2,37.8],[28.2,40.0],[28.2,42.2],[28.2,44.4],[28.2,46.6],[28.2,53.2],[28.2,55.4],[28.2,57.6],[28.2,59.8],[28.2,62.0],[28.2,64.2],[28.2,66.4],[28.2,68.6],[28.2,70.8],[28.2,73.0],[28.2,75.2],[28.2,77.4],[28.2,79.6],[28.2,81.8],[28.2,84.0],[28.2,86.2],[28.2,88.4],[28.2,90.6],[28.2,92.8],[28.2,95.0],[28.2,97.2],[28.2,99.4],[28.2,101.6],[28.2,103.8],[28.2,106.0],[28.2,108.2],[28.2,110.4],[28.2,112.6],[28.2,114.8],[28.2,117.0],[28.2,119.2],[28.2,121.4],[30.4,-111.8],[30.4,-109.6],[30.4,-107.4],[30.4,-105.2],[30.4,-103.0],[30.4,-100.8],[30.4,-98.6],[30.4,-96.4],[30.4,-94.2],[30.4,-92.0],[30.4,-89.8],[30.4,-87.6],[30.4,-85.4],[30.4,-83.2],[30.4,-8.4],[30.4,-6.2],[30.4,-4.0],[30.4,-1.8],[30.4,0.4],[30.4,2.6],[30.4,4.8],[30.4,7.0],[30.4,9.2],[30.4,11.4],[30.4,13.6],[30.4,15.8],[30.4,18.0],[30.4,20.2],[30.4,22.4],[30.4,24.6],[30.4,26.8],[30.4,29.0],[30.4,31.2],[30.4,33.4],[30.4,35.6],[30.4,37.8],[30.4,40.0],[30.4,42.2],[30.4,44.4],[30.4,46.6],[30.4,48.8],[30.4,51.0],[30.4,53.2],[30.4,55.4],[30.4,57.6],[30.4,59.8],[30.4,62.0],[30.4,64.2],[30.4,66.4],[30.4,68.6],[30.4,70.8],[30.4,73.0],[30.4,75.2],[30.4,77.4],[30.4,79.6],[30.4,81.8],[30.4,84.0],[30.4,86.2],[30.4,88.4],[30.4,90.6],[30.4,92.8],[30.4,95.0],[30.4,97.2],[30.4,99.4],[30.4,101.6],[30.4,103.8],[30.4,106.0],[30.4,108.2],[30.4,110.4],[30.4,112.6],[30.4,114.8],[30.4,117.0],[30.4,119.2],[32.6,-116.2],[32.6,-114.0],[32.6,-111.8],[32.6,-109.6],[32.6,-107.4],[32.6,-105.2],[32.6,-103.0],[32.6,-100.8],[32.6,-98.6],[32.6,-96.4],[32.6,-94.2],[32.6,-92.0],[32.6,-89.8],[32.6,-87.6],[32.6,-85.4],[32.6,-83.2],[32.6,-81.0],[32.6,-8.4],[32.6,-6.2],[32.6,-4.0],[32.6,-1.8],[32.6,0.4],[32.6,2.6],[32.6,4.8],[32.6,7.0],[32.6,9.2],[32.6,11.4],[32.6,13.6],[32.6,22.4],[32.6,35.6],[32.6,37.8],[32.6,40.0],[32.6,42.2],[32.6,44.4],[32.6,46.6],[32.6,48.8],[32.6,51.0],[32.6,53.2],[32.6,55.4],[32.6,57.6],[32.6,59.8],[32.6,62.0],[32.6,64.2],[32.6,66.4],[32.6,68.6],[32.6,70.8],[32.6,73.0],[32.6,75.2],[32.6,77.4],[32.6,79.6],[32.6,81.8],[32.6,84.0],[32.6,86.2],[32.6,88.4],[32.6,90.6],[32.6,92.8],[32.6,95.0],[32.6,97.2],[32.6,99.4],[32.6,101.6],[32.6,103.8],[32.6,106.0],[32.6,108.2],[32.6,110.4],[32.6,112.6],[32.6,114.8],[32.6,117.0],[32.6,119.2],[32.6,130.2],[34.8,-120.6],[34.8,-118.4],[34.8,-116.2],[34.8,-114.0],[34.8,-111.8],[34.8,-109.6],[34.8,-107.4],[34.8,-105.2],[34.8,-103.0],[34.8,-100.8],[34.8,-98.6],[34.8,-96.4],[34.8,-94.2],[34.8,-92.0],[34.8,-89.8],[34.8,-87.6],[34.8,-85.4],[34.8,-83.2],[34.8,-81.0],[34.8,-78.8],[34.8,-76.6],[34.8,-6.2],[34.8,-4.0],[34.8,-1.8],[34.8,0.4],[34.8,2.6],[34.8,4.8],[34.8,7.0],[34.8,9.2],[34.8,33.4],[34.8,37.8],[34.8,40.0],[34.8,42.2],[34.8,44.4],[34.8,46.6],[34.8,48.8],[34.8,51.0],[34.8,53.2],[34.8,55.4],[34.8,57.6],[34.8,59.8],[34.8,62.0],[34.8,64.2],[34.8,66.4],[34.8,68.6],[34.8,70.8],[34.8,73.0],[34.8,75.2],[34.8,77.4],[34.8,79.6],[34.8,81.8],[34.8,84.0],[34.8,86.2],[34.8,88.4],[34.8,90.6],[34.8,92.8],[34.8,95.0],[34.8,97.2],[34.8,99.4],[34.8,101.6],[34.8,103.8],[34.8,106.0],[34.8,108.2],[34.8,110.4],[34.8,112.6],[34.8,114.8],[34.8,117.0],[34.8,119.2],[34.8,128.0],[34.8,132.4],[34.8,134.6],[34.8,136.8],[34.8,139.0],[37.0,-120.6],[37.0,-118.4],[37.0,-116.2],[37.0,-114.0],[37.0,-111.8],[37.0,-109.6],[37.0,-107.4],[37.0,-105.2],[37.0,-103.0],[37.0,-100.8],[37.0,-98.6],[37.0,-96.4],[37.0,-94.2],[37.0,-92.0],[37.0,-89.8],[37.0,-87.6],[37.0,-85.4],[37.0,-83.2],[37.0,-81.0],[37.0,-78.8],[37.0,-76.6],[37.0,-8.4],[37.0,-6.2],[37.0,-4.0],[37.0,7.0],[37.0,9.2],[37.0,22.4],[37.0,29.0],[37.0,31.2],[37.0,33.4],[37.0,35.6],[37.0,37.8],[37.0,40.0],[37.0,42.2],[37.0,44.4],[37.0,46.6],[37.0,48.8],[37.0,51.0],[37.0,53.2],[37.0,55.4],[37.0,57.6],[37.0,59.8],[37.0,62.0],[37.0,64.2],[37.0,66.4],[37.0,68.6],[37.0,70.8],[37.0,73.0],[37.0,75.2],[37.0,77.4],[37.0,79.6],[37.0,81.8],[37.0,84.0],[37.0,86.2],[37.0,88.4],[37.0,90.6],[37.0,92.8],[37.0,95.0],[37.0,97.2],[37.0,99.4],[37.0,101.6],[37.0,103.8],[37.0,106.0],[37.0,108.2],[37.0,110.4],[37.0,112.6],[37.0,114.8],[37.0,117.0],[37.0,119.2],[37.0,121.4],[37.0,128.0],[37.0,136.8],[37.0,139.0],[39.2,-122.8],[39.2,-120.6],[39.2,-118.4],[39.2,-116.2],[39.2,-114.0],[39.2,-111.8],[39.2,-109.6],[39.2,-107.4],[39.2,-105.2],[39.2,-103.0],[39.2,-100.8],[39.2,-98.6],[39.2,-96.4],[39.2,-94.2],[39.2,-92.0],[39.2,-89.8],[39.2,-87.6],[39.2,-85.4],[39.2,-83.2],[39.2,-81.0],[39.2,-78.8],[39.2,-76.6],[39.2,-8.4],[39.2,-6.2],[39.2,-4.0],[39.2,-1.8],[39.2,22.4],[39.2,26.8],[39.2,29.0],[39.2,31.2],[39.2,33.4],[39.2,35.6],[39.2,37.8],[39.2,40.0],[39.2,42.2],[39.2,44.4],[39.2,46.6],[39.2,48.8],[39.2,51.0],[39.2,53.2],[39.2,55.4],[39.2,57.6],[39.2,59.8],[39.2,62.0],[39.2,64.2],[39.2,66.4],[39.2,68.6],[39.2,70.8],[39.2,73.0],[39.2,75.2],[39.2,77.4],[39.2,79.6],[39.2,81.8],[39.2,84.0],[39.2,86.2],[39.2,88.4],[39.2,90.6],[39.2,92.8],[39.2,95.0],[39.2,97.2],[39.2,99.4],[39.2,101.6],[39.2,103.8],[39.2,106.0],[39.2,108.2],[39.2,110.4],[39.2,112.6],[39.2,114.8],[39.2,117.0],[39.2,125.8],[39.2,141.2],[41.4,-122.8],[41.4,-120.6],[41.4,-118.4],[41.4,-116.2],[41.4,-114.0],[41.4,-111.8],[41.4,-109.6],[41.4,-107.4],[41.4,-105.2],[41.4,-103.0],[41.4,-100.8],[41.4,-98.6],[41.4,-96.4],[41.4,-94.2],[41.4,-92.0],[41.4,-89.8],[41.4,-87.6],[41.4,-85.4],[41.4,-83.2],[41.4,-81.0],[41.4,-78.8],[41.4,-76.6],[41.4,-74.4],[41.4,-72.2],[41.4,-8.4],[41.4,-6.2],[41.4,-4.0],[41.4,-1.8],[41.4,0.4],[41.4,9.2],[41.4,13.6],[41.4,15.8],[41.4,20.2],[41.4,22.4],[41.4,24.6],[41.4,26.8],[41.4,33.4],[41.4,35.6],[41.4,42.2],[41.4,44.4],[41.4,46.6],[41.4,48.8],[41.4,51.0],[41.4,53.2],[41.4,55.4],[41.4,57.6],[41.4,59.8],[41.4,62.0],[41.4,64.2],[41.4,66.4],[41.4,68.6],[41.4,70.8],[41.4,73.0],[41.4,75.2],[41.4,77.4],[41.4,79.6],[41.4,81.8],[41.4,84.0],[41.4,86.2],[41.4,88.4],[41.4,90.6],[41.4,92.8],[41.4,95.0],[41.4,97.2],[41.4,99.4],[41.4,101.6],[41.4,103.8],[41.4,106.0],[41.4,108.2],[41.4,110.4],[41.4,112.6],[41.4,114.8],[41.4,117.0],[41.4,119.2],[41.4,121.4],[41.4,123.6],[41.4,125.8],[41.4,128.0],[43.6,-122.8],[43.6,-120.6],[43.6,-118.4],[43.6,-116.2],[43.6,-114.0],[43.6,-111.8],[43.6,-109.6],[43.6,-107.4],[43.6,-105.2],[43.6,-103.0],[43.6,-100.8],[43.6,-98.6],[43.6,-96.4],[43.6,-94.2],[43.6,-92.0],[43.6,-89.8],[43.6,-87.6],[43.6,-85.4],[43.6,-83.2],[43.6,-81.0],[43.6,-78.8],[43.6,-76.6],[43.6,-74.4],[43.6,-72.2],[43.6,-65.6],[43.6,0.4],[43.6,2.6],[43.6,4.8],[43.6,7.0],[43.6,11.4],[43.6,18.0],[43.6,20.2],[43.6,22.4],[43.6,24.6],[43.6,26.8],[43.6,40.0],[43.6,42.2],[43.6,44.4],[43.6,46.6],[43.6,48.8],[43.6,51.0],[43.6,53.2],[43.6,55.4],[43.6,57.6],[43.6,59.8],[43.6,62.0],[43.6,64.2],[43.6,66.4],[43.6,68.6],[43.6,70.8],[43.6,73.0],[43.6,75.2],[43.6,77.4],[43.6,79.6],[43.6,81.8],[43.6,84.0],[43.6,86.2],[43.6,88.4],[43.6,90.6],[43.6,92.8],[43.6,95.0],[43.6,97.2],[43.6,99.4],[43.6,101.6],[43.6,103.8],[43.6,106.0],[43.6,108.2],[43.6,110.4],[43.6,112.6],[43.6,114.8],[43.6,117.0],[43.6,119.2],[43.6,121.4],[43.6,123.6],[43.6,125.8],[43.6,128.0],[43.6,130.2],[43.6,132.4],[43.6,134.6],[43.6,143.4],[45.8,-122.8],[45.8,-120.6],[45.8,-118.4],[45.8,-116.2],[45.8,-114.0],[45.8,-111.8],[45.8,-109.6],[45.8,-107.4],[45.8,-105.2],[45.8,-103.0],[45.8,-100.8],[45.8,-98.6],[45.8,-96.4],[45.8,-94.2],[45.8,-92.0],[45.8,-89.8],[45.8,-87.6],[45.8,-85.4],[45.8,-83.2],[45.8,-81.0],[45.8,-78.8],[45.8,-76.6],[45.8,-74.4],[45.8,-72.2],[45.8,-70.0],[45.8,-67.8],[45.8,-65.6],[45.8,-63.4],[45.8,-61.2],[45.8,0.4],[45.8,2.6],[45.8,4.8],[45.8,7.0],[45.8,9.2],[45.8,11.4],[45.8,13.6],[45.8,15.8],[45.8,18.0],[45.8,20.2],[45.8,22.4],[45.8,24.6],[45.8,26.8],[45.8,29.0],[45.8,37.8],[45.8,40.0],[45.8,42.2],[45.8,44.4],[45.8,46.6],[45.8,48.8],[45.8,51.0],[45.8,53.2],[45.8,55.4],[45.8,57.6],[45.8,59.8],[45.8,62.0],[45.8,64.2],[45.8,66.4],[45.8,68.6],[45.8,70.8],[45.8,73.0],[45.8,75.2],[45.8,77.4],[45.8,79.6],[45.8,81.8],[45.8,84.0],[45.8,86.2],[45.8,88.4],[45.8,90.6],[45.8,92.8],[45.8,95.0],[45.8,97.2],[45.8,99.4],[45.8,101.6],[45.8,103.8],[45.8,106.0],[45.8,108.2],[45.8,110.4],[45.8,112.6],[45.8,114.8],[45.8,117.0],[45.8,119.2],[45.8,121.4],[45.8,123.6],[45.8,125.8],[45.8,128.0],[45.8,130.2],[45.8,132.4],[45.8,134.6],[45.8,136.8],[48.0,-120.6],[48.0,-118.4],[48.0,-116.2],[48.0,-114.0],[48.0,-111.8],[48.0,-109.6],[48.0,-107.4],[48.0,-105.2],[48.0,-103.0],[48.0,-100.8],[48.0,-98.6],[48.0,-96.4],[48.0,-94.2],[48.0,-92.0],[48.0,-89.8],[48.0,-87.6],[48.0,-85.4],[48.0,-83.2],[48.0,-81.0],[48.0,-78.8],[48.0,-76.6],[48.0,-74.4],[48.0,-72.2],[48.0,-70.0],[48.0,-67.8],[48.0,-65.6],[48.0,-59.0],[48.0,-56.8],[48.0,-54.6],[48.0,-4.0],[48.0,-1.8],[48.0,0.4],[48.0,2.6],[48.0,4.8],[48.0,7.0],[48.0,9.2],[48.0,11.4],[48.0,13.6],[48.0,15.8],[48.0,18.0],[48.0,20.2],[48.0,22.4],[48.0,24.6],[48.0,26.8],[48.0,29.0],[48.0,31.2],[48.0,33.4],[48.0,35.6],[48.0,37.8],[48.0,40.0],[48.0,42.2],[48.0,44.4],[48.0,46.6],[48.0,48.8],[48.0,51.0],[48.0,53.2],[48.0,55.4],[48.0,57.6],[48.0,59.8],[48.0,62.0],[48.0,64.2],[48.0,66.4],[48.0,68.6],[48.0,70.8],[48.0,73.0],[48.0,75.2],[48.0,77.4],[48.0,79.6],[48.0,81.8],[48.0,84.0],[48.0,86.2],[48.0,88.4],[48.0,90.6],[48.0,92.8],[48.0,95.0],[48.0,97.2],[48.0,99.4],[48.0,101.6],[48.0,103.8],[48.0,106.0],[48.0,108.2],[48.0,110.4],[48.0,112.6],[48.0,114.8],[48.0,117.0],[48.0,119.2],[48.0,121.4],[48.0,123.6],[48.0,125.8],[48.0,128.0],[48.0,130.2],[48.0,132.4],[48.0,134.6],[48.0,136.8],[48.0,139.0],[50.2,-127.2],[50.2,-125.0],[50.2,-122.8],[50.2,-120.6],[50.2,-118.4],[50.2,-116.2],[50.2,-114.0],[50.2,-111.8],[50.2,-109.6],[50.2,-107.4],[50.2,-105.2],[50.2,-103.0],[50.2,-100.8],[50.2,-98.6],[50.2,-96.4],[50.2,-94.2],[50.2,-92.0],[50.2,-89.8],[50.2,-87.6],[50.2,-85.4],[50.2,-83.2],[50.2,-81.0],[50.2,-78.8],[50.2,-76.6],[50.2,-74.4],[50.2,-72.2],[50.2,-70.0],[50.2,-67.8],[50.2,-61.2],[50.2,-56.8],[50.2,2.6],[50.2,4.8],[50.2,7.0],[50.2,9.2],[50.2,11.4],[50.2,13.6],[50.2,15.8],[50.2,18.0],[50.2,20.2],[50.2,22.4],[50.2,24.6],[50.2,26.8],[50.2,29.0],[50.2,31.2],[50.2,33.4],[50.2,35.6],[50.2,37.8],[50.2,40.0],[50.2,42.2],[50.2,44.4],[50.2,46.6],[50.2,48.8],[50.2,51.0],[50.2,53.2],[50.2,55.4],[50.2,57.6],[50.2,59.8],[50.2,62.0],[50.2,64.2],[50.2,66.4],[50.2,68.6],[50.2,70.8],[50.2,73.0],[50.2,75.2],[50.2,77.4],[50.2,79.6],[50.2,81.8],[50.2,84.0],[50.2,86.2],[50.2,88.4],[50.2,90.6],[50.2,92.8],[50.2,95.0],[50.2,97.2],[50.2,99.4],[50.2,101.6],[50.2,103.8],[50.2,106.0],[50.2,108.2],[50.2,110.4],[50.2,112.6],[50.2,114.8],[50.2,117.0],[50.2,119.2],[50.2,121.4],[50.2,123.6],[50.2,125.8],[50.2,128.0],[50.2,130.2],[50.2,132.4],[50.2,134.6],[50.2,136.8],[50.2,139.0],[50.2,143.4],[52.4,-131.6],[52.4,-127.2],[52.4,-125.0],[52.4,-122.8],[52.4,-120.6],[52.4,-118.4],[52.4,-116.2],[52.4,-114.0],[52.4,-111.8],[52.4,-109.6],[52.4,-107.4],[52.4,-105.2],[52.4,-103.0],[52.4,-100.8],[52.4,-98.6],[52.4,-96.4],[52.4,-94.2],[52.4,-92.0],[52.4,-89.8],[52.4,-87.6],[52.4,-85.4],[52.4,-83.2],[52.4,-76.6],[52.4,-74.4],[52.4,-72.2],[52.4,-70.0],[52.4,-67.8],[52.4,-65.6],[52.4,-63.4],[52.4,-61.2],[52.4,-59.0],[52.4,-56.8],[52.4,-8.4],[52.4,-4.0],[52.4,-1.8],[52.4,0.4],[52.4,4.8],[52.4,7.0],[52.4,9.2],[52.4,11.4],[52.4,13.6],[52.4,15.8],[52.4,18.0],[52.4,20.2],[52.4,22.4],[52.4,24.6],[52.4,26.8],[52.4,29.0],[52.4,31.2],[52.4,33.4],[52.4,35.6],[52.4,37.8],[52.4,40.0],[52.4,42.2],[52.4,44.4],[52.4,46.6],[52.4,48.8],[52.4,51.0],[52.4,53.2],[52.4,55.4],[52.4,57.6],[52.4,59.8],[52.4,62.0],[52.4,64.2],[52.4,66.4],[52.4,68.6],[52.4,70.8],[52.4,73.0],[52.4,75.2],[52.4,77.4],[52.4,79.6],[52.4,81.8],[52.4,84.0],[52.4,86.2],[52.4,88.4],[52.4,90.6],[52.4,92.8],[52.4,95.0],[52.4,97.2],[52.4,99.4],[52.4,101.6],[52.4,103.8],[52.4,106.0],[52.4,108.2],[52.4,110.4],[52.4,112.6],[52.4,114.8],[52.4,117.0],[52.4,119.2],[52.4,121.4],[52.4,123.6],[52.4,125.8],[52.4,128.0],[52.4,130.2],[52.4,132.4],[52.4,134.6],[52.4,136.8],[52.4,139.0],[52.4,141.2],[52.4,156.6],[54.6,-164.6],[54.6,-129.4],[54.6,-127.2],[54.6,-125.0],[54.6,-122.8],[54.6,-120.6],[54.6,-118.4],[54.6,-116.2],[54.6,-114.0],[54.6,-111.8],[54.6,-109.6],[54.6,-107.4],[54.6,-105.2],[54.6,-103.0],[54.6,-100.8],[54.6,-98.6],[54.6,-96.4],[54.6,-94.2],[54.6,-92.0],[54.6,-89.8],[54.6,-87.6],[54.6,-85.4],[54.6,-83.2],[54.6,-78.8],[54.6,-76.6],[54.6,-74.4],[54.6,-72.2],[54.6,-70.0],[54.6,-67.8],[54.6,-65.6],[54.6,-63.4],[54.6,-61.2],[54.6,-59.0],[54.6,-8.4],[54.6,-6.2],[54.6,-1.8],[54.6,9.2],[54.6,18.0],[54.6,20.2],[54.6,22.4],[54.6,24.6],[54.6,26.8],[54.6,29.0],[54.6,31.2],[54.6,33.4],[54.6,35.6],[54.6,37.8],[54.6,40.0],[54.6,42.2],[54.6,44.4],[54.6,46.6],[54.6,48.8],[54.6,51.0],[54.6,53.2],[54.6,55.4],[54.6,57.6],[54.6,59.8],[54.6,62.0],[54.6,64.2],[54.6,66.4],[54.6,68.6],[54.6,70.8],[54.6,73.0],[54.6,75.2],[54.6,77.4],[54.6,79.6],[54.6,81.8],[54.6,84.0],[54.6,86.2],[54.6,88.4],[54.6,90.6],[54.6,92.8],[54.6,95.0],[54.6,97.2],[54.6,99.4],[54.6,101.6],[54.6,103.8],[54.6,106.0],[54.6,108.2],[54.6,110.4],[54.6,112.6],[54.6,114.8],[54.6,117.0],[54.6,119.2],[54.6,121.4],[54.6,123.6],[54.6,125.8],[54.6,128.0],[54.6,130.2],[54.6,132.4],[54.6,134.6],[54.6,156.6],[54.6,158.8],[54.6,161.0],[56.8,-158.0],[56.8,-131.6],[56.8,-129.4],[56.8,-127.2],[56.8,-125.0],[56.8,-122.8],[56.8,-120.6],[56.8,-118.4],[56.8,-116.2],[56.8,-114.0],[56.8,-111.8],[56.8,-109.6],[56.8,-107.4],[56.8,-105.2],[56.8,-103.0],[56.8,-100.8],[56.8,-98.6],[56.8,-96.4],[56.8,-94.2],[56.8,-92.0],[56.8,-89.8],[56.8,-74.4],[56.8,-72.2],[56.8,-70.0],[56.8,-67.8],[56.8,-65.6],[56.8,-63.4],[56.8,-4.0],[56.8,9.2],[56.8,13.6],[56.8,15.8],[56.8,22.4],[56.8,24.6],[56.8,26.8],[56.8,29.0],[56.8,31.2],[56.8,33.4],[56.8,35.6],[56.8,37.8],[56.8,40.0],[56.8,42.2],[56.8,44.4],[56.8,46.6],[56.8,48.8],[56.8,51.0],[56.8,53.2],[56.8,55.4],[56.8,57.6],[56.8,59.8],[56.8,62.0],[56.8,64.2],[56.8,66.4],[56.8,68.6],[56.8,70.8],[56.8,73.0],[56.8,75.2],[56.8,77.4],[56.8,79.6],[56.8,81.8],[56.8,84.0],[56.8,86.2],[56.8,88.4],[56.8,90.6],[56.8,92.8],[56.8,95.0],[56.8,97.2],[56.8,99.4],[56.8,101.6],[56.8,103.8],[56.8,106.0],[56.8,108.2],[56.8,110.4],[56.8,112.6],[56.8,114.8],[56.8,117.0],[56.8,119.2],[56.8,121.4],[56.8,123.6],[56.8,125.8],[56.8,128.0],[56.8,130.2],[56.8,132.4],[56.8,134.6],[56.8,136.8],[56.8,156.6],[56.8,158.8],[56.8,161.0],[59.0,-160.2],[59.0,-158.0],[59.0,-155.8],[59.0,-153.6],[59.0,-138.2],[59.0,-136.0],[59.0,-133.8],[59.0,-131.6],[59.0,-129.4],[59.0,-127.2],[59.0,-125.0],[59.0,-122.8],[59.0,-120.6],[59.0,-118.4],[59.0,-116.2],[59.0,-114.0],[59.0,-111.8],[59.0,-109.6],[59.0,-107.4],[59.0,-105.2],[59.0,-103.0],[59.0,-100.8],[59.0,-98.6],[59.0,-96.4],[59.0,-76.6],[59.0,-74.4],[59.0,-72.2],[59.0,-70.0],[59.0,-65.6],[59.0,-63.4],[59.0,7.0],[59.0,9.2],[59.0,11.4],[59.0,13.6],[59.0,15.8],[59.0,24.6],[59.0,26.8],[59.0,29.0],[59.0,31.2],[59.0,33.4],[59.0,35.6],[59.0,37.8],[59.0,40.0],[59.0,42.2],[59.0,44.4],[59.0,46.6],[59.0,48.8],[59.0,51.0],[59.0,53.2],[59.0,55.4],[59.0,57.6],[59.0,59.8],[59.0,62.0],[59.0,64.2],[59.0,66.4],[59.0,68.6],[59.0,70.8],[59.0,73.0],[59.0,75.2],[59.0,77.4],[59.0,79.6],[59.0,81.8],[59.0,84.0],[59.0,86.2],[59.0,88.4],[59.0,90.6],[59.0,92.8],[59.0,95.0],[59.0,97.2],[59.0,99.4],[59.0,101.6],[59.0,103.8],[59.0,106.0],[59.0,108.2],[59.0,110.4],[59.0,112.6],[59.0,114.8],[59.0,117.0],[59.0,119.2],[59.0,121.4],[59.0,123.6],[59.0,125.8],[59.0,128.0],[59.0,130.2],[59.0,132.4],[59.0,134.6],[59.0,136.8],[59.0,139.0],[59.0,141.2],[59.0,152.2],[59.0,161.0],[61.2,-164.6],[61.2,-162.4],[61.2,-160.2],[61.2,-158.0],[61.2,-155.8],[61.2,-153.6],[61.2,-151.4],[61.2,-149.2],[61.2,-147.0],[61.2,-144.8],[61.2,-142.6],[61.2,-140.4],[61.2,-138.2],[61.2,-136.0],[61.2,-133.8],[61.2,-131.6],[61.2,-129.4],[61.2,-127.2],[61.2,-125.0],[61.2,-122.8],[61.2,-120.6],[61.2,-118.4],[61.2,-116.2],[61.2,-114.0],[61.2,-111.8],[61.2,-109.6],[61.2,-107.4],[61.2,-105.2],[61.2,-103.0],[61.2,-100.8],[61.2,-98.6],[61.2,-96.4],[61.2,-94.2],[61.2,-76.6],[61.2,-74.4],[61.2,-72.2],[61.2,-48.0],[61.2,-45.8],[61.2,-43.6],[61.2,7.0],[61.2,9.2],[61.2,11.4],[61.2,13.6],[61.2,15.8],[61.2,22.4],[61.2,24.6],[61.2,26.8],[61.2,29.0],[61.2,31.2],[61.2,33.4],[61.2,35.6],[61.2,37.8],[61.2,40.0],[61.2,42.2],[61.2,44.4],[61.2,46.6],[61.2,48.8],[61.2,51.0],[61.2,53.2],[61.2,55.4],[61.2,57.6],[61.2,59.8],[61.2,62.0],[61.2,64.2],[61.2,66.4],[61.2,68.6],[61.2,70.8],[61.2,73.0],[61.2,75.2],[61.2,77.4],[61.2,79.6],[61.2,81.8],[61.2,84.0],[61.2,86.2],[61.2,88.4],[61.2,90.6],[61.2,92.8],[61.2,95.0],[61.2,97.2],[61.2,99.4],[61.2,101.6],[61.2,103.8],[61.2,106.0],[61.2,108.2],[61.2,110.4],[61.2,112.6],[61.2,114.8],[61.2,117.0],[61.2,119.2],[61.2,121.4],[61.2,123.6],[61.2,125.8],[61.2,128.0],[61.2,130.2],[61.2,132.4],[61.2,134.6],[61.2,136.8],[61.2,139.0],[61.2,141.2],[61.2,143.4],[61.2,145.6],[61.2,147.8],[61.2,150.0],[61.2,152.2],[61.2,154.4],[61.2,161.0],[61.2,165.4],[61.2,167.6],[61.2,169.8],[61.2,172.0],[63.4,-171.2],[63.4,-162.4],[63.4,-160.2],[63.4,-158.0],[63.4,-155.8],[63.4,-153.6],[63.4,-151.4],[63.4,-149.2],[63.4,-147.0],[63.4,-144.8],[63.4,-142.6],[63.4,-140.4],[63.4,-138.2],[63.4,-136.0],[63.4,-133.8],[63.4,-131.6],[63.4,-129.4],[63.4,-127.2],[63.4,-125.0],[63.4,-122.8],[63.4,-120.6],[63.4,-118.4],[63.4,-116.2],[63.4,-114.0],[63.4,-111.8],[63.4,-109.6],[63.4,-107.4],[63.4,-105.2],[63.4,-103.0],[63.4,-100.8],[63.4,-98.6],[63.4,-96.4],[63.4,-94.2],[63.4,-92.0],[63.4,-85.4],[63.4,-72.2],[63.4,-70.0],[63.4,-65.6],[63.4,-50.2],[63.4,-48.0],[63.4,-45.8],[63.4,-43.6],[63.4,-41.4],[63.4,9.2],[63.4,11.4],[63.4,13.6],[63.4,15.8],[63.4,18.0],[63.4,22.4],[63.4,24.6],[63.4,26.8],[63.4,29.0],[63.4,31.2],[63.4,33.4],[63.4,35.6],[63.4,37.8],[63.4,40.0],[63.4,42.2],[63.4,44.4],[63.4,46.6],[63.4,48.8],[63.4,51.0],[63.4,53.2],[63.4,55.4],[63.4,57.6],[63.4,59.8],[63.4,62.0],[63.4,64.2],[63.4,66.4],[63.4,68.6],[63.4,70.8],[63.4,73.0],[63.4,75.2],[63.4,77.4],[63.4,79.6],[63.4,81.8],[63.4,84.0],[63.4,86.2],[63.4,88.4],[63.4,90.6],[63.4,92.8],[63.4,95.0],[63.4,97.2],[63.4,99.4],[63.4,101.6],[63.4,103.8],[63.4,106.0],[63.4,108.2],[63.4,110.4],[63.4,112.6],[63.4,114.8],[63.4,117.0],[63.4,119.2],[63.4,121.4],[63.4,123.6],[63.4,125.8],[63.4,128.0],[63.4,130.2],[63.4,132.4],[63.4,134.6],[63.4,136.8],[63.4,139.0],[63.4,141.2],[63.4,143.4],[63.4,145.6],[63.4,147.8],[63.4,150.0],[63.4,152.2],[63.4,154.4],[63.4,156.6],[63.4,158.8],[63.4,161.0],[63.4,163.2],[63.4,165.4],[63.4,167.6],[63.4,169.8],[63.4,172.0],[63.4,174.2],[63.4,176.4],[63.4,178.6],[65.6,-180.0],[65.6,-177.8],[65.6,-175.6],[65.6,-173.4],[65.6,-171.2],[65.6,-166.8],[65.6,-164.6],[65.6,-162.4],[65.6,-160.2],[65.6,-158.0],[65.6,-155.8],[65.6,-153.6],[65.6,-151.4],[65.6,-149.2],[65.6,-147.0],[65.6,-144.8],[65.6,-142.6],[65.6,-140.4],[65.6,-138.2],[65.6,-136.0],[65.6,-133.8],[65.6,-131.6],[65.6,-129.4],[65.6,-127.2],[65.6,-125.0],[65.6,-122.8],[65.6,-120.6],[65.6,-118.4],[65.6,-116.2],[65.6,-114.0],[65.6,-111.8],[65.6,-109.6],[65.6,-107.4],[65.6,-105.2],[65.6,-103.0],[65.6,-100.8],[65.6,-98.6],[65.6,-96.4],[65.6,-94.2],[65.6,-92.0],[65.6,-89.8],[65.6,-87.6],[65.6,-85.4],[65.6,-72.2],[65.6,-70.0],[65.6,-63.4],[65.6,-52.4],[65.6,-50.2],[65.6,-48.0],[65.6,-45.8],[65.6,-43.6],[65.6,-41.4],[65.6,-39.2],[65.6,-23.8],[65.6,-21.6],[65.6,-19.4],[65.6,-17.2],[65.6,-15.0],[65.6,13.6],[65.6,15.8],[65.6,18.0],[65.6,20.2],[65.6,26.8],[65.6,29.0],[65.6,31.2],[65.6,33.4],[65.6,42.2],[65.6,44.4],[65.6,46.6],[65.6,48.8],[65.6,51.0],[65.6,53.2],[65.6,55.4],[65.6,57.6],[65.6,59.8],[65.6,62.0],[65.6,64.2],[65.6,66.4],[65.6,68.6],[65.6,70.8],[65.6,73.0],[65.6,75.2],[65.6,77.4],[65.6,79.6],[65.6,81.8],[65.6,84.0],[65.6,86.2],[65.6,88.4],[65.6,90.6],[65.6,92.8],[65.6,95.0],[65.6,97.2],[65.6,99.4],[65.6,101.6],[65.6,103.8],[65.6,106.0],[65.6,108.2],[65.6,110.4],[65.6,112.6],[65.6,114.8],[65.6,117.0],[65.6,119.2],[65.6,121.4],[65.6,123.6],[65.6,125.8],[65.6,128.0],[65.6,130.2],[65.6,132.4],[65.6,134.6],[65.6,136.8],[65.6,139.0],[65.6,141.2],[65.6,143.4],[65.6,145.6],[65.6,147.8],[65.6,150.0],[65.6,152.2],[65.6,154.4],[65.6,156.6],[65.6,158.8],[65.6,161.0],[65.6,163.2],[65.6,165.4],[65.6,167.6],[65.6,169.8],[65.6,172.0],[65.6,174.2],[65.6,176.4],[65.6,178.6],[67.8,-180.0],[67.8,-177.8],[67.8,-164.6],[67.8,-162.4],[67.8,-160.2],[67.8,-158.0],[67.8,-155.8],[67.8,-153.6],[67.8,-151.4],[67.8,-149.2],[67.8,-147.0],[67.8,-144.8],[67.8,-142.6],[67.8,-140.4],[67.8,-138.2],[67.8,-136.0],[67.8,-133.8],[67.8,-131.6],[67.8,-129.4],[67.8,-127.2],[67.8,-125.0],[67.8,-122.8],[67.8,-120.6],[67.8,-118.4],[67.8,-116.2],[67.8,-107.4],[67.8,-105.2],[67.8,-103.0],[67.8,-96.4],[67.8,-94.2],[67.8,-92.0],[67.8,-89.8],[67.8,-85.4],[67.8,-83.2],[67.8,-76.6],[67.8,-72.2],[67.8,-70.0],[67.8,-67.8],[67.8,-65.6],[67.8,-52.4],[67.8,-50.2],[67.8,-48.0],[67.8,-45.8],[67.8,-43.6],[67.8,-41.4],[67.8,-39.2],[67.8,-37.0],[67.8,-34.8],[67.8,15.8],[67.8,18.0],[67.8,20.2],[67.8,22.4],[67.8,24.6],[67.8,26.8],[67.8,29.0],[67.8,31.2],[67.8,33.4],[67.8,35.6],[67.8,37.8],[67.8,40.0],[67.8,44.4],[67.8,46.6],[67.8,51.0],[67.8,53.2],[67.8,55.4],[67.8,57.6],[67.8,59.8],[67.8,62.0],[67.8,64.2],[67.8,66.4],[67.8,68.6],[67.8,70.8],[67.8,73.0],[67.8,75.2],[67.8,77.4],[67.8,79.6],[67.8,81.8],[67.8,84.0],[67.8,86.2],[67.8,88.4],[67.8,90.6],[67.8,92.8],[67.8,95.0],[67.8,97.2],[67.8,99.4],[67.8,101.6],[67.8,103.8],[67.8,106.0],[67.8,108.2],[67.8,110.4],[67.8,112.6],[67.8,114.8],[67.8,117.0],[67.8,119.2],[67.8,121.4],[67.8,123.6],[67.8,125.8],[67.8,128.0],[67.8,130.2],[67.8,132.4],[67.8,134.6],[67.8,136.8],[67.8,139.0],[67.8,141.2],[67.8,143.4],[67.8,145.6],[67.8,147.8],[67.8,150.0],[67.8,152.2],[67.8,154.4],[67.8,156.6],[67.8,158.8],[67.8,161.0],[67.8,163.2],[67.8,165.4],[67.8,167.6],[67.8,169.8],[67.8,172.0],[67.8,174.2],[67.8,176.4],[67.8,178.6],[70.0,-162.4],[70.0,-160.2],[70.0,-158.0],[70.0,-155.8],[70.0,-153.6],[70.0,-151.4],[70.0,-149.2],[70.0,-147.0],[70.0,-144.8],[70.0,-127.2],[70.0,-116.2],[70.0,-114.0],[70.0,-111.8],[70.0,-109.6],[70.0,-107.4],[70.0,-105.2],[70.0,-103.0],[70.0,-94.2],[70.0,-92.0],[70.0,-83.2],[70.0,-81.0],[70.0,-76.6],[70.0,-74.4],[70.0,-72.2],[70.0,-70.0],[70.0,-67.8],[70.0,-54.6],[70.0,-52.4],[70.0,-50.2],[70.0,-48.0],[70.0,-45.8],[70.0,-43.6],[70.0,-41.4],[70.0,-39.2],[70.0,-37.0],[70.0,-34.8],[70.0,-32.6],[70.0,-30.4],[70.0,-28.2],[70.0,-26.0],[70.0,-23.8],[70.0,20.2],[70.0,22.4],[70.0,24.6],[70.0,26.8],[70.0,29.0],[70.0,68.6],[70.0,70.8],[70.0,75.2],[70.0,77.4],[70.0,79.6],[70.0,81.8],[70.0,84.0],[70.0,86.2],[70.0,88.4],[70.0,90.6],[70.0,92.8],[70.0,95.0],[70.0,97.2],[70.0,99.4],[70.0,101.6],[70.0,103.8],[70.0,106.0],[70.0,108.2],[70.0,110.4],[70.0,112.6],[70.0,114.8],[70.0,117.0],[70.0,119.2],[70.0,121.4],[70.0,123.6],[70.0,125.8],[70.0,128.0],[70.0,130.2],[70.0,132.4],[70.0,134.6],[70.0,136.8],[70.0,139.0],[70.0,141.2],[70.0,143.4],[70.0,145.6],[70.0,147.8],[70.0,150.0],[70.0,152.2],[70.0,154.4],[70.0,156.6],[70.0,158.8],[72.2,-125.0],[72.2,-122.8],[72.2,-120.6],[72.2,-118.4],[72.2,-116.2],[72.2,-114.0],[72.2,-111.8],[72.2,-109.6],[72.2,-107.4],[72.2,-105.2],[72.2,-100.8],[72.2,-98.6],[72.2,-94.2],[72.2,-89.8],[72.2,-87.6],[72.2,-85.4],[72.2,-83.2],[72.2,-81.0],[72.2,-78.8],[72.2,-76.6],[72.2,-54.6],[72.2,-52.4],[72.2,-50.2],[72.2,-48.0],[72.2,-45.8],[72.2,-43.6],[72.2,-41.4],[72.2,-39.2],[72.2,-37.0],[72.2,-34.8],[72.2,-32.6],[72.2,-30.4],[72.2,-28.2],[72.2,-26.0],[72.2,53.2],[72.2,55.4],[72.2,70.8],[72.2,75.2],[72.2,77.4],[72.2,79.6],[72.2,81.8],[72.2,84.0],[72.2,86.2],[72.2,88.4],[72.2,90.6],[72.2,92.8],[72.2,95.0],[72.2,97.2],[72.2,99.4],[72.2,101.6],[72.2,103.8],[72.2,106.0],[72.2,108.2],[72.2,110.4],[72.2,112.6],[72.2,114.8],[72.2,117.0],[72.2,119.2],[72.2,121.4],[72.2,123.6],[72.2,125.8],[72.2,128.0],[72.2,141.2],[72.2,143.4],[72.2,145.6],[72.2,147.8],[74.4,-87.6],[74.4,-56.8],[74.4,-54.6],[74.4,-52.4],[74.4,-50.2],[74.4,-48.0],[74.4,-45.8],[74.4,-43.6],[74.4,-41.4],[74.4,-39.2],[74.4,-37.0],[74.4,-34.8],[74.4,-32.6],[74.4,-30.4],[74.4,-28.2],[74.4,-26.0],[74.4,-23.8],[74.4,-21.6],[74.4,55.4],[74.4,57.6],[74.4,86.2],[74.4,88.4],[74.4,90.6],[74.4,92.8],[74.4,95.0],[74.4,97.2],[74.4,99.4],[74.4,101.6],[74.4,103.8],[74.4,106.0],[74.4,108.2],[76.6,-120.6],[76.6,-118.4],[76.6,-109.6],[76.6,-96.4],[76.6,-94.2],[76.6,-92.0],[76.6,-87.6],[76.6,-85.4],[76.6,-83.2],[76.6,-81.0],[76.6,-78.8],[76.6,-70.0],[76.6,-67.8],[76.6,-65.6],[76.6,-63.4],[76.6,-61.2],[76.6,-59.0],[76.6,-56.8],[76.6,-54.6],[76.6,-52.4],[76.6,-50.2],[76.6,-48.0],[76.6,-45.8],[76.6,-43.6],[76.6,-41.4],[76.6,-39.2],[76.6,-37.0],[76.6,-34.8],[76.6,-32.6],[76.6,-30.4],[76.6,-28.2],[76.6,-26.0],[76.6,-23.8],[76.6,-21.6],[76.6,66.4],[76.6,68.6],[76.6,101.6],[76.6,103.8],[76.6,106.0],[76.6,108.2],[76.6,110.4],[78.8,-103.0],[78.8,-98.6],[78.8,-92.0],[78.8,-89.8],[78.8,-85.4],[78.8,-83.2],[78.8,-81.0],[78.8,-78.8],[78.8,-76.6],[78.8,-70.0],[78.8,-67.8],[78.8,-65.6],[78.8,-63.4],[78.8,-61.2],[78.8,-59.0],[78.8,-56.8],[78.8,-54.6],[78.8,-52.4],[78.8,-50.2],[78.8,-48.0],[78.8,-45.8],[78.8,-43.6],[78.8,-41.4],[78.8,-39.2],[78.8,-37.0],[78.8,-34.8],[78.8,-32.6],[78.8,-30.4],[78.8,-28.2],[78.8,-26.0],[78.8,-23.8],[78.8,-21.6],[78.8,11.4],[78.8,13.6],[78.8,15.8],[78.8,18.0],[78.8,20.2],[78.8,101.6],[78.8,103.8],[81.0,-94.2],[81.0,-92.0],[81.0,-87.6],[81.0,-85.4],[81.0,-83.2],[81.0,-81.0],[81.0,-78.8],[81.0,-76.6],[81.0,-74.4],[81.0,-72.2],[81.0,-70.0],[81.0,-67.8],[81.0,-63.4],[81.0,-61.2],[81.0,-59.0],[81.0,-56.8],[81.0,-54.6],[81.0,-52.4],[81.0,-50.2],[81.0,-48.0],[81.0,-45.8],[81.0,-43.6],[81.0,-41.4],[81.0,-39.2],[81.0,-37.0],[81.0,-34.8],[81.0,-32.6],[81.0,-30.4],[81.0,-28.2],[81.0,-26.0],[81.0,-23.8],[81.0,-21.6],[81.0,-19.4],[81.0,-17.2],[81.0,-15.0],[81.0,95.0],[83.2,-72.2],[83.2,-39.2],[83.2,-37.0],[83.2,-34.8],[83.2,-32.6],[83.2,-30.4],[83.2,-28.2],[83.2,-26.0]];
+const LEAGUE_COUNTRIES=[{name:"Angleterre",flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",lat:52.3,lon:-1.5,leagues:[{id:39,name:"Premier League"},{id:40,name:"Championship"}]},{name:"Ecosse",flag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿",lat:56.5,lon:-4.2,leagues:[{id:179,name:"Scottish Premiership"}]},{name:"Allemagne",flag:"🇩🇪",lat:51.2,lon:10.4,leagues:[{id:79,name:"2. Bundesliga"},{id:78,name:"Bundesliga"}]},{name:"Italie",flag:"🇮🇹",lat:42.8,lon:12.6,leagues:[{id:135,name:"Serie A"},{id:136,name:"Serie B"}]},{name:"Espagne",flag:"🇪🇸",lat:40.4,lon:-3.7,leagues:[{id:140,name:"La Liga"},{id:141,name:"Segunda División"}]},{name:"France",flag:"🇫🇷",lat:46.6,lon:2.2,leagues:[{id:61,name:"Ligue 1"},{id:62,name:"Ligue 2"}]},{name:"Pays-Bas",flag:"🇳🇱",lat:52.1,lon:5.3,leagues:[{id:88,name:"Eredivisie"}]},{name:"Belgique",flag:"🇧🇪",lat:50.5,lon:4.5,leagues:[{id:144,name:"Belgian Pro League"}]},{name:"Portugal",flag:"🇵🇹",lat:39.4,lon:-8.2,leagues:[{id:94,name:"Primeira Liga"}]},{name:"Turquie",flag:"🇹🇷",lat:39.0,lon:35.2,leagues:[{id:203,name:"Süper Lig"}]},{name:"Grece",flag:"🇬🇷",lat:39.1,lon:21.8,leagues:[{id:197,name:"Super League 1"}]},{name:"Bresil",flag:"🇧🇷",lat:-14.2,lon:-51.9,leagues:[{id:71,name:"Serie A"}]},{name:"Chine",flag:"🇨🇳",lat:35.9,lon:104.2,leagues:[{id:169,name:"Super League"}]},{name:"Danemark",flag:"🇩🇰",lat:56.0,lon:9.5,leagues:[{id:119,name:"Superliga"}]},{name:"Japon",flag:"🇯🇵",lat:36.2,lon:138.3,leagues:[{id:98,name:"J1 League"}]},{name:"Mexique",flag:"🇲🇽",lat:23.6,lon:-102.5,leagues:[{id:262,name:"Liga MX"}]},{name:"Norvege",flag:"🇳🇴",lat:60.5,lon:8.5,leagues:[{id:103,name:"Eliteserien"}]},{name:"Roumanie",flag:"🇷🇴",lat:45.9,lon:25.0,leagues:[{id:283,name:"Liga I"}]},{name:"Suede",flag:"🇸🇪",lat:60.1,lon:18.6,leagues:[{id:113,name:"Allsvenskan"}]},{name:"Suisse",flag:"🇨🇭",lat:46.8,lon:8.2,leagues:[{id:207,name:"Swiss Super League"}]},{name:"Etats-Unis",flag:"🇺🇸",lat:39.8,lon:-98.6,leagues:[{id:253,name:"Major League Soccer"},{id:"sport:baseball",name:"MLB"},{id:"sport:wnba",name:"WNBA"},{id:"sport:nba",name:"NBA"},{id:"sport:nfl",name:"NFL"}]},{name:"Paraguay",flag:"🇵🇾",lat:-23.4,lon:-58.4,leagues:[{id:242,name:"Liga Pro"},{id:250,name:"Division Profesional - Apertura"}]},{name:"Chili",flag:"🇨🇱",lat:-35.7,lon:-71.5,leagues:[{id:265,name:"Primera División"}]},{name:"Bolivie",flag:"🇧🇴",lat:-16.3,lon:-63.6,leagues:[{id:344,name:"Primera División"}]},{name:"Argentine",flag:"🇦🇷",lat:-38.4,lon:-63.6,leagues:[{id:128,name:"Liga Profesional Argentina"}]},{name:"Autriche",flag:"🇦🇹",lat:47.5,lon:14.6,leagues:[{id:218,name:"Bundesliga"}]},{name:"Irlande",flag:"🇮🇪",lat:53.1,lon:-8.2,leagues:[{id:357,name:"Premier Division"}]},{name:"Afrique du Sud",flag:"🇿🇦",lat:-29.0,lon:24.0,leagues:[{id:288,name:"Premier Soccer League"}]},{name:"Arabie Saoudite",flag:"🇸🇦",lat:24.0,lon:45.0,leagues:[{id:307,name:"Pro League"}]},{name:"Honduras",flag:"🇭🇳",lat:15.2,lon:-86.2,leagues:[{id:234,name:"Liga Nacional"}]},{name:"Colombie",flag:"🇨🇴",lat:4.6,lon:-74.1,leagues:[{id:239,name:"Primera A"}]},{name:"Australie",flag:"🇦🇺",lat:-25.3,lon:133.8,leagues:[{id:188,name:"A-League"}]},{name:"Azerbaidjan",flag:"🇦🇿",lat:40.1,lon:47.6,leagues:[{id:419,name:"Premyer Liqa"}]},{name:"Bosnie-Herzegovine",flag:"🇧🇦",lat:44.2,lon:17.8,leagues:[{id:315,name:"Premijer Liga"}]},{name:"Bulgarie",flag:"🇧🇬",lat:42.7,lon:25.5,leagues:[{id:172,name:"First League"}]},{name:"Canada",flag:"🇨🇦",lat:56.1,lon:-106.3,leagues:[{id:479,name:"Canadian Premier League"},{id:261,name:"National Division"},{id:"sport:nhl",name:"NHL"}]},{name:"Chypre",flag:"🇨🇾",lat:35.1,lon:33.4,leagues:[{id:318,name:"1. Division"}]},{name:"Coree du Sud",flag:"🇰🇷",lat:37.0,lon:127.5,leagues:[{id:292,name:"K League 1"}]},{name:"Croatie",flag:"🇭🇷",lat:45.1,lon:15.2,leagues:[{id:210,name:"HNL"}]},{name:"Emirats arabes unis",flag:"🇦🇪",lat:23.4,lon:53.8,leagues:[{id:301,name:"Pro League"}]},{name:"Estonie",flag:"🇪🇪",lat:58.6,lon:25.0,leagues:[{id:329,name:"Meistriliiga"}]},{name:"Finlande",flag:"🇫🇮",lat:61.9,lon:25.7,leagues:[{id:244,name:"Veikkausliiga"}]},{name:"Hongrie",flag:"🇭🇺",lat:47.2,lon:19.5,leagues:[{id:271,name:"NB I"}]},{name:"Irlande du Nord",flag:"🇬🇧",lat:54.6,lon:-6.7,leagues:[{id:408,name:"Premiership"}]},{name:"Islande",flag:"🇮🇸",lat:64.9,lon:-19.0,leagues:[{id:164,name:"Úrvalsdeild"}]},{name:"Lettonie",flag:"🇱🇻",lat:56.9,lon:24.6,leagues:[{id:365,name:"Virsliga"}]},{name:"Lituanie",flag:"🇱🇹",lat:55.2,lon:23.9,leagues:[{id:362,name:"A Lyga"}]},{name:"Malte",flag:"🇲🇹",lat:35.9,lon:14.4,leagues:[{id:393,name:"Premier League"}]},{name:"Pologne",flag:"🇵🇱",lat:51.9,lon:19.1,leagues:[{id:106,name:"Ekstraklasa"}]},{name:"Tchequie",flag:"🇨🇿",lat:49.8,lon:15.5,leagues:[{id:345,name:"Czech Liga"}]},{name:"Serbie",flag:"🇷🇸",lat:44.0,lon:21.0,leagues:[{id:286,name:"Super Liga"}]},{name:"Slovaquie",flag:"🇸🇰",lat:48.7,lon:19.7,leagues:[{id:332,name:"Super Liga"}]},{name:"Slovenie",flag:"🇸🇮",lat:46.1,lon:14.8,leagues:[{id:373,name:"1. SNL"}]},{name:"Ukraine",flag:"🇺🇦",lat:48.4,lon:31.2,leagues:[{id:333,name:"Ukrainian Premier League"}]},{name:"UEFA (siège, Nyon)",flag:"🇪🇺",lat:46.38,lon:6.24,continental:true,leagues:[{id:2,name:"UEFA Ligue des Champions"},{id:3,name:"UEFA Ligue Europa"},{id:848,name:"UEFA Ligue Europa Conférence"}]},{name:"CONMEBOL (siège, Luque)",flag:"🌎",lat:-25.27,lon:-57.52,continental:true,leagues:[{id:13,name:"CONMEBOL Copa Libertadores"},{id:11,name:"CONMEBOL Copa Sudamericana"}]},{name:"New York (tennis)",flag:"🇺🇸",lat:40.7128,lon:-74.006,leagues:[{id:"tennis:US Open",name:"US Open"}]},{name:"Philadelphie (tennis)",flag:"🇺🇸",lat:39.9526,lon:-75.1652,leagues:[{id:"tennis:Ennoble Care Philly Open",name:"Ennoble Care Philly Open"}]},{name:"Winston-Salem (tennis)",flag:"🇺🇸",lat:36.0999,lon:-80.2442,leagues:[{id:"tennis:Winston-Salem Open",name:"Winston-Salem Open"}]},{name:"Cincinnati (tennis)",flag:"🇺🇸",lat:39.1031,lon:-84.512,leagues:[{id:"tennis:Cincinnati Open",name:"Cincinnati Open"}]},{name:"Memphis (tennis)",flag:"🇺🇸",lat:35.1495,lon:-90.049,leagues:[{id:"tennis:The Memphis Classic",name:"The Memphis Classic"}]},{name:"Washington (tennis)",flag:"🇺🇸",lat:38.9072,lon:-77.0369,leagues:[{id:"tennis:Mubadala DC Open",name:"Mubadala DC Open"},{id:"tennis:Mubadala Citi DC Open",name:"Mubadala Citi DC Open"}]},{name:"Monterrey (tennis)",flag:"🇲🇽",lat:25.6866,lon:-100.3161,leagues:[{id:"tennis:Abierto GNP Seguros",name:"Abierto GNP Seguros"}]},{name:"Los Cabos (tennis)",flag:"🇲🇽",lat:22.8905,lon:-109.9167,leagues:[{id:"tennis:Mifel Tennis Open by Telcel Oppo",name:"Mifel Tennis Open by Telcel Oppo"}]},{name:"Varsovie (tennis)",flag:"🇵🇱",lat:52.2297,lon:21.0122,leagues:[{id:"tennis:T-Mobile Polish Open",name:"T-Mobile Polish Open"}]},{name:"Vancouver (tennis)",flag:"🇨🇦",lat:49.2827,lon:-123.1207,leagues:[{id:"tennis:Odlum Brown VanOpen",name:"Odlum Brown VanOpen"}]},{name:"Palerme (tennis)",flag:"🇮🇹",lat:38.1157,lon:13.3613,leagues:[{id:"tennis:Palermo Ladies Open",name:"Palermo Ladies Open"}]},{name:"Estoril (tennis)",flag:"🇵🇹",lat:38.7071,lon:-9.397,leagues:[{id:"tennis:Millennium Estoril Open",name:"Millennium Estoril Open"}]},{name:"Hambourg (tennis)",flag:"🇩🇪",lat:53.5511,lon:9.9937,leagues:[{id:"tennis:MSC Hamburg Ladies Open",name:"MSC Hamburg Ladies Open"}]},{name:"Kitzbühel (tennis)",flag:"🇦🇹",lat:47.4467,lon:12.3927,leagues:[{id:"tennis:Generali Open",name:"Generali Open"}]},{name:"Prague (tennis)",flag:"🇨🇿",lat:50.0755,lon:14.4378,leagues:[{id:"tennis:Livesport Prague Open",name:"Livesport Prague Open"}]},{name:"Târgu Mureș (tennis)",flag:"🇷🇴",lat:46.5527,lon:24.5575,leagues:[{id:"tennis:Axeria Open 2026 powered by Intaro Sport",name:"Axeria Open 2026 powered by Intaro Sport"}]},{name:"Antalya (tennis)",flag:"🇹🇷",lat:36.8969,lon:30.7133,leagues:[{id:"tennis:ATIK Antalya Open",name:"ATIK Antalya Open"}]},{name:"Montreux (tennis)",flag:"🇨🇭",lat:46.4312,lon:6.9107,leagues:[{id:"tennis:Montreux Nestlé Open",name:"Montreux Nestlé Open"}]},{name:"Ljubljana (tennis)",flag:"🇸🇮",lat:46.0569,lon:14.5058,leagues:[{id:"tennis:Zavarovalnica Triglav Ljubljana",name:"Zavarovalnica Triglav Ljubljana"}]},{name:"Barranquilla (tennis)",flag:"🇨🇴",lat:10.9685,lon:-74.7813,leagues:[{id:"tennis:Kia Open",name:"Kia Open"}]},{name:"Guadalajara (tennis)",flag:"🇲🇽",lat:20.6597,lon:-103.3496,leagues:[{id:"tennis:Guadalajara Open presentado por Santander",name:"Guadalajara Open presentado por Santander"}]},{name:"Caldas da Rainha (tennis)",flag:"🇵🇹",lat:39.4036,lon:-9.1386,leagues:[{id:"tennis:Caldas da Rainha Ladies Open",name:"Caldas da Rainha Ladies Open"}]},{name:"São Paulo (tennis)",flag:"🇧🇷",lat:-23.5505,lon:-46.6333,leagues:[{id:"tennis:SP Open",name:"SP Open"}]},{name:"Valence (tennis)",flag:"🇪🇸",lat:39.4699,lon:-0.3763,leagues:[{id:"tennis:BBVA Open Internacional De Valencia",name:"BBVA Open Internacional De Valencia"}]},{name:"Singapour (tennis)",flag:"🇸🇬",lat:1.3521,lon:103.8198,leagues:[{id:"tennis:Singapore Tennis Open presented by BNP Paribas",name:"Singapore Tennis Open presented by BNP Paribas"}]},{name:"Séoul (tennis)",flag:"🇰🇷",lat:37.5665,lon:126.978,leagues:[{id:"tennis:Korea Open",name:"Korea Open"}]},{name:"Porto (tennis)",flag:"🇵🇹",lat:41.1579,lon:-8.6291,leagues:[{id:"tennis:Eupago Porto Open",name:"Eupago Porto Open"}]},{name:"Ankara (tennis)",flag:"🇹🇷",lat:39.9334,lon:32.8597,leagues:[{id:"tennis:Turk Telekom Ankara Open",name:"Turk Telekom Ankara Open"}]},{name:"Tolentino (tennis)",flag:"🇮🇹",lat:43.2093,lon:13.2846,leagues:[{id:"tennis:Delta Motors Tolentino Open",name:"Delta Motors Tolentino Open"}]},{name:"Chengdu (tennis)",flag:"🇨🇳",lat:30.5728,lon:104.0668,leagues:[{id:"tennis:Chengdu Open",name:"Chengdu Open"}]},{name:"Hangzhou (tennis)",flag:"🇨🇳",lat:30.2741,lon:120.1551,leagues:[{id:"tennis:AITO Hangzhou Open",name:"AITO Hangzhou Open"}]},{name:"Adana (tennis)",flag:"🇹🇷",lat:37.0,lon:35.3213,leagues:[{id:"tennis:Adana Open",name:"Adana Open"}]},{name:"Jingshan (tennis)",flag:"🇨🇳",lat:31.0181,lon:113.1253,leagues:[{id:"tennis:Jingshan Tennis Open",name:"Jingshan Tennis Open"}]},{name:"Tokyo (tennis)",flag:"🇯🇵",lat:35.6762,lon:139.6503,leagues:[{id:"tennis:Kinoshita Group Japan Open Tennis Championships",name:"Kinoshita Group Japan Open Tennis Championships"}]},{name:"Pékin (tennis)",flag:"🇨🇳",lat:39.9042,lon:116.4074,leagues:[{id:"tennis:China Open",name:"China Open"}]}];
+
+(function(){
+  // R reduit de 190 a 120 (04/09/2026, bug confirme en direct : des le
+  // 2e clic sur "+", la sphere (rayon = R*zoom, jusqu'a 190*3.2=608) sort
+  // tellement du cadre fixe du canvas (460x460, donc 230 de rayon visible
+  // max) qu'il ne reste plus que quelques points epars a l'ecran, la
+  // sphere elle-meme entierement hors-cadre -- 190 ne laissait que 40px de
+  // marge avant le bord du canvas des le zoom de repos, aucune place pour
+  // zoomer sans immediatement tout faire disparaitre. Avec R=120, la
+  // sphere (+ halo) reste entierement visible jusqu'a ZOOM_MAX (voir plus
+  // bas), au prix d'un globe par defaut un peu plus petit (plus de marge
+  // noire autour) -- compromis necessaire, le cadre du canvas ne bouge
+  // pas.
+  const R = 120, CX = 230, CY = 230, AUTOSPIN = 0.0022;
+  const canvas = document.getElementById('globeCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const stage = document.getElementById('globeStage');
+  const popupEl = document.getElementById('globePopup');
+  const popupBody = document.getElementById('globePopupBody');
+  const tooltipEl = document.getElementById('globeTooltip');
+  document.getElementById('globePopupClose').addEventListener('click', closePopup);
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DOT_COLOR = '212,196,150';
+  const SPHERE_BG = '#1a1508';
+
+  function toXYZ(lat, lon){
+    const phi = (90-lat)*Math.PI/180, theta = lon*Math.PI/180;
+    return [Math.sin(phi)*Math.sin(theta), Math.cos(phi), Math.sin(phi)*Math.cos(theta)];
+  }
+  function rotate(p, yaw, pitch){
+    const [x,y,z] = p;
+    const x1 = x*Math.cos(yaw) + z*Math.sin(yaw);
+    const z1 = -x*Math.sin(yaw) + z*Math.cos(yaw);
+    const y2 = y*Math.cos(pitch) - z1*Math.sin(pitch);
+    const z2 = y*Math.sin(pitch) + z1*Math.cos(pitch);
+    return [x1, y2, z2];
+  }
+
+  const landXYZ = LAND_FILL_POINTS.map(([lat,lon]) => toXYZ(lat,lon));
+
+  let yaw = 0.4, pitch = -0.28, dragging = false, dragged = false, lastX = 0, lastY = 0, inertia = 0;
+  let pins = [], activePinRef = null;
+  // Zoom (26/08/2026, demande explicite : "certains points sont colles")
+  // -- molette/pinch + boutons +/-, clampe pour ne jamais reduire sous la
+  // taille de base ni exploser hors du canvas.
+  let zoom = 1;
+  // ZOOM_MAX abaisse de 3.2 a 1.9 (04/09/2026, meme fix que R ci-dessus) :
+  // avec R=120, la sphere+halo (rayon R*zoom*1.16) atteint tout juste le
+  // bord du canvas (230) vers zoom=1.65 -- 1.9 laisse un tout petit
+  // depassement du halo (jamais du corps de la sphere ni des reperes) en
+  // zoom max, jamais la disparition totale observee avant ce fix.
+  const ZOOM_MIN = 0.7, ZOOM_MAX = 1.9;
+  function setZoom(z){ zoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, z)); }
+
+  // Bilan reel par pays = somme des bilans par ligue (LEAGUE_STATS, cle
+  // league_id -> {n,w,l,roi}) -- {n:0,w:0,l:0,roi:0} tant qu'aucun pari n'a
+  // encore ete regle sur cette ligue (jamais de chiffre invente).
+  // Ligues foot -> LEAGUE_STATS (cle = league_id numerique API-Football).
+  // Autres sports (26/08/2026, demande explicite "les autres sports c'est
+  // souvent le meme pays donc pas besoin de faire d'autre globe" -- MLB/
+  // WNBA/NHL ajoutes aux pays existants plutot qu'un globe separe) : pas
+  // de league_id par ligue cote serveur pour ces sports (paris.competition
+  // vide, cf sport_player_picks), seul un bilan par SPORT existe deja
+  // (PERF_STATS.sports) -- id prend la forme "sport:<nom>" pour ces
+  // entrees, resolu ici plutot que via LEAGUE_STATS.
+  // Sport d'une ligue, deduit de son id (04/09/2026, onglets par sport sur
+  // le globe) : numerique (ou continental UEFA/CONMEBOL, id numerique
+  // aussi) = football, "sport:xxx" = xxx (baseball/wnba/nba/nfl -- meme
+  // convention que statsForLeague() ci-dessous), "tennis:xxx" = tennis.
+  function leagueSport(id){
+    if (typeof id === 'string' && id.startsWith('sport:')) return id.slice(6);
+    if (typeof id === 'string' && id.startsWith('tennis:')) return 'tennis';
+    return 'football';
+  }
+  let currentGlobeSport = 'football';
+  // "mlb" (bouton/onglet) affiche les ligues taggees "baseball" (meme
+  // convention que le reste du fichier : cle serveur brute, jamais "mlb").
+  function leaguesForCurrentSport(c){
+    return c.leagues.filter(lg => leagueSport(lg.id) === currentGlobeSport);
+  }
+
+  function statsForLeague(lg){
+    if (typeof lg.id === 'string' && lg.id.startsWith('sport:')){
+      const sp = lg.id.slice(6);
+      const found = (PERF_STATS.sports || []).find(s => s.sport === sp);
+      return found ? {n:found.n, w:found.w, l:found.l, roi:found.roi} : null;
+    }
+    // Tennis (28/08/2026, demande explicite "rajoute les tournois de
+    // tennis... a chaque nouveaux tournois tu rajoutes dans le globe a sa
+    // bonne place") : pas de league_id numerique stable pour le tennis
+    // (contrairement au foot) -- cle = nom du tournoi tel que recu
+    // d'ESPN, resolu via TENNIS_TOURNAMENT_STATS (cf fetch_tennis_
+    // tournament_stats() cote serveur).
+    if (typeof lg.id === 'string' && lg.id.startsWith('tennis:')){
+      const tourn = lg.id.slice(7);
+      return TENNIS_TOURNAMENT_STATS[tourn] || null;
+    }
+    return LEAGUE_STATS[String(lg.id)] || null;
+  }
+
+  function aggregate(c){
+    let n=0, w=0, l=0, pnlSum=0, stakeSum=0;
+    // roi agrege = moyenne ponderee par le nombre de picks de chaque ligue
+    // (coherent avec fetch_league_stats() cote serveur, qui derive roi de
+    // pnl/stake -- ici on reconstruit un ordre de grandeur a partir des roi
+    // par ligue deja arrondis, suffisant pour la couleur des reperes).
+    // Filtre par onglet sport actif (04/09/2026) -- jamais un melange de
+    // sports dans un meme pin.
+    leaguesForCurrentSport(c).forEach(lg=>{
+      const s = statsForLeague(lg);
+      if (!s) return;
+      n += s.n; w += s.w; l += s.l;
+      pnlSum += s.roi * s.n; stakeSum += s.n;
+    });
+    const roi = stakeSum ? pnlSum/stakeSum : 0;
+    return {n, w, l, roi};
+  }
+
+  function popupHtml(c){
+    const agg = aggregate(c);
+    const leagues = leaguesForCurrentSport(c);
+    const winrate = agg.n ? Math.round(agg.w/agg.n*100) : 0;
+    const leagueRows = leagues.map(lg=>{
+      const s = statsForLeague(lg);
+      if (!s || !s.n) return `<div class="gp-row"><span class="k">${lg.name}</span><span class="k" style="font-size:.72rem">Aucun pick réglé</span></div>`;
+      const lwr = Math.round(s.w/s.n*100);
+      return `<div class="gp-row"><span class="k">${lg.name}</span>
+        <span class="v" style="font-size:.72rem">${s.n}·${lwr}%·<span class="${s.roi>=0?'up':'down'}">${s.roi>=0?'+':''}${s.roi}%</span></span></div>`;
+    }).join('');
+    return `
+      <span class="gp-flag">${c.flag}</span>
+      <div class="gp-name">${c.name}</div>
+      <div class="gp-sub">${c.continental ? 'Compétition continentale · ' : ''}${leagues.length>1 ? leagues.length+' compétitions suivies' : leagues[0].name}</div>
+      <div class="gp-row"><span class="k">Picks réglés</span><span class="v">${agg.n}</span></div>
+      <div class="gp-row"><span class="k">Gagnés</span><span class="v up">${agg.w}</span></div>
+      <div class="gp-row"><span class="k">Perdus</span><span class="v down">${agg.l}</span></div>
+      <div class="gp-row"><span class="k">Réussite</span><span class="v">${agg.n ? winrate+'%' : '—'}</span></div>
+      <div class="gp-row"><span class="k">ROI</span><span class="v ${agg.roi>=0?'up':'down'}">${agg.n ? (agg.roi>=0?'+':'')+agg.roi.toFixed(1)+'%' : '—'}</span></div>
+      ${leagues.length>1 ? `<div class="gp-leagues-detail">${leagueRows}</div>` : ''}
+    `;
+  }
+  function openPopupAt(px, py, c, idx){
+    popupBody.innerHTML = popupHtml(c);
+    activePinRef = idx;
+    const popW = 220, popH = popupEl.offsetHeight || 180;
+    const flip = px > 460 - (popW+30);
+    popupEl.style.left = (flip ? px-popW-14 : px+14) + 'px';
+    popupEl.style.top = Math.max(4, Math.min(460-popH-4, py-popH/2)) + 'px';
+    popupEl.classList.add('open');
+  }
+  function closePopup(){ popupEl.classList.remove('open'); activePinRef = null; }
+
+  function drawGlobe(){
+    ctx.clearRect(0,0,460,460);
+    const Rz = R * zoom;
+
+    const shadowGrad = ctx.createRadialGradient(CX, CY+Rz*0.92, 1, CX, CY+Rz*0.92, Rz*0.95);
+    shadowGrad.addColorStop(0, 'rgba(0,0,0,.55)');
+    shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.save(); ctx.scale(1, 0.28);
+    ctx.fillStyle = shadowGrad;
+    ctx.beginPath(); ctx.arc(CX, (CY+Rz*0.92)/0.28, Rz*0.95, 0, Math.PI*2); ctx.fill();
+    ctx.restore();
+
+    const halo = ctx.createRadialGradient(CX,CY,Rz*0.94, CX,CY,Rz*1.16);
+    halo.addColorStop(0, 'rgba(212,175,55,.35)');
+    halo.addColorStop(1, 'rgba(212,175,55,0)');
+    ctx.beginPath(); ctx.arc(CX,CY,Rz*1.16,0,Math.PI*2); ctx.fillStyle = halo; ctx.fill();
+
+    const grad = ctx.createRadialGradient(CX-Rz*0.4,CY-Rz*0.42,Rz*0.06, CX,CY,Rz*1.02);
+    grad.addColorStop(0, '#2a2210');
+    grad.addColorStop(0.55, SPHERE_BG);
+    grad.addColorStop(1, '#050402');
+    ctx.beginPath(); ctx.arc(CX,CY,Rz,0,Math.PI*2); ctx.fillStyle = grad; ctx.fill();
+
+    for(let i=0;i<landXYZ.length;i++){
+      const [x,y,z] = rotate(landXYZ[i], yaw, pitch);
+      if(z <= -0.04) continue;
+      const sx = CX + x*Rz, sy = CY - y*Rz;
+      const depth = (z+1)/2;
+      ctx.beginPath();
+      ctx.arc(sx, sy, (0.85+depth*0.55)*Math.max(1,zoom*0.8), 0, Math.PI*2);
+      ctx.fillStyle = `rgba(${DOT_COLOR},${(0.4+depth*0.5).toFixed(2)})`;
+      ctx.fill();
+    }
+
+    pins = [];
+    // Filtre par onglet sport (04/09/2026) : un pays sans aucune ligue pour
+    // le sport actif n'a simplement pas de repere sur cet onglet (jamais un
+    // pin vide/invente) -- cf leaguesForCurrentSport().
+    LEAGUE_COUNTRIES.filter(c => leaguesForCurrentSport(c).length > 0).forEach((c,idx)=>{
+      const [x,y,z] = rotate(toXYZ(c.lat,c.lon), yaw, pitch);
+      const visible = z > -0.02;
+      const sx = CX + x*Rz, sy = CY - y*Rz;
+      pins.push({c, idx, x:sx, y:sy, visible});
+      if(!visible) return;
+      const isActive = activePinRef === idx;
+      const rr = (isActive ? 7.5 : 5.5) * Math.min(1.4, Math.sqrt(zoom));
+      // Couleur du repere = ROI reel du pays (comme le prototype) : vert
+      // si ROI>=8%, rouge si ROI<0%, sinon or (couvre aussi le cas "aucun
+      // pick regle sur ce pays" -- roi=0 tombe dans la branche or, jamais
+      // de vert/rouge invente sans donnee reelle).
+      const agg = aggregate(c);
+      ctx.beginPath();
+      ctx.arc(sx, sy, rr, 0, Math.PI*2);
+      ctx.fillStyle = agg.roi >= 8 ? '#22c55e' : (agg.roi < 0 ? '#ef4444' : '#f7ca3e');
+      ctx.strokeStyle = '#141005'; ctx.lineWidth = 1.6;
+      ctx.fill(); ctx.stroke();
+    });
+
+    if (popupEl.classList.contains('open') && activePinRef !== null){
+      const p = pins.find(p=>p.idx===activePinRef);
+      if (p && p.visible){
+        const popW = 220, popH = popupEl.offsetHeight || 180;
+        const flip = p.x > 460 - (popW+30);
+        popupEl.style.left = (flip ? p.x-popW-14 : p.x+14) + 'px';
+        popupEl.style.top = Math.max(4, Math.min(460-popH-4, p.y-popH/2)) + 'px';
+      } else closePopup();
+    }
+  }
+
+  function frame(){
+    if(!dragging){ if(!reduceMotion) yaw += AUTOSPIN + inertia; inertia *= 0.94; }
+    drawGlobe();
+    requestAnimationFrame(frame);
+  }
+
+  canvas.addEventListener('pointermove', e=>{
+    if (dragging){ tooltipEl.classList.remove('show'); return; }
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX-rect.left)*(460/rect.width), my = (e.clientY-rect.top)*(460/rect.height);
+    let best = null, bestD = 14;
+    pins.forEach(p=>{ if(!p.visible) return; const d = Math.hypot(p.x-mx,p.y-my); if(d<bestD){bestD=d;best=p;} });
+    if (best){
+      const bestLeagueCount = leaguesForCurrentSport(best.c).length;
+      tooltipEl.innerHTML = `${best.c.flag} <b>${best.c.name}</b> · ${bestLeagueCount} ligue${bestLeagueCount>1?'s':''}`;
+      tooltipEl.style.left = best.x+'px'; tooltipEl.style.top = best.y+'px';
+      tooltipEl.classList.add('show'); canvas.style.cursor = 'pointer';
+    } else { tooltipEl.classList.remove('show'); canvas.style.cursor = 'grab'; }
+  });
+  canvas.addEventListener('pointerleave', ()=> tooltipEl.classList.remove('show'));
+
+  canvas.addEventListener('pointerdown', e=>{
+    tooltipEl.classList.remove('show');
+    dragging = true; dragged = false; lastX = e.clientX; lastY = e.clientY;
+  });
+  window.addEventListener('pointerup', e=>{
+    if (dragging && !dragged){
+      const rect = canvas.getBoundingClientRect();
+      const mx = (e.clientX-rect.left)*(460/rect.width), my = (e.clientY-rect.top)*(460/rect.height);
+      let best = null, bestD = 14;
+      pins.forEach(p=>{ if(!p.visible) return; const d = Math.hypot(p.x-mx,p.y-my); if(d<bestD){bestD=d;best=p;} });
+      if (best) openPopupAt(best.x, best.y, best.c, best.idx);
+      else closePopup();
+    }
+    dragging = false;
+  });
+  window.addEventListener('pointermove', e=>{
+    if (!dragging) return;
+    const dx = e.clientX-lastX, dy = e.clientY-lastY;
+    if (Math.abs(dx)>3 || Math.abs(dy)>3) dragged = true;
+    lastX = e.clientX; lastY = e.clientY;
+    yaw += dx*0.006; inertia = dx*0.006;
+    pitch = Math.max(-1.3, Math.min(1.3, pitch - dy*0.006));
+  });
+
+  // Zoom molette (desktop) -- passive:false necessaire pour pouvoir bloquer
+  // le scroll de la page pendant qu'on zoome sur le globe.
+  canvas.addEventListener('wheel', e=>{
+    e.preventDefault();
+    setZoom(zoom - e.deltaY * 0.0015);
+  }, {passive:false});
+
+  // Pinch-to-zoom (mobile/tactile) -- suit la distance entre les 2 doigts.
+  let pinchStartDist = null, pinchStartZoom = 1;
+  canvas.addEventListener('touchstart', e=>{
+    if (e.touches.length === 2){
+      pinchStartDist = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+      pinchStartZoom = zoom;
+    }
+  }, {passive:true});
+  canvas.addEventListener('touchmove', e=>{
+    if (e.touches.length === 2 && pinchStartDist){
+      e.preventDefault();
+      const d = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+      setZoom(pinchStartZoom * (d/pinchStartDist));
+    }
+  }, {passive:false});
+  canvas.addEventListener('touchend', e=>{ if (e.touches.length < 2) pinchStartDist = null; });
+
+  const zoomInBtn = document.getElementById('globeZoomIn');
+  const zoomOutBtn = document.getElementById('globeZoomOut');
+  if (zoomInBtn) zoomInBtn.addEventListener('click', ()=> setZoom(zoom + 0.35));
+  if (zoomOutBtn) zoomOutBtn.addEventListener('click', ()=> setZoom(zoom - 0.35));
+
+  // Onglets sport (04/09/2026) -- change juste currentGlobeSport, drawGlobe()
+  // tourne deja en boucle (requestAnimationFrame) donc pas de redraw manuel
+  // necessaire. Ferme le popup ouvert (il porterait les stats du sport
+  // precedent) et remet le zoom/orientation par defaut pour ne pas laisser
+  // un pays du sport precedent hors-champ sur le nouvel onglet.
+  const globeSportBar = document.getElementById('globeSportFilter');
+  if (globeSportBar){
+    globeSportBar.addEventListener('click', e=>{
+      const btn = e.target.closest('button[data-sport]');
+      if (!btn) return;
+      currentGlobeSport = btn.dataset.sport;
+      globeSportBar.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b===btn));
+      closePopup();
+      setZoom(1);
+    });
+  }
+
+  requestAnimationFrame(frame);
+})();
+
+/* ── Apparition douce au scroll ── */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+/* ── Menu mobile (drawer) ── */
+(function(){
+  const toggle = document.getElementById('menuToggle');
+  const close = document.getElementById('menuClose');
+  const nav = document.getElementById('mobileNav');
+  const backdrop = document.getElementById('mobileBackdrop');
+  function openMenu(){
+    nav.classList.add('open'); backdrop.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    nav.classList.remove('open'); backdrop.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', () => nav.classList.contains('open') ? closeMenu() : openMenu());
+  close.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+/* ── Transition de page : logo qui tourne (07/08/2026, demande explicite)
+   -- au clic sur Publications/Résultats/Performance/FAQ, affiche le loader
+   plutot qu'un saut instantane ; si on ARRIVE sur la page avec un hash
+   dans l'URL (page ouverte directement sur une ancre), le
+   loader reste visible le temps de scroller jusqu'a la section. ── */
+(function(){
+  const loader = document.getElementById('pageLoader');
+  if (!loader) return;
+  const showLoader = () => loader.classList.remove('hide');
+  const hideLoader = () => loader.classList.add('hide');
+
+  window.addEventListener('load', () => {
+    const target = location.hash ? document.querySelector(location.hash) : null;
+    if (target){
+      setTimeout(() => {
+        target.scrollIntoView({block: 'start'});
+        setTimeout(hideLoader, 250);
+      }, 500);
+    } else {
+      setTimeout(hideLoader, 500);
+    }
+  });
+
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href || a.target === '_blank' || /^https?:\/\//i.test(href)) return;
+    const [path, hash] = href.split('#');
+    const currentFile = location.pathname.split('/').pop();
+    const samePage = !path || path === currentFile;
+    if (samePage && hash){
+      a.addEventListener('click', (e) => {
+        const dest = document.getElementById(hash);
+        if (!dest) return;
+        e.preventDefault();
+        showLoader();
+        setTimeout(() => {
+          dest.scrollIntoView({block: 'start'});
+          setTimeout(hideLoader, 250);
+        }, 350);
+      });
+    } else if (path && path.endsWith('.html') && !samePage){
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        showLoader();
+        setTimeout(() => { window.location.href = href; }, 350);
+      });
+    }
+  });
+})();
+
+/* ── Pop-up partenaire Winamax (07/08/2026, demande explicite) -- une
+   seule fois par session (sessionStorage), jamais reaffiche en boucle a
+   chaque page/rechargement. Laisse le temps a la transition du logo de
+   se terminer avant d'apparaitre. ── */
+(function(){
+  const overlay = document.getElementById('promoOverlay');
+  if (!overlay) return;
+  const closeBtn = document.getElementById('promoClose');
+  function closePromo(){
+    overlay.classList.remove('show');
+    sessionStorage.setItem('gbet_promo_seen', '1');
+  }
+  if (!sessionStorage.getItem('gbet_promo_seen')){
+    window.addEventListener('load', () => {
+      setTimeout(() => overlay.classList.add('show'), 1400);
+    });
+  }
+  closeBtn.addEventListener('click', closePromo);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePromo(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('show')) closePromo(); });
+  overlay.querySelector('.promo-cta')?.addEventListener('click', closePromo);
+})();
+</script>
+</body>
+</html>

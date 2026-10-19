@@ -19,6 +19,7 @@ prive) pour limiter l'impact. Un echec ponctuel de connexion DB (transitoire,
 confirme non-reproductible en test direct le 27/07/2026) reste possible --
 le prochain declenchement (auto ou cron naturel) reessaie normalement.
 """
+from utils.silencieux import note as _silencieux
 import json
 import os
 import re
@@ -659,8 +660,8 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                     ph = _L.photo_joueur(nom_, sport, cache_seul=True)
                     if ph:
                         item[f"{cote_}_logo"] = ph
-        except Exception:
-            pass
+        except Exception as _e_sil:
+            _silencieux("site/scripts/export_programme.py:662", _e_sil)
         if coup_fixture_id and str(fixture_id) == coup_fixture_id:
             item["coup"] = True
         if publish_status != "published" and str(fixture_id) in no_bet_by_fixture:
