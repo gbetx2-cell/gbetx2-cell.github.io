@@ -103,7 +103,7 @@ COMPETITION_FLAGS = {
 # COMPETITION_FLAGS, donc affichaient TOUJOURS le ballon de foot. Priorite
 # a l'icone sport pour tout ce qui n'est pas football.
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "nfl": "🏈",
-              "tennis": "🎾", "wnba": "🏀", "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾", "hden": "🤾", "hesp": "🤾"}
+              "tennis": "🎾", "wnba": "🏀", "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾", "hden": "🤾", "hesp": "🤾", "golf": "⛳", "f1": "🏁"}
 
 # Bug corrige le 04/08/2026 (confirme en direct : "Victoire Boston Red Sox"
 # reglee GAGNE le 03/08 a 00h50, jamais visible sur le site) : paris.resultat/

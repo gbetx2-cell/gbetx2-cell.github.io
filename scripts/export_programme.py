@@ -209,9 +209,11 @@ COMPETITION_FLAGS = {
 # sport (distinct de "nhl", module ESPN) -- sans lui, les paris hockey
 # etaient absents de Publications / "Paris du jour" alors qu'ils comptaient
 # bien dans les Resultats.
-PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp")
+# 20/10/2026 : golf + f1 ajoutes (demande explicite -- paris golf publies mais invisibles du
+# site, exclus de cette liste alors qu'ils sont dans programme_fixtures/paris comme les autres).
+PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp", "golf", "f1")
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀",
-              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾", "hden": "🤾", "hesp": "🤾"}
+              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾", "hden": "🤾", "hesp": "🤾", "golf": "⛳", "f1": "🏁"}
 
 # Sports ou paris.conseil n'est jamais une info independante : c'est soit un
 # mirroir du value bet ("Victoire X"), soit un mirroir du player pick ("Total
