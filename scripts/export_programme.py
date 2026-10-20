@@ -688,6 +688,12 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
                     ph = _L.photo_joueur(nom_, sport, cache_seul=True)
                     if ph:
                         item[f"{cote_}_logo"] = ph
+                # 21/10/2026 : repli logos Flashscore (basket grec, handball danois/espagnol...) -- seulement
+                # une fois la version HD prete (jamais le 30 px brut), cache seul
+                if sport in _L.FAMILLE_LIGUE and not item.get(f"{cote_}_logo"):
+                    fs = _L.logo_flashscore_hd(nom_, _L.FAMILLE_LIGUE[sport])
+                    if fs:
+                        item[f"{cote_}_logo"] = fs
         except Exception as _e_sil:
             _silencieux("site/scripts/export_programme.py:662", _e_sil)
         if coup_fixture_id and str(fixture_id) == coup_fixture_id:
