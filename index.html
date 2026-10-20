@@ -1429,14 +1429,9 @@ function duJour(){
     .filter(p => {
       if (!p.kickoff_at) return false;
       const j = new Date(p.kickoff_at).toDateString();
+      if (j === jour) return true;
       const sc = SCORES[p.fixture_id];
       const termine = !!p.result || (sc && sc.finished);
-      /* 20/10/2026 (demande explicite "met les publications au bon moment") : golf et F1 sont des
-         epreuves de plusieurs jours -- on les garde visibles de la publication jusqu'au reglement,
-         sans la coupure a minuit du jour/veille (le serveur ne renvoie deja que les non reglees
-         recentes, cf export_programme.py). Sinon un duel de golf disparaissait au 3e jour du tournoi. */
-      if ((p.sport === "golf" || p.sport === "f1") && !termine) return true;
-      if (j === jour) return true;
       /* 03/10/2026 : un pari publie le soir pour un match apres minuit (UFC a 00h00,
          NHL/MLB de nuit) restait invisible jusqu'a minuit -- on le montre des sa
          publication s'il commence dans les 18 h. */
