@@ -345,8 +345,8 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
 .fsst summary{cursor:pointer;padding:8px 12px;font:600 13px var(--body);color:var(--muted);list-style:none;display:flex;justify-content:space-between}
 .fsst summary::-webkit-details-marker{display:none}
 .fsst summary::after{content:"▾";transition:transform .2s}.fsst[open] summary::after{transform:rotate(180deg)}
-.fsst .l{display:grid;grid-template-columns:3.2em 1fr 3.2em;gap:8px;align-items:center;padding:4px 12px;font:600 13px var(--body)}
-.fsst .l b{font:700 13px var(--mono)}.fsst .l b:last-child{text-align:right}
+.fsst .l{display:grid;grid-template-columns:minmax(5.5em,auto) 1fr minmax(5.5em,auto);gap:8px;align-items:center;padding:4px 12px;font:600 13px var(--body)}
+.fsst .l b{font:700 13px var(--mono);white-space:nowrap}.fsst .l b small{font:500 11px var(--mono);color:var(--muted);margin:0 4px}.fsst .l b:last-child{text-align:right}
 .fsst .lib{text-align:center;font-size:12px;color:var(--muted)}
 .fsst .barre{grid-column:1/-1;display:flex;gap:3px;height:5px;margin-top:-2px}
 .fsst .barre i{display:block;border-radius:3px;background:#5d6375;transition:flex-grow .8s ease}
@@ -1364,7 +1364,8 @@ function statsFs(fix, st, home, away, joueur){
   const l = st.map(([lib, h, a]) => {
     const x = num(h), y = num(a), t = x + y;
     const ph = t > 0 ? x / t : .5;
-    return `<div class="l"><b>${esc(h)}</b><span class="lib">${esc(lib)}</span><b>${esc(a)}</b>
+    const v = t => esc(t).replace(/^(\S+)\s*\((.+)\)$/, "$1<small>$2</small>");
+    return `<div class="l"><b>${v(h)}</b><span class="lib">${esc(lib)}</span><b>${v(a)}</b>
       <span class="barre"><i class="${x > y ? "fort" : ""}" style="flex-grow:${(ph * 100).toFixed(1)}"></i><i class="${y > x ? "fort" : ""}" style="flex-grow:${(100 - ph * 100).toFixed(1)}"></i></span></div>`;
   }).join("");
   return `<details class="fsst" data-fix="${esc(fix)}"${STATS_OUVERTES.has(fix) ? " open" : ""}>
