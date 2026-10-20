@@ -131,7 +131,7 @@ RESULTAT_GAGNE = ("GAGNE", "GAGNÉ")
 # "mlb" ajoute le 29/07/2026 (meme bug/fix que betting_rules.py -- paris.sport
 # vaut "baseball" mais sport_player_picks.sport vaut "mlb" pour le meme sport).
 SPORTS_VALUE_BET_IS_CONSEIL = {"tennis", "nba", "nhl", "baseball", "mlb", "wnba", "nfl",
-                              "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp"}  # meme miroir conseil/value_bet que baseball
+                              "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp", "golf"}  # meme miroir conseil/value_bet que baseball ; golf 21/10/2026 (duel affiche 2 fois sinon)
 
 
 def _flag(competition: str, sport: str = "") -> str:
