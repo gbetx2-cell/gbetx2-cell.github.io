@@ -539,7 +539,33 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
         """,
         (*PROGRAMME_SPORTS, *window_params),
     )
-    rows = cur.fetchall()
+    rows = list(cur.fetchall())
+
+    # 20/10/2026 (demande explicite "met les publications au bon moment") : le golf (et la F1)
+    # sont des epreuves de PLUSIEURS JOURS alors que kickoff_at ne porte qu'un instant (debut du
+    # tournoi). Avec la seule fenetre 48h, un duel de golf publie l'avant-veille disparaissait de
+    # "Paris du jour" des le 2e jour du tournoi, sans etre encore regle (donc absent aussi de
+    # Resultats) -- invisible pendant 2-3 jours. On rajoute donc les fixtures golf/f1 PUBLIEES et
+    # PAS ENCORE REGLEES dont le tournoi a debute il y a moins de 6 jours : elles restent "en
+    # cours" jusqu'au reglement. Dedupe avec la fenetre standard.
+    deja = {str(r[0]) for r in rows}
+    cur.execute(
+        """
+        SELECT f.fixture_id, f.home, f.away, f.league, f.kickoff_at, f.publish_status, f.sport,
+               f.league_id, f.home_team_id, f.away_team_id
+        FROM programme_fixtures f
+        JOIN paris p ON p.fixture_id = f.fixture_id
+        WHERE f.sport IN ('golf', 'f1')
+          AND f.publish_status = 'published'
+          AND (p.resultat IS NULL OR p.resultat = '')
+          AND f.kickoff_at::timestamp BETWEEN (now() - interval '6 days') AND (now() + interval '2 days')
+        ORDER BY f.kickoff_at ASC
+        """
+    )
+    for r in cur.fetchall():
+        if str(r[0]) not in deja:
+            rows.append(r)
+            deja.add(str(r[0]))
 
     # Coup du Jour : 1 pick/jour flague par le bot quand la confiance >= 85
     # (ai/coup_du_jour.py -> daily_flags, value = fixture_id).
