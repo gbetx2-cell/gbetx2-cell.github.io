@@ -223,7 +223,7 @@ SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒",
 # doublon (meme info sous 2 etiquettes) ou pire, un player pick affiche a
 # tort sous le libelle "Conseil" quand aucun value bet n'avait passe les
 # criteres -- signale par l'utilisateur comme peu clair cote client.
-SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp"}
+SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp", "golf"}   # golf 21/10/2026 : duel = conseil = value bet (affiche 2 fois sinon)
 
 # "tennis" retire de SPORTS_CONSEIL_IS_MIRROR le 22/08/2026 (bug confirme
 # en production, demande explicite : "le tennis des fois ne montre pas
