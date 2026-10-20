@@ -1333,7 +1333,7 @@ function carte(p, euros, valeurU){
     <div class="geant a" style="left:-10px;top:14px">${esc(nomFam(home, joueur))}</div>
     <div class="geant b" style="right:-10px;top:115px">${esc(nomFam(away, joueur))}</div>
     ${vis(home, p.home_logo || p.home_photo, "g")}${vis(away, p.away_logo || p.away_photo, "d")}
-    <div class="ligue">${esc(sportGeneral(p.sport) || "")} · ${esc(ligueFr(p.league || ""))}</div>
+    <div class="ligue">${esc(libLigue(p))}</div>
     <div class="vs">VS</div>
     <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${esc(moment)}</div>${det}${bpTxt}${ptsTxt}</div>
     ${badge}
@@ -1370,6 +1370,11 @@ function statsFs(fix, st, home, away, joueur){
   }).join("");
   return `<details class="fsst" data-fix="${esc(fix)}"${STATS_OUVERTES.has(fix) ? " open" : ""}>
     <summary><span>📊 Stats du match · ${esc(nomFam(home, joueur))} – ${esc(nomFam(away, joueur))}</span></summary>${l}</details>`;
+}
+/* 21/10/2026 : "Golf · Golf · Genesis Championship" -- la ligue du golf commence deja par le nom du sport */
+function libLigue(p){
+  const sg = sportGeneral(p.sport) || "", lg = ligueFr(p.league || "");
+  return lg.toLowerCase().startsWith(sg.toLowerCase() + " ·") || lg.toLowerCase() === sg.toLowerCase() ? lg : sg + " · " + lg;
 }
 function compte(d){
   const sec = Math.max(0, Math.round((d - new Date()) / 1000));
