@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Anton&family=Barlow+Condensed:wght@600&display=swap">
+<script src="assets/i18n_aide.js"></script>
+<script src="assets/i18n.js"></script>
 <style>
 :root{
   --ink:#100f0c; --surface:#1a1813; --raise:#24211a; --line:#2f2b22;
@@ -843,6 +845,8 @@ function animer(){
     document.querySelectorAll(".ban[data-anim]").forEach(b => { b.removeAttribute("data-anim"); b.classList.add("ecarte"); })));
 }
 const $ = s => document.querySelector(s);
+const LOC = () => (window.GB_I18N ? GB_I18N.loc : "fr-FR");        // langue/format choisis (drapeau)
+const TZ = () => (window.GB_I18N ? GB_I18N.tz : "Europe/Paris");   // fuseau horaire du pays choisi
 const fmt = (n, d = 2) => (n === null || n === undefined || isNaN(n) ? "—" : Number(n).toFixed(d).replace(".", ",").replace("-", "−"));
 const unit = u => (u > 0 ? "+" : "") + fmt(u, 2) + " u";
 const eur = v => (v > 0 ? "+" : "") + fmt(v, Math.abs(v) < 100 && Math.round(v * 100) % 100 ? 2 : 0) + " €";
@@ -1255,9 +1259,9 @@ function carte(p, euros, valeurU){
   /* Jour affiche quand le match n'est pas aujourd'hui (01/10/2026) : la liste
      "Derniers paris" (classee par heure de reglement) melangeait 01:30, 03:00,
      19:00 sans dire quel match etait d'hier. */
-  const heure = ko ? (ko.toDateString() === new Date().toDateString() ? ""
-      : ko.toLocaleDateString("fr-FR", {day: "2-digit", month: "2-digit"}) + " ")
-    + ko.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
+  const heure = ko ? (ko.toLocaleDateString("fr-CA", {timeZone: TZ()}) === new Date().toLocaleDateString("fr-CA", {timeZone: TZ()}) ? ""
+      : ko.toLocaleDateString(LOC(), {timeZone: TZ(), day: "2-digit", month: "2-digit"}) + " ")
+    + ko.toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}) : "";
   /* Le resultat publie prime sur le cache de score en direct (21/09/2026) :
      ce cache ne couvre pas tous les sports -- le tennis n'y est pas -- et une
      carte reglee "Gagne +1,07 u" s'affichait quand meme "A venir", ou restait
@@ -1518,7 +1522,7 @@ function dessineJour(){
     return h;
   }).join("") ||
     `<div class="empty"><b>Aucun pari ici pour l'instant.</b><br>${suivant
-      ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) + "."
+      ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}) + "."
       : "Rien de publié aujourd'hui : c'est normal les jours sans match filtré."}</div>`;
 }
 $("#state-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stateFilter = b.dataset.state; dessineJour(); } });
@@ -1804,7 +1808,7 @@ async function majChat(){
     const msgs = d.messages || [];
     $("#chat-body").innerHTML = msgs.length ? msgs.map(m => {
       const moi = ME && m.username === ME;
-      const h = m.created_at ? new Date(m.created_at).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "";
+      const h = m.created_at ? new Date(m.created_at).toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}) : "";
       return `<div class="msg ${moi ? "me" : ""}"><u>${esc(m.username)}<time>${h}</time></u>${esc(m.message)}</div>`;
     }).join("") : `<p class="gain">Aucun message pour l'instant. Lancez la discussion.</p>`;
     $("#chat-body").scrollTop = $("#chat-body").scrollHeight;
@@ -1936,7 +1940,7 @@ async function charger(){
     PUBS = grouper(pub); SCORES = (live && live.scores) || {};
     try { verifierReglements(pub); } catch (_){}
     dernierChargement = Date.now();
-    $("#jour-maj").innerHTML = "Mis à jour à " + new Date().toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"})
+    $("#jour-maj").innerHTML = "Mis à jour à " + new Date().toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"})
       + `<button type="button" id="son" aria-pressed="${SON}" title="Petit son quand un pari est réglé">${SON ? "🔊 Son" : "🔇 Son"}</button>`;
     try { majSerie(); } catch (_){}
     dessineJour();
@@ -1993,11 +1997,11 @@ function bornes(){
 const R_PER = {
   jour: {nom: "Aujourd'hui", u: ["pari", "paris"], cle: e => e.ts + e.fid + e.pick, lib: e => e.pick},
   semaine: {nom: "Cette semaine", u: ["jour", "jours"], cle: e => e.j,
-            lib: e => dateDe(e.j).toLocaleDateString("fr-FR", {weekday: "long", day: "numeric", month: "long"})},
+            lib: e => dateDe(e.j).toLocaleDateString(LOC(), {timeZone: TZ(), weekday: "long", day: "numeric", month: "long"})},
   mois: {nom: "Ce mois", u: ["semaine", "semaines"], cle: e => lundiDe(e.j),
-         lib: e => "semaine du " + dateDe(lundiDe(e.j)).toLocaleDateString("fr-FR", {day: "numeric", month: "long"})},
+         lib: e => "semaine du " + dateDe(lundiDe(e.j)).toLocaleDateString(LOC(), {timeZone: TZ(), day: "numeric", month: "long"})},
   annee: {nom: "Cette année", u: ["mois", "mois"], cle: e => e.j.slice(0, 7),
-          lib: e => dateDe(e.j).toLocaleDateString("fr-FR", {month: "long", year: "numeric"})},
+          lib: e => dateDe(e.j).toLocaleDateString(LOC(), {timeZone: TZ(), month: "long", year: "numeric"})},
   debut: {nom: "Depuis le début", u: ["année", "années"], cle: e => e.j.slice(0, 4), lib: e => e.j.slice(0, 4)}};
 const vU = () => { const v = Number(store.get("gbet-u")); return v >= 1 && v <= 10000 ? v : 10; };
 const euro = u => fmt(u * vU(), 2) + " €";
@@ -2051,7 +2055,7 @@ function carteResultat(e){
   const perd = n.length === 2 && n[0] !== n[1] ? (n[0] > n[1] ? "d" : "g") : "";
   const id = e.ts + "|" + e.fid + "|" + e.pick;
   const ko = e.ko ? new Date(e.ko) : null, pub = e.pub ? new Date(e.pub) : null;
-  const hm = d => d ? d.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "—";
+  const hm = d => d ? d.toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}) : "—";
   const st = e.r === "G" ? `<span class="tag w">Gagné</span>` : e.r === "P" ? `<span class="tag l">Perdu</span>` : `<span class="tag p">Remboursé</span>`;
   const retour = e.r === "G" ? e.mise * e.cote : e.r === "R" ? e.mise : 0;
   return `<div class="rcard${rOuvert === id ? " ouvert" : ""}" data-id="${esc(id)}">
@@ -2130,7 +2134,7 @@ function dessineResultats(){
   let html = "", dj = "";
   vue.forEach(e => {
     if (e.j !== dj){ dj = e.j; const lj = L.filter(x => x.j === dj), bj = lj.reduce((s, x) => s + x.pnl, 0);
-      html += `<div class="jourt"><span>${dateDe(dj).toLocaleDateString("fr-FR", {weekday: "long", day: "numeric", month: "long", year: "numeric"})}</span><span>${lj.length} paris · <b style="color:${coul(bj)}">${euroS(bj)}</b></span></div>`; }
+      html += `<div class="jourt"><span>${dateDe(dj).toLocaleDateString(LOC(), {timeZone: TZ(), weekday: "long", day: "numeric", month: "long", year: "numeric"})}</span><span>${lj.length} paris · <b style="color:${coul(bj)}">${euroS(bj)}</b></span></div>`; }
     html += carteResultat(e);
   });
   $("#r-liste").innerHTML = html || `<div class="empty">Aucun pari réglé sur cette période.</div>`;
@@ -2164,7 +2168,7 @@ $("#r-mise").addEventListener("change", e => { const v = Math.round(Number(e.tar
     const n = GRR.pts.length, i = Math.max(0, Math.min(n - 1, Math.round(cx / r.width * (n - 1))));
     const px = i / (n - 1) * r.width, py = GRR.y(GRR.pts[i]) / 130 * r.height, e = GRR.it[i];
     gx.style.cssText = `left:${px}px;opacity:1`; gd.style.cssText = `left:${px}px;top:${py}px;opacity:1`;
-    gt.innerHTML = e ? `<small>${esc(dateDe(e.j).toLocaleDateString("fr-FR", {day: "numeric", month: "short"}))} · ${esc(libPari(e.pick))}</small><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b> sur ce pari<br>Cumul <b style="color:${coul(GRR.pts[i])}">${euroS(GRR.pts[i])}</b>` : "Départ · 0,00 €";
+    gt.innerHTML = e ? `<small>${esc(dateDe(e.j).toLocaleDateString(LOC(), {timeZone: TZ(), day: "numeric", month: "short"}))} · ${esc(libPari(e.pick))}</small><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b> sur ce pari<br>Cumul <b style="color:${coul(GRR.pts[i])}">${euroS(GRR.pts[i])}</b>` : "Départ · 0,00 €";
     const w = gt.offsetWidth; gt.style.cssText = `left:${Math.max(0, Math.min(r.width - w, px - w / 2))}px;top:${Math.max(0, py - gt.offsetHeight - 14)}px;opacity:1`;
   };
   const cacher = () => [gx, gd, gt].forEach(x => x.style.opacity = 0);
