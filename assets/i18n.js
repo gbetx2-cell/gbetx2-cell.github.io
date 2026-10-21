@@ -64,6 +64,7 @@ const I = P.idx;
 const EN_ANGLAIS = I === 0 || I === 7 || I === 8 || I === 9 || I === 13;     // point decimal (1.25) et virgule des milliers
 /* langue chargee a la demande : le fichier est ecrit dans la page avant la suite du chargement */
 if (I >= 7 && document.readyState === "loading") document.write('<script src="assets/i18n_' + LANGS[I] + '.js"><\/script>');
+if (I >= 0 && document.readyState === "loading") document.write('<script src="assets/i18n_live.js"><\/script>');
 let LF = null;
 const lf = () => LF || (LF = window.GB_L || null);
 
@@ -417,6 +418,10 @@ function motifs(s) {
   if ((m = s.match(/^Total final (\S+), (au-dessus|en dessous) de (\S+) → (Plus|Moins) de (gagné|perdu)\.$/)))
     return fmt(w.tfin, {t: m[1], rel: m[2] === "au-dessus" ? w.above : w.below, l: m[3], ow: m[4] === "Plus" ? w.over : w.under, res: tr(m[5])});
   if ((m = s.match(/^(\d+) paris · dont (\d+) simulés$/))) return fmt(w.dont, {n: m[1], bets: tr("paris"), m: m[2]});
+  if ((m = s.match(/^([▲▼] )?Manche (\d+)$/))) { const g = lv("Manche {n}"); return g ? (m[1] || "") + g.replace("{n}", m[2]) : null; }
+  if ((m = s.match(/^Marge : encore (\d+) au maximum$/))) { const g = lv("Marge : encore {n} au maximum"); return g ? g.replace("{n}", m[1]) : null; }
+  if ((m = s.match(/^Encore (\d+) pour passer la ligne$/))) { const g = lv("Encore {n} pour passer la ligne"); return g ? g.replace("{n}", m[1]) : null; }
+  if ((m = s.match(/^Classement : (.+)$/))) { const g = lv("Classement :"); return g ? g + " " + m[1] : null; }
   if ((m = s.match(/^Victoire (.+)$/))) return fmt(w.vict, {x: m[1]});
   if ((m = s.match(/^(Plus|Moins) de ([\d.,]+)(?: (.+))?$/))) return (m[1] === "Plus" ? w.over : w.under) + " " + m[2] + (m[3] ? " " + tr(m[3]) : "");
   if ((m = s.match(/^(.+?)\s*:\s*(plus|moins) de ([\d.,]+) (.+)$/))) return m[1] + ": " + (m[2] === "plus" ? w.over : w.under).toLowerCase() + " " + m[3] + " " + tr(m[4]);
@@ -446,11 +451,32 @@ function motifs(s) {
 /* ---------- acces aux traductions (7 premieres langues : tableaux du dictionnaire ; autres : fichier de langue, meme ordre) ---------- */
 const KEYS = Object.keys(D), KEYIDX = {};
 KEYS.forEach((k, i) => { KEYIDX[k] = i; });
+function dictBase(k) {
+  if (I < 7) { const e = D[k]; if (e) return e[I]; }
+  else {
+    const f = lf(), j = KEYIDX[k];
+    const v = f && f.D && j !== undefined ? f.D[j] : null;
+    if (v) return v;
+  }
+  return lv(k);
+}
+/* libelles du direct (stats Flashscore, statuts, jauges) : fichier i18n_live.js, toutes langues */
+let LVM = null;
+function lv(k) {
+  const g = window.GB_LIVE;
+  if (!g || I < 0) return null;
+  if (!LVM) {
+    LVM = {};
+    const L = g.L[LANGS[I]];
+    g.K.forEach((fr, i) => { if (L && L[i]) LVM[norm(fr)] = L[i]; });
+  }
+  return LVM[k] || null;
+}
 function dict(k) {
-  if (I < 7) { const e = D[k]; return e ? e[I] : null; }
-  const f = lf(), j = KEYIDX[k];
-  const v = f && f.D && j !== undefined ? f.D[j] : null;
-  return v || null;
+  const t = dictBase(k);
+  if (t) return t;
+  const g = window.GB_LIVE, al = g && g.A ? g.A[k.toLowerCase()] : null;     // "2-point field goals %" (anglais brut) -> libelle francais -> langue
+  return al ? dictBase(al) : null;
 }
 
 /* ---------- traduction d'un texte ---------- */
@@ -470,6 +496,14 @@ function tr(s) {
   if (t == null && k.indexOf("(") > 0) {
     const q = k.replace(/\(([^)]+)\)/g, (all, x) => "(" + (dict(x) || x) + ")");
     if (q !== k) t = q;
+  }
+  if (t == null && k.indexOf(". ") > 0) {
+    const ph = k.split(". ");
+    if (ph.length > 1) {
+      let touche = false;
+      const out = ph.map((p, i) => { const e = i < ph.length - 1 ? p + "." : p; const q = tr(e); if (q !== e) touche = true; return q; });
+      if (touche) t = out.join(" ");
+    }
   }
   if (t == null) return s;
   if (P.br) t = t.replace(/Ténis/g, "Tênis").replace(/Basquetebol/g, "Basquete").replace(/Equipa/g, "Time").replace(/equipa/g, "time").replace(/desporto/g, "esporte").replace(/Desporto/g, "Esporte").replace(/Palavra-passe/g, "Senha").replace(/utilizador/g, "usuário").replace(/ecrã/g, "tela").replace(/Golfe/g, "Golfe");
