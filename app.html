@@ -495,6 +495,37 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
   background:#000b;color:var(--gold);border:1px solid #e3b34166;border-radius:6px;padding:2px 7px;pointer-events:none}
 .simnote{margin:6px 0 0;font-size:12px;color:var(--muted)}.simnote b{color:var(--text)}
 #r-simzone{fill:#ffffff0d}#r-simlib{fill:var(--muted);font:600 10px var(--body);letter-spacing:.06em;text-transform:uppercase}
+
+/* ───── Sondage pouce vert / pouce rouge sur chaque pari (22/10/2026) ───── */
+.vote{grid-column:1 / -1;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:relative;padding-top:8px;margin-top:2px;border-top:1px dashed var(--line)}
+.vq{font-size:12px;color:var(--muted);margin-right:auto}
+.vb{display:inline-flex;align-items:center;justify-content:center;width:46px;height:36px;border-radius:999px;border:1px solid var(--line);background:var(--surface);
+  cursor:pointer;padding:0;transition:transform .15s,background .2s,border-color .2s}
+.vb svg{width:20px;height:20px;pointer-events:none}
+.vb.up svg,.vres.up svg{fill:var(--win)}
+.vb.down svg,.vres.down svg{fill:var(--loss);transform:rotate(180deg)}
+.vb.up:hover{border-color:var(--win);background:#43b97f22;transform:translateY(-2px) scale(1.07)}
+.vb.down:hover{border-color:var(--loss);background:#e2665d22;transform:translateY(-2px) scale(1.07)}
+.vb:active{transform:scale(.92)}
+.vb.pop{animation:vPop .65s cubic-bezier(.2,1.6,.4,1)}
+@keyframes vPop{0%{transform:scale(1)}35%{transform:scale(1.6) rotate(-14deg)}70%{transform:scale(.9) rotate(7deg)}100%{transform:scale(1) rotate(0)}}
+.vote[data-busy] .vb{pointer-events:none}
+.vres{display:flex;align-items:center;gap:8px;flex:1 1 150px;min-width:140px}
+.vres .vi{display:inline-flex}.vres .vi svg{width:18px;height:18px}
+.vbar{flex:1;height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}
+.vbar i{display:block;height:100%;width:var(--w);border-radius:99px}
+.vres.up .vbar i{background:var(--win)}.vres.down .vbar i{background:var(--loss)}
+.vres b{font:700 13px var(--mono);min-width:40px;text-align:right;font-variant-numeric:tabular-nums}
+.vres.mine .vi{filter:drop-shadow(0 0 5px currentColor)}
+.vres.mine.up{color:var(--win)}.vres.mine.down{color:var(--loss)}
+.vres.mine b::after{content:" ✓"}
+.vote.fresh .vbar i{animation:vGrow .9s cubic-bezier(.2,.9,.3,1) both}
+.vote.fresh .vres.mine{animation:vGlow 1.2s ease-out}
+@keyframes vGrow{from{width:0}}
+@keyframes vGlow{0%{background:#ffffff22}100%{background:transparent}}
+.vpt{position:absolute;left:var(--x,50px);top:50%;width:7px;height:7px;border-radius:50%;pointer-events:none;opacity:0;animation:vFly .85s ease-out forwards}
+@keyframes vFly{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.3)}}
+@media (prefers-reduced-motion:reduce){.vb.pop,.vote.fresh .vbar i,.vote.fresh .vres.mine,.vpt{animation:none!important}.vb{transition:none}}
 </style>
 </head>
 <body>
@@ -872,6 +903,110 @@ async function api(path, opts){
   }
   return r.json();
 }
+
+/* ───── Sondage pouce vert / pouce rouge (22/10/2026, demande explicite) ─────
+   Un clic = un choix enregistre (pas de changement). Une fois choisi, on ne voit QUE les pourcentages (somme 100).
+   Rien ne s'affiche tant que l'API de vote ne repond pas (VOTE_ACTIF) : jamais de bouton qui ne fait rien. */
+const VOTE_PUCE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>';
+const VOTES = new Map(), VOTE_FRESH = new Map(), VOTE_DEMANDE = new Map();
+let VOTE_ACTIF = false;
+const VID = (() => {
+  try {
+    let v = localStorage.getItem("gbet_vote_id");
+    if (!v || !/^[A-Za-z0-9_-]{16,64}$/.test(v)){
+      const a = new Uint8Array(16); crypto.getRandomValues(a);
+      v = [...a].map(x => x.toString(16).padStart(2, "0")).join(""); localStorage.setItem("gbet_vote_id", v);
+    }
+    return v;
+  } catch (_){ return "m" + Math.random().toString(16).slice(2).padEnd(24, "0").slice(0, 24); }
+})();
+(store.get("gbet_votes") || []).forEach(([k, m]) => VOTES.set(k, {mine: m}));      // mon choix s'affiche tout de suite
+const memoVote = () => store.set("gbet_votes", [...VOTES].filter(([, e]) => e.mine).slice(-400).map(([k, e]) => [k, e.mine]));
+const cleVote = (p, b) => `${p.fixture_id}|${String(b.bet || "").trim().slice(0, 160)}`;
+const attr = t => esc(t).replace(/"/g, "&quot;");
+function voteHtml(k){
+  if (!VOTE_ACTIF) return "";
+  const e = VOTES.get(k) || {};
+  if (!e.mine){
+    return `<div class="vote" data-k="${attr(k)}"><span class="vq">Votre avis sur ce pari ?</span>
+      <button type="button" class="vb up" aria-label="J'aime ce pari">${VOTE_PUCE}</button>
+      <button type="button" class="vb down" aria-label="Je n'aime pas ce pari">${VOTE_PUCE}</button></div>`;
+  }
+  const fresh = (VOTE_FRESH.get(k) || 0) > Date.now() - 1800;
+  const ligne = (cls, pct, moi) => `<div class="vres ${cls}${moi ? " mine" : ""}"><span class="vi">${VOTE_PUCE}</span>
+      <span class="vbar"><i style="--w:${pct === undefined ? 0 : pct}%"></i></span><b data-to="${pct ?? ""}">${pct === undefined ? "–" : pct + "%"}</b></div>`;
+  return `<div class="vote voted${fresh ? " fresh" : ""}" data-k="${attr(k)}">${ligne("up", e.up, e.mine === 1)}${ligne("down", e.down, e.mine === -1)}</div>`;
+}
+function gerbeVote(btn, v){
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const box = btn.closest(".vote"), r = btn.getBoundingClientRect(), rb = box.getBoundingClientRect();
+  for (let i = 0; i < 12; i++){
+    const d = document.createElement("i"); d.className = "vpt";
+    d.style.setProperty("--x", (r.left - rb.left + r.width / 2) + "px");
+    d.style.setProperty("--dx", (Math.random() * 120 - 60) + "px");
+    d.style.setProperty("--dy", (-(30 + Math.random() * 60) * (v === 1 ? 1 : -.6)) + "px");
+    d.style.background = v === 1 ? ["#43b97f", "#8be3b2", "#e3b341"][i % 3] : ["#e2665d", "#f0a39d", "#a39c8c"][i % 3];
+    box.appendChild(d); setTimeout(() => d.remove(), 900);
+  }
+}
+function compteVote(el){
+  const to = Number(el.dataset.to); if (!isFinite(to) || el.dataset.to === "") return;
+  const t0 = performance.now();
+  (function f(t){ const k = Math.min(1, (t - t0) / 800); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))) + "%" + (el.parentNode.classList.contains("mine") ? "" : ""); if (k < 1 && el.isConnected) requestAnimationFrame(f); else el.textContent = to + "%"; })(t0);
+}
+function majVotes(k, anime){
+  if (anime) VOTE_FRESH.set(k, Date.now());
+  document.querySelectorAll(".vote[data-k]").forEach(el => {
+    if (el.dataset.k !== k) return;
+    const t = document.createElement("template"); t.innerHTML = voteHtml(k).trim();
+    const n = t.content.firstElementChild; if (!n) return;
+    el.replaceWith(n);
+    if (anime) n.querySelectorAll("b[data-to]").forEach(compteVote);
+  });
+}
+async function chargerVotes(force){
+  if (!VOTE_ACTIF) return;
+  const maintenant = Date.now();
+  const cles = [...new Set([...document.querySelectorAll(".vote[data-k]")].map(el => el.dataset.k))]
+    .filter(k => { const e = VOTES.get(k) || {}; const vu = VOTE_DEMANDE.get(k) || 0;
+      return e.mine ? (force || e.up === undefined || maintenant - vu > 60000) : (maintenant - vu > 600000); }).slice(0, 80);
+  if (!cles.length) return;
+  cles.forEach(k => VOTE_DEMANDE.set(k, maintenant));
+  try {
+    const r = await api("/api/votes", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({keys: cles, vid: VID})});
+    if (!r || !r.ok) return;
+    Object.entries(r.votes || {}).forEach(([k, e]) => {
+      const av = VOTES.get(k) || {};
+      if (e.mine || av.mine){ VOTES.set(k, e.mine ? e : {...av, ...e}); majVotes(k, false); } else VOTES.set(k, {mine: 0});
+    });
+    memoVote();
+  } catch (_){}
+}
+document.addEventListener("click", async e => {
+  const b = e.target.closest(".vb"); if (!b) return;
+  const box = b.closest(".vote"); if (!box || box.dataset.busy) return;
+  const k = box.dataset.k, v = b.classList.contains("up") ? 1 : -1;
+  if ((VOTES.get(k) || {}).mine) return;
+  box.dataset.busy = "1"; b.classList.add("pop"); gerbeVote(b, v);
+  try {
+    const r = await api("/api/vote", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({key: k, vid: VID, v})});
+    if (r && r.ok && r.etat && r.etat.mine){
+      VOTES.set(k, r.etat); memoVote();
+      setTimeout(() => majVotes(k, true), 600);              // laisse jouer le pouce, puis les barres se remplissent
+    } else {
+      delete box.dataset.busy; b.classList.remove("pop");
+      const q = box.querySelector(".vq"); if (q) q.textContent = (r && r.reason) || "Vote impossible pour le moment";
+    }
+  } catch (_){ delete box.dataset.busy; b.classList.remove("pop"); }
+});
+/* le sondage n'apparait que si le serveur de vote repond (sonde a vide) */
+(async () => {
+  try {
+    const r = await api("/api/votes", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({keys: [], vid: VID})});
+    if (r && r.ok === true){ VOTE_ACTIF = true; try { dessineJour(); } catch (_){} try { chargerVotes(); } catch (_){} }
+  } catch (_){}
+})();
+setInterval(() => chargerVotes(true), 60000);
 
 /* ─────────────────────────── Compte ─────────────────────────── */
 let ME = store.get("gbet-user") || null;
@@ -1294,7 +1429,7 @@ function carte(p, euros, valeurU){
       <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
       <span class="tag ${avance ? avance[0] : b.r}">${avance ? avance[1] : b.r === "s" && (live || (ko && ko <= new Date())) ? "En cours" : LIB[b.r]}</span>
       <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
-      ${jg}</div>`;
+      ${jg}${voteHtml(cleVote(p, b))}</div>`;
   }).join("");
 
   /* ───── Banniere "Affiche" (10/10/2026) ───── */
@@ -1524,6 +1659,7 @@ function dessineJour(){
     `<div class="empty"><b>Aucun pari ici pour l'instant.</b><br>${suivant
       ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}) + "."
       : "Rien de publié aujourd'hui : c'est normal les jours sans match filtré."}</div>`;
+  setTimeout(chargerVotes, 0);
 }
 $("#state-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stateFilter = b.dataset.state; dessineJour(); } });
 $("#sport-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ sportFilter = b.dataset.sport; dessineJour(); } });
@@ -1891,18 +2027,9 @@ function verifierReglements(pubs){
   }
   reglePret = true;
 }
-/* serie en cours : paris REELLEMENT publies (jamais les simules), du plus recent au plus ancien, rembourses ignores */
-function majSerie(){
-  const L = (REG || ((RES || RES_SERIE) && (RES || RES_SERIE).results) || []).filter(e => !e.sim && (e.r === "G" || e.r === "P"));
-  const tri = L[0] && L[0].ts ? [...L].sort((x, y) => String(y.ts).localeCompare(String(x.ts))) : L;
-  let n = 0; for (const e of tri){ if (e.r === "G") n++; else break; }
-  let el = document.getElementById("serie");
-  if (n < 3){ if (el) el.hidden = true; return; }
-  const hote = document.getElementById("jour-maj");
-  if (!el || !el.isConnected){ el = document.createElement("span"); el.id = "serie"; el.setAttribute("role", "status"); }
-  if (hote && el.parentNode !== hote) hote.appendChild(el);      /* dans l'en-tete, jamais par-dessus les cartes */
-  el.hidden = false; el.innerHTML = `<span class="f">🔥</span> Série : <b>${n} gagnés</b> d'affilée`;
-}
+/* 22/10/2026 (demande utilisateur) : la pastille 🔥 "Série : N gagnés d'affilée" est supprimée (presque toujours fausse).
+   La série de JOURS positifs de la page Résultats est un autre calcul et reste. */
+function majSerie(){ const el = document.getElementById("serie"); if (el) el.remove(); }
 /* chiffres qui defilent jusqu'a leur valeur */
 function defile(el){
   if (!el || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;

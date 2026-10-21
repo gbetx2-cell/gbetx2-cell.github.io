@@ -7,25 +7,65 @@
 (function () {
 "use strict";
 
-/* ---------- pays proposes : drapeau, langue, format de date, fuseau horaire ---------- */
+/* ---------- pays proposes : drapeau, langue, format de date, fuseau horaire ----------
+   idx = rang de la langue : 0..6 = en, es, de, it, pt, nl, tr (dictionnaire ci-dessous) ; 7.. = langues chargees a la demande
+   depuis assets/i18n_<code>.js (zh, ja, ko, ru, pl, ar, hi, id). -1 = francais (langue d'origine de la page). */
+const LANGS = ["en", "es", "de", "it", "pt", "nl", "tr", "zh", "ja", "ko", "ru", "pl", "ar", "hi", "id"];
 const PAYS = [
-  {c: "fr", nom: "Français",          idx: -1, loc: "fr-FR", tz: "Europe/Paris"},
-  {c: "gb", nom: "English (UK)",      idx: 0,  loc: "en-GB", tz: "Europe/London"},
-  {c: "us", nom: "English (US)",      idx: 0,  loc: "en-US", tz: "America/New_York"},
-  {c: "es", nom: "Español",           idx: 1,  loc: "es-ES", tz: "Europe/Madrid"},
-  {c: "de", nom: "Deutsch",           idx: 2,  loc: "de-DE", tz: "Europe/Berlin"},
-  {c: "it", nom: "Italiano",          idx: 3,  loc: "it-IT", tz: "Europe/Rome"},
-  {c: "pt", nom: "Português",         idx: 4,  loc: "pt-PT", tz: "Europe/Lisbon"},
-  {c: "br", nom: "Português (Brasil)", idx: 4, loc: "pt-BR", tz: "America/Sao_Paulo", br: true},
-  {c: "nl", nom: "Nederlands",        idx: 5,  loc: "nl-NL", tz: "Europe/Amsterdam"},
-  {c: "tr", nom: "Türkçe",            idx: 6,  loc: "tr-TR", tz: "Europe/Istanbul"},
+  {c: "fr",    nom: "Français · France",              idx: -1, loc: "fr-FR", tz: "Europe/Paris"},
+  {c: "be",    nom: "Français · Belgique",            idx: -1, loc: "fr-BE", tz: "Europe/Brussels"},
+  {c: "ch-fr", f: "ch", nom: "Français · Suisse",     idx: -1, loc: "fr-CH", tz: "Europe/Zurich"},
+  {c: "ca-fr", f: "ca", nom: "Français · Canada",     idx: -1, loc: "fr-CA", tz: "America/Toronto"},
+  {c: "ma",    nom: "Français · Maroc",               idx: -1, loc: "fr-MA", tz: "Africa/Casablanca"},
+  {c: "dz",    nom: "Français · Algérie",             idx: -1, loc: "fr-DZ", tz: "Africa/Algiers"},
+  {c: "tn",    nom: "Français · Tunisie",             idx: -1, loc: "fr-TN", tz: "Africa/Tunis"},
+  {c: "sn",    nom: "Français · Sénégal",             idx: -1, loc: "fr-SN", tz: "Africa/Dakar"},
+  {c: "ci",    nom: "Français · Côte d'Ivoire",       idx: -1, loc: "fr-CI", tz: "Africa/Abidjan"},
+  {c: "gb",    nom: "English · United Kingdom",       idx: 0,  loc: "en-GB", tz: "Europe/London"},
+  {c: "us",    nom: "English · United States",        idx: 0,  loc: "en-US", tz: "America/New_York"},
+  {c: "ie",    nom: "English · Ireland",              idx: 0,  loc: "en-IE", tz: "Europe/Dublin"},
+  {c: "ca",    nom: "English · Canada",               idx: 0,  loc: "en-CA", tz: "America/Toronto"},
+  {c: "au",    nom: "English · Australia",            idx: 0,  loc: "en-AU", tz: "Australia/Sydney"},
+  {c: "nz",    nom: "English · New Zealand",          idx: 0,  loc: "en-NZ", tz: "Pacific/Auckland"},
+  {c: "in",    nom: "English · India",                idx: 0,  loc: "en-IN", tz: "Asia/Kolkata"},
+  {c: "za",    nom: "English · South Africa",         idx: 0,  loc: "en-ZA", tz: "Africa/Johannesburg"},
+  {c: "ng",    nom: "English · Nigeria",              idx: 0,  loc: "en-NG", tz: "Africa/Lagos"},
+  {c: "es",    nom: "Español · España",               idx: 1,  loc: "es-ES", tz: "Europe/Madrid"},
+  {c: "mx",    nom: "Español · México",               idx: 1,  loc: "es-MX", tz: "America/Mexico_City"},
+  {c: "ar",    nom: "Español · Argentina",            idx: 1,  loc: "es-AR", tz: "America/Argentina/Buenos_Aires"},
+  {c: "co",    nom: "Español · Colombia",             idx: 1,  loc: "es-CO", tz: "America/Bogota"},
+  {c: "cl",    nom: "Español · Chile",                idx: 1,  loc: "es-CL", tz: "America/Santiago"},
+  {c: "pe",    nom: "Español · Perú",                 idx: 1,  loc: "es-PE", tz: "America/Lima"},
+  {c: "de",    nom: "Deutsch · Deutschland",          idx: 2,  loc: "de-DE", tz: "Europe/Berlin"},
+  {c: "at",    nom: "Deutsch · Österreich",           idx: 2,  loc: "de-AT", tz: "Europe/Vienna"},
+  {c: "ch-de", f: "ch", nom: "Deutsch · Schweiz",     idx: 2,  loc: "de-CH", tz: "Europe/Zurich"},
+  {c: "it",    nom: "Italiano · Italia",              idx: 3,  loc: "it-IT", tz: "Europe/Rome"},
+  {c: "pt",    nom: "Português · Portugal",           idx: 4,  loc: "pt-PT", tz: "Europe/Lisbon"},
+  {c: "br",    nom: "Português · Brasil",             idx: 4,  loc: "pt-BR", tz: "America/Sao_Paulo", br: true},
+  {c: "nl",    nom: "Nederlands · Nederland",         idx: 5,  loc: "nl-NL", tz: "Europe/Amsterdam"},
+  {c: "be-nl", f: "be", nom: "Nederlands · België",   idx: 5,  loc: "nl-BE", tz: "Europe/Brussels"},
+  {c: "tr",    nom: "Türkçe · Türkiye",               idx: 6,  loc: "tr-TR", tz: "Europe/Istanbul"},
+  {c: "cn",    nom: "中文 · 中国",                      idx: 7,  loc: "zh-CN", tz: "Asia/Shanghai"},
+  {c: "jp",    nom: "日本語 · 日本",                    idx: 8,  loc: "ja-JP", tz: "Asia/Tokyo"},
+  {c: "kr",    nom: "한국어 · 대한민국",                  idx: 9,  loc: "ko-KR", tz: "Asia/Seoul"},
+  {c: "ru",    nom: "Русский · Россия",               idx: 10, loc: "ru-RU", tz: "Europe/Moscow"},
+  {c: "pl",    nom: "Polski · Polska",                idx: 11, loc: "pl-PL", tz: "Europe/Warsaw"},
+  {c: "sa",    nom: "العربية · السعودية",              idx: 12, loc: "ar-SA-u-ca-gregory-nu-latn", tz: "Asia/Riyadh", rtl: true},
+  {c: "ae",    nom: "العربية · الإمارات",              idx: 12, loc: "ar-AE-u-nu-latn", tz: "Asia/Dubai", rtl: true},
+  {c: "eg",    nom: "العربية · مصر",                   idx: 12, loc: "ar-EG-u-nu-latn", tz: "Africa/Cairo", rtl: true},
+  {c: "in-hi", f: "in", nom: "हिन्दी · भारत",          idx: 13, loc: "hi-IN", tz: "Asia/Kolkata"},
+  {c: "id",    nom: "Bahasa Indonesia · Indonesia",   idx: 14, loc: "id-ID", tz: "Asia/Jakarta"},
 ];
 const CLE = "gb_pays";
 let code = "fr";
 try { code = localStorage.getItem(CLE) || "fr"; } catch (e) {}
 let P = PAYS.find(p => p.c === code) || PAYS[0];
-const EN_ANGLAIS = P.idx === 0;
 const I = P.idx;
+const EN_ANGLAIS = I === 0 || I === 7 || I === 8 || I === 9 || I === 13;     // point decimal (1.25) et virgule des milliers
+/* langue chargee a la demande : le fichier est ecrit dans la page avant la suite du chargement */
+if (I >= 7 && document.readyState === "loading") document.write('<script src="assets/i18n_' + LANGS[I] + '.js"><\/script>');
+let LF = null;
+const lf = () => LF || (LF = window.GB_L || null);
 
 /* ---------- dictionnaire : francais -> [en, es, de, it, pt, nl, tr] ---------- */
 const D = {
@@ -326,60 +366,91 @@ const D = {
 
   /* jeu responsable : seul le titre et la ligne d'aide sont traduits, le texte legal reste en francais */
   "Pour en parler :": ["To talk about it:","Para hablar de ello:","Um darüber zu sprechen:","Per parlarne:","Para falar sobre isso:","Om erover te praten:","Konuşmak için:"],
+
+  /* sondage pouce vert / rouge (22/10/2026) : nouvelles entrees TOUJOURS a la fin */
+  "Votre avis sur ce pari ?": ["Your opinion on this bet?","¿Qué opinas de esta apuesta?","Ihre Meinung zu diesem Tipp?","Che ne pensi di questa scommessa?","O que acha desta aposta?","Wat vind je van deze weddenschap?","Bu bahis hakkında ne düşünüyorsunuz?"],
+  "J'aime ce pari": ["I like this bet","Me gusta esta apuesta","Ich mag diesen Tipp","Mi piace questa scommessa","Gosto desta aposta","Ik vind deze weddenschap goed","Bu bahsi beğendim"],
+  "Je n'aime pas ce pari": ["I don't like this bet","No me gusta esta apuesta","Ich mag diesen Tipp nicht","Non mi piace questa scommessa","Não gosto desta aposta","Ik vind deze weddenschap niet goed","Bu bahsi beğenmedim"],
+  "Vote impossible pour le moment": ["Voting is not possible right now","No se puede votar ahora mismo","Abstimmen ist gerade nicht möglich","Al momento non è possibile votare","Não é possível votar neste momento","Stemmen is nu niet mogelijk","Şu anda oy verilemiyor"],
+  "Trop de votes, ralentis un peu": ["Too many votes, slow down a little","Demasiados votos, ve más despacio","Zu viele Stimmen, bitte etwas langsamer","Troppi voti, rallenta un po'","Demasiados votos, abrande um pouco","Te veel stemmen, doe het even rustiger aan","Çok fazla oy, biraz yavaşlayın"],
+  "Trop de votes depuis cette connexion": ["Too many votes from this connection","Demasiados votos desde esta conexión","Zu viele Stimmen von dieser Verbindung","Troppi voti da questa connessione","Demasiados votos desta ligação","Te veel stemmen vanaf deze verbinding","Bu bağlantıdan çok fazla oy"],
 };
 
-/* ---------- modeles de phrases (nombres, noms de joueurs, dates...) ---------- */
+/* ---------- modeles de phrases (nombres, noms de joueurs, dates...) : gabarits {x} par langue ---------- */
 const OVER  = ["Over","Más de","Über","Più di","Mais de","Meer dan","Üst"];
 const UNDER = ["Under","Menos de","Unter","Meno di","Menos de","Minder dan","Alt"];
-const VICT  = ["Win","Victoria de","Sieg","Vittoria","Vitória","Winst","Galibiyet:"];
-const DUEL  = [["Tournament duel — "," ahead of "],["Duelo de torneo — "," por delante de "],["Turnierduell — "," vor "],["Duello del torneo — "," davanti a "],["Duelo do torneio — "," à frente de "],["Toernooiduel — "," voor "],["Turnuva düellosu — "," önünde: "]];
-const MAJ   = ["Updated at","Actualizado a las","Aktualisiert um","Aggiornato alle","Atualizado às","Bijgewerkt om","Güncelleme:"];
-const DANS  = ["in","en","in","tra","em","over","sonra:"];
-const PROCH = ["Next bet around","Próxima apuesta hacia las","Nächster Tipp gegen","Prossima scommessa verso le","Próxima aposta por volta das","Volgende weddenschap rond","Sonraki bahis yaklaşık"];
-const COMM  = ["In progress · started at","En curso · empezó a las","Läuft · begonnen um","In corso · iniziata alle","Em curso · começou às","Bezig · begonnen om","Devam ediyor · başlangıç"];
-const SEM   = ["week of","semana del","Woche vom","settimana del","semana de","week van","hafta:"];
-const STATS = ["Match stats","Estadísticas del partido","Spielstatistiken","Statistiche della partita","Estatísticas do jogo","Wedstrijdstatistieken","Maç istatistikleri"];
-const SUR   = ["of","de","von","su","de","van","/"];
+const OLD = {   // gabarits des 7 premieres langues, [en, es, de, it, pt, nl, tr]
+  vict:  ["Win {x}","Victoria de {x}","Sieg {x}","Vittoria {x}","Vitória {x}","Winst {x}","Galibiyet: {x}"],
+  duel:  ["Tournament duel — {a} ahead of {b}","Duelo de torneo — {a} por delante de {b}","Turnierduell — {a} vor {b}","Duello del torneo — {a} davanti a {b}","Duelo do torneio — {a} à frente de {b}","Toernooiduel — {a} voor {b}","Turnuva düellosu — {a} önünde: {b}"],
+  maj:   ["Updated at {t}","Actualizado a las {t}","Aktualisiert um {t}","Aggiornato alle {t}","Atualizado às {t}","Bijgewerkt om {t}","Güncelleme: {t}"],
+  dans:  ["in {x}","en {x}","in {x}","tra {x}","em {x}","over {x}","{x} sonra"],
+  proch: ["Next bet around {t}.","Próxima apuesta hacia las {t}.","Nächster Tipp gegen {t}.","Prossima scommessa verso le {t}.","Próxima aposta por volta das {t}.","Volgende weddenschap rond {t}.","Sonraki bahis yaklaşık {t}."],
+  comm:  ["In progress · started at {t}","En curso · empezó a las {t}","Läuft · begonnen um {t}","In corso · iniziata alle {t}","Em curso · começou às {t}","Bezig · begonnen om {t}","Devam ediyor · başlangıç {t}"],
+  sem:   ["week of {d}","semana del {d}","Woche vom {d}","settimana del {d}","semana de {d}","week van {d}","hafta: {d}"],
+  stats: ["Match stats","Estadísticas del partido","Spielstatistiken","Statistiche della partita","Estatísticas do jogo","Wedstrijdstatistieken","Maç istatistikleri"],
+  bet1:  ["bet","apuesta","Tipp","scommessa","aposta","weddenschap","bahis"],
+  sportn:["{n} sport(s)","{n} deporte(s)","{n} Sportart(en)","{n} sport","{n} desporto(s)","{n} sport(en)","{n} spor"],
+  won:   ["{n} won","{n} ganadas","{n} gewonnen","{n} vinte","{n} ganhas","{n} gewonnen","{n} kazanıldı"],
+  wonof: ["{n} won out of {m}","{n} ganadas de {m}","{n} gewonnen von {m}","{n} vinte su {m}","{n} ganhas em {m}","{n} gewonnen van {m}","{n} kazanıldı / {m}"],
+  days:  ["{n} winning days in a row","{n} días positivos seguidos","{n} Gewinntage in Folge","{n} giorni positivi di fila","{n} dias positivos seguidos","{n} winstdagen op rij","{n} gün üst üste kâr"],
+  rec:   ["{a} of {b} · record {c} in a row","{a} de {b} · récord {c} seguidos","{a} von {b} · Rekord {c} in Folge","{a} su {b} · record {c} di fila","{a} de {b} · recorde {c} seguidos","{a} van {b} · record {c} op rij","{a} / {b} · rekor {c} üst üste"],
+  page:  ["{a}–{b} of {c} · page {d} / {e}","{a}–{b} de {c} · página {d} / {e}","{a}–{b} von {c} · Seite {d} / {e}","{a}–{b} su {c} · pagina {d} / {e}","{a}–{b} de {c} · página {d} / {e}","{a}–{b} van {c} · pagina {d} / {e}","{a}–{b} / {c} · sayfa {d} / {e}"],
+  usur:  ["{a} u over {n} {bets}","{a} u en {n} {bets}","{a} u bei {n} {bets}","{a} u su {n} {bets}","{a} u em {n} {bets}","{a} u uit {n} {bets}","{a} u / {n} {bets}"],
+  dont:  ["{n} {bets} · of which {m} simulated","{n} {bets} · de los cuales {m} simuladas","{n} {bets} · davon {m} simuliert","{n} {bets} · di cui {m} simulate","{n} {bets} · dos quais {m} simuladas","{n} {bets} · waarvan {m} gesimuleerd","{n} {bets} · bunun {m} simüle"],
+  tfin:  ["Final total {t}, {rel} {l} → {ow} {res}.","Total final {t}, {rel} {l} → {ow} {res}.","Endstand gesamt {t}, {rel} {l} → {ow} {res}.","Totale finale {t}, {rel} {l} → {ow} {res}.","Total final {t}, {rel} {l} → {ow} {res}.","Eindtotaal {t}, {rel} {l} → {ow} {res}.","Final toplamı {t}, {rel} {l} → {ow} {res}."],
+  above: ["above","por encima de","über","sopra","acima de","boven","üstünde:"],
+  below: ["below","por debajo de","unter","sotto","abaixo de","onder","altında:"],
+};
+let W_CACHE = null;
+function W() {      // gabarits de la langue courante (les langues chargees completent l'anglais pour toute cle manquante)
+  if (W_CACHE) return W_CACHE;
+  const de = i => { const o = {over: OVER[i], under: UNDER[i]}; Object.keys(OLD).forEach(k => { o[k] = OLD[k][i]; }); return o; };
+  const f = lf();
+  W_CACHE = I < 7 ? de(I) : Object.assign(de(0), (f && f.W) || {});
+  return W_CACHE;
+}
+function fmt(t, v) { return t.replace(/\{(\w+)\}/g, (all, k) => (v[k] === undefined ? all : v[k])); }
 
 function motifs(s) {
-  let m;
+  const w = W(); let m;
   if ((m = s.match(/^Plus de \/ moins de ([\d.,]+)$/))) return tr("Plus de / moins de") + " " + m[1];
   if ((m = s.match(/^Total final (\S+), (au-dessus|en dessous) de (\S+) → (Plus|Moins) de (gagné|perdu)\.$/)))
-    return ["Final total","Total final","Endstand gesamt","Totale finale","Total final","Eindtotaal","Final toplamı"][I] + " " + m[1] + ", " +
-      (m[2] === "au-dessus" ? ["above","por encima de","über","sopra","acima de","boven","üstünde:"] : ["below","por debajo de","unter","sotto","abaixo de","onder","altında:"])[I] + " " + m[3] +
-      " → " + (m[4] === "Plus" ? OVER : UNDER)[I] + " " + tr(m[5]) + ".";
-  if ((m = s.match(/^(\d+) paris · dont (\d+) simulés$/))) return m[1] + " " + tr("paris") + " · " + ["of which","de los cuales","davon","di cui","dos quais","waarvan","bunun"][I] + " " + m[2] + " " + ["simulated","simuladas","simuliert","simulate","simuladas","gesimuleerd","simüle"][I];
-  if ((m = s.match(/^Victoire (.+)$/))) return I === 6 ? VICT[6] + " " + m[1] : VICT[I] + " " + m[1];
-  if ((m = s.match(/^(Plus|Moins) de ([\d.,]+)(?: (.+))?$/))) {
-    const w = (m[1] === "Plus" ? OVER : UNDER)[I];
-    const unite = m[3] ? " " + tr(m[3]) : "";
-    return w + " " + m[2] + unite;
-  }
-  if ((m = s.match(/^(.+?)\s*:\s*(plus|moins) de ([\d.,]+) (.+)$/))) {
-    const w = (m[2] === "plus" ? OVER : UNDER)[I].toLowerCase();
-    return m[1] + ": " + w + " " + m[3] + " " + tr(m[4]);
-  }
-  if ((m = s.match(/^Duel tournoi — (.+) devant (.+)$/))) return DUEL[I][0] + m[1] + DUEL[I][1] + m[2];
+    return fmt(w.tfin, {t: m[1], rel: m[2] === "au-dessus" ? w.above : w.below, l: m[3], ow: m[4] === "Plus" ? w.over : w.under, res: tr(m[5])});
+  if ((m = s.match(/^(\d+) paris · dont (\d+) simulés$/))) return fmt(w.dont, {n: m[1], bets: tr("paris"), m: m[2]});
+  if ((m = s.match(/^Victoire (.+)$/))) return fmt(w.vict, {x: m[1]});
+  if ((m = s.match(/^(Plus|Moins) de ([\d.,]+)(?: (.+))?$/))) return (m[1] === "Plus" ? w.over : w.under) + " " + m[2] + (m[3] ? " " + tr(m[3]) : "");
+  if ((m = s.match(/^(.+?)\s*:\s*(plus|moins) de ([\d.,]+) (.+)$/))) return m[1] + ": " + (m[2] === "plus" ? w.over : w.under).toLowerCase() + " " + m[3] + " " + tr(m[4]);
+  if ((m = s.match(/^Duel tournoi — (.+) devant (.+)$/))) return fmt(w.duel, {a: m[1], b: m[2]});
   if ((m = s.match(/^Handicap (.+)$/))) return tr("Handicap") + " " + m[1];
-  if ((m = s.match(/^Mis à jour à (.+)$/))) return MAJ[I] + " " + m[1];
-  if ((m = s.match(/^Prochain pari vers (.+?)\.?$/))) return PROCH[I] + " " + m[1] + ".";
-  if ((m = s.match(/^En cours · commencé à (.+)$/))) return COMM[I] + " " + m[1];
-  if ((m = s.match(/^semaine du (.+)$/))) return SEM[I] + " " + m[1];
-  if ((m = s.match(/^dans (.+)$/))) return I === 6 ? m[1] + " " + DANS[6].replace(":", "") : DANS[I] + " " + m[1];
-  if ((m = s.match(/^📊 Stats du match · (.+)$/))) return "📊 " + STATS[I] + " · " + m[1];
-  if ((m = s.match(/^(\d+) paris?$/))) return m[1] + " " + (m[1] === "1" ? ["bet","apuesta","Tipp","scommessa","aposta","weddenschap","bahis"][I] : tr("paris"));
+  if ((m = s.match(/^Mis à jour à (.+)$/))) return fmt(w.maj, {t: m[1]});
+  if ((m = s.match(/^Prochain pari vers (.+?)\.?$/))) return fmt(w.proch, {t: m[1]});
+  if ((m = s.match(/^En cours · commencé à (.+)$/))) return fmt(w.comm, {t: m[1]});
+  if ((m = s.match(/^semaine du (.+)$/))) return fmt(w.sem, {d: m[1]});
+  if ((m = s.match(/^dans (.+)$/))) return fmt(w.dans, {x: m[1]});
+  if ((m = s.match(/^📊 Stats du match · (.+)$/))) return "📊 " + w.stats + " · " + m[1];
+  if ((m = s.match(/^(\d+) paris?$/))) return m[1] + " " + (m[1] === "1" ? w.bet1 : tr("paris"));
   if ((m = s.match(/^(\d+) paris ·$/))) return m[1] + " " + tr("paris") + " ·";
-  if ((m = s.match(/^(\d+) sport\(s\)$/))) return m[1] + " " + ["sport(s)","deporte(s)","Sportart(en)","sport","desporto(s)","sport(en)","spor"][I];
-  if ((m = s.match(/^(\d+) gagnés$/))) return m[1] + " " + ["won","ganadas","gewonnen","vinte","ganhas","gewonnen","kazanıldı"][I];
-  if ((m = s.match(/^(\d+) gagnés sur (\d+)$/))) return m[1] + " " + ["won out of","ganadas de","gewonnen von","vinte su","ganhas em","gewonnen van","kazanıldı /"][I] + " " + m[2];
+  if ((m = s.match(/^(\d+) sport\(s\)$/))) return fmt(w.sportn, {n: m[1]});
+  if ((m = s.match(/^(\d+) gagnés$/))) return fmt(w.won, {n: m[1]});
+  if ((m = s.match(/^(\d+) gagnés sur (\d+)$/))) return fmt(w.wonof, {n: m[1], m: m[2]});
   if ((m = s.match(/^(\d+) paris · (\d+) remboursés?$/))) return m[1] + " " + tr("paris") + " · " + m[2] + " " + tr("remboursé").toLowerCase();
-  if ((m = s.match(/^(\d+) jours? positifs? de suite$/))) return m[1] + " " + ["winning days in a row","días positivos seguidos","Gewinntage in Folge","giorni positivi di fila","dias positivos seguidos","winstdagen op rij","gün üst üste kâr"][I];
-  if ((m = s.match(/^(\d+) sur (\d+) · record (\d+) de suite$/))) return m[1] + " " + SUR[I] + " " + m[2] + " · " + ["record","récord","Rekord","record","recorde","record","rekor"][I] + " " + m[3] + " " + ["in a row","seguidos","in Folge","di fila","seguidos","op rij","üst üste"][I];
-  if ((m = s.match(/^(\d+)[–-](\d+) sur (\d+) · page (\d+) \/ (\d+)$/))) return m[1] + "–" + m[2] + " " + SUR[I] + " " + m[3] + " · " + ["page","página","Seite","pagina","página","pagina","sayfa"][I] + " " + m[4] + " / " + m[5];
-  if ((m = s.match(/^([\d   ,.]+) u sur (\d+) paris$/))) return m[1] + " u " + ["over","en","bei","su","em","uit","/"][I] + " " + m[2] + " " + tr("paris");
+  if ((m = s.match(/^(\d+) jours? positifs? de suite$/))) return fmt(w.days, {n: m[1]});
+  if ((m = s.match(/^(\d+) sur (\d+) · record (\d+) de suite$/))) return fmt(w.rec, {a: m[1], b: m[2], c: m[3]});
+  if ((m = s.match(/^(\d+)[–-](\d+) sur (\d+) · page (\d+) \/ (\d+)$/))) return fmt(w.page, {a: m[1], b: m[2], c: m[3], d: m[4], e: m[5]});
+  if ((m = s.match(/^([\d\u00a0\u202f ,.]+) u sur (\d+) paris$/))) return fmt(w.usur, {a: m[1], n: m[2], bets: tr("paris")});
   if ((m = s.match(/^(\d+) paris · bénéfice ÷ total misé$/))) return m[1] + " " + tr("paris") + " · " + tr("bénéfice") + " ÷ " + tr("total misé");
   if ((m = s.match(/^(\d+) paris · (.+) u · (\d+) % de réussite$/))) return m[1] + " " + tr("paris") + " · " + m[2] + " u · " + m[3] + " % " + tr("taux de réussite");
   return null;
+}
+
+/* ---------- acces aux traductions (7 premieres langues : tableaux du dictionnaire ; autres : fichier de langue, meme ordre) ---------- */
+const KEYS = Object.keys(D), KEYIDX = {};
+KEYS.forEach((k, i) => { KEYIDX[k] = i; });
+function dict(k) {
+  if (I < 7) { const e = D[k]; return e ? e[I] : null; }
+  const f = lf(), j = KEYIDX[k];
+  const v = f && f.D && j !== undefined ? f.D[j] : null;
+  return v || null;
 }
 
 /* ---------- traduction d'un texte ---------- */
@@ -389,7 +460,7 @@ function tr(s) {
   if (I < 0 || !s) return s;
   const k = norm(s);
   if (!k) return s;
-  let t = D[k] ? D[k][I] : null;
+  let t = dict(k);
   if (t == null) t = motifs(k);
   if (t == null && k.indexOf(" · ") > 0) {
     const parts = k.split(" · "); let touche = false;
@@ -397,7 +468,7 @@ function tr(s) {
     if (touche) t = out.join(" · ");
   }
   if (t == null && k.indexOf("(") > 0) {
-    const q = k.replace(/\(([^)]+)\)/g, (all, x) => "(" + (D[x] ? D[x][I] : x) + ")");
+    const q = k.replace(/\(([^)]+)\)/g, (all, x) => "(" + (dict(x) || x) + ")");
     if (q !== k) t = q;
   }
   if (t == null) return s;
@@ -412,18 +483,23 @@ function chiffres(s) {
 }
 
 /* ---------- blocs longs (aide, regles, bas de page) : traduits en entier, balises <b>/<a> comprises ---------- */
-const H = {};
-Object.keys(window.GB_H || {}).forEach(k => { H[norm(k).slice(0, 30)] = window.GB_H[k]; });
+const H = {}, HK = Object.keys(window.GB_H || {});
+HK.forEach((k, j) => { H[norm(k).slice(0, 30)] = j; });
+function blocTexte(j) {
+  if (I < 7) { const e = window.GB_H[HK[j]]; return e ? e[I] : null; }
+  const f = lf(); return f && f.H ? f.H[j] || null : null;
+}
 const BLOCS = {P: 1, TD: 1, SPAN: 1, DIV: 1};
 function bloc(el) {
   if (!BLOCS[el.nodeName]) return false;
   if (el.getAttribute("data-tr")) return true;
   const t = el.textContent;
   if (t.length < 20 || t.length > 1500) return false;
-  const e = H[norm(t).slice(0, 30)];
-  if (!e || !e[I] || !el.closest("#p-aide,#p-res,footer")) return false;
+  const j = H[norm(t).slice(0, 30)];
+  const h0 = j === undefined ? null : blocTexte(j);
+  if (!h0 || !el.closest("#p-aide,#p-res,footer")) return false;
   el.setAttribute("data-tr", "1");
-  let h = e[I];
+  let h = h0;
   if (P.br) h = h.replace(/Ténis/g, "Tênis").replace(/ténis/g, "tênis").replace(/desporto/g, "esporte").replace(/utilizador/g, "usuário").replace(/equipa/g, "time");
   el.innerHTML = EN_ANGLAIS ? chiffres(h) : h;
   return true;
@@ -491,14 +567,14 @@ function selecteur() {
   const b = document.createElement("button");
   b.type = "button"; b.setAttribute("aria-haspopup", "listbox"); b.setAttribute("aria-expanded", "false");
   b.setAttribute("aria-label", "Langue / Language"); b.title = "Langue / Language";
-  b.innerHTML = '<img src="assets/flags/' + P.c + '.svg" alt=""><span class="car">▾</span>';
+  b.innerHTML = '<img src="assets/flags/' + (P.f || P.c) + '.svg" alt=""><span class="car">▾</span>';
   const ul = document.createElement("ul");
   ul.setAttribute("role", "listbox"); ul.hidden = true;
   PAYS.forEach(p => {
     const li = document.createElement("li");
     const x = document.createElement("button");
     x.type = "button"; x.setAttribute("role", "option"); x.setAttribute("aria-selected", p.c === P.c ? "true" : "false");
-    x.innerHTML = '<img src="assets/flags/' + p.c + '.svg" alt="" loading="lazy"><span></span>';
+    x.innerHTML = '<img src="assets/flags/' + (p.f || p.c) + '.svg" alt="" loading="lazy"><span></span>';
     x.lastChild.textContent = p.nom;
     x.addEventListener("click", () => {
       try { localStorage.setItem(CLE, p.c); } catch (e) {}
@@ -519,7 +595,8 @@ function selecteur() {
 function demarrer() {
   css();
   selecteur();
-  if (I < 0) return;
+  if (P.rtl) document.documentElement.dir = "rtl";
+  if (I < 0) { document.documentElement.lang = "fr"; return; }
   document.documentElement.lang = P.loc.split("-")[0];
   if (document.title) document.title = tr(document.title);
   parcourir(document.body);
@@ -534,5 +611,5 @@ function demarrer() {
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", demarrer);
 else demarrer();
 
-window.GB_I18N = {code: P.c, loc: P.loc, tz: P.tz, tr: tr, _D: D, _PAYS: PAYS};
+window.GB_I18N = {code: P.c, loc: P.loc, tz: P.tz, tr: tr, _D: D, _PAYS: PAYS, _LANGS: LANGS};
 })();
