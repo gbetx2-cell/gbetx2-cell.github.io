@@ -425,6 +425,12 @@ function motifs(s) {
   if ((m = s.match(/^Tour (\d+)$/))) { const g = lv("Tour {n}"); return g ? g.replace("{n}", m[1]) : null; }
   if ((m = s.match(/^Départ ([^·]+)$/))) { const g = lv("Départ {t}"); return g ? g.replace("{t}", m[1]) : null; }
   if ((m = s.match(/^Aujourd'hui ([+\-−E\d]+)$/))) { const g = lv("Aujourd'hui {v}"); return g ? g.replace("{v}", m[1]) : null; }
+  if ((m = s.match(/^il y a (.+)$/))) { const g = lv("il y a {x}"); return g ? g.replace("{x}", m[1]) : null; }
+  if ((m = s.match(/^Au bâton (.+)$/))) { const g = lv("Au bâton {n}"); return g ? g.replace("{n}", m[1]) : null; }
+  if ((m = s.match(/^Lanceur (.+)$/))) { const g = lv("Lanceur {n}"); return g ? g.replace("{n}", m[1]) : null; }
+  if ((m = s.match(/^Balle : (.+)$/))) { const g = lv("Balle : {t}"); return g ? g.replace("{t}", m[1]) : null; }
+  if ((m = s.match(/^(\d)e tentative · (\S+) à faire$/))) { const g = lv("{n}e tentative · {d} à faire"); return g ? g.replace("{n}", m[1]).replace("{d}", m[2]) : null; }
+  if ((m = s.match(/^QT(\d)$/))) { const g = lv("QT{n}"); return g ? g.replace("{n}", m[1]) : null; }
   if ((m = s.match(/^Classement : (.+)$/))) { const g = lv("Classement :"); return g ? g + " " + m[1] : null; }
   if ((m = s.match(/^Victoire (.+)$/))) return fmt(w.vict, {x: m[1]});
   if ((m = s.match(/^(Plus|Moins) de ([\d.,]+)(?: (.+))?$/))) return (m[1] === "Plus" ? w.over : w.under) + " " + m[2] + (m[3] ? " " + tr(m[3]) : "");
