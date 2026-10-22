@@ -537,6 +537,13 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
 .golfliv .gt.neg{color:var(--win)}.golfliv .gt.pos{color:var(--loss)}
 .golfliv .gi{font-size:12px;color:var(--muted);text-align:right}
 @media (max-width:560px){.golfliv .gl{grid-template-columns:1fr auto auto}.golfliv .gi{grid-column:1 / -1;text-align:left}}
+
+/* ───── Situation de jeu en direct + fraicheur du score (22/10/2026) ───── */
+.situ{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:8px 0 2px;padding:8px 12px;background:var(--raise);border-radius:8px;font-size:13px}
+.situ .dia{width:30px;height:30px;flex:none}
+.situ .dia rect{fill:#ffffff1f;stroke:#ffffff40;stroke-width:1}.situ .dia rect.on{fill:var(--gold);stroke:var(--gold)}
+.situ b{font:700 13px var(--mono)}.situ .rz{color:var(--loss);font-weight:700}
+.maj{font:600 11px var(--mono);color:var(--muted);margin-left:8px;white-space:nowrap}.maj.vieux{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -1493,7 +1500,8 @@ function carte(p, euros, valeurU){
   const scoreTxt = hs !== null && hs !== undefined && hs !== "" ? (golf ? `${par(hs)} / ${par(as)}` : f1 ? `P${hs}` : `${hs} - ${as}`) : (detail && !det ? esc(detail) : "");
   const vu = SCORES_VUS.get(p.fixture_id); SCORES_VUS.set(p.fixture_id, scoreTxt);
   const bump = vu !== undefined && vu !== scoreTxt && phase === "direct";
-  const moment = phase === "fin" ? "Terminé" : live ? statutFr(sc.status_long || "En direct") + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
+  const horloge = fsd && fsd.clk && fsd.per && /^(nfl|wnba|nba|nbam)$/.test(p.sport) ? (fsd.per > 4 ? "Prol." : "QT" + fsd.per) + " · " + fsd.clk : "";
+  const moment = phase === "fin" ? "Terminé" : live ? (horloge || statutFr(sc.status_long || "En direct")) + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
     : phase === "direct" ? "En cours" : "";
   const badge = phase === "avant" ? `<span class="bdg">${esc(heure || "À venir")}</span>`
     : phase === "direct" ? `<span class="bdg live">EN DIRECT</span>` : `<span class="bdg fin">TERMINÉ</span>`;
@@ -1522,13 +1530,22 @@ function carte(p, euros, valeurU){
     return `<div class="gl"><span class="gn">${esc(nomCourt(x.n, true))}</span><span class="gp">${esc(x.pos && x.pos !== "-" ? x.pos : "")}</span>
       <span class="gt ${x.par < 0 ? "neg" : x.par > 0 ? "pos" : ""}">${x.par === null || x.par === undefined ? "–" : parG(x.par)}</span>
       <span class="gi">${esc([trou, jour].filter(Boolean).join(" · "))}</span></div>`; }).join("")}</div>` : "";
+  /* baseball / NFL (22/10/2026) : situation de jeu fournie par ESPN pendant le match */
+  const caseB = (x, y, on) => `<rect class="${on ? "on" : ""}" x="${x}" y="${y}" width="7" height="7" transform="rotate(45 ${x + 3.5} ${y + 3.5})"/>`;
+  const sitBloc = !regle && !fini && fsd && fsd.bb ? `<div class="situ"><svg class="dia" viewBox="0 0 30 30" aria-hidden="true">${caseB(11.5, 3, fsd.bb.bs[1])}${caseB(3, 11.5, fsd.bb.bs[2])}${caseB(20, 11.5, fsd.bb.bs[0])}</svg>
+      <span>Retraits <b>${fsd.bb.o ?? 0}</b></span><span>Compte <b>${fsd.bb.b ?? 0}-${fsd.bb.s ?? 0}</b></span>
+      ${fsd.bb.bat ? `<span>Au bâton ${esc(fsd.bb.bat)}</span>` : ""}${fsd.bb.pit ? `<span>Lanceur ${esc(fsd.bb.pit)}</span>` : ""}</div>`
+    : !regle && !fini && fsd && fsd.nf ? `<div class="situ">${fsd.nf.dn ? `<b>${fsd.nf.dn}e tentative · ${fsd.nf.di ?? "?"} à faire</b>` : ""}
+      ${fsd.nf.poss ? `<span>Balle : ${esc(fsd.nf.poss)}</span>` : ""}${fsd.nf.yl ? `<span>${esc(fsd.nf.yl)}</span>` : ""}${fsd.nf.rz ? `<span class="rz">Zone rouge</span>` : ""}</div>` : "";
+  /* fraicheur : age du dernier score recu (mis a jour chaque seconde) */
+  const majTxt = live && sc && sc.updated_at ? `<span class="maj" data-up="${esc(sc.updated_at)}"></span>` : "";
   /* sous la banniere : compte a rebours avant le match, rien d'autre (le reste est dans la banniere) */
   const sous = phase === "avant" ? etat : (!live && phase === "direct" ? etat : "");
   return `<article class="pick ${live ? "is-live" : ""}">
     ${ban}
     <div class="corps">
-      <div class="state">${sous}</div>
-      ${golfBloc}
+      <div class="state">${sous}${majTxt}</div>
+      ${golfBloc}${sitBloc}
       <div class="bets">${lignes}</div>
       ${statsTxt}
     </div>
@@ -1688,6 +1705,12 @@ function dessineJour(){
 $("#state-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stateFilter = b.dataset.state; dessineJour(); } });
 $("#sport-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ sportFilter = b.dataset.sport; dessineJour(); } });
 setInterval(() => document.querySelectorAll("[data-ko]").forEach(el => el.textContent = compte(new Date(el.dataset.ko))), 1000);
+setInterval(() => document.querySelectorAll(".maj[data-up]").forEach(el => {
+  const t = new Date(el.dataset.up).getTime(); if (!isFinite(t)) return;
+  const sec = Math.max(0, Math.round((Date.now() - t) / 1000));
+  el.textContent = "il y a " + (sec < 60 ? sec + " s" : Math.floor(sec / 60) + " min");
+  el.classList.toggle("vieux", sec > 90);
+}), 1000);
 
 /* ─────────────────────────── Résultats ─────────────────────────── */
 function courbe(points, conv){
