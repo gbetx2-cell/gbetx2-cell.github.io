@@ -10,14 +10,14 @@ window.GB_H = {
  "Um bot que analisa milhares de jogos por dia em cerca de dez desportos e só publica as apostas que cumprem regras testadas ao longo de várias épocas de jogos reais, com as cotas reais da época.",
  "Een bot die elke dag duizenden wedstrijden in een tiental sporten analyseert en alleen weddenschappen publiceert die voldoen aan regels die over meerdere seizoenen met echte wedstrijden en de echte odds van toen zijn getest.",
  "Her gün yaklaşık on spordaki binlerce maçı analiz eden ve yalnızca gerçek maçların birkaç sezonunda, o dönemin gerçek oranlarıyla test edilmiş kuralları karşılayan bahisleri yayınlayan bir bot."],
-"Chaque pari publié est réglé automatiqu": [
- "Every published bet is settled automatically and stays visible for life, whether won or lost: the results shown are complete.",
- "Cada apuesta publicada se liquida automáticamente y sigue visible para siempre, ganada o perdida: el balance mostrado es completo.",
- "Jeder veröffentlichte Tipp wird automatisch abgerechnet und bleibt für immer sichtbar, ob gewonnen oder verloren: die angezeigte Bilanz ist vollständig.",
- "Ogni scommessa pubblicata viene regolata automaticamente e resta visibile per sempre, vinta o persa: il bilancio mostrato è completo.",
- "Cada aposta publicada é liquidada automaticamente e fica visível para sempre, ganha ou perdida: o balanço apresentado é completo.",
- "Elke gepubliceerde weddenschap wordt automatisch verrekend en blijft voor altijd zichtbaar, gewonnen of verloren: het getoonde saldo is volledig.",
- "Yayınlanan her bahis otomatik olarak sonuçlandırılır ve kazanılsa da kaybedilse de sonsuza dek görünür kalır: gösterilen sonuç eksiksizdir."],
+"Chaque pari publié par nos règles actu": [
+ "Every bet published by our current rules is settled automatically and stays visible for life, whether won or lost: the results shown are complete. Bets from old rules, stopped or replaced, are no longer shown.",
+ "Cada apuesta publicada por nuestras reglas actuales se liquida automáticamente y sigue visible para siempre, ganada o perdida: el balance mostrado es completo. Las apuestas de reglas antiguas, detenidas o sustituidas, ya no se muestran.",
+ "Jeder von unseren aktuellen Regeln veröffentlichte Tipp wird automatisch abgerechnet und bleibt für immer sichtbar, ob gewonnen oder verloren: die angezeigte Bilanz ist vollständig. Tipps früherer, eingestellter oder ersetzter Regeln werden nicht mehr angezeigt.",
+ "Ogni scommessa pubblicata dalle nostre regole attuali viene regolata automaticamente e resta visibile per sempre, vinta o persa: il bilancio mostrato è completo. Le scommesse delle vecchie regole, interrotte o sostituite, non vengono più mostrate.",
+ "Cada aposta publicada pelas nossas regras atuais é liquidada automaticamente e fica visível para sempre, ganha ou perdida: o balanço apresentado é completo. As apostas das regras antigas, paradas ou substituídas, já não são mostradas.",
+ "Elke weddenschap die door onze huidige regels is gepubliceerd, wordt automatisch verrekend en blijft voor altijd zichtbaar, gewonnen of verloren: het getoonde saldo is volledig. Weddenschappen van oude, stopgezette of vervangen regels worden niet meer getoond.",
+ "Güncel kurallarımızla yayınlanan her bahis otomatik olarak sonuçlandırılır ve kazanılsa da kaybedilse de sonsuza dek görünür kalır: gösterilen sonuç eksiksizdir. Eski, durdurulmuş veya değiştirilmiş kuralların bahisleri artık gösterilmez."],
 "1. Ouvrez Paris du jour : les paris à v": [
  "<b>1.</b> Open <b>Today's bets</b>: upcoming bets appear 15 to 75 minutes before the match, with the odds and the suggested stake.",
  "<b>1.</b> Abre <b>Apuestas de hoy</b>: las apuestas próximas aparecen entre 15 y 75 minutos antes del partido, con la cuota y la apuesta recomendada.",

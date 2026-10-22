@@ -578,7 +578,8 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
   </section>
 
   <section id="p-res" hidden>
-    <div class="head"><h1>Résultats</h1><span class="gain">Tous les paris publiés · rien n'est supprimé · réglés depuis le score officiel</span></div>
+    <div class="head"><h1>Résultats</h1><span class="gain">Tous les paris de nos règles actuelles · rien n'est supprimé · réglés depuis le score officiel</span></div>
+    <p class="gain" id="r-anciennes" style="margin:-6px 0 10px">Les paris des anciennes règles (arrêtées ou remplacées) ne sont plus affichés ici.</p>
     <div class="rmise"><label for="r-mise">Ma mise : 1 u =</label><input id="r-mise" type="number" min="1" max="10000" step="1" inputmode="numeric"> €
       <span class="gain">le bot mise de 0,75 u à 3 u selon sa confiance</span></div>
     <div class="chips" id="r-per"></div>
@@ -705,7 +706,7 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
     <h3 id="aide-debuter">🚀 Bien démarrer</h3>
     <details open><summary>G-BET, c'est quoi ?</summary>
       <p>Un bot qui analyse chaque jour des milliers de matchs dans une dizaine de sports et ne publie que les paris qui remplissent des règles testées sur plusieurs saisons de vrais matchs, avec les vraies cotes de l'époque.</p>
-      <p>Chaque pari publié est réglé automatiquement et reste visible à vie, qu'il soit gagné ou perdu : le bilan affiché est complet.</p></details>
+      <p>Chaque pari publié par nos règles actuelles est réglé automatiquement et reste visible à vie, qu'il soit gagné ou perdu : le bilan affiché est complet. Les paris des anciennes règles, arrêtées ou remplacées, ne sont plus affichés.</p></details>
     <details><summary>Comment utiliser le site en 3 étapes ?</summary>
       <p><b>1.</b> Ouvrez <b>Paris du jour</b> : les paris à venir apparaissent 15 à 75 minutes avant le match, avec la cote et la mise conseillées.</p>
       <p><b>2.</b> Vérifiez la cote chez votre bookmaker : jouez seulement si elle est égale ou supérieure.</p>

@@ -287,11 +287,13 @@ window.GB_L = {
 "Nie podoba mi się ten zakład",
 "Głosowanie jest teraz niemożliwe",
 "Za dużo głosów, zwolnij trochę",
-"Za dużo głosów z tego połączenia"
+"Za dużo głosów z tego połączenia",
+"Wszystkie zakłady naszych obecnych reguł · nic nie jest usuwane · rozliczone na podstawie oficjalnego wyniku",
+"Zakłady ze starych reguł (zatrzymanych lub zastąpionych) nie są już tu pokazywane."
 ],
 "H": [
 "Bot, który codziennie analizuje tysiące meczów w około dziesięciu sportach i publikuje tylko zakłady spełniające reguły sprawdzone na kilku sezonach prawdziwych meczów, z prawdziwymi kursami z tamtego czasu.",
-"Każdy opublikowany zakład jest rozliczany automatycznie i pozostaje widoczny na zawsze, wygrany czy przegrany: pokazany bilans jest pełny.",
+"Każdy zakład opublikowany przez nasze obecne reguły jest rozliczany automatycznie i pozostaje widoczny na zawsze, wygrany czy przegrany: pokazany bilans jest pełny. Zakłady ze starych, zatrzymanych lub zastąpionych reguł nie są już pokazywane.",
 "<b>1.</b> Otwórz <b>Zakłady dnia</b>: nadchodzące zakłady pojawiają się 15 do 75 minut przed meczem, z kursem i sugerowaną stawką.",
 "<b>2.</b> Sprawdź kurs u swojego bukmachera: graj tylko, jeśli jest równy lub wyższy.",
 "<b>3.</b> Śledź rozliczenie na żywo na karcie meczu, a pełny bilans w <b>Wynikach</b>.",

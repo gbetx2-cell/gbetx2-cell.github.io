@@ -287,11 +287,13 @@ window.GB_L = {
 "Saya tidak suka taruhan ini",
 "Pemungutan suara tidak dapat dilakukan saat ini",
 "Terlalu banyak suara, pelan-pelan sedikit",
-"Terlalu banyak suara dari koneksi ini"
+"Terlalu banyak suara dari koneksi ini",
+"Semua taruhan dari aturan kami saat ini · tidak ada yang dihapus · diselesaikan dari skor resmi",
+"Taruhan dari aturan lama (dihentikan atau diganti) tidak lagi ditampilkan di sini."
 ],
 "H": [
 "Bot yang setiap hari menganalisis ribuan pertandingan di sekitar sepuluh cabang olahraga dan hanya mempublikasikan taruhan yang memenuhi aturan yang diuji pada beberapa musim pertandingan nyata, dengan odds nyata saat itu.",
-"Setiap taruhan yang dipublikasikan diselesaikan secara otomatis dan tetap terlihat selamanya, menang maupun kalah: rekap yang ditampilkan lengkap.",
+"Setiap taruhan yang dipublikasikan oleh aturan kami saat ini diselesaikan secara otomatis dan tetap terlihat selamanya, menang maupun kalah: rekap yang ditampilkan lengkap. Taruhan dari aturan lama, yang dihentikan atau diganti, tidak lagi ditampilkan.",
 "<b>1.</b> Buka <b>Taruhan hari ini</b>: taruhan yang akan datang muncul 15 sampai 75 menit sebelum pertandingan, lengkap dengan odds dan taruhan yang disarankan.",
 "<b>2.</b> Periksa odds di bandar taruhan Anda: mainkan hanya jika sama atau lebih tinggi.",
 "<b>3.</b> Ikuti penyelesaian secara langsung di kartu pertandingan, lalu rekap lengkap di <b>Hasil</b>.",
