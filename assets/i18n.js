@@ -421,6 +421,10 @@ function motifs(s) {
   if ((m = s.match(/^([▲▼] )?Manche (\d+)$/))) { const g = lv("Manche {n}"); return g ? (m[1] || "") + g.replace("{n}", m[2]) : null; }
   if ((m = s.match(/^Marge : encore (\d+) au maximum$/))) { const g = lv("Marge : encore {n} au maximum"); return g ? g.replace("{n}", m[1]) : null; }
   if ((m = s.match(/^Encore (\d+) pour passer la ligne$/))) { const g = lv("Encore {n} pour passer la ligne"); return g ? g.replace("{n}", m[1]) : null; }
+  if ((m = s.match(/^Trou (\d+)$/))) { const g = lv("Trou {n}"); return g ? g.replace("{n}", m[1]) : null; }
+  if ((m = s.match(/^Tour (\d+)$/))) { const g = lv("Tour {n}"); return g ? g.replace("{n}", m[1]) : null; }
+  if ((m = s.match(/^Départ ([^·]+)$/))) { const g = lv("Départ {t}"); return g ? g.replace("{t}", m[1]) : null; }
+  if ((m = s.match(/^Aujourd'hui ([+\-−E\d]+)$/))) { const g = lv("Aujourd'hui {v}"); return g ? g.replace("{v}", m[1]) : null; }
   if ((m = s.match(/^Classement : (.+)$/))) { const g = lv("Classement :"); return g ? g + " " + m[1] : null; }
   if ((m = s.match(/^Victoire (.+)$/))) return fmt(w.vict, {x: m[1]});
   if ((m = s.match(/^(Plus|Moins) de ([\d.,]+)(?: (.+))?$/))) return (m[1] === "Plus" ? w.over : w.under) + " " + m[2] + (m[3] ? " " + tr(m[3]) : "");

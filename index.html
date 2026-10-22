@@ -527,6 +527,16 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
 .vpt{position:absolute;left:var(--x,50px);top:50%;width:7px;height:7px;border-radius:50%;pointer-events:none;opacity:0;animation:vFly .85s ease-out forwards}
 @keyframes vFly{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.3)}}
 @media (prefers-reduced-motion:reduce){.vb.pop,.vote.fresh .vbar i,.vote.fresh .vres.mine,.vpt{animation:none!important}.vb{transition:none}}
+
+/* ───── Golf en direct : les deux joueurs, trou en cours, score du tour (22/10/2026) ───── */
+.golfliv{display:grid;gap:5px;margin:8px 0 2px}
+.golfliv .gl{display:grid;grid-template-columns:1.2fr auto auto 1.6fr;gap:10px;align-items:center;background:var(--raise);border-radius:8px;padding:8px 12px}
+.golfliv .gn{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.golfliv .gp{font:700 12px var(--mono);color:var(--muted)}
+.golfliv .gt{font:800 18px var(--mono);font-variant-numeric:tabular-nums;min-width:34px;text-align:right}
+.golfliv .gt.neg{color:var(--win)}.golfliv .gt.pos{color:var(--loss)}
+.golfliv .gi{font-size:12px;color:var(--muted);text-align:right}
+@media (max-width:560px){.golfliv .gl{grid-template-columns:1fr auto auto}.golfliv .gi{grid-column:1 / -1;text-align:left}}
 </style>
 </head>
 <body>
@@ -1476,7 +1486,8 @@ function carte(p, euros, valeurU){
       .map(e => `${esc(e.player)} ${e.elapsed}'`);
     const bh = de(home), ba = de(away);
     if (bh.length || ba.length) det = `<div class="det buts"><div>${bh.map(x => "⚽ " + x).join("<br>") || "&nbsp;"}</div><div>${ba.map(x => x + " ⚽").join("<br>") || "&nbsp;"}</div></div>`;
-  } else if (golf && sc.events_json) det = `<div class="det">Classement : ${esc(sc.events_json)}</div>`;
+  } else if (golf && fsd && Array.isArray(fsd.g) && fsd.g.length === 2) det = "";      /* detail dans le bloc golf sous la banniere */
+  else if (golf && sc.events_json) det = `<div class="det">Classement : ${esc(sc.events_json)}</div>`;
   else if (detail) det = `<div class="det">${esc(detail)}</div>`;
   const par = v => Number(v) === 0 ? "E" : (Number(v) > 0 ? "+" : "−") + Math.abs(Number(v));
   const scoreTxt = hs !== null && hs !== undefined && hs !== "" ? (golf ? `${par(hs)} / ${par(as)}` : f1 ? `P${hs}` : `${hs} - ${as}`) : (detail && !det ? esc(detail) : "");
@@ -1500,12 +1511,24 @@ function carte(p, euros, valeurU){
       title="Discussion" aria-label="Ouvrir la discussion">💬</button>
     <div class="nom a">${esc(nomCourt(home, joueur))}${srv === "h" ? `<i class="srv" title="Au service"></i>` : ""}</div><div class="nom b">${srv === "a" ? `<i class="srv" title="Au service"></i>` : ""}${esc(nomCourt(away, joueur))}</div>
   </div>`;
+  /* golf (22/10/2026) : les deux joueurs, place, score total, trou en cours + dernier trou, score du jour */
+  const parG = v => Number(v) === 0 ? "E" : (Number(v) > 0 ? "+" : "−") + Math.abs(Number(v));
+  const golfBloc = golf && fsd && Array.isArray(fsd.g) && fsd.g.length === 2 ? `<div class="golfliv">${fsd.g.map(x => {
+    const nomT = x.last && x.last.d <= -2 ? "Eagle" : x.last && x.last.d === -1 ? "Birdie" : x.last && x.last.d === 0 ? "Par"
+      : x.last && x.last.d === 1 ? "Bogey" : x.last && x.last.d >= 2 ? "Double bogey" : "";
+    const trou = x.thru >= 18 ? "Tour terminé" : x.thru > 0 ? "Trou " + x.thru + (nomT ? " · " + nomT : "")
+      : x.dep ? "Départ " + new Date(x.dep).toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}) : "";
+    const jour = x.jour === null || x.jour === undefined ? "" : "Aujourd'hui " + parG(x.jour);
+    return `<div class="gl"><span class="gn">${esc(nomCourt(x.n, true))}</span><span class="gp">${esc(x.pos && x.pos !== "-" ? x.pos : "")}</span>
+      <span class="gt ${x.par < 0 ? "neg" : x.par > 0 ? "pos" : ""}">${x.par === null || x.par === undefined ? "–" : parG(x.par)}</span>
+      <span class="gi">${esc([trou, jour].filter(Boolean).join(" · "))}</span></div>`; }).join("")}</div>` : "";
   /* sous la banniere : compte a rebours avant le match, rien d'autre (le reste est dans la banniere) */
   const sous = phase === "avant" ? etat : (!live && phase === "direct" ? etat : "");
   return `<article class="pick ${live ? "is-live" : ""}">
     ${ban}
     <div class="corps">
       <div class="state">${sous}</div>
+      ${golfBloc}
       <div class="bets">${lignes}</div>
       ${statsTxt}
     </div>
