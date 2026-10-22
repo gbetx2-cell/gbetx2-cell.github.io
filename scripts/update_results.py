@@ -415,6 +415,7 @@ def fetch_registre() -> list[dict]:
             "mise": round(float(mise or 0) / BASE_UNIT_EUR, 3), "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 3),
             "ts": ts or "", "ko": ko or "", "sc": score or "", "pub": cree or "",
             "hl": _visuel(sp, hid, home), "al": _visuel(sp, aid, away),
+            "src": "conseil",          # 23/10/2026 : conseil principal (table paris), distinct des paris joueurs / value bets
         })
     cur.execute(
         """
