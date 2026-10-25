@@ -395,7 +395,8 @@ def fetch_registre() -> list[dict]:
                p.resultat, p.pnl, COALESCE(p.mise,0), p.result_updated_at, p.sport,
                COALESCE(NULLIF(p.competition,''), pf.league, ''), COALESCE(pf.kickoff_at::text, ''),
                COALESCE(p.score, ''), COALESCE(p.created_at, ''),
-               COALESCE(pf.home_team_id::text, ''), COALESCE(pf.away_team_id::text, '')
+               COALESCE(pf.home_team_id::text, ''), COALESCE(pf.away_team_id::text, ''),
+               COALESCE(p.value_bookmaker, ''), COALESCE(p.selected_market, '')
         FROM paris p
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
         WHERE p.resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
@@ -405,7 +406,7 @@ def fetch_registre() -> list[dict]:
     )
     out: list[dict] = []
     for (fid, home, away, conseil, value_bet, cote, resultat, pnl, mise, ts, sport, lg, ko, score, cree,
-         hid, aid) in cur.fetchall():
+         hid, aid, bk, rg) in cur.fetchall():
         sp = (sport or "football").lower()
         texte = value_bet if (sp in SPORTS_VALUE_BET_IS_CONSEIL and value_bet) else (conseil or value_bet or "")
         out.append({
@@ -415,6 +416,7 @@ def fetch_registre() -> list[dict]:
             "mise": round(float(mise or 0) / BASE_UNIT_EUR, 3), "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 3),
             "ts": ts or "", "ko": ko or "", "sc": score or "", "pub": cree or "",
             "hl": _visuel(sp, hid, home), "al": _visuel(sp, aid, away),
+            "bk": (bk or "").lower(), "rg": rg or "",      # 25/10/2026 : book et regle, pour ne montrer que les paris du modele actuel
             "src": "conseil",          # 23/10/2026 : conseil principal (table paris), distinct des paris joueurs / value bets
         })
     cur.execute(
