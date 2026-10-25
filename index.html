@@ -88,45 +88,6 @@ h3{font:600 16px/1.3 var(--display);margin:18px 0 6px}
 .pick{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
   display:grid;grid-template-columns:70px 1fr;gap:14px}
 .pick.is-live{border-color:#5b2a26}
-/* ───── Animations du direct, fil du match, resume (25/10/2026, demande explicite) ───── */
-.pick{position:relative}
-.ban .ballfx{position:absolute;left:0;right:0;top:44%;height:0;z-index:6;pointer-events:none}
-.ban .ballfx .bx{position:absolute;top:0;width:46px;height:46px;margin:-23px 0 0 -23px;animation:bFlyH 1.5s linear both;animation-delay:var(--age,0ms)}
-.ban .ballfx.dh .bx{--x0:13%;--x1:87%} .ban .ballfx.dg .bx{--x0:87%;--x1:13%}
-@keyframes bFlyH{from{left:var(--x0)}to{left:var(--x1)}}
-.ban .ballfx .by{width:100%;height:100%;filter:drop-shadow(0 6px 8px #000a);animation:bArc 1.5s ease-in-out both;animation-delay:var(--age,0ms)}
-.ban .ballfx .by svg{width:100%;height:100%;display:block}
-@keyframes bArc{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-62px) rotate(360deg)}100%{transform:translateY(0) rotate(720deg)}}
-.ban .ballfx .by.tennis{animation-name:bBounce}
-@keyframes bBounce{0%{transform:translateY(-34px) rotate(0)}34%{transform:translateY(-58px) rotate(300deg)}62%{transform:translateY(0) rotate(620deg)}78%{transform:translateY(-30px) rotate(760deg)}92%{transform:translateY(0) rotate(900deg)}100%{transform:translateY(-6px) rotate(960deg)}}
-.ban .ballfx .by.nfl{animation-name:bSpiral;width:62px;height:34px;margin:6px -8px}
-@keyframes bSpiral{0%{transform:translateY(0) rotate(-24deg)}50%{transform:translateY(-64px) rotate(-6deg)}100%{transform:translateY(8px) rotate(22deg)}}
-.ban .ballfx .by.puck{animation-name:bSlide}
-@keyframes bSlide{0%{transform:translateY(10px) rotate(0)}100%{transform:translateY(10px) rotate(1080deg)}}
-.ban .ballfx.trace .bx::before{content:"";position:absolute;top:50%;height:6px;width:90px;margin-top:-3px;border-radius:3px;background:linear-gradient(90deg,#fff0,#fff8);filter:blur(2px)}
-.ban .ballfx.dh.trace .bx::before{right:46px} .ban .ballfx.dg.trace .bx::before{left:46px;transform:scaleX(-1)}
-.ban.passe .centre .score{animation:scHide 1.75s both;animation-delay:var(--age,0ms)}
-@keyframes scHide{0%{opacity:0;transform:scale(.4)}10%{opacity:0}78%{opacity:0;transform:scale(.5)}90%{opacity:1;transform:scale(1.28)}100%{opacity:1;transform:scale(1)}}
-@keyframes cFly{0%{transform:translate(0,0) rotate(0);opacity:1}85%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0}}
-.betline{position:relative}
-.betfx{position:absolute;inset:-5px -10px;display:flex;align-items:center;justify-content:center;gap:12px;border-radius:10px;pointer-events:none;z-index:5;font:800 24px Anton,var(--display);letter-spacing:2px;animation:bfx 4.4s ease-out both}
-.betfx.w{background:linear-gradient(90deg,#43b97f00,#43b97fd9 22%,#43b97fd9 78%,#43b97f00);color:#04140b}
-.betfx.l{background:linear-gradient(90deg,#e2665d00,#e2665dcc 22%,#e2665dcc 78%,#e2665d00);color:#1a0705}
-.betfx em{font:700 19px var(--mono);font-style:normal}
-.betfx i{position:absolute;left:50%;top:50%;width:8px;height:12px;border-radius:2px;background:var(--c,var(--gold));animation:cFly 1.8s cubic-bezier(.12,.75,.3,1) both}
-@keyframes bfx{0%{opacity:0;transform:scale(.92)}8%{opacity:1;transform:scale(1.05)}18%{transform:scale(1)}80%{opacity:1}100%{opacity:0}}
-.fil{display:grid;gap:3px;margin:10px 0 0;padding:9px 11px;border-radius:9px;background:#00000030;border:1px dashed var(--line);font-size:12.5px}
-.fil div{display:flex;gap:9px;align-items:baseline}
-.fil time{font:700 11px var(--mono);color:var(--gold);min-width:42px}
-.fil div:first-child{color:var(--text)} .fil div:not(:first-child){color:var(--muted)}
-.fil .fl{font:600 10px var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:2px}
-.reslive{display:none;margin:0 0 12px;padding:10px 14px;border:1px solid #5b2a26;border-radius:12px;background:linear-gradient(90deg,#e2665d14,transparent);gap:8px 18px;align-items:center;flex-wrap:wrap;font-size:13px}
-.reslive.on{display:flex}
-.reslive b{font:700 15px var(--mono)} .reslive .pt{display:inline-flex;gap:6px;align-items:baseline;color:var(--muted)}
-.reslive .pt.w b{color:var(--win)} .reslive .pt.l b{color:var(--loss)} .reslive .pt.s b{color:var(--gold)}
-.reslive .dot{width:8px;height:8px;border-radius:50%;background:var(--loss);animation:pulse 1.2s infinite}
-@media (prefers-reduced-motion:reduce){.ballfx,.betfx{display:none}.ban.passe .centre .score{animation:none}}
-
 .when{font:700 15px/1.2 var(--mono);font-variant-numeric:tabular-nums}
 .meta{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
 .talk{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--raise);color:var(--text);
@@ -948,7 +909,6 @@ const store = {
    on n'envoie le cookie de session que sur les routes de compte. */
 const AUTHENT = /^\/api\/(login|signup|logout|chat\/post|me)/;
 async function api(path, opts){
-  if (window.GBET_DEMO) return window.GBET_DEMO.api(path, opts);          /* mode demonstration (site/demo.js) : donnees fictives */
   const o = Object.assign({}, opts || {});
   if (AUTHENT.test(path)) o.credentials = "include";
   let r;
@@ -1389,63 +1349,6 @@ function estRegle(p){
   const b = paris(p);
   return b.length ? b.every(x => x.r !== "s") : !!p.result;
 }
-/* ───── Animations du direct + fil du match (25/10/2026) ───── */
-const JEUX_VUS = new Map(), CELEB = new Map(), FIL = new Map(), BET_VU = new Map(), BETFX = new Map(), STATS_ETAT = new Map(), STATUT_VU = new Map();
-try { const f = JSON.parse(sessionStorage.getItem("gbet_fil") || "{}"); Object.entries(f).forEach(([k, v]) => FIL.set(k, v)); } catch (_){}
-function filAjoute(fid, txt){
-  const l = FIL.get(fid) || [];
-  if (l.length && l[0].txt === txt) return;
-  l.unshift({h: new Date().toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}), txt});
-  FIL.set(fid, l.slice(0, 12));
-  try { sessionStorage.setItem("gbet_fil", JSON.stringify(Object.fromEntries([...FIL].slice(-60)))); } catch (_){}
-}
-/* Balle de chaque sport (25/10/2026, demande explicite) : quand une equipe ou un joueur marque, le score disparait et la balle traverse
-   l'image de la carte, de celui qui marque vers l'adversaire. Football (soccer) volontairement laisse tel quel. */
-const SVG_BALLE = {
-  tennis: '<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#d7f34a"/><path d="M4 12c9 6 9 16 0 22M36 6c-9 6-9 22 0 28" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>',
-  nfl: '<svg viewBox="0 0 70 38"><ellipse cx="35" cy="19" rx="33" ry="16" fill="#8a4b24"/><path d="M12 8c4 8 4 14 0 22M58 8c-4 8-4 14 0 22" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M26 19h18M29 14v10M35 14v10M41 14v10" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>',
-  puck: '<svg viewBox="0 0 40 40"><ellipse cx="20" cy="24" rx="17" ry="9" fill="#151515" stroke="#e9e6dc" stroke-width="1.6"/><ellipse cx="20" cy="19" rx="17" ry="9" fill="#3a3a3a" stroke="#e9e6dc" stroke-width="1.6"/><ellipse cx="20" cy="18" rx="12" ry="5" fill="#5a5a5a"/></svg>',
-  baseball: '<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#f4f1e8"/><path d="M9 6c6 7 6 21 0 28M31 6c-6 7-6 21 0 28" fill="none" stroke="#d6403a" stroke-width="2.2" stroke-dasharray="3 3"/></svg>',
-  basket: '<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#e8772e"/><path d="M2 20h36M20 2v36M6 7c8 8 8 18 0 26M34 7c-8 8-8 18 0 26" fill="none" stroke="#3a1a08" stroke-width="1.8"/></svg>',
-  hand: '<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#f3efe6"/><path d="M20 2a18 18 0 0 1 0 36M2 20h36" fill="none" stroke="#2f6fbe" stroke-width="3"/><circle cx="20" cy="20" r="6" fill="#e3b341"/></svg>'
-};
-function balleDe(sport){
-  if (sport === "tennis") return "tennis";
-  if (sport === "nfl") return "nfl";
-  if (/^(hockey|nhl)$/.test(sport)) return "puck";
-  if (/^(baseball|mlb|npb|kbo)$/.test(sport)) return "baseball";
-  if (/^(nbl|euroleague|grebl|kbl|nbam|nba|wnba)$/.test(sport)) return "basket";
-  if (/^h(fra|pol|rom|romf|den|esp)$/.test(sport)) return "hand";
-  return null;
-}
-function motBut(sport, d){
-  if (/^(football|hockey|nhl|hfra|hpol|hrom|hromf|hden|hesp)$/.test(sport)) return {mot: "BUT !", cls: "but"};
-  if (sport === "nfl") return d >= 6 ? {mot: "TOUCHDOWN !", cls: "td"} : d === 3 ? {mot: "FIELD GOAL", cls: "but"} : {mot: d + " POINTS", cls: "but"};
-  if (/^(baseball|mlb|npb|kbo)$/.test(sport)) return d >= 4 ? {mot: "GRAND CHELEM !", cls: "td"} : {mot: d === 1 ? "POINT !" : d + " POINTS !", cls: "but"};
-  if (/^(nbl|euroleague|grebl|kbl|nbam|nba|wnba)$/.test(sport)) return d >= 3 ? {mot: "TIR À 3 POINTS !", cls: "but"} : null;
-  return {mot: "POINT !", cls: "but"};
-}
-function particules(seed, n, cols, age, largeur){
-  let x = (seed % 2147483646) + 1; const r = () => (x = (x * 16807) % 2147483647) / 2147483647;
-  const demi = (largeur || 700) / 2 + 26;                       /* les confettis depassent legerement du cadre de la carte */
-  return Array.from({length: n}, () => { const a = r() * Math.PI * 2;
-    return `<i style="--dx:${Math.round(Math.cos(a) * demi * (.5 + r() * .5))}px;--dy:${Math.round(Math.sin(a) * 150 * (.4 + r() * .6) - 40)}px;--r:${Math.round(r() * 720 - 360)}deg;--c:${cols[Math.floor(r() * cols.length)]};animation-delay:${Math.round(r() * 140) - age}ms"></i>`; }).join("");
-}
-const COULEURS_FETE = ["#e3b341", "#fff", "#43b97f", "#5aa9ff", "#e2665d"];
-function majResumeLive(){
-  let el = document.getElementById("resume-live");
-  if (!el){ el = document.createElement("div"); el.id = "resume-live"; el.className = "reslive"; el.setAttribute("role", "status");
-    $("#list").insertAdjacentElement("beforebegin", el); }
-  const cartes = document.querySelectorAll("#list .pick.is-live");
-  if (!cartes.length){ el.classList.remove("on"); el.innerHTML = ""; return; }
-  const n = c => [...cartes].reduce((t, k) => t + k.querySelectorAll(`.betline .tag.${c}`).length, 0);
-  const w = n("w"), l = n("l"), s = n("s");
-  el.innerHTML = `<span class="dot"></span><b>${cartes.length} match${cartes.length > 1 ? "s" : ""} en direct</b>`
-    + `<span class="pt s"><b>${s}</b> pari${s > 1 ? "s" : ""} en cours</span>`
-    + (w ? `<span class="pt w"><b>${w}</b> gagné${w > 1 ? "s" : ""} d'avance</span>` : "")
-    + (l ? `<span class="pt l"><b>${l}</b> perdu${l > 1 ? "s" : ""}</span>` : "");
-  el.classList.add("on");
-}
 function carte(p, euros, valeurU){
   const sc = [p, ...(p._autres || [])].map(q => scoreDe(q)).find(Boolean) || null;
   /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
@@ -1540,25 +1443,12 @@ function carte(p, euros, valeurU){
     const jg = b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : (/[ée]cart|handicap/i.test(b.bet) ? jaugeHandicap(b.bet, sc, regle || b.r !== "s", home, away, p.sport)
          : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length, p.sport));
     const avance = b.r === "s" && live ? (/data-etat="gagne"/.test(jg) ? ["w", "Gagné d'avance"] : /data-etat="perdu"/.test(jg) ? ["l", "Perdu"] : null) : null;
-    /* animation quand un pari est regle (ou gagne d'avance) sous les yeux du client */
-    const kb = p.fixture_id + "|" + b.bet, pv = BET_VU.get(kb); BET_VU.set(kb, b.r);
-    let fx = BETFX.get(kb);
-    if (!fx && pv === "s" && (b.r === "w" || b.r === "l")){
-      const t = Date.now(); fx = {t, r: b.r, mot: b.r === "w" ? "GAGNÉ" : "PERDU", gain: gainTxt, parts: b.r === "w" ? particules(t + 7, 22, COULEURS_FETE, 0, 520) : ""};
-      BETFX.set(kb, fx); filAjoute(p.fixture_id, (b.r === "w" ? "Pari gagné · " : "Pari perdu · ") + b.bet);
-    } else if (!fx && pv !== undefined && avance && avance[0] === "w" && !BET_VU.has(kb + "|av")){
-      const t = Date.now(); fx = {t, r: "w", mot: "GAGNÉ D'AVANCE", gain: "", parts: particules(t + 11, 16, COULEURS_FETE, 0, 520)};
-      BETFX.set(kb, fx); filAjoute(p.fixture_id, "Pari gagné d'avance · " + b.bet);
-    }
-    if (avance && avance[0] === "w") BET_VU.set(kb + "|av", 1);
-    const ageFx = fx ? Date.now() - fx.t : 1e9;
-    const fxHtml = fx && ageFx < 4500 ? `<div class="betfx ${fx.r}" style="animation-delay:-${ageFx}ms" aria-hidden="true">${esc(fx.mot)}${fx.gain ? ` <em>${esc(fx.gain)}</em>` : ""}${fx.parts.replace(/animation-delay:(-?\d+)ms/g, (m, v) => `animation-delay:${Number(v) - ageFx}ms`)}</div>` : "";
     return `<div class="betline"><span class="bet">${esc(b.bet)}</span>
       <span class="mise"><b>${miseTxt}</b><span>mise</span></span>
       <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
       <span class="tag ${avance ? avance[0] : b.r}">${avance ? avance[1] : b.r === "s" && (live || (ko && ko <= new Date())) ? "En cours" : LIB[b.r]}</span>
       <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
-      ${jg}${voteHtml(cleVote(p, b))}${fxHtml}</div>`;
+      ${jg}${voteHtml(cleVote(p, b))}</div>`;
   }).join("");
 
   /* ───── Banniere "Affiche" (10/10/2026) ───── */
@@ -1581,7 +1471,7 @@ function carte(p, euros, valeurU){
   const srv = jeuEnCours && fsd && fsd.srv ? fsd.srv : "";
   const bpTxt = jeuEnCours && fsd && fsd.bp ? `<div class="bp">BALLE DE BREAK</div>` : "";
   const ptsTxt = jeuEnCours && fsd && fsd.pts && !bpTxt ? `<div class="pts">${esc(fsd.pts.replace(":", " – "))}</div>` : "";
-  const statsTxt = fsd && Array.isArray(fsd.st) && fsd.st.length ? statsFs(p.fixture_id, fsd.st, home, away, joueur, jeuEnCours) : "";
+  const statsTxt = fsd && Array.isArray(fsd.st) && fsd.st.length ? statsFs(p.fixture_id, fsd.st, home, away, joueur) : "";
   let det = "";
   if (periodes.length){
     /* 20/10/2026 : score de chaque periode, la periode en cours en or (et qui pulse quand elle bouge) */
@@ -1614,55 +1504,16 @@ function carte(p, euros, valeurU){
   const horloge = fsd && fsd.clk && fsd.per && /^(nfl|wnba|nba|nbam)$/.test(p.sport) ? (fsd.per > 4 ? "Prol." : "QT" + fsd.per) + " · " + fsd.clk : "";
   const moment = phase === "fin" ? "Terminé" : live ? (horloge || statutFr(sc.status_long || "En direct")) + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
     : phase === "direct" ? "En cours" : "";
-  /* ───── balle qui traverse l'image quand ca marque + fil du match (25/10/2026) ───── */
-  const fidc = p.fixture_id;
-  if (avant === "avant" && phase === "direct") filAjoute(fidc, "Coup d'envoi");
-  if (avant === "direct" && phase === "fin") filAjoute(fidc, "Match terminé · " + scoreTxt);
-  if (sc && sc.status_long){ const sv = STATUT_VU.get(fidc); STATUT_VU.set(fidc, sc.status_long);
-    if (sv && sv !== sc.status_long && phase === "direct") filAjoute(fidc, statutFr(sc.status_long)); }
-  const kindBalle = balleDe(p.sport);
-  const lance = (cote, quoi) => {
-    const prec = CELEB.get(fidc);
-    if (kindBalle && (!prec || Date.now() - prec.t > 2500)) CELEB.set(fidc, {t: Date.now(), cote, kind: kindBalle});
-    filAjoute(fidc, quoi + (moment ? " · " + moment : ""));
-  };
-  if (phase === "direct" && !golf && !f1){
-    if (p.sport === "tennis" && sets.length){
-      /* tennis : le point de repere est le JEU (puis le set) : la balle part de celui qui le gagne */
-      const cleJ = sets.map(m => m[1] + "-" + m[2]).join(","), vj = JEUX_VUS.get(fidc); JEUX_VUS.set(fidc, cleJ);
-      if (vj !== undefined && vj !== cleJ){
-        const o = vj ? vj.split(",") : [], n = cleJ.split(","), i0 = Math.max(0, o.length - 1);
-        const a1 = (o[i0] || "0-0").split("-").map(Number), b1 = (n[i0] || "0-0").split("-").map(Number);
-        const cote = b1[0] > a1[0] ? "h" : b1[1] > a1[1] ? "a" : null;
-        if (cote) lance(cote, "Jeu pour " + nomCourt(cote === "h" ? home : away, joueur) + " (" + cleJ.split(",").pop().replace("-", " - ") + ")");
-      }
-    } else if (vu !== undefined && vu !== scoreTxt){
-      const a0 = String(vu).match(/^(\d+)\s*-\s*(\d+)$/), b0 = String(scoreTxt).match(/^(\d+)\s*-\s*(\d+)$/);
-      if (a0 && b0 && (Number(b0[1]) > Number(a0[1]) || Number(b0[2]) > Number(a0[2]))){
-        const cote = Number(b0[1]) > Number(a0[1]) ? "h" : "a", d = cote === "h" ? b0[1] - a0[1] : b0[2] - a0[2];
-        const equipe = nomCourt(cote === "h" ? home : away, joueur), mb = motBut(p.sport, d);
-        const texte = (mb ? mb.mot.replace(" !", "") + " " : "Score · ") + equipe + " (" + scoreTxt + ")";
-        if (mb) lance(cote, texte); else filAjoute(fidc, texte + (moment ? " · " + moment : ""));
-      }
-    }
-  }
-  const ce = CELEB.get(fidc), ageCe = ce ? Date.now() - ce.t : 1e9;
-  const actif = ce && ageCe < 1900;
-  const balle = actif
-    ? `<div class="ballfx ${ce.cote === "h" ? "dh" : "dg"}${ce.kind === "puck" ? " trace" : ""}" style="--age:-${ageCe}ms" aria-hidden="true"><div class="bx"><div class="by ${ce.kind}">${SVG_BALLE[ce.kind]}</div></div></div>` : "";
-  const celeb = "";
-  const flv = FIL.get(fidc) || [];
-  const filHtml = flv.length && phase !== "avant" ? `<div class="fil" aria-label="Fil du match"><div class="fl">Fil du match</div>${flv.slice(0, 4).map(e => `<div><time>${esc(e.h)}</time><span>${esc(e.txt)}</span></div>`).join("")}</div>` : "";
   const badge = phase === "avant" ? `<span class="bdg">${esc(heure || "À venir")}</span>`
     : phase === "direct" ? `<span class="bdg live">EN DIRECT</span>` : `<span class="bdg fin">TERMINÉ</span>`;
-  const ban = `<div class="ban${phase !== "avant" && !anime ? " ecarte" : ""}${actif ? " passe" : ""}"${anime ? " data-anim" : ""}
-      style="${actif ? `--age:-${ageCe}ms;` : ""}background:linear-gradient(100deg,${teinte(home)},#0b0f1a 47%,#0b0f1a 53%,${teinte(away)})">
+  const ban = `<div class="ban${phase !== "avant" && !anime ? " ecarte" : ""}"${anime ? " data-anim" : ""}
+      style="background:linear-gradient(100deg,${teinte(home)},#0b0f1a 47%,#0b0f1a 53%,${teinte(away)})">
     <div class="geant a" style="left:-10px;top:14px">${esc(nomFam(home, joueur))}</div>
     <div class="geant b" style="right:-10px;top:115px">${esc(nomFam(away, joueur))}</div>
     ${vis(home, p.home_logo || p.home_photo, "g")}${vis(away, p.away_logo || p.away_photo, "d")}
     <div class="ligue">${esc(libLigue(p))}</div>
     <div class="vs">VS</div>
-    ${balle}<div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${esc(moment)}</div>${det}${bpTxt}${ptsTxt}</div>
+    <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${esc(moment)}</div>${det}${bpTxt}${ptsTxt}</div>
     ${badge}
     <button class="talk" type="button" data-fix="${esc(p.fixture_id)}" data-match="${esc(p.match)}"
       data-league="${esc(p.league || "")}" data-score="${detail || (hs !== null && hs !== undefined ? hs + " - " + as : "")}"
@@ -1691,11 +1542,10 @@ function carte(p, euros, valeurU){
   const majTxt = live && sc && sc.updated_at ? `<span class="maj" data-up="${esc(sc.updated_at)}"></span>` : "";
   /* sous la banniere : compte a rebours avant le match, rien d'autre (le reste est dans la banniere) */
   const sous = phase === "avant" ? etat : (!live && phase === "direct" ? etat : "");
-  return `<article class="pick ${live ? "is-live" : ""}${celeb ? " cele" : ""}">
-    ${celeb}${ban}
+  return `<article class="pick ${live ? "is-live" : ""}">
+    ${ban}
     <div class="corps">
       <div class="state">${sous}${majTxt}</div>
-      ${filHtml}
       ${golfBloc}${sitBloc}
       <div class="bets">${lignes}</div>
       ${statsTxt}
@@ -1703,11 +1553,12 @@ function carte(p, euros, valeurU){
   </article>`;
 }
 /* 20/10/2026 : "Stats du match" Flashscore, barres comparatives ; reste ouvert d'un rafraichissement a l'autre */
+const STATS_OUVERTES = new Set();
 document.addEventListener("toggle", e => {
   const d = e.target;
-  if (d.classList && d.classList.contains("fsst")) STATS_ETAT.set(d.dataset.fix, d.open);     /* 25/10/2026 : ouvertes d'office en direct, sauf choix du client */
+  if (d.classList && d.classList.contains("fsst")) d.open ? STATS_OUVERTES.add(d.dataset.fix) : STATS_OUVERTES.delete(d.dataset.fix);
 }, true);
-function statsFs(fix, st, home, away, joueur, enDirect){
+function statsFs(fix, st, home, away, joueur){
   const num = v => { const m = String(v).match(/-?\d+(?:[.,]\d+)?/); return m ? parseFloat(m[0].replace(",", ".")) : 0; };
   const l = st.map(([lib, h, a]) => {
     const x = num(h), y = num(a), t = x + y;
@@ -1716,7 +1567,7 @@ function statsFs(fix, st, home, away, joueur, enDirect){
     return `<div class="l"><b>${v(h)}</b><span class="lib">${esc(lib)}</span><b>${v(a)}</b>
       <span class="barre"><i class="${x > y ? "fort" : ""}" style="flex-grow:${(ph * 100).toFixed(1)}"></i><i class="${y > x ? "fort" : ""}" style="flex-grow:${(100 - ph * 100).toFixed(1)}"></i></span></div>`;
   }).join("");
-  return `<details class="fsst" data-fix="${esc(fix)}"${(STATS_ETAT.has(fix) ? STATS_ETAT.get(fix) : !!enDirect) ? " open" : ""}>
+  return `<details class="fsst" data-fix="${esc(fix)}"${STATS_OUVERTES.has(fix) ? " open" : ""}>
     <summary><span>📊 Stats du match · ${esc(nomFam(home, joueur))} – ${esc(nomFam(away, joueur))}</span></summary>${l}</details>`;
 }
 /* 21/10/2026 : "Golf · Golf · Genesis Championship" -- la ligue du golf commence deja par le nom du sport */
@@ -1855,7 +1706,6 @@ function dessineJour(){
       ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}) + "."
       : "Rien de publié aujourd'hui : c'est normal les jours sans match filtré."}</div>`;
   setTimeout(chargerVotes, 0);
-  try { majResumeLive(); } catch (_){}
 }
 $("#state-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stateFilter = b.dataset.state; dessineJour(); } });
 $("#sport-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ sportFilter = b.dataset.sport; dessineJour(); } });
