@@ -88,39 +88,6 @@ h3{font:600 16px/1.3 var(--display);margin:18px 0 6px}
 .pick{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
   display:grid;grid-template-columns:70px 1fr;gap:14px}
 .pick.is-live{border-color:#5b2a26}
-/* ───── Animations du direct, fil du match, resume (25/10/2026, demande explicite) ───── */
-.pick{position:relative}
-.pick.cele{overflow:visible}
-.pick.cele .ban{border-radius:16px 16px 0 0}
-.celeb{position:absolute;left:0;right:0;top:0;height:250px;pointer-events:none;z-index:7;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:30px}
-.celeb .cmot{font:86px/1 Anton,var(--display);letter-spacing:2px;color:var(--gold);-webkit-text-stroke:2px #0b0f1a;text-shadow:0 6px 34px #000d;animation:cPop 3.4s cubic-bezier(.2,1.5,.4,1) both}
-.celeb.td .cmot{color:#fff;-webkit-text-stroke:2px var(--loss);font-size:74px}
-.celeb small{display:block;font:700 15px 'Barlow Condensed',var(--body);letter-spacing:4px;text-transform:uppercase;color:#fff;background:#07080be0;padding:3px 14px;border-radius:6px;margin-top:8px;animation:cPop 3.4s both}
-.celeb::before{content:"";position:absolute;left:50%;top:44%;width:30px;height:30px;margin:-15px;border-radius:50%;border:3px solid var(--gold);animation:cRing 1.4s ease-out both;animation-delay:var(--age,0ms)}
-.celeb i{position:absolute;left:50%;top:44%;width:9px;height:15px;border-radius:2px;background:var(--c,var(--gold));animation:cFly 1.9s cubic-bezier(.12,.75,.3,1) both}
-@keyframes cPop{0%{transform:scale(.3);opacity:0}10%{transform:scale(1.2);opacity:1}20%{transform:scale(1)}82%{opacity:1}100%{transform:scale(1.04) translateY(-10px);opacity:0}}
-@keyframes cRing{0%{transform:scale(.4);opacity:1}100%{transform:scale(26);opacity:0}}
-@keyframes cFly{0%{transform:translate(0,0) rotate(0);opacity:1}85%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0}}
-.pick.cele .ban .score{animation:bump .9s}
-.betline{position:relative}
-.betfx{position:absolute;inset:-5px -10px;display:flex;align-items:center;justify-content:center;gap:12px;border-radius:10px;pointer-events:none;z-index:5;font:800 24px Anton,var(--display);letter-spacing:2px;animation:bfx 4.4s ease-out both}
-.betfx.w{background:linear-gradient(90deg,#43b97f00,#43b97fd9 22%,#43b97fd9 78%,#43b97f00);color:#04140b}
-.betfx.l{background:linear-gradient(90deg,#e2665d00,#e2665dcc 22%,#e2665dcc 78%,#e2665d00);color:#1a0705}
-.betfx em{font:700 19px var(--mono);font-style:normal}
-.betfx i{position:absolute;left:50%;top:50%;width:8px;height:12px;border-radius:2px;background:var(--c,var(--gold));animation:cFly 1.8s cubic-bezier(.12,.75,.3,1) both}
-@keyframes bfx{0%{opacity:0;transform:scale(.92)}8%{opacity:1;transform:scale(1.05)}18%{transform:scale(1)}80%{opacity:1}100%{opacity:0}}
-.fil{display:grid;gap:3px;margin:10px 0 0;padding:9px 11px;border-radius:9px;background:#00000030;border:1px dashed var(--line);font-size:12.5px}
-.fil div{display:flex;gap:9px;align-items:baseline}
-.fil time{font:700 11px var(--mono);color:var(--gold);min-width:42px}
-.fil div:first-child{color:var(--text)} .fil div:not(:first-child){color:var(--muted)}
-.fil .fl{font:600 10px var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:2px}
-.reslive{display:none;margin:0 0 12px;padding:10px 14px;border:1px solid #5b2a26;border-radius:12px;background:linear-gradient(90deg,#e2665d14,transparent);gap:8px 18px;align-items:center;flex-wrap:wrap;font-size:13px}
-.reslive.on{display:flex}
-.reslive b{font:700 15px var(--mono)} .reslive .pt{display:inline-flex;gap:6px;align-items:baseline;color:var(--muted)}
-.reslive .pt.w b{color:var(--win)} .reslive .pt.l b{color:var(--loss)} .reslive .pt.s b{color:var(--gold)}
-.reslive .dot{width:8px;height:8px;border-radius:50%;background:var(--loss);animation:pulse 1.2s infinite}
-@media (prefers-reduced-motion:reduce){.celeb,.betfx{display:none}}
-
 .when{font:700 15px/1.2 var(--mono);font-variant-numeric:tabular-nums}
 .meta{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
 .talk{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--raise);color:var(--text);
@@ -942,7 +909,6 @@ const store = {
    on n'envoie le cookie de session que sur les routes de compte. */
 const AUTHENT = /^\/api\/(login|signup|logout|chat\/post|me)/;
 async function api(path, opts){
-  if (window.GBET_DEMO) return window.GBET_DEMO.api(path, opts);          /* mode demonstration (site/demo.js) : donnees fictives */
   const o = Object.assign({}, opts || {});
   if (AUTHENT.test(path)) o.credentials = "include";
   let r;
@@ -1383,44 +1349,6 @@ function estRegle(p){
   const b = paris(p);
   return b.length ? b.every(x => x.r !== "s") : !!p.result;
 }
-/* ───── Animations du direct + fil du match (25/10/2026) ───── */
-const CELEB = new Map(), FIL = new Map(), BET_VU = new Map(), BETFX = new Map(), STATS_ETAT = new Map(), STATUT_VU = new Map();
-try { const f = JSON.parse(sessionStorage.getItem("gbet_fil") || "{}"); Object.entries(f).forEach(([k, v]) => FIL.set(k, v)); } catch (_){}
-function filAjoute(fid, txt){
-  const l = FIL.get(fid) || [];
-  if (l.length && l[0].txt === txt) return;
-  l.unshift({h: new Date().toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}), txt});
-  FIL.set(fid, l.slice(0, 12));
-  try { sessionStorage.setItem("gbet_fil", JSON.stringify(Object.fromEntries([...FIL].slice(-60)))); } catch (_){}
-}
-function motBut(sport, d){
-  if (/^(football|hockey|nhl|hfra|hpol|hrom|hromf|hden|hesp)$/.test(sport)) return {mot: "BUT !", cls: "but"};
-  if (sport === "nfl") return d >= 6 ? {mot: "TOUCHDOWN !", cls: "td"} : d === 3 ? {mot: "FIELD GOAL", cls: "but"} : {mot: d + " POINTS", cls: "but"};
-  if (/^(baseball|mlb|npb|kbo)$/.test(sport)) return d >= 4 ? {mot: "GRAND CHELEM !", cls: "td"} : {mot: d === 1 ? "POINT !" : d + " POINTS !", cls: "but"};
-  if (/^(nbl|euroleague|grebl|kbl|nbam|nba|wnba)$/.test(sport)) return d >= 3 ? {mot: "TIR À 3 POINTS !", cls: "but"} : null;
-  return {mot: "POINT !", cls: "but"};
-}
-function particules(seed, n, cols, age, largeur){
-  let x = (seed % 2147483646) + 1; const r = () => (x = (x * 16807) % 2147483647) / 2147483647;
-  const demi = (largeur || 700) / 2 + 26;                       /* les confettis depassent legerement du cadre de la carte */
-  return Array.from({length: n}, () => { const a = r() * Math.PI * 2;
-    return `<i style="--dx:${Math.round(Math.cos(a) * demi * (.5 + r() * .5))}px;--dy:${Math.round(Math.sin(a) * 150 * (.4 + r() * .6) - 40)}px;--r:${Math.round(r() * 720 - 360)}deg;--c:${cols[Math.floor(r() * cols.length)]};animation-delay:${Math.round(r() * 140) - age}ms"></i>`; }).join("");
-}
-const COULEURS_FETE = ["#e3b341", "#fff", "#43b97f", "#5aa9ff", "#e2665d"];
-function majResumeLive(){
-  let el = document.getElementById("resume-live");
-  if (!el){ el = document.createElement("div"); el.id = "resume-live"; el.className = "reslive"; el.setAttribute("role", "status");
-    $("#list").insertAdjacentElement("beforebegin", el); }
-  const cartes = document.querySelectorAll("#list .pick.is-live");
-  if (!cartes.length){ el.classList.remove("on"); el.innerHTML = ""; return; }
-  const n = c => [...cartes].reduce((t, k) => t + k.querySelectorAll(`.betline .tag.${c}`).length, 0);
-  const w = n("w"), l = n("l"), s = n("s");
-  el.innerHTML = `<span class="dot"></span><b>${cartes.length} match${cartes.length > 1 ? "s" : ""} en direct</b>`
-    + `<span class="pt s"><b>${s}</b> pari${s > 1 ? "s" : ""} en cours</span>`
-    + (w ? `<span class="pt w"><b>${w}</b> gagné${w > 1 ? "s" : ""} d'avance</span>` : "")
-    + (l ? `<span class="pt l"><b>${l}</b> perdu${l > 1 ? "s" : ""}</span>` : "");
-  el.classList.add("on");
-}
 function carte(p, euros, valeurU){
   const sc = [p, ...(p._autres || [])].map(q => scoreDe(q)).find(Boolean) || null;
   /* Un pari deja regle n'est jamais "en direct", meme si le cache de score est
@@ -1515,25 +1443,12 @@ function carte(p, euros, valeurU){
     const jg = b.joueur ? jaugeJoueur(b, sc, b.r !== "s") : (/[ée]cart|handicap/i.test(b.bet) ? jaugeHandicap(b.bet, sc, regle || b.r !== "s", home, away, p.sport)
          : jaugeDe(b.bet, sc, regle || b.r !== "s", sets.length, p.sport));
     const avance = b.r === "s" && live ? (/data-etat="gagne"/.test(jg) ? ["w", "Gagné d'avance"] : /data-etat="perdu"/.test(jg) ? ["l", "Perdu"] : null) : null;
-    /* animation quand un pari est regle (ou gagne d'avance) sous les yeux du client */
-    const kb = p.fixture_id + "|" + b.bet, pv = BET_VU.get(kb); BET_VU.set(kb, b.r);
-    let fx = BETFX.get(kb);
-    if (!fx && pv === "s" && (b.r === "w" || b.r === "l")){
-      const t = Date.now(); fx = {t, r: b.r, mot: b.r === "w" ? "GAGNÉ" : "PERDU", gain: gainTxt, parts: b.r === "w" ? particules(t + 7, 22, COULEURS_FETE, 0, 520) : ""};
-      BETFX.set(kb, fx); filAjoute(p.fixture_id, (b.r === "w" ? "Pari gagné · " : "Pari perdu · ") + b.bet);
-    } else if (!fx && pv !== undefined && avance && avance[0] === "w" && !BET_VU.has(kb + "|av")){
-      const t = Date.now(); fx = {t, r: "w", mot: "GAGNÉ D'AVANCE", gain: "", parts: particules(t + 11, 16, COULEURS_FETE, 0, 520)};
-      BETFX.set(kb, fx); filAjoute(p.fixture_id, "Pari gagné d'avance · " + b.bet);
-    }
-    if (avance && avance[0] === "w") BET_VU.set(kb + "|av", 1);
-    const ageFx = fx ? Date.now() - fx.t : 1e9;
-    const fxHtml = fx && ageFx < 4500 ? `<div class="betfx ${fx.r}" style="animation-delay:-${ageFx}ms" aria-hidden="true">${esc(fx.mot)}${fx.gain ? ` <em>${esc(fx.gain)}</em>` : ""}${fx.parts.replace(/animation-delay:(-?\d+)ms/g, (m, v) => `animation-delay:${Number(v) - ageFx}ms`)}</div>` : "";
     return `<div class="betline"><span class="bet">${esc(b.bet)}</span>
       <span class="mise"><b>${miseTxt}</b><span>mise</span></span>
       <span class="odd-box"><b>${fmt(b.odd)}</b><span>cote</span></span>
       <span class="tag ${avance ? avance[0] : b.r}">${avance ? avance[1] : b.r === "s" && (live || (ko && ko <= new Date())) ? "En cours" : LIB[b.r]}</span>
       <span class="net"><b class="${g > 0 && b.r !== "s" ? "pos" : g < 0 ? "neg" : ""}">${gainTxt}</b><span>gain</span></span>
-      ${jg}${voteHtml(cleVote(p, b))}${fxHtml}</div>`;
+      ${jg}${voteHtml(cleVote(p, b))}</div>`;
   }).join("");
 
   /* ───── Banniere "Affiche" (10/10/2026) ───── */
@@ -1556,7 +1471,7 @@ function carte(p, euros, valeurU){
   const srv = jeuEnCours && fsd && fsd.srv ? fsd.srv : "";
   const bpTxt = jeuEnCours && fsd && fsd.bp ? `<div class="bp">BALLE DE BREAK</div>` : "";
   const ptsTxt = jeuEnCours && fsd && fsd.pts && !bpTxt ? `<div class="pts">${esc(fsd.pts.replace(":", " – "))}</div>` : "";
-  const statsTxt = fsd && Array.isArray(fsd.st) && fsd.st.length ? statsFs(p.fixture_id, fsd.st, home, away, joueur, jeuEnCours) : "";
+  const statsTxt = fsd && Array.isArray(fsd.st) && fsd.st.length ? statsFs(p.fixture_id, fsd.st, home, away, joueur) : "";
   let det = "";
   if (periodes.length){
     /* 20/10/2026 : score de chaque periode, la periode en cours en or (et qui pulse quand elle bouge) */
@@ -1589,31 +1504,6 @@ function carte(p, euros, valeurU){
   const horloge = fsd && fsd.clk && fsd.per && /^(nfl|wnba|nba|nbam)$/.test(p.sport) ? (fsd.per > 4 ? "Prol." : "QT" + fsd.per) + " · " + fsd.clk : "";
   const moment = phase === "fin" ? "Terminé" : live ? (horloge || statutFr(sc.status_long || "En direct")) + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
     : phase === "direct" ? "En cours" : "";
-  /* ───── celebration d'un but / touchdown / point + fil du match (25/10/2026) ───── */
-  const fidc = p.fixture_id, largeur = ($("#list") || {}).clientWidth || 700;
-  if (avant === "avant" && phase === "direct") filAjoute(fidc, "Coup d'envoi");
-  if (avant === "direct" && phase === "fin") filAjoute(fidc, "Match terminé · " + scoreTxt);
-  if (sc && sc.status_long){ const sv = STATUT_VU.get(fidc); STATUT_VU.set(fidc, sc.status_long);
-    if (sv && sv !== sc.status_long && phase === "direct") filAjoute(fidc, statutFr(sc.status_long)); }
-  if (phase === "direct" && !golf && !f1 && vu !== undefined && vu !== scoreTxt){
-    const a0 = String(vu).match(/^(\d+)\s*-\s*(\d+)$/), b0 = String(scoreTxt).match(/^(\d+)\s*-\s*(\d+)$/);
-    if (a0 && b0 && (Number(b0[1]) > Number(a0[1]) || Number(b0[2]) > Number(a0[2]))){
-      const cote = Number(b0[1]) > Number(a0[1]) ? "h" : "a", d = cote === "h" ? b0[1] - a0[1] : b0[2] - a0[2];
-      const equipe = nomCourt(cote === "h" ? home : away, joueur), mb = motBut(p.sport, d);
-      filAjoute(fidc, (mb ? mb.mot.replace(" !", "") + " " : "Score · ") + equipe + " (" + scoreTxt + ")" + (moment ? " · " + moment : ""));
-      const prec = CELEB.get(fidc);
-      if (mb && (!prec || Date.now() - prec.t > 6000)){
-        const t = Date.now();
-        CELEB.set(fidc, {t, mot: mb.mot, cls: mb.cls, sous: equipe + " · " + scoreTxt, parts: particules(t, 26, COULEURS_FETE, 0, largeur)});
-      }
-    }
-  }
-  const ce = CELEB.get(fidc), ageCe = ce ? Date.now() - ce.t : 1e9;
-  const celeb = ce && ageCe < 3600
-    ? `<div class="celeb ${ce.cls}" style="--age:-${ageCe}ms" aria-hidden="true"><span class="cmot" style="animation-delay:-${ageCe}ms">${esc(ce.mot)}</span>`
-      + `<small style="animation-delay:-${ageCe}ms">${esc(ce.sous)}</small>${ce.parts.replace(/animation-delay:(-?\d+)ms/g, (m, v) => `animation-delay:${Number(v) - ageCe}ms`)}</div>` : "";
-  const flv = FIL.get(fidc) || [];
-  const filHtml = flv.length && phase !== "avant" ? `<div class="fil" aria-label="Fil du match"><div class="fl">Fil du match</div>${flv.slice(0, 4).map(e => `<div><time>${esc(e.h)}</time><span>${esc(e.txt)}</span></div>`).join("")}</div>` : "";
   const badge = phase === "avant" ? `<span class="bdg">${esc(heure || "À venir")}</span>`
     : phase === "direct" ? `<span class="bdg live">EN DIRECT</span>` : `<span class="bdg fin">TERMINÉ</span>`;
   const ban = `<div class="ban${phase !== "avant" && !anime ? " ecarte" : ""}"${anime ? " data-anim" : ""}
@@ -1652,11 +1542,10 @@ function carte(p, euros, valeurU){
   const majTxt = live && sc && sc.updated_at ? `<span class="maj" data-up="${esc(sc.updated_at)}"></span>` : "";
   /* sous la banniere : compte a rebours avant le match, rien d'autre (le reste est dans la banniere) */
   const sous = phase === "avant" ? etat : (!live && phase === "direct" ? etat : "");
-  return `<article class="pick ${live ? "is-live" : ""}${celeb ? " cele" : ""}">
-    ${celeb}${ban}
+  return `<article class="pick ${live ? "is-live" : ""}">
+    ${ban}
     <div class="corps">
       <div class="state">${sous}${majTxt}</div>
-      ${filHtml}
       ${golfBloc}${sitBloc}
       <div class="bets">${lignes}</div>
       ${statsTxt}
@@ -1664,11 +1553,12 @@ function carte(p, euros, valeurU){
   </article>`;
 }
 /* 20/10/2026 : "Stats du match" Flashscore, barres comparatives ; reste ouvert d'un rafraichissement a l'autre */
+const STATS_OUVERTES = new Set();
 document.addEventListener("toggle", e => {
   const d = e.target;
-  if (d.classList && d.classList.contains("fsst")) STATS_ETAT.set(d.dataset.fix, d.open);     /* 25/10/2026 : ouvertes d'office en direct, sauf choix du client */
+  if (d.classList && d.classList.contains("fsst")) d.open ? STATS_OUVERTES.add(d.dataset.fix) : STATS_OUVERTES.delete(d.dataset.fix);
 }, true);
-function statsFs(fix, st, home, away, joueur, enDirect){
+function statsFs(fix, st, home, away, joueur){
   const num = v => { const m = String(v).match(/-?\d+(?:[.,]\d+)?/); return m ? parseFloat(m[0].replace(",", ".")) : 0; };
   const l = st.map(([lib, h, a]) => {
     const x = num(h), y = num(a), t = x + y;
@@ -1677,7 +1567,7 @@ function statsFs(fix, st, home, away, joueur, enDirect){
     return `<div class="l"><b>${v(h)}</b><span class="lib">${esc(lib)}</span><b>${v(a)}</b>
       <span class="barre"><i class="${x > y ? "fort" : ""}" style="flex-grow:${(ph * 100).toFixed(1)}"></i><i class="${y > x ? "fort" : ""}" style="flex-grow:${(100 - ph * 100).toFixed(1)}"></i></span></div>`;
   }).join("");
-  return `<details class="fsst" data-fix="${esc(fix)}"${(STATS_ETAT.has(fix) ? STATS_ETAT.get(fix) : !!enDirect) ? " open" : ""}>
+  return `<details class="fsst" data-fix="${esc(fix)}"${STATS_OUVERTES.has(fix) ? " open" : ""}>
     <summary><span>📊 Stats du match · ${esc(nomFam(home, joueur))} – ${esc(nomFam(away, joueur))}</span></summary>${l}</details>`;
 }
 /* 21/10/2026 : "Golf · Golf · Genesis Championship" -- la ligue du golf commence deja par le nom du sport */
@@ -1816,7 +1706,6 @@ function dessineJour(){
       ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}) + "."
       : "Rien de publié aujourd'hui : c'est normal les jours sans match filtré."}</div>`;
   setTimeout(chargerVotes, 0);
-  try { majResumeLive(); } catch (_){}
 }
 $("#state-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stateFilter = b.dataset.state; dessineJour(); } });
 $("#sport-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ sportFilter = b.dataset.sport; dessineJour(); } });
