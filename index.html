@@ -1672,9 +1672,13 @@ function dessineJour(){
   if (!ETATS[stateFilter]) stateFilter = "Jour";
   $("#state-chips").innerHTML = Object.entries(ETATS).map(([k, [lib, f]]) =>
     `<button type="button" aria-pressed="${k === stateFilter}" data-state="${k}">${lib}<small>${tout.filter(p => f(groupe(p))).length}</small></button>`).join("");
-  const sports = ["Tous", ...new Set(tout.map(p => sportGeneral(p.sport)))];
-  const icone = s => s === "Tous" ? "✦" : (ICONE_SP[(tout.find(p => (sportGeneral(p.sport)) === s) || {}).sport] || "•");
-  const nb = s => s === "Tous" ? tout.length : tout.filter(p => (sportGeneral(p.sport)) === s).length;
+  /* 25/10/2026 (demande explicite) : les puces de sport ne comptent QUE les paris de l'etat choisi. Avant, "Basket 9" restait
+     affiche sous "A venir et en direct" alors que les 9 matchs etaient termines (le compteur du sport ignorait l'etat). */
+  const base = tout.filter(p => ETATS[stateFilter][1](groupe(p)));
+  const sports = ["Tous", ...new Set(base.map(p => sportGeneral(p.sport)))];
+  if (!sports.includes(sportFilter)) sportFilter = "Tous";
+  const icone = s => s === "Tous" ? "✦" : (ICONE_SP[(base.find(p => (sportGeneral(p.sport)) === s) || {}).sport] || "•");
+  const nb = s => s === "Tous" ? base.length : base.filter(p => (sportGeneral(p.sport)) === s).length;
   $("#sport-chips").innerHTML = sports.map(s =>
     `<button type="button" aria-pressed="${s === sportFilter}" data-sport="${esc(s)}"><span class="ic">${icone(s)}</span>${s === "Tous" ? "Tous sports" : esc(s)}<small>${nb(s)}</small></button>`).join("");
   /* Une carte qui vient de changer d'etat (debut ou fin du match) reste 12 s dans la vue ou elle etait,
