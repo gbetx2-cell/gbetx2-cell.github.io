@@ -1032,6 +1032,9 @@ def fetch_programme(days_back: int = 0, seulement_publies: bool = False) -> list
     return out
 
 
+_SEMAINE = {"t": 0.0, "rows": []}
+
+
 def fetch_publications() -> dict:
     """Sous-ensemble de fetch_programme() pour la page Publications
     (04/08/2026, chantier "gros chantier 10/10" -- remplace a terme
@@ -1067,8 +1070,13 @@ def fetch_publications() -> dict:
     # seulement (requete plus legere : pas les matchs non publies), ajoutes apres les 48 h ci-dessus, sans doublon.
     try:
         deja = {f["fixture_id"] for f in out["live"] + out["done"]}
-        for f in fetch_programme(days_back=6, seulement_publies=True):
-            if f.get("published") and f.get("result") and f["fixture_id"] not in deja:
+        # la semaine est lourde (~2 s) et ne bouge qu'aux reglements : gardee 60 s, le recent (48 h) reste rafraichi a chaque appel
+        import time as _t
+        if not _SEMAINE["rows"] or _t.time() - _SEMAINE["t"] > 60:
+            _SEMAINE["rows"] = [f for f in fetch_programme(days_back=6, seulement_publies=True) if f.get("published") and f.get("result")]
+            _SEMAINE["t"] = _t.time()
+        for f in _SEMAINE["rows"]:
+            if f["fixture_id"] not in deja:
                 out["done"].append(f)
     except Exception as _e_sem:
         _silencieux("site/scripts/export_programme.py:semaine", _e_sem)
