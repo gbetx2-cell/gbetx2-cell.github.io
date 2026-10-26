@@ -489,7 +489,7 @@ def _no_bet_label(reason_code: str, sport: str) -> str:
     return NO_BET_REASONS_FR.get(reason_code, NO_BET_GENERIC_FR)
 
 
-def fetch_programme(days_back: int = 0) -> list[dict]:
+def fetch_programme(days_back: int = 0, seulement_publies: bool = False) -> list[dict]:
     import psycopg2
 
     db = os.environ.get("DATABASE_URL")
@@ -528,13 +528,14 @@ def fetch_programme(days_back: int = 0) -> list[dict]:
     # limite fixe redevient fausse des que le volume grossit (nouveaux
     # sports a venir), sans jamais avertir personne -- retiree plutot que
     # remontee a une nouvelle valeur arbitraire qui se reperimerait pareil.
+    extra_publies = " AND publish_status = 'published'" if seulement_publies else ""
     cur.execute(
         f"""
         SELECT fixture_id, home, away, league, kickoff_at, publish_status, sport,
                league_id, home_team_id, away_team_id
         FROM programme_fixtures
         WHERE sport IN ({placeholders_sport})
-          AND {window_where}
+          AND {window_where}{extra_publies}
         ORDER BY kickoff_at ASC
         """,
         (*PROGRAMME_SPORTS, *window_params),
@@ -1062,6 +1063,15 @@ def fetch_publications() -> dict:
         if not f.get("published"):
             continue
         (out["done"] if f.get("result") else out["live"]).append(f)
+    # 26/10/2026 (demande explicite, "Termines" = la semaine comme "Resultats") : les paris REGLES des 6 jours precedents, publies
+    # seulement (requete plus legere : pas les matchs non publies), ajoutes apres les 48 h ci-dessus, sans doublon.
+    try:
+        deja = {f["fixture_id"] for f in out["live"] + out["done"]}
+        for f in fetch_programme(days_back=6, seulement_publies=True):
+            if f.get("published") and f.get("result") and f["fixture_id"] not in deja:
+                out["done"].append(f)
+    except Exception as _e_sem:
+        _silencieux("site/scripts/export_programme.py:semaine", _e_sem)
     return out
 
 

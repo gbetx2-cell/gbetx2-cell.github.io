@@ -230,6 +230,9 @@ img.badge[src*="media.api-sports"],img.badge[src*="espncdn"]{object-fit:contain;
 .gauge .fill{height:100%;background:var(--gold);border-radius:999px}
 .gauge.ok .fill{background:var(--win)}
 .gauge.danger .fill{background:var(--loss)}
+.jsep{margin:22px 2px 8px;font:700 13px var(--body);text-transform:capitalize;letter-spacing:.04em;color:var(--muted)}
+.voirplus{display:block;width:100%;margin:14px 0;padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);font:600 14px var(--body);cursor:pointer}
+.voirplus:hover{border-color:var(--gold)}
 .empty{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:20px;text-align:center;color:var(--muted)}
 .empty b{color:var(--text)}
 
@@ -1775,7 +1778,10 @@ function carte(p, euros, valeurU){
      et affichait "Terminé" alors que le match se jouait encore. */
   const tousRegles = estRegle(p);
   const regle = tousRegles;
-  const etat = regle || fini ? `<span class="gain">Terminé</span>`
+  /* 26/10/2026 : un pari joueur regle d'avance (ligne deja franchie) garde le score du moment du reglement, pas le score final :
+     on ne l'affiche plus comme "Terminé" alors que le match n'est pas fini dans nos donnees. */
+  const reglePartiel = regle && !fini && sc && sc.home_score != null && sc.status_long && !/^(termin|final|ft|finished)/i.test(String(sc.status_long));
+  const etat = regle || fini ? `<span class="gain">${reglePartiel ? "Réglé en cours de match" : "Terminé"}</span>`
     : live ? `<span class="clock">${esc(sc.status_long || "En direct")}${sc.elapsed ? " · " + sc.elapsed + "'" : ""}</span>`
     : ko && ko > new Date() ? `<span class="kick" data-ko="${p.kickoff_at}">${compte(ko)}</span>`
     /* L'heure est passee mais aucun score n'est encore remonte : dire "À venir"
@@ -1864,7 +1870,7 @@ function carte(p, euros, valeurU){
   const vu = SCORES_VUS.get(p.fixture_id); SCORES_VUS.set(p.fixture_id, scoreTxt);
   const bump = vu !== undefined && vu !== scoreTxt && phase === "direct";
   const horloge = fsd && fsd.clk && fsd.per && /^(nfl|wnba|nba|nbam)$/.test(p.sport) ? (fsd.per > 4 ? "Prol." : "QT" + fsd.per) + " · " + fsd.clk : "";
-  const moment = phase === "fin" ? "Terminé" : live ? (horloge || statutFr(sc.status_long || "En direct")) + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
+  const moment = phase === "fin" ? (reglePartiel ? "Réglé en cours de match" : "Terminé") : live ? (horloge || statutFr(sc.status_long || "En direct")) + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
     : phase === "direct" ? "En cours" : "";
   const avV = phase === "direct" && live && !golf && !f1 ? avancement(p, sc, fsd) : null;
   const sitT = phase === "direct" && live ? situationTexte(p, hs, as, home, away, joueur, sets, sc) : "";
@@ -1876,7 +1882,7 @@ function carte(p, euros, valeurU){
   const locDet = phase !== "avant" && p.sport !== "football" && !detaillable(p) ? detailLocal(p, sc, fsd, home, away, periodes, sets, histoFinal) : null;
   const situ2 = sitT || avV !== null ? `<div class="situ2">${sitT ? `<b>${esc(sitT)}</b>` : ""}${avV !== null ? `<div class="avanc" role="progressbar" aria-valuenow="${Math.round(avV * 100)}" aria-valuemin="0" aria-valuemax="100" aria-label="Avancement du match"><i style="transform:scaleX(${avV.toFixed(3)})"></i></div>` : ""}</div>` : "";
   const badge = phase === "avant" ? `<span class="bdg">${esc(heure || "À venir")}</span>`
-    : phase === "direct" ? `<span class="bdg live">EN DIRECT</span>` : `<span class="bdg fin">TERMINÉ</span>`;
+    : phase === "direct" ? `<span class="bdg live">EN DIRECT</span>` : `<span class="bdg fin">${reglePartiel ? "RÉGLÉ" : "TERMINÉ"}</span>`;
   const ban = `<div class="ban${phase !== "avant" && !anime ? " ecarte" : ""}"${anime ? " data-anim" : ""}
       style="background:linear-gradient(100deg,${teinte(home)},#0b0f1a 47%,#0b0f1a 53%,${teinte(away)})">
     <div class="geant a" style="left:-10px;top:14px">${esc(nomFam(home, joueur))}</div>
@@ -2016,6 +2022,9 @@ function duJour(){
          NHL/MLB de nuit) restait invisible jusqu'a minuit -- on le montre des sa
          publication s'il commence dans les 18 h. */
       if (!termine && new Date(p.kickoff_at) - Date.now() < 18 * 3600e3 && new Date(p.kickoff_at) > new Date(jour)) return true;
+      /* 26/10/2026 (demande explicite, "Termines" = la semaine comme "Resultats") : les paris REGLES restent 7 jours dans l'onglet
+         "Termines" (avant : effaces a minuit). Le serveur ne renvoie deja que les modeles en service, memes regles que Resultats. */
+      if (termine && Date.now() - new Date(p.kickoff_at) < 7 * 864e5) return true;
       return j === hier && !termine;          // encore en jeu : on le garde visible
     })
     /* Trois etages, dans cet ordre (21/09/2026, demande explicite) :
@@ -2070,20 +2079,31 @@ function dessineJour(forcer){
                   .filter(p => sportFilter === "Tous" || (sportGeneral(p.sport)) === sportFilter);
   const suivant = tout.find(p => new Date(p.kickoff_at) > new Date());
   setTimeout(animer, 0);
-  $("#list").innerHTML = vus.map(p => {
-    let h = carte(p);
+  /* 26/10/2026 : 7 jours de termines = beaucoup de cartes : on en montre TERM_MAX d'abord, le reste sur demande (page rapide) */
+  let nbTerm = 0, cachees = 0;
+  const vusPages = vus.filter(p => { if (groupe(p) !== "Terminés") return true; nbTerm++; if (nbTerm <= TERM_MAX) return true; cachees++; return false; });
+  let jourPrec = "";
+  $("#list").innerHTML = vusPages.map(p => {
+    let sep = "";
+    if (groupe(p) === "Terminés" && p.kickoff_at){
+      const jr = new Date(p.kickoff_at).toLocaleDateString(LOC(), {timeZone: TZ(), weekday: "long", day: "numeric", month: "long"});
+      if (jr !== jourPrec){ sep = `<h3 class="jsep">${esc(jr)}</h3>`; jourPrec = jr; }
+    }
+    let h = sep + carte(p);
     /* apparition en fondu seulement pour une carte nouvelle, jamais a chaque rafraichissement */
     if (!CARTES_VUES.has(p.fixture_id)){ CARTES_VUES.add(p.fixture_id); h = h.replace('<article class="pick', '<article class="pick nouvelle'); }
     if (garde.has(p.fixture_id)) h = h.replace(/(<article[^>]*>)/, `$1<div class="ruban">${groupe(p) === "Terminés"
       ? "Match terminé · retrouvez-le dans « Terminés »" : "Le match vient de commencer"}</div>`);
     return h;
-  }).join("") ||
+  }).join("") + (cachees ? `<button type="button" class="voirplus" data-voirplus="1">Voir plus de paris terminés <span>(${cachees})</span></button>` : "") ||
     `<div class="empty"><b>Aucun pari ici pour l'instant.</b><br>${suivant
       ? "Prochain pari vers " + new Date(suivant.kickoff_at).toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}) + "."
       : "Rien de publié aujourd'hui : c'est normal les jours sans match filtré."}</div>`;
   setTimeout(chargerVotes, 0);
   try { majResumeLive(); } catch (_){}
 }
+let TERM_MAX = 30;
+$("#list").addEventListener("click", e => { if (e.target.closest("[data-voirplus]")){ TERM_MAX += 30; dessineJour(true); } });
 $("#state-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stateFilter = b.dataset.state; dessineJour(); } });
 $("#sport-chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ sportFilter = b.dataset.sport; dessineJour(); } });
 setInterval(() => document.querySelectorAll("[data-ko]").forEach(el => el.textContent = compte(new Date(el.dataset.ko))), 1000);
