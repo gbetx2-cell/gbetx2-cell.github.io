@@ -10,16 +10,19 @@
   function sec(clk) { if (!clk && clk !== 0) return null; var p = String(clk).split(":").map(Number); return p.length === 2 && isFinite(p[0] + p[1]) ? p[0] * 60 + p[1] : null; }
 
   /* sport -> {n periodes, duree d'une periode en s, ecart-type de la marge finale, avantage du domicile en points de marge} */
+  /* Reglages tires des marges FINALES de dizaines de milliers de matchs passes (asia-backtest, 26/10/2026) : sd = ecart-type de la marge finale,
+     adv = avantage moyen du domicile ; verifie sur ~12 000 etats de matchs ESPN (nuit/proba_mesure.py, nuit/proba_cv.py) : Brier 0,15-0,20 contre 0,25 pour "50 %". */
   var EQUIPE = {
     nfl: {n: 4, len: 900, sd: 13.5, adv: 1.8, mot: "point"},
-    nba: {n: 4, len: 720, sd: 12.5, adv: 2.2, mot: "point"}, nbam: {n: 4, len: 720, sd: 12.5, adv: 2.2, mot: "point"},
-    wnba: {n: 4, len: 600, sd: 11.5, adv: 1.8, mot: "point"},
-    euroleague: {n: 4, len: 600, sd: 10.5, adv: 2.5, mot: "point"}, nbl: {n: 4, len: 600, sd: 11, adv: 2.5, mot: "point"}, grebl: {n: 4, len: 600, sd: 10.5, adv: 2.5, mot: "point"},
-    kbl: {n: 4, len: 600, sd: 10.5, adv: 2.5, mot: "point"},
-    hockey: {n: 3, len: 1200, sd: 2.25, adv: .15, mot: "but"}, nhl: {n: 3, len: 1200, sd: 2.25, adv: .15, mot: "but"}
+    nba: {n: 4, len: 720, sd: 15.7, adv: 1.85, mot: "point"}, nbam: {n: 4, len: 720, sd: 15.7, adv: 1.85, mot: "point"},
+    wnba: {n: 4, len: 600, sd: 14.35, adv: 1.5, mot: "point"},
+    euroleague: {n: 4, len: 600, sd: 12.9, adv: 3.8, mot: "point"}, nbl: {n: 4, len: 600, sd: 15.6, adv: 1.2, mot: "point"}, grebl: {n: 4, len: 600, sd: 15.8, adv: 4.1, mot: "point"},
+    kbl: {n: 4, len: 600, sd: 13.1, adv: 1.3, mot: "point"},
+    hockey: {n: 3, len: 1200, sd: 2.9, adv: .35, mot: "but"}, nhl: {n: 3, len: 1200, sd: 2.9, adv: .35, mot: "but"},
+    hfra: {n: 2, len: 1800, sd: 5.9, adv: .75, mot: "but"}, hpol: {n: 2, len: 1800, sd: 8.85, adv: .7, mot: "but"}, hrom: {n: 2, len: 1800, sd: 6.25, adv: 1, mot: "but"},
+    hromf: {n: 2, len: 1800, sd: 7.25, adv: .8, mot: "but"}, hden: {n: 2, len: 1800, sd: 5.5, adv: 1, mot: "but"}, hesp: {n: 2, len: 1800, sd: 6.7, adv: 1.2, mot: "but"}
   };
-  ["hfra", "hpol", "hrom", "hromf", "hden", "hesp"].forEach(function (k) { EQUIPE[k] = {n: 2, len: 1800, sd: 5.4, adv: 1.1, mot: "but"}; });
-  var BASE = {baseball: 1, mlb: 1, npb: 1, kbo: 1};
+  var BASE = {baseball: [4.45, .04], mlb: [4.45, .04], npb: [3.9, .08], kbo: [4.8, 0]};
 
   /* fraction de match RESTANTE (1 = rien joue, 0 = fini) */
   function restant(cfg, sc, fsd) {
@@ -39,7 +42,7 @@
     return phi((diff + cfg.adv * f2) / (cfg.sd * Math.sqrt(f2)));
   }
 
-  function baseball(sc, fsd) {
+  function baseball(sc, fsd, par) {
     var st = String((sc && sc.status_long) || ""), m = st.match(/(\d+)/);
     if (!m) return null;
     var diff = (Number(sc.home_score) || 0) - (Number(sc.away_score) || 0);
@@ -48,7 +51,7 @@
     /* retraits restants dans le match (27 par camp) */
     var restHaut = haut ? (27 - ((inn - 1) * 3 + o)) : (27 - (inn * 3)), restBas = haut ? (27 - ((inn - 1) * 3)) : (27 - ((inn - 1) * 3 + o));
     var f = Math.max(.02, (Math.max(0, restHaut) + Math.max(0, restBas)) / 54);
-    return phi((diff + .25 * f) / (4.4 * Math.sqrt(f)));
+    return phi((diff + par[1] * f) / (par[0] * Math.sqrt(f)));
   }
 
   /* tennis : chaine de Markov point -> jeu -> set -> match (meilleur des 3). Probabilite de gagner un point au service : ATP 64,5 %, WTA 56 % */
@@ -61,14 +64,9 @@
     }
     return f(a, b);
   }
-  function tennis(sc, fsd, sport, fid) {
-    var sets = String(sc.events_json || "").split(",").map(function (x) { return x.trim().match(/^(\d+)\s*-\s*(\d+)$/); }).filter(Boolean).map(function (m) { return [Number(m[1]), Number(m[2])]; });
-    var s1 = Number(sc.home_score) || 0, s2 = Number(sc.away_score) || 0;
-    if (sc.finished) return s1 > s2 ? 1 : s1 < s2 ? 0 : .5;
-    if (!sets.length) return null;
-    var pa = /wta/i.test(String(fid || "")) ? .56 : .645, pb = pa;            /* j1 (home) et j2 (away) : meme niveau de service par defaut */
-    var q = (pa + (1 - pb)) / 2;                                               /* point gagne par j1 dans un jeu decisif (moyenne service / retour) */
-    var memo = {};
+  /* modele de jeu / set pour des probabilites de gagner un point au service pa (joueur 1) et pb (joueur 2) */
+  function modele(pa, pb) {
+    var q = (pa + (1 - pb)) / 2, memo = {};                                    /* point gagne par j1 dans un jeu decisif (moyenne service / retour) */
     function jeu(srv, x, y) { return srv === 1 ? course(pa, x, y, 4) : 1 - course(pb, y, x, 4); }   /* P(j1 gagne le jeu) */
     function set(a, b, srv, dep) {                                             /* P(j1 gagne le set) : jeux a-b, srv sert le jeu en cours, dep = points deja joues dans ce jeu */
       var k = a + "," + b + "," + srv + (dep ? "," + dep[0] + "," + dep[1] : ""); if (memo[k] !== undefined) return memo[k];
@@ -79,6 +77,24 @@
       else { var pj = jeu(srv, dep ? dep[0] : 0, dep ? dep[1] : 0); v = pj * set(a + 1, b, 3 - srv, null) + (1 - pj) * set(a, b + 1, 3 - srv, null); }
       return (memo[k] = v);
     }
+    return set;
+  }
+  /* niveau relatif de j1 : on cherche l'ecart d (service de j1 = base + d, de j2 = base - d) qui redonne la probabilite d'avant-match `prior` (Elo) */
+  function ecart(base, prior) {
+    var lo = -.15, hi = .15;
+    for (var i = 0; i < 24; i++) {
+      var d = (lo + hi) / 2, set = modele(base + d, base - d), pf = (set(0, 0, 1, null) + set(0, 0, 2, null)) / 2, pm = pf * pf * (3 - 2 * pf);
+      if (pm < prior) lo = d; else hi = d;
+    }
+    return (lo + hi) / 2;
+  }
+  function tennis(sc, fsd, sport, fid, prior) {
+    var sets = String(sc.events_json || "").split(",").map(function (x) { return x.trim().match(/^(\d+)\s*-\s*(\d+)$/); }).filter(Boolean).map(function (m) { return [Number(m[1]), Number(m[2])]; });
+    var s1 = Number(sc.home_score) || 0, s2 = Number(sc.away_score) || 0;
+    if (sc.finished) return s1 > s2 ? 1 : s1 < s2 ? 0 : .5;
+    var base = /wta/i.test(String(fid || "")) ? .56 : .645, d = prior > .04 && prior < .96 ? ecart(base, prior) : 0;
+    var set = modele(base + d, base - d);
+    if (!sets.length) { var f0 = (set(0, 0, 1, null) + set(0, 0, 2, null)) / 2; return prior ? borne(f0 * f0 * (3 - 2 * f0)) : null; }
     var g = sets[sets.length - 1], srv = fsd && fsd.srv === "a" ? 2 : 1;
     var pts = fsd && fsd.pts ? String(fsd.pts).split(":").map(function (v) { return {"0": 0, "15": 1, "30": 2, "40": 3, "Av": 4}[String(v).trim()]; }) : null;
     var dep = pts && pts.length === 2 && pts[0] !== undefined && pts[1] !== undefined ? pts : [0, 0];
@@ -100,12 +116,12 @@
   }
 
   /* point d'entree : renvoie {h: probabilite de victoire du premier nom (domicile / joueur 1), modele} ou null */
-  function live(sport, sc, fsd, league, fid) {
+  function live(sport, sc, fsd, league, fid, prior) {
     if (!sc || sport === "football") return null;
     var p = null, modele = "";
     if (EQUIPE[sport]) { p = equipe(sport, sc, fsd); modele = "score et temps restant"; }
-    else if (BASE[sport]) { p = baseball(sc, fsd); modele = "score et manches restantes"; }
-    else if (sport === "tennis") { p = tennis(sc, fsd, sport, fid); modele = "score, jeux et service"; }
+    else if (BASE[sport]) { p = baseball(sc, fsd, BASE[sport]); modele = "score et manches restantes"; }
+    else if (sport === "tennis") { p = tennis(sc, fsd, sport, fid, prior); modele = prior ? "classement Elo, score et service" : "score, jeux et service"; }
     else if (sport === "golf") { p = golf(sc, fsd); modele = "écart et trous restants"; }
     return p === null || p === undefined || !isFinite(p) ? null : {h: Math.round(borne(p) * 1000) / 1000, modele: modele};
   }
