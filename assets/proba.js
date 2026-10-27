@@ -125,6 +125,19 @@
     else if (sport === "golf") { p = golf(sc, fsd); modele = "écart et trous restants"; }
     return p === null || p === undefined || !isFinite(p) ? null : {h: Math.round(borne(p) * 1000) / 1000, modele: modele};
   }
-  var API = {live: live, _phi: phi, _equipe: equipe, _tennis: tennis};
+  /* serie de probabilites a partir de la courbe du score (jouee par ESPN : jobs/match_detail_plus.py::courbe) : sert aux matchs sans probabilite ESPN (NHL...)
+     c = {pts: [[x, dom, ext]], total} ; x = secondes ecoulees (baseball : demi-manches) -> fraction restante = 1 - x / total (27/10/2026) */
+  function serie(sport, c) {
+    if (!c || !c.pts || c.pts.length < 2 || !c.total) return [];
+    var cfg = EQUIPE[sport], par = BASE[sport], out = [];
+    if (!cfg && !par) return [];
+    c.pts.forEach(function (q) {
+      var f = Math.max(.015, Math.min(1, 1 - q[0] / c.total)), diff = q[1] - q[2], sd = cfg ? cfg.sd : par[0], adv = cfg ? cfg.adv : par[1];
+      out.push(Math.round(borne(phi((diff + adv * f) / (sd * Math.sqrt(f)))) * 1000) / 1000);
+    });
+    if (out.length > 90) { var pas = (out.length - 1) / 89, r = []; for (var i = 0; i < 90; i++) r.push(out[Math.round(i * pas)]); out = r; }
+    return out;
+  }
+  var API = {live: live, serie: serie, _phi: phi, _equipe: equipe, _tennis: tennis};
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.GB_PROBA = API;
 })(typeof window !== "undefined" ? window : this);

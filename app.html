@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>G-BET Bot — Paris du jour, résultats, bilan</title>
 <meta name="description" content="Paris publiés avant le coup d'envoi, résultats complets réglés automatiquement, et calcul de ce que ça donne avec votre mise.">
@@ -982,7 +983,16 @@ const TZ = () => (window.GB_I18N ? GB_I18N.tz : "Europe/Paris");   // fuseau hor
 const fmt = (n, d = 2) => (n === null || n === undefined || isNaN(n) ? "—" : Number(n).toFixed(d).replace(".", ",").replace("-", "−"));
 const unit = u => (u > 0 ? "+" : "") + fmt(u, 2) + " u";
 const eur = v => (v > 0 ? "+" : "") + fmt(v, Math.abs(v) < 100 && Math.round(v * 100) % 100 ? 2 : 0) + " €";
-const esc = t => String(t ?? "").replace(/[<>&]/g, c => ({"<": "&lt;", ">": "&gt;", "&": "&amp;"}[c]));
+/* Images qui ne chargent pas : repli sur l'original puis initiales (27/10/2026 : ecouteur delegue, aucun onerror ne contient de donnee) */
+document.addEventListener("error", e => {
+  const im = e.target; if (!im || im.tagName !== "IMG" || !im.dataset || !im.dataset.k) return;
+  const org = im.dataset.org || "", ini = im.dataset.ini || "";
+  if (org && !im.dataset.essai && im.src !== org){ im.dataset.essai = "1"; im.src = org; return; }
+  if (im.dataset.k === "badge"){ const sp = document.createElement("span"); sp.className = "badge"; sp.textContent = ini; im.replaceWith(sp); }
+  else if (im.dataset.k === "vis"){ if (im.parentNode) im.parentNode.classList.add("ini"); im.replaceWith(document.createTextNode(ini)); }
+  else if (im.dataset.k === "rv"){ const sp = document.createElement("span"); sp.className = "rv ini"; sp.style.background = im.dataset.bg || ""; sp.textContent = ini; im.replaceWith(sp); }
+}, true);
+const esc = t => String(t ?? "").replace(/[<>&"'`]/g, c => ({"<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&#39;", "`": "&#96;"}[c]));
 const store = {
   get(k){ try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } },
   set(k, v){ try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
@@ -1003,7 +1013,9 @@ async function api(path, opts){
     try { await new Promise(res => setTimeout(res, 600)); r = await fetch(API + path, o); }
     catch (_){ r = await fetch(API_SECOURS + path, o); API_ACTIF = API_SECOURS; API_BASCULE_LE = Date.now(); }
   }
-  return r.json();
+  /* 27/10/2026 (demande explicite) : le mot "PREMIUM" n'apparait plus nulle part sur le site (libelles venant de l'API : "1+ point · PREMIUM") */
+  const brut = await r.text();
+  return JSON.parse(brut.replace(/\s*·\s*PREMIUM/gi, ""));
 }
 
 /* ───── Sondage pouce vert / pouce rouge (22/10/2026, demande explicite) ─────
@@ -1022,7 +1034,7 @@ const VID = (() => {
     return v;
   } catch (_){ return "m" + Math.random().toString(16).slice(2).padEnd(24, "0").slice(0, 24); }
 })();
-(store.get("gbet_votes") || []).forEach(([k, m]) => VOTES.set(k, {mine: m}));      // mon choix s'affiche tout de suite
+(Array.isArray(store.get("gbet_votes")) ? store.get("gbet_votes") : []).forEach(x => { if (Array.isArray(x) && typeof x[0] === "string") VOTES.set(x[0], {mine: x[1]}); });      // mon choix s'affiche tout de suite
 const memoVote = () => store.set("gbet_votes", [...VOTES].filter(([, e]) => e.mine).slice(-400).map(([k, e]) => [k, e.mine]));
 const cleVote = (p, b) => `${p.fixture_id}|${String(b.bet || "").trim().slice(0, 160)}`;
 const attr = t => esc(t).replace(/"/g, "&quot;");
@@ -1495,7 +1507,7 @@ function signatureJour(){
 /* ───── Details du match (25/10/2026) : donnees ESPN via /api/match-detail, chargees a l'ouverture puis relues toutes les 20 s ───── */
 /* ───── Probabilite de victoire en direct, pour tous les sports (25/10/2026) : estimation faite dans le navigateur (assets/proba.js) ───── */
 const PROBA_HIST = new Map();
-try { const h = JSON.parse(sessionStorage.getItem("gbet_proba") || "{}"); Object.entries(h).forEach(([k, v]) => PROBA_HIST.set(k, v)); } catch (_){}
+try { const h = JSON.parse(sessionStorage.getItem("gbet_proba") || "{}"); if (h && typeof h === "object") Object.entries(h).forEach(([k, v]) => { if (Array.isArray(v) && v.every(n => typeof n === "number")) PROBA_HIST.set(k, v); }); } catch (_){}
 function probaDuServeur(p, suivi){
   if (!window.GB_PROBA || !suivi || suivi.length < 2) return [];
   const out = [];
@@ -1535,6 +1547,7 @@ function detailLocal(p, sc, fsd, home, away, periodes, sets, histo){
     stats: fsd && Array.isArray(fsd.st) ? fsd.st.map(x => [x[0], String(x[1]), String(x[2])]) : [], joueurs: {h: [], a: []}, proba: histo || [], infos, blessures: {h: [], a: []}, courbe, periodes: tab};
 }
 const DET = new Map(), DET_OUVERT = new Set(), DET_ONGLET = new Map(), DET_FERME = new Set(), DET_AUTO = new Map();
+const ESPN_SPORT = {nbajp: "nba", wnbajp: "wnba", nfljp: "nfl", nhljp: "nhl", mlbjp: "baseball", nba: "nba", nbam: "nba", wnba: "wnba", nfl: "nfl", nhl: "nhl", mlb: "baseball", baseball: "baseball", hockey: "nhl"};
 const DET_SPORTS = /^(nba|nbam|wnba|nfl|baseball|mlb|nhl)$/;
 const detaillable = p => DET_SPORTS.test(p.sport) || (p.sport === "hockey" && /\bNHL\b/i.test(p.league || ""));
 const ONGLETS = [["resume", "Résumé"], ["stats", "Stats"], ["joueurs", "Joueurs"], ["h2h", "Face-à-face"], ["infos", "Infos"]];
@@ -1557,10 +1570,21 @@ function detailFusion(loc, r){
   return Object.assign({}, loc, {evenements: n(r.evenements) ? r.evenements : loc.evenements, courbe: r.courbe || loc.courbe, periodes: r.periodes || loc.periodes, actions: r.actions || loc.actions, stats: n(r.stats) ? r.stats : loc.stats,
     joueurs: r.joueurs || loc.joueurs, infos: loc.infos.concat((r.infos || []).filter(i => !loc.infos.some(l => l[0] === i[0]))), forme: r.forme, h2h: r.h2h});
 }
+/* 27/10/2026 : "des fois la case Joueurs et Face-a-face disparait" -- une relecture qui echouait (ou revenait sans joueurs / sans face-a-face) ecrasait
+   les bonnes donnees. On garde desormais, rubrique par rubrique, ce qu'on avait deja si la nouvelle reponse est vide. */
+function garderAnciens(ancien, neuf){
+  if (!neuf) return ancien || null;
+  if (!ancien) return neuf;
+  const vide = v => v === undefined || v === null || (Array.isArray(v) && !v.length) || (typeof v === "object" && !Array.isArray(v) && !Object.values(v).some(x => Array.isArray(x) ? x.length : !!x));
+  const out = Object.assign({}, neuf);
+  ["joueurs", "h2h", "forme", "stats", "infos", "evenements", "actions", "periodes", "courbe", "blessures", "proba"].forEach(k => { if (vide(out[k]) && !vide(ancien[k])) out[k] = ancien[k]; });
+  return out;
+}
 async function chargerFS(fix){
   try {
     const r = await api("/api/match-detail?fixture_id=" + encodeURIComponent(fix));
-    DET_FS.set(fix, {d: r && r.ok ? r.detail : null, t: Date.now()});
+    const av = DET_FS.get(fix);
+    DET_FS.set(fix, {d: garderAnciens(av && av.d, r && r.ok ? r.detail : null), t: Date.now()});
     if (r && Array.isArray(r.suivi)) DET_SUIVI.set(fix, r.suivi);
     if (r && typeof r.prior === "number") DET_PRIOR.set(fix, r.prior);
   } catch (_){ if (!DET_FS.has(fix)) DET_FS.set(fix, {d: null, t: Date.now()}); }
@@ -1591,8 +1615,8 @@ function courbeHtml(c, nh, na){
     prev = bx;
   });
   const fin = (i, col) => `<circle cx="${X(dern[0])}" cy="${Y(dern[i])}" r="3" fill="${col}"/>`;
-  return `<div class="dm-crb"><div class="lg"><span><i></i>${esc(nh)} <b>${dern[1]}</b></span><span><i></i>${esc(na)} <b>${dern[2]}</b></span></div>
-    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Évolution du score : ${esc(nh)} ${dern[1]}, ${esc(na)} ${dern[2]}">${grille}${bornes}
+  return `<div class="dm-crb"><div class="lg"><span><i></i>${esc(nh)} <b>${Number(dern[1])}</b></span><span><i></i>${esc(na)} <b>${Number(dern[2])}</b></span></div>
+    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Évolution du score : ${esc(nh)} ${Number(dern[1])}, ${esc(na)} ${Number(dern[2])}">${grille}${bornes}
     <path d="${trace(2)}" fill="none" stroke="#5aa9ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
     <path d="${trace(1)}" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>${fin(2, "#5aa9ff")}${fin(1, "var(--gold)")}</svg></div>`;
 }
@@ -1625,6 +1649,7 @@ function sparkProba(pr, src, nh, na){
 function detailCorps(fix, d){
   if (d === undefined) return `<div class="dm-pan dm-vide">Chargement des détails…</div>`;
   if (!d) return `<div class="dm-pan dm-vide">Les détails de ce match ne sont pas disponibles pour le moment.</div>`;
+  if (typeof d !== "object" || !d.equipes || typeof d.equipes !== "object") d = Object.assign({}, d, {equipes: {h: {}, a: {}}});
   const dispo = ongletsDispo(d), liste = ONGLETS.filter(o => dispo[o[0]]);
   if (!liste.length) return `<div class="dm-pan dm-vide">Pas encore de détails pour ce match.</div>`;
   let on = DET_ONGLET.get(fix) || "resume"; if (!dispo[on]) on = liste[0][0];
@@ -1632,8 +1657,11 @@ function detailCorps(fix, d){
   const tabs = `<div class="dm-tabs" role="tablist">${liste.map(([k, l]) => `<button type="button" role="tab" aria-pressed="${k === on}" data-dmtab="${k}" data-fix="${esc(fix)}">${l}</button>`).join("")}</div>`;
   let pan = "";
   if (on === "resume"){
-    const liste = (t, a) => (a || []).length ? `<div class="dm-sec">${t}</div><ul class="dm-ev">${a.map(e => `<li><time>${esc(e.p)}</time><i class="${esc(e.e)}"></i><span>${esc(e.t)}</span><b>${esc(e.s)}</b></li>`).join("")}</ul>` : "";
-    pan = sparkProba(d.proba, d.src, nom("h"), nom("a")) + periodesHtml(d.periodes, nom("h"), nom("a"))
+    /* pas de probabilite ESPN (NHL...) : on la deduit de la courbe du score avec le modele du site (27/10/2026) */
+    let srcProba = d.src;
+    if ((!d.proba || d.proba.length < 2) && d.courbe && window.GB_PROBA && GB_PROBA.serie){ const sp = ESPN_SPORT[fix.split("_")[0]] || fix.split("_")[0]; const sr = GB_PROBA.serie(sp, d.courbe); if (sr.length > 1){ d = Object.assign({}, d, {proba: sr}); srcProba = "site"; } }
+    const liste = (t, a) => (a || []).length ? `<div class="dm-sec">${t}</div><ul class="dm-ev">${a.map(e => `<li><time>${esc(e.p)}</time><i class="${e.e === "h" || e.e === "a" ? e.e : ""}"></i><span>${esc(e.t)}</span><b>${esc(e.s)}</b></li>`).join("")}</ul>` : "";
+    pan = sparkProba(d.proba, srcProba, nom("h"), nom("a")) + periodesHtml(d.periodes, nom("h"), nom("a"))
       + liste("Moments forts", d.evenements) + liste("Dernières actions", (d.actions || []).filter(a => !(d.evenements || []).some(e => e.t === a.t && e.p === a.p)));
   } else if (on === "stats"){
     pan = (d.stats || []).length ? `<div class="dm-st"><div class="l"><b>${esc(nom("h"))}</b><span class="lib"></span><b>${esc(nom("a"))}</b></div>` + d.stats.map(([lib, h, a]) => {
@@ -1645,7 +1673,7 @@ function detailCorps(fix, d){
     pan = `<div class="dm-jo">${col("h")}${col("a")}</div>`;
   } else if (on === "h2h"){
     const f = d.forme || {}, ligne = x => `<div class="dm-h2"><time>${esc(x.d)}</time><span>${esc(x.m)}</span><small>${esc(x.c || "")}</small></div>`;
-    const bloc = c => (f[c] || []).length ? `<div class="dm-sec"><span>Forme</span> · ${esc(nom(c))}</div><div class="dm-fm">${f[c].map(x => `<b class="${esc(x.r)}">${esc(x.r)}</b>`).join("")}</div>${f[c].slice(0, 5).map(ligne).join("")}` : "";
+    const bloc = c => (f[c] || []).length ? `<div class="dm-sec"><span>Forme</span> · ${esc(nom(c))}</div><div class="dm-fm">${f[c].map(x => `<b class="${/^[VDN]$/.test(x.r) ? x.r : ""}">${esc(x.r)}</b>`).join("")}</div>${f[c].slice(0, 5).map(ligne).join("")}` : "";
     pan = `<div class="dm-inf">${(d.h2h || []).length ? `<div class="dm-sec" style="margin-top:0">Confrontations directes</div>${d.h2h.slice(0, 6).map(ligne).join("")}` : ""}${bloc("h")}${bloc("a")}</div>`;
   } else {
     const bl = c => ((d.blessures || {})[c] || []).length ? `<div><h4><span>Absents</span> · ${esc(nom(c))}</h4><dl><dd style="grid-column:1/-1">${d.blessures[c].map(esc).join(" · ")}</dd></dl></div>` : "";
@@ -1679,7 +1707,8 @@ function detailHtml(p, live, loc){
 async function chargerDetail(fix){
   try {
     const r = await api("/api/match-detail?fixture_id=" + encodeURIComponent(fix));
-    DET.set(fix, {d: r && r.ok ? r.detail : null, t: Date.now()});
+    const av = DET.get(fix);
+    DET.set(fix, {d: garderAnciens(av && av.d, r && r.ok ? r.detail : null), t: Date.now()});
   } catch (_){ if (!DET.has(fix)) DET.set(fix, {d: null, t: Date.now()}); }
   majDetail(fix);
 }
@@ -1722,7 +1751,7 @@ function carte(p, euros, valeurU){
   function image(url, nom){ const u = source(url, nom); return absolu(HDX[u] || u); }
   function origine(url, nom){ return absolu(source(url, nom)); }
   const logo = (url, n) => { const src = image(url, n);
-    return src ? `<img class="badge" src="${esc(src)}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'badge',textContent:'${esc(ini(n))}'}))">`
+    return src ? `<img class="badge" src="${esc(src)}" alt="" loading="lazy" data-k="badge" data-ini="${esc(ini(n))}">`
                : `<span class="badge">${esc(ini(n))}</span>`; };
   /* Score (21/09/2026) : le cache en direct quand il existe, sinon celui que
      porte le pari regle. Le tennis n'est dans aucun cache live -- un pari
@@ -1783,7 +1812,7 @@ function carte(p, euros, valeurU){
   const reglePartiel = regle && !fini && sc && sc.home_score != null && sc.status_long && !/^(termin|final|ft|finished)/i.test(String(sc.status_long));
   const etat = regle || fini ? `<span class="gain">${reglePartiel ? "Réglé en cours de match" : "Terminé"}</span>`
     : live ? `<span class="clock">${esc(sc.status_long || "En direct")}${sc.elapsed ? " · " + sc.elapsed + "'" : ""}</span>`
-    : ko && ko > new Date() ? `<span class="kick" data-ko="${p.kickoff_at}">${compte(ko)}</span>`
+    : ko && ko > new Date() ? `<span class="kick" data-ko="${esc(p.kickoff_at)}">${compte(ko)}</span>`
     /* L'heure est passee mais aucun score n'est encore remonte : dire "À venir"
        serait faux (21/09/2026, cas reel a 07h07 pour un match de 06h30). On dit
        ce qu'on sait vraiment. */
@@ -1827,8 +1856,7 @@ function carte(p, euros, valeurU){
   const vis = (n, url, side) => {
     const src = image(url, n), org = origine(url, n), ph = joueur && src ? " ph" : "";
     const perd = phase === "fin" && gagnant && gagnant !== (side === "g" ? "h" : "a") ? " perdant" : "";
-    const repli = `this.onerror=null;if('${esc(org)}'&&this.src!=='${esc(org)}'){this.src='${esc(org)}'}else{this.parentNode.classList.add('ini');this.replaceWith('${esc(ini(n))}')}`;
-    if (src) return `<div class="v ${side}${ph}${perd}"><img src="${esc(src)}" alt="" loading="lazy" onerror="${repli}"></div>`;
+    if (src) return `<div class="v ${side}${ph}${perd}"><img src="${esc(src)}" alt="" loading="lazy" data-k="vis" data-org="${esc(org)}" data-ini="${esc(ini(n))}"></div>`;
     const mot = /\d/.test(n) || ini(n).length > 2;
     return `<div class="v ini ${side}${mot ? " mot" : ""}${perd}" style="background:${teinte(n)};box-shadow:0 0 40px ${teinte(n)}">${esc(mot ? String(n).replace(/^.*\((.*)\).*$/, "$1") : ini(n))}</div>`;
   };
@@ -2606,7 +2634,7 @@ function visuelRes(url, nom, sp, side){
   const src = u ? (/^https?:/.test(HDX[u] || u) ? (HDX[u] || u) : SITE + (HDX[u] || u)) : "";
   const org = u ? (/^https?:/.test(u) ? u : SITE + u) : "";
   const ini = String(nom || "?").split(/[ .-]+/).slice(0, 2).map(w => w[0] || "").join("").toUpperCase();
-  if (src) return `<img class="rv${joueur ? " ph" : ""}" src="${esc(src)}" alt="" loading="lazy" onerror="this.onerror=null;if(this.src!=='${esc(org)}'&&'${esc(org)}'){this.src='${esc(org)}'}else{this.outerHTML='<span class=&quot;rv ini&quot; style=&quot;background:${teinte(nom)}&quot;>${esc(ini)}</span>'}">`;
+  if (src) return `<img class="rv${joueur ? " ph" : ""}" src="${esc(src)}" alt="" loading="lazy" data-k="rv" data-org="${esc(org)}" data-ini="${esc(ini)}" data-bg="${esc(teinte(nom))}">`;
   return `<span class="rv ini" style="background:${teinte(nom)}">${esc(/\d/.test(nom) ? "TOP 3" : ini)}</span>`;
 }
 function explication(e){
@@ -2757,7 +2785,7 @@ $("#r-mise").addEventListener("change", e => { const v = Math.round(Number(e.tar
 majCompte();
 verifierSession();   /* 21/09/2026 : l'etat de connexion vient du serveur */
 charger();
-setInterval(charger, 60000);
+setInterval(charger, 15000);        /* 27/10/2026 : un pari publie sur Telegram apparait sur le site en 15 s au plus (avant : 60 s) */
 
 /* Rafraichissement au retour sur la page (21/09/2026, cas signale : un pari
    publie sur Telegram a 07h30 n'apparaissait pas quand on ouvrait le site
