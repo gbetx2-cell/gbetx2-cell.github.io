@@ -2459,6 +2459,7 @@ document.querySelector("nav").addEventListener("click", e => {
    le navigateur : aucune adresse IP, aucun traceur tiers. */
 function suivre(type){
   try {
+    if (localStorage.getItem("gbet_moi") === "1") return;      /* 27/10/2026 : appareil de l'admin, jamais compte (marque depuis la page admin) */
     let id = localStorage.getItem("gbet_vid");
     if (!id){ id = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)); localStorage.setItem("gbet_vid", id); }
     const w = innerWidth, appareil = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? (w > 700 ? "tablette" : "mobile") : "ordinateur";

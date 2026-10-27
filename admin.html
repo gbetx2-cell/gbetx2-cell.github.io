@@ -6,174 +6,124 @@
 <meta name="robots" content="noindex, nofollow">
 <title>G-BET Admin</title>
 <link rel="icon" href="assets/logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-/* 20/10/2026 (demande explicite "un site admin d'expert, le meilleur possible") : tableau de bord prive.
-   Inspiration : Plausible (audience lisible d'un coup d'oeil), Vercel / Better Stack (sante et incidents en tete),
-   Grafana (series temporelles). Donnees : /api/admin (session admin obligatoire). */
-:root{
-  --ink:#0d0c0a; --surface:#16150f; --raise:#201e17; --line:#2c2920; --line-2:#3a362a;
-  --text:#f3efe6; --muted:#a39c8c; --dim:#6f6a5d; --gold:#e3b341; --gold-2:#f3c95a;
-  --win:#43b97f; --loss:#e2665d; --warn:#e8a33d; --info:#6aa3e8;
-  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
-  --body:"Figtree","Segoe UI",system-ui,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
-  color-scheme:dark;
-}
+/* 27/10/2026 (demande explicite : "un site admin simple a comprendre mais avec plus de details qui me servent").
+   4 blocs dans l'ordre de ce qui compte : 1) tout va-t-il bien ? 2) mes clients 3) mes paris 4) les services.
+   La page experte d'avant est gardee : admin_expert.html. Donnees : /api/admin. */
+:root{--ink:#0d0c0a;--surface:#16150f;--raise:#201e17;--line:#2c2920;--text:#f3efe6;--muted:#a39c8c;--gold:#e3b341;
+  --win:#43b97f;--loss:#e2665d;--warn:#e8a33d;color-scheme:dark}
 *{box-sizing:border-box}
 html,body{background:var(--ink);margin:0}
-body{color:var(--text);font:14px/1.5 var(--body)}
+body{color:var(--text);font:15px/1.55 system-ui,"Segoe UI",sans-serif}
 button,input{font:inherit;color:inherit}
-.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.pos{color:var(--win)} .neg{color:var(--loss)} .warn{color:var(--warn)} .mut{color:var(--muted)}
-[hidden]{display:none!important}
-
-/* connexion */
-.gate{max-width:360px;margin:12vh auto 0;padding:0 16px;text-align:center}
-.gate h1{font:800 28px var(--display);margin:0 0 6px}
+.num{font-family:ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums}
+.pos{color:var(--win)} .neg{color:var(--loss)} .mut{color:var(--muted)} [hidden]{display:none!important}
+.gate{max-width:360px;margin:14vh auto 0;padding:0 16px;text-align:center}
+.gate h1{font-size:26px;margin:0 0 8px}
 .gate input{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin-bottom:10px}
-.gate input:focus{outline:2px solid var(--gold);outline-offset:1px}
 .btn{background:var(--gold);color:#1b1606;border:0;border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer}
-.btn.ghost{background:var(--raise);color:var(--text);border:1px solid var(--line)}
+.btn.ghost{background:var(--raise);color:var(--text);border:1px solid var(--line);font-weight:600}
 .err{color:var(--loss);min-height:1.4em;margin-top:8px}
-
-/* structure */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ink) 90%,transparent);backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line)}
-.top .in{display:flex;align-items:center;gap:14px;padding:10px 16px;max-width:1400px;margin:auto;flex-wrap:wrap}
-.logo{font:800 20px var(--display);letter-spacing:-.02em;margin-right:auto}
-.logo b{color:var(--gold)}
-.livedot{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:13px}
-.livedot i{width:8px;height:8px;border-radius:50%;background:var(--win);box-shadow:0 0 0 0 #43b97f99;animation:pulse 2s infinite}
-.livedot.off i{background:var(--loss);animation:none}
-@keyframes pulse{70%{box-shadow:0 0 0 9px #43b97f00}100%{box-shadow:0 0 0 0 #43b97f00}}
-.page{display:grid;grid-template-columns:200px 1fr;gap:20px;max-width:1400px;margin:auto;padding:18px 16px 80px}
-.side{position:sticky;top:64px;align-self:start;display:flex;flex-direction:column;gap:2px}
-.side a{color:var(--muted);text-decoration:none;padding:7px 10px;border-radius:8px;font-weight:600;display:flex;justify-content:space-between}
-.side a:hover{background:var(--raise);color:var(--text)}
-.side a .cpt{font:700 11px var(--mono);background:var(--loss);color:#fff;border-radius:999px;padding:1px 7px}
-main{min-width:0}
-section{margin-bottom:26px;scroll-margin-top:70px}
-h2{font:600 18px var(--display);margin:0 0 10px;display:flex;align-items:baseline;gap:10px}
-h2 small{font:500 12px var(--body);color:var(--muted)}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.grid{display:grid;gap:12px}
-.g2{grid-template-columns:repeat(2,minmax(0,1fr))} .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:14px;overflow:hidden;margin-bottom:22px}
-.kpi{background:var(--surface);padding:14px 16px}
-.kpi span{display:block;color:var(--muted);font-size:12px}
-.kpi strong{display:block;font:700 26px/1.15 var(--mono);font-variant-numeric:tabular-nums;margin-top:2px}
-.kpi em{font-style:normal;font-size:12px;color:var(--muted)}
-.kpi.live strong{color:var(--win)}
-
-/* problemes */
-.pb{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border-radius:12px;border:1px solid;margin-bottom:8px}
-.pb.grave{background:#2a1513;border-color:#5a2724}
-.pb.moyen{background:#2a2112;border-color:#5a4520}
-.pb b{display:block} .pb span{color:var(--muted);font-size:13px}
-.pb .ic{font-size:16px;line-height:1.3}
-.ok-all{display:flex;gap:10px;align-items:center;padding:14px;border-radius:12px;background:#132219;border:1px solid #24432f;color:#9fd8b6}
-
-/* listes et tableaux */
+.wrap{max-width:980px;margin:auto;padding:16px 16px 90px}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.top h1{font-size:20px;margin:0 auto 0 0} .top h1 b{color:var(--gold)}
+.maj{color:var(--muted);font-size:13px}
+.statut{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:14px;border:1px solid;margin-bottom:22px}
+.statut.ok{background:#132219;border-color:#24432f}
+.statut.pb{background:#2a2112;border-color:#5a4520}
+.statut.gr{background:#2a1513;border-color:#5a2724}
+.statut .big{font-size:26px;line-height:1}
+.statut b{display:block;font-size:17px}
+.statut ul{margin:6px 0 0;padding-left:18px;color:var(--muted)} .statut li{margin:3px 0}
+h2{font-size:18px;margin:26px 0 4px} h2 + p{margin:0 0 12px;color:var(--muted);font-size:13.5px}
+.cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.carte{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.carte span{display:block;color:var(--muted);font-size:13px}
+.carte strong{display:block;font-size:30px;line-height:1.15;margin-top:2px}
+.carte em{font-style:normal;color:var(--muted);font-size:12.5px}
+.carte.vert strong{color:var(--win)}
+.boite{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:10px}
+.boite h3{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:600}
 table{width:100%;border-collapse:collapse}
-th{color:var(--muted);font-weight:600;font-size:12px;text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
-td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
-tr:last-child td{border-bottom:0}
-td.r,th.r{text-align:right}
-.scroll{overflow-x:auto}
-.bar{display:grid;grid-template-columns:minmax(110px,1fr) 2fr 70px;align-items:center;gap:10px;padding:5px 0}
-.bar .t{height:9px;background:var(--raise);border-radius:99px;overflow:hidden}
-.bar .t i{display:block;height:100%;background:var(--gold);border-radius:99px}
-.bar .t i.w{background:var(--warn)} .bar .t i.d{background:var(--loss)} .bar .t i.g{background:var(--win)}
-.bar .v{text-align:right;font:600 12px var(--mono)}
-.bar .l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bar .l small{display:block;color:var(--dim);font-size:11px}
-.tag{display:inline-block;border-radius:999px;padding:1px 9px;font-size:12px;font-weight:600;background:var(--raise)}
-.tag.live{background:#3a1715;color:#ff8a80} .tag.nf{background:#3a2a10;color:var(--gold)}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{background:var(--raise);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px}
-details summary{cursor:pointer;color:var(--muted);font-weight:600;padding:4px 0}
-.vide{color:var(--muted);padding:12px 0}
-svg text{fill:var(--muted);font:11px var(--body)}
-.leg{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-top:6px}
-.leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
-.filtre{background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:6px 10px;width:100%;margin-bottom:8px}
-.erl{font-size:13px}
-.erl .lieu{font-family:var(--mono);color:var(--gold-2);font-size:12px}
-
-@media (max-width:1100px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:860px){
-  .page{grid-template-columns:1fr}
-  .side{position:static;flex-direction:row;overflow-x:auto;gap:4px;padding-bottom:4px}
-  .side a{white-space:nowrap}
-  .g2,.g3{grid-template-columns:1fr}
-}
-@media (max-width:520px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi strong{font-size:22px}}
+th{color:var(--muted);font-weight:600;font-size:12.5px;text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid var(--line)} tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right} .defile{overflow-x:auto}
+.barre{display:grid;grid-template-columns:130px 1fr 90px;gap:10px;align-items:center;padding:4px 0}
+.barre .t{height:9px;background:var(--raise);border-radius:99px;overflow:hidden} .barre .t i{display:block;height:100%;background:var(--gold)}
+.barre .t i.w{background:var(--warn)} .barre .t i.d{background:var(--loss)} .barre .t i.g{background:var(--win)}
+.barre .v{text-align:right;font-size:12.5px}
+.ligne{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)} .ligne:last-child{border-bottom:0}
+.ligne .ic{width:22px;text-align:center} .ligne b{flex:1} .ligne span{color:var(--muted);font-size:13.5px}
+.aide{color:var(--muted);font-size:13px;margin-top:8px}
+svg text{fill:var(--muted);font:11px system-ui}
+.lien{color:var(--muted);font-size:13px;margin-top:30px;text-align:center}
+.lien a{color:var(--gold)}
+@media (max-width:600px){.barre{grid-template-columns:90px 1fr 70px}}
 </style>
 </head>
 <body>
 
 <div id="gate" class="gate">
-  <h1>Espace admin</h1>
-  <p class="mut">Connexion requise.</p>
-  <input id="u" placeholder="Pseudo" maxlength="32" autocomplete="username">
-  <input id="p" type="password" placeholder="Mot de passe" maxlength="64" autocomplete="current-password">
-  <button class="btn" style="width:100%" id="go">Se connecter</button>
-  <div id="gerr" class="err"></div>
+  <h1>G-<b style="color:var(--gold)">BET</b> Admin</h1>
+  <p class="mut">Espace réservé à l'administrateur.</p>
+  <input id="u" placeholder="Identifiant" autocomplete="username">
+  <input id="p" type="password" placeholder="Mot de passe" autocomplete="current-password">
+  <button class="btn" id="go" style="width:100%">Se connecter</button>
+  <div class="err" id="gerr"></div>
 </div>
 
-<div id="app" hidden>
-  <div class="top"><div class="in">
-    <div class="logo">G-<b>BET</b> · admin</div>
-    <span class="livedot" id="etat"><i></i><span id="maj">—</span></span>
-    <button class="btn ghost" id="pause" title="Rafraichissement automatique toutes les 15 s">Pause</button>
-    <button class="btn ghost" id="sortir">Déconnexion</button>
-  </div></div>
-  <div class="page">
-    <nav class="side" id="side">
-      <a href="#problemes">Problèmes <span class="cpt" id="n-pb" hidden></span></a>
-      <a href="#direct">En direct</a>
-      <a href="#audience">Audience</a>
-      <a href="#quotas">Quotas</a>
-      <a href="#paris">Paris</a>
-      <a href="#suivi">Suivi des matchs</a>
-      <a href="#sante">Santé du bot</a>
-      <a href="./" target="_blank">Ouvrir le site ↗</a>
-    </nav>
-    <main>
-      <section id="problemes"><h2>Problèmes <small id="pb-sub"></small></h2><div id="pb"></div></section>
-      <div class="kpis" id="kpis"></div>
-      <section id="direct"><h2>En direct <small>visiteurs vus dans les 90 dernières secondes</small></h2>
-        <div class="grid g3" id="direct-c"></div></section>
-      <section id="audience"><h2>Audience <small>30 derniers jours</small></h2>
-        <div class="card" style="margin-bottom:12px"><div id="courbe"></div>
-          <div class="leg"><span><i style="background:var(--gold)"></i>Vues</span><span><i style="background:var(--info)"></i>Visiteurs</span><span><i style="background:var(--win)"></i>Nouveaux visiteurs</span></div></div>
-        <div class="grid g3" id="aud-c"></div></section>
-      <section id="quotas"><h2>Quotas <small>appels utilisés sur la limite, le plus chargé en premier</small></h2>
-        <div class="card" id="quotas-c"></div></section>
-      <section id="paris"><h2>Paris <small>aujourd'hui, hors football</small></h2>
-        <div class="grid g2" id="paris-c"></div></section>
-      <section id="suivi"><h2>Suivi des matchs <small>direct Flashscore, un passage toutes les 30 s</small></h2>
-        <div class="grid g2" id="suivi-c"></div></section>
-      <section id="sante"><h2>Santé du bot</h2><div class="grid g2" id="sante-c"></div></section>
-    </main>
+<div id="app" class="wrap" hidden>
+  <div class="top">
+    <h1>G-<b>BET</b> · Tableau de bord</h1>
+    <span class="maj" id="maj"></span>
+    <button class="btn ghost" id="sortir">Quitter</button>
   </div>
+
+  <div id="statut"></div>
+
+  <h2>👥 Vos clients</h2>
+  <p>Un client = un appareil (téléphone ou ordinateur). Vos propres visites ne sont pas comptées.</p>
+  <div class="cartes" id="clients"></div>
+  <div class="boite"><h3>Clients par jour (30 derniers jours)</h3><div id="courbe"></div></div>
+  <div class="boite"><h3>À quelle heure ils viennent (moyenne des 7 derniers jours, heure de Paris)</h3><div id="heures"></div></div>
+  <div class="boite"><h3>Quels onglets ils ouvrent (nombre de clients différents, 30 jours)</h3><div id="pages"></div></div>
+  <div class="boite"><h3>Ne pas me compter</h3>
+    <button class="btn ghost" id="moi">Ne plus compter cet appareil</button>
+    <button class="btn ghost" id="effacer">Effacer mes visites passées (cet appareil)</button>
+    <div class="aide" id="moi-etat"></div></div>
+
+  <h2>🎯 Vos paris</h2>
+  <p>Aujourd'hui, football exclu. « Unités » = gain ou perte du jour (1 unité = une mise standard).</p>
+  <div class="boite defile"><table id="paris"></table></div>
+  <div class="boite"><h3>Paris en retard de règlement</h3><div id="retards"></div></div>
+  <div class="boite"><h3>Temps de règlement par sport (14 derniers jours)</h3>
+    <div class="aide" style="margin:0 0 8px">Heures après le coup d'envoi. La barre est verte si le sport règle dans un temps normal, orange sinon.</div><div id="delais"></div></div>
+
+  <h2>🛠 Les services</h2>
+  <p>Ce qui fait tourner le site. Un ✅ = normal, un ⚠️ = à regarder.</p>
+  <div class="boite" id="services"></div>
+  <div class="boite"><h3>Limites des fournisseurs de données (les plus chargées d'abord)</h3><div id="quotas"></div></div>
+
+  <div class="lien">Besoin du détail technique ? <a href="admin_expert.html">Ouvrir la vue experte</a></div>
 </div>
 
 <script>
 const API = "https://api-89-168-57-74.nip.io";
 const $ = s => document.querySelector(s);
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const esc = s => String(s ?? "").replace(/[&<>"'`]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;", "`": "&#96;"}[c]));
 const nf = n => n == null ? "—" : Number(n).toLocaleString("fr-FR");
-const SP = {tennis: "🎾 Tennis", hockey: "🏒 Hockey", nbl: "🏀 NBL", euroleague: "🏀 Euroleague", grebl: "🏀 Grèce", kbl: "🏀 KBL",
-  nbam: "🏀 NBA (matchs)", nba: "🏀 NBA joueurs", wnba: "🏀 WNBA", hfra: "🤾 France", hpol: "🤾 Pologne", hrom: "🤾 Roumanie",
-  hromf: "🤾 Roumanie F", hden: "🤾 Danemark", hesp: "🤾 Espagne", npb: "⚾ NPB", kbo: "⚾ KBO", mlb: "⚾ MLB", baseball: "⚾ MLB",
-  nfl: "🏈 NFL", mma: "🥊 MMA", golf: "⛳ Golf", f1: "🏎 F1", nhl: "🏒 NHL"};
+const SP = {tennis: "🎾 Tennis", hockey: "🏒 Hockey", nbl: "🏀 NBL", euroleague: "🏀 Euroleague", grebl: "🏀 Grèce", kbl: "🏀 Corée (KBL)", nbam: "🏀 NBA (matchs)",
+  nba: "🏀 NBA joueurs", wnba: "🏀 WNBA", hfra: "🤾 France", hpol: "🤾 Pologne", hrom: "🤾 Roumanie", hromf: "🤾 Roumanie F", hden: "🤾 Danemark",
+  hesp: "🤾 Espagne", npb: "⚾ Japon (NPB)", kbo: "⚾ Corée (KBO)", mlb: "⚾ MLB", baseball: "⚾ MLB", nfl: "🏈 NFL", mma: "🥊 MMA", golf: "⛳ Golf", f1: "🏎 F1", nhl: "🏒 NHL"};
 const sp = s => SP[s] || s;
-let pause = false, dernier = 0, erFiltre = "";
+let dernier = 0;
+
+// marque cet appareil comme "moi" : le site public ne l'enregistre plus (meme origine -> meme stockage)
+try { localStorage.setItem("gbet_moi", "1"); } catch (_){}
+const CLE = (() => { const m = location.hash.match(/cle=([\w-]+)/); let c = m ? m[1] : "";
+  try { if (c) localStorage.setItem("gbet_admin_cle", c); else c = localStorage.getItem("gbet_admin_cle") || ""; } catch (_){}
+  return c; })();
+const entetes = () => Object.assign({"Content-Type": "application/json"}, CLE ? {"X-Admin-Key": CLE} : {});
 
 async function login(){
   $("#gerr").textContent = "";
@@ -189,168 +139,99 @@ async function login(){
 $("#go").onclick = login;
 $("#p").addEventListener("keydown", e => { if (e.key === "Enter") login(); });
 $("#sortir").onclick = async () => { try { await fetch(API + "/api/logout", {method: "POST", credentials: "include"}); } catch (_){} location.reload(); };
-$("#pause").onclick = () => { pause = !pause; $("#pause").textContent = pause ? "Reprendre" : "Pause"; };
 
-// 20/10/2026 : lien perso admin.html#cle=... -> plus besoin de se connecter (cle gardee sur cet appareil)
-const CLE = (() => { const m = location.hash.match(/cle=([\w-]+)/); let c = m ? m[1] : "";
-  try { if (c) localStorage.setItem("gbet_admin_cle", c); else c = localStorage.getItem("gbet_admin_cle") || ""; } catch (_){}
-  return c; })();
 async function charger(){
   let d;
   try {
-    const r = await fetch(API + "/api/admin", {credentials: "include", cache: "no-store", headers: CLE ? {"X-Admin-Key": CLE} : {}, signal: AbortSignal.timeout(15000)});
+    const r = await fetch(API + "/api/admin", {credentials: "include", cache: "no-store", headers: CLE ? {"X-Admin-Key": CLE} : {}, signal: AbortSignal.timeout(20000)});
     if (r.status === 403){ $("#app").hidden = true; $("#gate").hidden = false; return; }
     d = await r.json();
-  } catch (_){ $("#etat").classList.add("off"); $("#maj").textContent = "API injoignable"; return; }
-  $("#gate").hidden = true; $("#app").hidden = false;
-  $("#etat").classList.remove("off"); dernier = Date.now();
-  rendre(d);
+  } catch (_){ $("#maj").textContent = "Serveur injoignable"; return; }
+  $("#gate").hidden = true; $("#app").hidden = false; dernier = Date.now();
+  try { rendre(d); } catch (e){ $("#maj").textContent = "Erreur d'affichage"; }
 }
-setInterval(() => { if (!pause && !document.hidden && !$("#app").hidden) charger(); }, 15000);
-setInterval(() => { if (dernier) $("#maj").textContent = `à jour il y a ${Math.round((Date.now() - dernier) / 1000)} s`; }, 1000);
+setInterval(() => { if (!document.hidden && !$("#app").hidden) charger(); }, 30000);
+setInterval(() => { if (dernier) $("#maj").textContent = "mis à jour il y a " + Math.round((Date.now() - dernier) / 1000) + " s"; }, 1000);
 
-function barre(lib, sous, val, max, txt, cls = ""){
-  const pct = max ? Math.min(100, 100 * val / max) : 0;
-  return `<div class="bar"><div class="l">${esc(lib)}${sous ? `<small>${esc(sous)}</small>` : ""}</div>
-    <div class="t"><i class="${cls}" style="width:${pct}%"></i></div><div class="v">${txt}</div></div>`;
+function barres(lig){ return lig.map(([lib, val, max, txt, cls]) => `<div class="barre"><div>${esc(lib)}</div><div class="t"><i class="${cls || ""}" style="width:${max ? Math.min(100, 100 * val / max) : 0}%"></i></div><div class="v num">${txt}</div></div>`).join(""); }
+function histo(vals, libs, couleur){
+  const W = 900, H = 120, n = vals.length, m = Math.max(1, ...vals), bw = W / n;
+  return `<svg viewBox="0 0 ${W} ${H + 18}" width="100%" role="img">${vals.map((v, i) => `<rect x="${(i * bw + 2).toFixed(1)}" y="${(H - H * v / m).toFixed(1)}" width="${(bw - 4).toFixed(1)}" height="${(H * v / m).toFixed(1)}" rx="2" fill="${couleur}"><title>${esc(libs[i])} : ${v}</title></rect>`).join("")}
+    <text x="0" y="${H + 14}">${esc(libs[0])}</text><text x="${W}" y="${H + 14}" text-anchor="end">${esc(libs[n - 1])}</text></svg>`;
 }
-const carte = (titre, corps) => `<div class="card"><h2 style="font-size:15px">${titre}</h2>${corps}</div>`;
-const err = b => b && b.erreur ? `<div class="vide neg">Section indisponible : ${esc(b.erreur)}</div>` : "";
 
 function rendre(d){
-  /* ── problemes ── */
-  const P = d.problemes || [];
-  $("#pb").innerHTML = P.length ? P.map(p => `<div class="pb ${p.niveau}"><span class="ic">${p.niveau === "grave" ? "⛔" : "⚠️"}</span>
-      <div><b>${esc(p.titre)}</b>${p.detail ? `<span>${esc(p.detail)}</span>` : ""}</div></div>`).join("")
-    : `<div class="ok-all">✅ Tout va bien : quotas, paris, direct, serveur et site public sont normaux.</div>`;
-  $("#n-pb").hidden = !P.length; $("#n-pb").textContent = P.length;
-  $("#pb-sub").textContent = `état au ${d.genere}`;
+  /* 1. tout va bien ? */
+  const P = d.problemes || [], graves = P.filter(p => p.niveau === "grave").length;
+  $("#statut").innerHTML = !P.length
+    ? `<div class="statut ok"><span class="big">✅</span><div><b>Tout va bien</b><span class="mut">Paris, règlements, données, serveur et site sont normaux.</span></div></div>`
+    : `<div class="statut ${graves ? "gr" : "pb"}"><span class="big">${graves ? "⛔" : "⚠️"}</span><div><b>${P.length} point${P.length > 1 ? "s" : ""} à regarder</b><ul>${P.map(p => `<li><b style="display:inline">${esc(p.titre)}</b>${p.detail ? " — " + esc(p.detail) : ""}</li>`).join("")}</ul></div></div>`;
 
-  /* ── chiffres cles ── */
-  const A = d.audience || {}, D = d.direct || {}, Q = (d.quotas || {}).limites || [], PA = (d.paris || {}).par_sport || {};
-  const aj = A.aujourdhui || {}, hi = A.hier || {};
-  const delta = (a, b) => b ? `${a >= b ? "▲" : "▼"} ${Math.abs(Math.round(100 * (a - b) / b))} % vs hier` : "hier : 0";
-  const pub = Object.values(PA).reduce((s, x) => s + x.publies, 0), u = Object.values(PA).reduce((s, x) => s + x.unites, 0);
-  const qmax = Q.filter(q => q.pct != null).sort((a, b) => b.pct - a.pct)[0];
-  $("#kpis").innerHTML = [
-    ["Sur le site maintenant", nf(D.presents), `${nf(D.dernier_quart_heure)} sur 15 min`, "live"],
-    ["Visiteurs aujourd'hui", nf(aj.visiteurs), delta(aj.visiteurs || 0, hi.visiteurs || 0)],
-    ["Vues aujourd'hui", nf(aj.vues), delta(aj.vues || 0, hi.vues || 0)],
-    ["Paris publiés aujourd'hui", nf(pub), `${nf((d.paris || {}).n_bloques)} bloqué(s)`],
-    ["Bilan du jour", `${u >= 0 ? "+" : ""}${u.toFixed(2)} u`, "paris réglés aujourd'hui"],
-    ["Quota le plus chargé", qmax ? `${qmax.pct} %` : "—", qmax ? qmax.nom : ""],
-  ].map(([l, v, s, c]) => `<div class="kpi ${c || ""}"><span>${l}</span><strong class="${l === "Bilan du jour" ? (u >= 0 ? "pos" : "neg") : ""}">${v}</strong><em>${esc(s)}</em></div>`).join("");
+  /* 2. clients */
+  const A = d.audience || {}, D = d.direct || {};
+  if (A.erreur) { $("#clients").innerHTML = `<div class="boite neg">Audience indisponible : ${esc(A.erreur)}</div>`; }
+  else {
+    const a = A.aujourdhui || {}, h = A.hier || {};
+    $("#clients").innerHTML = [
+      ["En ce moment sur le site", D.presents, "vert", "vus il y a moins de 90 s"],
+      ["Aujourd'hui", a.clients, "", `${nf(a.visites)} visite${a.visites > 1 ? "s" : ""} · ${nf(a.nouveaux)} nouveau${a.nouveaux > 1 ? "x" : ""}`],
+      ["Hier", h.clients, "", `${nf(h.visites)} visites`],
+      ["7 derniers jours", A.clients_7j, "", "clients différents"],
+      ["30 derniers jours", A.clients_30j, "", `${nf(A.revenus)} sont revenus au moins un autre jour`]]
+      .map(([t, v, c, s]) => `<div class="carte ${c}"><span>${t}</span><strong class="num">${nf(v)}</strong><em>${s}</em></div>`).join("");
+    const J = A.jours || [];
+    $("#courbe").innerHTML = histo(J.map(x => x.clients), J.map(x => x.jour.slice(8) + "/" + x.jour.slice(5, 7)), "var(--gold)");
+    const H = A.heures || [];
+    $("#heures").innerHTML = histo(H.map(x => x.clients), H.map(x => x.heure + " h"), "#6aa3e8");
+    const pg = A.pages || [], mx = Math.max(1, ...pg.map(x => x[1]));
+    $("#pages").innerHTML = pg.length ? barres(pg.map(([p, n]) => [p, n, mx, nf(n) + " clients"])) : `<span class="mut">Pas encore de données.</span>`;
+  }
 
-  /* ── en direct ── */
-  const pg = D.par_page || [], ap = D.par_appareil || [], maxp = Math.max(1, ...pg.map(x => x[1]));
-  $("#direct-c").innerHTML = err(D) || [
-    carte(`Présents : <span class="pos num">${nf(D.presents)}</span>`, `<p class="mut" style="margin:0">Durée moyenne de la visite en cours : <b class="num">${Math.round((D.duree_moyenne_s || 0) / 60)} min</b></p>
-      <p class="mut" style="margin:6px 0 0">Comptes connectés : ${(D.connectes || []).length ? `<span class="chips">${D.connectes.map(c => `<span class="chip">${esc(c)}</span>`).join("")}</span>` : "aucun"}</p>`),
-    carte("Onglet ouvert", pg.length ? pg.map(([n, v]) => barre(n, "", v, maxp, nf(v))).join("") : `<div class="vide">Personne en ce moment.</div>`),
-    carte("Appareil", ap.length ? ap.map(([n, v]) => barre(n, "", v, Math.max(1, D.presents), nf(v), "g")).join("") : `<div class="vide">—</div>`),
-  ].join("");
+  /* 3. paris */
+  const PA = d.paris || {};
+  if (PA.erreur) { $("#paris").innerHTML = `<tr><td class="neg">Paris indisponibles : ${esc(PA.erreur)}</td></tr>`; }
+  else {
+    const L = Object.entries(PA.par_sport || {});
+    $("#paris").innerHTML = `<tr><th>Sport</th><th class="r">Publiés</th><th class="r">Réglés</th><th class="r">Gagnés</th><th class="r">Perdus</th><th class="r">En attente</th><th class="r">Unités</th></tr>`
+      + (L.length ? L.map(([s, e]) => `<tr><td>${esc(sp(s))}</td><td class="r num">${e.publies}</td><td class="r num">${e.regles}</td><td class="r num pos">${e.gagnes}</td><td class="r num neg">${e.perdus}</td><td class="r num">${e.en_attente}</td><td class="r num ${e.unites > 0 ? "pos" : e.unites < 0 ? "neg" : ""}">${e.unites > 0 ? "+" : ""}${e.unites}</td></tr>`).join("")
+        : `<tr><td colspan="7" class="mut">Aucun pari aujourd'hui.</td></tr>`);
+    const R = PA.retards || [];
+    $("#retards").innerHTML = R.length ? `<div class="defile"><table><tr><th>Sport</th><th>Match</th><th>Pari</th><th class="r">Déjà</th><th class="r">Retard</th></tr>${R.map(r => `<tr><td>${esc(sp(r.sport))}</td><td>${esc(r.match)}</td><td>${esc(r.pari)}</td><td class="r num">${r.depuis_h} h</td><td class="r num neg">+${r.retard_h} h</td></tr>`).join("")}</table></div>
+        <div class="aide">« Déjà » = temps depuis le coup d'envoi. « Retard » = au-delà de la durée normale du match. Le serveur relance le règlement toutes les 20 minutes et vous alerte.</div>`
+      : `<span class="pos">✅ Aucun pari en retard.</span>`;
+    const DL = PA.delais || [], mxd = Math.max(1, ...DL.map(x => Math.max(x.pire_h, x.normal_h)));
+    $("#delais").innerHTML = DL.length ? barres(DL.map(x => [sp(x.sport), x.mediane_h, mxd, `${x.mediane_h} h <span class="mut">(pire ${x.pire_h} h)</span>`, x.mediane_h <= x.normal_h + 1 ? "g" : "w"])) : `<span class="mut">Pas encore de données.</span>`;
+  }
 
-  /* ── audience ── */
-  const J = A.jours || [];
-  $("#courbe").innerHTML = err(A) || courbe(J);
-  const pages = A.pages || [], mp = Math.max(1, ...pages.map(x => x[1]));
-  $("#aud-c").innerHTML = err(A) ? "" : [
-    carte("Sur 30 jours", `<table><tr><td>Visiteurs différents</td><td class="r num">${nf(A.visiteurs_30j)}</td></tr>
-      <tr><td>Vues</td><td class="r num">${nf(A.vues_30j)}</td></tr>
-      <tr><td>Vues par visiteur</td><td class="r num">${A.visiteurs_30j ? (A.vues_30j / A.visiteurs_30j).toFixed(1) : "—"}</td></tr>
-      <tr><td>Nouveaux aujourd'hui</td><td class="r num">${nf(aj.nouveaux)}</td></tr></table>`),
-    carte("Onglets les plus vus", pages.length ? pages.map(([n, v]) => barre(n, "", v, mp, nf(v))).join("") : `<div class="vide">Pas encore de données (le suivi des vues du nouveau site démarre le 20/10).</div>`),
-    carte("Comptes et chat", `<table><tr><td>Comptes créés</td><td class="r num">${nf((A.comptes || {}).total)}</td></tr>
-      <tr><td>Nouveaux comptes (7 jours)</td><td class="r num">${nf((A.comptes || {}).nouveaux_7j)}</td></tr>
-      <tr><td>Messages de chat</td><td class="r num">${nf((A.chat || {}).total)}</td></tr>
-      <tr><td>Messages (7 jours)</td><td class="r num">${nf((A.chat || {}).sept_jours)}</td></tr></table>`),
-  ].join("");
-
-  /* ── quotas ── */
-  const QQ = [...Q].sort((a, b) => (b.pct ?? -1) - (a.pct ?? -1));
-  $("#quotas-c").innerHTML = err(d.quotas) || QQ.map(q => q.erreur
-      ? `<div class="bar"><div class="l">${esc(q.nom)}<small>${esc(q.detail || "")}</small></div><div class="neg" style="grid-column:2/4">${esc(q.erreur)}</div></div>`
-      : barre(q.nom, [q.detail, q.note].filter(Boolean).join(" · "), q.utilise || 0, q.limite || 1,
-              `${nf(q.utilise)} / ${nf(q.limite)}`, q.pct >= 95 ? "d" : q.pct >= 80 ? "w" : "")).join("")
-    + `<p class="mut" style="margin:10px 0 0;font-size:12px">Sans quota : ${esc(((d.quotas || {}).gratuites || []).join(" · "))}</p>`;
-
-  /* ── paris ── */
-  const ps = Object.entries(PA);
-  const bl = (d.paris || {}).bloques || [];
-  $("#paris-c").innerHTML = err(d.paris) || [
-    carte("Par sport", ps.length ? `<div class="scroll"><table><tr><th>Sport</th><th class="r">Publiés</th><th class="r">Réglés</th><th class="r">G / P</th><th class="r">Unités</th><th class="r">En attente</th></tr>
-      ${ps.map(([s, x]) => `<tr><td>${esc(sp(s))}</td><td class="r num">${x.publies}</td><td class="r num">${x.regles}</td><td class="r num">${x.gagnes} / ${x.perdus}</td>
-      <td class="r num ${x.unites > 0 ? "pos" : x.unites < 0 ? "neg" : ""}">${x.unites > 0 ? "+" : ""}${x.unites.toFixed(2)}</td><td class="r num">${x.en_attente}</td></tr>`).join("")}</table></div>`
-      : `<div class="vide">Aucun pari aujourd'hui.</div>`),
-    carte(`Paris bloqués <small class="mut">non réglés 6 h après le début</small>`, bl.length ? `<div class="scroll"><table><tr><th>Sport</th><th>Pari</th><th class="r">Depuis</th></tr>
-      ${bl.map(b => `<tr><td>${esc(sp(b.sport))}</td><td>${esc(b.pari)}<div class="mut" style="font-size:11px">${esc(b.fid)}</div></td><td class="r num">${b.heures} h</td></tr>`).join("")}</table></div>`
-      : `<div class="vide pos">Aucun pari bloqué.</div>`),
-  ].join("");
-
-  /* ── suivi ── */
-  const S = d.suivi || {}, PP = S.passages || [], M = S.matchs || [];
-  $("#suivi-c").innerHTML = err(S) || [
-    carte(`Charge <small class="mut">${PP.length} derniers passages</small>`, `${batons(PP)}
-      <table style="margin-top:8px"><tr><td>Durée moyenne d'un passage</td><td class="r num">${S.duree_moyenne_ms == null ? "—" : (S.duree_moyenne_ms / 1000).toFixed(2) + " s"}</td></tr>
-      <tr><td>Requêtes / erreurs depuis le démarrage</td><td class="r num ${S.total_erreurs ? "neg" : ""}">${nf(S.total_requetes)} / ${nf(S.total_erreurs)}</td></tr>
-      ${S.derniere_erreur ? `<tr><td>Dernière erreur</td><td class="r neg">${esc(S.derniere_erreur)}</td></tr>` : ""}</table>
-      <p style="margin:8px 0 0"><a href="suivi.html" target="_blank" style="color:var(--gold)">Page de suivi détaillée ↗</a></p>`),
-    carte(`Matchs suivis <small class="mut">${M.length}</small>`, M.length ? `<div class="scroll"><table><tr><th>Sport</th><th>Match</th><th>Score</th><th>État</th></tr>
-      ${M.map(m => `<tr><td>${esc(sp(m.sport))}</td><td>${esc(m.home)} – ${esc(m.away)}</td><td class="num">${esc(m.score || "—")}</td>
-      <td>${!m.trouve ? `<span class="tag nf">pas trouvé</span>` : /En cours/.test(m.statut || "") ? `<span class="tag live">${esc(m.statut)}</span>` : `<span class="tag">${esc(m.statut || "À venir")}</span>`}</td></tr>`).join("")}</table></div>`
-      : `<div class="vide">Aucun de nos matchs n'est en cours.</div>`),
-  ].join("");
-
-  /* ── sante ── */
-  const B = d.bot || {}, SV = B.serveur || {}, SY = B.synchro_site || {}, E = B.erreurs || [];
-  const up = B.demarre ? Math.round((Date.now() - new Date(B.demarre)) / 3600000) : null;
-  const sy = SY.derniere, syok = SY.derniere_reussie;
-  const hm = t => t ? new Date(t * 1000).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"}) : "—";
-  const ef = E.filter(e => !erFiltre || (e.lieu + " " + e.message).toLowerCase().includes(erFiltre));
-  $("#sante-c").innerHTML = err(B) || [
-    carte("Serveur", barre("Mémoire", SV.total_mo ? `${nf(SV.total_mo)} Mo` : "", SV.utilise_pct || 0, 100, `${SV.utilise_pct ?? "—"} %`, SV.utilise_pct >= 90 ? "d" : SV.utilise_pct >= 75 ? "w" : "g")
-      + barre("Disque", SV.disque_libre_go != null ? `${SV.disque_libre_go} Go libres` : "", SV.disque_pct || 0, 100, `${SV.disque_pct ?? "—"} %`, SV.disque_pct >= 85 ? "d" : SV.disque_pct >= 70 ? "w" : "g")
-      + barre("Charge (1 min)", `${SV.coeurs || "?"} cœurs`, (SV.charge || [0])[0] || 0, SV.coeurs || 1, (SV.charge || []).map(x => x ?? "—").join(" · "),
-              ((SV.charge || [0])[0] || 0) > (SV.coeurs || 1) ? "d" : "g")
-      + `<table style="margin-top:8px"><tr><td>Bot démarré</td><td class="r num">${up == null ? "—" : `il y a ${up} h`}</td></tr>
-      <tr><td>Tâches planifiées</td><td class="r num">${nf(B.n_taches)}</td></tr></table>`),
-    carte("Site public", `<table><tr><td>Dernière synchro</td><td class="r ${sy && !sy.ok ? "neg" : "pos"}">${sy ? `${hm(sy.t)} · ${esc(sy.reason)}` : "aucune depuis le démarrage"}</td></tr>
-      <tr><td>Dernière réussie</td><td class="r num">${syok ? hm(syok.t) : "—"}</td></tr>
-      <tr><td>Échecs (10 dernières)</td><td class="r num ${SY.echecs_recents ? "neg" : ""}">${nf(SY.echecs_recents)}</td></tr></table>`),
-    `<div class="card" style="grid-column:1/-1"><h2 style="font-size:15px">Erreurs silencieuses <small class="mut">${nf(B.erreurs_derniere_heure)} dans la dernière heure · chaque erreur au plus 1 fois / 10 min</small></h2>
-      <input class="filtre" id="erf" placeholder="Filtrer (fichier, type d'erreur…)" value="${esc(erFiltre)}">
-      ${ef.length ? `<div class="scroll"><table class="erl"><tr><th>Heure</th><th>Endroit</th><th>Erreur</th><th class="r">Fois</th></tr>
-      ${ef.slice(0, 60).map(e => `<tr><td class="num mut">${esc(e.t)}</td><td class="lieu">${esc(e.lieu)}</td><td>${esc(e.message)}</td><td class="r num">${e.fois}</td></tr>`).join("")}</table></div>`
-      : `<div class="vide pos">Aucune erreur${erFiltre ? " pour ce filtre" : " depuis le démarrage"}.</div>`}</div>`,
-    `<div class="card" style="grid-column:1/-1"><details><summary>Tâches planifiées (${nf(B.n_taches)}) et prochaine exécution</summary>
-      <div class="chips" style="margin-top:8px">${(B.taches || []).map(t => `<span class="chip">${esc(t.id)} · <span class="num mut">${esc(t.prochaine)}</span></span>`).join("")}</div></details></div>`,
-  ].join("");
-  const f = $("#erf"); if (f){ f.oninput = () => { erFiltre = f.value.toLowerCase(); rendre(d); const g = $("#erf"); g.focus(); g.setSelectionRange(g.value.length, g.value.length); }; }
+  /* 4. services */
+  const B = d.bot || {}, SV = B.serveur || {}, SY = B.synchro_site || {}, SA = B.sauvegarde || {}, HS = B.hors_serveur || {}, SU = d.suivi || {};
+  const ok = (b, titre, detail) => `<div class="ligne"><span class="ic">${b ? "✅" : "⚠️"}</span><b>${titre}</b><span>${detail}</span></div>`;
+  const dernierPassage = (SU.passages || []).slice(-1)[0], retardFs = dernierPassage ? (Date.now() - new Date(dernierPassage.t).getTime()) / 60000 : null;
+  $("#services").innerHTML = [
+    ok(retardFs != null && retardFs < 3, "Suivi des scores en direct", dernierPassage ? `${(SU.matchs || []).length} match(s) suivis · dernière lecture il y a ${Math.round(retardFs)} min` : "aucune donnée"),
+    ok(!(SY.echecs_recents >= 3), "Publication sur le site", SY.echecs_recents ? `${SY.echecs_recents} échec(s) récents` : "aucun problème"),
+    ok(!SA.absente && (SA.age_h || 0) < 30, "Sauvegarde de la base", SA.absente ? "introuvable" : `il y a ${Math.round(SA.age_h)} h (${SA.taille_mo} Mo)`),
+    ok(HS.configuree && HS.age_h != null && HS.age_h < 30, "Copie hors du serveur", !HS.configuree ? "non configurée" : HS.age_h == null ? "jamais envoyée" : `il y a ${Math.round(HS.age_h)} h`),
+    ok((SV.disque_pct || 0) < 85, "Espace disque", `${SV.disque_pct ?? "—"} % utilisé · ${SV.disque_libre_go ?? "—"} Go libres`),
+    ok((SV.utilise_pct || 0) < 90, "Mémoire du serveur", `${SV.utilise_pct ?? "—"} % utilisée`),
+    ok((B.erreurs_derniere_heure || 0) < 20, "Erreurs silencieuses du bot", `${B.erreurs_derniere_heure ?? 0} dans la dernière heure`)].join("");
+  const Q = ((d.quotas || {}).limites || []).filter(q => q.limite).sort((a, b) => (b.pct || 0) - (a.pct || 0)).slice(0, 8);
+  $("#quotas").innerHTML = Q.length ? barres(Q.map(q => [q.nom, q.utilise, q.limite, `${nf(q.utilise)} / ${nf(q.limite)}`, (q.pct || 0) >= 95 ? "d" : (q.pct || 0) >= 80 ? "w" : "g"])) : `<span class="mut">Aucune limite connue.</span>`;
+  $("#moi-etat").textContent = "Cet appareil est marqué « moi » : le site public ne vous compte plus.";
 }
 
-/* graphique 30 jours : vues en barres, visiteurs et nouveaux en lignes */
-function courbe(J){
-  if (!J.length) return `<div class="vide">Pas encore de données.</div>`;
-  const W = 900, H = 200, g = 34, b = 22, n = J.length, mx = Math.max(5, ...J.map(j => j.vues));
-  const x = i => g + (i + 0.5) * (W - g - 6) / n, y = v => H - b - (H - b - 10) * v / mx, bw = Math.max(4, (W - g) / n - 6);
-  const ligne = k => J.map((j, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(j[k]).toFixed(1)}`).join("");
-  const tics = [0, Math.round(mx / 2), mx];
-  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Vues et visiteurs par jour">
-    ${tics.map(t => `<line x1="${g}" x2="${W}" y1="${y(t)}" y2="${y(t)}" stroke="#2c2920"/><text x="${g - 6}" y="${y(t) + 4}" text-anchor="end">${t}</text>`).join("")}
-    ${J.map((j, i) => `<rect x="${x(i) - bw / 2}" y="${y(j.vues)}" width="${bw}" height="${H - b - y(j.vues)}" rx="3" fill="#e3b341" opacity=".85"><title>${j.jour} : ${j.vues} vues, ${j.visiteurs} visiteurs, ${j.nouveaux} nouveaux</title></rect>`).join("")}
-    <path d="${ligne("visiteurs")}" fill="none" stroke="#6aa3e8" stroke-width="2"/>
-    <path d="${ligne("nouveaux")}" fill="none" stroke="#43b97f" stroke-width="2" stroke-dasharray="4 3"/>
-    ${J.map((j, i) => i % 5 === 4 || i === n - 1 ? `<text x="${x(i)}" y="${H - 6}" text-anchor="middle">${j.jour.slice(8)}/${j.jour.slice(5, 7)}</text>` : "").join("")}
-  </svg>`;
-}
-/* batons de duree des passages du direct Flashscore (rouge = erreur) */
-function batons(P){
-  if (!P.length) return `<div class="vide">Aucun passage encore.</div>`;
-  const mx = Math.max(1000, ...P.map(p => p.duree_ms));
-  return `<div style="display:flex;align-items:flex-end;gap:2px;height:60px">${P.map(p =>
-    `<i title="${esc(p.t)} · ${p.duree_ms} ms · ${p.requetes} requêtes · ${p.suivis} matchs" style="flex:1;min-height:2px;border-radius:2px 2px 0 0;height:${Math.max(3, 100 * p.duree_ms / mx)}%;background:${p.erreurs ? "var(--loss)" : "var(--gold)"}"></i>`).join("")}</div>`;
-}
-
+/* identifiant de cet appareil sur le site public (meme stockage) */
+$("#effacer").onclick = async () => {
+  let id = ""; try { id = localStorage.getItem("gbet_vid") || ""; } catch (_){}
+  if (!id) return $("#moi-etat").textContent = "Aucune visite enregistrée pour cet appareil.";
+  try {
+    const r = await fetch(API + "/api/admin/moi", {method: "POST", credentials: "include", headers: entetes(), body: JSON.stringify({visitor_id: id})});
+    const d = await r.json();
+    $("#moi-etat").textContent = d.ok ? `${d.supprimees} visite(s) effacée(s). Rechargement…` : (d.reason || "Échec");
+    if (d.ok) setTimeout(charger, 800);
+  } catch (_){ $("#moi-etat").textContent = "Échec de la connexion."; }
+};
+$("#moi").onclick = () => { try { localStorage.setItem("gbet_moi", "1"); } catch (_){} $("#moi-etat").textContent = "C'est fait : cet appareil n'est plus compté."; };
 charger();
 </script>
 </body>
