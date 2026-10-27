@@ -215,6 +215,24 @@ def _fetch_refonte_settled_rows(cur) -> list[tuple]:
     return list(cur.fetchall())
 
 
+# 27/10/2026 (demande explicite : "le pic vers le bas ... a fausse notre resultat, enleve-le des resultats") : les bilans, la courbe et les
+# tableaux par ligue lisaient TOUTE la base, alors que la liste de Resultats masque deja les paris d'une autre source de cotes, d'un ancien
+# modele ou d'un book hors test. jobs/live_api.py renseigne ici les fixture_id masques ; chaque requete sur `paris` les exclut.
+MASQUES: set = set()
+
+
+def definir_masques(fids) -> None:
+    MASQUES.clear()
+    MASQUES.update(str(f) for f in fids)
+
+
+def _hors_masques(alias: str = "") -> tuple:
+    """(clause SQL, parametres) : exclut les paris masques ; vide si aucun."""
+    if not MASQUES:
+        return "", ()
+    return f" AND NOT ({alias}fixture_id = ANY(%s))", (sorted(MASQUES),)
+
+
 def fetch_period_stats() -> dict:
     """Bilan EN COURS (pas la periode passee complete comme daily_bilan.py)
     pour jour / semaine (lundi->aujourd'hui) / mois (1er->aujourd'hui),
@@ -227,15 +245,16 @@ def fetch_period_stats() -> dict:
         raise SystemExit("DATABASE_URL manquant")
     conn = psycopg2.connect(db, connect_timeout=10)
     cur = conn.cursor()
+    _cl, _pr = _hors_masques()
     cur.execute(
-        """
+        f"""
         SELECT resultat, pnl, result_updated_at, sport, COALESCE(mise,0)
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
-          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba')))
+          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba'))){_cl}
         ORDER BY result_updated_at DESC
-        """,
+        """, _pr,
         # LIMIT 1000 retire le 01/10/2026 (audit du site, demande explicite) : 958
         # paris regles au 30/09 -- au-dela de 1000, les plus anciens sortaient en
         # silence des bilans mois / annee / "depuis le debut".
@@ -396,7 +415,7 @@ def fetch_registre() -> list[dict]:
                COALESCE(NULLIF(p.competition,''), pf.league, ''), COALESCE(pf.kickoff_at::text, ''),
                COALESCE(p.score, ''), COALESCE(p.created_at, ''),
                COALESCE(pf.home_team_id::text, ''), COALESCE(pf.away_team_id::text, ''),
-               COALESCE(p.value_bookmaker, ''), COALESCE(p.selected_market, '')
+               COALESCE(p.value_bookmaker, ''), COALESCE(p.selected_market, ''), COALESCE(p.cote_source, '')
         FROM paris p
         LEFT JOIN programme_fixtures pf ON pf.fixture_id = p.fixture_id
         WHERE p.resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
@@ -406,7 +425,7 @@ def fetch_registre() -> list[dict]:
     )
     out: list[dict] = []
     for (fid, home, away, conseil, value_bet, cote, resultat, pnl, mise, ts, sport, lg, ko, score, cree,
-         hid, aid, bk, rg) in cur.fetchall():
+         hid, aid, bk, rg, cs) in cur.fetchall():
         sp = (sport or "football").lower()
         texte = value_bet if (sp in SPORTS_VALUE_BET_IS_CONSEIL and value_bet) else (conseil or value_bet or "")
         out.append({
@@ -416,7 +435,7 @@ def fetch_registre() -> list[dict]:
             "mise": round(float(mise or 0) / BASE_UNIT_EUR, 3), "pnl": round(float(pnl or 0) / BASE_UNIT_EUR, 3),
             "ts": ts or "", "ko": ko or "", "sc": score or "", "pub": cree or "",
             "hl": _visuel(sp, hid, home), "al": _visuel(sp, aid, away),
-            "bk": (bk or "").lower(), "rg": rg or "",      # 25/10/2026 : book et regle, pour ne montrer que les paris du modele actuel
+            "bk": (bk or "").lower(), "rg": rg or "", "cs": (cs or "").lower(),      # 27/10/2026 : source des cotes ; 25/10/2026 : book et regle, pour ne montrer que les paris du modele actuel
             "src": "conseil",          # 23/10/2026 : conseil principal (table paris), distinct des paris joueurs / value bets
         })
     cur.execute(
@@ -631,14 +650,15 @@ def fetch_league_table() -> list[dict]:
     cur = conn.cursor()
     ref = """LEFT JOIN (SELECT DISTINCT ON (fixture_id) fixture_id, sport, competition FROM paris) p ON p.fixture_id = x.fixture_id
              LEFT JOIN programme_fixtures pf ON pf.fixture_id = x.fixture_id"""
+    _cl, _pr = _hors_masques("x.")
     cur.execute(
-        """
+        f"""
         SELECT x.sport, x.competition, pf.league, x.resultat, COALESCE(x.pnl,0)
         FROM paris x LEFT JOIN programme_fixtures pf ON pf.fixture_id = x.fixture_id
         WHERE x.resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND x.result_updated_at IS NOT NULL AND x.result_updated_at <> ''
-          AND NOT (x.market_type = 'player_pick_only' OR (x.market_type = 'total_points' AND x.sport IN ('baseball', 'mlb', 'wnba')))
-        """)
+          AND NOT (x.market_type = 'player_pick_only' OR (x.market_type = 'total_points' AND x.sport IN ('baseball', 'mlb', 'wnba'))){_cl}
+        """, _pr)
     lignes = [(sp, c, t, r, float(v)) for sp, c, t, r, v in cur.fetchall()]
     cur.execute(f"""
         SELECT COALESCE(p.sport, x.sport), p.competition, pf.league, x.settlement_status, x.odd, COALESCE(x.stake_eur,0)
@@ -819,15 +839,16 @@ def fetch_period_series() -> dict:
         raise SystemExit("DATABASE_URL manquant")
     conn = psycopg2.connect(db, connect_timeout=10)
     cur = conn.cursor()
+    _cl, _pr = _hors_masques()
     cur.execute(
-        """
+        f"""
         SELECT pnl, result_updated_at, sport
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
-          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba')))
+          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba'))){_cl}
         ORDER BY result_updated_at DESC
-        """,
+        """, _pr,
         # LIMIT 5000 retire le 01/10/2026 : meme piege que fetch_period_stats (courbe cumulee)
     )
     rows = cur.fetchall()
@@ -1051,16 +1072,17 @@ def fetch_period_series_offset(period: str, offset: int) -> dict:
         raise SystemExit("DATABASE_URL manquant")
     conn = psycopg2.connect(db, connect_timeout=10)
     cur = conn.cursor()
+    _cl, _pr = _hors_masques()
     cur.execute(
-        """
+        f"""
         SELECT pnl, result_updated_at, sport
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
           AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba')))
-          AND result_updated_at >= %s AND result_updated_at < %s
+          AND result_updated_at >= %s AND result_updated_at < %s{_cl}
         """,
-        (start_iso, end_iso),
+        (start_iso, end_iso) + _pr,
     )
     rows = cur.fetchall()
     cur.execute(
@@ -1591,8 +1613,9 @@ def fetch_perf_stats() -> dict:
     # classer le pari dans la bonne bande de cote (ODDS_BANDS), pas au calcul
     # du pnl (deja correct, lit pnl stocke) -- sans le fix, un pari classe
     # "winner" tombait dans la mauvaise bande (odd_estimee != vraie cote).
+    _cl, _pr = _hors_masques()
     cur.execute(
-        """
+        f"""
         SELECT sport, market_type,
                CASE WHEN cote_reelle > 1.01 THEN cote_reelle
                     WHEN value_cote > 1.01 THEN value_cote
@@ -1602,8 +1625,8 @@ def fetch_perf_stats() -> dict:
         FROM paris
         WHERE resultat IN ('GAGNE','GAGNÉ','PERDU','REMBOURSE')
           AND result_updated_at IS NOT NULL AND result_updated_at <> ''
-          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba')))
-        """,
+          AND NOT (market_type = 'player_pick_only' OR (market_type = 'total_points' AND sport IN ('baseball', 'mlb', 'wnba'))){_cl}
+        """, _pr,
     )
     rows = cur.fetchall()
 
