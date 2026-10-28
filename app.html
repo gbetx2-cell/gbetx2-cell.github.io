@@ -415,6 +415,7 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
   padding:5px 10px;display:inline-block;line-height:1.35}
 .ban .det table{border-collapse:collapse;font:700 15px var(--mono);width:auto}
 .ban .det td{padding:1px 6px;border:0;text-align:center;font-size:15px}
+.ban .det td.pt{color:var(--gold);font-weight:800;border-left:1px solid #ffffff40;padding-left:10px;min-width:34px}
 .ban .det td.n{font:600 13px 'Barlow Condensed',var(--body);text-align:left;letter-spacing:1px}
 .ban .det.per td.h{font:600 11px 'Barlow Condensed',var(--body);color:var(--muted);letter-spacing:1px}
 .ban .det.per td.cur{color:var(--gold)}
@@ -1564,20 +1565,35 @@ function fsADonnees(loc, f){
   return n(loc.stats) > 0 || n(loc.evenements) > 0 || n(loc.proba) > 1 || sv.length > 1 || !!(loc.periodes && loc.periodes.noms) ||
     !!(d && (n(d.stats) || n(d.evenements) || n(d.h2h) || n((d.joueurs || {}).h) || n((d.forme || {}).h)));
 }
-function detailFusion(loc, r){
-  if (!r) return loc;
+const STATS_MEM = new Map();          /* lignes de stats deja vues, par match : une ligne ne disparait plus (28/10/2026) */
+function detailFusion(loc, r, fix){
+  const memo = fix ? unirStats(unirStats(STATS_MEM.get(fix), loc.stats), r && r.stats) : null;
+  if (memo) STATS_MEM.set(fix, memo);
+  if (!r) return memo ? Object.assign({}, loc, {stats: memo}) : loc;
   const n = x => (x || []).length;
-  return Object.assign({}, loc, {evenements: n(r.evenements) ? r.evenements : loc.evenements, courbe: r.courbe || loc.courbe, periodes: r.periodes || loc.periodes, actions: r.actions || loc.actions, stats: n(r.stats) ? r.stats : loc.stats,
+  return Object.assign({}, loc, {stats: memo || unirStats(loc.stats, r.stats), evenements: n(r.evenements) ? r.evenements : loc.evenements, courbe: r.courbe || loc.courbe, periodes: r.periodes || loc.periodes, actions: r.actions || loc.actions,
     joueurs: r.joueurs || loc.joueurs, infos: loc.infos.concat((r.infos || []).filter(i => !loc.infos.some(l => l[0] === i[0]))), forme: r.forme, h2h: r.h2h});
 }
 /* 27/10/2026 : "des fois la case Joueurs et Face-a-face disparait" -- une relecture qui echouait (ou revenait sans joueurs / sans face-a-face) ecrasait
    les bonnes donnees. On garde desormais, rubrique par rubrique, ce qu'on avait deja si la nouvelle reponse est vide. */
+/* 28/10/2026 ("quand j'appuie sur Stats une case se rajoute, parfois plusieurs disparaissent ; je veux que tous les cas soient presentes") :
+   les lignes de stats se reunissent par LIBELLE -- une ligne deja vue ne disparait jamais, sa valeur se met a jour, une nouvelle s'ajoute a la fin.
+   Avant, le panneau passait d'une liste locale (8 lignes) a la liste complete du serveur (24) ou revenait en arriere au gre des relectures. */
+function unirStats(ancien, neuf){
+  const out = [], vu = new Map();
+  [ancien || [], neuf || []].forEach(l => l.forEach(x => {
+    if (!Array.isArray(x) || x.length < 3) return;
+    if (vu.has(x[0])) out[vu.get(x[0])] = x; else { vu.set(x[0], out.length); out.push(x); }
+  }));
+  return out;
+}
 function garderAnciens(ancien, neuf){
   if (!neuf) return ancien || null;
   if (!ancien) return neuf;
   const vide = v => v === undefined || v === null || (Array.isArray(v) && !v.length) || (typeof v === "object" && !Array.isArray(v) && !Object.values(v).some(x => Array.isArray(x) ? x.length : !!x));
   const out = Object.assign({}, neuf);
-  ["joueurs", "h2h", "forme", "stats", "infos", "evenements", "actions", "periodes", "courbe", "blessures", "proba"].forEach(k => { if (vide(out[k]) && !vide(ancien[k])) out[k] = ancien[k]; });
+  ["joueurs", "h2h", "forme", "infos", "evenements", "actions", "periodes", "courbe", "blessures", "proba"].forEach(k => { if (vide(out[k]) && !vide(ancien[k])) out[k] = ancien[k]; });
+  out.stats = unirStats(ancien.stats, neuf.stats);
   return out;
 }
 async function chargerFS(fix){
@@ -1590,7 +1606,7 @@ async function chargerFS(fix){
   } catch (_){ if (!DET_FS.has(fix)) DET_FS.set(fix, {d: null, t: Date.now()}); }
   const loc = DET_LOC.get(fix);
   if (loc){
-    DET.set(fix, {d: detailFusion(loc, DET_FS.get(fix).d), t: Date.now(), local: true});
+    DET.set(fix, {d: detailFusion(loc, DET_FS.get(fix).d, fix), t: Date.now(), local: true});
     if (document.querySelector(`#list details.dm[data-fix="${CSS.escape(fix)}"]`)) majDetail(fix);
     else if (fsADonnees(loc, fix) && typeof dessineJour === "function") dessineJour(true);       /* le panneau n'existait pas faute de donnees : il apparait */
   }
@@ -1700,7 +1716,7 @@ function detailHtml(p, live, loc){
     if (live && (!fsr || Date.now() - fsr.t > 25000)) setTimeout(() => chargerFS(f), 0);
     return "";
   }
-  DET.set(f, {d: detailFusion(loc, fsr && fsr.d), t: Date.now(), local: true});
+  DET.set(f, {d: detailFusion(loc, fsr && fsr.d, f), t: Date.now(), local: true});
   if (FS_SPORTS.test(p.sport) && DET_OUVERT.has(f) && (!fsr || Date.now() - fsr.t > 25000)) setTimeout(() => chargerFS(f), 0);
   return `<details class="dm" data-fix="${esc(f)}" data-local="1" data-sp="${esc(p.sport)}"${ouvert ? " open" : ""}><summary>Détails du match<span class="dm-maj"></span></summary><div class="dm-corps">${ouvert ? detailCorps(f, loc) : ""}</div></details>`;
 }
@@ -1866,7 +1882,7 @@ function carte(p, euros, valeurU){
   const jeuEnCours = live && !(sc && sc.finished) && !estRegle(p);
   const srv = jeuEnCours && fsd && fsd.srv ? fsd.srv : "";
   const bpTxt = jeuEnCours && fsd && fsd.bp ? `<div class="bp">BALLE DE BREAK</div>` : "";
-  const ptsTxt = jeuEnCours && fsd && fsd.pts && !bpTxt ? `<div class="pts">${esc(fsd.pts.replace(":", " – "))}</div>` : "";
+  const ptsTxt = jeuEnCours && fsd && fsd.pts && !bpTxt && !sets.length ? `<div class="pts">${esc(fsd.pts.replace(":", " – "))}</div>` : "";
   const statsTxt = fsd && Array.isArray(fsd.st) && fsd.st.length ? statsFs(p.fixture_id, fsd.st, home, away, joueur, jeuEnCours) : "";
   let det = "";
   if (periodes.length){
@@ -1882,7 +1898,11 @@ function carte(p, euros, valeurU){
     det = `<div class="det per"><table><tr><td class="n"></td>${periodes.map((_, i) => `<td class="h${i === enCours ? " cur" : ""}">${tete(i)}</td>`).join("")}</tr>` +
       ["h", "a"].map((s, k) => `<tr><td class="n">${esc(nomFam(nomCote(s), joueur))}</td>${periodes.map((m, i) =>
         `<td class="${i === enCours ? "cur" + (bouge ? " bump" : "") : ""}">${m[k + 1]}</td>`).join("")}</tr>`).join("") + `</table></div>`;
-  } else if (sets.length) det =`<div class="det"><table>${["h", "a"].map((s, i) => `<tr><td class="n">${esc(nomFam(nomCote(s), true))}</td>${sets.map(m => `<td>${m[i + 1]}</td>`).join("")}</tr>`).join("")}</table></div>`;
+  } else if (sets.length){
+    /* 28/10/2026 (demande explicite) : le score du jeu en cours (15, 30, 40, AV) est a droite de chaque joueur, dans le tableau, et non plus dans une pastille au-dessus */
+    const ptsJ = jeuEnCours && fsd && fsd.pts ? String(fsd.pts).split(":") : null;
+    det = `<div class="det"><table>${["h", "a"].map((s, i) => `<tr><td class="n">${esc(nomFam(nomCote(s), true))}</td>${sets.map(m => `<td>${m[i + 1]}</td>`).join("")}${ptsJ && ptsJ.length === 2 ? `<td class="pt" title="Jeu en cours">${esc(ptsJ[i])}</td>` : ""}</tr>`).join("")}</table></div>`;
+  }
   else if (sc && sc.events_json && /"Goal"/.test(sc.events_json)){
     let ev = []; try { ev = JSON.parse(sc.events_json); } catch (_){}
     const buts = ev.filter(e => e.type === "Goal" && e.player);
@@ -2582,7 +2602,7 @@ setInterval(async () => {
     SCORES = (live && live.scores) || {};
     dessineJour();
   } catch (_){}
-}, 10000);   /* 11/10/2026 : scores en direct toutes les 10 s pendant les matchs (avant 20 s) */
+}, 6000);   /* 28/10/2026 : toutes les 6 s pendant les matchs (11/10 : 10 s ; avant 20 s) -- reponse deja preparee cote serveur (3 s) */
 /* ─────────────────────────── Résultats (10/10/2026) ───────────────────────────
    Registre officiel /api/results/all : memes sources et memes regles que le bilan du serveur, la
    somme d'une periode retombe exactement sur les chiffres officiels. Jour d'un pari = jour de son
