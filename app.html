@@ -971,6 +971,19 @@ const nomFam = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean
   return (j && m.length > 1 ? m[m.length - 1] : m.reduce((x, y) => y.length > x.length ? y : x)).toUpperCase(); };
 const nomCourt = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean);
   return j && m.length > 1 && !/\d/.test(n) ? `${m[0][0]}. ${m.slice(1).join(" ")}` : String(n || ""); };
+/* 31/10/2026 (demande explicite : "le temps reste fige, il ne defile pas") : l'horloge d'un match de basket / NFL descend chaque seconde entre deux mises a jour du serveur ; elle ne tourne que si la derniere valeur a bouge */
+const HORLOGES = new Map();
+const clkSec = c => { c = String(c || ""); if (c.includes(":")) { const [m, x] = c.split(":"); return Number(m) * 60 + Number(x); } const v = parseFloat(c); return isNaN(v) ? null : v; };
+const clkTxt = n => { n = Math.max(0, n); return n < 60 ? n.toFixed(0) === "60" ? "1:00" : "0:" + String(Math.ceil(n)).padStart(2, "0") : Math.floor(n / 60) + ":" + String(Math.floor(n % 60)).padStart(2, "0"); };
+function horlogeSuit(fid, per, clk, actif){
+  const sec = clkSec(clk), now = Date.now(); let h = HORLOGES.get(fid);
+  if (sec === null || !actif){ HORLOGES.delete(fid); return null; }
+  if (!h || h.per !== per){ h = {per, clk, s: sec, t: now, run: false}; }
+  else if (h.clk !== clk){ h = {per, clk, s: sec, t: now, run: sec < h.s}; }
+  else if (h.run && now - h.t > 20000){ h.run = false; }
+  HORLOGES.set(fid, h); return h;
+}
+setInterval(() => document.querySelectorAll(".hz[data-fix]").forEach(el => { const h = HORLOGES.get(el.dataset.fix); if (h && h.run) el.textContent = clkTxt(h.s - (Date.now() - h.t) / 1000); }), 1000);
 const PHASES = new Map(), SCORES_VUS = new Map(), ETAT_VU = new Map(), CARTES_VUES = new Set(), PERIODES_VUES = new Map();
 /* Apres chaque affichage : les cartes qui viennent de passer "a venir" -> "en direct"/"termine"
    jouent l'animation une seule fois (jamais a chaque rafraichissement). */
@@ -1882,7 +1895,7 @@ function carte(p, euros, valeurU){
   const jeuEnCours = live && !(sc && sc.finished) && !estRegle(p);
   const srv = jeuEnCours && fsd && fsd.srv ? fsd.srv : "";
   const bpTxt = jeuEnCours && fsd && fsd.bp ? `<div class="bp">BALLE DE BREAK</div>` : "";
-  const ptsTxt = jeuEnCours && fsd && fsd.pts && !bpTxt && !sets.length ? `<div class="pts">${esc(fsd.pts.replace(":", " – "))}</div>` : "";
+  const ptsTxt = "";                /* 31/10/2026 : plus de pastille au-dessus, les points du jeu sont toujours dans le tableau, sur la ligne de chaque joueur */
   const statsTxt = fsd && Array.isArray(fsd.st) && fsd.st.length ? statsFs(p.fixture_id, fsd.st, home, away, joueur, jeuEnCours) : "";
   let det = "";
   if (periodes.length){
@@ -1898,7 +1911,7 @@ function carte(p, euros, valeurU){
     det = `<div class="det per"><table><tr><td class="n"></td>${periodes.map((_, i) => `<td class="h${i === enCours ? " cur" : ""}">${tete(i)}</td>`).join("")}</tr>` +
       ["h", "a"].map((s, k) => `<tr><td class="n">${esc(nomFam(nomCote(s), joueur))}</td>${periodes.map((m, i) =>
         `<td class="${i === enCours ? "cur" + (bouge ? " bump" : "") : ""}">${m[k + 1]}</td>`).join("")}</tr>`).join("") + `</table></div>`;
-  } else if (sets.length){
+  } else if (sets.length || (p.sport === "tennis" && jeuEnCours && fsd && fsd.pts)){
     /* 28/10/2026 (demande explicite) : le score du jeu en cours (15, 30, 40, AV) est a droite de chaque joueur, dans le tableau, et non plus dans une pastille au-dessus */
     const ptsJ = jeuEnCours && fsd && fsd.pts ? String(fsd.pts).split(":") : null;
     det = `<div class="det"><table>${["h", "a"].map((s, i) => `<tr><td class="n">${esc(nomFam(nomCote(s), true))}</td>${sets.map(m => `<td>${m[i + 1]}</td>`).join("")}${ptsJ && ptsJ.length === 2 ? `<td class="pt" title="Jeu en cours">${esc(ptsJ[i])}</td>` : ""}</tr>`).join("")}</table></div>`;
@@ -1917,7 +1930,10 @@ function carte(p, euros, valeurU){
   const scoreTxt = hs !== null && hs !== undefined && hs !== "" ? (golf ? `${par(hs)} / ${par(as)}` : f1 ? `P${hs}` : `${hs} - ${as}`) : (detail && !det ? esc(detail) : "");
   const vu = SCORES_VUS.get(p.fixture_id); SCORES_VUS.set(p.fixture_id, scoreTxt);
   const bump = vu !== undefined && vu !== scoreTxt && phase === "direct";
-  const horloge = fsd && fsd.clk && fsd.per && /^(nfl|wnba|nba|nbam)$/.test(p.sport) ? (fsd.per > 4 ? "Prol." : "QT" + fsd.per) + " · " + fsd.clk : "";
+  const horlogeOk = fsd && fsd.clk && fsd.per && /^(nfl|wnba|nba|nbam)$/.test(p.sport);
+  const hz = horlogeOk ? horlogeSuit(p.fixture_id, fsd.per, fsd.clk, live && !fini) : null;
+  const horloge = horlogeOk ? (fsd.per > 4 ? "Prol." : "QT" + fsd.per) + " · " + fsd.clk : "";
+  const horlogeHtml = horlogeOk ? esc((fsd.per > 4 ? "Prol." : "QT" + fsd.per) + " · ") + `<span class="hz" data-fix="${esc(p.fixture_id)}">${esc(hz && hz.run ? clkTxt(hz.s - (Date.now() - hz.t) / 1000) : fsd.clk)}</span>` : "";
   const moment = phase === "fin" ? (reglePartiel ? "Réglé en cours de match" : "Terminé") : live ? (horloge || statutFr(sc.status_long || "En direct")) + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
     : phase === "direct" ? "En cours" : "";
   const avV = phase === "direct" && live && !golf && !f1 ? avancement(p, sc, fsd) : null;
@@ -1938,7 +1954,7 @@ function carte(p, euros, valeurU){
     ${vis(home, p.home_logo || p.home_photo, "g")}${vis(away, p.away_logo || p.away_photo, "d")}
     <div class="ligue">${esc(libLigue(p))}</div>
     <div class="vs">VS</div>
-    <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${esc(moment)}</div>${det}${bpTxt}${ptsTxt}</div>
+    <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${live && !fini && phase !== "fin" && horlogeHtml ? horlogeHtml : esc(moment)}</div>${det}${bpTxt}${ptsTxt}</div>
     ${badge}
     <button class="talk" type="button" data-fix="${esc(p.fixture_id)}" data-match="${esc(p.match)}"
       data-league="${esc(p.league || "")}" data-score="${detail || (hs !== null && hs !== undefined ? hs + " - " + as : "")}"
