@@ -1845,7 +1845,7 @@ function carte(p, euros, valeurU){
     /* L'heure est passee mais aucun score n'est encore remonte : dire "À venir"
        serait faux (21/09/2026, cas reel a 07h07 pour un match de 06h30). On dit
        ce qu'on sait vraiment. */
-    : ko ? `<span class="clock">En cours · commencé à ${heure}</span>`
+    : ko ? `<span class="clock">${p.sport === "tennis" ? "En attente du coup d'envoi · prévu à " : "En cours · commencé à "}${heure}</span>`
     : `<span class="tag s">À venir</span>`;
 
   const lignes = paris(p).map(b => {
@@ -1930,10 +1930,13 @@ function carte(p, euros, valeurU){
   const scoreTxt = hs !== null && hs !== undefined && hs !== "" ? (golf ? `${par(hs)} / ${par(as)}` : f1 ? `P${hs}` : `${hs} - ${as}`) : (detail && !det ? esc(detail) : "");
   const vu = SCORES_VUS.get(p.fixture_id); SCORES_VUS.set(p.fixture_id, scoreTxt);
   const bump = vu !== undefined && vu !== scoreTxt && phase === "direct";
-  const horlogeOk = fsd && fsd.clk && fsd.per && /^(nfl|wnba|nba|nbam)$/.test(p.sport);
-  const hz = horlogeOk ? horlogeSuit(p.fixture_id, fsd.per, fsd.clk, live && !fini) : null;
-  const horloge = horlogeOk ? (fsd.per > 4 ? "Prol." : "QT" + fsd.per) + " · " + fsd.clk : "";
-  const horlogeHtml = horlogeOk ? esc((fsd.per > 4 ? "Prol." : "QT" + fsd.per) + " · ") + `<span class="hz" data-fix="${esc(p.fixture_id)}">${esc(hz && hz.run ? clkTxt(hz.s - (Date.now() - hz.t) / 1000) : fsd.clk)}</span>` : "";
+  /* 31/10/2026 : les paris joueurs NBA n'ont pas de detail Flashscore ; leur chrono est dans le statut ESPN ("8:21 - 3rd") */
+  let hClk = fsd && fsd.clk, hPer = fsd && fsd.per;
+  if (!hClk && sc && /^(nfl|wnba|nba|nbam)$/.test(p.sport)){ const mm = /^(\d+:\d{2}|\d+\.\d)\s*-\s*(\d)(?:st|nd|rd|th)/i.exec(String(sc.status_long || "")); if (mm){ hClk = mm[1]; hPer = Number(mm[2]); } }
+  const horlogeOk = hClk && hPer && /^(nfl|wnba|nba|nbam)$/.test(p.sport);
+  const hz = horlogeOk ? horlogeSuit(p.fixture_id, hPer, hClk, live && !fini) : null;
+  const horloge = horlogeOk ? (hPer > 4 ? "Prol." : "QT" + hPer) + " · " + hClk : "";
+  const horlogeHtml = horlogeOk ? esc((hPer > 4 ? "Prol." : "QT" + hPer) + " · ") + `<span class="hz" data-fix="${esc(p.fixture_id)}">${esc(hz && hz.run ? clkTxt(hz.s - (Date.now() - hz.t) / 1000) : hClk)}</span>` : "";
   const moment = phase === "fin" ? (reglePartiel ? "Réglé en cours de match" : "Terminé") : live ? (horloge || statutFr(sc.status_long || "En direct")) + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
     : phase === "direct" ? "En cours" : "";
   const avV = phase === "direct" && live && !golf && !f1 ? avancement(p, sc, fsd) : null;
@@ -2040,7 +2043,7 @@ function enJeu(sc, p){
   return !(p && p.kickoff_at && new Date(p.kickoff_at) - Date.now() > 60000);
 }
 /* Commence depuis plus de 2 min, pas regle, sans score recu : "En direct" quand meme. */
-const commence = p => p.kickoff_at && Date.now() - new Date(p.kickoff_at) > 120000;
+const commence = p => p.kickoff_at && Date.now() - new Date(p.kickoff_at) > (p.sport === "tennis" ? 45 * 60000 : 120000);   /* tennis : l'horaire est approximatif, on attend le vrai score de Flashscore (31/10/2026) */
 const groupe = p => {
   /* Le resultat publie prime, ici aussi (21/09/2026). La carte appliquait
      deja cette regle mais pas le classement dans les filtres : un pari NFL
