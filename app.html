@@ -274,6 +274,7 @@ tr:last-child td{border-bottom:0}
 .big{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);
   border-radius:14px;overflow:hidden;margin-bottom:20px}
 .big div{background:var(--surface);padding:16px}
+.big div:last-child{grid-column:span 4}
 .big span{display:block;color:var(--muted);font-size:13px}
 .big strong{font:700 clamp(20px,3.6vw,28px)/1.2 var(--mono);font-variant-numeric:tabular-nums}
 
@@ -361,6 +362,8 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
   .summary{grid-template-columns:repeat(3,1fr)} .summary .kpi:last-child{grid-column:1 / -1}
   .grid2,.promise{grid-template-columns:1fr}
   .big{grid-template-columns:repeat(2,1fr)}
+  .big div:last-child{grid-column:span 2}
+  nav button{padding:8px 9px}
   .pick{grid-template-columns:52px 1fr}
   .betline{grid-template-columns:1fr auto auto;row-gap:8px}
   .betline .bet{grid-column:1 / -1}
@@ -644,6 +647,7 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
     <nav aria-label="Pages">
       <button aria-selected="true" data-page="jour">Paris du jour</button>
       <button aria-selected="false" data-page="res">Résultats</button>
+      <button aria-selected="false" data-page="mise">Ma mise</button>
       <button aria-selected="false" data-page="aide">Aide</button>
     </nav>
     <button class="cta ghost" type="button" id="btn-login">Se connecter</button>
