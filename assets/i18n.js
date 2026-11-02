@@ -60,6 +60,11 @@ const CLE = "gb_pays";
 let code = "fr";
 try { code = localStorage.getItem(CLE) || "fr"; } catch (e) {}
 let P = PAYS.find(p => p.c === code) || PAYS[0];
+/* 02/11/2026 : monnaie du pays (aucune conversion : le client saisit sa mise dans sa monnaie) */
+const DEVISE_PAYS = {"ch-fr": "CHF", "ca-fr": "CAD", ma: "MAD", dz: "DZD", tn: "TND", sn: "XOF", ci: "XOF", gb: "GBP", us: "USD", ca: "CAD", au: "AUD", nz: "NZD", in: "INR", za: "ZAR", ng: "NGN",
+  mx: "MXN", ar: "ARS", co: "COP", cl: "CLP", pe: "PEN", "ch-de": "CHF", br: "BRL", tr: "TRY", cn: "CNY", jp: "JPY", kr: "KRW", ru: "RUB", pl: "PLN", sa: "SAR", ae: "AED", eg: "EGP", "in-hi": "INR", id: "IDR"};
+const devisePays = () => DEVISE_PAYS[P.c] || "EUR";
+const symbolePays = () => { try { return new Intl.NumberFormat(P.loc, {style: "currency", currency: devisePays()}).formatToParts(0).find(x => x.type === "currency").value; } catch (_){ return "€"; } };
 const I = P.idx;
 const EN_ANGLAIS = I === 0 || I === 7 || I === 8 || I === 9 || I === 13;     // point decimal (1.25) et virgule des milliers
 /* langue chargee a la demande : le fichier est ecrit dans la page avant la suite du chargement */
@@ -426,6 +431,7 @@ function motifs(s) {
   if ((m = s.match(/^Encore (\d+) pour passer la ligne$/))) { const g = lv("Encore {n} pour passer la ligne"); return g ? g.replace("{n}", m[1]) : null; }
   if ((m = s.match(/^Trou (\d+)$/))) { const g = lv("Trou {n}"); return g ? g.replace("{n}", m[1]) : null; }
   if ((m = s.match(/^Tour (\d+)$/))) { const g = lv("Tour {n}"); return g ? g.replace("{n}", m[1]) : null; }
+  if ((m = s.match(/^Départ · (.+)$/))) { const g = lv("Départ {t}"); return g ? g.replace("{t}", m[1]) : null; }
   if ((m = s.match(/^Départ ([^·]+)$/))) { const g = lv("Départ {t}"); return g ? g.replace("{t}", m[1]) : null; }
   if ((m = s.match(/^Aujourd'hui ([+\-−E\d]+)$/))) { const g = lv("Aujourd'hui {v}"); return g ? g.replace("{v}", m[1]) : null; }
   if ((m = s.match(/^il y a (.+)$/))) { const g = lv("il y a {x}"); return g ? g.replace("{x}", m[1]) : null; }
@@ -548,6 +554,7 @@ function bloc(el) {
   el.setAttribute("data-tr", "1");
   let h = h0;
   if (P.br) h = h.replace(/Ténis/g, "Tênis").replace(/ténis/g, "tênis").replace(/desporto/g, "esporte").replace(/utilizador/g, "usuário").replace(/equipa/g, "time");
+  if (devisePays() !== "EUR") h = h.replace(/€/g, symbolePays());
   el.innerHTML = EN_ANGLAIS ? chiffres(h) : h;
   return true;
 }
@@ -658,5 +665,5 @@ function demarrer() {
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", demarrer);
 else demarrer();
 
-window.GB_I18N = {code: P.c, loc: P.loc, tz: P.tz, tr: tr, _D: D, _PAYS: PAYS, _LANGS: LANGS};
+window.GB_I18N = {code: P.c, loc: P.loc, tz: P.tz, idx: P.idx, devise: devisePays(), symbole: symbolePays(), tr: tr, _D: D, _PAYS: PAYS, _LANGS: LANGS};
 })();
