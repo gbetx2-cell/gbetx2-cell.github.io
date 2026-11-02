@@ -526,7 +526,7 @@ function tr(s) {
 /* en anglais : 1,25 -> 1.25 et 18 732 -> 18,732 dans les nombres isoles */
 function chiffres(s) {
   if (!EN_ANGLAIS) return s;
-  return s.replace(/(\d)\s(\d{3})(?!\d)/g, "$1,$2").replace(/(\d),(\d)/g, "$1.$2");
+  return s.replace(/(\d)\s(\d{3})(?!\d)/g, "$1,$2").replace(/(\d),(\d{1,2})(?!\d)/g, "$1.$2");
 }
 
 /* ---------- blocs longs (aide, regles, bas de page) : traduits en entier, balises <b>/<a> comprises ---------- */

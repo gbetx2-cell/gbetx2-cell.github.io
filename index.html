@@ -497,6 +497,12 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
 .rmise input{width:92px;background:var(--surface);border:1px solid var(--line);border-radius:10px;color:var(--text);font:700 16px var(--mono);padding:6px 10px;text-align:right}
 #r-per{margin-bottom:14px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
 #r-per button{flex:none;white-space:nowrap}
+.rnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:-4px 0 14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px}
+.rnav[hidden]{display:none}
+.rnav b{flex:1;text-align:center;font:600 15px var(--body);text-transform:capitalize;min-width:0}
+.rnav button{flex:none;width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--raise);color:var(--text);font-size:26px;line-height:1;cursor:pointer}
+.rnav button:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
+.rnav button:disabled{opacity:.3;cursor:default}
 .rkpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px}
 .rkpi>div,.rfaits>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:help;transition:border-color .2s;min-width:0}
 .rkpi>div:hover,.rfaits>div:hover{border-color:var(--gold)}
@@ -667,6 +673,7 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
     <div class="rmise"><label for="r-mise">Ma mise : 1 u =</label><input id="r-mise" type="number" min="1" max="10000" step="1" inputmode="numeric"> €
       <span class="gain">le bot mise de 0,75 u à 3 u selon sa confiance</span></div>
     <div class="chips" id="r-per"></div>
+    <div class="rnav" id="r-nav" hidden></div>
     <div class="rkpi" id="r-kpi"></div>
     <p class="simnote" id="r-simnote" hidden></p>
     <div class="rfaits" id="r-faits"></div>
@@ -996,7 +1003,13 @@ const LOC = () => (window.GB_I18N ? GB_I18N.loc : "fr-FR");        // langue/for
 const TZ = () => (window.GB_I18N ? GB_I18N.tz : "Europe/Paris");   // fuseau horaire du pays choisi
 const fmt = (n, d = 2) => (n === null || n === undefined || isNaN(n) ? "—" : Number(n).toFixed(d).replace(".", ",").replace("-", "−"));
 const unit = u => (u > 0 ? "+" : "") + fmt(u, 2) + " u";
-const eur = v => (v > 0 ? "+" : "") + fmt(v, Math.abs(v) < 100 && Math.round(v * 100) % 100 ? 2 : 0) + " €";
+const DEVISE_PAYS = {"ch-fr": "CHF", "ca-fr": "CAD", ma: "MAD", dz: "DZD", tn: "TND", sn: "XOF", ci: "XOF", gb: "GBP", us: "USD", ca: "CAD", au: "AUD", nz: "NZD", in: "INR", za: "ZAR", ng: "NGN",
+  mx: "MXN", ar: "ARS", co: "COP", cl: "CLP", pe: "PEN", "ch-de": "CHF", br: "BRL", tr: "TRY", cn: "CNY", jp: "JPY", kr: "KRW", ru: "RUB", pl: "PLN", sa: "SAR", ae: "AED", eg: "EGP", "in-hi": "INR", id: "IDR"};
+/* 02/11/2026 : la mise est saisie par le client dans SA monnaie : on change le symbole et l'ecriture du nombre, sans aucune conversion */
+const DEVISE = () => DEVISE_PAYS[window.GB_I18N && GB_I18N.code] || "EUR";
+const argent = (v, d) => new Intl.NumberFormat(LOC(), {style: "currency", currency: DEVISE(), minimumFractionDigits: d, maximumFractionDigits: d}).format(v);
+const symbole = () => (new Intl.NumberFormat(LOC(), {style: "currency", currency: DEVISE()}).formatToParts(0).find(x => x.type === "currency") || {}).value || "€";
+const eur = v => (v > 0 ? "+" : "") + argent(v, Math.abs(v) < 100 && Math.round(v * 100) % 100 ? 2 : 0);
 /* Images qui ne chargent pas : repli sur l'original puis initiales (27/10/2026 : ecouteur delegue, aucun onerror ne contient de donnee) */
 document.addEventListener("error", e => {
   const im = e.target; if (!im || im.tagName !== "IMG" || !im.dataset || !im.dataset.k) return;
@@ -2449,7 +2462,7 @@ function dessineMise(){
   if (!RES) return;                                    /* charge a l'ouverture de l'onglet */
   const s = valeurU(), ps = (RES && RES.period_stats) || {}, an = ps.annee || {};
   const miseU = (an.mise || 0) / 200;
-  $("#m-mise").textContent = Math.round(miseU * s).toLocaleString("fr-FR") + " €";
+  $("#m-mise").textContent = argent(Math.round(miseU * s), 0);
   $("#m-mise-u").textContent = `${fmt(miseU, 1)} u sur ${an.n || 0} paris`;
   const benef = (an.pnl || 0) * s;
   $("#m-benef").textContent = eur(benef);
@@ -2474,7 +2487,7 @@ function dessineMise(){
   }
   $("#m-n").textContent = an.n || 0;
   $("#m-body").innerHTML = (SPLIT.sport || []).map(([n, c, w, u]) =>
-    `<tr><td>${esc(n)}</td><td>${c}</td><td>${Math.round(c * 1.35 * s).toLocaleString("fr-FR")} €</td>
+    `<tr><td>${esc(n)}</td><td>${c}</td><td>${argent(Math.round(c * 1.35 * s), 0)}</td>
      <td class="${u > 0 ? "pos" : "neg"}">${eur(u * s)}</td></tr>`).join("") || `<tr><td colspan="4">—</td></tr>`;
   $("#chart-e").innerHTML = courbe((RES.period_series || {}).debut || (RES.period_series || {}).annee, v => v * s);
   $("#m-list").innerHTML = reglesRecents().slice(0, 6).map(p => carte(p, true, s)).join("");
@@ -2592,11 +2605,13 @@ function majSerie(){ const el = document.getElementById("serie"); if (el) el.rem
 /* chiffres qui defilent jusqu'a leur valeur */
 function defile(el){
   if (!el || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
-  const txt = el.textContent, m = txt.match(/[\d\s\u202f\u00a0]+(?:,\d+)?/); if (!m) return;
-  const brut = m[0].replace(/[\s\u202f\u00a0]/g, ""), fin = parseFloat(brut.replace(",", ".")); if (!isFinite(fin) || !brut) return;
-  const dec = (brut.split(",")[1] || "").length, t0 = performance.now();
+  /* 02/11/2026 : le nombre peut etre ecrit a la maniere du pays (1 780,00 / 1,780.00 / 1.780,00) : seul un separateur suivi d'1 ou 2 chiffres en fin de nombre est une virgule */
+  const txt = el.textContent, m = txt.match(/\d[\d\s  .,]*\d|\d/); if (!m) return;
+  const md = m[0].match(/[.,](\d{1,2})$/), dec = md ? md[1].length : 0;
+  const fin = parseFloat((md ? m[0].slice(0, -md[0].length) : m[0]).replace(/\D/g, "") + (md ? "." + md[1] : "")); if (!isFinite(fin)) return;
+  const t0 = performance.now();
   (function f(t){ const k = Math.min(1, (t - t0) / 1000), v = fin * (1 - Math.pow(1 - k, 3));
-    el.textContent = txt.replace(m[0], v.toLocaleString("fr-FR", {minimumFractionDigits: dec, maximumFractionDigits: dec}));
+    el.textContent = txt.replace(m[0], v.toLocaleString(LOC(), {minimumFractionDigits: dec, maximumFractionDigits: dec}));
     if (k < 1) requestAnimationFrame(f); else el.textContent = txt; })(t0);
 }
 /* page Resultats : chiffres, barres des sports, cartes en cascade avec leur flash */
@@ -2668,29 +2683,46 @@ setInterval(async () => {
    Registre officiel /api/results/all : memes sources et memes regles que le bilan du serveur, la
    somme d'une periode retombe exactement sur les chiffres officiels. Jour d'un pari = jour de son
    reglement, heure de Paris (champ "j"), comme les bilans Telegram. */
-let REG = null, rPer = "semaine", rSport = "tous", rPage = 0, rOuvert = "";
+let REG = null, rPer = "semaine", rSport = "tous", rPage = 0, rOuvert = "", rDecal = 0;
 let R_PAR_PAGE = 20;
 try { const t = Number(localStorage.getItem("gbet_rpp")); if ([10, 20, 50, 100].includes(t)) R_PAR_PAGE = t; } catch (_){}
 const SPORT_NOM = SPORT_FR;
 const nomSport = s => SPORT_NOM[s] || (String(s).charAt(0).toUpperCase() + String(s).slice(1));
-const jourParis = d => new Intl.DateTimeFormat("fr-CA", {timeZone: "Europe/Paris"}).format(d);   // AAAA-MM-JJ
-const dateDe = j => new Date(j + "T12:00:00");
-const lundiDe = j => { const d = dateDe(j); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return jourParis(d); };
-function bornes(){
-  const auj = jourParis(new Date());
-  return {jour: auj, semaine: lundiDe(auj), mois: auj.slice(0, 8) + "01", annee: auj.slice(0, 5) + "01-01", debut: "0000"};
+/* 02/11/2026 (demande explicite "adapte pour chaque pays") : un pari est range dans la journee du PAYS choisi avec le drapeau (avant : journee de Paris).
+   Les jours sont manipules en AAAA-MM-JJ, a midi UTC : aucun decalage possible d'un fuseau a l'autre. Un pari simule n'a pas d'heure : il garde son jour. */
+const jourLocal = d => { const p = {}; new Intl.DateTimeFormat("en-US", {timeZone: TZ(), year: "numeric", month: "2-digit", day: "2-digit"}).formatToParts(d).forEach(x => { p[x.type] = x.value; }); return `${p.year}-${p.month}-${p.day}`; };
+const JOURS_MEMO = new Map();
+function jourDe(e){
+  if (e.sim || !e.ts) return e.j;
+  const k = TZ() + "|" + e.ts; let v = JOURS_MEMO.get(k);
+  if (v === undefined){ const d = new Date(e.ts); v = isNaN(d) ? e.j : jourLocal(d); JOURS_MEMO.set(k, v); }
+  return v;
+}
+const dateDe = j => new Date(j + "T12:00:00Z");
+const isoDe = d => d.toISOString().slice(0, 10);
+const libJour = (j, o) => dateDe(j).toLocaleDateString(LOC(), {timeZone: "UTC", ...o});
+const lundiDe = j => { const d = dateDe(j); d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7)); return isoDe(d); };
+/* La periode affichee : n = 0 pour la periode en cours, 1 pour la precedente, etc. */
+function fenetre(per, n){
+  const auj = jourLocal(new Date()), a = +auj.slice(0, 4), m = +auj.slice(5, 7) - 1;
+  if (per === "jour"){ const d = dateDe(auj); d.setUTCDate(d.getUTCDate() - n); const x = isoDe(d); return {deb: x, fin: x, lib: libJour(x, {weekday: "long", day: "numeric", month: "long", year: "numeric"})}; }
+  if (per === "semaine"){ const d = dateDe(lundiDe(auj)); d.setUTCDate(d.getUTCDate() - 7 * n); const deb = isoDe(d); d.setUTCDate(d.getUTCDate() + 6); const fin = isoDe(d);
+    return {deb, fin, lib: libJour(deb, {day: "numeric", month: "short"}) + " – " + libJour(fin, {day: "numeric", month: "short", year: "numeric"})}; }
+  if (per === "mois"){ const deb = isoDe(new Date(Date.UTC(a, m - n, 1, 12))), fin = isoDe(new Date(Date.UTC(a, m - n + 1, 0, 12))); return {deb, fin, lib: libJour(deb, {month: "long", year: "numeric"})}; }
+  if (per === "annee") return {deb: `${a - n}-01-01`, fin: `${a - n}-12-31`, lib: String(a - n)};
+  return {deb: "0000", fin: "9999", lib: ""};
 }
 const R_PER = {
-  jour: {nom: "Aujourd'hui", u: ["pari", "paris"], cle: e => e.ts + e.fid + e.pick, lib: e => e.pick},
-  semaine: {nom: "Cette semaine", u: ["jour", "jours"], cle: e => e.j,
-            lib: e => dateDe(e.j).toLocaleDateString(LOC(), {timeZone: TZ(), weekday: "long", day: "numeric", month: "long"})},
-  mois: {nom: "Ce mois", u: ["semaine", "semaines"], cle: e => lundiDe(e.j),
-         lib: e => "semaine du " + dateDe(lundiDe(e.j)).toLocaleDateString(LOC(), {timeZone: TZ(), day: "numeric", month: "long"})},
-  annee: {nom: "Cette année", u: ["mois", "mois"], cle: e => e.j.slice(0, 7),
-          lib: e => dateDe(e.j).toLocaleDateString(LOC(), {timeZone: TZ(), month: "long", year: "numeric"})},
-  debut: {nom: "Depuis le début", u: ["année", "années"], cle: e => e.j.slice(0, 4), lib: e => e.j.slice(0, 4)}};
+  jour: {nom: "Jour", u: ["pari", "paris"], cle: e => e.ts + e.fid + e.pick, lib: e => e.pick},
+  semaine: {nom: "Semaine", u: ["jour", "jours"], cle: e => jourDe(e),
+            lib: e => libJour(jourDe(e), {weekday: "long", day: "numeric", month: "long"})},
+  mois: {nom: "Mois", u: ["semaine", "semaines"], cle: e => lundiDe(jourDe(e)),
+         lib: e => "semaine du " + libJour(lundiDe(jourDe(e)), {day: "numeric", month: "long"})},
+  annee: {nom: "Année", u: ["mois", "mois"], cle: e => jourDe(e).slice(0, 7),
+          lib: e => libJour(jourDe(e), {month: "long", year: "numeric"})},
+  debut: {nom: "Depuis le début", u: ["année", "années"], cle: e => jourDe(e).slice(0, 4), lib: e => jourDe(e).slice(0, 4)}};
 const vU = () => { const v = Number(store.get("gbet-u")); return v >= 1 && v <= 10000 ? v : 10; };
-const euro = u => fmt(u * vU(), 2) + " €";
+const euro = u => argent(u * vU(), 2);
 const euroS = u => (u > 0 ? "+" : "") + euro(u);
 const pctS = x => (x > 0 ? "+" : "") + fmt(x, 1) + " %";
 const uTxt = u => fmt(u, Number.isInteger(u) ? 0 : 2) + " u";
@@ -2765,12 +2797,15 @@ function carteResultat(e){
 let GRR = null, rTrace = false;
 function dessineResultats(){
   if (!REG) return;
-  const B = bornes(), cfg = R_PER[rPer];
-  const dans = e => e.j && e.j >= B[rPer] && e.j <= B.jour;
+  /* 02/11/2026 (demande explicite) : fleches gauche / droite : tout ce qui suit (chiffres, graphique, sports, paris) suit la periode affichee */
+  const cfg = R_PER[rPer], W = fenetre(rPer, rDecal);
+  const dans = e => { const j = jourDe(e); return j && j >= W.deb && j <= W.fin; };
   const L = REG.filter(e => dans(e) && (rSport === "tous" || nomSport(e.sport) === rSport));
   const S = stats(L), SE = series(L, cfg);
   const champ = $("#r-mise"); if (document.activeElement !== champ) champ.value = vU();
   $("#r-per").innerHTML = Object.entries(R_PER).map(([k, v]) => `<button type="button" aria-pressed="${k === rPer}" data-p="${k}">${v.nom}</button>`).join("");
+  const nav = $("#r-nav"); nav.hidden = rPer === "debut";
+  if (!nav.hidden){ const pv = voisine(1); nav.innerHTML = `<button type="button" data-n="${pv === null ? "" : pv}" aria-label="Période précédente" title="Période précédente" ${pv === null ? "disabled" : ""}>‹</button><b>${esc(W.lib)}</b><button type="button" data-n="${voisine(-1)}" aria-label="Période suivante" title="Période suivante" ${rDecal === 0 ? "disabled" : ""}>›</button>`; }
   const gG = L.filter(e => e.pnl > 0).reduce((s, e) => s + e.pnl, 0), gP = L.filter(e => e.pnl < 0).reduce((s, e) => s + e.pnl, 0);
   $("#r-kpi").innerHTML = [
     [S.rg ? Math.round(S.w * 100) + " %" : "—", "paris gagnés", `${S.g} gagnés sur ${S.rg}`, `<b>${S.g}</b> gagnés · <b>${S.p}</b> perdus · <b>${S.n - S.rg}</b> remboursés<em>Le taux se calcule sur les paris décidés : un remboursement n'est pas un échec.</em>`, 0],
@@ -2802,7 +2837,7 @@ function dessineResultats(){
   const kSim = ordre.reduce((k, e, i) => e.sim ? i + 1 : k, 0);
   $("#r-simzone").setAttribute("width", kSim ? x(kSim).toFixed(1) : 0);
   $("#r-simlib").textContent = kSim && x(kSim) > 90 ? "simulation" : "";
-  $("#r-gt").textContent = "Bilan cumulé · " + cfg.nom.toLowerCase(); $("#r-gv").textContent = euroS(S.b); $("#r-gv").style.color = coul(S.b);
+  $("#r-gt").innerHTML = `<span>Bilan cumulé</span>${W.lib ? ` · ${esc(W.lib)}` : ""}`; $("#r-gv").textContent = euroS(S.b); $("#r-gv").style.color = coul(S.b);
   GRR = {pts, it: [null, ...ordre], y};
   if (!$("#p-res").hidden){ c.classList.remove("trace"); void c.getBoundingClientRect(); c.classList.add("trace"); rTrace = true; }
   /* par sport */
@@ -2819,8 +2854,8 @@ function dessineResultats(){
   const vue = L.slice(rPage * R_PAR_PAGE, (rPage + 1) * R_PAR_PAGE);
   let html = "", dj = "";
   vue.forEach(e => {
-    if (e.j !== dj){ dj = e.j; const lj = L.filter(x => x.j === dj), bj = lj.reduce((s, x) => s + x.pnl, 0);
-      html += `<div class="jourt"><span>${dateDe(dj).toLocaleDateString(LOC(), {timeZone: TZ(), weekday: "long", day: "numeric", month: "long", year: "numeric"})}</span><span>${lj.length} paris · <b style="color:${coul(bj)}">${euroS(bj)}</b></span></div>`; }
+    if (jourDe(e) !== dj){ dj = jourDe(e); const lj = L.filter(x => jourDe(x) === dj), bj = lj.reduce((s, x) => s + x.pnl, 0);
+      html += `<div class="jourt"><span>${libJour(dj, {weekday: "long", day: "numeric", month: "long", year: "numeric"})}</span><span>${lj.length} paris · <b style="color:${coul(bj)}">${euroS(bj)}</b></span></div>`; }
     html += carteResultat(e);
   });
   $("#r-liste").innerHTML = html || `<div class="empty">Aucun pari réglé sur cette période.</div>`;
@@ -2830,7 +2865,19 @@ function dessineResultats(){
     + `<label class="rpp">Afficher <select id="r-rpp" aria-label="Nombre de paris par page">${[10, 20, 50, 100].map(n => `<option value="${n}"${n === R_PAR_PAGE ? " selected" : ""}>${n}</option>`).join("")}</select> paris</label>`;
   $("#r-fil").textContent = rSport === "tous" ? "" : `Filtré sur ${rSport} · cliquer à nouveau sur le sport pour tout voir`;
 }
-$("#r-per").addEventListener("click", e => { const b = e.target.closest("button[data-p]"); if (b){ rPer = b.dataset.p; rPage = 0; rOuvert = ""; dessineResultats(); } });
+$("#r-per").addEventListener("click", e => { const b = e.target.closest("button[data-p]"); if (b){ rPer = b.dataset.p; rDecal = 0; rPage = 0; rOuvert = ""; dessineResultats(); } });
+/* Periode voisine qui contient des paris (les periodes vides sont sautees) : sens 1 = plus ancienne, -1 = plus recente (retour a 0 au bout). Rend null si plus rien avant. */
+function voisine(sens){
+  const jours = new Set(REG.filter(e => rSport === "tous" || nomSport(e.sport) === rSport).map(jourDe).filter(Boolean));
+  const liste = [...jours].sort(), premier = liste[0];
+  for (let n = rDecal + sens; n >= 0; n += sens){
+    const f = fenetre(rPer, n);
+    if (sens > 0 && (!premier || f.fin < premier)) return null;
+    if (liste.some(j => j >= f.deb && j <= f.fin)) return n;
+  }
+  return 0;
+}
+$("#r-nav").addEventListener("click", e => { const b = e.target.closest("button[data-n]"); if (!b || b.disabled || b.dataset.n === "") return; rDecal = Number(b.dataset.n); rPage = 0; rOuvert = ""; dessineResultats(); });
 $("#r-sport").addEventListener("click", e => { const b = e.target.closest(".sprow"); if (b){ rSport = rSport === b.dataset.s ? "tous" : b.dataset.s; rPage = 0; rOuvert = ""; dessineResultats(); } });
 $("#r-liste").addEventListener("click", e => { const c = e.target.closest(".rcard"); if (!c) return; rOuvert = rOuvert === c.dataset.id ? "" : c.dataset.id;
   document.querySelectorAll("#r-liste .rcard").forEach(x => x.classList.toggle("ouvert", x.dataset.id === rOuvert)); });
@@ -2843,6 +2890,9 @@ $("#r-pag").addEventListener("change", e => {
 });
 $("#r-pag").addEventListener("click", e => { const b = e.target.closest("button[data-d]"); if (!b || b.disabled) return; rPage += Number(b.dataset.d); rOuvert = "";
   dessineResultats(); const t = $("#r-liste-t").getBoundingClientRect().top + scrollY - 80; scrollTo({top: t, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); });
+/* le symbole de la monnaie du pays dans les textes fixes (champs de mise) */
+if (DEVISE() !== "EUR") document.querySelectorAll(".rmise, #stake, #stake ~ *").forEach(el => { const w = document.createTreeWalker(el.nodeName === "INPUT" ? el.parentNode : el, NodeFilter.SHOW_TEXT);
+  while (w.nextNode()) if (w.currentNode.nodeValue.includes("€")) w.currentNode.nodeValue = w.currentNode.nodeValue.replace(/€/g, symbole()); });
 $("#r-mise").addEventListener("change", e => { const v = Math.round(Number(e.target.value));
   if (v >= 1 && v <= 10000){ store.set("gbet-u", v); const st = $("#stake"); if (st){ st.value = v; dessineMise(); } } dessineResultats(); });
 /* survol du graphique : montant a chaque point */
@@ -2854,7 +2904,7 @@ $("#r-mise").addEventListener("change", e => { const v = Math.round(Number(e.tar
     const n = GRR.pts.length, i = Math.max(0, Math.min(n - 1, Math.round(cx / r.width * (n - 1))));
     const px = i / (n - 1) * r.width, py = GRR.y(GRR.pts[i]) / 130 * r.height, e = GRR.it[i];
     gx.style.cssText = `left:${px}px;opacity:1`; gd.style.cssText = `left:${px}px;top:${py}px;opacity:1`;
-    gt.innerHTML = e ? `<small>${esc(dateDe(e.j).toLocaleDateString(LOC(), {timeZone: TZ(), day: "numeric", month: "short"}))} · ${esc(libPari(e.pick))}</small><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b> sur ce pari<br>Cumul <b style="color:${coul(GRR.pts[i])}">${euroS(GRR.pts[i])}</b>` : "Départ · 0,00 €";
+    gt.innerHTML = e ? `<small>${esc(libJour(jourDe(e), {day: "numeric", month: "short"}))} · ${esc(libPari(e.pick))}</small><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b> sur ce pari<br>Cumul <b style="color:${coul(GRR.pts[i])}">${euroS(GRR.pts[i])}</b>` : "Départ · 0,00 €";
     const w = gt.offsetWidth; gt.style.cssText = `left:${Math.max(0, Math.min(r.width - w, px - w / 2))}px;top:${Math.max(0, py - gt.offsetHeight - 14)}px;opacity:1`;
   };
   const cacher = () => [gx, gd, gt].forEach(x => x.style.opacity = 0);
