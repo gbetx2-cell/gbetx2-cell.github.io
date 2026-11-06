@@ -49,7 +49,6 @@ COMP_WINDOWS: dict[str, tuple[int, int]] = {
     "baseball": (30, 45),
     "nfl": (30, 90),
     "wnba": (30, 45),
-    "f1": (15, 180),
 }
 
 
@@ -209,11 +208,10 @@ COMPETITION_FLAGS = {
 # sport (distinct de "nhl", module ESPN) -- sans lui, les paris hockey
 # etaient absents de Publications / "Paris du jour" alors qu'ils comptaient
 # bien dans les Resultats.
-# 20/10/2026 : golf + f1 ajoutes (demande explicite -- paris golf publies mais invisibles du
-# site, exclus de cette liste alors qu'ils sont dans programme_fixtures/paris comme les autres).
-PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp", "golf", "f1")
+# 06/11/2026 : golf et f1 retires (demande explicite).
+PROGRAMME_SPORTS = ("football", "baseball", "nba", "nhl", "hockey", "nfl", "tennis", "wnba", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp")
 SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒", "nfl": "🏈", "tennis": "🎾", "wnba": "🏀",
-              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾", "hden": "🤾", "hesp": "🤾", "golf": "⛳", "f1": "🏁"}
+              "npb": "⚾", "kbo": "⚾", "nbl": "🏀", "euroleague": "🏀", "mma": "🥊", "grebl": "🏀", "kbl": "🏀", "nbam": "🏀", "hfra": "🤾", "hpol": "🤾", "hrom": "🤾", "hromf": "🤾", "hden": "🤾", "hesp": "🤾"}
 
 # Sports ou paris.conseil n'est jamais une info independante : c'est soit un
 # mirroir du value bet ("Victoire X"), soit un mirroir du player pick ("Total
@@ -223,7 +221,7 @@ SPORT_ICON = {"baseball": "⚾", "nba": "🏀", "nhl": "🏒", "hockey": "🏒",
 # doublon (meme info sous 2 etiquettes) ou pire, un player pick affiche a
 # tort sous le libelle "Conseil" quand aucun value bet n'avait passe les
 # criteres -- signale par l'utilisateur comme peu clair cote client.
-SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp", "golf"}   # golf 21/10/2026 : duel = conseil = value bet (affiche 2 fois sinon)
+SPORTS_CONSEIL_IS_MIRROR = {"nba", "nhl", "baseball", "wnba", "nfl", "npb", "kbo", "nbl", "euroleague", "mma", "grebl", "kbl", "nbam", "hfra", "hpol", "hrom", "hromf", "hden", "hesp"}   # golf retire 06/11/2026
 
 # "tennis" retire de SPORTS_CONSEIL_IS_MIRROR le 22/08/2026 (bug confirme
 # en production, demande explicite : "le tennis des fois ne montre pas
@@ -542,32 +540,6 @@ def fetch_programme(days_back: int = 0, seulement_publies: bool = False) -> list
     )
     rows = list(cur.fetchall())
 
-    # 20/10/2026 (demande explicite "met les publications au bon moment") : le golf (et la F1)
-    # sont des epreuves de PLUSIEURS JOURS alors que kickoff_at ne porte qu'un instant (debut du
-    # tournoi). Avec la seule fenetre 48h, un duel de golf publie l'avant-veille disparaissait de
-    # "Paris du jour" des le 2e jour du tournoi, sans etre encore regle (donc absent aussi de
-    # Resultats) -- invisible pendant 2-3 jours. On rajoute donc les fixtures golf/f1 PUBLIEES et
-    # PAS ENCORE REGLEES dont le tournoi a debute il y a moins de 6 jours : elles restent "en
-    # cours" jusqu'au reglement. Dedupe avec la fenetre standard.
-    deja = {str(r[0]) for r in rows}
-    cur.execute(
-        """
-        SELECT f.fixture_id, f.home, f.away, f.league, f.kickoff_at, f.publish_status, f.sport,
-               f.league_id, f.home_team_id, f.away_team_id
-        FROM programme_fixtures f
-        JOIN paris p ON p.fixture_id = f.fixture_id
-        WHERE f.sport IN ('golf', 'f1')
-          AND f.publish_status = 'published'
-          AND (p.resultat IS NULL OR p.resultat = '')
-          AND f.kickoff_at::timestamp BETWEEN (now() - interval '6 days') AND (now() + interval '2 days')
-        ORDER BY f.kickoff_at ASC
-        """
-    )
-    for r in cur.fetchall():
-        if str(r[0]) not in deja:
-            rows.append(r)
-            deja.add(str(r[0]))
-
     # Coup du Jour : 1 pick/jour flague par le bot quand la confiance >= 85
     # (ai/coup_du_jour.py -> daily_flags, value = fixture_id).
     cur.execute(
@@ -685,7 +657,7 @@ def fetch_programme(days_back: int = 0, seulement_publies: bool = False) -> list
                     item[f"{cote_}_logo"] = _L.logo_fiable(item[f"{cote_}_logo"], nom_, _sp_l)
                     if not item[f"{cote_}_logo"]:
                         del item[f"{cote_}_logo"]
-                if sport in ("tennis", "golf", "f1") and not item.get(f"{cote_}_photo") and not item.get(f"{cote_}_logo"):
+                if sport == "tennis" and not item.get(f"{cote_}_photo") and not item.get(f"{cote_}_logo"):
                     ph = _L.photo_joueur(nom_, sport, cache_seul=True)
                     if ph:
                         item[f"{cote_}_logo"] = ph
