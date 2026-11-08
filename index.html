@@ -410,13 +410,13 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
 .ban .quand b{display:block;font:30px/1 Anton,var(--display);color:#fff;letter-spacing:1px;text-shadow:0 0 18px #000}
 .ban .quand span{display:block;margin-top:3px;font:600 12px 'Barlow Condensed',var(--body);letter-spacing:3px;color:var(--gold);text-transform:uppercase}
 .ban.ecarte .quand{opacity:0}
-.ban .halo{position:relative;display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px}
-.ban .halo::before,.ban .halo::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--loss);opacity:.0;animation:halo 2.4s ease-out infinite}
-.ban .halo::after{animation-delay:1.2s}
-.ban .halo i{font:700 18px 'Barlow Condensed',var(--body);letter-spacing:3px;color:#fff;font-style:normal;text-transform:uppercase;
-  background:#07080bcc;border:1px solid #ffffff30;border-radius:999px;padding:6px 14px}
-@keyframes halo{0%{transform:scale(.55);opacity:.9}100%{transform:scale(1.25);opacity:0}}
-@media (prefers-reduced-motion:reduce){.ban .halo::before,.ban .halo::after{animation:none;opacity:.5}}
+.ban .halo{display:inline-block}
+.ban .halo i{display:inline-block;font:700 18px 'Barlow Condensed',var(--body);letter-spacing:3px;color:#fff;font-style:normal;text-transform:uppercase;
+  background:#07080bd9;border:2px solid var(--loss);border-radius:999px;padding:6px 16px;animation:halo 2s ease-out infinite}
+/* l'onde suit exactement la forme de la pastille (ombre qui s'elargit puis disparait) */
+@keyframes halo{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--loss) 75%,transparent)}70%{box-shadow:0 0 0 14px color-mix(in srgb,var(--loss) 0%,transparent)}
+  100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--loss) 0%,transparent)}}
+@media (prefers-reduced-motion:reduce){.ban .halo i{animation:none}}
 .pick.res-w{border-color:color-mix(in srgb,var(--win) 55%,transparent);box-shadow:0 0 0 1px color-mix(in srgb,var(--win) 25%,transparent),0 10px 30px -18px var(--win)}
 .pick.res-l{border-color:color-mix(in srgb,var(--loss) 50%,transparent)}
 .pick.res-mix{border-color:color-mix(in srgb,var(--gold) 45%,transparent)}
@@ -512,7 +512,7 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
 @media (max-width:760px){
   .ban{height:220px}.ban .geant{font-size:80px}
   .ban .v{width:84px;height:84px;top:42%}.ban .v.ph{width:110px;height:150px;bottom:40px}.ban .v.ini{font-size:30px}.ban .v.ini.mot{font-size:20px}
-  .ban .quand{top:calc(42% + 26px)}.ban .quand b{font-size:21px}.ban .quand span{font-size:10px;letter-spacing:2px}.ban .halo{width:96px;height:96px}.ban .halo i{font-size:14px;padding:4px 10px}
+  .ban .quand{top:calc(42% + 26px)}.ban .quand b{font-size:21px}.ban .quand span{font-size:10px;letter-spacing:2px}.ban .halo i{font-size:14px;padding:4px 12px}
   .ban .v.g{left:calc(50% - 120px)}.ban .v.d{right:calc(50% - 120px)}.ban.ecarte .v.g{left:1%}.ban.ecarte .v.d{right:1%}
   .ban .vs{font-size:44px;top:42%}.ban .score{font-size:36px}.ban .centre{top:52%;max-width:50%}
   .ban .moment{font-size:11px;letter-spacing:2px}.ban .det{font-size:11px;padding:3px 6px}.ban .det table,.ban .det td{font-size:11px}
