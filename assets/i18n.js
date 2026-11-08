@@ -385,6 +385,7 @@ const D = {
   "Les paris des anciennes règles (arrêtées ou remplacées) ne sont plus affichés ici.": ["Bets from old rules (stopped or replaced) are no longer shown here.", "Las apuestas de reglas antiguas (detenidas o sustituidas) ya no se muestran aquí.", "Tipps früherer Regeln (eingestellt oder ersetzt) werden hier nicht mehr angezeigt.", "Le scommesse delle vecchie regole (interrotte o sostituite) non vengono più mostrate qui.", "As apostas das regras antigas (paradas ou substituídas) já não são mostradas aqui.", "Weddenschappen van oude regels (stopgezet of vervangen) worden hier niet meer getoond.", "Eski kuralların (durdurulan veya değiştirilen) bahisleri artık burada gösterilmiyor."],
   /* affiche sans direct (08/11/2026) */
   "EN COURS": ["IN PROGRESS","EN CURSO","LÄUFT","IN CORSO","EM CURSO","BEZIG","DEVAM EDİYOR"],
+  "Demain": ["Tomorrow","Mañana","Morgen","Domani","Amanhã","Morgen","Yarın"],
 };
 
 /* ---------- modeles de phrases (nombres, noms de joueurs, dates...) : gabarits {x} par langue ---------- */

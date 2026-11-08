@@ -405,7 +405,23 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
 .ban .v.bl svg{width:100%;height:100%;filter:drop-shadow(0 6px 18px #0009)}
 .ban .v.bl text{font-family:Anton,var(--display);fill:#fff;letter-spacing:1px}
 /* 08/11/2026 : match en cours sans direct : duree depuis le coup d'envoi */
-.ban .moment .dur{display:block;margin-top:4px;font:600 13px var(--mono);color:#ffffffb0;letter-spacing:1px}
+/* 09/11/2026 : affiches -- a venir : heure + jour sous le VS ; en cours : halo ; termine : couleur du resultat + gagnant */
+.ban .quand{position:absolute;left:50%;top:calc(44% + 46px);transform:translateX(-50%);text-align:center;white-space:nowrap;transition:opacity .5s}
+.ban .quand b{display:block;font:30px/1 Anton,var(--display);color:#fff;letter-spacing:1px;text-shadow:0 0 18px #000}
+.ban .quand span{display:block;margin-top:3px;font:600 12px 'Barlow Condensed',var(--body);letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.ban.ecarte .quand{opacity:0}
+.ban .halo{position:relative;display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px}
+.ban .halo::before,.ban .halo::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--loss);opacity:.0;animation:halo 2.4s ease-out infinite}
+.ban .halo::after{animation-delay:1.2s}
+.ban .halo i{font:700 18px 'Barlow Condensed',var(--body);letter-spacing:3px;color:#fff;font-style:normal;text-transform:uppercase;
+  background:#07080bcc;border:1px solid #ffffff30;border-radius:999px;padding:6px 14px}
+@keyframes halo{0%{transform:scale(.55);opacity:.9}100%{transform:scale(1.25);opacity:0}}
+@media (prefers-reduced-motion:reduce){.ban .halo::before,.ban .halo::after{animation:none;opacity:.5}}
+.pick.res-w{border-color:color-mix(in srgb,var(--win) 55%,transparent);box-shadow:0 0 0 1px color-mix(in srgb,var(--win) 25%,transparent),0 10px 30px -18px var(--win)}
+.pick.res-l{border-color:color-mix(in srgb,var(--loss) 50%,transparent)}
+.pick.res-mix{border-color:color-mix(in srgb,var(--gold) 45%,transparent)}
+.pick.etat-direct{border-color:color-mix(in srgb,var(--loss) 40%,transparent)}
+.ban .nom.gagne{background:var(--gold)!important;color:#111!important}
 /* 08/11/2026 : tampon du resultat sur l'affiche terminee */
 .ban .tampon{display:flex;width:max-content;gap:8px;margin:10px auto 0;padding:4px 12px;border:2px solid currentColor;border-radius:8px;transform:rotate(-4deg);
   font:700 15px 'Barlow Condensed',var(--body);letter-spacing:2px;text-transform:uppercase;background:#07080bb3}
@@ -496,6 +512,7 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
 @media (max-width:760px){
   .ban{height:220px}.ban .geant{font-size:80px}
   .ban .v{width:84px;height:84px;top:42%}.ban .v.ph{width:110px;height:150px;bottom:40px}.ban .v.ini{font-size:30px}.ban .v.ini.mot{font-size:20px}
+  .ban .quand{top:calc(42% + 26px)}.ban .quand b{font-size:21px}.ban .quand span{font-size:10px;letter-spacing:2px}.ban .halo{width:96px;height:96px}.ban .halo i{font-size:14px;padding:4px 10px}
   .ban .v.g{left:calc(50% - 120px)}.ban .v.d{right:calc(50% - 120px)}.ban.ecarte .v.g{left:1%}.ban.ecarte .v.d{right:1%}
   .ban .vs{font-size:44px;top:42%}.ban .score{font-size:36px}.ban .centre{top:52%;max-width:50%}
   .ban .moment{font-size:11px;letter-spacing:2px}.ban .det{font-size:11px;padding:3px 6px}.ban .det table,.ban .det td{font-size:11px}
@@ -998,6 +1015,9 @@ const teinte = n => { let h = 7; for (const c of String(n || "")) h = (h * 31 + 
 const monogramme = n => { const m = String(n || "").normalize("NFD").replace(/[̀-ͯ]/g, "").split(/[\s.\-\/]+/).filter(Boolean);
   if (m.length === 1) return m[0].slice(0, 3).toUpperCase();
   return m.map(w => /^\d/.test(w) ? w.match(/^\d+/)[0] : w[0]).join("").slice(0, 3).toUpperCase(); };
+/* 09/11/2026 : « Aujourd'hui », « Demain » ou la date, pour l'affiche d'un match a venir (jourDe existe deja : resultats) */
+const jourAffiche = d => { const f = x => x.toLocaleDateString("fr-CA", {timeZone: TZ()}); const dem = new Date(Date.now() + 864e5);
+  return f(d) === f(new Date()) ? "Aujourd'hui" : f(d) === f(dem) ? "Demain" : d.toLocaleDateString(LOC(), {timeZone: TZ(), weekday: "long", day: "numeric", month: "long"}); };
 const blason = n => { let h = 7; for (const c of String(n || "")) h = (h * 31 + c.charCodeAt(0)) % 360;
   const a = `hsl(${h} 62% 42%)`, b = `hsl(${(h + 40) % 360} 58% 22%)`, id = "bl" + h + String(n || "").length, mg = monogramme(n);
   return `<svg viewBox="0 0 100 116" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>
@@ -2022,7 +2042,6 @@ function carte(p, euros, valeurU){
   const moment = phase === "fin" ? (reglePartiel ? "Réglé en cours de match" : "Terminé") : live ? (horloge || statutFr(String(sc.status_long || "En direct").replace(/\s*·\s*jeu\s+\S+\s*$/, ""))) + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
     : phase === "direct" ? "En cours" : "";
   /* 08/11/2026 : sans direct, la duree depuis le coup d'envoi (notre propre donnee) */
-  const depuis = phase === "direct" && !live && ko ? (m => m >= 0 ? (m >= 60 ? Math.floor(m / 60) + " h " + String(m % 60).padStart(2, "0") : m + " min") : "")(Math.floor((Date.now() - ko) / 60000)) : "";
   const rs = paris(p).map(b => b.r).filter(r => r !== "s");
   const nb = r => rs.filter(x => x === r).length;
   const tampon = phase === "fin" && rs.length ? (new Set(rs).size === 1
@@ -2037,7 +2056,7 @@ function carte(p, euros, valeurU){
   const histoFinal = sv.length >= 2 ? sv : histo;
   const locDet = p.sport !== "football" && !detaillable(p) ? detailLocal(p, sc, fsd, home, away, periodes, sets, histoFinal) : null;
   const situ2 = sitT || avV !== null ? `<div class="situ2">${sitT ? `<b>${esc(sitT)}</b>` : ""}${avV !== null ? `<div class="avanc" role="progressbar" aria-valuenow="${Math.round(avV * 100)}" aria-valuemin="0" aria-valuemax="100" aria-label="Avancement du match"><i style="transform:scaleX(${avV.toFixed(3)})"></i></div>` : ""}</div>` : "";
-  const badge = phase === "avant" ? `<span class="bdg">${esc(heure || "À venir")}</span>`
+  const badge = phase === "avant" ? `<span class="bdg">À venir</span>`
     : phase === "direct" ? `<span class="bdg live">${SANS_DIRECT ? "EN COURS" : "EN DIRECT"}</span>` : `<span class="bdg fin">${reglePartiel ? "RÉGLÉ" : "TERMINÉ"}</span>`;
   const ban = `<div class="ban${phase !== "avant" && !anime ? " ecarte" : ""}"${anime ? " data-anim" : ""}
       style="background:linear-gradient(100deg,${teinte(home)},#0b0f1a 47%,#0b0f1a 53%,${teinte(away)})">
@@ -2045,13 +2064,13 @@ function carte(p, euros, valeurU){
     <div class="geant b" style="right:-10px;top:115px">${esc(nomFam(away, joueur))}</div>
     ${vis(home, p.home_logo || p.home_photo, "g")}${vis(away, p.away_logo || p.away_photo, "d")}
     <div class="ligue">${esc(libLigue(p))}</div>
-    <div class="vs">VS</div>
-    <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${live && !fini && phase !== "fin" && horlogeHtml ? horlogeHtml : esc(moment)}${depuis ? `<span class="dur" title="Depuis le coup d'envoi">${esc(depuis)}</span>` : ""}</div>${det}${bpTxt}${ptsTxt}${tampon}</div>
+    <div class="vs">VS</div>${phase === "avant" && ko ? `<div class="quand"><b>${esc(ko.toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"}))}</b><span>${esc(jourAffiche(ko))}</span></div>` : ""}
+    <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${phase === "direct" && !live ? `<span class="halo"><i>${esc(moment)}</i></span>` : live && !fini && phase !== "fin" && horlogeHtml ? horlogeHtml : esc(moment)}</div>${det}${bpTxt}${ptsTxt}${tampon}</div>
     ${badge}
     <button class="talk" type="button" data-fix="${esc(p.fixture_id)}" data-match="${esc(p.match)}"
       data-league="${esc(p.league || "")}" data-score="${detail || (hs !== null && hs !== undefined ? hs + " - " + as : "")}"
       title="Discussion" aria-label="Ouvrir la discussion">💬</button>
-    <div class="nom a">${esc(nomCourt(home, joueur))}${srv === "h" ? `<i class="srv" title="Au service"></i>` : ""}</div><div class="nom b">${srv === "a" ? `<i class="srv" title="Au service"></i>` : ""}${esc(nomCourt(away, joueur))}</div>
+    <div class="nom a${phase === "fin" && gagnant === "h" ? " gagne" : ""}">${esc(nomCourt(home, joueur))}${srv === "h" ? `<i class="srv" title="Au service"></i>` : ""}</div><div class="nom b${phase === "fin" && gagnant === "a" ? " gagne" : ""}">${srv === "a" ? `<i class="srv" title="Au service"></i>` : ""}${esc(nomCourt(away, joueur))}</div>
   </div>`;
   /* baseball / NFL (22/10/2026) : situation de jeu fournie par ESPN pendant le match */
   const caseB = (x, y, on) => `<rect class="${on ? "on" : ""}" x="${x}" y="${y}" width="7" height="7" transform="rotate(45 ${x + 3.5} ${y + 3.5})"/>`;
@@ -2064,7 +2083,8 @@ function carte(p, euros, valeurU){
   const majTxt = "";                       /* 25/10/2026 : "il y a X s" retire (demande explicite) */
   /* sous la banniere : compte a rebours avant le match, rien d'autre (le reste est dans la banniere) */
   const sous = phase === "avant" ? etat : (!live && phase === "direct" ? etat : "");
-  return `<article class="pick ${live ? "is-live" : ""}" data-cle="${esc(p.fixture_id)}">
+  const resCls = phase === "fin" && rs.length ? (new Set(rs).size === 1 ? (rs[0] === "w" ? " res-w" : rs[0] === "l" ? " res-l" : "") : " res-mix") : phase === "direct" ? " etat-direct" : "";
+  return `<article class="pick ${live ? "is-live" : ""}${resCls}" data-cle="${esc(p.fixture_id)}">
     ${ban}
     <div class="corps">
       <div class="state">${sous}${majTxt}</div>

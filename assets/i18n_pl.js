@@ -290,7 +290,8 @@ window.GB_L = {
 "Za dużo głosów z tego połączenia",
 "Wszystkie zakłady naszych obecnych reguł · nic nie jest usuwane · rozliczone na podstawie oficjalnego wyniku",
 "Zakłady ze starych reguł (zatrzymanych lub zastąpionych) nie są już tu pokazywane.",
-"W TRAKCIE"
+"W TRAKCIE",
+"Jutro"
 ],
 "H": [
 "Bot, który codziennie analizuje tysiące meczów w około dziesięciu sportach i publikuje tylko zakłady spełniające reguły sprawdzone na kilku sezonach prawdziwych meczów, z prawdziwymi kursami z tamtego czasu.",

@@ -290,7 +290,8 @@ window.GB_L = {
 "Terlalu banyak suara dari koneksi ini",
 "Semua taruhan dari aturan kami saat ini · tidak ada yang dihapus · diselesaikan dari skor resmi",
 "Taruhan dari aturan lama (dihentikan atau diganti) tidak lagi ditampilkan di sini.",
-"BERLANGSUNG"
+"BERLANGSUNG",
+"Besok"
 ],
 "H": [
 "Bot yang setiap hari menganalisis ribuan pertandingan di sekitar sepuluh cabang olahraga dan hanya mempublikasikan taruhan yang memenuhi aturan yang diuji pada beberapa musim pertandingan nyata, dengan odds nyata saat itu.",
