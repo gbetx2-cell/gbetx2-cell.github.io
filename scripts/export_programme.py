@@ -323,6 +323,14 @@ _TENNIS_PHOTO_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath
 _TENNIS_PHOTO_EXTS = (".png", ".webp", ".jpg")
 
 
+def _sources_licence() -> bool:
+    try:
+        from data_providers.resultats_licence import SOURCES_LICENCE
+        return bool(SOURCES_LICENCE)
+    except Exception:
+        return False
+
+
 def _tennis_player_photo_path(player_name: str) -> str | None:
     """Chemin relatif (depuis site/) vers la photo deja en cache pour ce
     joueur, ou None si pas de correspondance/pas encore telechargee.
@@ -622,7 +630,7 @@ def fetch_programme(days_back: int = 0, seulement_publies: bool = False) -> list
                 item["home_logo"] = f"https://media.api-sports.io/baseball/teams/{int(home_team_id)}.png"
             if away_team_id:
                 item["away_logo"] = f"https://media.api-sports.io/baseball/teams/{int(away_team_id)}.png"
-        elif sport == "mma":
+        elif sport == "mma" and not _sources_licence():
             # Photos des combattants (03/10/2026, demande explicite) : id athlete ESPN
             # enregistre a la publication (mma/meilleur_prix.py), photo publique ESPN.
             if home_team_id:
@@ -661,6 +669,12 @@ def fetch_programme(days_back: int = 0, seulement_publies: bool = False) -> list
                     ph = _L.photo_joueur(nom_, sport, cache_seul=True)
                     if ph:
                         item[f"{cote_}_logo"] = ph
+                # 08/11/2026 : club sans logo -> logo api-sports retrouve par son nom (cache seul, le job cherche)
+                if sport not in ("tennis", "mma") and not item.get(f"{cote_}_logo"):
+                    _sp_n = sport if sport in ("nhl", "nba", "wnba", "nfl", "mlb") else _sp_l
+                    lg = _L.logo_par_nom_api_sports(nom_, _sp_n)
+                    if lg:
+                        item[f"{cote_}_logo"] = lg
                 # 21/10/2026 : repli logos Flashscore (basket grec, handball danois/espagnol...) -- seulement
                 # une fois la version HD prete (jamais le 30 px brut), cache seul
                 if sport in _L.FAMILLE_LIGUE and not item.get(f"{cote_}_logo"):
