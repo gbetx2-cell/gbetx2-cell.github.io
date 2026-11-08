@@ -400,6 +400,17 @@ footer{border-top:1px solid var(--line);padding-block:18px 90px;color:var(--mute
 .ban .v.ph.d img{transform:scaleX(-1)}
 .ban .v.ini{border-radius:50%;font:46px Anton,var(--display);color:#fff}
 .ban .v.ini.mot{font-size:30px;text-align:center;line-height:1}
+/* 08/11/2026 : club sans logo -> blason dessine (couleur du club derivee de son nom), plus de rond d'initiales */
+.ban .v.bl{background:none!important;box-shadow:none!important;border-radius:0}
+.ban .v.bl svg{width:100%;height:100%;filter:drop-shadow(0 6px 18px #0009)}
+.ban .v.bl text{font-family:Anton,var(--display);fill:#fff;letter-spacing:1px}
+/* 08/11/2026 : match en cours sans direct : duree depuis le coup d'envoi */
+.ban .moment .dur{display:block;margin-top:4px;font:600 13px var(--mono);color:#ffffffb0;letter-spacing:1px}
+/* 08/11/2026 : tampon du resultat sur l'affiche terminee */
+.ban .tampon{display:flex;width:max-content;gap:8px;margin:10px auto 0;padding:4px 12px;border:2px solid currentColor;border-radius:8px;transform:rotate(-4deg);
+  font:700 15px 'Barlow Condensed',var(--body);letter-spacing:2px;text-transform:uppercase;background:#07080bb3}
+.ban .tampon.w{color:var(--win)} .ban .tampon.l{color:var(--loss)} .ban .tampon.p{color:#d8d2c2}
+.ban .tampon.mix span{display:inline-flex;gap:3px;align-items:center}
 .ban .v.g{left:calc(50% - 215px)} .ban .v.d{right:calc(50% - 215px)}
 .ban.ecarte .v.g{left:4%} .ban.ecarte .v.d{right:4%}
 .ban.ecarte .geant.a{transform:translateX(-60px)} .ban.ecarte .geant.b{transform:translateX(60px)}
@@ -983,6 +994,16 @@ const statutFr = t => { t = String(t || ""); if (STATUT_FR[t]) return STATUT_FR[
   const m = t.match(/^(Top|Bottom|Mid|End) (\d+)(st|nd|rd|th)$/i);
   return m ? `${/top/i.test(m[1]) ? "▲" : /bot/i.test(m[1]) ? "▼" : ""} Manche ${m[2]}` : t; };
 const teinte = n => { let h = 7; for (const c of String(n || "")) h = (h * 31 + c.charCodeAt(0)) % 360; return `hsl(${h} 55% 24%)`; };
+/* 08/11/2026 : blason dessine pour un club sans logo (aucune image tierce) : ecu aux couleurs derivees du nom + monogramme */
+const monogramme = n => { const m = String(n || "").normalize("NFD").replace(/[̀-ͯ]/g, "").split(/[\s.\-\/]+/).filter(Boolean);
+  if (m.length === 1) return m[0].slice(0, 3).toUpperCase();
+  return m.map(w => /^\d/.test(w) ? w.match(/^\d+/)[0] : w[0]).join("").slice(0, 3).toUpperCase(); };
+const blason = n => { let h = 7; for (const c of String(n || "")) h = (h * 31 + c.charCodeAt(0)) % 360;
+  const a = `hsl(${h} 62% 42%)`, b = `hsl(${(h + 40) % 360} 58% 22%)`, id = "bl" + h + String(n || "").length, mg = monogramme(n);
+  return `<svg viewBox="0 0 100 116" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>
+    <path d="M50 3 L95 15 V58 C95 86 75 104 50 113 C25 104 5 86 5 58 V15 Z" fill="url(#${id})" stroke="#ffffffcc" stroke-width="3"/>
+    <path d="M5 40 H95" stroke="#ffffff33" stroke-width="10"/>
+    <text x="50" y="${mg.length > 2 ? 74 : 76}" text-anchor="middle" font-size="${mg.length > 2 ? 34 : 42}">${esc(mg)}</text></svg>`; };
 const nomFam = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean); if (!m.length) return "";
   return (j && m.length > 1 ? m[m.length - 1] : m.reduce((x, y) => y.length > x.length ? y : x)).toUpperCase(); };
 const nomCourt = (n, j) => { const m = String(n || "").split(/\s+/).filter(Boolean);
@@ -1944,6 +1965,7 @@ function carte(p, euros, valeurU){
     const src = image(url, n), org = origine(url, n), ph = joueur && src ? " fl" : "";
     const perd = phase === "fin" && gagnant && gagnant !== (side === "g" ? "h" : "a") ? " perdant" : "";
     if (src) return `<div class="v ${side}${ph}${perd}"><img src="${esc(src)}" alt="" loading="lazy" data-k="vis" data-org="${esc(org)}" data-ini="${esc(ini(n))}"></div>`;
+    if (!joueur) return `<div class="v ini bl ${side}${perd}">${blason(n)}</div>`;
     const mot = /\d/.test(n) || ini(n).length > 2;
     return `<div class="v ini ${side}${mot ? " mot" : ""}${perd}" style="background:${teinte(n)};box-shadow:0 0 40px ${teinte(n)}">${esc(mot ? String(n).replace(/^.*\((.*)\).*$/, "$1") : ini(n))}</div>`;
   };
@@ -1999,6 +2021,13 @@ function carte(p, euros, valeurU){
   const horlogeHtml = horlogeOk ? esc(nomPer + " · ") + `<span class="hz" data-fix="${esc(p.fixture_id)}">${esc(hz && hz.run ? clkTxt(hz.s - (Date.now() - hz.t) / 1000) : hClk)}</span>` : "";
   const moment = phase === "fin" ? (reglePartiel ? "Réglé en cours de match" : "Terminé") : live ? (horloge || statutFr(String(sc.status_long || "En direct").replace(/\s*·\s*jeu\s+\S+\s*$/, ""))) + (sc.elapsed && /football/.test(p.sport) ? " · " + sc.elapsed + "'" : "")
     : phase === "direct" ? "En cours" : "";
+  /* 08/11/2026 : sans direct, la duree depuis le coup d'envoi (notre propre donnee) */
+  const depuis = phase === "direct" && !live && ko ? (m => m >= 0 ? (m >= 60 ? Math.floor(m / 60) + " h " + String(m % 60).padStart(2, "0") : m + " min") : "")(Math.floor((Date.now() - ko) / 60000)) : "";
+  const rs = paris(p).map(b => b.r).filter(r => r !== "s");
+  const nb = r => rs.filter(x => x === r).length;
+  const tampon = phase === "fin" && rs.length ? (new Set(rs).size === 1
+      ? `<div class="tampon ${rs[0]}">${LIB[rs[0]]}</div>`
+      : `<div class="tampon mix">${nb("w") ? `<span style="color:var(--win)">✓ ${nb("w")}</span>` : ""}${nb("l") ? `<span style="color:var(--loss)">✗ ${nb("l")}</span>` : ""}${nb("p") ? `<span>↺ ${nb("p")}</span>` : ""}</div>`) : "";
   const avV = phase === "direct" && live ? avancement(p, sc, fsd) : null;
   const sitT = phase === "direct" && live ? situationTexte(p, hs, as, home, away, joueur, sets, sc) : "";
   const prob = phase === "direct" && live && sc ? (window.GB_PROBA ? GB_PROBA.live(p.sport, sc, fsd, p.league, p.fixture_id, DET_PRIOR.get(p.fixture_id)) : null) : null;
@@ -2009,7 +2038,7 @@ function carte(p, euros, valeurU){
   const locDet = p.sport !== "football" && !detaillable(p) ? detailLocal(p, sc, fsd, home, away, periodes, sets, histoFinal) : null;
   const situ2 = sitT || avV !== null ? `<div class="situ2">${sitT ? `<b>${esc(sitT)}</b>` : ""}${avV !== null ? `<div class="avanc" role="progressbar" aria-valuenow="${Math.round(avV * 100)}" aria-valuemin="0" aria-valuemax="100" aria-label="Avancement du match"><i style="transform:scaleX(${avV.toFixed(3)})"></i></div>` : ""}</div>` : "";
   const badge = phase === "avant" ? `<span class="bdg">${esc(heure || "À venir")}</span>`
-    : phase === "direct" ? `<span class="bdg live">EN DIRECT</span>` : `<span class="bdg fin">${reglePartiel ? "RÉGLÉ" : "TERMINÉ"}</span>`;
+    : phase === "direct" ? `<span class="bdg live">${SANS_DIRECT ? "EN COURS" : "EN DIRECT"}</span>` : `<span class="bdg fin">${reglePartiel ? "RÉGLÉ" : "TERMINÉ"}</span>`;
   const ban = `<div class="ban${phase !== "avant" && !anime ? " ecarte" : ""}"${anime ? " data-anim" : ""}
       style="background:linear-gradient(100deg,${teinte(home)},#0b0f1a 47%,#0b0f1a 53%,${teinte(away)})">
     <div class="geant a" style="left:-10px;top:14px">${esc(nomFam(home, joueur))}</div>
@@ -2017,7 +2046,7 @@ function carte(p, euros, valeurU){
     ${vis(home, p.home_logo || p.home_photo, "g")}${vis(away, p.away_logo || p.away_photo, "d")}
     <div class="ligue">${esc(libLigue(p))}</div>
     <div class="vs">VS</div>
-    <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${live && !fini && phase !== "fin" && horlogeHtml ? horlogeHtml : esc(moment)}</div>${det}${bpTxt}${ptsTxt}</div>
+    <div class="centre"><div class="score${bump ? " bump" : ""}">${scoreTxt}</div><div class="moment">${live && !fini && phase !== "fin" && horlogeHtml ? horlogeHtml : esc(moment)}${depuis ? `<span class="dur" title="Depuis le coup d'envoi">${esc(depuis)}</span>` : ""}</div>${det}${bpTxt}${ptsTxt}${tampon}</div>
     ${badge}
     <button class="talk" type="button" data-fix="${esc(p.fixture_id)}" data-match="${esc(p.match)}"
       data-league="${esc(p.league || "")}" data-score="${detail || (hs !== null && hs !== undefined ? hs + " - " + as : "")}"
