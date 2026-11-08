@@ -87,7 +87,7 @@ const D = {
   "Pages": ["Pages","Páginas","Seiten","Pagine","Páginas","Pagina's","Sayfalar"],
 
   /* page du jour */
-  "À venir et en direct": ["Upcoming and live","Próximos y en directo","Anstehend und live","In arrivo e in diretta","Próximos e ao vivo","Aankomend en live","Yaklaşan ve canlı"],
+  "À venir et en cours": ["Upcoming and in progress","Próximos y en curso","Anstehend und laufend","In arrivo e in corso","Próximos e em curso","Aankomend en bezig","Yaklaşan ve devam eden"],
   "Tout": ["All","Todo","Alle","Tutto","Tudo","Alles","Tümü"],
   "Tous sports": ["All sports","Todos los deportes","Alle Sportarten","Tutti gli sport","Todos os desportos","Alle sporten","Tüm sporlar"],
   "Terminés": ["Finished","Terminados","Beendet","Terminati","Terminados","Afgelopen","Bitenler"],

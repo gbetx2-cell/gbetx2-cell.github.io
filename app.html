@@ -798,7 +798,7 @@ img.badge.fl{object-fit:cover}
     <details><summary>Comment utiliser le site en 3 étapes ?</summary>
       <p><b>1.</b> Ouvrez <b>Paris du jour</b> : les paris à venir apparaissent 15 à 75 minutes avant le match, avec la cote et la mise conseillées.</p>
       <p><b>2.</b> Vérifiez la cote chez votre bookmaker : jouez seulement si elle est égale ou supérieure.</p>
-      <p><b>3.</b> Suivez le règlement en direct sur la carte du match, puis le bilan complet dans <b>Résultats</b>.</p></details>
+      <p><b>3.</b> À la fin du match, la carte affiche le score final et « Gagné » ou « Perdu » ; le bilan complet est dans <b>Résultats</b>.</p></details>
     <details><summary>Quels sports sont couverts ?</summary>
       <p>Football, tennis, hockey, basket, baseball, handball, football américain et MMA. Les filtres regroupent par sport ; la ligue ou le tournoi exact est écrit sur chaque carte (ex. « Hockey · Metal Ligaen (Danemark) »).</p></details>
     <details><summary>Combien de paris par jour ?</summary>
@@ -834,7 +834,7 @@ img.badge.fl{object-fit:cover}
 
     <h3 id="aide-reglement">⚖️ Règlement des paris</h3>
     <details><summary>Qui décide qu'un pari est gagné ou perdu ?</summary>
-      <p>Personne à la main : le règlement est automatique, depuis le score officiel, en général quelques minutes après la fin du match. Aucun pari n'est effacé, y compris les perdus.</p></details>
+      <p>Personne à la main : le règlement est automatique, depuis le score officiel, de quelques minutes à environ une heure après la fin du match. Aucun pari n'est effacé, y compris les perdus.</p></details>
     <details><summary>Quand un pari est-il remboursé ?</summary>
       <p>Total pile sur une ligne ronde (ex. 5 buts pour « plus de 5 »), joueur absent de la feuille de match, abandon au tennis avant la fin, match annulé ou reporté : la mise est rendue, le pari compte 0.</p></details>
     <details><summary>Les règles exactes, sport par sport</summary>
@@ -851,7 +851,7 @@ img.badge.fl{object-fit:cover}
         <tr><td>MMA</td><td>Résultat officiel ; combat annulé = remboursé.</td></tr>
       </table></div></details>
     <details><summary>Un pari reste « en cours » alors que le match est fini ?</summary>
-      <p>Le score officiel arrive parfois avec quelques minutes de retard (feuille de match, statistiques des joueurs). Le bot vérifie en continu : le pari passe en « gagné », « perdu » ou « remboursé » dès que le score est confirmé.</p></details>
+      <p>Le score officiel arrive avec un délai, de quelques minutes à environ une heure (score final, statistiques des joueurs). Le bot vérifie régulièrement : le pari passe en « gagné », « perdu » ou « remboursé » dès que le score est confirmé.</p></details>
 
     <h3 id="aide-compte">👤 Compte et Telegram</h3>
     <details><summary>Pourquoi créer un compte ?</summary>
@@ -864,7 +864,7 @@ img.badge.fl{object-fit:cover}
       <p>Pas de publicité, de liens, de codes promo ni de vente de pronostics. Pas d'informations personnelles, ni sur vous ni sur les autres.</p>
       <p>Le drapeau ⚑ à côté d'un message le signale à la modération. Après 3 signalements, le message est masqué le temps d'être vérifié. Un message contraire à ces règles peut être supprimé, et le compte fermé.</p></details>
     <details><summary>Telegram ou site, quelle différence ?</summary>
-      <p>Telegram vous prévient à chaque publication, avec un lien vers le site. Le site affiche tout : direct, règlement, historique complet et bilan par sport.</p></details>
+      <p>Telegram vous prévient à chaque publication, avec un lien vers le site. Le site affiche tout : résultats, historique complet et bilan par sport.</p></details>
 
     <h3 id="aide-responsable">🛟 Jeu responsable</h3>
     <details><summary>Est-ce que les gains sont garantis ?</summary>
@@ -970,7 +970,7 @@ fetch((SITE || "") + "assets/nationalites.json", {cache: "no-cache"}).then(r => 
   if (PUBS) dessineJour(true); if (REG && !document.getElementById("p-res").hidden) dessineResultats(); }).catch(() => {});
 const cleNom = n => String(n || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const drapeau = n => { const c = NAT[cleNom(n)]; return typeof c === "string" && /^[a-z]{2}(-[a-z]+)?$/.test(c) ? SITE + "assets/flags/" + c + ".svg" : ""; };
-const imageLibre = u => !!u && !/espncdn|assets\/players\/|\/headshots\/|flashscore|sofascore/i.test(u);
+const imageLibre = u => !!u && !/espncdn|assets\/players\/|\/headshots\/|flashscore|sofascore|thesportsdb|wikimedia|wikipedia/i.test(u);   /* 08/11/2026 : + TheSportsDB, Wikimedia */
 const ICONE_SP = {football: "⚽", tennis: "🎾", hockey: "🏒", nhl: "🏒", nba: "🏀", wnba: "🏀", nbl: "🏀", euroleague: "🏀", grebl: "🏀", kbl: "🏀",
   nbam: "🏀", basketball: "🏀", nfl: "🏈", baseball: "⚾", mlb: "⚾", npb: "⚾", kbo: "⚾", hfra: "🤾", hpol: "🤾", hrom: "🤾", hromf: "🤾", hden: "🤾", hesp: "🤾",
   mma: "🥊"};
@@ -1672,6 +1672,7 @@ function garderAnciens(ancien, neuf){
   return out;
 }
 async function chargerFS(fix){
+  if (SANS_DIRECT) return;
   try {
     const r = await api("/api/match-detail?fixture_id=" + encodeURIComponent(fix));
     const av = DET_FS.get(fix);
@@ -1775,7 +1776,11 @@ function detailCorps(fix, d){
   }
   return tabs + `<div class="dm-pan" role="tabpanel">${pan}</div>`;
 }
+/* 08/11/2026 (demande explicite : projet legal) : plus de direct ni de details du match (ils venaient de sources lues sans
+   autorisation). Pendant le match la carte dit "En cours" ; apres, le score final et "Gagne" / "Perdu". */
+const SANS_DIRECT = true;
 function detailHtml(p, live, loc){
+  if (SANS_DIRECT) return "";
   /* 02/11/2026 (demande explicite) : le panneau est toujours ferme au depart, c'est le client qui l'ouvre (avant : 4 ouverts d'office en direct) */
   const f = p.fixture_id;
   const ouvert = DET_OUVERT.has(f);
@@ -1793,6 +1798,7 @@ function detailHtml(p, live, loc){
   return `<details class="dm" data-fix="${esc(f)}" data-local="1" data-sp="${esc(p.sport)}"${ouvert ? " open" : ""}><summary>Détails du match<span class="dm-maj"></span></summary><div class="dm-corps">${ouvert ? detailCorps(f, dFus) : ""}</div></details>`;
 }
 async function chargerDetail(fix){
+  if (SANS_DIRECT) return;
   try {
     const r = await api("/api/match-detail?fixture_id=" + encodeURIComponent(fix));
     const av = DET.get(fix);
@@ -2156,7 +2162,7 @@ function dessineJour(forcer){
   const tout = duJour();
   /* 10/10/2026 (valide sur le site fictif) : plus de filtre "A venir" seul -- un match qui commencait
      disparaissait de la vue au moment ou son animation se jouait. */
-  const ETATS = {Jour: ["À venir et en direct", g => g !== "Terminés"], "En direct": ["En direct", g => g === "En direct"],
+  const ETATS = {Jour: ["À venir et en cours", g => g !== "Terminés"], "En direct": ["En cours", g => g === "En direct"],   /* 08/11/2026 : plus de direct, libelles "en cours" */
                  "Terminés": ["Terminés", g => g === "Terminés"], Tous: ["Tout", () => true]};
   if (!ETATS[stateFilter]) stateFilter = "Jour";
   $("#state-chips").innerHTML = Object.entries(ETATS).map(([k, [lib, f]]) =>
