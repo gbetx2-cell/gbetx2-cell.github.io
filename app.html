@@ -690,11 +690,11 @@ img.badge.fl{object-fit:cover}
   </section>
 
   <section id="p-res" hidden>
-    <div class="head"><h1>Résultats</h1><span class="gain">Tous les paris de nos règles actuelles · rien n'est supprimé · réglés depuis le score officiel</span></div>
-    <p class="gain" id="r-anciennes" style="margin:-6px 0 10px">Les paris des anciennes règles (arrêtées ou remplacées) ne sont plus affichés ici.</p>
-    <div class="rmise"><label for="r-mise">Ma mise : 1 u =</label><input id="r-mise" type="number" min="1" max="10000" step="1" inputmode="numeric"> €
-      <span class="gain">le bot mise de 0,75 u à 3 u selon sa confiance</span></div>
-    <div class="chips rvue" id="r-vue"><button type="button" aria-pressed="true" data-v="reels">Paris publiés</button><button type="button" aria-pressed="false" data-v="tests">Tests sur le passé</button></div>
+    <div class="head"><h1>Résultats</h1><span class="gain">Paris de nos règles actuelles · réglés avec le score final de nos fournisseurs de données</span></div>
+    <p class="gain" id="r-anciennes" style="margin:-6px 0 10px">Les paris des règles arrêtées ou remplacées sont dans « Tout l'historique ».</p>
+    <div class="rmise"><input id="r-mise" type="hidden">
+      <span class="gain">mise conseillée : de 0,75 u à 3 u selon la confiance du modèle (une estimation, pas une certitude)</span></div>
+    <div class="chips rvue" id="r-vue"><button type="button" aria-pressed="true" data-v="reels">Règles actuelles</button><button type="button" aria-pressed="false" data-v="tout">Tout l'historique</button><button type="button" aria-pressed="false" data-v="tests">Méthode : tests sur le passé</button></div>
     <p class="simnote" id="r-vuenote"></p>
     <div class="chips" id="r-per"></div>
     <div class="rnav" id="r-nav" hidden></div>
@@ -712,7 +712,7 @@ img.badge.fl{object-fit:cover}
     <div class="rpag" id="r-pag"></div>
     <p class="gain" style="margin-top:14px">Un pari « Plus de » est gagné si le total est strictement au-dessus de la ligne, un « Moins de » s'il est strictement en dessous. Total pile sur une ligne ronde, joueur absent, abandon ou match annulé : pari remboursé, la mise est rendue.</p>
   <div hidden id="res-ancien">
-    <div class="head"><h1>Résultats</h1><span class="gain">Tous les paris publiés · rien n'est supprimé</span></div>
+    <div class="head"><h1>Résultats</h1><span class="gain">Tous les paris publiés, règles arrêtées comprises</span></div>
     <div class="summary" id="res-summary"></div>
     <div class="yday" id="res-streak"></div>
 
@@ -763,7 +763,7 @@ img.badge.fl{object-fit:cover}
         <button type="button" data-v="5">5 €</button><button type="button" data-v="10">10 €</button>
         <button type="button" data-v="20">20 €</button><button type="button" data-v="50">50 €</button>
       </div>
-      <span class="gain">Le bot mise de 0,75 u à 3 u selon sa confiance.</span>
+      <span class="gain">Mise conseillée : de 0,75 u à 3 u selon la confiance du modèle (une estimation, pas une certitude).</span>
       <span class="gain">Paris réellement publiés, sans les simulations.</span>
     </div>
     <div class="big">
@@ -799,7 +799,7 @@ img.badge.fl{object-fit:cover}
   <section id="p-aide" hidden>
     <div class="aide-hero">
       <h1>Centre d'aide</h1>
-      <p>Tout ce qu'il faut savoir pour lire nos paris, suivre les résultats et jouer sereinement.</p>
+      <p>Tout ce qu'il faut savoir pour lire nos paris, suivre les résultats et parier de façon responsable.</p>
       <div class="aide-search"><input id="aide-q" type="search" placeholder="Rechercher : cote, handicap, remboursé, unité…" aria-label="Rechercher dans l'aide" autocomplete="off"></div>
       <p class="aide-vide" id="aide-vide" hidden>Aucune réponse ne correspond. Essayez un autre mot, ou écrivez-nous sur Telegram.</p>
     </div>
@@ -815,30 +815,30 @@ img.badge.fl{object-fit:cover}
 
     <div class="promise">
       <div>Publié avant le match<span>Jamais après le coup d'envoi</span></div>
-      <div>Réglé automatiquement<span>Depuis le score officiel</span></div>
-      <div>Jamais supprimé<span>Les paris perdus restent affichés</span></div>
+      <div>Réglé automatiquement<span>Score final de nos fournisseurs</span></div>
+      <div>Pertes affichées<span>Les paris perdus restent affichés</span></div>
     </div>
 
     <h3 id="aide-debuter">🚀 Bien démarrer</h3>
     <details open><summary>G-BET, c'est quoi ?</summary>
-      <p>Un bot qui analyse chaque jour des milliers de matchs dans une dizaine de sports et ne publie que les paris qui remplissent des règles testées sur plusieurs saisons de vrais matchs, avec les vraies cotes de l'époque.</p>
-      <p>Chaque pari publié par nos règles actuelles est réglé automatiquement et reste visible à vie, qu'il soit gagné ou perdu : le bilan affiché est complet. Les paris des anciennes règles, arrêtées ou remplacées, ne sont plus affichés.</p></details>
+      <p>Un bot qui analyse chaque jour les matchs de 7 sports et ne publie que les paris qui remplissent des règles testées sur plusieurs saisons de matchs passés. Ces tests ne garantissent rien pour l'avenir.</p>
+      <p>Chaque pari publié est réglé automatiquement et reste affiché, qu'il soit gagné ou perdu. La page Résultats montre d'abord nos règles actuelles ; « Tout l'historique » montre aussi les paris des règles arrêtées ou remplacées.</p></details>
     <details><summary>Comment utiliser le site en 3 étapes ?</summary>
       <p><b>1.</b> Ouvrez <b>Paris du jour</b> : les paris à venir apparaissent 15 à 75 minutes avant le match, avec la cote et la mise conseillées.</p>
       <p><b>2.</b> Vérifiez la cote chez votre bookmaker : jouez seulement si elle est égale ou supérieure.</p>
       <p><b>3.</b> À la fin du match, la carte affiche le score final et « Gagné » ou « Perdu » ; le bilan complet est dans <b>Résultats</b>.</p></details>
     <details><summary>Quels sports sont couverts ?</summary>
-      <p>Football, tennis, hockey, basket, baseball, handball, football américain et MMA. Les filtres regroupent par sport ; la ligue ou le tournoi exact est écrit sur chaque carte (ex. « Hockey · Metal Ligaen (Danemark) »).</p></details>
+      <p>Tennis, hockey, basket, baseball, handball, football américain et MMA. Les filtres regroupent par sport ; la ligue ou le tournoi exact est écrit sur chaque carte (ex. « Hockey · Metal Ligaen (Danemark) »).</p></details>
     <details><summary>Combien de paris par jour ?</summary>
-      <p>Cela dépend du programme et des critères remplis : certains jours plusieurs dizaines, d'autres aucun. Un jour sans pari est un jour normal, pas une panne : le bot préfère passer que forcer.</p></details>
+      <p>Cela dépend du programme : de zéro à plusieurs dizaines de paris par jour, surtout pendant la saison NBA. Un jour sans pari est normal : le bot préfère passer que forcer. Vous n'êtes pas obligé de jouer tous les paris.</p></details>
 
     <h3 id="aide-lire">🎫 Lire un pari</h3>
     <details><summary>Que veut dire chaque ligne d'une carte ?</summary>
       <p>En haut : le sport, la ligue et l'heure. Au centre : les équipes ou joueurs. En bas : le pari (ex. « Victoire Herlev »), la <b>mise</b> en unités, la <b>cote</b> relevée à la publication, puis le <b>résultat</b> et le <b>gain</b> une fois le match terminé.</p></details>
     <details><summary>Et si la cote a bougé quand je veux parier ?</summary>
-      <p>Jouez seulement si vous obtenez une cote égale ou supérieure. En dessous, l'avantage estimé disparaît : mieux vaut passer ce pari.</p></details>
+      <p>Le pari a été choisi à cette cote. En dessous, il ne correspond plus à la règle qui l'a sélectionné : mieux vaut passer.</p></details>
     <details><summary>Pourquoi les mises changent d'un pari à l'autre ?</summary>
-      <p>La mise dépend de la confiance et de l'écart entre notre estimation et la cote. Elle reste plafonnée par match pour ne jamais concentrer le risque sur une seule rencontre.</p></details>
+      <p>La mise conseillée dépend du niveau de confiance du modèle, qui reste une estimation et peut se tromper. Elle est plafonnée par match pour ne jamais concentrer le risque sur une seule rencontre.</p></details>
     <details><summary>Plusieurs paris sur le même match ?</summary>
       <p>Oui, ils sont regroupés sur la même carte. Ce sont des paris séparés, à jouer séparément : ce n'est pas un combiné.</p></details>
     <details><summary>Que veulent dire « handicap », « plus de / moins de », « paris joueurs » ?</summary>
@@ -847,22 +847,22 @@ img.badge.fl{object-fit:cover}
     <h3 id="aide-chiffres">📊 Résultats et chiffres</h3>
     <details><summary>C'est quoi une unité (u) ?</summary>
       <p>Une unité est une mise de référence, exprimée en pourcentage de votre capital plutôt qu'en argent, pour que le suivi vaille quel que soit votre budget. L'usage courant : 1 u entre 1 % et 3 % du capital.</p>
-      <p>Exemple : avec 500 € de capital et 1 u = 2 %, une unité vaut 10 €. Le champ « Ma mise » de la page Résultats convertit tout le bilan dans votre mise.</p></details>
+      <p>Exemple : avec 500 € de capital et 1 u = 2 %, une unité vaut 10 €. Tous nos bilans sont donnés en unités.</p></details>
     <details><summary>Bénéfice, ROI, taux de réussite : lequel regarder ?</summary>
       <p>Le <b>bénéfice</b> est ce que le suivi a rapporté. Le <b>ROI</b> (retour) le rapporte au total misé : +6 u pour 100 u misées = +6 %. Le <b>taux de réussite</b> seul ne dit pas si c'est rentable : gagner 70 % de ses paris à la cote 1,30 fait perdre de l'argent (il faut 77 % pour rentrer dans ses frais).</p>
-      <p>Sur la durée, un ROI durablement entre 3 % et 8 % est déjà très bon. Méfiez-vous des annonces à 30 % ou 50 % : elles ne tiennent jamais sur un gros volume.</p></details>
+      <p>Sur un gros volume, peu de méthodes restent positives : méfiez-vous des annonces à 30 % ou 50 %. Nos résultats passés ne disent rien des prochains.</p></details>
     <details><summary>Pourquoi deux chiffres de retour ?</summary>
       <p>Parce qu'ils ne portent pas sur les mêmes paris, et qu'en montrer un seul reviendrait à choisir celui qui arrange.</p>
       <p><b>Tous les paris</b> compte chaque pari publié, y compris ceux dont la cote n'a jamais pu être relevée chez un bookmaker au moment de la publication. Le gain de ceux-là est calculé sur une cote estimée : le chiffre est complet, mais moins fiable.</p>
       <p><b>Paris à cote bookmaker</b> ne garde que les paris dont la cote a réellement été relevée. Moins de paris, mais chaque montant est vérifiable — c'est le chiffre sur lequel le bot est piloté en interne.</p>
       <p>L'écart entre les deux ne se lit pas comme une bonne nouvelle : il indique surtout que les paris sans cote relevée tirent le bilan vers le bas. Le deuxième chiffre est le plus juste, le premier le plus prudent.</p></details>
     <details><summary>C'est quoi les paris « simulation » ?</summary>
-      <p>Avant le lancement du bot, chaque règle publiée aujourd'hui a été rejouée match par match sur les saisons passées (depuis 2022-23), avec les vraies cotes de l'époque. Ces paris ne sont jamais mélangés aux paris publiés : ils sont à part, dans Résultats, bouton « Tests sur le passé ».</p>
+      <p>Avant le lancement du bot, chaque règle publiée aujourd'hui a été rejouée match par match sur les saisons passées (depuis 2022-23), avec les cotes de l'époque. Ces paris ne sont jamais mélangés aux paris publiés : ils sont à part, dans Résultats, bouton « Méthode : tests sur le passé ».</p>
       <p>Attention : une partie de ces saisons a servi à choisir les règles, ces chiffres sont donc plus flatteurs que ce qu'on peut attendre en réel. Seuls les vrais paris font foi.</p></details>
 
     <h3 id="aide-reglement">⚖️ Règlement des paris</h3>
     <details><summary>Qui décide qu'un pari est gagné ou perdu ?</summary>
-      <p>Personne à la main : le règlement est automatique, depuis le score officiel, de quelques minutes à environ une heure après la fin du match. Aucun pari n'est effacé, y compris les perdus.</p></details>
+      <p>Personne à la main : le règlement est automatique, à partir du score final fourni par nos fournisseurs de données, de quelques minutes à environ une heure après la fin du match. Les paris perdus restent affichés comme les gagnés.</p></details>
     <details><summary>Quand un pari est-il remboursé ?</summary>
       <p>Total pile sur une ligne ronde (ex. 5 buts pour « plus de 5 »), joueur absent de la feuille de match, abandon au tennis avant la fin, match annulé ou reporté : la mise est rendue, le pari compte 0.</p></details>
     <details><summary>Les règles exactes, sport par sport</summary>
@@ -875,11 +875,11 @@ img.badge.fl{object-fit:cover}
         <tr><td>Baseball</td><td>Manches supplémentaires incluses.</td></tr>
         <tr><td>Football US</td><td>Prolongation incluse.</td></tr>
         <tr><td>Tennis</td><td>Match terminé ; abandon avant la fin = remboursé.</td></tr>
-        <tr><td>Paris joueurs</td><td>Statistique officielle de la feuille de match ; joueur absent = remboursé.</td></tr>
-        <tr><td>MMA</td><td>Résultat officiel ; combat annulé = remboursé.</td></tr>
+        <tr><td>Paris joueurs</td><td>Statistique de la feuille de match fournie par nos fournisseurs de données ; joueur absent = remboursé.</td></tr>
+        <tr><td>MMA</td><td>Vainqueur du combat ; combat annulé = remboursé.</td></tr>
       </table></div></details>
     <details><summary>Un pari reste « en cours » alors que le match est fini ?</summary>
-      <p>Le score officiel arrive avec un délai, de quelques minutes à environ une heure (score final, statistiques des joueurs). Le bot vérifie régulièrement : le pari passe en « gagné », « perdu » ou « remboursé » dès que le score est confirmé.</p></details>
+      <p>Le score final arrive avec un délai, de quelques minutes à environ une heure (score, statistiques des joueurs). Le bot vérifie régulièrement : le pari passe en « gagné », « perdu » ou « remboursé » dès que le score est confirmé.</p></details>
 
     <h3 id="aide-compte">👤 Compte et Telegram</h3>
     <details><summary>Pourquoi créer un compte ?</summary>
@@ -898,7 +898,7 @@ img.badge.fl{object-fit:cover}
     <details><summary>Est-ce que les gains sont garantis ?</summary>
       <p>Non, et personne ne peut le garantir. Les performances passées ne préjugent pas des résultats futurs. Des séries de défaites arrivent, même quand la méthode est bonne.</p></details>
     <details><summary>Combien miser ?</summary>
-      <p>Ne misez que de l'argent dont vous n'avez pas besoin. La règle la plus répandue : jamais plus de 1 à 3 % de votre capital sur un pari, jamais plus de 5 %.</p>
+      <p>Ne misez que de l'argent dont vous n'avez pas besoin. La règle la plus répandue : jamais plus de 1 à 3 % de votre capital sur un pari, jamais plus de 5 %. Et pas plus de 10 à 20 % de votre capital engagé le même jour : vous n'êtes pas obligé de jouer tous les paris.</p>
       <p>Ne tentez pas de « rattraper » une perte en augmentant la mise suivante : c'est la manière la plus rapide de perdre tout son capital.</p></details>
     <details><summary>Je pense jouer trop, que faire ?</summary>
       <p>Les paris sont interdits aux mineurs et peuvent rendre dépendant. Vous pouvez demander votre exclusion des jeux d'argent auprès de l'Autorité nationale des jeux, et fixer des limites de dépôt chez votre bookmaker.</p>
@@ -909,7 +909,7 @@ img.badge.fl{object-fit:cover}
       <div><b>Cote</b><span>Ce que rapporte 1 € misé, mise comprise. Cote 2,10 : 1 € misé rapporte 2,10 € si c'est gagné.</span></div>
       <div><b>Unité (u)</b><span>Mise de référence, en % de votre capital.</span></div>
       <div><b>ROI</b><span>Bénéfice divisé par le total misé.</span></div>
-      <div><b>Value bet</b><span>Pari dont la cote est plus haute que la probabilité réelle estimée.</span></div>
+      <div><b>Value bet</b><span>Pari dont la cote est plus haute que notre estimation de la probabilité, qui peut se tromper.</span></div>
       <div><b>Handicap</b><span>Avance ou retard fictif donné à une équipe avant le match (−1,5 : gagner de 2 ou plus).</span></div>
       <div><b>Plus de / moins de</b><span>Total (buts, points, sets, jeux…) au-dessus ou en dessous de la ligne.</span></div>
       <div><b>Pari joueur</b><span>Statistique d'un joueur comparée à une ligne (points, tirs cadrés, réceptions…).</span></div>
@@ -2639,7 +2639,7 @@ const pageOuverte = () => (document.querySelector("nav button[aria-selected=\"tr
 const REGLE_VU = new Set();
 let RES_SERIE = null;      /* resultats lus pour la serie en cours, sans toucher au cache RES de la page Resultats */
 let reglePret = false;
-let SON = false; try { SON = localStorage.getItem("gbet_son") === "1"; } catch (_){}
+let SON = false;   /* 09/11/2026 (conformite ANJ) : plus jamais de son a chaque gain */
 function sonVictoire(gagne){
   try { const c = new (window.AudioContext || window.webkitAudioContext)();
     (gagne ? [523, 659, 784, 1047] : [392, 330, 262]).forEach((f, i) => {
@@ -2647,7 +2647,7 @@ function sonVictoire(gagne){
       const t = c.currentTime + i * .1; g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.16, t + .02);
       g.gain.exponentialRampToValueAtTime(.0001, t + .25); o.start(t); o.stop(t + .3); }); } catch (_){}
 }
-function flashCarte(fid, gagne){
+function flashCarte(fid, gagne){ return;   /* 09/11/2026 (conformite ANJ) : plus d'eclair de victoire */
   const t = document.querySelector(`#list .talk[data-fix="${CSS.escape(fid)}"]`), c = t && t.closest("article");
   if (!c) return;
   c.classList.remove("a-flash-g", "a-flash-p"); void c.offsetWidth; c.classList.add(gagne ? "a-flash-g" : "a-flash-p");
@@ -2666,7 +2666,7 @@ function verifierReglements(pubs){
    La série de JOURS positifs de la page Résultats est un autre calcul et reste. */
 function majSerie(){ const el = document.getElementById("serie"); if (el) el.remove(); }
 /* chiffres qui defilent jusqu'a leur valeur */
-function defile(el){
+function defile(el){ return;   /* 09/11/2026 (conformite ANJ) : chiffres affiches directement, sans defilement */
   if (!el || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
   /* 02/11/2026 : le nombre peut etre ecrit a la maniere du pays (1 780,00 / 1,780.00 / 1.780,00) : seul un separateur suivi d'1 ou 2 chiffres en fin de nombre est une virgule */
   const txt = el.textContent, m = txt.match(/\d[\d\s  .,]*\d|\d/); if (!m) return;
@@ -2705,7 +2705,7 @@ async function charger(){
     try { verifierReglements(pub); } catch (_){}
     dernierChargement = Date.now();
     $("#jour-maj").innerHTML = "Mis à jour à " + new Date().toLocaleTimeString(LOC(), {timeZone: TZ(), hour: "2-digit", minute: "2-digit"})
-      + `<button type="button" id="son" aria-pressed="${SON}" title="Petit son quand un pari est réglé">${SON ? "🔊 Son" : "🔇 Son"}</button>`;
+      ;   /* 09/11/2026 (conformite ANJ) : bouton "Son" (petit son a chaque gain) supprime */
     try { majSerie(); } catch (_){}
     dessineJour();
     await chargerResultats();
@@ -2751,8 +2751,9 @@ let REG = null, rPer = "semaine", rSport = "tous", rPage = 0, rOuvert = "", rDec
 /* 04/11/2026 (demande explicite, mise en conformite) : les paris publies et les tests sur le passe ne sont plus additionnes.
    "reels" = paris reellement publies (vue par defaut) ; "tests" = regles actuelles rejouees sur des matchs passes. */
 let rVue = "reels";
-const regVue = () => REG.filter(e => rVue === "tests" ? e.sim : !e.sim);
-const R_VUE_NOTE = {reels: "Seuls les paris réellement publiés, au moment de leur publication. Les tests sur le passé sont à part.",
+const regVue = () => REG.filter(e => rVue === "tests" ? e.sim : !e.sim && (rVue === "tout" || !e.anc));   /* 09/11/2026 : "tout" = aussi les regles arretees (anc) */
+const R_VUE_NOTE = {reels: "Paris publiés avec nos règles actuelles. Les tests sur le passé sont à part.",
+  tout: "Tous les paris publiés depuis le début, y compris ceux des règles arrêtées ou remplacées (anciennes versions, golf, Formule 1).",
   tests: "Ces paris n'ont jamais été publiés ni joués : c'est la règle actuelle rejouée sur des matchs passés, avec les cotes de l'époque. Une partie de ces matchs a servi à choisir les règles : ces chiffres sont plus flatteurs que la réalité et ne garantissent rien pour l'avenir."};
 let R_PAR_PAGE = 20;
 try { const t = Number(localStorage.getItem("gbet_rpp")); if ([10, 20, 50, 100].includes(t)) R_PAR_PAGE = t; } catch (_){}
@@ -2792,7 +2793,7 @@ const R_PER = {
           lib: e => libJour(jourDe(e), {month: "long", year: "numeric"})},
   debut: {nom: "Depuis le début", u: ["année", "années"], cle: e => jourDe(e).slice(0, 4), lib: e => jourDe(e).slice(0, 4)}};
 const vU = () => { const v = Number(store.get("gbet-u")); return v >= 1 && v <= 10000 ? v : 10; };
-const euro = u => argent(u * vU(), 2);
+const euro = u => fmt(u, 2) + " u";        /* 09/11/2026 (conformite) : bilans en unites, plus de conversion en euros */
 const euroS = u => (u > 0 ? "+" : "") + euro(u);
 const pctS = x => (x > 0 ? "+" : "") + fmt(x, 1) + " %";
 const uTxt = u => fmt(u, Number.isInteger(u) ? 0 : 2) + " u";
@@ -2861,7 +2862,7 @@ function carteResultat(e){
       <div><small>Publié</small>${e.sim ? "simulation" : hm(pub)}</div><div><small>Début du match</small>${e.sim ? "—" : hm(ko)}</div>
       <div><small>Mise conseillée</small>${uTxt(e.mise)}</div><div><small>Ma mise</small>${euro(e.mise)}</div>
       <div><small>Retour</small>${euro(retour)}</div><div><small>Gain net</small><b style="color:${coul(e.pnl)}">${euroS(e.pnl)}</b></div>
-    </div><p>${esc(explication(e))}</p><p class="gain">${e.mise > 1 ? "Mise renforcée : confiance élevée du modèle. " : e.mise < 1 ? "Mise réduite : pari plus risqué. " : ""}${e.sim ? "Pari simulé : la règle actuelle rejouée sur ce match passé, avec la vraie cote de l'époque, avant le lancement du bot (mise 1 u)." : "Résultat réglé depuis le score officiel."}</p></div>
+    </div><p>${esc(explication(e))}</p><p class="gain">${e.mise > 1 ? "Mise conseillée plus haute : le modèle juge ce pari plus solide, sans garantie. " : e.mise < 1 ? "Mise réduite : pari plus risqué. " : ""}${e.sim ? "Pari simulé : la règle actuelle rejouée sur ce match passé, avec la vraie cote de l'époque, avant le lancement du bot (mise 1 u)." : "Résultat réglé depuis le score officiel."}</p></div>
   </div>`;
 }
 let GRR = null, rTrace = false;
@@ -2892,13 +2893,14 @@ function dessineResultats(){
   const U = cfg.u, estPari = U[0] === "pari", fem = U[0] === "semaine" || U[0] === "année";
   const adj = estPari ? (SE.sens > 0 ? "gagné" : "perdu") + (SE.enc > 1 ? "s" : "") : (SE.sens > 0 ? "positi" : "négati") + (fem ? "ve" : "f") + (SE.enc > 1 ? "s" : "");
   const top = L.filter(e => e.r === "G").sort((a, b) => b.pnl - a.pnl)[0];
+  /* 09/11/2026 (conformite ANJ) : plus de series, de records ni de "plus gros gain" -- des faits neutres seulement */
+  const nG = L.filter(e => e.r === "G").length, nP = L.filter(e => e.r === "P").length, nR = L.filter(e => e.r === "R").length;
+  const cotes = L.filter(e => e.cote > 1), coteMoy = cotes.length ? cotes.reduce((s, e) => s + e.cote, 0) / cotes.length : 0;
   const faits = [
-    ["Série en cours", SE.enc ? `${SE.enc} ${SE.enc > 1 ? U[1] : U[0]} ${adj} de suite` : "—", SE.sens],
-    estPari ? ["Meilleure série", SE.best ? `${SE.best} gagnés de suite` : "—", 0]
-            : [`${U[1][0].toUpperCase() + U[1].slice(1)} dans le vert`, SE.nb ? `${SE.pos} sur ${SE.nb}${SE.best > 1 ? ` · record ${SE.best} de suite` : ""}` : "—", 0],
-    ["Plus gros gain", top ? `${euroS(top.pnl)} · ${libPari(top.pick)}` : "—", top ? 1 : 0],
-    estPari ? ["Rendement du jour", S.mis ? `${euroS(S.b)} pour ${euro(S.mis)} misés` : "—", S.b]
-            : [`Meilleur${fem ? "e" : ""} ${U[0]}`, SE.top && SE.top.b > 0 ? `${SE.top.nom} · ${euroS(SE.top.b)}` : "—", SE.top && SE.top.b > 0 ? 1 : 0]];
+    ["Paris réglés", L.length ? String(L.length) : "—", 0],
+    ["Gagnés · perdus · remboursés", L.length ? `${nG} · ${nP} · ${nR}` : "—", 0],
+    ["Cote moyenne", coteMoy ? fmt(coteMoy, 2) : "—", 0],
+    ["Mise moyenne", L.length ? uTxt(+(L.reduce((s, e) => s + (e.mise || 0), 0) / L.length).toFixed(2)) : "—", 0]];
   $("#r-faits").innerHTML = faits.map(f => `<div tabindex="0" data-tip="${tip(`<b>${esc(f[0])}</b><em>${esc(f[1])}</em>`)}"><small>${esc(f[0])}</small><b style="color:${coul(f[2])}">${esc(f[1])}</b></div>`).join("");
   /* courbe du bilan cumule, pari apres pari */
   let cum = 0; const ordre = [...L].reverse(), pts = [0, ...ordre.map(e => cum += e.pnl)];
@@ -2942,7 +2944,7 @@ $("#r-per").addEventListener("click", e => { const b = e.target.closest("button[
 /* Periode voisine qui contient des paris (les periodes vides sont sautees) : sens 1 = plus ancienne, -1 = plus recente (retour a 0 au bout). Rend null si plus rien avant. */
 $("#r-vue").addEventListener("click", e => {
   const b = e.target.closest("button[data-v]"); if (!b || b.dataset.v === rVue || !REG) return;
-  rVue = b.dataset.v; rPer = rVue === "tests" ? "debut" : "semaine"; rDecal = 0; rPage = 0; rSport = "tous"; rOuvert = "";
+  rVue = b.dataset.v; rPer = rVue === "reels" ? "semaine" : "debut"; rDecal = 0; rPage = 0; rSport = "tous"; rOuvert = "";
   dessineResultats();
 });
 function voisine(sens){
