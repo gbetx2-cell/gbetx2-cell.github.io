@@ -352,6 +352,17 @@ details p+p{margin-top:8px}
 .gate-tabs button{flex:1;background:none;border:0;border-radius:999px;padding:8px;cursor:pointer;color:var(--muted);font-weight:600}
 .gate-tabs button[aria-selected="true"]{background:var(--surface);color:var(--text)}
 .gate-check{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin:2px 0 14px}
+/* 09/11/2026 (plan comptes) : connexion Google + fenetre « Mon compte » */
+.gate-google{margin:0 0 14px;display:grid;gap:8px;justify-items:center}
+.gate-ou{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;margin:0 0 12px}
+.gate-ou::before,.gate-ou::after{content:"";flex:1;height:1px;background:var(--line)}
+#compte{position:fixed;inset:0;z-index:90;background:#000000cc;backdrop-filter:blur(4px);display:grid;place-items:center;padding:16px;overflow:auto}
+#compte h3{margin:18px 0 8px;font-size:15px}
+#compte .chips button[aria-pressed="true"]{background:var(--gold);color:#111;border-color:var(--gold)}
+.cpt-actions{display:grid;gap:8px;margin-top:6px}
+.cpt-actions button{background:var(--raise);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--text);cursor:pointer;text-align:left;font-size:14px}
+.cpt-actions button.danger{border-color:color-mix(in srgb,var(--loss) 60%,transparent);color:var(--loss)}
+.cpt-ok{color:var(--win);font-size:13px;min-height:18px;margin:6px 0 0}
 .gate-check input{width:auto;margin:0;accent-color:var(--gold)}
 .gate-err{color:var(--loss);font-size:14px;margin:0 0 10px}
 #gate[hidden]{display:none}
@@ -566,6 +577,7 @@ a.cta:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;l
 .rcard:hover .rban{filter:brightness(1.08)}
 .rcote{display:flex;align-items:center;gap:12px;min-width:0;transition:filter .5s}.rcote.d{justify-content:flex-end}
 .rcote.perdant{filter:grayscale(1) brightness(.55)}
+.rv.bl{background:none!important;border:0!important;display:inline-block}.rv.bl svg{width:100%;height:100%;display:block}
 .rv{width:54px;height:54px;object-fit:contain;flex:none;filter:drop-shadow(0 0 10px #ffffff30)}
 .rv.ph{object-fit:cover;border-radius:50%;object-position:top}
 .rv.fl{object-fit:cover;border-radius:50%;width:44px;height:44px;margin:5px;filter:none;box-shadow:0 0 0 2px #ffffff22}
@@ -951,6 +963,11 @@ img.badge.fl{object-fit:cover}
     <div class="logo" style="margin:0 0 6px">G-<b>BET</b></div>
     <h2 id="gate-t" style="margin:0 0 4px">Bienvenue</h2>
     <p class="gain" style="margin:0 0 16px">Le compte sert uniquement à écrire dans les discussions.</p>
+    <div class="gate-google" id="gate-google" hidden>
+      <label class="gate-check" style="margin:0"><input id="gate-age-g" type="checkbox"> J'ai 18 ans ou plus</label>
+      <div id="gate-google-btn"></div>
+    </div>
+    <div class="gate-ou" id="gate-ou" hidden>ou</div>
     <div class="gate-tabs" id="gate-tabs">
       <button type="button" data-mode="in" aria-selected="true">Se connecter</button>
       <button type="button" data-mode="up" aria-selected="false">Créer un compte</button>
@@ -966,6 +983,25 @@ img.badge.fl{object-fit:cover}
       <button class="cta" type="submit" id="gate-submit">Se connecter</button>
     </form>
     <p class="gain" style="margin:10px 0 0;font-size:11px">Votre pseudo est visible dans les discussions. 18+.</p>
+  </div>
+</div>
+
+<div id="compte" aria-label="Mon compte" hidden>
+  <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="cpt-t">
+    <h2 id="cpt-t" style="margin:0 0 4px">Mon compte</h2>
+    <p class="gain" style="margin:0" id="cpt-pseudo"></p>
+    <h3>Mes sports favoris</h3>
+    <p class="gain" style="margin:0 0 8px">Ils serviront à choisir vos notifications.</p>
+    <div class="chips" id="cpt-sports"></div>
+    <p class="cpt-ok" id="cpt-ok"></p>
+    <h3>Mes données</h3>
+    <div class="cpt-actions">
+      <button type="button" id="cpt-export">Télécharger mes données</button>
+      <button type="button" id="cpt-partout">Se déconnecter de tous mes appareils</button>
+      <button type="button" class="danger" id="cpt-suppr">Supprimer mon compte</button>
+    </div>
+    <p class="gate-err" id="cpt-err" hidden></p>
+    <button class="cta ghost" type="button" id="cpt-fermer" style="margin-top:16px;width:100%">Fermer</button>
   </div>
 </div>
 
@@ -994,10 +1030,19 @@ let HDX = {};
 fetch((SITE || "") + "assets/hd/index.json", {cache: "no-cache"}).then(r => r.ok ? r.json() : {}).then(j => { HDX = j || {}; if (PUBS) dessineJour(true); }).catch(() => {});
 const JOUEURS_SP = new Set(["tennis", "mma"]);
 let NAT = {};
-fetch((SITE || "") + "assets/nationalites.json", {cache: "no-cache"}).then(r => r.ok ? r.json() : {}).then(j => { NAT = j || {};
+fetch((SITE || "") + "assets/nationalites.json", {cache: "no-cache"}).then(r => r.ok ? r.json() : {}).then(j => { NAT = j || {}; NAT_COURT.clear();
   if (PUBS) dessineJour(true); if (REG && !document.getElementById("p-res").hidden) dessineResultats(); }).catch(() => {});
 const cleNom = n => String(n || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
-const drapeau = n => { const c = NAT[cleNom(n)]; return typeof c === "string" && /^[a-z]{2}(-[a-z]+)?$/.test(c) ? SITE + "assets/flags/" + c + ".svg" : ""; };
+/* 10/11/2026 : noms des simulations au format « Sinner J. » -> on retrouve la fiche « janniksinner » (initiale + nom) */
+const NAT_COURT = new Map();
+const natDe = n => { const k = cleNom(n); if (typeof NAT[k] === "string") return NAT[k];
+  const m = /^(.{2,}?)\s+([A-Za-z])(?:\.[A-Za-z])*\.$/.exec(String(n || "").trim()); if (!m) return "";
+  if (NAT_COURT.has(k)) return NAT_COURT.get(k);
+  const fam = cleNom(m[1]), ini = m[2].toLowerCase();
+  const c = Object.keys(NAT).filter(x => x.length > fam.length && x.endsWith(fam) && x.startsWith(ini) && typeof NAT[x] === "string");
+  const v = c.length && c.every(x => NAT[x] === NAT[c[0]]) ? NAT[c[0]] : "";
+  NAT_COURT.set(k, v); return v; };
+const drapeau = n => { const c = natDe(n); return typeof c === "string" && /^[a-z]{2}(-[a-z]+)?$/.test(c) ? SITE + "assets/flags/" + c + ".svg" : ""; };
 const imageLibre = u => !!u && !/espncdn|assets\/players\/|\/headshots\/|flashscore|sofascore|thesportsdb|wikimedia|wikipedia/i.test(u);   /* 08/11/2026 : + TheSportsDB, Wikimedia */
 const ICONE_SP = {football: "⚽", tennis: "🎾", hockey: "🏒", nhl: "🏒", nba: "🏀", wnba: "🏀", nbl: "🏀", euroleague: "🏀", grebl: "🏀", kbl: "🏀",
   nbam: "🏀", basketball: "🏀", nfl: "🏈", baseball: "⚾", mlb: "⚾", npb: "⚾", kbo: "⚾", hfra: "🤾", hpol: "🤾", hrom: "🤾", hromf: "🤾", hden: "🤾", hesp: "🤾",
@@ -1239,7 +1284,8 @@ function majCompte(){
   let chip = $("#me-chip");
   if (ME){
     if (!chip){ chip = document.createElement("span"); chip.className = "me-chip"; chip.id = "me-chip"; document.querySelector(".bar").append(chip); }
-    chip.innerHTML = `${esc(ME)} <button type="button" id="me-out">Quitter</button>`;
+    chip.innerHTML = `${esc(ME)} <button type="button" id="me-compte">Mon compte</button><button type="button" id="me-out">Quitter</button>`;
+    $("#me-compte").onclick = ouvrirCompte;
     /* Deconnexion reelle (21/09/2026) : on efface aussi le cookie cote
        serveur. Avant, "Quitter" n'oubliait que le pseudo dans le navigateur
        et la session restait ouverte 30 jours -- sur un ordinateur partage, la
@@ -1262,12 +1308,91 @@ async function verifierSession(){
   try {
     const r = await api("/api/me");
     const vrai = r && r.ok && r.username ? r.username : null;
+    FAVORIS = (r && Array.isArray(r.favoris)) ? r.favoris : [];
     if (vrai !== ME){
       ME = vrai;
       store.set("gbet-user", vrai);       // null efface l'entree perimee
       majCompte();
     }
   } catch (_){ /* serveur injoignable : on garde l'affichage en cours */ }
+}
+/* ─────────── 09/11/2026 (plan comptes) : « Mon compte » et connexion Google ─────────── */
+let FAVORIS = [];
+const SPORTS_FAV = [["tennis", "Tennis"], ["hockey", "Hockey"], ["basket", "Basket"], ["nfl", "Football US"],
+                    ["baseball", "Baseball"], ["handball", "Handball"], ["mma", "MMA"]];
+function dessineFavoris(){
+  $("#cpt-sports").innerHTML = SPORTS_FAV.map(([k, n]) =>
+    `<button type="button" data-s="${k}" aria-pressed="${FAVORIS.includes(k)}">${esc(n)}</button>`).join("");
+}
+function ouvrirCompte(){
+  $("#cpt-pseudo").textContent = ME || "";
+  $("#cpt-err").hidden = true; $("#cpt-ok").textContent = "";
+  dessineFavoris();
+  $("#compte").hidden = false;
+}
+$("#cpt-fermer").addEventListener("click", () => { $("#compte").hidden = true; });
+$("#compte").addEventListener("click", e => { if (e.target.id === "compte") $("#compte").hidden = true; });
+$("#cpt-sports").addEventListener("click", async e => {
+  const b = e.target.closest("button[data-s]"); if (!b) return;
+  const s = b.dataset.s, avant = FAVORIS.slice();
+  FAVORIS = FAVORIS.includes(s) ? FAVORIS.filter(x => x !== s) : [...FAVORIS, s];
+  dessineFavoris();
+  try {
+    const r = await api("/api/account/favoris", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sports: FAVORIS})});
+    if (!r.ok) throw 0;
+    FAVORIS = r.favoris || FAVORIS; $("#cpt-ok").textContent = "Enregistré.";
+  } catch (_){ FAVORIS = avant; dessineFavoris(); $("#cpt-ok").textContent = ""; }
+});
+$("#cpt-export").addEventListener("click", async () => {
+  try {
+    const r = await api("/api/account/export");
+    if (!r.ok) throw 0;
+    const url = URL.createObjectURL(new Blob([JSON.stringify(r.donnees, null, 2)], {type: "application/json"}));
+    const a = document.createElement("a"); a.href = url; a.download = "g-bet-mes-donnees.json"; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  } catch (_){ $("#cpt-err").textContent = "Téléchargement impossible, réessayez."; $("#cpt-err").hidden = false; }
+});
+$("#cpt-partout").addEventListener("click", async () => {
+  if (!confirm("Vous serez déconnecté de tous vos appareils, y compris celui-ci.")) return;
+  try { await api("/api/account/logout-all", {method: "POST"}); } catch (_){}
+  ME = null; store.set("gbet-user", null); $("#compte").hidden = true; majCompte(); charger();
+});
+$("#cpt-suppr").addEventListener("click", async () => {
+  const conf = prompt("Suppression définitive du compte et de vos messages. Écrivez SUPPRIMER pour confirmer.");
+  if (!conf || conf.trim().toUpperCase() !== "SUPPRIMER") return;
+  const mdp = prompt("Votre mot de passe (laissez vide si vous vous connectez avec Google) :") || "";
+  try {
+    const r = await api("/api/account/delete", {method: "POST", headers: {"Content-Type": "application/json"},
+                                               body: JSON.stringify({confirmation: "SUPPRIMER", password: mdp})});
+    if (!r.ok){ $("#cpt-err").textContent = r.reason || "Suppression impossible"; $("#cpt-err").hidden = false; return; }
+    ME = null; store.set("gbet-user", null); $("#compte").hidden = true; majCompte(); charger();
+    alert("Votre compte a été supprimé.");
+  } catch (_){ $("#cpt-err").textContent = "Serveur injoignable, réessayez."; $("#cpt-err").hidden = false; }
+});
+/* Connexion Google : le bouton n'apparait que si le serveur a un identifiant Google (GOOGLE_CLIENT_ID) ;
+   le script de Google n'est charge qu'a l'ouverture de la fenetre de connexion (rien chez Google sinon). */
+let GOOGLE_ID = null, googlePret = false;
+async function preparerGoogle(){
+  try {
+    if (GOOGLE_ID === null){ const c = await api("/api/auth/config"); GOOGLE_ID = (c && c.google_client_id) || ""; }
+    if (!GOOGLE_ID) return;
+    $("#gate-google").hidden = false; $("#gate-ou").hidden = false;
+    if (googlePret) return;
+    await new Promise((ok, ko) => { const s = document.createElement("script"); s.src = "https://accounts.google.com/gsi/client";
+      s.async = true; s.onload = ok; s.onerror = ko; document.head.append(s); });
+    google.accounts.id.initialize({client_id: GOOGLE_ID, callback: async rep => {
+      const err = $("#gate-err");
+      try {
+        const r = await api("/api/auth/google", {method: "POST", headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({credential: rep.credential, majeur: $("#gate-age-g").checked, stay: true})});
+        if (!r.ok){ err.textContent = r.besoin_majeur ? "Cochez « J'ai 18 ans ou plus » pour créer votre compte avec Google." : (r.reason || "Connexion Google impossible");
+                    err.hidden = false; return; }
+        ME = r.username; store.set("gbet-user", ME); majCompte(); charger(); verifierSession();
+      } catch (_){ err.textContent = "Serveur injoignable, réessayez dans un instant."; err.hidden = false; }
+    }});
+    google.accounts.id.renderButton($("#gate-google-btn"), {theme: "filled_black", size: "large", text: "continue_with", shape: "pill", locale: "fr"});
+    googlePret = true;
+  } catch (_){ $("#gate-google").hidden = true; $("#gate-ou").hidden = true; }
 }
 let gateMode = "in";
 $("#gate-tabs").addEventListener("click", e => {
@@ -1279,9 +1404,9 @@ $("#gate-tabs").addEventListener("click", e => {
   $("#gate-age-l").hidden = gateMode !== "up";
   $("#gate-err").hidden = true;
 });
-$("#btn-login").addEventListener("click", () => { $("#gate").hidden = false; $("#gate-user").focus(); });
+$("#btn-login").addEventListener("click", () => { $("#gate").hidden = false; $("#gate-user").focus(); preparerGoogle(); });
 $("#gate").addEventListener("click", e => { if (e.target.id === "gate") $("#gate").hidden = true; });
-addEventListener("keydown", e => { if (e.key === "Escape") $("#gate").hidden = true; });
+addEventListener("keydown", e => { if (e.key === "Escape"){ $("#gate").hidden = true; $("#compte").hidden = true; } });
 $("#gate-form").addEventListener("submit", async e => {
   e.preventDefault();
   const username = $("#gate-user").value.trim(), password = $("#gate-pass").value;
@@ -2820,6 +2945,7 @@ function visuelRes(url, nom, sp, side){
   const org = u ? (/^https?:/.test(u) ? u : SITE + u) : "";
   const ini = String(nom || "?").split(/[ .-]+/).slice(0, 2).map(w => w[0] || "").join("").toUpperCase();
   if (src) return `<img class="rv${joueur ? " fl" : ""}" src="${esc(src)}" alt="" loading="lazy" data-k="rv" data-org="${esc(org)}" data-ini="${esc(ini)}" data-bg="${esc(teinte(nom))}">`;
+  if (!joueur && nom) return `<span class="rv bl">${blason(nom)}</span>`;     /* 10/11/2026 : meme blason que les affiches, plus d'initiales */
   return `<span class="rv ini" style="background:${teinte(nom)}">${esc(/\d/.test(nom) ? "TOP 3" : ini)}</span>`;
 }
 function explication(e){

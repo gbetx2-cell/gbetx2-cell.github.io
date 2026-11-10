@@ -299,7 +299,19 @@ window.GB_L = {
 "Semua taruhan sejak awal, termasuk dari aturan yang dihentikan atau diganti (versi lama, golf, Formula 1).",
 "Menang · kalah · dikembalikan",
 "Odds rata-rata",
-"Taruhan rata-rata"
+"Taruhan rata-rata",
+"Akun saya",
+"Olahraga favorit saya",
+"Akan dipakai untuk memilih notifikasi Anda.",
+"Data saya",
+"Unduh data saya",
+"Keluar dari semua perangkat saya",
+"Hapus akun saya",
+"Tutup",
+"Tersimpan.",
+"atau",
+"Saya berusia 18 tahun atau lebih",
+"Keluar"
 ],
 "H": [
 "Bot yang setiap hari menganalisis pertandingan 7 cabang olahraga dan hanya memublikasikan taruhan yang memenuhi aturan yang diuji pada beberapa musim pertandingan lalu. Uji ini tidak menjamin apa pun untuk masa depan.",

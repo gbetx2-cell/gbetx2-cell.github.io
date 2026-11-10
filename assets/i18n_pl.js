@@ -299,7 +299,19 @@ window.GB_L = {
 "Wszystkie zakłady od początku, także z wycofanych lub zastąpionych reguł (stare wersje, golf, Formuła 1).",
 "Wygrane · przegrane · zwroty",
 "Średni kurs",
-"Średnia stawka"
+"Średnia stawka",
+"Moje konto",
+"Moje ulubione sporty",
+"Posłużą do wyboru powiadomień.",
+"Moje dane",
+"Pobierz moje dane",
+"Wyloguj ze wszystkich urządzeń",
+"Usuń moje konto",
+"Zamknij",
+"Zapisano.",
+"lub",
+"Mam 18 lat lub więcej",
+"Wyloguj"
 ],
 "H": [
 "Bot, który codziennie analizuje mecze 7 dyscyplin i publikuje tylko zakłady spełniające reguły sprawdzone na kilku sezonach minionych meczów. Te testy niczego nie gwarantują na przyszłość.",

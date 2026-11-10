@@ -394,7 +394,20 @@ const D = {
   "Tous les paris publiés depuis le début, y compris ceux des règles arrêtées ou remplacées (anciennes versions, golf, Formule 1).": ["Every bet published since the start, including those from stopped or replaced rules (old versions, golf, Formula 1).", "Todas las apuestas publicadas desde el inicio, incluidas las de reglas retiradas o sustituidas (versiones antiguas, golf, Fórmula 1).", "Alle seit dem Start veröffentlichten Tipps, auch die eingestellter oder ersetzter Regeln (alte Versionen, Golf, Formel 1).", "Tutte le scommesse pubblicate dall'inizio, comprese quelle di regole sospese o sostituite (vecchie versioni, golf, Formula 1).", "Todas as apostas publicadas desde o início, incluindo as de regras retiradas ou substituídas (versões antigas, golfe, Fórmula 1).", "Alle weddenschappen sinds de start, ook die van gestopte of vervangen regels (oude versies, golf, Formule 1).", "Başlangıçtan beri yayınlanan tüm bahisler; durdurulan veya değiştirilen kurallarınkiler dahil (eski sürümler, golf, Formula 1)."],
   "Gagnés · perdus · remboursés": ["Won · lost · refunded", "Ganadas · perdidas · reembolsadas", "Gewonnen · verloren · erstattet", "Vinte · perse · rimborsate", "Ganhas · perdidas · reembolsadas", "Gewonnen · verloren · terugbetaald", "Kazanan · kaybeden · iade"],
   "Cote moyenne": ["Average odds", "Cuota media", "Durchschnittsquote", "Quota media", "Cota média", "Gemiddelde quotering", "Ortalama oran"],
-  "Mise moyenne": ["Average stake", "Apuesta media", "Durchschnittlicher Einsatz", "Puntata media", "Aposta média", "Gemiddelde inzet", "Ortalama bahis"]
+  "Mise moyenne": ["Average stake", "Apuesta media", "Durchschnittlicher Einsatz", "Puntata media", "Aposta média", "Gemiddelde inzet", "Ortalama bahis"],
+  /* comptes (09/11/2026) */
+  "Mon compte": ["My account", "Mi cuenta", "Mein Konto", "Il mio account", "A minha conta", "Mijn account", "Hesabım"],
+  "Mes sports favoris": ["My favourite sports", "Mis deportes favoritos", "Meine Lieblingssportarten", "I miei sport preferiti", "Os meus desportos favoritos", "Mijn favoriete sporten", "Favori sporlarım"],
+  "Ils serviront à choisir vos notifications.": ["They will be used to choose your notifications.", "Servirán para elegir sus notificaciones.", "Sie dienen zur Auswahl Ihrer Benachrichtigungen.", "Serviranno a scegliere le sue notifiche.", "Servirão para escolher as suas notificações.", "Ze worden gebruikt om je meldingen te kiezen.", "Bildirimlerinizi seçmek için kullanılacak."],
+  "Mes données": ["My data", "Mis datos", "Meine Daten", "I miei dati", "Os meus dados", "Mijn gegevens", "Verilerim"],
+  "Télécharger mes données": ["Download my data", "Descargar mis datos", "Meine Daten herunterladen", "Scarica i miei dati", "Descarregar os meus dados", "Mijn gegevens downloaden", "Verilerimi indir"],
+  "Se déconnecter de tous mes appareils": ["Log out of all my devices", "Cerrar sesión en todos mis dispositivos", "Auf allen Geräten abmelden", "Esci da tutti i miei dispositivi", "Terminar sessão em todos os dispositivos", "Afmelden op al mijn apparaten", "Tüm cihazlarımdan çıkış yap"],
+  "Supprimer mon compte": ["Delete my account", "Eliminar mi cuenta", "Mein Konto löschen", "Elimina il mio account", "Eliminar a minha conta", "Mijn account verwijderen", "Hesabımı sil"],
+  "Fermer": ["Close", "Cerrar", "Schließen", "Chiudi", "Fechar", "Sluiten", "Kapat"],
+  "Enregistré.": ["Saved.", "Guardado.", "Gespeichert.", "Salvato.", "Guardado.", "Opgeslagen.", "Kaydedildi."],
+  "ou": ["or", "o", "oder", "oppure", "ou", "of", "veya"],
+  "J'ai 18 ans ou plus": ["I am 18 or older", "Tengo 18 años o más", "Ich bin 18 Jahre oder älter", "Ho 18 anni o più", "Tenho 18 anos ou mais", "Ik ben 18 jaar of ouder", "18 yaşında veya daha büyüğüm"],
+  "Quitter": ["Log out", "Salir", "Abmelden", "Esci", "Sair", "Afmelden", "Çıkış"]
 };
 
 /* ---------- modeles de phrases (nombres, noms de joueurs, dates...) : gabarits {x} par langue ---------- */
